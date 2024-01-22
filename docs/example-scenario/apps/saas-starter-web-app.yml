@@ -5,7 +5,7 @@ metadata:
   description: A starting point for building software as a service (SaaS) on Azure. This architecture includes common SaaS components such as identity, onboarding, and tenant management.
   author: landonpierce
   ms.author: landonpierce
-  ms.date: 04/06/2023
+  ms.date: 05/24/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -18,7 +18,7 @@ azureCategories:
 summary: This architecture provides a starting point for building software as a service (SaaS) on Azure. It includes common SaaS components such as identity, onboarding, and tenant management.
 products:
   - azure-app-service
-  - azure-active-directory-b2c
+  - entra-external-id
   - azure-sql-database
   - azure-logic-apps
   - azure-resource-manager

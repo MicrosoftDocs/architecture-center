@@ -21,16 +21,13 @@ AcuSolve is finite-element based and uses distinct methods to solve all fluid pr
 
 This diagram shows a multi-node configuration:
 
-:::image type="content" source="media/acusolve-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration." lightbox="media/acusolve-cluster-architecture.png" border="false":::
-
-*Download a* *[Visio file](https://arch-center.azureedge.net/acusolve-cluster-architecture.vsdx) of this architecture.*
+:::image type="content" source="media/acusolve-cluster-architecture.svg" alt-text="Diagram that shows a multi-node configuration." lightbox="media/acusolve-cluster-architecture.svg" border="false":::
 
 This diagram shows a single-node configuration:
 
-:::image type="content" source="media/hpc-acusolve.png" alt-text="Diagram that shows a single-node configuration." lightbox="media/hpc-acusolve.png" border="false":::
+:::image type="content" source="media/hpc-acusolve.svg" alt-text="Diagram that shows a single-node configuration." lightbox="media/hpc-acusolve.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hpc-acusolve.vsdx) of this
-architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-altair-acusolve.vsdx) of all diagrams in this article.*
 
 ### Components
 
@@ -55,10 +52,10 @@ architecture.*
 
 [HBv3-series](/azure/virtual-machines/hbv3-series) VMs were used to test the performance of AcuSolve on Azure. The following table provides configuration details:
 
-|Size|	vCPU	|RAM memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
+|Size| vCPU |RAM memory (GiB)| Memory bandwidth (GBps)| Base CPU frequency (GHz)| All-cores frequency (GHz, peak)| Single-core frequency (GHz, peak)| RDMA performance (GBps)| Maximum data disks|
 |--|--|--|--|--|--|--|--|--|
-|Standard_HB120rs_v3|	120|	448|	350	|2.45|	3.1|	3.675|	200|	32|
-|Standard_HB120-64rs_v3|	64	|448	|350|	2.45|	3.1	|3.675|	200|	32|
+|Standard_HB120rs_v3| 120| 448| 350 |2.45| 3.1| 3.675| 200| 32|
+|Standard_HB120-64rs_v3| 64 |448 |350| 2.45| 3.1 |3.675| 200| 32|
  
 [HBv3-series VMs](/azure/virtual-machines/hbv3-series) are optimized for high-performance computing (HPC) applications like fluid dynamics, explicit and implicit finite-element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
@@ -109,7 +106,7 @@ the path to the installation directory:
     service, like an NFS server, BeeGFS cluster, [Azure NetApp
     Files](https://azure.microsoft.com/services/netapp), [Azure
     HPC Cache](https://azure.microsoft.com/services/hpc-cache),
-    or [Azure Active Directory Domain
+    or [Microsoft Entra Domain
     Services](https://azure.microsoft.com/services/active-directory-ds).
 -   To authorize multi-node VMs to access License Manager, you need to
     include your authorization code in the job script. For more

@@ -72,7 +72,6 @@ This architecture handles potentially sensitive data. Make sure that access keys
 - [Video: Azure Accelerated Machine Learning with Project Brainwave](https://www.youtube.com/watch?v=DJfMobMjCX0)
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 - [Azure Stack family of products and solutions](/azure-stack)
-- [Edge machine learning inferencing solution deployment guide](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-ai-void-detection)
 
 ## Related resources
 

@@ -4,9 +4,9 @@ Event Grid connects your app with other services. This article describes how to 
 
 ## Architecture
 
-![Architecture Diagram](../media/application-integration-using-event-grid.png)
+![Diagram showing application integration using Azure Event Grid.](../media/application-integration-using-event-grid.svg)
 
-*Download an [SVG](../media/application-integration-using-event-grid.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/application-integration-using-event-grid.vsdx) of this architecture.*
 
 ### Dataflow
 

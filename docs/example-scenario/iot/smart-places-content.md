@@ -196,7 +196,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
-- [Azure Active Directory (Azure AD)][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
+- [Microsoft Entra ID][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
 
 - [Azure Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 
@@ -363,7 +363,7 @@ Other contributor:
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake
 [Develop with Azure Digital Twins]: /training/paths/develop-azure-digital-twins
-[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
 [Digital Twins Definition Language (DTDL)]: /azure/digital-twins/concepts-models
 [Digital Twins ontologies]: /azure/digital-twins/concepts-ontologies
 [Digital Twins REST API]: /rest/api/iothub/service/digitaltwin
@@ -387,7 +387,7 @@ Other contributor:
 [Power BI]: https://powerbi.microsoft.com
 [Power Platform]: https://powerplatform.microsoft.com
 [Power Virtual Agents]: https://powervirtualagents.microsoft.com
-[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins
+[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins/
 [Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [RealEstateCore]: https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794
 [RealEstateCore ontology]: https://github.com/azure/opendigitaltwins-building

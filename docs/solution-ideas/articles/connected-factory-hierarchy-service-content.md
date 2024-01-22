@@ -133,7 +133,7 @@ Consider [deploying AKS in availability zones](/azure/aks/availability-zones). A
 
 ### DevOps
 
-You can use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to deploy the microservices to the AKS cluster automatically with [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
+You can use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to deploy the microservices to the AKS cluster automatically with [CI/CD processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
 
 ### Scalability
 
@@ -145,7 +145,7 @@ Azure App Service can also scale up or out, manually or automatically.
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources. Limit data access based on the user's identity or role. This solution uses [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
+Use [role-based access control (RBAC)](/azure/role-based-access-control/overview) to restrict who can access and use the connected factory resources. Limit data access based on the user's identity or role. This solution uses [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
 To improve AKS security, apply and enforce built-in security policies by using [Azure Policy](/azure/governance/policy/overview). Azure Policy helps enforce organizational standards and assess compliance at scale. The [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) can apply individual policy definitions or groups of policy definitions called initiatives to your cluster.
 
@@ -165,7 +165,7 @@ Principal author:
 
 ## Next steps
 
-- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)
 - [Develop with Azure Digital Twins (Learning path)](/training/paths/develop-azure-digital-twins)
 - [Introduction to Kubernetes on Azure (Learning path)](/training/paths/intro-to-kubernetes-on-azure)
 
@@ -175,4 +175,4 @@ Principal author:
 - [Condition monitoring for Industrial IoT](condition-monitoring.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Microservices with AKS](microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)

@@ -2,8 +2,8 @@ This solution shows you how to run high performance computing (HPC) applications
 
 ## Architecture
 
-![Architecture Diagram](../media/hpc-cluster.png)
-*Download an [SVG](../media/hpc-cluster.svg) of this architecture.*
+![Diagram showing HPC cluster deployed in the cloud solution.](../media/hpc-cluster.svg)
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-cluster-deployment-in-cloud.vsdx) of this architecture.*
 
 ### Workflow
 

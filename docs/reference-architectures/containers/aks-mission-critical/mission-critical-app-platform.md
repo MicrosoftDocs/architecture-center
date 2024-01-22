@@ -56,7 +56,7 @@ Certain resources in this architecture are shared by resources deployed in regio
 
 In this architecture, global layer resources are [Azure Front Door](/azure/frontdoor/), [Azure Cosmos DB](/azure/cosmos-db/), [Azure Container Registry](/azure/container-registry/), and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
 
-There are other foundational resources in this design, such as Azure Active Directory (AD) and Azure DNS. They have been omitted in this image for brevity.
+There are other foundational resources in this design, such as Microsoft Entra ID and Azure DNS. They have been omitted in this image for brevity.
 
 ![Diagram of the global resources used in this architecture.](./images/global-resources.png)
 
@@ -100,7 +100,7 @@ Azure Log Analytics is used to store diagnostic logs from all global resources. 
 
 ### Considerations for foundational services
 
-The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Azure DNS guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
+The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Microsoft Entra ID. Azure DNS guarantees 100% availability SLA for valid DNS requests. Microsoft Entra guarantees at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
 
 Taking hard dependency on foundational services is inevitable because many Azure services depend on them. Expect disruption in the system if they are unavailable. For instance:
 
@@ -109,7 +109,7 @@ Taking hard dependency on foundational services is inevitable because many Azure
 
 In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
+Similarly, Microsoft Entra ID is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Microsoft Entra ID is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
 
 ## Regional deployment stamp resources
 

@@ -4,7 +4,7 @@ This solution stores security logs in Azure Data Explorer on a long-term basis. 
 
 ## Architecture
 
-:::image type="content" source="./media/security-log-retention-azure-data-explorer-architecture-diagram.svg" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false" lightbox="./media/security-log-retention-azure-data-explorer-architecture-diagram.svg":::
+:::image type="content" source="./media/security-log-retention-azure-data-explorer.svg" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false" lightbox="./media/security-log-retention-azure-data-explorer.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/security-log-retention-azure-data-explorer.vsdx) of this architecture.*
 

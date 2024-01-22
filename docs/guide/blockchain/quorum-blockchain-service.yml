@@ -12,7 +12,6 @@ metadata:
 azureCategories:
   - compute
 products:
-  - azure-blockchain-service
   - azure-virtual-machines
   - azure-monitor
   - azure-container-instances

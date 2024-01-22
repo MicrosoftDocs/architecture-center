@@ -4,7 +4,9 @@ This solution idea describes how you can use Azure managed databases and Azure S
 
 ## Architecture
 
-![Architecture Diagram](../media/erp-customer-service.png)
+![Diagram showing the data flow for highly scalable customer service and ERP applications solution.](../media/erp-customer-service.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/erp-customer-service.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -60,6 +62,4 @@ Organizations utilize ERP to assist with:
 
 ## Related resources
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items)
-- [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)

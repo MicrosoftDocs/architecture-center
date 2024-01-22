@@ -2,7 +2,7 @@
 title: Media architecture design
 description: Get an overview of Azure media technologies, guidance offerings, solution ideas, and reference architectures.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,7 +12,7 @@ products:
   - azure-media-services
   - azure-cdn
   - azure-content-protection
-  - azure-encoding
+  - azure
 categories:
   - media
 ---
@@ -63,7 +63,6 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 
 #### Gridwich procedures
 
-- [Set up Azure DevOps](../../reference-architectures/media-services/set-up-azure-devops.yml)
 - [Run Azure admin scripts](../../reference-architectures/media-services/run-admin-scripts.yml)
 - [Set up a local development environment](../../reference-architectures/media-services/set-up-local-environment.yml)
 - [Create a cloud environment](../../reference-architectures/media-services/create-delete-cloud-environment.yml)

@@ -81,7 +81,7 @@ Storage:
 
 Networking:
 
-- A full list of available add-ons can be found here: [Networking add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model). Some popular options include [Flannel](https://github.com/coreos/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
+- A full list of available add-ons can be found here: [Networking add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model). Some popular options include [Flannel](https://github.com/flannel-io/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
 
 ### Considerations
 

@@ -19,7 +19,7 @@ azureCategories:
 summary: Use Azure SQL and Azure Cosmos DB to deliver highly scalable customer service and ERP applications that work with structured and unstructured data.
 products:
   - azure-cosmos-db
-  - azure-data-lake-gen2
+  - azure-data-lake-storage
   - azure-sql-database
   - azure-synapse-analytics
   - power-bi

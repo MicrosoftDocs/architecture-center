@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Model loan credit risk and default probability
+  titleSuffix: Azure Architecture Center
+  description: Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.
+  author: CharithaBasani
+  ms.author: chbasani
+  ms.date: 05/15/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - databases
+  - analytics 
+products:
+  - azure-machine-learning
+  - azure-synapse-analytics
+  - azure-app-service
+  - azure-data-lake-storage
+  - power-bi
+name: Model loan credit risk and default probability
+summary: Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.
+thumbnailUrl: /azure/architecture/browse/thumbs/loan-credit-model.png
+content: |
+   [!include[](loan-credit-risk-analyzer-default-modeling-content.md)]

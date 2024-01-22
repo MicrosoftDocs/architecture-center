@@ -10,12 +10,12 @@ Today, most facilities operate reactively to problems in tank levels. This react
 
 ### Dataflow
 
-  1. The data feeds into the [Azure Event Hubs](/azure/event-hubs/event-hubs-about) and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) service as data points or events that will be used in the rest of the solution flow.
-  1. [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) analyzes the data to provide near real-time analytics on the input stream from the event hub and directly publish to Power BI for visualization.
-  1. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to make forecast on the tank level of particular region given the inputs received.
-  1. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
-  1. [Azure Data Factory](/azure/data-factory/introduction) handles orchestration, and scheduling of the hourly model retraining.
-  1. Finally, [Power BI](/power-bi/fundamentals/power-bi-overview) is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
+1. The data feeds into the [Azure Event Hubs](/azure/event-hubs/event-hubs-about) and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) service as data points or events that will be used in the rest of the solution flow.
+1. [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) analyzes the data to provide near real-time analytics on the input stream from the event hub and directly publish to Power BI for visualization.
+1. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to make forecast on the tank level of particular region given the inputs received.
+1. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
+1. [Azure Data Factory](/azure/data-factory/introduction) handles orchestration, and scheduling of the hourly model retraining.
+1. Finally, [Power BI](/power-bi/fundamentals/power-bi-overview) is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
 
 ### Components
 
@@ -44,18 +44,6 @@ Forecasts are created by harnessing the power of real-time and historical data r
 * Optimize operations and facility efficiency
 * Detect pipeline leaks and slugging
 * Reduce costs, fines, and downtime
-
-## Deploy this scenario
-
-For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-tank-level-forecast). This guide was built with a similar, previous set of Azure AI services.
-
-This solution provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a tank level forecasting solution.
-
-This solution combines several Azure services to provide powerful advantages. Event Hubs collects real-time tank level data. Stream Analytics aggregates the streaming data and makes it available for visualization. Azure Synapse Analytics stores and transforms the tank level data. Machine Learning implements and executes the forecasting model. Power BI visualizes the real-time tank level and the forecast results. Finally, Data Factory orchestrates and schedules the entire data flow.
-
-The 'Deploy' button will launch a workflow. This process deploys an instance of the solution within a Resource Group in the Azure subscription that you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end solution.
-
-After deployment, see the post deployment instructions in GitHub.
 
 ## Next steps
 

@@ -2,7 +2,7 @@ This article presents an example of a streaming solution that uses fully managed
 
 ## Architecture
 
-:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false":::
+:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false" lightbox="./media/open-source-data-engine-stream-processing-architecture.svg":::
 
 Download a [Visio file][Visio version of architecture diagram] of this architecture.
 
@@ -187,7 +187,6 @@ To learn about related solutions, see the following information:
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
 - [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
-- [Build web and mobile applications][Build web and mobile applications]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
 [About Azure Key Vault]: /azure/key-vault/general/overview
@@ -212,7 +211,6 @@ To learn about related solutions, see the following information:
 [Azure regions with Availability Zones]: /azure/availability-zones/az-region#azure-regions-with-availability-zones
 [Azure Services that support Availability Zones]: /azure/availability-zones/az-region
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
-[Build web and mobile applications]: ../../solution-ideas/articles/webapps.yml
 [Cache-Aside pattern]: ../../patterns/cache-aside.yml
 [The Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed

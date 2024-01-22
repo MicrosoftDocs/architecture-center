@@ -6,7 +6,8 @@ This solution monitors deployments of Apache NiFi on Azure by using MonitoFi. Th
 
 ## Architecture
 
-:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false":::
+:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.svg" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false" lightbox="./media/monitor-apache-nifi-monitofi-architecture.svg":::
+*Download a [Visio file](https://arch-center.azureedge.net/monitor-apache-nifi-monitofi.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -164,5 +165,5 @@ Principal author:
 [MonitoFi : Health & Performance Monitor for Apache NiFi on GitHub]: https://github.com/microsoft/MonitoFi
 [Monitoring Azure Functions and Event Hubs]: ../../serverless/event-hubs-functions/observability.yml
 [NiFi Rest API 1.14.0]: https://nifi.apache.org/docs/nifi-docs/rest-api/index.html
-[Web application monitoring on Azure]: ../../reference-architectures/app-service-web-app/app-monitoring.yml
+[Web application monitoring on Azure]: ../../web-apps/guides/monitoring/app-monitoring.yml
 [What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview

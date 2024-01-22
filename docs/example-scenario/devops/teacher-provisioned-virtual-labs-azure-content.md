@@ -16,8 +16,8 @@ Azure Lab Services helps teachers create labs. Lab Services manages the infrastr
 - The teacher signs in to Lab Services at [https://labs.azure.com](https://labs.azure.com) and creates a lab and a template image that runs Windows or Linux. The starting point for the template comes from the list of approved marketplace images or from an attached compute gallery.
 - The teacher logs into the template VM and installs additional software, sample code, and data that's needed for the lab. The result is the template for the lab. The teacher can configure start and stop schedules for all VMs, and can grant additional quota hours outside the scheduled hours for student use. At all times, a maximum cost estimate is displayed so that the teacher can see the effect of changes.
 - Students can be granted access to a lab using any of these options:
-  - [Azure Active Directory account](/azure/lab-services/tutorial-setup-classroom-lab#add-users-by-email-address)
-  - [Azure Active Directory group](/azure/lab-services/how-to-configure-student-usage#add-users-from-an-azure-ad-group)
+  - [Microsoft Entra account](/azure/lab-services/tutorial-setup-classroom-lab#add-users-by-email-address)
+  - [Microsoft Entra group](/azure/lab-services/how-to-configure-student-usage#add-users-from-an-azure-ad-group)
   - [Microsoft Teams integration](/azure/lab-services/how-to-get-started-create-lab-within-teams) and, by extension, [School Data Sync (SDS)](/schooldatasync/creating-class-teams-with-sds)
   - [Emails or CSV](/azure/lab-services/how-to-configure-student-usage#add-users-manually-from-emails-or-csv-file)
   - [Registration Link](/azure/lab-services/how-to-configure-student-usage#get-the-registration-link)
@@ -29,7 +29,7 @@ Azure Lab Services helps teachers create labs. Lab Services manages the infrastr
 
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) allow you to create Linux and Windows virtual machines (VMs) in seconds, which can help you reduce costs.
-- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory) is a complete identity and access management solution with integrated security.
+- [Microsoft Entra ID](https://azure.microsoft.com/en-us/services/active-directory) is a complete identity and access management solution with integrated security.
 
 ### Alternatives
 
@@ -88,7 +88,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 ## Deploy this scenario
 
-Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST APIs](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) module project facilitates various actions.
+Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST APIs](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/LabServices) module project facilitates various actions.
 
 ## Contributors
 
@@ -115,10 +115,9 @@ Principal author:
   - [Sheffield Hallam University](https://customers.microsoft.com/story/1410363304401416399-sheffield-hallam-university-higher-education-azure-virtual-desktop)
   - [Imperial College London](https://customers.microsoft.com/story/1373865514221253184-imperial-college-london-higher-education-azure-virtual-desktop)
   - [College of Professional and Continuing Education (CPCE) of PolyU - Hong Kong SAR](https://news.microsoft.com/en-hk/2021/04/13/polyu-cpce-and-microsoft-hong-kong-launch-virtual-labs-for-limitless-learning)
-  - [Institute of Technology Sligo - Ireland](https://pulse.microsoft.com/making-a-difference-en-ie/na/fa2-it-sligo-levelling-the-playing-field-in-education-with-cloud-technology-2).
+  - [Institute of Technology Sligo - Ireland](https://pulse.microsoft.com/en/making-a-difference-en/education-en/fa1-it-sligo-levelling-the-playing-field-in-education-with-cloud-technology/).
 
 ## Related resources
 
-- [DevTest Image Factory](../../solution-ideas/articles/dev-test-image-factory.yml)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)
 - [Azure DevTest Labs reference architecture for enterprises](../infrastructure/devtest-labs-reference-architecture.yml)

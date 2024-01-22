@@ -123,7 +123,7 @@ For more information, see [Establishing Federation Trust][establishing-federatio
 
 Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
 
-AD FS supports token transformation and augmentation. Azure Active Directory doesn't provide this feature. With AD FS, when you set up the trust relationships, you can:
+AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. With AD FS, when you set up the trust relationships, you can:
 
 - Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that Active Directory DS can authorize in your organization.
 - Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.1 if your application only supports SAML 1.1 claims.
@@ -135,6 +135,8 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 - Events that the AD FS service records in its event logs.
 - The performance data that the AD FS performance counters collect.
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
+
+Another option is [Monitor AD FS using Microsoft Entra Connect Health](/azure/active-directory/hybrid/connect/how-to-connect-health-adfs). [Microsoft Entra Connect Health](/azure/active-directory/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
 
 ## Considerations
 
@@ -201,9 +203,11 @@ Here are cost considerations for the services used in this architecture.
 
 Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
 
-#### Azure AD Federation Services
+<a name='azure-ad-federation-services'></a>
 
-For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
+#### Active Directory Federation Services
+
+For information about the editions offered by Microsoft Entra ID, see [Microsoft Entra pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
 
 ### Operational Excellence
 
@@ -236,7 +240,7 @@ Principal author:
 ## Related resources
 
 - [Deploy AD DS in an Azure virtual network](adds-extend-domain.yml)
-- [Azure Active Directory identity management and access management for AWS](../aws/aws-azure-ad-security.yml)
+- [Microsoft Entra identity management and access management for AWS](../aws/aws-azure-ad-security.yml)
 
 <!-- links -->
 

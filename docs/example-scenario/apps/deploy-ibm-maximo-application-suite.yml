@@ -22,6 +22,6 @@ products:
   - azure-virtual-network
 name: Deploy IBM Maximo Application Suite on Azure
 summary: Learn how to run IBM Maximo Application Suite (MAS) on Azure. See guidance for designing and implementing cloud solutions with Maximo 8.5 and up that use Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-maximo-application-suite-thumbnail.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-maximo-application-suite-thumbnail.png
 content: |
   [!include[](deploy-ibm-maximo-application-suite-content.md)]

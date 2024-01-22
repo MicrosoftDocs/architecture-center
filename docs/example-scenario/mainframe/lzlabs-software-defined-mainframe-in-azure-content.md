@@ -95,7 +95,7 @@ Principal author:
 See the following resources from LzLabs:
 
 - [LzLabs website](https://www.lzlabs.com)
-- [LzLabs Software Defined Mainframe product overview](https://www.lzlabs.com/products)
+- [LzLabs Software Defined Mainframe product overview](https://www.lzlabs.com/mainframe-software/)
 - [LzWorkbench](https://www.lzlabs.com/resources/lzworkbench-data-sheet/)
 - [LzLabs video library](https://www.lzlabs.com/resources/demo-video-unlock/)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/05/2022
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

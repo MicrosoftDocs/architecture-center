@@ -4,7 +4,9 @@ This solution idea illustrates how to extract, transform, and load your big data
 
 ## Architecture
 
-![Architecture diagram](../media/extract-transform-and-load-using-hdinsight.png)
+![Diagram showing the dataflow for extract, transform, and load big data clusters by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.](../media/extract-transform-and-load-using-hdinsight.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/extract-transform-and-load-using-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -63,4 +65,3 @@ Explore related architectures:
 
 - [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
 - [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
-- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)

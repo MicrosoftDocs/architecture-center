@@ -4,8 +4,9 @@ This solution idea uses historical demand data to forecast demand in future peri
 
 ## Architecture
 
-![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for shipping and distribution](../media/demand-forecasting-for-shipping-and-distribution.png)
-*Download an [SVG](../media/demand-forecasting-for-shipping-and-distribution.svg) of this architecture.*
+![Architecture diagram showing the flow of sample data to Power BI: demand forecasting for shipping and distribution.](../media/demand-forecasting-for-shipping-and-distribution.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/demand-forecasting-for-shipping-and-distribution.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -51,7 +52,6 @@ See product documentation:
 Learn about:
 
 * [Demand forecasting for shipping and distribution solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
-* [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
 
 ## Related resources
 

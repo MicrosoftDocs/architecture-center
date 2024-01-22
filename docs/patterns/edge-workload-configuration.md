@@ -3,9 +3,9 @@ title: Edge Workload Configuration pattern
 titleSuffix: Cloud Design Patterns
 description: Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.
 keywords: edge, workload, configuration
-author: microsoftCSE
+author: heathercamm
 categories: azure
-ms.author: hecamm
+ms.author: heathercamm
 ms.date: 10/12/2022
 ms.topic: design-pattern
 ms.service: architecture-center
@@ -48,7 +48,7 @@ There are a few common characteristics of configuration management for edge work
 Consider the following points when deciding how to implement this pattern:
 
 - Allowing edits when the edge isn't connected to the cloud significantly increases the complexity of configuration management. It's possible to replicate changes to the cloud, but there are challenges with:
-  - User authentication, because it relies on a cloud service like Azure Active Directory.
+  - User authentication, because it relies on a cloud service like Microsoft Entra ID.
   - Conflict resolution after reconnection, if workloads receive unexpected configurations that require manual intervention.
 - The edge environment can have network-related constraints if the topology complies to the ISA-95 requirements. You can overcome such restraints by selecting a technology that offers connectivity across layers, such as [device hierarchies](/azure/iot-edge/tutorial-nested-iot-edge) in [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge).
 - If run-time configuration is decoupled from software releases, configuration changes need to be handled separately. To offer history and rollback features, you need to store past configurations in a datastore in the cloud.

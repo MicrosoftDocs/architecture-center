@@ -102,7 +102,7 @@ Consider the following details about endianness:
 
 - RISC and x86 processors differ in *endianness*, a term used to describe how a system stores bytes in computer memory.
 - RISC-based computers are known as big endian systems, because they store the most significant ("big") value first—that is, in the lowest storage address.
-- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value) first.
+- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value first.
 
 The following figure visually shows you the difference between big endian and little endian.
 
@@ -218,16 +218,12 @@ The white papers, blogs, webinars, and other resources are available to help you
 
 ### Whitepapers
 
-- [Stromasys Charon-SSP Solaris Emulator: Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide)
-- [Stromasys legacy server emulation on Azure: Running applications designed for SPARC, Alpha, VAX, PDP-11, and HP 3000](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
 - [Deploy Db2 pureScale on Azure (Whitepaper)](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
 - [Install IBM DB2 pureScale on Azure (Azure Docs)](/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration)
-- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications)
 - [Set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-micro-focus-enterprise-server-4-0-and-enterprise/ba-p/306502)
 - [Set up IBM Z Development and Test Environment 12.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-ibm-z-development-and-test-environment-12-0-in-azure/ba-p/306506)
-- [Move mainframe compute and storage to Azure](https://azure.microsoft.com/resources/move-mainframe-compute-and-storage-to-azure)
-- [E-Book: Install TmaxSoft OpenFrame on Azure](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure)
+- [Move mainframe compute and storage to Azure](https://learn.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
+- [E-Book: Install TmaxSoft OpenFrame on Azure](https://learn.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure)
 
 ### Webinars
 

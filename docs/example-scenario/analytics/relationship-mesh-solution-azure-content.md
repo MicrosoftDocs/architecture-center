@@ -4,7 +4,7 @@ This solution brings data on the customer and seller relationship from various s
 
 ## Architecture
 
-:::image type="content" source="./media/relationship-mesh-saa-architecture.png" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.png":::
+:::image type="content" source="./media/relationship-mesh-saa-architecture.svg" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/relationship-mesh-saa-architecture.vsdx) of this architecture.*
 
@@ -54,7 +54,7 @@ For more information about the reliability pillar, see [Overview of the reliabil
 
 ### Security
 
-This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure solutions in the architecture. You can manage permissions via Azure AD authentication or role-based access control. Follow the security guidelines in the following articles when you implement this solution:
+This solution uses Microsoft Entra ID to authenticate users to the Azure solutions in the architecture. You can manage permissions via Microsoft Entra authentication or role-based access control. Follow the security guidelines in the following articles when you implement this solution:
 
 - [Introduction to Azure security](/azure/security/fundamentals/overview)
 - [How to set up access control for your Azure Synapse workspace](/azure/synapse-analytics/security/how-to-set-up-access-control)
@@ -106,7 +106,6 @@ Review the information in this [relationship mesh solution GitHub repository](ht
 
 For more information, see these articles:
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Synapse Analytics](/azure/synapse-analytics)
 - [Microsoft Graph Data Connect](/graph)
 - [Microsoft Power BI](/power-bi)

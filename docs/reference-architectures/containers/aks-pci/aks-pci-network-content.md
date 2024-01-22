@@ -377,7 +377,7 @@ Default settings provided by vendors must be changed. Default settings are commo
 
 #### Azure responsibilities
 
-Azure Active Directory has password policies that are enforced on the new passwords supplied by users. If you change a password, validation of older password is required. Administrator reset passwords are required to be changed upon subsequent login.
+Microsoft Entra ID has password policies that are enforced on the new passwords supplied by users. If you change a password, validation of older password is required. Administrator reset passwords are required to be changed upon subsequent login.
 
 #### Requirement 2.1.1
 

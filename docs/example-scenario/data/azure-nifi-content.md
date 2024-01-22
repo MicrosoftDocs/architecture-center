@@ -4,7 +4,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 ## Architecture
 
-:::image type="content" source="./media/azure-nifi-architecture.svg" alt-text="Architecture diagram showing the automated flow of data through an Azure solution that uses Apache NiFi and Apache ZooKeeper." border="false":::
+:::image type="content" source="./media/azure-nifi-architecture.svg" alt-text="Architecture diagram showing the automated flow of data through an Azure solution that uses Apache NiFi and Apache ZooKeeper." border="false" lightbox="./media/azure-nifi-architecture.svg":::
 
 *Download a [Visio file][Visio file of architecture diagram] of this architecture.*
 
@@ -23,7 +23,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 - Azure Key Vault securely stores certificates and keys for the NiFi cluster.
 
-- Azure Active Directory (Azure AD) provides single sign-on and multifactor authentication.
+- Microsoft Entra ID provides single sign-on and multifactor authentication.
 
 ### Components
 
@@ -37,13 +37,14 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - [Log Analytics][Log Analytics tutorial] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 - [Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
-- [Azure AD][Azure Active Directory (Azure AD)] is a cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Azure Active Directory (Azure AD)] is a cloud-based identity service that controls access to Azure and other cloud apps.
 
 ### Alternatives
 
 - [Azure Data Factory][Data Factory] provides an alternative to this solution.
 - Instead of Key Vault, you can use a comparable service to store system secrets.
 - [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
+- It is possible to use a supported enterprise NiFi alternative like [Cloudera Apache NiFi](https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html). The Cloudera offering is available through the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cloudera.cloudera-data-platform-public-cloud-contact).
 
 ## Scenario details 
 
@@ -318,7 +319,7 @@ Azure Storage provides server-side transparent data encryption. But starting wit
 The following sections show how to secure deployments in these ways:
 
 - Enable wire encryption with TLS
-- Configure authentication that's based on certificates or Azure AD
+- Configure authentication that's based on certificates or Microsoft Entra ID
 - Manage encrypted storage on Azure
 
 ##### Disk encryption
@@ -484,13 +485,13 @@ For more information about securing ZooKeeper with TLS, see the [Apache NiFi Adm
 
 In NiFi, identity and access control is achieved through user authentication and authorization. For user authentication, NiFi has multiple options to choose from: Single User, LDAP, Kerberos, Security Assertion Markup Language (SAML), and OpenID Connect (OIDC). If you don't configure an option, NiFi uses client certificates to authenticate users over HTTPS.
 
-If you're considering multifactor authentication, we recommend the combination of Azure AD and [OIDC][NiFi System Administrators Guide - OpenId Connect]. Azure AD supports cloud-native single sign-on (SSO) with OIDC. With this combination, users can take advantage of many enterprise security features:
+If you're considering multifactor authentication, we recommend the combination of Microsoft Entra ID and [OIDC][NiFi System Administrators Guide - OpenId Connect]. Microsoft Entra ID supports cloud-native single sign-on (SSO) with OIDC. With this combination, users can take advantage of many enterprise security features:
 
 - Logging and alerting on suspicious activities from user accounts
 - Monitoring attempts to access deactivated credentials
 - Alerting on unusual account sign-in behavior
 
-For authorization, NiFi provides enforcement that's based on user, group, and access policies. NiFi provides this enforcement through UserGroupProviders and AccessPolicyProviders. By default, providers include File, LDAP, Shell, and Azure Graph–based UserGroupProviders. With [AzureGraphUserGroupProvider][NiFi System Administrators Guide - AzureGraphUserGroupProvider], you can source user groups from Azure AD. You can then assign policies to these groups. For configuration instructions, see the [Apache NiFi Administration Guide][NiFi System Administrators Guide].
+For authorization, NiFi provides enforcement that's based on user, group, and access policies. NiFi provides this enforcement through UserGroupProviders and AccessPolicyProviders. By default, providers include File, LDAP, Shell, and Azure Graph–based UserGroupProviders. With [AzureGraphUserGroupProvider][NiFi System Administrators Guide - AzureGraphUserGroupProvider], you can source user groups from Microsoft Entra ID. You can then assign policies to these groups. For configuration instructions, see the [Apache NiFi Administration Guide][NiFi System Administrators Guide].
 
 AccessPolicyProviders that are based on files and Apache Ranger are currently available for managing and storing user and group policies. For detailed information, see the [Apache NiFi documentation][NiFi System Administrators Guide - FileAccessPolicyProvider] and [Apache Ranger documentation][Apache Ranger documentation].
 
@@ -966,12 +967,10 @@ For more information, see the following resources:
 [Create a virtual machine scale set that uses Availability Zones]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones
 [Data Factory]: https://azure.microsoft.com/services/data-factory
 [Data warehousing and analytics]: ./data-warehouse.yml
-[DataOps for the modern data warehouse]: ../data-warehouse/dataops-mdw.yml
 [Diagnostics and health monitoring section of this article]: #diagnostics-and-health-monitoring
 [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]: /azure/virtual-machine-scale-sets/disk-encryption-cli
 [Get started with log queries in Azure Monitor]: /azure/azure-monitor/logs/get-started-queries
 [Helm-based deployments for Apache NiFi]: ../../guide/data/helm-deployments-apache-nifi.yml
-[Hybrid ETL with Azure Data Factory]: ./hybrid-etl-with-adf.yml
 [Identity and access control section of this article]: #identity-and-access-control
 [Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [Kusto query overview]: /azure/data-explorer/kusto/query
@@ -1005,7 +1004,7 @@ For more information, see the following resources:
 [Time sync for Linux VMs in Azure]: /azure/virtual-machines/linux/time-sync
 [Troubleshoot Azure virtual machine performance on Linux or Windows]: /troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows
 [Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
-[Visio file of architecture diagram]: https://arch-center.azureedge.net/US-1875891-azure-nifi-architecture.vsdx
+[Visio file of architecture diagram]: https://arch-center.azureedge.net/azure-nifi-architecture.vsdx
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure Bastion?]: /azure/bastion/bastion-overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview

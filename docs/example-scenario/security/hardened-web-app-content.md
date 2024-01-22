@@ -11,7 +11,7 @@ These use cases have similar design patterns:
 
 ## Architecture
 
-:::image type="content" source="./media/hardened-webapp-architecture-v2.png" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-webapp-architecture-v2.png":::
+:::image type="content" source="./media/hardened-webapp-architecture-v2.svg" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-webapp-architecture-v2.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture-v2.vsdx) of this architecture.*
 
@@ -66,8 +66,7 @@ You can further increase the availability of the solution by spreading it across
 
 See these reference architectures to learn about deploying highly available web applications in Azure and setting up multi-region SQL Server instances to work with private endpoints:
 
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
-- [Multi-region web app with private connectivity to a database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
 
 ### Security
 

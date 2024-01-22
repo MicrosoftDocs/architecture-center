@@ -2,7 +2,7 @@
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -146,7 +146,7 @@ The following tables summarize the key differences in capabilities.
 |                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                    Azure Active Directory authentication                                    |        Yes         |                  No                    |            Yes           |              Yes              |
+|                                    Microsoft Entra authentication                                    |        Yes         |                  No                    |            Yes           |              Yes              |
 |                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
 |                                         Multi-factor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
 | Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
@@ -170,6 +170,5 @@ Principal author:
 ## Related resources
 
 - [Azure Data Architecture Guide](../index.md)
-- [Databases architecture design](../databases-architecture-design.yml)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)

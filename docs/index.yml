@@ -21,18 +21,26 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
+    # Card
     - title: Explore cloud best practices 
       itemType: concept
       url: guide/index.md
     # Card
-    - title: Assess, optimize, and review your workload
-      url: /azure/architecture/framework
-      itemType: how-to-guide
-    # Card
     - title: See what's new
       url: ./changelog.md
       itemType: whats-new
-
+    # Card
+    - title: Well Architected Framework (WAF)
+      url: /azure/architecture/framework
+      itemType: how-to-guide
+    # Card
+    - title: Cloud Adoption Framework (CAF)
+      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+      itemType: how-to-guide
+    # Card
+    - title: Find partner-led workshops
+      url: https://www.microsoft.com/azure/partners/ammp-w/events/?utm_source=email&utm_medium=email&utm_id=email2
+      itemType: learn 
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
@@ -150,33 +158,18 @@ conceptualContent:
       - text: Artificial intelligence (AI) architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
-      - text: Training of Python scikit-learn models
-        itemType: architecture
-        url: /azure/architecture/example-scenario/ai/training-python-models
-      - text: Distributed training of deep learning models
-        itemType: architecture
-        url: ./reference-architectures/ai/training-deep-learning.yml
       - text: Batch scoring of Python models
         itemType: architecture
-        url: ./reference-architectures/ai/batch-scoring-python.yml
+        url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
-        url: ./reference-architectures/ai/conversational-bot.yml
+        url: ./ai-ml/architecture/conversational-bot.yml
       - text: Machine learning options
         itemType: reference
-        url: ./data-guide/technology-choices/data-science-and-machine-learning.md
-      - text: Machine learning at scale
-        itemType: concept
-        url: ./data-guide/big-data/machine-learning-at-scale.md
+        url: ./ai-ml/guide/data-science-and-machine-learning.md
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
-      - text: R developer's guide to Azure
-        itemType: concept
-        url: ./data-guide/technology-choices/r-developers-guide.md
-      - text: Movie recommendation
-        itemType: get-started
-        url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Cognitive services options
         itemType: concept
         url: ./data-guide/technology-choices/cognitive-services.md
@@ -184,9 +177,6 @@ conceptualContent:
         itemType: concept
         url: ./data-science-process/overview.yml
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/big-data/machine-learning-at-scale.md
-        text: See more
 
     - title: Analytics
       links:
@@ -229,10 +219,10 @@ conceptualContent:
           
     - title: Databases
       links:
-        - url: ./data-guide/databases-architecture-design.yml
+        - url: ./databases/index.yml
           itemType: get-started
           text: Databases architecture design
-        - url: ./data-guide/big-data/index.yml
+        - url: ./databases/guide/big-data-architectures.yml
           itemType: concept
           text: Big Data architectures
         - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
@@ -250,25 +240,13 @@ conceptualContent:
         - text: Online transaction processing (OLTP)
           itemType: concept
           url: ./data-guide/relational-data/online-transaction-processing.md
-        - text: Data warehousing in Microsoft Azure
-          itemType: concept
-          url: ./data-guide/relational-data/data-warehousing.yml
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-        - text: Extend on-premises data solutions to the cloud
-          itemType: get-started
-          url: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-        - text: Free-form text search
-          itemType: get-started
-          url: data-guide/scenarios/search.yml
-        - text: Time series solutions 
-          itemType: get-started
-          url: data-guide/scenarios/time-series.yml
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/index.md
-        text: See more
+      # footerLink:
+      #   url: ./data-guide/index.md
+      #   text: See more
 
     - title: DevOps
       links:
@@ -283,7 +261,7 @@ conceptualContent:
           url:  example-scenario/apps/devops-dotnet-baseline.yml
         - text: DevOps with containers
           itemType: get-started
-          url:  example-scenario/apps/devops-with-aks.yml
+          url:  guide/aks/aks-cicd-github-actions-and-gitops.yml
         - text: Jenkins server
           itemType: get-started
           url:  example-scenario/apps/jenkins.yml
@@ -329,7 +307,7 @@ conceptualContent:
         - text: Choose an Active Directory integration architecture
           itemType: architecture
           url: reference-architectures/identity/index.yml
-        - text: Integrate on-premises AD with Azure AD
+        - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture
           url: reference-architectures/identity/azure-ad.yml
         - text: Extend AD DS to Azure
@@ -426,17 +404,17 @@ conceptualContent:
     - title: Serverless applications
       links:
         - text: Code walkthrough
-          url: serverless/code.yml
+          url: web-apps/serverless/architectures/code.yml
           itemType: how-to-guide
         - text: Serverless event processing
           itemType: architecture
           url: reference-architectures/serverless/event-processing.yml
         - text: Serverless web application
           itemType: architecture
-          url: reference-architectures/serverless/web-app.yml
+          url: web-apps/serverless/architectures/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: ./serverless/code.yml
+        url: web-apps/serverless/architectures/code.yml
 
     - title: VM workloads
       links:
@@ -448,19 +426,13 @@ conceptualContent:
           url: reference-architectures/n-tier/windows-vm.yml
         - text: N-tier application with Cassandra (Linux)
           itemType: architecture
-          url: reference-architectures/n-tier/n-tier-cassandra.yml
-        - text: N-tier application with SQL Server (Windows)
-          itemType: architecture
-          url: reference-architectures/n-tier/n-tier-sql-server.yml
+          url: databases/architecture/n-tier-cassandra.yml
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
-          url:  example-scenario/infrastructure/wordpress.yml
-        - text: Multi-tier Windows
-          itemType: get-started
-          url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
+          url: web-apps/hosting-applications/wordpress.yml
 
     - title: SAP
       links:
@@ -496,16 +468,16 @@ conceptualContent:
       links:
         - text: Basic web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/basic-web-app.yml
-        - text: Improved scalability
+          url: web-apps/app-service/architectures/basic-web-app.yml
+        - text: Baseline zone-redundant web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/scalable-web-app.yml
+          url: web-apps/app-service/architectures/baseline-zone-redundant.yml
         - text: Multi-region deployment
           itemType: architecture
-          url: reference-architectures/app-service-web-app/multi-region.yml
+          url: web-apps/app-service/architectures/multi-region.yml
         - text: Web application monitoring
           itemType: architecture
-          url: reference-architectures/app-service-web-app/app-monitoring.yml
+          url: web-apps/guides/monitoring/app-monitoring.yml
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml

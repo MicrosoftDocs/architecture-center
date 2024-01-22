@@ -89,7 +89,7 @@ Network latency depends, among other things, on the physical distance between de
 You can use the following tools to gain better insight into latency conditions for a variety of scenarios:
 
 - To test the latency between VMs, see [Test VM network latency](/azure/virtual-network/virtual-network-test-latency).
-- To test latency between zones, use the [AvZone-Latency-Test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test). This test can help you determine which logical zones have the lowest latency for your subscription.
+- To test latency between zones, use the [AvZone-Latency-Test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Latency-Test). This test can help you determine which logical zones have the lowest latency for your subscription.
 - To test latency between Azure regions, use [http://www.azurespeed.com/](http://www.azurespeed.com). This regularly updated tool can be useful when considering asynchronous replication between regions.
 
 ### Disaster recovery
@@ -127,5 +127,6 @@ Principal author:
 
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.yml)
+- [Run a zone-redundant web application for high availability](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Run a web application in multiple Azure regions for high availability](../../web-apps/app-service/architectures/multi-region.yml)
 - [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml)

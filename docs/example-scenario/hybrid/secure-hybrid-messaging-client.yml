@@ -2,7 +2,7 @@
 metadata:
   title: Enhanced-security hybrid messaging — client access
   titleSuffix: Azure Architecture Center
-  description: Enhance your security in a client access scenario by using Azure AD Multi-Factor Authentication.
+  description: Enhance your security in a client access scenario by using Microsoft Entra multifactor authentication.
   author: robbagby
   ms.author: robbag
   ms.date: 11/29/2022
@@ -15,11 +15,11 @@ azureCategories:
   - "hybrid"
   - "identity"
 products:
-  - "azure-active-directory"
+  - entra-id
   - "m365"
   - "office-365"
 name: Enhanced-security hybrid messaging infrastructure — desktop-client access
-summary: Enhance your security in a desktop-client access scenario by using Azure AD Multi-Factor Authentication.
+summary: Enhance your security in a desktop-client access scenario by using Microsoft Entra multifactor authentication.
 thumbnailUrl: /azure/architecture/browse/thumbs/desktop-online-option-1.png
 content: |
   [!include[](secure-hybrid-messaging-client-content.md)]

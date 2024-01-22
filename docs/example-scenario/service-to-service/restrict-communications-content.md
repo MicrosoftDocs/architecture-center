@@ -9,35 +9,37 @@ While the current scenario focuses on network restrictions, many organizations n
 ## Architecture
 
 :::image type="complex" source="./media/service-to-service-architecture.svg" alt-text="Diagram showing both network layer and application layer communications restrictions between two Azure App Service backend services." border="false":::
-In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Azure Active Directory. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
+In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Microsoft Entra ID. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
 :::image-end:::
+
+[Download a Visio file](https://arch-center.azureedge.net/service-to-service-architecture.vsdx) of this architecture.
 
 ### Dataflow
 
 The diagram shows restricted communications from Service A to Service B. Token-based authorization restricts access on the application layer, and service endpoints restrict access on the network layer.
 
-- Both services [register with Azure Active Directory (Azure AD)][appreg], and use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
+- Both services [register with Microsoft Entra ID][appreg], and use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
 - Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet. Service B [service endpoints][svcep] accept inbound communications only from the Service A integration subnet.
 
 #### Token-based authorization
 
 An OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication Library (MSAL)][msal] supports this token-based client credentials flow. For more information, see [Scenario: Daemon application that calls web APIs][daemoncallswebapi] and the [sample application for the daemon scenario][daemonsample].
 
-1. Both Service A and Service B register in Azure AD. Service A has client credentials in either shared secret or certificate form.
+1. Both Service A and Service B register in Microsoft Entra ID. Service A has client credentials in either shared secret or certificate form.
 1. Service A can use its own client credentials to request an access token for Service B.
-1. Azure AD provides an access token with a Service B audience or [aud][accesstokenclaims] claim.
+1. Microsoft Entra ID provides an access token with a Service B audience or [aud][accesstokenclaims] claim.
 1. Service A injects the token as a *bearer token* in the HTTP Authorization header of a request to Service B, according to the [OAuth 2.0 Bearer Token Usage specification][bearertokenspec].
 1. Service B [validates the token][tokenvalidation] to ensure that the `aud` claim matches the Service B application.
 
 Service B uses one of the following methods to ensure that only specifically allowed clients, Service A in this case, can get access:
 
-- **Validate the token appid claim**. Service B can validate the token [appid][accesstokenclaims] claim, which identifies which Azure AD-registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
+- **Validate the token appid claim**. Service B can validate the token [appid][accesstokenclaims] claim, which identifies which Microsoft Entra registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
 - **Check for roles in the token**. Similarly, Service B can check for certain [roles][accesstokenclaims] claimed in the incoming token, to ensure that Service A has explicit access permissions.
-- **Require user assignment**. Alternatively, the Service B owner or admin can configure Azure AD to require *user assignment*, so only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to check for specific roles, unless business logic requires it.
+- **Require user assignment**. Alternatively, the Service B owner or admin can configure Microsoft Entra ID to require *user assignment*, so only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to check for specific roles, unless business logic requires it.
 
    To set up a user assignment requirement to access Service B:
 
-   1. In Azure AD, [enable user assignment][userassignment] on Service B.
+   1. In Microsoft Entra ID, [enable user assignment][userassignment] on Service B.
    1. [Expose at least one app role][exposeapprole] on Service B that Service A can ask permission for. The **AllowedMemberTypes** for this role must include `Application`.
    1. [Request app permission][configurepermission] for Service A to the exposed Service B role.
       1. From the **API permissions** section of the Service A app registration, select **Add a permission**, and then select the Service B application from the list.
@@ -58,10 +60,10 @@ For more information, see [Set up Azure App Service access restrictions][accessr
 This scenario uses the following Azure services:
 
 - [Azure App Service][appsvc] hosts both Service A and Service B, allowing autoscale and high availability without having to manage infrastructure.
-- [Azure AD][aad] is the cloud-based identity and access management service that authenticates services and enables OAuth 2.0 token-based authorization.
+- [Microsoft Entra ID][aad] is the cloud-based identity and access management service that authenticates services and enables OAuth 2.0 token-based authorization.
 - [Azure Virtual Network][vnet] is the fundamental building block for private networks in Azure. Azure Virtual Network lets resources like Azure Virtual Machines (VMs) securely communicate with each other, the internet, and on-premises networks.
 - [Azure Service Endpoints][svcep] provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network, and allow access only from the range of private source IPs in the integration subnet.
-- [Microsoft Authentication Library (MSAL)][msal] is an OIDC-compatible library that allows a service to fetch access tokens from Azure AD using a client credentials flow.
+- [Microsoft Authentication Library (MSAL)][msal] is an OIDC-compatible library that allows a service to fetch access tokens from Microsoft Entra ID using a client credentials flow.
 
 ### Alternatives
 
@@ -69,9 +71,9 @@ There are several alternatives to the example scenario.
 
 #### Managed identity
 
-Instead of registering as an application with Azure AD, Service A could use a [managed identity][mi] to fetch an access token. Managed identity frees operators from having to manage credentials for an app registration.
+Instead of registering as an application with Microsoft Entra ID, Service A could use a [managed identity][mi] to fetch an access token. Managed identity frees operators from having to manage credentials for an app registration.
 
-While a managed identity lets Service A fetch a token, it doesn't provide an Azure AD app registration. For other services to request an access token for Service A itself, Service A still needs an Azure AD app registration.
+While a managed identity lets Service A fetch a token, it doesn't provide a Microsoft Entra app registration. For other services to request an access token for Service A itself, Service A still needs a Microsoft Entra app registration.
 
 You can't assign a managed identity to an app role through the Azure portal, only through the Azure PowerShell command line. For more information, see [Assign a managed identity access to an application role using PowerShell][addmitorole].
 
@@ -83,7 +85,7 @@ You can host the services in [Azure Functions][functions] instead of App Service
 
 By design, this scenario colocates the authorization code with the rest of the business logic by performing token validation as part of application code. [App Service built-in authentication and authorization][easyauth], or Easy Auth, can also perform basic token validation before sending a request to a service. The service then relies on the hosting infrastructure to reject unauthorized requests.
 
-To configure App Service authentication and authorization, set the authorization behavior to **Log in with Azure Active Directory**. This setting validates tokens and restricts access to valid tokens only.
+To configure App Service authentication and authorization, set the authorization behavior to **Log in with Microsoft Entra ID**. This setting validates tokens and restricts access to valid tokens only.
 
 The downside of using Easy Auth is that the service loses the authentication and authorization protection if it moves elsewhere. While App Service authentication and authorization works for simple scenarios, complex authorization requirements should use logic from within the application code.
 
@@ -99,7 +101,7 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 
 ### Cost optimization
 
-Pricing for this scenario depends on your specific infrastructure and requirements. Azure AD has Free up to Premium tiers, depending on needs. Costs for Azure App Service or other hosts vary with your specific scale and security requirements, as described in [Alternatives](#alternatives) and [Considerations](#considerations).
+Pricing for this scenario depends on your specific infrastructure and requirements. Microsoft Entra ID has Free up to Premium tiers, depending on needs. Costs for Azure App Service or other hosts vary with your specific scale and security requirements, as described in [Alternatives](#alternatives) and [Considerations](#considerations).
 
 To calculate costs for your scenario, see the [Azure pricing calculator][pricing].
 
@@ -114,7 +116,7 @@ Principal author:
 ## Next steps
 
 - [Message encoding considerations for cloud applications](../../best-practices/message-encode.md)
-- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
+- [Enterprise deployment using App Services Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
 - [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.yml)
 
 ## Related resources
@@ -122,7 +124,7 @@ Principal author:
 - [App Service networking features][appsvcnetworking]
 - [Zero to Hero: securing your web app][securingwebapp]
 - [Zero to Hero: multi-tier web apps][zerotohero]
-- [Azure AD client credentials flow][clientcredsflow]
+- [Microsoft Entra client credentials flow][clientcredsflow]
 - [Service endpoints][svcep]
 - [App Service Regional VNet Integration][regionalvnet]
 - [Sample application demonstrating client credentials flow for daemon apps][daemonsample]

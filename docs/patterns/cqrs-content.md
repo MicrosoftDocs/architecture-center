@@ -20,7 +20,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
+- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). This may require some corresponding changes to the user interaction style. The other part of that is to look at modifying the business logic processing those commands to be successful more frequently. One technique that supports this is to run some validation rules on the client even before sending the command, possibly disabling buttons, explaining why on the UI ("no rooms left"). In that manner, the cause for server-side command failures can be narrowed to race conditions (two users trying to book the last room), and even those can sometimes be addressed with some more data and logic (putting a guest on a waiting list).
 - Commands may be placed on a queue for [asynchronous processing](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication), rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
@@ -227,3 +227,5 @@ Martin Fowler's blog posts:
 - [Event Sourcing pattern](./event-sourcing.yml). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
 - [Materialized View pattern](./materialized-view.yml). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
+
+- [Presentation on better CQRS through asynchronous user interaction patterns](https://particular.net/videos/cqrs-user-interaction-patterns)

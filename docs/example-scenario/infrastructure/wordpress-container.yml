@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: WordPress on Azure Kubernetes Service
+  titleSuffix: Azure Architecture Center
+  description: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress that's a good fit for large, storage-intensive applications."
+  author: vjirovsky
+  ms.author: vjirovsky
+  ms.date: 06/30/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - web
+  ms.custom:
+    - web-apps
+    - scalability
+    - example-scenario
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-aks-azure-netapp-files.png
+name: WordPress on Azure Kubernetes Service
+azureCategories:
+  - web
+  - containers
+summary: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress that's a good fit for large, storage-intensive applications."
+products:
+  - azure-cache-redis
+  - azure-front-door
+  - azure-kubernetes-service
+  - azure-load-balancer
+  - azure-netapp-files
+thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-aks-azure-netapp-files.png
+content: |
+   [!include[](wordpress-container-content.md)]

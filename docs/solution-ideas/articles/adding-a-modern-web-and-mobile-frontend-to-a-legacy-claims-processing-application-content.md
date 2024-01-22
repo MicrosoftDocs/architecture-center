@@ -25,7 +25,7 @@ Organizations that want to connect disparate legacy systems and give users acces
 1. Logic app pulls data from CRM (Salesforce).
 1. Logic app connects to SAP system (on-premises or in the cloud).
 1. Employee mobile app connects to the logic app that orchestrates the business process.
-1. Employee mobile app authenticates via Azure Active Directory.
+1. Employee mobile app authenticates via Microsoft Entra ID.
 
 ### Components
 

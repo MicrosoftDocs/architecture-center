@@ -266,9 +266,9 @@ The solution uses Terraform scripts and Azure Pipelines for all the services. If
 
 * The solution uses ARO and AKS secrets to inject sensitive data into pods, such as connection strings and keys.
 
-* Access to Kubernetes API server require authentication through [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for ARO and AKS.
+* Access to Kubernetes API server require authentication through [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for ARO and AKS.
 
-* Access to Jenkins requires authentication through Azure Active Directory.
+* Access to Jenkins requires authentication through Microsoft Entra ID.
 
 ## Conclusions
 
@@ -301,8 +301,6 @@ At the end of the project, the CSE team shared the following insights:
   * The Kafka protocol with Schema Registry was not supported by Event Hubs Scaler in KEDA.
 
 ## Next steps
-
-* [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
 
 * [Autoscaling Java applications with KEDA using Azure Event Hubs](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
 

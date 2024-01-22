@@ -4,7 +4,7 @@ This gaming solution idea elastically scales your database to accommodate unpred
 
 ## Architecture
 
-![Diagram that shows gaming solution idea using Azure Cosmos DB.](../media/gaming-using-cosmos-db.svg)
+[ ![Architecture diagram that shows a gaming solution idea that uses Azure Cosmos DB.](../media/gaming-using-cosmos-db.svg)](../media/gaming-using-cosmos-db.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/gaming-using-cosmos-db.vsdx) of this architecture.*
 
@@ -75,6 +75,4 @@ Product documentation:
 
 The following solution ideas feature Azure Cosmos DB:
 
-* [Globally distributed applications using Azure Cosmos DB](./globally-distributed-mission-critical-applications-using-cosmos-db.yml)
-* [Retail and e-commerce using Azure Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
-* [Serverless apps using Azure Cosmos DB](./serverless-apps-using-cosmos-db.yml)
+* [Serverless apps using Azure Cosmos DB](../../databases/idea/serverless-apps-using-cosmos-db.yml)

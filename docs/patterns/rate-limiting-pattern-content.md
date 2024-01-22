@@ -1,6 +1,6 @@
 Many services use a [throttling pattern](./throttling.yml) to control the resources they consume, imposing limits on the rate at which other applications or services can access them. You can use a rate limiting pattern to help you avoid or minimize throttling errors related to these throttling limits and to help you more accurately predict throughput.
 
-A rate limiting pattern is appropriate in many scenarios, but it is particularly helpful for large-scale repetitive automated tasks such as [batch processing](../data-guide/big-data/batch-processing.yml).
+A rate limiting pattern is appropriate in many scenarios, but it is particularly helpful for large-scale repetitive automated tasks such as batch processing.
 
 ## Context and problem
 
@@ -122,7 +122,10 @@ This diagram incorporates the following workflow:
 
 After 15 seconds, one or both jobs still will not be completed. As the leases expire, a processor should also reduce the number of requests it dequeues and writes.
 
-![GitHub logo](../_images/github.png) An implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
+![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages: 
+
+- **Go** implementation is available on [GitHub](https://github.com/mspnp/go-batcher).
+- **Java** implementation is available on [GitHub](https://github.com/Azure-Samples/java-rate-limiting-pattern-sample).
 
 ## Related resources
 

@@ -9,14 +9,14 @@ CFX is used in the aerospace, defense, steam turbine, energy, automotive, constr
 
 ## Why deploy Ansys CFX on Azure?
 
--	Modern and diverse compute options to align to your workload's needs
--	The flexibility of virtualization without the need to buy and maintain physical hardware
--	Rapid provisioning
--	Multi-node deployment as much as 17 times faster than single-node deployment
+- Modern and diverse compute options to align to your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- Multi-node deployment as much as 17 times faster than single-node deployment
 
 ## Architecture
 
-:::image type="content" source="media/cfx/ansys-cfx.png" alt-text="Diagram that shows an architecture for deploying Ansys CFX." lightbox="media/cfx/ansys-cfx.png" border="false":::
+:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
@@ -36,13 +36,13 @@ architecture.*
 
 Performance tests of Ansys CFX on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
 
-|VM size|	vCPU|	Memory (GiB)	|Memory bandwidth (GBps)	|Base CPU frequency (Ghz)|	All-cores frequency (Ghz, peak)|	Single-core frequency (Ghz, peak)|	RDMA performance (Gbps)	|Maximum data disks|
+|VM size| vCPU| Memory (GiB) |Memory bandwidth (GBps) |Base CPU frequency (Ghz)| All-cores frequency (Ghz, peak)| Single-core frequency (Ghz, peak)| RDMA performance (Gbps) |Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|	120|	448|	350|	2.45|	3.1|	3.675|	200|	32|
-|Standard_HB120-96rs_v3|	96|	448|	350|	2.45|	3.1|	3.675	|200|	32|
-|Standard_HB120-64rs_v3	|64	|448	|350|	2.45|	3.1|	3.675|	200|	32|
-|Standard_HB120-32rs_v3	|32	|448	|350|	2.45|	3.1|	3.675|	200	|32|
-|Standard_HB120-16rs_v3	|16|	448	|350|	2.45|	3.1|	3.675|	200	|32|
+|Standard_HB120rs_v3| 120| 448| 350| 2.45| 3.1| 3.675| 200| 32|
+|Standard_HB120-96rs_v3| 96| 448| 350| 2.45| 3.1| 3.675 |200| 32|
+|Standard_HB120-64rs_v3 |64 |448 |350| 2.45| 3.1| 3.675| 200| 32|
+|Standard_HB120-32rs_v3 |32 |448 |350| 2.45| 3.1| 3.675| 200 |32|
+|Standard_HB120-16rs_v3 |16| 448 |350| 2.45| 3.1| 3.675| 200 |32|
 
 ### Required drivers
 
@@ -86,49 +86,49 @@ These models represent transonic flow around an airfoil. Airfoils with mesh size
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the pump model.
 
-|Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|perf_Pump_R16|	10|	16|	32.59|	1.00|
-|perf_Pump_R16|	10|32	|20.48|	1.59|
-|perf_Pump_R16|	10|64|	16.19	|2.01|
-|perf_Pump_R16|	10|96	|16.85|	1.93|
-|perf_Pump_R16|	10|120|	18.00	|1.81|
+|perf_Pump_R16| 10| 16| 32.59| 1.00|
+|perf_Pump_R16| 10|32 |20.48| 1.59|
+|perf_Pump_R16| 10|64| 16.19 |2.01|
+|perf_Pump_R16| 10|96 |16.85| 1.93|
+|perf_Pump_R16| 10|120| 18.00 |1.81|
 
 :::image type="content" source="media/cfx/pump-graph.png" alt-text="Graph that shows the relative speed increases as the number of CPUs increases." border="false":::
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 10 million.
 
-|Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|perf_Airfoil_10M_R16|5|16|	149.40|	1.00|
-|perf_Airfoil_10M_R16|5|32|	113.05	|1.32|
-|perf_Airfoil_10M_R16|5|64|	113.87	|1.31|
-|perf_Airfoil_10M_R16|5|96|	121.71	|1.23|
-|perf_Airfoil_10M_R16|5|120|	125.10|	1.19|
+|perf_Airfoil_10M_R16|5|16| 149.40| 1.00|
+|perf_Airfoil_10M_R16|5|32| 113.05 |1.32|
+|perf_Airfoil_10M_R16|5|64| 113.87 |1.31|
+|perf_Airfoil_10M_R16|5|96| 121.71 |1.23|
+|perf_Airfoil_10M_R16|5|120| 125.10| 1.19|
 
 :::image type="content" source="media/cfx/graph-airfoil-10m.png" alt-text="Graph that shows the relative speed increases for the 10M airfoil." border="false":::
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 50 million.
 
-|Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|perf_Airfoil_50M_R16|5|16|	861.34|	1.00|
-|perf_Airfoil_50M_R16|5|32|	627.99	|1.37|
-|perf_Airfoil_50M_R16|5|64|	573.76	|1.50|
-|perf_Airfoil_50M_R16|5|96|	616.32	|1.40|
-|perf_Airfoil_50M_R16|5|120|646.07|	1.33|
+|perf_Airfoil_50M_R16|5|16| 861.34| 1.00|
+|perf_Airfoil_50M_R16|5|32| 627.99 |1.37|
+|perf_Airfoil_50M_R16|5|64| 573.76 |1.50|
+|perf_Airfoil_50M_R16|5|96| 616.32 |1.40|
+|perf_Airfoil_50M_R16|5|120|646.07| 1.33|
 
 :::image type="content" source="media/cfx/graph-airfoil-50m.png" alt-text="Graph that shows the relative speed increases for the 50M airfoil." border="false":::
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 100 million.
 
-|Model|	Iterations	|Cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|perf_Airfoil_100M_R16|5|16|2029.20	|	1.00|
-|perf_Airfoil_100M_R16|5|32|1541.70	|1.32|
-|perf_Airfoil_100M_R16|5|64|1445.70	|1.40|
+|perf_Airfoil_100M_R16|5|16|2029.20 | 1.00|
+|perf_Airfoil_100M_R16|5|32|1541.70 |1.32|
+|perf_Airfoil_100M_R16|5|64|1445.70 |1.40|
 |perf_Airfoil_100M_R16|5|96|1451.70|1.40|
-|perf_Airfoil_100M_R16|5|120|1473.70	|1.05|
+|perf_Airfoil_100M_R16|5|120|1473.70 |1.05|
 
 :::image type="content" source="media/cfx/graph-airfoil-100m.png" alt-text="Graph that shows the relative speed increases for the 100M airfoil." border="false":::
 
@@ -140,49 +140,49 @@ Based on the single-node tests, the 64-CPU configuration is optimal. It's also l
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the pump model.
 
-|Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Number of nodes|Number of cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|-|
-|perf_Pump_R16|	10|1|64|16.19|1.00|
-|perf_Pump_R16|	10|2|128|9.09|1.78|
-|perf_Pump_R16|	10|4|256|4.93|3.28|
-|perf_Pump_R16|	10|8|512|3.07|5.27|
-|perf_Pump_R16|	10|16|1,024|2.30|7.02|
+|perf_Pump_R16| 10|1|64|16.19|1.00|
+|perf_Pump_R16| 10|2|128|9.09|1.78|
+|perf_Pump_R16| 10|4|256|4.93|3.28|
+|perf_Pump_R16| 10|8|512|3.07|5.27|
+|perf_Pump_R16| 10|16|1,024|2.30|7.02|
 
 :::image type="content" source="media/cfx/graph-pump-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration." border="false":::
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 10 million.
 
-|Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Number of nodes|Number of cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|-|
-|perf_Airfoil_10M_R16|	10|1|64|113.87|1.00|
-|perf_Airfoil_10M_R16|	10|2|128|55.43	|2.05|
-|perf_Airfoil_10M_R16|	10|4|256|28.21|	4.04|
-|perf_Airfoil_10M_R16|	10|8|512|15.39	|7.40|
-|perf_Airfoil_10M_R16|	10|16|1,024|9.42|	12.09|
+|perf_Airfoil_10M_R16| 10|1|64|113.87|1.00|
+|perf_Airfoil_10M_R16| 10|2|128|55.43 |2.05|
+|perf_Airfoil_10M_R16| 10|4|256|28.21| 4.04|
+|perf_Airfoil_10M_R16| 10|8|512|15.39 |7.40|
+|perf_Airfoil_10M_R16| 10|16|1,024|9.42| 12.09|
 
 :::image type="content" source="media/cfx/graph-10m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 50 million.
 
-|Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Number of nodes|Number of cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|-|
-|perf_Airfoil_50M_R16|	10|1|64|573.76|1.00|
-|perf_Airfoil_50M_R16|	10|2|128|284.75|2.01|
-|perf_Airfoil_50M_R16|	10|4|256|143.73|3.99|
-|perf_Airfoil_50M_R16|	10|8|512|73.09|7.85|
-|perf_Airfoil_50M_R16|	10|16|1,024|38.35|14.96|
+|perf_Airfoil_50M_R16| 10|1|64|573.76|1.00|
+|perf_Airfoil_50M_R16| 10|2|128|284.75|2.01|
+|perf_Airfoil_50M_R16| 10|4|256|143.73|3.99|
+|perf_Airfoil_50M_R16| 10|8|512|73.09|7.85|
+|perf_Airfoil_50M_R16| 10|16|1,024|38.35|14.96|
 
 :::image type="content" source="media/cfx/graph-50m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 100 million.
 
-|Model|	Iterations	|Number of nodes|Number of cores|	CFD solver wall-clock time (seconds)|	Relative speed increase|
+|Model| Iterations |Number of nodes|Number of cores| CFD solver wall-clock time (seconds)| Relative speed increase|
 |-|-|-|-|-|-|
-|perf_Airfoil_100M_R16|	10|1|64|1445.70|1.00|
-|perf_Airfoil_100M_R16|	10|2|128|642.95|2.25|
-|perf_Airfoil_100M_R16|	10|4|256|320.27|4.51|
-|perf_Airfoil_100M_R16|	10|8|512|161.64|8.94|
-|perf_Airfoil_100M_R16|	10|16|1,024|83.73|17.27|
+|perf_Airfoil_100M_R16| 10|1|64|1445.70|1.00|
+|perf_Airfoil_100M_R16| 10|2|128|642.95|2.25|
+|perf_Airfoil_100M_R16| 10|4|256|320.27|4.51|
+|perf_Airfoil_100M_R16| 10|8|512|161.64|8.94|
+|perf_Airfoil_100M_R16| 10|16|1,024|83.73|17.27|
 
 :::image type="content" source="media/cfx/graph-airfoil-100m-multi-node.png" alt-text="Graph that shows the relative speed increases for 100M airfoil, using the multi-node configuration." border="false":::
 
@@ -195,23 +195,23 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ### Costs, single-node configuration
 
-|VM size|	Number of CPUs|		CFD solver wall-clock time (hours)|
+|VM size| Number of CPUs| CFD solver wall-clock time (hours)|
 |-|-|-|
-|Standard_HB120-16rs_v3	|16|		0.85|
-|Standard_HB120-32rs_v3	|32	|	0.64|
-|Standard_HB120-64rs_v3	|64	|	0.60|
-|Standard_HB120-96rs_v3|	96|		0.61|
-|Standard_HB120rs_v3|	120		|0.63|
+|Standard_HB120-16rs_v3 |16| 0.85|
+|Standard_HB120-32rs_v3 |32 | 0.64|
+|Standard_HB120-64rs_v3 |64 | 0.60|
+|Standard_HB120-96rs_v3| 96| 0.61|
+|Standard_HB120rs_v3| 120 |0.63|
 
 ### Costs, multi-node configuration
 
-|VM size|	Number of nodes|	Number of cores|	CFD solver wall-clock time (seconds)|	Hours|
+|VM size| Number of nodes| Number of cores| CFD solver wall-clock time (seconds)| Hours|
 |-|-|-|-|-|
-|HB120-64rs_v3|	1|	64	|2,175|	0.60|
-|HB120-64rs_v3|	2	|128|	1,005|	0.28|
-|HB120-64rs_v3|4|	256	|504|	0.14|
-|HB120-64rs_v3|8|	512	|257|	0.07|
-|HB120-64rs_v3|16|	1,024|	134	|0.04|
+|HB120-64rs_v3| 1| 64 |2,175| 0.60|
+|HB120-64rs_v3| 2 |128| 1,005| 0.28|
+|HB120-64rs_v3|4| 256 |504| 0.14|
+|HB120-64rs_v3|8| 512 |257| 0.07|
+|HB120-64rs_v3|16| 1,024| 134 |0.04|
 
 ## Summary
 

@@ -19,7 +19,6 @@ metadata:
     - data warehouse analytics
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cloud-scale-analytics-with-discovery-hub.png
 name: TimeXtender with cloud scale analytics
 azureCategories:
   - analytics

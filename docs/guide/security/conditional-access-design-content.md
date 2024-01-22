@@ -20,14 +20,13 @@ The Microsoft approach to Zero Trust includes Conditional Access as the main pol
 
 :::image type="content" source="./images/user-access.png" alt-text="Diagram that shows a more detailed view of Conditional Access." lightbox="./images/user-access.png" border="false":::
 
- This diagram shows Conditional Access and related elements that can help protect user access to resources, as opposed to non-interactive or non-human access. The following diagram describes both types of identities: 
+This diagram shows Conditional Access and related elements that can help protect user access to resources, as opposed to non-interactive or non-human access. The following diagram describes both types of identities.
 
  ![Diagram that describes Conditional Access identity types.](./images/conditional-access-identity.svg)
 
-Non-human access to resources must also be protected. Currently, you can't use Conditional Access to protect non-human access to cloud resources. You need to use another method, like grant controls for OAuth-based access.
-
-> [!NOTE] 
-> Functionality for targeting service principals and helping to protect access to resources for machine or workload identities based on location is currently in preview. See [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture) for details.
+Conditional Access has mainly been focusing on protecting access from interactive humans to resources. As the number of non-human identities grow, access from these must be considered as well. Microsoft offers two features related to protecting access to and from workload identities.
+- Protecting access to applications represented by a workload identity that is not selectable in the Microsoft Entra Conditional Access portal. This option is supported by using security attributes. Assigning a security attribute to workload identities and selecting these in the Microsoft Entra Conditional Access portal is part of Microsoft Entra ID P1 license.
+- Protecting access to resources initiated by workload identities (service principals). A new feature "Microsoft Entra Workload Identities" is offered in a separate license that supports this scenario. It includes lifecycle management of workload identities including protecting access to resources with Conditional Access.
 
 ### Enterprise access model
 
@@ -50,10 +49,10 @@ The enterprise access model replaces the legacy tier model, which focused on con
 
 Microsoft recommends moving control and management into cloud services that use Conditional Access as the main control plane and policy engine, thus defining and enforcing access.
 
-You can extend the Azure Active Directory Conditional Access policy engine to other policy enforcement points, including:
+You can extend the Microsoft Entra Conditional Access policy engine to other policy enforcement points, including:
 
 - Modern applications: Applications that use modern authentication protocols.
-- Legacy applications: Via Azure Active Directory (Azure AD) Application Proxy.
+- Legacy applications: Via Microsoft Entra application proxy.
 - VPN and remote access solutions: Solutions like Microsoft Always On VPN, Cisco AnyConnect, Palo Alto Networks, F5, Fortinet, Citrix, and Zscaler.
 - Documents, email, and other files: Via Microsoft Information Protection.
 - SaaS applications.
@@ -71,14 +70,14 @@ Based on the preceding information, here's a summary of suggested principles. Mi
 
 **Verify explicitly**
 
-- Move the control plane to the cloud. Integrate apps with Azure AD and protect them by using Conditional Access.
+- Move the control plane to the cloud. Integrate apps with Microsoft Entra ID and protect them by using Conditional Access.
 - Consider all clients to be external.
 
 **Use least privileged access**
 - Evaluate access based on compliance and risk, including user risk, sign-in risk, and device risk.
 - Use these access priorities:
   - Access the resource directly, using Conditional Access for protection.
-  - Publish access to the resource by using Azure AD Application Proxy, using  Conditional Access for protection.
+  - Publish access to the resource by using Microsoft Entra application proxy, using  Conditional Access for protection.
   - Use Conditional Access—based VPN to access the resource. Restrict access to the level of the app or DNS name.
 
 **Assume breach**
@@ -86,7 +85,7 @@ Based on the preceding information, here's a summary of suggested principles. Mi
 - Segment network infrastructure.
 - Minimize use of enterprise PKI.
 - Migrate single sign-on (SSO) from AD FS to password hash synchronization (PHS).
-- Minimize dependencies on DCs by using Kerberos KDC in Azure AD.
+- Minimize dependencies on DCs by using Kerberos KDC in Microsoft Entra ID.
 - Move the management plane to the cloud. Manage devices by using Microsoft Endpoint Manager.
 
 Here are some more detailed principles and recommended practices for Conditional Access:
@@ -101,7 +100,7 @@ Here are some more detailed principles and recommended practices for Conditional
 - Protect privileged users in all Microsoft 365 role-based access control (RBAC) systems.
 - Require password change and multi-factor authentication for high-risk users and sign-ins (enforced by sign-in frequency).
 - Restrict access from high-risk devices. Use an Intune compliance policy with a compliance check in Conditional Access.
-- Protect privileged systems, like access to the admininistrator portals for Office 365, Azure, AWS, and Google Cloud.
+- Protect privileged systems, like access to the administrator portals for Office 365, Azure, AWS, and Google Cloud.
 - Prevent persistent browser sessions for admins and on untrusted devices.
 - Block legacy authentication.
 - Restrict access from unknown or unsupported device platforms.
@@ -139,4 +138,4 @@ Principal author:
 - [Conditional Access overview](/azure/architecture/guide/security/conditional-access-zero-trust)
 - [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture)
 - [Conditional Access framework and policies](/azure/architecture/guide/security/conditional-access-framework)
-- [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
+- [Microsoft Entra IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)

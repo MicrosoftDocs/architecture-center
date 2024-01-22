@@ -226,7 +226,7 @@ Explore related architectures:
 [vms-by-policy]: /azure/azure-monitor/insights/vminsights-enable-at-scale-policy
 [vms-by-powershell]: /azure/azure-monitor/insights/vminsights-enable-at-scale-powershell
 [vm-by-dsc]: /azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#desired-state-configuration
-[distributed-tracing]: /azure/azure-monitor/app/distributed-tracing
+[distributed-tracing]: /azure/azure-monitor/app/distributed-tracing-telemetry-correlation
 [triage-applications]: /azure/azure-monitor/app/app-map?tabs=net
 [interactive-workbooks]: /azure/azure-monitor/insights/vminsights-workbooks
 [partner-integrations]: /azure/azure-monitor/platform/partners

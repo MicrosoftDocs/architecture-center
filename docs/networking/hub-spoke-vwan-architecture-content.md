@@ -79,7 +79,7 @@ The following recommendations apply to most scenarios. Follow them, unless you h
 
 ### Resource groups
 
-The hub and each spoke can be implemented in different resource groups, and, even better, in different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or a different Azure Active Directory tenant. This allows for a decentralized management of each workload, while sharing services maintained in the hub.
+The hub and each spoke can be implemented in different resource groups, and, even better, in different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or a different Microsoft Entra tenant. This allows for a decentralized management of each workload, while sharing services maintained in the hub.
 
 ### Virtual WAN
 
@@ -134,6 +134,10 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 
 For additional information, see [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)*.*
 
+### Hub extensions
+
+To support network-wide shared services like DNS resources, custom NVAs, Azure Bastion, and others, implement each service following the [virtual hub extension pattern](../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml). Following this model, you can build and operate single-responsibility extensions to individually expose these business-critical, shared services that you're otherwise unable to deploy directly in a virtual hub.
+
 ## Considerations
 
 ### Operations
@@ -156,7 +160,7 @@ Azure Virtual WAN provides a full mesh connectivity among spokes by preserving t
 
 Hubs in Azure VWAN can be converted to secure HUBs by leveraging Azure Firewall. User-defined routes (UDRs) can still be leveraged in the same way to achieve network isolation. Azure VWAN enables encryption of traffic between the on-premises networks and Azure virtual networks over ExpressRoute.
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Spoke connectivity and shared services
 

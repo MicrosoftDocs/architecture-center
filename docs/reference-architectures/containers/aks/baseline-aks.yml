@@ -28,6 +28,6 @@ products:
   - azure-firewall
   - azure-kubernetes-service
   - azure-rbac
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-baseline-architecture.png
 content: |
    [!include[](baseline-aks-content.md)]

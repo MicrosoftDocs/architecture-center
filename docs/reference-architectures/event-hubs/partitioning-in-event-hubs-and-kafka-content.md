@@ -2,7 +2,7 @@ This reference architecture provides strategies for the [partitioning model][Par
 
 ## Architecture
 
-:::image type="complex" source="./images/event-processing-service-new.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
+:::image type="complex" source="./images/event-processing-service-new.svg" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
    At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
 :::image-end:::
 
@@ -48,7 +48,7 @@ One aspect of the partitioning strategy is the assignment policy. An event that 
 
 Each event stores its content in its *value*. Besides the value, each event also contains a *key*, as the following diagram shows:
 
-:::image type="complex" source="./images/pipeline-event-parts-new.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
+:::image type="complex" source="./images/pipeline-event-parts-new.svg" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
    At the center of the diagram are multiple pairs of boxes. A label below the boxes indicates that each pair represents a message. Each message contains a blue box labeled Key and a black box labeled Value. The messages are arranged horizontally. Arrows between messages that point from left to right indicate that the messages form a sequence. Above the messages is the label Stream. Brackets indicate that the sequence forms a stream.
 :::image-end:::
 
@@ -356,7 +356,7 @@ Principal author:
 [Azure Event Hubs client library for Java]: /java/api/overview/azure/messaging-eventhubs-readme
 [Azure Event Hubs client library for Javascript]: /javascript/api/overview/azure/event-hubs-readme
 [Azure Event Hubs client library for Python]: /python/api/overview/azure/eventhub-readme
-[Azure Event Hubs Event Processor client library for .NET]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor
+[Azure Event Hubs Event Processor client library for .NET]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor
 [Balance partition load across multiple instances of your application]: /azure/event-hubs/event-processor-balance-partition-load
 [Dynamically add partitions to an event hub in Azure Event Hubs]: /azure/event-hubs/dynamically-add-partitions
 [Effective strategies for Kafka topic partitioning]: https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/

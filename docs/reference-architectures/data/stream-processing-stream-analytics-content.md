@@ -1,10 +1,10 @@
-This reference architecture shows an end-to-end [stream processing](../../data-guide/big-data/real-time-processing.yml) pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
+This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ## Architecture
 
-![Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics.](./images/stream-processing-asa/stream-processing-asa.png)
+:::image type="content" source="./images/stream-processing-asa/stream-processing-stream-analytics.svg" alt-text="Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics." lightbox="./images/stream-processing-asa/stream-processing-stream-analytics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-stream-analytics.vsdx) of this architecture.*
 

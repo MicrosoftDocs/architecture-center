@@ -17,7 +17,6 @@ metadata:
     - bcdr
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archive-cloud-application.png
 name: Archive on-premises data to the cloud
 azureCategories:
   - storage

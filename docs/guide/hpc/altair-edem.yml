@@ -4,7 +4,7 @@ metadata:
   description: Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 09/14/2022
+  ms.date: 06/26/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-virtual-machines
   - azure-virtual-network
-name: Deploy Altair EDEM on an Azure virtual machine
+name: Deploy Altair EDEM on a virtual machine
 summary: Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).
 thumbnailUrl: /azure/architecture/browse/thumbs/altair-edem-thumb.png
 content: |

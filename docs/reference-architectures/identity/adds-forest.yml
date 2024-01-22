@@ -22,8 +22,8 @@ azureCategories:
   - hybrid
 summary: How to create a trusted Active Directory domain in Azure.
 products:
-  - azure-active-directory
-  - azure-active-directory-domain
+  - entra-id
+  - entra
   - azure-expressroute
   - azure-virtual-network
   - azure-vpn-gateway

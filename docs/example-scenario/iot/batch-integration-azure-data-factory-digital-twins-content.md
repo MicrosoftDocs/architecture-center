@@ -26,7 +26,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 
 - [Azure Batch](https://azure.microsoft.com/services/batch) runs the Custom activity code.
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
 
 ### Alternatives
 
@@ -137,4 +137,3 @@ Other contributors:
 - [Azure Digital Twins builder](/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
 - [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
 - [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
-- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)

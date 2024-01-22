@@ -15,7 +15,6 @@ metadata:
   ms.custom:
     - ai-ml
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection-new.png
 name: Real-time fraud detection
 azureCategories:
   - security

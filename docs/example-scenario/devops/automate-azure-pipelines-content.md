@@ -109,7 +109,6 @@ Principal author:
 
 ## Next steps
 
-- [Build a CI/CD pipeline for chatbots with ARM templates](../apps/devops-cicd-chatbot.yml)
 - [CI/CD baseline architecture with Azure Pipelines](../apps/devops-dotnet-baseline.yml)
 - [The DevOps journey at Microsoft](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
 - [Create a build pipeline with Azure Pipelines](/training/modules/create-a-build-pipeline)
@@ -122,8 +121,7 @@ Principal author:
 
 ## Related resources
 
-- [Build and deploy apps on AKS using DevOps and GitOps](../apps/devops-with-aks.yml)
+- [Build and deploy apps on AKS using DevOps and GitOps](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
-- [Gridwich Azure DevOps setup](../../reference-architectures/media-services/set-up-azure-devops.yml)

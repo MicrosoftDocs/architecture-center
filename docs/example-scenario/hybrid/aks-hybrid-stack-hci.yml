@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server
+  titleSuffix: Azure Architecture Center
+  description: Build an app deployment pipeline for containerized apps on AKS hybrid that are running on Azure Stack HCI or Windows Server.
+  author: scooley
+  ms.author: scooley
+  ms.date: 05/11/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - containers
+  - hybrid
+products:
+  - azure-kubernetes-service
+  - azure-stack-hci
+  - azure-arc
+  - github
+  - azure-pipelines
+name: Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server
+summary: Build an app deployment pipeline for containerized apps on AKS hybrid that are running on Azure Stack HCI or Windows Server.
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-stack-hci.png
+content: |
+  [!include[](aks-hybrid-stack-hci-content.md)]

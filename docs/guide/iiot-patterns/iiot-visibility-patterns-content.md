@@ -16,10 +16,10 @@ Analyze IoT telemetry data by using time series techniques.
 
 ### Dataflow
 
-    1. The edgeHub module sends the data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT.
-    2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
-    3. Azure Data Explorer dashboards use Kusto Query Language (KQL) to fetch data from the clusters and build near real-time dashboards.
-    4. Power BI or Grafana is used to build custom dashboards with query builder and integrate with other data sources.
+1. The edgeHub module sends the data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT.
+2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
+3. Azure Data Explorer dashboards use Kusto Query Language (KQL) to fetch data from the clusters and build near real-time dashboards.
+4. Power BI or Grafana is used to build custom dashboards with query builder and integrate with other data sources.
 
 ### Potential use cases
 
@@ -30,12 +30,12 @@ Analyze IoT telemetry data by using time series techniques.
 
 ### Considerations
 
-  - IoT Central includes dashboards for basic time series analysis on the last 30 days of data. For analysis on datasets beyond 30 days, use Azure Data Explorer.
-  - Azure Data explorer is an append-only platform, which [isn't suitable for data that requires updates or deletions](/azure/data-explorer/data-explorer-overview).
-  - For more information on time series analysis, see [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis).
-  - For more information on streaming ingestion considerations, see [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp).
-  - For more information on disaster recovery, see [Disaster recovery configurations for Azure Data Explorer](/azure/data-explorer/business-continuity-overview#disaster-recovery-configurations).
-  - For more information on Time Series Insights, see [Migrating to Azure Data Explorer](/azure/time-series-insights/migration-to-adx).
+- IoT Central includes dashboards for basic time series analysis on the last 30 days of data. For analysis on datasets beyond 30 days, use Azure Data Explorer.
+- Azure Data explorer is an append-only platform, which [isn't suitable for data that requires updates or deletions](/azure/data-explorer/data-explorer-overview).
+- For more information on time series analysis, see [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis).
+- For more information on streaming ingestion considerations, see [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp).
+- For more information on disaster recovery, see [Disaster recovery configurations for Azure Data Explorer](/azure/data-explorer/business-continuity-overview#disaster-recovery-configurations).
+- For more information on Time Series Insights, see [Migrating to Azure Data Explorer](/azure/time-series-insights/migration-to-adx).
 
 ### Deploy this scenario
 
@@ -52,11 +52,11 @@ Detect anomalies and identify a root cause for anomaly incidents.
 
 ### Dataflow
 
-    1. The edgeHub module sends the data to IoT Hub or Azure IoT Central by using AMQP or MQTT.
-    2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
-    3. Azure Data Explorer dashboards use KQL to fetch data from the clusters and build near real-time dashboards.
-    4. Azure Metrics Advisor fetches data from Azure Data Explorer by using a data feed configuration. It configures the metrics level configuration for anomaly detection and creates an alert that links to a webhook.
-    5. The Metrics Advisor web hook connects to an HTTP-triggered logic app. The logic app is called when an anomaly is detected.
+1. The edgeHub module sends the data to IoT Hub or Azure IoT Central by using AMQP or MQTT.
+2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
+3. Azure Data Explorer dashboards use KQL to fetch data from the clusters and build near real-time dashboards.
+4. Azure Metrics Advisor fetches data from Azure Data Explorer by using a data feed configuration. It configures the metrics level configuration for anomaly detection and creates an alert that links to a webhook.
+5. The Metrics Advisor web hook connects to an HTTP-triggered logic app. The logic app is called when an anomaly is detected.
 
 ### Potential use cases
 
@@ -68,10 +68,10 @@ Detect anomalies and identify a root cause for anomaly incidents.
 
 ### Considerations
 
-  - [How-to: Onboard your metric data to Metrics Advisor](/azure/applied-ai-services/metrics-advisor/how-tos/onboard-your-data)
-  - [How to: Manage your data feeds](/azure/applied-ai-services/metrics-advisor/how-tos/manage-data-feeds)
-  - [Data requirements for Metrics Advisor anomaly detection](/azure/applied-ai-services/metrics-advisor/faq#how-much-data-is-needed-for-metrics-advisor-to-start-anomaly-detection-)
-  - [Key points about cost management and pricing for Metrics Advisor](/azure/applied-ai-services/metrics-advisor/cost-management#key-points-about-cost-management-and-pricing)
+- [How-to: Onboard your metric data to Metrics Advisor](/azure/applied-ai-services/metrics-advisor/how-tos/onboard-your-data)
+- [How to: Manage your data feeds](/azure/applied-ai-services/metrics-advisor/how-tos/manage-data-feeds)
+- [Data requirements for Metrics Advisor anomaly detection](/azure/applied-ai-services/metrics-advisor/faq#how-much-data-is-needed-for-metrics-advisor-to-start-anomaly-detection-)
+- [Key points about cost management and pricing for Metrics Advisor](/azure/applied-ai-services/metrics-advisor/cost-management#key-points-about-cost-management-and-pricing)
 
 ### Deploy this scenario
 

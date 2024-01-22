@@ -106,7 +106,7 @@ There are several NSGs that control the flow in and out of the cluster. Here are
 
   - Only HTTPS traffic is allowed in.
   - Traffic from Azure Control Plane is allowed. For more information, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
-- On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.
+- On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Microsoft Entra ID, Azure Monitor, and other services that the container registry needs to talk to.
 - The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
 
 As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed. Traffic shouldn't traverse those subnet boundaries. Because each node pool lives in its own subnet, observe the traffic patterns, and then apply more specific rules.
@@ -150,9 +150,9 @@ Enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protec
 
 Define roles and set access control according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals. Then assign that single individual all relevant roles.
 
-Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) and [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks), which provides an additional layers of required authentication validation for privileged access, based on the rules you build.
+Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Microsoft Entra ID Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) and [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks), which provides an additional layers of required authentication validation for privileged access, based on the rules you build.
 
-For more details on using PowerShell to configure conditional access, see [New-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/new-azureadmsconditionalaccesspolicy), [Get-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/get-azureadmsconditionalaccesspolicy), and [Remove-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/remove-azureadmsconditionalaccesspolicy).
+For more details on using PowerShell to configure conditional access, see [New-MgIdentityConditionalAccessPolicy](/powershell/module/microsoft.graph.identity.signins/new-mgidentityconditionalaccesspolicy), [Get-MgIdentityConditionalAccessPolicy](/powershell/module/microsoft.graph.identity.signins/get-mgidentityconditionalaccesspolicy), and [Remove-MgIdentityConditionalAccessPolicy](/powershell/module/microsoft.graph.identity.signins/remove-mgidentityconditionalaccesspolicy).
 
 ## Disk encryption
 

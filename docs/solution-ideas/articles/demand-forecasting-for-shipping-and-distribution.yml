@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-for-shipping-and-distribution.png
 name: Demand forecasting for shipping and distribution
 azureCategories:
   - analytics

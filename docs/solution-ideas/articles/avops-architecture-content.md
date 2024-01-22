@@ -138,7 +138,7 @@ It's important to understand the division of responsibility between the automoti
 
 * Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 * Encryption at rest and in transit. For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
-* Identity and access management that uses Azure Active Directory (Azure AD) identities and [Azure AD conditional access](/azure/active-directory/conditional-access) policies.
+* Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 * [Row Level Security (RLS)](/azure/active-directory/conditional-access) for Azure Data Explorer.
 * Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 * Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
@@ -185,6 +185,11 @@ Other contributors:
 
 ## Related resources
 
+For more information about developing DataOps for an automated driving system, see:
+> [!div class="nextstepaction"]
+> [Data operations for autonomous vehicle operations](../../example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
+
+You might also be interested in these related articles:
 * [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
 * [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 * [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)

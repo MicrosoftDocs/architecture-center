@@ -6,7 +6,7 @@ The article assumes that you've already implemented the platform foundation that
 
 ## Architecture
 
-:::image type="content" source="media/azure-synapse-landing-zone.png" alt-text="Diagram that shows an Azure Synapse reference architecture." lightbox="media/azure-synapse-landing-zone.png" border="false":::
+:::image type="content" source="media/azure-synapse-landing-zone.svg" alt-text="Diagram that shows an Azure Synapse Analytics reference architecture." lightbox="media/azure-synapse-landing-zone.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/SynapseESLZ-v1.vsdx) of this architecture.*
  
@@ -80,12 +80,12 @@ Following are some recommendations for Azure Synapse networking topology:
 
 ### Identity and access management
 
-Enterprises typically use a least-privileged approach for operational access. They use Azure Active Directory (Azure AD), [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions for access management. 
+Enterprises typically use a least-privileged approach for operational access. They use Microsoft Entra ID, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions for access management. 
 
 - Implement fine-grained access controls in Azure Synapse by using Azure roles, Azure Synapse roles, SQL roles, and Git permissions. For more information about Azure Synapse workspace access control, see [this overview](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
 - [Azure Synapse roles](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac-roles) provide sets of permissions that you can apply at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
 - You can simplify access control by using security groups that are aligned with job roles. To manage access, you just need to add and remove users from appropriate security groups.
-- You can provide security for communication between Azure Synapse and other Azure services, like Data Lake Storage and Key Vault, by using user-assigned managed identities. Doing so eliminates the need to manage credentials. Managed identities provide an identity that applications can use when they connect to resources that support Azure AD authentication.
+- You can provide security for communication between Azure Synapse and other Azure services, like Data Lake Storage and Key Vault, by using user-assigned managed identities. Doing so eliminates the need to manage credentials. Managed identities provide an identity that applications can use when they connect to resources that support Microsoft Entra authentication.
 
 ### Application automation and DevOps
 
@@ -125,8 +125,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 **Prerequisites**: You must have an Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
-All code for this scenario is available in [the 
-SynapseEnterpriseCodebase repository on GitHub](https://github.com/Azure/SynapseEnterpriseCodebase).
+All code for this scenario is available in the [Synapse Enterprise Codebase repository](https://github.com/Azure/SynapseEnterpriseCodebase) on GitHub.
 
 The automated deployment uses Bicep templates to deploy the following components:
 

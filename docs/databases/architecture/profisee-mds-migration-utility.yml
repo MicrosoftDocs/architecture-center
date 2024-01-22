@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Profisee MDM to migrate SQL Server Master Data Services to Azure
+  titleSuffix: Azure Architecture Center
+  description: Use Profisee to migrate from SQL Server Master Data Services to a full-featured master data management (MDM) platform in the Azure cloud.
+  author: ssabat
+  ms.author: susabat
+  ms.date: 04/20/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - databases
+  - management-and-governance
+  - migration
+products:
+  - azure-data-factory
+  - azure-sql-database
+  - azure-synapse-analytics
+  - microsoft-purview
+name: Use Profisee MDM to migrate SQL Server Master Data Services to Azure
+summary: Use Profisee to migrate from SQL Server Master Data Services to a full-featured master data management (MDM) platform in the Azure cloud.
+thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-microsoft-purview.png
+content: |
+  [!include[](profisee-mds-migration-utility-content.md)]

@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-azurepowershell
+---
 This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
 ## Architecture
@@ -300,7 +304,7 @@ Microsoft Learn modules:
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
+[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [0]: ./images/expressroute.png "Diagram showing hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"

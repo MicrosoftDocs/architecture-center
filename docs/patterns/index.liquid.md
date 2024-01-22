@@ -22,7 +22,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 ## Problem areas in the cloud
 
-<!-- markdownlint-disable MD033 -->
+<!-- docutune:disable -->
 
 <ul id="categories" class="panel">
 {%- for category in categories %}
@@ -31,8 +31,6 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </li>
 {%- endfor %}
 </ul>
-
-<!-- markdownlint-enable MD033 -->
 
 ## Catalog of patterns
 
@@ -43,3 +41,5 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 {%- for pattern in patterns %}
 | [{{ pattern.title }}](./{{ pattern.file }}) | {{ pattern.description }} |
 {%- endfor %}
+
+<!-- docutune:enable -->

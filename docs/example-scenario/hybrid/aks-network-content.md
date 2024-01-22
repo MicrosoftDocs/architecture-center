@@ -278,8 +278,8 @@ considerations are framed in the context of these tenets.
 
 - Secure traffic between pods using network policies in AKS on Azure Stack HCI.
 - The API server in AKS on Azure Stack HCI contains the Certificate Authority which signs certificates for communication from the Kubernetes API server to *kubelet*.
-- Use Azure Active Directory (Azure AD) single sign-on (SSO) to create a secure connection to Kubernetes API server.
-- You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Azure AD identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
+- Use Microsoft Entra single sign-on (SSO) to create a secure connection to Kubernetes API server.
+- You can use Azure RBAC to manage access to Azure Arc–enabled Kubernetes across Azure and on-premises environments using Microsoft Entra identities. For more information, see [Use Azure RBAC for Kubernetes Authorization][].
 
 ### Cost optimization
 
@@ -328,7 +328,7 @@ considerations are framed in the context of these tenets.
 
   [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
   [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
-  [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+  [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/Active Directory Domain Services-overview
   [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
   [Workload Cluster]: /azure/aks/hybrid/kubernetes-concepts#the-workload-cluster
   [Azure Arc]: /azure/azure-arc/overview

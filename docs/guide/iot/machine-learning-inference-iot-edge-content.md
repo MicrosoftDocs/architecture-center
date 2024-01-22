@@ -53,7 +53,7 @@ ONNX is an open-standard format for representing machine learning models. It's s
 
 - ONNX supports tools for building and deploying models and for accomplishing other tasks. For more information, see, [Supported ONNX tools](https://onnx.ai/supported-tools.html).
 - You can use ONNX Runtime to run ONNX pre-trained models. For information about pre-trained models, see [ONNX Model Zoo](https://github.com/onnx/models).
-- For this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3).
+- For this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov3).
 
 The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to help you create and deploy your deep learning model.
 
@@ -178,7 +178,7 @@ class InferenceProcedure():
                     if detection_scores[0, i] > .5:
                         class_id = int(detection_classes[0, i])
                         class_name = new_label_names[class_id]
-                        # top,	left,	bottom,	right
+                        # top, left, bottom, right
                         results_json = "{'Class': '%s','Score': '%s','Location': '%s'}" % (class_name, detection_scores[0, i],detection_boxes[0, i])
                         results.append(results_json)
                         print(results_json)

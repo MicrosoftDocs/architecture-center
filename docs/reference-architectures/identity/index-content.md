@@ -6,7 +6,7 @@ Many organizations use Active Directory Domain Services (AD DS) to authenticate 
 
 Azure provides two solutions for implementing directory and identity services in Azure:
 
-- Use [Azure AD][azure-active-directory] to create an Active Directory domain in the cloud and connect it to your on-premises Active Directory domain. [Azure AD Connect][azure-ad-connect] integrates your on-premises directories with Azure AD.
+- Use [Microsoft Entra ID][azure-active-directory] to create an Active Directory domain in the cloud and connect it to your on-premises Active Directory domain. [Microsoft Entra Connect][azure-ad-connect] integrates your on-premises directories with Microsoft Entra ID.
 
 - Extend your existing on-premises Active Directory infrastructure to Azure, by deploying a VM in Azure that runs AD DS as a Domain Controller. This architecture is more common when the on-premises network and the Azure virtual network (VNet) are connected by a VPN or ExpressRoute connection. Several variations of this architecture are possible:
 
@@ -16,35 +16,37 @@ Azure provides two solutions for implementing directory and identity services in
 
 The next sections describe each of these options in more detail.
 
-## Integrate your on-premises domains with Azure AD
+<a name='integrate-your-on-premises-domains-with-azure-ad'></a>
 
-Use Azure Active Directory (Azure AD) to create a domain in Azure and link it to an on-premises AD domain.
+## Integrate your on-premises domains with Microsoft Entra ID
 
-The Azure AD directory is not an extension of an on-premises directory. Rather, it's a copy that contains the same objects and identities. Changes made to these items on-premises are copied to Azure AD, but changes made in Azure AD are not replicated back to the on-premises domain.
+Use Microsoft Entra ID to create a domain in Azure and link it to an on-premises AD domain.
 
-You can also use Azure AD without using an on-premises directory. In this case, Azure AD acts as the primary source of all identity information, rather than containing data replicated from an on-premises directory.
+The Microsoft Entra directory is not an extension of an on-premises directory. Rather, it's a copy that contains the same objects and identities. Changes made to these items on-premises are copied to Microsoft Entra ID, but changes made in Microsoft Entra ID are not replicated back to the on-premises domain.
+
+You can also use Microsoft Entra ID without using an on-premises directory. In this case, Microsoft Entra ID acts as the primary source of all identity information, rather than containing data replicated from an on-premises directory.
 
 **Benefits**
 
-- You don't need to maintain an AD infrastructure in the cloud. Azure AD is entirely managed and maintained by Microsoft.
-- Azure AD provides the same identity information that is available on-premises.
+- You don't need to maintain an AD infrastructure in the cloud. Microsoft Entra ID is entirely managed and maintained by Microsoft.
+- Microsoft Entra ID provides the same identity information that is available on-premises.
 - Authentication can happen in Azure, reducing the need for external applications and users to contact the on-premises domain.
 
 **Challenges**
 
-- You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized.
-- Applications may need to be rewritten to enable authentication through Azure AD.
-- If you wish to authenticate service and computer accounts, you will have to also deploy [Azure Active Directory Domain Services](/azure/active-directory-domain-services/).
+- You must configure connectivity with your on-premises domain to keep the Microsoft Entra directory synchronized.
+- Applications may need to be rewritten to enable authentication through Microsoft Entra ID.
+- If you wish to authenticate service and computer accounts, you will have to also deploy [Microsoft Entra Domain Services](/azure/active-directory-domain-services/).
 
 **Reference architecture**
 
-- [Integrate on-premises Active Directory domains with Azure Active Directory][aad]
+- [Integrate on-premises Active Directory domains with Microsoft Entra ID][aad]
 
 ## AD DS in Azure joined to an on-premises forest
 
 Deploy AD Domain Services (AD DS) servers to Azure. Create a domain in Azure and join it to your on-premises AD forest.
 
-Consider this option if you need to use AD DS features that are not currently implemented by Azure AD.
+Consider this option if you need to use AD DS features that are not currently implemented by Microsoft Entra ID.
 
 **Benefits**
 
