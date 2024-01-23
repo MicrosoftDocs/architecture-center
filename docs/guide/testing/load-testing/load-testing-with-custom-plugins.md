@@ -1,18 +1,16 @@
 ---
-### YamlMime:Architecture
-metadata:
-    title: Azure Load Testing with Custom Plugins to Simulate Device Behaviors
-    description: Learn about designing KPIs and developing a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors
-    author: msetbar
-    ms.author: msetayesh
-    ms.date: 01/19/2024
-    ms.topic: conceptual
-    ms.service: architecture-center
-    ms.subservice: guide
-    ms.custom: load-testing
-    categories: azure
-    products:
-    - load-testing
+title: Azure Load Testing with Custom Plugins to Simulate Device Behaviors
+description: Learn about designing KPIs and developing a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.
+author: msetbar
+ms.author: msetayesh
+ms.date: 01/19/2024
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: guide
+ms.custom: load-testing
+categories: azure
+products:
+- load-testing
 ---
 
 # Azure Load Testing with custom plugins
@@ -45,7 +43,7 @@ In this example, the data flow is as follows:
 In this example, the following components are used:
 
 - **[Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Azure Load Testing lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. It provides a web-based interface for managing and running load tests and a set of APIs that can be used to automate the process. Azure Load Testing is a fully managed service, which means that you don't need to worry about managing servers or infrastructure. You can upload your JMeter scripts and custom plugins, and Azure Load Testing handles the rest.
-- **[Azure Event Hubs](/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Event Hubs supports multiple protocols, including AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport), and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves.
+- **[Azure Event Hubs](/azure/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Event Hubs supports multiple protocols, including AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport), and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves.
 - **[Azure Functions](/azure/azure-functions/functions-overview)**: Azure Functions is a serverless compute service that lets you run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. Azure Functions can be used to process events and streaming data from Event Hubs, as well as other sources like Azure Storage and Azure Cosmos DB.
 - **[JMeter GUI](https://jmeter.apache.org/download_jmeter.cgi)**: JMeter GUI is an open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, and databases.
 - **[Azure Monitor](/azure/azure-monitor/overview)**: Azure Monitor provides monitoring and alerting capabilities for Azure resources. It lets you monitor the performance and health of your applications and the underlying infrastructure as well. Azure Monitor can be used to monitor Event Hubs and Azure Functions, as well as other Azure services like Azure Storage and Azure Cosmos DB.
@@ -170,7 +168,7 @@ To create a sample JMeter test script:
 When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then starts the load test as instructed at [Customize a load test with Apache JMeter plugins and Azure Load Testing](/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
 Before running the test, go to the parameter tab, define `EventHubConnectionString`, and then provide the connection string to the event hub.
 
-:::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." border="false" lightbox="load-testing-configuration-parameters.png#lightbox":::
+:::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." border="false" lightbox="images/load-testing-configuration-parameters.png#lightbox":::
 
 ### Performance testing setup for environment
 
@@ -225,7 +223,7 @@ To measure KPIs, you need to have a performance testing strategy. The strategy d
   - The DF is the dependency failure count including internal Azure function errors.
   - Azure Monitor service can measure AMU, ARS, and DF, but not IR, RT, or SR.
 
-In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
+In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights integration](/azure/azure-functions/functions-monitoring?tabs=cmd#application-insights-integration).
 
 After enabling Azure Monitor service, you can use the following queries to measure KPIs:
 
@@ -243,7 +241,7 @@ Here's a sample of Azure Monitor dashboard that shows the KPIs for Azure Functio
 
 In this article, you learned how to design KPIs and develop a dashboard for Azure Load Test. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a continuous integration and delivery (CI/CD) pipeline for your load testing scripts using Azure DevOps.
 
-For more information, see [Azure Load Testing](https://docs.microsoft.com/azure/load-testing/).
+For more information, see [Azure Load Testing](/azure/load-testing/).
 
 ## Contributors
 
@@ -266,7 +264,7 @@ Principal author:
 ## Related resources
 
 - [Load testing your Azure App Service applications](/azure/load-testing/concept-load-test-app-service)
-- [Quickstart: Create and run a load test with Azure Load Testing](azure/load-testing/quickstart-create-and-run-load-test?tabs=portal)
-- [Load test a website by using a JMeter script in Azure Load Testing](azure/load-testing/how-to-create-and-run-load-test-with-jmeter-script?tabs=portal)
+- [Quickstart: Create and run a load test with Azure Load Testing](/azure/load-testing/quickstart-create-and-run-load-test)
+- [Load test a website by using a JMeter script in Azure Load Testing](/azure/load-testing/how-to-create-and-run-load-test-with-jmeter-script)
 - [Quickstart: Automate an existing load test with CI/CD](/azure/load-testing/quickstart-add-load-test-cicd)
 - [Tutorial: Run a load test to identify performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
