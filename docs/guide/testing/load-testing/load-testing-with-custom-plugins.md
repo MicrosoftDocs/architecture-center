@@ -23,7 +23,9 @@ This solution provides guidance for how to use Azure Load Testing, a service tha
 
 ## Architecture
 
-To perform load testing, you need a test plan, which is a set of instructions that tell JMeter what to do during the test. The test plan can include multiple test scenarios, each with different settings and configurations. For example, you might have one scenario that simulates a single user accessing a web application, and another scenario that simulates multiple users simultaneously accessing the same application. The test plan can also include multiple test cases, each with different settings and configurations. In our case, we assume that there's a device that is reporting temperature and humidity in a period of time. The device is sending the data to an event hub in Azure. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
+To perform load testing, you need a test plan, which is a set of instructions that tells JMeter what to do during the test. The test plan can include multiple test scenarios, each with different settings and configurations. For example, you might have one scenario that simulates a single user accessing a web application, and another scenario that simulates multiple users simultaneously accessing the same application.
+
+The test plan can also include multiple test cases, each with different settings and configurations. In our case, we assume that there's a device that is reporting temperature and humidity during a certain period of time. The device is sending the data to an event hub in Azure. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
 
 :::image type="content" source="images/load-testing-architecture.svg" alt-text="Diagram of a sample architecture for load testing." border="false" lightbox="images/load-testing-architecture.svg#lightbox":::
 
@@ -33,48 +35,53 @@ To perform load testing, you need a test plan, which is a set of instructions th
 
 In this example, the data flow is as follows:
 
-1. A simulated device sends data to an event hub through Azure Load Testing agent. Any behavior of the device can be simulated using JMeter custom plugins. Azure Load Test agent will be responsible for sending data to the event hub after running the custom plugin for any types of simulated devices.
-1. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database and Azure Digital Twins.
+1. A simulated device sends data to an event hub through Azure Load Testing agent. Any behavior of the device can be simulated using JMeter custom plugins. Azure Load Test agent is responsible for sending data to the event hub after running the custom plugin for any types of simulated devices.
+1. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services, such as Azure SQL Database and Azure Digital Twins.
 1. Azure Monitor service is used to monitor the Azure Function and Event Hubs.
-1. Azure Load Testing service collects the data from Azure Monitor service and then display it in a dashboard.
+1. Azure Load Testing service collects the data from Azure Monitor service and then displays it in a dashboard.
 
 ### Components
 
 In this example, the following components are used:
 
-- **[Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Azure Load Testing is a service that lets you run Apache JMeter scripts and custom plugins to simulate user/device behaviors. It provides a web-based interface for managing and running load tests and a set of APIs that can be used to automate the process. Azure Load Testing is a fully managed service, which means that you don't need to worry about managing servers or infrastructure. You can upload your JMeter scripts and custom plugins, and Azure Load Testing handles the rest.
-- **[Azure Event Hubs](/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Event Hubs supports multiple protocols, including: AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport) and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves.
-- **[Azure Functions](/azure/azure-functions/functions-overview)**: Azure Functions is a serverless compute service that lets you run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. Azure Functions can be used to process events and streaming data from Event Hubs, as well as other sources such as Azure Storage and Azure Cosmos DB.
-- **[JMeter GUI](https://jmeter.apache.org/download_jmeter.cgi)**: JMeter GUI is an open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
-- **[Azure Monitor](/azure/azure-monitor/overview)**: Azure Monitor is a service that provides monitoring and alerting capabilities for Azure resources. It lets you monitor the performance and health of your applications and the underlying infrastructure as well. Azure Monitor can be used to monitor Event Hubs and Azure Functions, as well as other Azure services such as Azure Storage and Azure Cosmos DB.
+- **[Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Azure Load Testing lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. It provides a web-based interface for managing and running load tests and a set of APIs that can be used to automate the process. Azure Load Testing is a fully managed service, which means that you don't need to worry about managing servers or infrastructure. You can upload your JMeter scripts and custom plugins, and Azure Load Testing handles the rest.
+- **[Azure Event Hubs](/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Event Hubs supports multiple protocols, including AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport), and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves.
+- **[Azure Functions](/azure/azure-functions/functions-overview)**: Azure Functions is a serverless compute service that lets you run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. Azure Functions can be used to process events and streaming data from Event Hubs, as well as other sources like Azure Storage and Azure Cosmos DB.
+- **[JMeter GUI](https://jmeter.apache.org/download_jmeter.cgi)**: JMeter GUI is an open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, and databases.
+- **[Azure Monitor](/azure/azure-monitor/overview)**: Azure Monitor provides monitoring and alerting capabilities for Azure resources. It lets you monitor the performance and health of your applications and the underlying infrastructure as well. Azure Monitor can be used to monitor Event Hubs and Azure Functions, as well as other Azure services like Azure Storage and Azure Cosmos DB.
 
 ## Scenario details
 
-Azure Load Testing lets you take an existing Apache JMeter script, and use it to run a load test at cloud scale on any Azure resources.
-JMeter is a popular open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
+Azure Load Testing lets you take an existing Apache JMeter script, and use it to run a load test at cloud scale on any Azure resource.
+
 JMeter lets testers create and execute load tests, stress tests, and functional tests. It simulates multiple users simultaneously accessing a web application, enabling testers to identify potential performance bottlenecks or other issues that might arise under heavy loads. JMeter can be used to measure various performance metrics, such as response time, throughput, and error rate.
-JMeter uses a GUI-based interface to allow users to create test plans, which can include multiple test scenarios, each with different settings and configurations. Testers can also customize JMeter using plugins or by writing custom code, allowing them to extend its functionality beyond what comes out of the box. The plugins can help us to work with services that use nonhttp protocols, such as AMQP and Websocket.
 
-While JMeter provides a wide range of features and functions for load testing, there might be specific use cases or requirements that aren't covered by the built-in functionality.
-By developing custom plugins, testers can add new functionality or customize existing features to better suit their needs. For example, a custom plugin could be developed to simulate a specific type of user behavior or to generate more realistic test data. Additionally, custom plugins can be developed to integrate JMeter with other tools or systems, such as logging and reporting tools or continuous integration and deployment pipelines. The custom plugins can help streamline the testing process and make it easier to incorporate load testing into the overall software development workflow. Overall, they allow testers to tailor JMeter to their specific needs and improve the accuracy and effectiveness of their load testing efforts.
+JMeter uses a GUI-based interface to allow users to create test plans, which can include multiple test scenarios, each with different settings and configurations. Testers can also customize JMeter using plugins or by writing custom code, allowing them to extend its functionality beyond what comes out of the box. The plugins can help us to work with services that use non-HTTP protocols, such as AMQP and Websocket.
 
-In this example, we assume that there's a device that is reporting temperature and humidity in a period of time. We can simulate this simple behavior using a custom JMeter plugin. In the current implementation of the custom plugin provided [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar), we generate a random data using a provided template. However, the plugin can contain any possible complex behavior for any devices. In this example, the device is sending the data to an event hub in Azure. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
+While JMeter provides a wide range of features and functions for load testing, there might be specific use cases or requirements that aren't covered by the built-in functionality. By developing custom plugins, testers can add new functionality or customize existing features to better suit their needs
+
+For example, a custom plugin could be developed to simulate a specific type of user behavior or to generate more realistic test data. Additionally, custom plugins can be developed to integrate JMeter with other tools or systems, such as logging and reporting tools or continuous integration and deployment pipelines. The custom plugins can help streamline the testing process and make it easier to incorporate load testing into the overall software development workflow. Overall, they allow testers to tailor JMeter to their specific needs and improve the accuracy and effectiveness of their load testing efforts.
+
+In this example, we assume that there's a device that is reporting temperature and humidity over a set period of time. We can simulate this simple behavior using a custom JMeter plugin. In the [current implementation of the custom plugin provided here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar), we generate a random data using a provided template. However, the plugin can contain any possible complex behavior for any devices. In this example, the device is sending the data to an event hub in Azure. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services, such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
 
 ### Potential use cases
 
 Using Azure Load Testing with custom plugins can be useful in various scenarios, such as:
 
-- Testing the performance of an application that uses nonhttp protocols, such as AMQP and Websocket.
+- Testing the performance of an application that uses non-HTTP protocols, such as AMQP and Websocket.
 - Testing the performance of an application that uses a custom protocol.
 - Testing the performance of an application that uses a non-Microsoft SDK.
-- Simulating a specific type of user/device behavior or generating more realistic test data.
+- Simulating a specific type of user or device behavior, or generating more realistic test data.
 
 ### Custom plugins
 
 Custom plugins in the context of JMeter are software components that can be added to JMeter to extend its functionality beyond what comes out of the box. Users or non-Microsoft developers can develop custom plugins to add new features, functions, or integrations to JMeter. Custom plugins can be developed using Java programming language and the JMeter Plugin Development Kit (PDK). The PDK provides a set of tools and APIs that make it easier to create new plugins, including GUI elements, listeners, and samplers.
-Custom plugins can add a wide range of functionality to JMeter, such as new load testing samplers, visualizers, and listeners. They can also integrate JMeter with other systems, such as logging and reporting tools, or enable the use of other data sources for test data. Overall, custom plugins allow users to extend JMeter to meet their specific needs and improve the accuracy and effectiveness of their load testing efforts.
 
-To implement a custom sampler for Event Hubs in JMeter, follow the instruction provided [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development). Once your custom sampler is implemented, you can use it in your JMeter test plan in Azure Load Test just like any other sampler. A test plan can be implemented using a Thread Group that controls the number of threads (virtual users/devices) to execute a specific scenario. Each Thread Group can have different settings for the number of threads, ramp-up period, loop count, and duration. Thread Groups can be run either sequentially or in parallel, depending on the test plan configuration and the application requirements. You can add the sampler to a Thread Group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter, allowing you to simulate complex scenarios and requests that the built-in samplers don't support.
+Custom plugins can add a wide range of functionality to JMeter. They can also integrate JMeter with other systems, such as logging and reporting tools, or enable the use of other data sources for test data. Overall, custom plugins let users extend JMeter to meet their specific needs and improve the accuracy and effectiveness of their load testing efforts.
+
+To implement a custom sampler for Event Hubs in JMeter, follow the instruction provided at [Azure Load Testing Plugins](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development). Once your custom sampler is implemented, you can use it in your JMeter test plan in Azure Load Test just like any other sampler.
+
+A test plan can be implemented using a thread group that controls the number of threads (virtual users and devices) to execute a specific scenario. Each thread group can have different settings for the number of threads, ramp-up period, loop count, and duration. Thread groups can be run either sequentially or in parallel, depending on the test plan configuration and the application requirements. You can add the sampler to a thread group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter, allowing you to simulate complex scenarios and requests that the built-in samplers don't support.
 
 ### Create an Apache JMeter script with custom plugin
 
@@ -84,13 +91,11 @@ To create a sample JMeter test script:
 
 1. Create a *LoadTest.jmx* file on your local machine:
 
-```bash
-touch LoadTest.jmx
-```
+   ```bash
+   touch LoadTest.jmx
+   ```
 
-1. Open *LoadTest.jmx* in a text editor and paste the following code snippet in the file:
-
-    This script simulates a load test of 36 virtual machines that simultaneously send events to an event hub, and takes 10 minutes to complete.
+1. Open *LoadTest.jmx* in a text editor and paste the following code snippet in the file. This script simulates a load test of 36 virtual machines that simultaneously send events to an event hub, and takes 10 minutes to complete:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -133,36 +138,37 @@ touch LoadTest.jmx
     </jmeterTestPlan>
     ```
 
-The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
+   The implementation of `com.microsoft.eventhubplugin.EventHubPluginGui` and `com.microsoft.eventhubplugin.EventHubPlugin` are available at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins).
 
-1. In the file, set the value of the `eventHubConnectionVarName` node to the variable name that specifies Event Hubs connection string host. For example, if you want the environment variable that stores the connection string of Event Hubs to be `EventHubConnectionString`, set this variable to `EventHubConnectionString` and then set the value of environmental variable.
+1. In the file, set the value of the `eventHubConnectionVarName` node to the variable name that specifies Event Hubs connection string host. For example, if you want the environment variable that stores the connection string of Event Hubs to be `EventHubConnectionString`, set this variable to `EventHubConnectionString` and then set the value of the environmental variable.
 
     > [!IMPORTANT]
     > Make sure the value of `EventHubConnectionString` has been set as a part of Azure load test creation process before running the load test script.
-1. In the file, set the value of the `eventHubName` node to the event hub name. For example, `telemetry-data-changed-eh`.
+
+1. In the file, set the value of the `eventHubName` node to the event hub name, such as `telemetry-data-changed-eh`.
 1. Set the value of the `liquidTemplateFileName` node to the file containing the message that is sent to the event hub. For example, create a file named `StreamingDataTemplate.liquid` as:
 
-```json
-{
-    {% assign numberOfMachines = 36 %}
-    {% assign machineId = dataGenerator.randomNaturalNumber | modulo: numberOfMachines %}
-    "MachineId": "{{machineId | prepend: '0000000000000000000000000000000000000000' | slice: -27, 27 }}"
-    "Temperature": {{dataGenerator.randomInt | modulo: 100 }},
-    "Humidity": {{dataGenerator.randomInt | modulo: 100 }}
-}
-```
+   ```json
+   {
+       {% assign numberOfMachines = 36 %}
+       {% assign machineId = dataGenerator.randomNaturalNumber | modulo: numberOfMachines %}
+       "MachineId": "{{machineId | prepend: '0000000000000000000000000000000000000000' | slice: -27, 27 }}"
+       "Temperature": {{dataGenerator.randomInt | modulo: 100 }},
+       "Humidity": {{dataGenerator.randomInt | modulo: 100 }}
+   }
+   ```
 
-In this example, the payload for the event hub message is a json object with three properties including `MachineId`, `Temperature` and `Humidity` where `MachineId` is a randomly generated ID with the length of 27, `Temperature` and `Humidity` is a random integer less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Overall, Liquid templates offer a powerful and flexible way to create dynamic, customizable messages.
+   In this example, the payload for the event hub message is a JSON object with three properties including `MachineId`, `Temperature`, and `Humidity` where `MachineId` is a randomly generated ID with the length of 27, and `Temperature` and `Humidity` are random integers less than 100. This file is a liquid template syntax. Liquid template is a popular templating language that is used in various web development frameworks. Liquid templates enable developers to create dynamic content that can be easily updated and modified. They allow you to insert variables, conditions, loops, and other dynamic elements into your event hub messages. The syntax is straightforward, and there are plenty of online resources available to help you get started. Overall, Liquid templates offer a powerful and flexible way to create dynamic, customizable messages.
 
 1. Save and close the file.
 
     > [!IMPORTANT]
-    > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
+    > Don't include any personal data in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test results dashboard. A sample of a liquid template along with the JMeter script file is available to download at [Azure Samples](https://github.com/Azure-Samples/load-testing-jmeter-plugins/tree/main/samples/eventhubplugin)
 
 ### Run the load test using new plugin
 
-When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then starts the load test as instructed [here](https://learn.microsoft.com/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
-Before running the test, go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to the event hub.
+When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then starts the load test as instructed at [Customize a load test with Apache JMeter plugins and Azure Load Testing](/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
+Before running the test, go to the parameter tab, define `EventHubConnectionString`, and then provide the connection string to the event hub.
 
 :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." border="false" lightbox="load-testing-configuration-parameters.png#lightbox":::
 
@@ -170,7 +176,7 @@ Before running the test, go to the parameter tab, define `EventHubConnectionStri
 
 In any performance testing, it's important to have a similar environment to the production environment. In this example, the following environment is used for performance testing in order to better understand the system capacity and the performance of the system.
 
-As per the sample architecture, the following services could be used for performance testing:
+Per the sample architecture, the following services could be used for performance testing:
 
 | Service | Configuration |
 | ----------- | ----------- |
@@ -178,7 +184,7 @@ As per the sample architecture, the following services could be used for perform
 | Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
 | Region | East US |
 
-Choosing the right service tier for any Azure services including Event Hubs and Azure Functions is a complex process and depends on many factors. For more information, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+Choosing the right service tier for any Azure services, including Event Hubs and Azure Functions, is a complex process and depends on many factors. For more information, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ### Designing KPIs for performance testing
 
@@ -189,14 +195,14 @@ In this example, the business requirements are:
 - The system should be able to handle 1,000 requests per second.
 - The system reliability should be higher than 0.99.
 - The system should be able to handle 1,000 concurrent devices reporting their personal data information.
-- What is the maximum capacity of the system in terms of the number of devices that can be supported? For example, can the system with 3x of the current capacity support 1,000 concurrent devices?
+- Specifying the maximum capacity of the system in terms of the number of devices that can be supported. For example, can the system with 3x of the current capacity support 1,000 concurrent devices?
 
 As per these requirements, the KPIs for performance testing could be:
 
 | KPI | Description |
 | ----------- | ----------- |
 | RPS |  Request Per Second for an event hub  |
-| LOAD |  Number of loads/requests sent to the event hub during performance testing |
+| LOAD |  Number of loads or requests sent to the event hub during performance testing |
 | IR | Number of function executions or ingestion rate |
 | RT | Average time for Azure Function Execution Time |
 | AMU | Average Memory Usage for Azure Functions |
@@ -207,7 +213,7 @@ As per these requirements, the KPIs for performance testing could be:
 
 ### How to measure KPIs
 
-In order to measure KPIs, you need to have a performance testing strategy. The strategy defines the performance testing approach for each component. In this example, the following performance testing strategy is used:
+To measure KPIs, you need to have a performance testing strategy. The strategy defines the performance testing approach for each component. In this example, the following performance testing strategy is used:
 
 - Event Hubs: The performance testing approach for the event hub is to send many messages to the event hub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to the event hub per second. The LOAD is the total number of messages that are sent to the event hub during the performance testing. Azure Load Testing service can measure RPS and LOAD.
 - Azure Functions: The performance testing approach for Azure Functions is to measure the following metrics:
@@ -217,7 +223,7 @@ In order to measure KPIs, you need to have a performance testing strategy. The s
   - The SR is the success rate of all function executions.
   - The ARS is the average downstream service response time.
   - The DF is the dependency failure count including internal Azure function errors.
-  - Azure Monitor service can measure AMU, ARS and DF, but not IR, RT and SR.
+  - Azure Monitor service can measure AMU, ARS, and DF, but not IR, RT, or SR.
 
 In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
 
@@ -241,9 +247,9 @@ For more information, see [Azure Load Testing](https://docs.microsoft.com/azure/
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Mahdi Setayesh](https://www.linkedin.com/in/mahdi-setayesh-a03aa644/) | Principal Software Engineer
 
