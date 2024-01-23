@@ -30,7 +30,7 @@ The solution architecture implements the following workflow:
 
 This flow explains how a user would use the tool:
 
-1. The user browses to the Azure web app Url to access the html report of the visualizer.
+1. The user browses to the Azure App Service URL to access the HTML report of the visualizer. The user is required to authenticate through Microsoft Entra ID authorization.
 2. The user can start drilling down through the various insights provided by the visualizer.
 
 ## Components
