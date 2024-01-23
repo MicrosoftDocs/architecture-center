@@ -12,7 +12,7 @@ An example implementation is available on GitHub at [Azure Governance Visualizer
 
 ## Architecture
 
-[![Diagram showing the architecutre of the Azure Governance Visualizer accelerator.](images/AzGovViz-accelerator-architecture.png)](images/AzGovViz-accelerator-architecture.png)
+[![Diagram showing the architecutre of the Azure Governance Visualizer accelerator.](images/AzGovViz-accelerator-architecture.svg)](images/AzGovViz-accelerator-architecture.svg)
 *Figure 1. Azure Governance Visualizer accelerator architecture.*
 
 ## Workflow
