@@ -24,7 +24,7 @@ The solution architecture implements the following workflow:
 1. A timer triggers the GitHub Actions flow.
 2. The flow makes an OpenID Connect connection to Azure. It then runs the Azure Governance Visualizer (AzGovViz) tool. The tool collects the required insights in the form of HTML, MD and CSV reports.
 3. The reports are pushed to the GitHub repository.
-4. The output of the AzGovViz tool in HTML format is published to the created Azure web app that is protected by Entra ID authentication.
+4. The HTML output of the AzGovViz tool is published to an Azure App Service.
 
 ### User flow
 
