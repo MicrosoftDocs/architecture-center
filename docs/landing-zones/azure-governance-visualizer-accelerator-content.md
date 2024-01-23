@@ -6,7 +6,7 @@ Organizations use the Azure Governance Visualizer to capture pertinent governanc
 - Azure security and best practice analysis.
 - Microsoft Entra ID insights.
 
-Azure Governance Visualizer runs in an automated way through Azure pipelines or GitHub actions. The generated HTML report might be better served through a hosting platform that is reachable by more staff in the organization. This article shows how to securely host the reporting output both securely and cost effectively on Azure Web Apps.
+The Azure Governance Visualizer accelerator runs the visualizer in an automated way through Azure pipelines or GitHub actions. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report would be easily accessible to authorized users in the organization. This article shows how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on Azure Web Apps.
 
 An example implementation is available on GitHub at [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
@@ -21,17 +21,17 @@ An example implementation is available on GitHub at [Azure Governance Visualizer
 
 The solution architecture implements the following workflow:
 
-1. The user prepares all the prerequisites needed by either running the provided powerShell commands or through the portal.
-2. A GitHub workflow is triggered to deploy the needed Azure infrastructure including an Azure web app.
-3. A GitHub workflow is triggered to deploy the Azure Governance Visualizer (AzGovViz) tool. This workflow runs the tool once it's deployed to start collecting all the needed insights from your tenant.
-4. The output of the AzGovViz tool in HTML format is published to the created Azure web app that is protected by Entra ID authentication.
+1. A timer triggers the GitHub Actions flow.
+2. The flow makes an OpenID Connect connection to Azure. It then runs the Azure Governance Visualizer (AzGovViz) tool. The tool collects the required insights in the form of HTML, MD and CSV reports.
+3. The reports are pushed to the GitHub repository.
+4. The HTML output of the AzGovViz tool is published to an Azure App Service.
 
 ### User flow
 
 This flow explains how a user would use the tool:
 
-1. The user browses to the Azure web app Url to access the html report of the visualizer.
-2. The user can start drilling down through the various insights provided by the visualizer.
+1. The user browses to the Azure App Service URL to access the HTML report of the visualizer. The user is required to authenticate through Microsoft Entra ID authorization.
+2. The user can review the insights provided by the visualizer.
 
 ## Components
 
