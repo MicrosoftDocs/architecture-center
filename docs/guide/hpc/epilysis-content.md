@@ -1,8 +1,8 @@
-# Deploy BETA CAE EPILYSIS on Azure Virtual Machines
+This article presents the performance results of running the [BETA CAE EPILYSIS](https://www.beta-cae.com/epilysis.htm) application on an Azure virtual machine (VM). EPILYSIS is a software program that is used to perform several types of finite element analysis on various structures and materials.
 
-This article presents the performance results of running the [BETA CAE EPILYSIS](https://www.beta-cae.com/epilysis.htm) application on Azure Virtual Machines (VM). EPILYSIS is a software program that is used to perform several types of finite element analysis on various structures and materials. It can help engineers design and optimize products. It can also work with other tools such as ANSA and META for simulation and optimization. The solver can handle various solution types from structural, NVH (noise, vibration, and harshness), optimization and more.
+Engineers use EPILYSIS to help design and optimize products. EPILYSIS can be combined with other tools, such as ANSA and META, to optimize simulations. The solver covers various solution types, like structural, NVH (noise, vibration, and harshness), optimization, and more.
 
-EPILYSIS is used in aerospace, automotive, defense, high tech, and industrial equipment industries.
+EPILYSIS is used in the aerospace, automotive, defense, high-tech, and industrial equipment industries.
 
 ## Why deploy EPILYSIS on Azure?
 
@@ -15,7 +15,7 @@ Deploy EPILYSIS on Azure to get benefits like:
 
 ## Architecture
 
-:::image type="content" source="./media/epilysis/hpc-epilysis-single.svg" alt-text="Diagram that shows architecture for running BETA CAE EPILYSIS on Azure." border="false" lightbox="./media/hpc-epilysis-single.svg":::
+:::image type="content" source="./media/epilysis/hpc-epilysis-single.svg" alt-text="Diagram that shows architecture for running BETA CAE EPILYSIS on Azure." border="false" lightbox="./media/epilysis/hpc-epilysis-single.svg":::
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-epilysis-single.vsdx) of this architecture.*
 
 ## Components
@@ -32,7 +32,7 @@ Deploy EPILYSIS on Azure to get benefits like:
 
 ## Compute sizing and drivers
 
-The performance tests of EPILYSIS on Azure used an [HBv3-series](/azure/virtual-machines/hbv3-series) VM and Eadsv5-series VM running on a Linux operating system.
+The performance tests of EPILYSIS on Azure used an [HBv3-series](/azure/virtual-machines/hbv3-series) VM and [Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series) VM running on a Linux operating system.
 
 - HBv3-series VMs are optimized for HPC applications like fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
@@ -44,7 +44,7 @@ The following table provides the configuration details for [HBv3-series](/azure/
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | HBv3 | Standard_HB120-16rs_v3 | 16 | 448 | 2\*960 | 32 | 8 |
 | HBv3 | Standard_HB120-32rs_v3 | 32 | 448 | 2\*960 | 32 | 8 |
-| Eadsv5 | Standard_E64ads_v5<sup>2</sup> | 64 | 512 | 2400 | 32 | 8 |
+| Eadsv5 | Standard_E64ads_v5 | 64 | 512 | 2400 | 32 | 8 |
 
 Performance test details for EPILYSIS are mentioned in the EPILYSIS performance results on HBv3-series VMs and EPILYSIS performance results on performance on Eadsv5-series VMs sections respectively.
 
@@ -58,15 +58,15 @@ EPILYSIS version 23.1.1 was used for testing the 101_large_7million model.
 
 The following table provides details about the computing environment that was used for testing.
 
-| VM series | Operating system version | Operating System architecture | Processor | MPI |
+| VM series | Operating system version | Operating system architecture | Processor | MPI |
 |:---:|:---:|:---:|:---:|:---:|
 | Eadsv5 | Linux CentOS 7.9 HPC Gen2 | X86-64 | AMD EPYC 7763v | Open MPI 4.1.1 |
 | HBv3 | Linux CentOS 7.9 HPC Gen2 | X86-64 | AMD EPYC 7V73X | Open MPI 4.1.1 |
 
 >![Important]
->The version of Linux discussed in this article will be discontinued in 2024. Tests that are performed on newer Linux images that include the same drivers are expected to produce similar results.
+>The version of Linux discussed in this article will be discontinued in 2024. Tests that are performed on newer versions of Linux that include the same drivers are expected to produce similar results.
 
-### Model details
+#### Model details
 
 The 101_large_7million model is used for EPILYSIS solver validation. This model is set up for a linear static analysis (solution 101). A *linear static analysis* is an analysis where a linear relation holds between applied forces and displacements. The following image shows the 101_large_7million model.
 
@@ -91,7 +91,7 @@ The following table shows the details of each test on a HBv3-series VM. As the n
 | | 16 | 16 | 1420 | 3.90 |
 | Standard_HB120-32rs_v3 | 32 | 20 | 1393 | 3.98 |
 
-The following chart shows the relative speed increase goes up as you increase the vCPUs. However, it begins to plateau at 16 vCPUs:
+The following graph shows how the relative speed increases as you increase the vCPUs. It begins to plateau at 16 vCPUs.
 
 :::image type="content" source="./media/epilysis/relative-speed-increase.png" alt-text="Graph that shows the relative speed increase.":::
 
@@ -110,9 +110,9 @@ The table illustrates that as the number of vCPUs used increases, the total elap
 
 ## Azure cost
 
-The following table provides estimated running time that you can use to calculate Azure costs. To compute the cost, multiply the estimated time by the Azure VM hourly rate. For the hourly rates for Linux, see [Linux virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Azure VM hourly rates are subject to change.
+The following table provides estimated runtimes that you can use to calculate Azure costs. To compute the cost, multiply the estimated time by the Azure VM hourly rate. For the hourly rates for Linux, see [Linux virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Azure VM hourly rates are subject to change.
 
-Only simulation running time is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included. You can use the  [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configurations.
+The cost calculations factor in only the simulation runtime. The installation time, simulation setup time, and software costs aren't included. You can use the  [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configurations.
 
 | VM size | vCPUs used | Elapsed time (hours) |
 |:---:|:---:|:---:|
@@ -122,7 +122,7 @@ Only simulation running time is considered for the cost calculations. Installati
 | | 8 | 0.45 |
 | | 16 | 0.39 |
 | Standard_HB120-32rs_v3 | 20 | 0.39 |
-| Standard_E64ads_v52 | 1 | 1.68 |
+| Standard_E64ads_v5 | 1 | 1.68 |
 | | 2 | 0.97 |
 | | 4 | 0.61 |
 | | 8 | 0.42 |
@@ -131,15 +131,15 @@ Only simulation running time is considered for the cost calculations. Installati
 
 ## Summary
 
-- Considering the wide uses of BETA CAE EPILYSIS, benchmarking suite is created using HBv3 and Eadsv5 series virtual machines on Azure platform.
+- The HBv3 and Eadsv5-series VMs on Azure were used to create a benchmarking suite, which is one of the many uses of EPILYSIS.
 
-BETA CAE EPILYSIS's performance was evaluated on two HBv3-series virtual machines (Standard_HB120-16rs_v3 and Standard_HB120-32rs_v3) and one Eadsv5-series virtual machine (Standard_E64ads_v5<sup>2</sup>).
+- EPILYSIS's performance was evaluated on two HBv3-series VMs (Standard_HB120-16rs_v3 and Standard_HB120-32rs_v3) and one Eadsv5-series VM (Standard_E64ads_v5).
 
-When using HBv3-series virtual machines, a performance improvement of approximately 4X is observed when the vCPU count is increased up to 20 vCPUs, using the performance of a single vCPU as a baseline.
+- On the HBv3-series VM, performance improves approximately 4X when the vCPU count is increased up to 20 vCPUs, using a single vCPU as a baseline.
 
-In a similar vein, Eadsv5-series virtual machines show an approximate 5X increase in performance when the vCPU count is increased up to 20 vCPUs, again considering the performance of a single vCPU as a baseline.
+- Similarly, on the Eadsv5-series VM, performance improves approximately 5X when the vCPU count is increased up to 20 vCPUs, using a single vCPU as a baseline.
 
-A validation study reveals that Eadsv5-series virtual machines with 20 vCPUs are 19% more performance efficient compared to HBv3-series virtual machines with the same number of vCPUs.
+- According to a validation study, the performance of a Eadsv5-series VM with 20 vCPUs is 19% more efficient compared to a HBv3-series VM with the same number of vCPUs.
 
 ## Contributors
 
@@ -149,12 +149,13 @@ Principal authors:
 
 - [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
 - [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
-- Shivakumar Tallolli | HPC Performance Engineer
 - [Rupali Konade](https://www.linkedin.com/in/rupali-konade-3ba2851b2) | HPC Performance Engineer
+- Shivakumar Tallolli | HPC Performance Engineer
 
 Other contributors:
 
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Jodi Martis](https://www.linkedin.com/in/jodimartis) | Technical Writer
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -162,8 +163,8 @@ Other contributors:
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
-- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
+- [Virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
