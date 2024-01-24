@@ -273,7 +273,7 @@ The following table and graph show speed increase, in seconds of chemical reacti
 - On the NCv3 VM, Virtual Reactor scales well up to three GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well only with the one-GPU configuration.
 - On the NCasT4_v3 VM, Virtual Reactor scales well up to four GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well only with the one-GPU configuration.
 - For simulations with large numbers of particles and cells, a single 16-GB GPU might not be sufficient because of memory requirements. In these cases, you must run simulations with two GPUs. For examples of this configuration, see the test case numbers 480, 481, and 482 on the NCv3 and NCasT4_v3 VMs.
-- For small simulations, sometimes there are performance penalties if you use all GPUs on an instance. Instead, you can run concurrent simulations with fewer GPUs for each instance. With this method, you can quickly explore multiple points in the simulation parameter space.
+- For small simulations, sometimes there are performance penalties if you use all GPUs on an instance. Instead, you can run concurrent simulations and divide the GPUs between each instance. With this method, you can quickly explore multiple points in the simulation parameter space.
 
 ## Additional notes about tests on Virtual Reactor 22.0.0
 
@@ -354,11 +354,12 @@ Principal authors:
 
 -   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
     Senior Manager
+-   [Sujata Bhagat](https://www.linkedin.com/in/sujata-bapu-bhagat) | HPC Performance Engineer
 -   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
     Principal Program Manager
 -   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
     HPC Performance Engineer
--   [Sujata Bhagat](https://www.linkedin.com/in/sujata-bapu-bhagat) | HPC Performance Engineer
+
 
 Other contributors:
 
