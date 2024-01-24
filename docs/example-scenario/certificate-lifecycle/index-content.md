@@ -226,6 +226,7 @@ To integrate the solution with your existing environment, you need to perform th
         Register-PSRepository -Default -InstallationPolicy Trusted
         Install-Module Az.Resources -requiredVersion 6.6.0 -Repository PSGallery -Scope AllUsers -Force
         Install-Module Az.Compute -requiredVersion 5.7.0 -Repository PSGallery -Scope AllUsers -Force
+        Install-Module Az.Storage -requiredVersion 5.5.0 -Repository PSGallery -Scope AllUsers -Force
         Install-Module Az.KeyVault -requiredVersion 4.9.2 -Repository PSGallery -Scope AllUsers -Force
         Install-Module Az.Accounts -requiredVersion 2.12.1
         Install-Module PSPKI -Repository PSGallery -Scope AllUsers -Force
