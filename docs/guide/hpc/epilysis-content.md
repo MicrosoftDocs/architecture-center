@@ -93,7 +93,7 @@ The following table shows the details of each test on a HBv3-series VM. As the n
 
 The following graph shows how the relative speed increases as you increase the vCPUs. It begins to plateau at 16 vCPUs.
 
-:::image type="content" source="./media/epilysis/relative-speed-increase.png" alt-text="Graph that shows the relative speed increase.":::
+:::image type="content" source="./media/epilysis/relative-speed-increase.png" alt-text="Graph that shows the relative speed increase for the HBv3-series VM.":::
 
 ### EPILYSIS performance results on Eadsv5-series VMs
 
@@ -107,6 +107,10 @@ The table illustrates that as the number of vCPUs used increases, the total elap
 | | 64 | 8 | 1520 | 3.98 |
 | | 64 | 16 | 1177 | 5.14 |
 | | 64 | 20 | 1122 | 5.39 |
+
+The following graph shows how the relative speed increases as you increase the vCPUs.
+
+:::image type="content" source="./media/epilysis/relative-speed-increase-2.png" alt-text="Graph that shows the relative speed increase for the Eadsv5-series VM.":::
 
 ## Azure cost
 
