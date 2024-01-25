@@ -3446,11 +3446,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/set-up-azure-devops.yml",
-      "redirect_url": "/devops",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/solution-ideas/articles/devops-in-a-hybrid-environment.yml",
       "redirect_url": "/devops",
       "redirect_document_id": false
