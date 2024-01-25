@@ -41,7 +41,8 @@ There are three main tasks addressed in this stage:
 * **Set up a data pipeline** to score new or regularly refreshed data.
 
 ### Ingest the data
-Set up the process to move the data from the source locations to the target locations where you run analytics operations, like training and predictions. For technical details and options on how to move the data with various Azure data services, see [Load data into storage environments for analytics](ingest-data.md).
+
+Set up the process to move the data from the source locations to the target locations where you run analytics operations, like training and predictions.
 
 ### Explore the data
 Before you train your models, you need to develop a sound understanding of the data. Real-world data sets are often noisy, are missing values, or have a host of other discrepancies. You can use data summarization and visualization to audit the quality of your data and provide the information you need to process the data before it's ready for modeling. This process is often iterative. For guidance on cleaning the data, see [Tasks to prepare data for enhanced machine learning](prepare-data.md).
@@ -49,7 +50,8 @@ Before you train your models, you need to develop a sound understanding of the d
 After you're satisfied with the quality of the cleansed data, the next step is to better understand the patterns that are inherent in the data. This data analysis helps you choose and develop an appropriate predictive model for your target. Look for evidence for how well connected the data is to the target. Then determine whether your team has sufficient data to move forward with the next modeling steps. Again, this process is often iterative. You might need to find new data sources with more accurate or more relevant data to augment the data set initially identified in the previous stage.
 
 ### Set up a data pipeline
-In addition to the initial ingestion and cleaning of the data, you typically need to set up a process to score new data or refresh the data regularly as part of an ongoing learning process. Scoring can be completed with a data pipeline or workflow. The [Move data from a SQL Server instance to Azure SQL Database with Azure Data Factory](move-sql-azure-adf.md) article gives an example of how to set up a pipeline with [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
+
+In addition to the initial ingestion and cleaning of the data, you typically need to set up a process to score new data or refresh the data regularly as part of an ongoing learning process. Scoring can be completed with a data pipeline or workflow. A pipeline using [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) recommended.
 
 In this stage, you develop a solution architecture of the data pipeline. You develop the pipeline in parallel with the next stage of the data science project. Depending on your business needs and the constraints of your existing systems into which this solution is being integrated, the pipeline can be one of the following options:
 
