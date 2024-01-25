@@ -46,7 +46,7 @@ The following table provides the configuration details for [HBv3-series](/azure/
 | HBv3 | Standard_HB120-32rs_v3 | 32 | 448 | 2\*960 | 32 | 8 |
 | Eadsv5 | Standard_E64ads_v5<sup>1</sup> | 64 | 512 | 2400 | 32 | 8 |
 
-<sup>1</sup> [Constrained core sizes available](constrained-vcpu.md)
+<sup>1</sup> [Constrained core sizes available](/azure/virtual-machines/constrained-vcpu)
 
 Performance test details for EPILYSIS are mentioned in the EPILYSIS performance results on HBv3-series VMs and EPILYSIS performance results on performance on Eadsv5-series VMs sections respectively.
 
@@ -110,7 +110,7 @@ The table illustrates that as the number of vCPUs used increases, the total elap
 | Standard_E64ads_v5<sup>1</sup> | 64 | 16 | 1177 | 5.14 |
 | Standard_E64ads_v5<sup>1</sup> | 64 | 20 | 1122 | 5.39 |
 
-<sup>1</sup> [Constrained core sizes available](constrained-vcpu.md)
+<sup>1</sup> [Constrained core sizes available](/azure/virtual-machines/constrained-vcpu)
 
 The following graph shows how the relative speed increases as you increase the vCPUs.
 
@@ -137,7 +137,7 @@ The cost calculations factor in only the simulation runtime. The installation ti
 | Standard_E64ads_v5<sup>1</sup> | 16 | 0.33 |
 | Standard_E64ads_v5<sup>1</sup> | 20 | 0.31 |
 
-<sup>1</sup> [Constrained core sizes available](constrained-vcpu.md)
+<sup>1</sup> [Constrained core sizes available](/azure/virtual-machines/constrained-vcpu)
 
 ## Summary
 
