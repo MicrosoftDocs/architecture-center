@@ -31,7 +31,7 @@ The test plan can also include multiple test cases, each with different settings
 
 ### Dataflow
 
-In this example, the data flow is as follows:
+In this example, the dataflow is as follows:
 
 1. A simulated device sends data to an event hub through Azure Load Testing agent. Any behavior of the device can be simulated using JMeter custom plugins. Azure Load Test agent is responsible for sending data to the event hub after running the custom plugin for any types of simulated devices.
 1. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services, such as Azure SQL Database and Azure Digital Twins.
