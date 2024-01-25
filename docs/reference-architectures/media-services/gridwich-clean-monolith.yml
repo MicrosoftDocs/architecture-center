@@ -2,9 +2,9 @@
 metadata:
   title: Gridwich clean monolith architecture
   titleSuffix: Azure Reference Architectures
-  description: Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.
-  author: bgener
-  ms.author: bogenera
+  description: Learn about the components and libraries in the Gridwich clean monolith architecture and a microservices alternative.
+  author: xpouyat
+  ms.author: xpouyat
   ms.date: 01/23/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
@@ -12,7 +12,7 @@ metadata:
   ms.custom:
     - fcp
 name: Gridwich clean monolith architecture
-summary: Learn about the components and libraries in the Gridwich clean monolith architecture, and a microservices alternative.
+summary: Learn about the components and libraries in the Gridwich clean monolith architecture and a microservices alternative.
 products:
   - azure-event-grid
   - azure-functions

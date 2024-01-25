@@ -3,8 +3,8 @@ metadata:
   title: Gridwich operations for Azure Storage
   titleSuffix: Azure Reference Architectures
   description: Learn about the characteristics of the Gridwich Azure Storage Service.
-  author: martinekuan
-  ms.author: architectures
+  author: xpouyat
+  ms.author: xpouyat
   ms.date: 01/23/2024
   ms.topic: reference-architecture
   ms.service: architecture-center

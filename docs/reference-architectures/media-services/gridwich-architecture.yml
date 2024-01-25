@@ -3,8 +3,8 @@ metadata:
   title: Gridwich cloud media system
   titleSuffix: Azure Reference Architectures
   description: Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.
-  author: martinekuan
-  ms.author: architectures
+  author: xpouyat
+  ms.author: xpouyat
   ms.date: 01/23/2024
   ms.topic: reference-architecture
   ms.service: architecture-center

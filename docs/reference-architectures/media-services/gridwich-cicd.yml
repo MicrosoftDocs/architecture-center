@@ -3,8 +3,8 @@ metadata:
   title: Gridwich CI/CD pipeline
   titleSuffix: Azure Reference Architectures
   description: Learn about the guiding principles and considerations for the Gridwich continuous integration and continuous delivery (CD/CD) pipeline.
-  author: martinekuan
-  ms.author: architectures
+  author: xpouyat
+  ms.author: xpouyat
   ms.date: 01/23/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
