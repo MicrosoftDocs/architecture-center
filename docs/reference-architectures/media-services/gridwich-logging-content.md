@@ -71,7 +71,7 @@ Assigning the appropriate logging level may not be straightforward. The followin
 |LogWarning| 3|Highlights an abnormal or unexpected event in the application flow, but doesn't stop application execution.
 |LogError| 4|Logs when the current flow of execution is stopped due to a failure. These logs should indicate failures in the current activity, not an application-wide failure.|
 |LogCritical| 5|Describes an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention.
-|LogNone| 6| Not used for writing log messages. Specifies that a logging category should not write any messages.|
+|LogNone| 6| Not used for writing log messages. Specifies that a logging category shouldn't write any messages.|
 
 ## Next steps
 

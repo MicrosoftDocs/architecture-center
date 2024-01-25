@@ -14,7 +14,7 @@ The following considerations relate to the preceding principles.
 
 ## Single artifact, multiple environments
 
-The Gridwich pipeline scales to multiple environments, but there is only one artifact, which the pipeline promotes from one environment to the next.
+The Gridwich pipeline scales to multiple environments, but there's only one artifact, which the pipeline promotes from one environment to the next.
 
 ## Software release vs. infrastructure creation
 
