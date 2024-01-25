@@ -1,5 +1,5 @@
 ---
-title: Azure Load Testing with Custom Plugins to Simulate Device Behaviors
+title: Azure Load Testing with custom plugins to simulate device behaviors
 description: Learn about designing KPIs and developing a dashboard for Azure Load Testing with custom JMeter plugins to simulate device behaviors.
 author: msetbar
 ms.author: msetayesh
