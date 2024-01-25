@@ -119,7 +119,5 @@ Principal author:
 
 ## Related resources
 
-- [Explore data in the Team Data Science Process](explore-data.md)
-- [Sample data in Azure blob containers, SQL Server, and Hive tables](sample-data.md)
 - [Process Azure Blob Storage data with advanced analytics](data-blob.md)
 - [What is the Team Data Science Process?](overview.yml)

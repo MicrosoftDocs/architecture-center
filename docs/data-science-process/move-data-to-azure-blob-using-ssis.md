@@ -109,7 +109,4 @@ Principal author:
 
 ## Related resources
 
-- [Explore data in Azure Blob storage](explore-data-blob.md)
 - [Process Azure Blob Storage data with advanced analytics](data-blob.md)
-- [Move data to and from Azure Blob Storage using Azure Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
-- [Load data into storage environments for analytics](ingest-data.md)
