@@ -66,13 +66,7 @@ To start using IPv6 in the hub virtual network, you need added IPv6 address spac
 - [Powershell - Add IPv6 to virtual network and subnets](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell#add-ipv6-to-virtual-network)
 - [CLI - Add IPv6 to virtual network and subnets](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli#add-ipv6-to-virtual-network)
 
-**Modify User Defined Routes to allow IPv6 traffic.**  Each route in the table specifies a destination CIDR block and the next hop, which could be a virtual appliance, a virtual network gateway, a network interface, or a peering.
-
-Azure automatically creates system routes and assigns the routes to each subnet in a virtual network.
-
-You can't create system routes, nor can you remove system routes, but you can override some system routes with custom routes. You create custom routes by either creating user-defined routes, or by exchanging border gateway protocol (BGP) routes between your on-premises network gateway and an Azure virtual network gateway. You can create custom, or user-defined(static), routes in Azure to override Azure's default system routes, or to add more routes to a subnet's route table.
-
-In Azure, create a route table, then associate the route table to zero or more subnets. Each subnet can have zero or one route table associated to it. Azure's original IPv6 connectivity makes it easy to provide dual stack (IPv4/IPv6) internet connectivity for applications hosted in Azure. It allows for simple deployment of VMs with load balanced IPv6 connectivity for both inbound and outbound initiated connections.
+**Modify User Defined Routes to allow IPv6 traffic.**  
 
 **Modify ExpressRoute circuit (if applicable).** If you use ExpressRoute, you need to add IPv6 Private Peering to your ExpressRoute circuit. To use IPv6 in an Azure route table, you need to create or modify an ExpressRoute circuit and enable IPv6 Private Peering. You can either add IPv6 Private Peering to your existing IPv4 Private Peering configuration by selecting "Both" for Subnets, or only use IPv6 Private Peering by selecting "IPv6". You also need to provide a pair of /126 IPv6 subnets that you own for your primary and secondary links.
 
