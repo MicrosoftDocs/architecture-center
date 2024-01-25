@@ -3806,33 +3806,48 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/set-up-azure-devops.yml",
-      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/1-set-up-azure-devops.md",
+      "source_path": "docs/example-scenario/iot/field-cloud-edge-gateways.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/run-admin-scripts.yml",
-      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/2-run-admin-scripts.md",
+      "source_path": "docs/example-scenario/iot/introduction-to-solutions.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/maintain-keys.yml",
-      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/3-maintain-keys.md",
+      "source_path": "docs/example-scenario/logging/unified-logging.yml",
+      "redirect_url": "/azure/architecture/best-practices/monitoring",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/set-up-local-environment.yml",
-      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/4-set-up-local-environment.md",
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-lift-shift.yml",
+      "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-migration",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/create-delete-cloud-environment.yml",
-      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/5-create-delete-cloud-environment.md",
+      "source_path": "docs/guide/resilience/azure-ad-secure-single-page-application.yml",
+      "redirect_url": "/entra/identity-platform/index-spa",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/reference-architectures/media-services/test-encoding.yml",
-      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/6-test-mediainfo.md",
+      "source_path": "docs/industries/finance/data-management-banking-overview.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/manufacturing/extract-insights-iot-data.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/big-data-with-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/retail-data-management-overview.md",
+      "redirect_url": "/azure/architecture/industries/retail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/business-central.yml",
+      "redirect_url": "/azure/architecture/solutions/dynamics-365-scenarios",
       "redirect_document_id": false
     }
   ]
