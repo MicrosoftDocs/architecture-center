@@ -44,7 +44,9 @@ The following table provides the configuration details for [HBv3-series](/azure/
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | HBv3 | Standard_HB120-16rs_v3 | 16 | 448 | 2\*960 | 32 | 8 |
 | HBv3 | Standard_HB120-32rs_v3 | 32 | 448 | 2\*960 | 32 | 8 |
-| Eadsv5 | Standard_E64ads_v5 | 64 | 512 | 2400 | 32 | 8 |
+| Eadsv5 | Standard_E64ads_v5<sup>1</sup> | 64 | 512 | 2400 | 32 | 8 |
+
+<sup>1</sup> [Constrained core sizes available](constrained-vcpu.md)
 
 Performance test details for EPILYSIS are mentioned in the EPILYSIS performance results on HBv3-series VMs and EPILYSIS performance results on performance on Eadsv5-series VMs sections respectively.
 
@@ -85,10 +87,10 @@ The following table shows the details of each test on a HBv3-series VM. As the n
 | VM size | Number of vCPUs available | Number of vCPUs used | Total elapsed time (seconds) | Relative speed increase |
 |:---:|:---:|:---:|:---:|:---:|
 | Standard_HB120-16rs_v3 | 16 | 1 | 5542 | 1.00 |
-| | 16 | 2 | 3469 | 1.60 |
-| | 16 | 4 | 2213 | 2.50 |
-| | 16 | 8 | 1630 | 3.40 |
-| | 16 | 16 | 1420 | 3.90 |
+| Standard_HB120-16rs_v3 | 16 | 2 | 3469 | 1.60 |
+| Standard_HB120-16rs_v3 | 16 | 4 | 2213 | 2.50 |
+| Standard_HB120-16rs_v3 | 16 | 8 | 1630 | 3.40 |
+| Standard_HB120-16rs_v3 | 16 | 16 | 1420 | 3.90 |
 | Standard_HB120-32rs_v3 | 32 | 20 | 1393 | 3.98 |
 
 The following graph shows how the relative speed increases as you increase the vCPUs. It begins to plateau at 16 vCPUs.
@@ -101,12 +103,14 @@ The table illustrates that as the number of vCPUs used increases, the total elap
 
 | VM size | Number of vCPUs available | Number of vCPUs used | Total elapsed time (seconds) | Relative speed increase |
 |:---:|:---:|:---:|:---:|:---:|
-| Standard_E64ads_v5 | 64 | 1 | 6049 | 1.00 |
-| | 64 | 2 | 3480 | 1.74 |
-| | 64 | 4 | 2195 | 2.76 |
-| | 64 | 8 | 1520 | 3.98 |
-| | 64 | 16 | 1177 | 5.14 |
-| | 64 | 20 | 1122 | 5.39 |
+| Standard_E64ads_v5<sup>1</sup> | 64 | 1 | 6049 | 1.00 |
+| Standard_E64ads_v5<sup>1</sup> | 64 | 2 | 3480 | 1.74 |
+| Standard_E64ads_v5<sup>1</sup> | 64 | 4 | 2195 | 2.76 |
+| Standard_E64ads_v5<sup>1</sup> | 64 | 8 | 1520 | 3.98 |
+| Standard_E64ads_v5<sup>1</sup> | 64 | 16 | 1177 | 5.14 |
+| Standard_E64ads_v5<sup>1</sup> | 64 | 20 | 1122 | 5.39 |
+
+<sup>1</sup> [Constrained core sizes available](constrained-vcpu.md)
 
 The following graph shows how the relative speed increases as you increase the vCPUs.
 
@@ -121,17 +125,19 @@ The cost calculations factor in only the simulation runtime. The installation ti
 | VM size | vCPUs used | Elapsed time (hours) |
 |:---:|:---:|:---:|
 | Standard_HB120-16rs_v3 | 1 | 1.54 |
-| | 2 | 0.96 |
-| | 4 | 0.61 |
-| | 8 | 0.45 |
-| | 16 | 0.39 |
+| Standard_HB120-16rs_v3 | 2 | 0.96 |
+| Standard_HB120-16rs_v3 | 4 | 0.61 |
+| Standard_HB120-16rs_v3 | 8 | 0.45 |
+| Standard_HB120-16rs_v3 | 16 | 0.39 |
 | Standard_HB120-32rs_v3 | 20 | 0.39 |
-| Standard_E64ads_v5 | 1 | 1.68 |
-| | 2 | 0.97 |
-| | 4 | 0.61 |
-| | 8 | 0.42 |
-| | 16 | 0.33 |
-| | 20 | 0.31 |
+| Standard_E64ads_v5<sup>1</sup> | 1 | 1.68 |
+| Standard_E64ads_v5<sup>1</sup> | 2 | 0.97 |
+| Standard_E64ads_v5<sup>1</sup> | 4 | 0.61 |
+| Standard_E64ads_v5<sup>1</sup> | 8 | 0.42 |
+| Standard_E64ads_v5<sup>1</sup> | 16 | 0.33 |
+| Standard_E64ads_v5<sup>1</sup> | 20 | 0.31 |
+
+<sup>1</sup> [Constrained core sizes available](constrained-vcpu.md)
 
 ## Summary
 
