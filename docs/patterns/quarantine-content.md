@@ -1,5 +1,5 @@
 
-Consume software artifacts in your supply chain only when it's verified and marked as safe-for-use, by well-defined processes. This operational pattern is designed to block the use of third-party software that could potentially introduce security vulnerabilities in your deployment.
+Consume software artifacts in your supply chain only when it's verified and marked as safe-for-use, by well-defined processes. This pattern is an operational sidecar, to the development process, which is invoked to block the use of third-party software that could potentially introduce security vulnerabilities in your deployment.
 
 
 ## Context and problem
@@ -60,7 +60,25 @@ This image shows the flow of the quarantine process.
 
 
 ## When to use this pattern
-Linking back to the context, list out some use cases.
+
+Use this pattern when: 
+
+- The workload integrates artifacts developed outside the scope of the application team. Common examples include:
+
+    - OCI artifacts from public registries such as DockerHub, Github Container registry, Microsoft container registry
+    - Software libraries or packages from public sources such as the NuGet Gallery, NPM registry, Python Package Index, and so on. 
+    - External Infrastructure-as-Code (IaC) packages such as Terraform modules, Community Chef Cookbooks, Azure Verified Modules, 
+    - Vendor-supplied OS Images. 
+    
+- Artifacts are considered as risks that are more expensive than the cost of building and maintaining the workload. Integrating a compromised artifact can have negative consequences, such as a security breach or an outage. The quarantine pattern ensures that artifacts are tested and verified before integrating into a solution to reduce the risk of introducing vulnerabilities or other issues.
+
+- The team has a clear and shared understanding of the validation rules that should be applied, to take it from unstrusted to trusted. Without consensus on the input constraints and checks, the pattern might not be effective. For example, if validating every OS image differently can lead to inconsistencies in the verification process.
+
+This pattern might not be useful when:
+
+- When all assets used in the workload are created by the workload team or a trusted partner team. 
+
+- Controlling external artifacts might not be worth mitigating the risks it poses to the workload.
 
 ## Example
 ACR as an example.
