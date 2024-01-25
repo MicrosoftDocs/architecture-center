@@ -3804,6 +3804,36 @@
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/set-up-azure-devops.yml",
+      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/1-set-up-azure-devops.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/run-admin-scripts.yml",
+      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/2-run-admin-scripts.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/maintain-keys.yml",
+      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/3-maintain-keys.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/set-up-local-environment.yml",
+      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/4-set-up-local-environment.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/create-delete-cloud-environment.yml",
+      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/5-create-delete-cloud-environment.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/test-encoding.yml",
+      "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/6-test-mediainfo.md",
+      "redirect_document_id": false
     }
   ]
 }
