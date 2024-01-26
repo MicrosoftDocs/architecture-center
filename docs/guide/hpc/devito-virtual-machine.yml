@@ -17,6 +17,6 @@ products:
   - azure-virtual-network
 name: Deploy Devito on an Azure virtual machine
 summary: Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hpc-devito-single.png
 content: |
   [!include[](devito-virtual-machine-content.md)]
