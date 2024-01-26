@@ -33,14 +33,15 @@ Here's a visual representation of the TDSP lifecycle:
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
 ## Goal
+
 Deploy models with a data pipeline to a production or production-like environment for final user acceptance.
 
 ## How to do it
-The main task addressed in this stage:
 
-**Operationalize the model**: Deploy the model and pipeline to a production or production-like environment for application consumption.
+The main task addressed in this stage is to **operationalize the model**. Deploy the model and pipeline to a production or production-like environment for application consumption.
 
 ### Operationalize a model
+
 After you have a set of models that perform well, your team can operationalize them for other applications to consume. Depending on the business requirements, predictions are made either in real time or on a batch basis. To deploy models, you expose them with an  API interface. The interface enables the model to be easily consumed from various applications, such as:
 
 * Online websites
@@ -76,7 +77,7 @@ Principal author:
 
  - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
