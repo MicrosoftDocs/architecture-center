@@ -90,7 +90,7 @@ After you train the model, the data scientist focuses next on model evaluation.
 
 ## Integration with MLflow
 
-The following features in Azure Machine Learning help support this modeling lifecycle element:
+Azure Machine Learning integrates with MLflow to support the modeling lifecycle. It uses MLflow’s tracking for experiments, project deployment, model management, and a model registry. This integration ensures a seamless and efficient machine learning workflow. The following features in Azure Machine Learning help support this modeling lifecycle element:
 
 - [Tracking Experiments](/azure/machine-learning/how-to-track-monitor-analyze-runs): MLflow's core functionality is extensively used in the modeling stage to track various experiments, parameters, metrics, and artifacts.
 - [Project Deployment](/azure/machine-learning/concept-endpoints): Packaging code with MLflow Projects ensures consistent runs and easy sharing among team members, which is essential during iterative model development.
