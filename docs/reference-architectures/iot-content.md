@@ -203,7 +203,7 @@ Other contributor:
 
 ## Related resources
 
-- [IoT conceptual overview](../example-scenario/iot/introduction-to-solutions.yml)
+- [IoT conceptual overview](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
 - [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
 - [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)

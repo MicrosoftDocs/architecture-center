@@ -256,4 +256,4 @@ Principal author:
 
 - [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
-- [Unified logging for microservices applications](../../example-scenario/logging/unified-logging.yml)
+- [Unified logging for microservices applications](/azure/architecture/best-practices/monitoring)

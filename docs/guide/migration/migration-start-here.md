@@ -87,7 +87,7 @@ The following sections provide links to reference architectures in a few high-le
 - [Oracle database migration to Azure](../../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)
 - [Overview of Oracle database migration](../../example-scenario/oracle-migrate/oracle-migration-overview.yml)
 - [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml)
-- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml)
+- [Oracle database migration: Lift and shift](/azure/virtual-machines/workloads/oracle/oracle-migration)
 - [Oracle database migration: Refactor](../../example-scenario/oracle-migrate/oracle-migration-refactor.yml)
 - [Oracle database migration: Rearchitect](../../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml)
 

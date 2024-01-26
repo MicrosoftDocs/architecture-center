@@ -128,7 +128,7 @@ Principal author:
 ## Related resources
 
 - [Predictive maintenance solution](predictive-maintenance-solution.yml)
-- [Extract actionable insights from IoT data](extract-insights-iot-data.yml)
+- [Extract actionable insights from IoT data](/azure/architecture/example-scenario/data/big-data-with-iot)
 - [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
 - [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)

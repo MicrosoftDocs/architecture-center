@@ -280,7 +280,7 @@ Principal author:
 
 ## Related resources
 
-- [Unified logging for microservices apps](../../example-scenario/logging/unified-logging.yml)
+- [Unified logging for microservices apps](/azure/architecture/best-practices/monitoring)
 - [Big data analytics with Azure Data Explorer](../../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Azure Data Explorer monitoring](../../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Long term security log retention with Azure Data Explorer](../../example-scenario/security/security-log-retention-azure-data-explorer.yml)

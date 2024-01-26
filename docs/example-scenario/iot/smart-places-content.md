@@ -378,7 +378,7 @@ Other contributor:
 [Ingest IoT Hub telemetry into Azure Digital Twins]: /azure/digital-twins/how-to-ingest-iot-hub-data?tabs=cli
 [Integrate Azure Digital Twins with Azure SignalR Service]: /azure/digital-twins/how-to-integrate-azure-signalr
 [IoT analytics with Azure Data Explorer]: ../../solution-ideas/articles/iot-azure-data-explorer.yml
-[IoT solutions conceptual overview]: ../../example-scenario/iot/introduction-to-solutions.yml
+[IoT solutions conceptual overview]: /azure/architecture/reference-architectures/iot/iot-architecture-overview
 [Microsoft Graph]: https://developer.microsoft.com/graph
 [Microsoft Power Apps on Azure]: https://powerapps.microsoft.com
 [Microsoft Teams]: https://www.microsoft.com/microsoft-teams/group-chat-software

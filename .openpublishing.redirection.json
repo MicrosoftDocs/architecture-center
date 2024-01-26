@@ -2487,12 +2487,12 @@
     },
     {
       "source_path": "docs/example-scenario/iot/builders-developers-operators-content.md",
-      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/iot/builders-developers-operators.yml",
-      "redirect_url": "/azure/architecture/example-scenario/iot/introduction-to-solutions",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
     },
     {

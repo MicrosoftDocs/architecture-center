@@ -28,5 +28,5 @@ There are two types of edge gateways, *field* or [IoT Edge](/azure/iot-edge/iot-
 ## Related resources
 
 - For overall guidance, refer to the following links:
-    - [IoT Solutions Conceptual Overview](./introduction-to-solutions.yml)
+    - [IoT Solutions Conceptual Overview](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
     - [IoT Reference Architecture](../../reference-architectures/iot.yml)

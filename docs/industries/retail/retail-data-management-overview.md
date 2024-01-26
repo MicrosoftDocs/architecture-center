@@ -180,7 +180,7 @@ Product documentation
 
 ## Related resources
 
-- [Data management in banking](../finance/data-management-banking-overview.yml)
+- [Data management in banking](/azure/architecture/industries/finance)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)
 - [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)
