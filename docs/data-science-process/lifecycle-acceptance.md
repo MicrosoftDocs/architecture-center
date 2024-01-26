@@ -52,7 +52,7 @@ The customer should validate that the system:
 
 ## Integration with MLflow
 
-While MLflow doesn't directly involve customer acceptance, the tracking and registry features help maintain a record of models, experiments, and deployments.  This careful tracking can be crucial for final reporting, auditing, and obtaining customer acceptance.
+MLflow doesn't directly interact with customer acceptance. The tracking and registry features of MLflow help maintain a record of models, experiments, and deployments. This tracking can be crucial for final reporting, auditing, and obtaining customer acceptance.
 
 ## Artifacts
 

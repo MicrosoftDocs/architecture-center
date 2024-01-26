@@ -30,10 +30,12 @@ Here's a visual representation of the TDSP lifecycle:
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
 ## Goals
+
 * Produce a clean, high-quality data set whose relationship to the target variables is understood. Locate the data set in the appropriate analytics environment so your team is ready to model.
 * Develop a solution architecture of the data pipeline that refreshes and scores the data regularly.
 
 ## How to do it
+
 There are three main tasks addressed in this stage:
 
 * **Ingest the data** into the target analytic environment.
@@ -45,7 +47,8 @@ There are three main tasks addressed in this stage:
 Set up the process to move the data from the source locations to the target locations where you run analytics operations, like training and predictions.
 
 ### Explore the data
-Before you train your models, you need to develop a sound understanding of the data. Real-world data sets are often noisy, are missing values, or have a host of other discrepancies. You can use data summarization and visualization to audit the quality of your data and provide the information you need to process the data before it's ready for modeling. This process is often iterative. For guidance on cleaning the data, see [Tasks to prepare data for enhanced machine learning](prepare-data.md).
+
+Before you train your models, you need to develop a sound understanding of the data. Real-world data sets are often noisy, missing values, or have a host of other discrepancies. You can use data summarization and visualization to audit the quality of your data and provide the information you need to process the data before it's ready for modeling. This process is often iterative. For guidance on cleaning the data, see [Tasks to prepare data for enhanced machine learning](prepare-data.md).
 
 After you're satisfied with the quality of the cleansed data, the next step is to better understand the patterns that are inherent in the data. This data analysis helps you choose and develop an appropriate predictive model for your target. Look for evidence for how well connected the data is to the target. Then determine whether your team has sufficient data to move forward with the next modeling steps. Again, this process is often iterative. You might need to find new data sources with more accurate or more relevant data to augment the data set initially identified in the previous stage.
 
@@ -61,28 +64,29 @@ In this stage, you develop a solution architecture of the data pipeline. You dev
 
 ## Integration with MLflow
 
-During the data understanding phase, different data preprocessing strategies and exploratory data analysis can be tracked and documented [using MLflow's experiment tracking](/azure/machine-learning/how-to-track-monitor-analyze-runs).
+During the data understanding phase, you can track and document different data preprocessing strategies and exploratory data analysis [using MLflow's experiment tracking](/azure/machine-learning/how-to-track-monitor-analyze-runs).
 
 ## Artifacts
+
 The following are the deliverables in this stage:
 
 * [Data quality report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): This report includes data summaries, the relationships between each attribute and target, variable ranking, and more.
 * **Solution architecture**: The solution architecture can be a diagram or description of your data pipeline that your team uses to run predictions on new data. This diagram also contains the pipeline to retrain your model based on new data. Store the document in the [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory when you use the TDSP directory structure template.
 * **Checkpoint decision**: Before you begin full-feature engineering and model building, you can reevaluate the project to determine whether the value expected is sufficient to continue pursuing it. You might, for example, be ready to proceed, need to collect more data, or abandon the project as the data doesn't exist to answer the question.
 
-## Peer-Reviewed Literature
+## Peer-reviewed literature
 
-Researchers publish studies about TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to TDSP, including the data acquisition and understanding lifecycle stage.
+Researchers publish studies about TDSP in peer-reviewed literature. [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to TDSP, including the data acquisition and understanding lifecycle stage.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+-[Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
