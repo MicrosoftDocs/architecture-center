@@ -67,8 +67,6 @@ See [Train models with Azure Machine Learning](/azure/machine-learning/concept-t
 
 > [!NOTE]
 > **Avoid leakage**: You might cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies may be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results.
->
->
 
 ## Model evaluation
 

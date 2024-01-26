@@ -23,7 +23,7 @@ categories:
 
 This article outlines the tasks that an *individual contributor* completes setting up a project in the [Team Data Science Process](overview.yml) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-## Major Roles of Project Individual Contributors:
+## Major Roles of Project Individual Contributors
 
 1.  **Technical Execution:**
     -   Execute the technical aspects of the project, including data collection, processing, analysis, modeling, and deployment.
@@ -43,7 +43,7 @@ This article outlines the tasks that an *individual contributor* completes setti
 6.  **Documentation:**
     -   Document their work thoroughly, including data preparation, analysis steps, model development, and results.
 
-## Key Tasks for Project Individual Contributors:
+## Key Tasks for Project Individual Contributors
 
 -   **Data Processing and Analysis:**
     -   Perform data cleaning, preprocessing, and exploratory data analysis.
@@ -64,39 +64,40 @@ This article outlines the tasks that an *individual contributor* completes setti
 
 ## Using Large Language Models and Microsoft Copilots
 
-In the context of Microsoft's Team Data Science Process (TDSP), "Project Individual Contributors" such as data scientists, analysts, and engineers play a hands-on role in executing various aspects of data science projects. Here's how they can use Large Language Models (LLMs) and Microsoft copilots within the TDSP framework:
+In the context of Microsoft's Team Data Science Process (TDSP), project individual contributors, such as data scientists, analysts, and engineers play a hands-on role in executing various aspects of data science projects. Here's how they can use large language models (LLMs) and Microsoft copilots within the TDSP framework:
 
-### Technical Execution and Development:
+### Technical Execution and Development
 
 -   **Coding Assistance:** Use copilots for coding support, including writing, reviewing, and optimizing code for data processing, analysis, and model development.
--   **Algorithm Selection and Optimization:** Use LLMs to explore and select appropriate algorithms, and get suggestions for optimizing model performance.
+-   **Algorithm Selection and Optimization:** Use LLMs to explore and select appropriate algorithms
+-  and get suggestions for optimizing model performance.
 
-### Data Handling and Analysis:
+### Data Handling and Analysis
 
 -   **Data Exploration and Visualization:** Utilize LLMs for insights on effective data exploration techniques and creating meaningful visualizations.
 -   **Data Cleaning and Preprocessing:** Employ copilots to automate routine data cleaning and preprocessing tasks, ensuring data quality and consistency.
 
-### Model Building and Evaluation:
+### Model Building and Evaluation
 
 -   **Model Development Guidance:** Use LLMs for guidance on building and refining predictive models, including feature engineering and hyperparameter tuning.
 -   **Model Evaluation and Interpretation:** Use LLMs to understand and apply appropriate model evaluation metrics and interpret the results.
 
-### Problem-Solving and Innovation:
+### Problem-Solving and Innovation
 
 -   **Technical Problem-Solving:** Utilize LLMs for brainstorming solutions to technical challenges encountered during the project.
 -   **Innovative Approaches:** Use LLMs to stay updated on the latest data science techniques and tools, applying innovative approaches to the project.
 
-### Documentation and Reporting:
+### Documentation and Reporting
 
 -   **Documentation Automation:** Employ copilots to help generating and maintaining thorough documentation of the work, including data dictionaries, model descriptions, and analysis summaries.
 -   **Reporting Insights and Findings:** Use LLMs to create clear and comprehensive reports or presentations of analytical findings for both technical and nontechnical audiences.
 
-### Collaboration and Learning:
+### Collaboration and Learning
 
 -   **Collaborative Workflows:** Use copilots to streamline collaboration with other team members, including sharing code, results, and insights.
 -   **Continuous Learning:** Utilize LLMs to access the latest research, tutorials, and resources for continuous skill development and staying current in the field.
 
-### Compliance and Ethical Standards:
+### Compliance and Ethical Standards
 
 -   **Compliance Checks:** Employ LLMs to ensure adherence to data privacy, ethical standards, and organizational policies in data handling and analysis.
 
@@ -104,7 +105,7 @@ Project Individual Contributors in TDSP can effectively use LLMs and Microsoft c
 
 ## Summary
 
-In summary, Project Individual Contributors in TDSP are responsible for the execution of specific tasks and deliverables within a data science project. They bring technical expertise to the table and play a crucial role in the practical aspects of data handling, analysis, modeling, and communication of results. Their contribution is vital to the project's success, requiring a blend of technical skills, collaboration, and continuous learning.
+Project Individual Contributors in TDSP are responsible for the execution of specific tasks and deliverables within a data science project. They bring technical expertise to the table and play a crucial role in the practical aspects of data handling, analysis, modeling, and communication of results. Their contribution is vital to the project's success, requiring a blend of technical skills, collaboration, and continuous learning.
 
 ## Contributors
 

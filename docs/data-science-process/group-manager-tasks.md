@@ -108,7 +108,7 @@ The Group Manager can use LLMs and Microsoft copilots to enhance strategic plann
 
 ## Summary
 
-In summary, the Group Manager in TDSP is responsible for the overall management and success of data science projects. The role focuses on strategic alignment, resource allocation, team development, risk management, and stakeholder communication. These tasks bridge the gap between data science teams and the larger business objectives of the organization.
+The Group Manager in TDSP is responsible for the overall management and success of data science projects. The role focuses on strategic alignment, resource allocation, team development, risk management, and stakeholder communication. These tasks bridge the gap between data science teams and the larger business objectives of the organization.
 
 ## Contributors
 

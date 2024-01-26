@@ -15,7 +15,7 @@ TDSP has the following key components:
 
 The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. The lifecycle outlines the full steps that successful projects follow.
 
-If your team is using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process), or another custom process, your team can still use the task-based TDSP in the context of those development lifecycles. At a high level, these different methodologies have much in common.
+If your team is using another data science lifecycle, such as cross-industry standard process for data mining (CRISP-DM), knowledge discovery in databases (KDD), or another custom process, your team can still use the task-based TDSP in the context of those development lifecycles. At a high level, these different methodologies have much in common.
 
 This lifecycle addresses data science projects that ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects or improvised analytics projects can also benefit from using this process. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
@@ -97,4 +97,4 @@ TDSP is a well-established methodology used across Microsoft engagements, and th
 
 ## Next steps
 
-[Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Outlines the key personnel roles and their associated tasks for a data science team that standardizes on this process. 
+[Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Outlines the key personnel roles and their associated tasks for a data science team that standardizes on this process.

@@ -112,7 +112,7 @@ The Project Lead in TDSP can effectively use LLMs and Microsoft copilots for the
 
 ## Summary
 
-In summary, the Project Lead in TDSP is responsible for the detailed planning, execution, and management of specific data science projects. They play a key role in coordinating team efforts, providing technical guidance, managing stakeholder communication, and ensuring the quality and success of project outcomes.
+The Project Lead in TDSP is responsible for the detailed planning, execution, and management of specific data science projects. They play a key role in coordinating team efforts, providing technical guidance, managing stakeholder communication, and ensuring the quality and success of project outcomes.
 
 ## Contributors
 
