@@ -73,7 +73,7 @@ Principal author:
 
 ## Next steps
 
-Read [set up data science environments for use in the Team Data Science Process](environment-setup.md).
+Continue your AI journey at the [AI learning hub](/ai/).
 
 ## Related resources
 
