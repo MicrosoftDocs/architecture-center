@@ -58,17 +58,36 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 ## Transition the hub virtual network to IPv6
 
-To start using IPv6 in the hub virtual network, you need added IPv6 address space:
+Transitioning a hub virtual network to support IPv6 means updating the network infrastructure to accommodate IPv6 address ranges, enabling the central, controlling part of the network to handle IPv6 traffic. It ensures that the central hub can efficiently route and manage traffic between various network segments (spokes) using IPv6. To start using IPv6 in the hub virtual network, you need make the following configurations.
 
-**Add IPv6 Address Space to the virtual network.** You need to add additional IPv6 address ranges to the hub virtual network first and then its subnets. You can use the [Azure portal](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network), [Powershell](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell#add-ipv6-to-virtual-network), [Azure CLI](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli#add-ipv6-to-virtual-network) to add the IPv6 address space.
+**Add IPv6 address space to the virtual network and subnets.** You need to add additional IPv6 address ranges to the hub virtual network first and then its subnets. Use /56 block for the virtual network and /64 for each subnet. See the following table for an example setup.
 
-**Modify User Defined Routes (UDRs).** UDRs are the routes that you manually set up to override Azure's default system routes. They direct traffic from one subnet to a specific virtual appliance, gateway, or other target within Azure or on-premises. When you're adding IPv6 support to the hub virtual network, you need to make the following configurations:
+| Virtual network address range | Subnet address ranges |
+| --- | --- |
+| Hub virtual network: `2001:db8:1234:0000::/56` | Azure Bastion subnet: `2001:db8:1234:0000::/64`<br>Azure Firewall subnet: `2001:db8:1234:0001::/64`<br>VPN gateway subnet: `2001:db8:1234:0002::/64`<br>ExpressRoute subnet: `2001:db8:1234:0003::/64`
+
+Remember, these are just examples. You should replace `2001:db8:1234::` with your organization's assigned IPv6 address block. Ensure that you carefully plan and document your IPv6 address allocations to avoid overlaps and ensure efficient utilization of the address space.
+
+You can use the [Azure portal](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network), [Powershell](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell#add-ipv6-to-virtual-network), or [Azure CLI](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli#add-ipv6-to-virtual-network) to add the IPv6 address space.
+
+**Configure User Defined Routes (UDRs).** UDRs are the routes that you manually set up to override Azure's default system routes. User Defined Routes (UDRs) in Azure are essential for controlling the flow of network traffic in a virtual network. UDRs can be used to direct traffic from one subnet to specific appliances, gateways, or targets within Azure or to on-premises networks. When you add IPv6 support to the hub virtual network, you need to make the following configurations:
 
 - *Add IPv6 routes*: If the route table is already in place, you add new routes that specify the IPv6 address prefixes to the table.
 - *Modify existing routes*: If the routes already exist for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic or create separate IPv6-specific routes.
 - *Associate route table with subnets*: After defining your routes, you associate the route table with the relevant subnets within your virtual network. This association determines which subnets will use the routes you have defined.
 
-Remember that you don’t necessarily need to add a route for every single resource, but rather for each subnet. Each subnet can have multiple resources, and they all follow the rules defined in the route table associated with their subnet. 
+Remember that you don’t necessarily need to add a route for every single resource, but rather for each subnet. Each subnet can have multiple resources, and they all follow the rules defined in the route table associated with their subnet. For more information, see [UDR overview](/azure/virtual-network/virtual-networks-udr-overview).
+
+For the Hub Virtual Network, we have four subnets: Azure Bastion, Azure Firewall, VPN Gateway, and ExpressRoute. Here are example UDRs for each subnet:
+
+| Subnet         | Description        | IPv6 Address Range           | Route Name     | Destination       | Next Hop                           |
+| -------------- | ------------------ | ---------------------------- | -------------- | ----------------- | ---------------------------------- |
+| Azure Bastion  | Route to Firewall  | `2001:db8:1234:0000::/64`    | Internet Route | `::/0`            | `2001:db8:1234:0001::/64` (Azure Firewall) |
+| Azure Firewall | Default Route      | `2001:db8:1234:0001::/64`    | Internet Route | `::/0`            | Internet Gateway                  |
+| VPN Gateway    | On-Premises Route  | `2001:db8:1234:0002::/64`    | On-Prem Route  | `2001:db8:abcd::/56` | VPN Gateway                       |
+| ExpressRoute   | On-Premises Route  | `2001:db8:1234:0003::/64`    | On-Prem Route  | `2001:db8:efgh::/56` | ExpressRoute                      |
+
+These are sample UDRs. It's crucial to align these UDRs with your organizational network policies and the architecture of your Azure deployment.
 
 **Modify ExpressRoute circuit (if applicable).** To have Azure ExpressRoute support IPv6, you need to:
 
@@ -76,44 +95,44 @@ Remember that you don’t necessarily need to add a route for every single resou
 - *Allocate IPv6 address space*: Provide IPv6 subnets for your primary and secondary ExpressRoute links.
 - *Update route tables*: Ensure IPv6 traffic is directed appropriately through the ExpressRoute circuit.
 
-These changes will extend IPv6 connectivity to your Azure services through the ExpressRoute circuit. It enables dual-stack capabilities where both IPv4 and IPv6 traffic can be routed simultaneously if configured. You can use the [Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal), [Powershell](/azure/expressroute/expressroute-howto-add-ipv6-powershell), [Azure CLI](/azure/expressroute/expressroute-howto-add-ipv6-cli) to modify ExpressRoute.
+These changes will extend IPv6 connectivity to your Azure services through the ExpressRoute circuit. It enables dual-stack capabilities where both IPv4 and IPv6 traffic can be routed simultaneously if configured. You can use the [Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal), [Powershell](/azure/expressroute/expressroute-howto-add-ipv6-powershell), or [Azure CLI](/azure/expressroute/expressroute-howto-add-ipv6-cli) to modify ExpressRoute.
 
 
 ## Transition the spoke virtual networks to IPv6
 
-To start using IPv6 in the spoke virtual networks, we need to make a few changes to some of our resources:
+Transitioning the spoke virtual networks to support IPv6 involves adding IPv6 capabilities to these peripheral networks, which are connected to the central hub. It allows each spoke network to communicate using the more advanced IPv6 protocol. It provides uniformity across the network. To start using IPv6 in the spoke virtual networks, you need make the following configurations.
 
-**Create a dual-stack virtual network with both IPv4 and IPv6 address space.** To add an IPv6 address range to your Virtual Network in Azure, start by signing in to the Azure portal. Once logged in, use the search box at the top of the portal to search for "Virtual network." From the search results, select the required Virtual Network. In the Virtual Network's settings, click on "Address space." Here, you can add an additional address range by selecting "Add additional address range." For example, you might enter something like "2404:f800:8000:122::/63." After entering the new address range, make sure to save your changes. Next, go to "Subnets" in the settings. In the Subnets section, select your desired subnet name from the list. Within the subnet configuration, check the option to "Add IPv6 address space." Here, enter the specific IPv6 address space you require, such as "2404:f800:8000:122::/64." Remember to save your configuration to apply these changes.
-For an example to set this up with a Virtual Machine see [Add Dual Stack IPv6 for VM in Portal](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal).
+**Add IPv6 address space to the virtual network and subnets.** As in the hub virtual network, you need to add additional IPv6 address ranges to all the spoke virtual networks and then their subnets. Use /56 block for the virtual network and /64 for each subnet. See the following table for an example setup.
+
+| Virtual network address range | Subnet address ranges |
+| ----------------------------- | --------------------- |
+| Spoke VNet 1: `2001:db8:1234:0100::/56` | Subnet 1: `2001:db8:1234:0100::/64`<br>Subnet 2: `2001:db8:1234:0101::/64`<br>Subnet 3: `2001:db8:1234:0102::/64` |
+| Spoke VNet 2: `2001:db8:1234:0200::/56` | Subnet 1: `2001:db8:1234:0200::/64`<br>Subnet 2: `2001:db8:1234:0201::/64`<br>Subnet 3: `2001:db8:1234:0202::/64` |
+| Spoke VNet 3: `2001:db8:1234:0300::/56` | Subnet 1: `2001:db8:1234:0300::/64`<br>Subnet 2: `2001:db8:1234:0301::/64`<br>Subnet 3: `2001:db8:1234:0302::/64` |
+| Spoke VNet 4: `2001:db8:1234:0400::/56` | Subnet 1: `2001:db8:1234:0400::/64`<br>Subnet 2: `2001:db8:1234:0401::/64`<br>Subnet 3: `2001:db8:1234:0402::/64` |
+
+This table provides a clear overview of the IPv6 address ranges for each spoke virtual network and its subnets. Remember to adjust the IPv6 addresses according to your organization's specific allocation and needs.
 
 **Modify spoke resources**: The spoke virtual networks contain virtual machines and an internal load balancer. The internal load balancer allows you to route IPv4 and IPv6 traffic to your virtual machines. Here's how to modify each resource in the spoke subnets:
 
 - *Virtual machines:* To add IPv6 support to virtual machines, you need create and associate an IPv6 network interface to each virtual machine. For more information, see [Add IPv6 configuration to virtual machine](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine).
-- *Internal load balancer:* If you don't have an internal load balancer in your spoke virtual networks, you should create a dual-stack internal load balancer. For more information, see, [Create dual-stack internal load balancer](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). If you already have an internal load balancer, you can use [Powershell](/azure/load-balancer/ipv6-add-to-existing-vnet-powershell or [Azure CLI](/azure/load-balancer/ipv6-add-to-existing-vnet-cli) to add IPv6 support to an internal load balancer.
+- *Internal load balancer:* If you don't have an internal load balancer in your spoke virtual networks, you should create a dual-stack internal load balancer. For more information, see, [Create dual-stack internal load balancer](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). If you already have an internal load balancer, you can use [Powershell](/azure/load-balancer/ipv6-add-to-existing-vnet-powershell) or [Azure CLI](/azure/load-balancer/ipv6-add-to-existing-vnet-cli) to add IPv6 support to an internal load balancer.
 
+**Configure User Defined Routes.** Follow the same process as the hub virtual network. You need to make the following configurations:
 
+- *Add IPv6 routes*: If the route table is already in place, you add new routes that specify the IPv6 address prefixes to the table.
+- *Modify existing routes*: If the routes already exist for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic or create separate IPv6-specific routes.
+- *Associate route table with subnets*: After defining your routes, you associate the route table with the relevant subnets within your virtual network. This association determines which subnets will use the routes you have defined.
 
-- [Add IPv6 configuration to virtual machine](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine)
-- Load balancers: Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows. Optional IPv6 ports can be reused on backend instances using the Floating IP feature of load-balancing rules. Also see, [Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure using PowerShell
-](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell)
+Here are example UDRs for each subnet in one spoke virtual network:
 
-**Modify any User Defined Routes to allow IPv6 Traffic.** Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes especially when using Network Virtual Appliances to augment your application. To modify user-defined routes (UDRs) in Azure, you need to go to the route table that contains the routes you want to change, and click on “Edit routes”. Then you can remove, add, or edit the routes as needed, and save the changes. You can also use PowerShell or Azure CLI commands to modify UDRs. For example, to remove a route using PowerShell, you can use the ```Remove-AzRouteConfig``` cmdlet. To add a route using Azure CLI, you can use the ```az network route-table route create``` command.
+| Subnet   | Description           | IPv6 Address Range           | Route Name         | Destination       | Next Hop                           |
+| -------- | --------------------- | ---------------------------- | ------------------ | ----------------- | ---------------------------------- |
+| Subnet 1 | Route to Firewall     | `2001:db8:1234:0100::/64`    | Internet Route     | `::/0`            | `2001:db8:1234:0001::/64` (Azure Firewall) |
+| Subnet 2 | Route to VPN Gateway  | `2001:db8:1234:0101::/64`    | VPN Route          | `2001:db8:abcd::/64` | `2001:db8:1234:0002::/64` (VPN Gateway) |
+| Subnet 3 | Route to ExpressRoute | `2001:db8:1234:0102::/64`    | ExpressRoute Route | `2001:db8:5678::/64` | `2001:db8:1234:0003::/64` (ExpressRoute) |
 
-## Contributors
-
-*Microsoft maintains this article. The following contributors wrote it.*
-
-Principal author:
-
-- [Werner Rall](https://www.linkedin.com/in/werner-rall/) | Senior Cloud Solutions Architect Engineer
-
-Other contributors:
-
-- [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b/) | Senior Customer Engineer
-- [Sherri Babylon](https://www.linkedin.com/in/sbabylon/) | Senior Technical Program Manager
-- [Dawn Bedard](https://www.linkedin.com/in/dawnbedard/) | Principal Technical Program Manager
-
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+These are sample UDRs. It's crucial to align these UDRs with your organizational network policies and the architecture of your Azure deployment.
 
 ## Next steps
 
@@ -138,3 +157,20 @@ Read more about virtual network architecture:
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Virtual network integrated serverless microservices](/azure/architecture/example-scenario/integrated-multiservices/virtual-network-integration)
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
+
+
+## Contributors
+
+*Microsoft maintains this article. The following contributors wrote it.*
+
+Principal author:
+
+- [Werner Rall](https://www.linkedin.com/in/werner-rall/) | Senior Cloud Solutions Architect Engineer
+
+Other contributors:
+
+- [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b/) | Senior Customer Engineer
+- [Sherri Babylon](https://www.linkedin.com/in/sbabylon/) | Senior Technical Program Manager
+- [Dawn Bedard](https://www.linkedin.com/in/dawnbedard/) | Principal Technical Program Manager
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
