@@ -3809,6 +3809,51 @@
       "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/field-cloud-edge-gateways.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/introduction-to-solutions.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/logging/unified-logging.yml",
+      "redirect_url": "/azure/architecture/best-practices/monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-lift-shift.yml",
+      "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/resilience/azure-ad-secure-single-page-application.yml",
+      "redirect_url": "/entra/identity-platform/index-spa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/data-management-banking-overview.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/manufacturing/extract-insights-iot-data.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/big-data-with-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/retail/retail-data-management-overview.md",
+      "redirect_url": "/azure/architecture/industries/retail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/business-central.yml",
+      "redirect_url": "/azure/architecture/solutions/dynamics-365-scenarios",
+      "redirect_document_id": false
     }
   ]
 }
