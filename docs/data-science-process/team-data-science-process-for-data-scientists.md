@@ -77,8 +77,5 @@ Read [set up data science environments for use in the Team Data Science Process]
 
 ## Related resources
 
-- [Execute data science tasks: exploration, modeling, and deployment](execute-data-science-tasks.md)
-- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
-- [Platforms and tools for data science projects](platforms-and-tools.md)
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [What is the Team Data Science Process?](overview.yml)
