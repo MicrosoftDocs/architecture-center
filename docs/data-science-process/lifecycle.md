@@ -26,9 +26,9 @@ This lifecycle is designed for data-science projects that are intended to ship a
 
 The supporting links provide more guidance, especially on how to apply TDSP within Microsoft Azure.
 
-## Purpose and Impact
+## Purpose and impact
 
-The purpose of TDSP is to streamline and standardize the approach to data science and artificial intelligence projects.  Microsoft teams have applied this structured methodology in hundreds of projects at Microsoft.  Researchers have studied TDSP and published their findings in the peer-reviewed literature.  The broad applicability and academic rigor provide assurance of the impact and effectiveness of the TDSP architectural framework.
+The purpose of TDSP is to streamline and standardize the approach to data science and artificial intelligence projects. Microsoft applied this structured methodology in hundreds of projects at Microsoft. Researchers studied TDSP and published their findings in the peer-reviewed literature.  The broad applicability and academic rigor provide assurance of the impact and effectiveness of the TDSP architectural framework.
 
 ## Five lifecycle stages
 

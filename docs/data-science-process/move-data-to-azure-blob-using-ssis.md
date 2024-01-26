@@ -38,6 +38,7 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 >
 
 ## Prerequisites
+
 To perform the tasks described in this article, you must have an Azure subscription and an Azure Storage account set up. You need the Azure Storage account name and account key to upload or download data.
 
 * To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/free/).
@@ -58,9 +59,11 @@ For installing SSIS, see [Install Integration Services (SSIS)](/sql/integration-
 For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](/sql/integration-services/ssis-how-to-create-an-etl-package).
 
 ## Download NYC Taxi dataset
+
 The example described here use a publicly available dataset, either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). The dataset consists of about 173 million taxi rides in NYC in the year 2013. There are two types of data: trip details data and fare data.
 
 ## Upload data to Azure blob storage
+
 To move data using the SSIS feature pack from on-premises to Azure blob storage, we use an instance of the [**Azure Blob Upload Task**](/sql/integration-services/control-flow/azure-blob-upload-task), shown here:
 
 ![configure-data-science-vm](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
@@ -82,9 +85,11 @@ The parameters that the task uses are described here:
 >
 
 ## Download data from Azure blob storage
+
 To download data from Azure blob storage to on-premises storage with SSIS, use an instance of the [Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task).
 
 ## More advanced SSIS-Azure scenarios
+
 The SSIS feature pack allows for more complex flows to be handled by packaging tasks together. For example, the blob data could feed directly into an HDInsight cluster, whose output could be downloaded back to a blob and then to on-premises storage. SSIS can run Hive and Pig jobs on an HDInsight cluster using additional SSIS connectors:
 
 * To run a Hive script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Hive Task](/sql/integration-services/control-flow/azure-hdinsight-hive-task).

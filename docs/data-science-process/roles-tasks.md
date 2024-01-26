@@ -23,18 +23,19 @@ categories:
 
 The Team Data Science Process (TDSP) is a framework developed by Microsoft that provides a structured methodology to efficiently build predictive analytics solutions and intelligent applications. This article outlines the key personnel roles and associated tasks for a data science team standardizing on this process.
 
-A git-compatible environment is suggested to supplement the MLflow artifacts stored in Azure Machine Learning.  Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?tabs=python) allowing for using any number of git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service. 
+A git-compatible environment is suggested to supplement the MLflow artifacts stored in Azure Machine Learning.  Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?tabs=python), allowing for using any number of git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.
 
 ## Structure of data science groups and teams
 
 Data science functions in enterprises are often organized in the following hierarchy:
 
 - Data science group
-  - Data science team/s within the group
+- Data science team/s within the group
 
 In such a structure, there are group leads and team leads. Typically, a data science project is done by a data science team. Data science teams have project leads for project management and governance tasks, and individual data scientists and engineers to perform the data science and data engineering parts of the project. The initial project setup and governance is done by the group, team, or project leads.
 
 ## Definition and tasks for the four TDSP roles
+
 With the assumption that the data science unit consists of teams within a group, there are four distinct roles for TDSP personnel:
 
 1. **Group Manager**: Manages the entire data science unit in an enterprise. A data science unit might have multiple teams, each of which is working on multiple data science projects in distinct business verticals. A Group Manager might delegate their tasks to a surrogate, but the tasks associated with the role don't change.

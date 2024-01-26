@@ -27,7 +27,7 @@ The TDSP is an agile, iterative data science methodology to efficiently deliver 
 
 A team lead manages a team consisting of several data scientists in the data science unit of an enterprise. Depending on the data science unit's size and structure, the [group manager](group-manager-tasks.md) and the team lead might be the same person, or they could delegate their tasks to surrogates. But the tasks themselves don't change.
 
-## Major Roles of the Team Lead:
+## Major Roles of the Team Lead
 
 1.  **Project Coordination and Management:**
     -   Oversee the day-to-day management of data science projects, ensuring they are on track and aligned with the project goals.
@@ -54,7 +54,7 @@ A team lead manages a team consisting of several data scientists in the data sci
     -   Identify and mitigate project risks.
     -   Develop contingency plans to address potential challenges.
 
-## Key Tasks for the Team Lead:
+## Key Tasks for the Team Lead
 
 -   **Project Planning and Tracking:**
     -   Develop detailed project plans, including timelines, milestones, and deliverables.
@@ -79,42 +79,42 @@ A team lead manages a team consisting of several data scientists in the data sci
 
 In the Team Data Science Process (TDSP) by Microsoft, the "Team Lead" plays a crucial role in guiding the project team and ensuring the successful execution of data science projects. Here's how the Team Lead can effectively utilize Large Language Models (LLMs) and Microsoft copilots within the TDSP framework:
 
-### Project Management and Coordination:
+### Project Management and Coordination
 
 -   **Project Planning Assistance:** Utilize LLMs to aid in developing comprehensive project plans, including timelines, resource allocation, and risk assessment.
 -   **Task Assignment and Progress Tracking:** Use copilots for efficient task management and progress tracking, ensuring that team members are on track with their responsibilities.
 
-### Technical Leadership and Guidance:
+### Technical Leadership and Guidance
 
 -   **Technical Research and Insights:** Use LLMs to stay abreast of the latest data science techniques, tools, and best practices relevant to the project.
 -   **Algorithm and Tool Selection:** Use the knowledge base of LLMs for recommendations on the best algorithms, tools, and technologies to use in specific project contexts.
 
-### Team Collaboration and Communication:
+### Team Collaboration and Communication
 
 -   **Effective Communication:** Employ LLMs to draft and refine communication with team members and other stakeholders, ensuring clarity and effectiveness.
 -   **Collaboration Enhancement:** Use copilots to streamline collaborative efforts, schedule meetings, and manage team discussions and brainstorming sessions.
 
-### Quality Assurance and Review:
+### Quality Assurance and Review
 
 -   **Code Review and Quality Checks:** Utilize LLMs for automated code reviews, ensuring adherence to best practices and identifying potential issues.
 -   **Documentation Review:** Use LLMs to help reviewing and enhancing project documentation, ensuring comprehensiveness and clarity.
 
-### Training and Mentorship:
+### Training and Mentorship
 
 -   **Skill Development Resources:** Use LLMs to generate or curate training materials and resources for the team, addressing skill gaps and promoting continuous learning.
 -   **Mentoring Guidance:** Employ LLMs for insights on effective mentoring techniques and personalized development plans for team members.
 
-### Risk Management and Problem-Solving:
+### Risk Management and Problem-Solving
 
 -   **Risk Identification and Mitigation:** Utilize LLMs for identifying potential project risks and generating strategies for mitigation.
 -   **Problem-Solving Assistance:** Use copilots and LLMs for brainstorming and developing solutions to technical and project-related challenges.
 
-### Stakeholder Engagement:
+### Stakeholder Engagement
 
 -   **Stakeholder Reporting:** Use LLMs to create comprehensive and understandable reports for stakeholders, detailing project progress, challenges, and achievements.
 -   **Meeting Preparation:** Employ LLMs for preparing agendas, presentations, and key talking points for stakeholder meetings.
 
-### Continuous Improvement:
+### Continuous Improvement
 
 -   **Feedback Analysis:** Use LLMs to analyze feedback from team members and stakeholders, identifying areas for improvement and action points.
 -   **Process Optimization:** Utilize copilots to continuously refine and optimize project workflows and team processes.
@@ -123,7 +123,7 @@ The Team Lead in TDSP can use LLMs and Microsoft copilots for these tasks: enhan
 
 ## Summary
 
-In summary, the Team Lead in TDSP plays a critical role in project management, technical guidance, team collaboration, quality assurance, and stakeholder engagement. They're responsible for steering the project effectively, ensuring the team works cohesively, and maintaining high standards of data science work.
+The Team Lead in TDSP plays a critical role in project management, technical guidance, team collaboration, quality assurance, and stakeholder engagement. They're responsible for steering the project effectively, ensuring the team works cohesively, and maintaining high standards of data science work.
 
 ## Contributors
 

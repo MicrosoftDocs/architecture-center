@@ -33,16 +33,19 @@ Here's a visual representation of the TDSP lifecycle:
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
 ## Goals
+
 * Specify the key variables that are to serve as the model targets and whose related metrics are used determine the success of the project.
 * Identify the relevant data sources that the business has access to or needs to obtain.
 
 ## How to do it
+
 There are two main tasks addressed in this stage:
 
 * **Define objectives**: Work with your customer and other stakeholders to understand and identify the business problems. Formulate questions that define the business goals that the data science techniques can target.
 * **Identify data sources**: Find the relevant data that helps you answer the questions that define the objectives of the project.
 
 ### Define objectives
+
 1. A central objective of this step is to identify the key business variables that the analysis needs to predict. We refer to these variables as the *model targets*, and we use the metrics associated with them to determine the success of the project. Two examples of such targets are sales forecasts or the probability of an order being fraudulent.
 
 2. Define the project goals by asking and refining "sharp" questions that are relevant, specific, and unambiguous. Data science is a process that uses names and numbers to answer such questions. You typically use data science or machine learning to answer five types of questions:
@@ -66,6 +69,7 @@ There are two main tasks addressed in this stage:
    * **T**ime-bound
 
 ### Identify data sources
+
 Identify data sources that contain known examples of answers to your sharp questions. Look for the following data:
 
 * Data that's relevant to the question. Do you have measures of the target and features that are related to the target?
@@ -75,9 +79,10 @@ For example, you might find that the existing systems need to collect and log ot
 
 ## Integration with MLflow
 
-There are no direct tools from MLflow; however, the documentation and experiment tracking can indirectly support this phase by providing insights and historical context to align the project with business objectives.
+There are no direct tools from MLflow. However, the documentation and experiment tracking capabilities of MLflow can indirectly support this phase. It can provide insights and historical context to align the project with business objectives.
 
 ## Artifacts
+
 Here are the deliverables in this stage:
 
 * Charter document: The charter document is a living document. You update the document throughout the project as you make new discoveries and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.
@@ -90,13 +95,13 @@ Researchers publish studies about TDSP in peer-reviewed literature.  [The citati
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
  - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
