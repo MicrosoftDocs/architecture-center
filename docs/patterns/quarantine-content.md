@@ -43,7 +43,7 @@ Here's a typical quarantine workflow:
 
 This image shows the flow of the quarantine process.
 
-![Quarantine pattern workflow.](./_images/quarantine.png)
+![This diagram shows the general quarantine pattern workflow.](./_images/quarantine.png)
 
 ## Issues and considerations
 
@@ -85,7 +85,7 @@ This pattern might not be useful when:
 
 ## Example
 
-Let’s consider the integration of OCI artifacts from public registries to Azure Container Registry (ACR). Suppose the workload uses a container image in Docker Hub. The workload team signals their intent of integrating that image by importing the image from Docker Hub into a local container registry. This purpose of this registry is to hold the image during quarantine. At this point there's no state change between the image in Docker Hub and the local registry. The image in both those sources is untrusted.
+Let's consider the integration of OCI artifacts from public registries to Azure Container Registry (ACR). Suppose the workload uses a container image in Docker Hub. The workload team signals their intent of integrating that image by importing the image from Docker Hub into a local container registry. This purpose of this registry is to hold the image during quarantine. At this point there's no state change between the image in Docker Hub and the local registry. The image in both those sources is untrusted.
 
 The workload team has governance policies in place that only allows the workload to use images an ACR instance owned by the team. So any image pulled from the local container registry is blocked. 
 
@@ -93,5 +93,6 @@ Invoke security tooling - Microsoft Defender suite //TODO
 
 ACR has the ability to push metadata onto images themselves. However, it may be necessary to augment the design with some external tracking, because ACR itself may not be able to support all of this natively. 
 
-Keep a log of running the validation tests to track what happened and what didn’t happen. If the artifact was not found satisfactory, don't keep it for consumption.
+Keep a log of running the validation tests to track what happened and what didn't happen. If the artifact was not found satisfactory, don't keep it for consumption.
 
+![This image shows Azure Container Registry implementation of the quarantine pattern.](./_images/quarantine-example.png)
