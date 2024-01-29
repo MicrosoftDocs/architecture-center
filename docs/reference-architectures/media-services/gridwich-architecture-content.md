@@ -203,7 +203,8 @@ The Gridwich system embodies best practices for processing and delivering media 
 
 ## Deploy this scenario
 
-- [Set up Azure DevOps](https://github.com/mspnp/gridwich/blob/main/doc/1-set-up-azure-devops.md) Gridwich project, repo, pipelines, and variable groups.
+- Go to the [Gridwich repository on GitHub](https://github.com/mspnp/gridwich/).
+- Follow [all the procedures](https://github.com/mspnp/gridwich/blob/main/README.md#procedures), starting with the [set up of Azure DevOps](https://github.com/mspnp/gridwich/blob/main/doc/1-set-up-azure-devops.md).
 
 ## Related resources
 

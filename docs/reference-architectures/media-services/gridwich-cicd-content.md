@@ -50,3 +50,7 @@ One advantage of the "everything as code" practice is component reuse.
 
 - For Terraform, Gridwich relies heavily on [Terraform modules](https://www.terraform.io/docs/modules/composition.html) to enhance composability and reusability.
 - For Azure Pipelines YAML, Gridwich uses [Pipeline templates](/azure/devops/pipelines/process/templates).
+
+## Next steps
+
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
