@@ -32,7 +32,6 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 
   The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
 
-  Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Remote Gateway(ARG) software.
 
 - Alliance Connect Virtual Subscription: The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through Multi-Vendor Secure IP Network (MV-SIPN). The deployment of the respective Juniper Virtual Firewall (vSRX) components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
 
