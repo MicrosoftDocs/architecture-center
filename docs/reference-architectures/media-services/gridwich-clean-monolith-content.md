@@ -51,7 +51,7 @@ For code reuse and centralization, Gridwich consolidates business logic or infra
 
 Nothing in the Gridwich problem space or architecture explicitly pushes the solution into either a monolithic app or several microservices.
 
-You could easily refactor the app into microservices, each a Function App hosting a single saga participant. Each Function app would link the core and core EventGrid libraries.  The apps would each have a linkage or use a common library for infrastructure gateways.
+You could easily refactor the app into microservices, each a Function App hosting a single saga participant. Each Function app would link the core and core Event Grid libraries.  The apps would each have a linkage or use a common library for infrastructure gateways.
 
 ![Diagram showing an alternative Gridwich microservices architecture.](media/microservices-components.png)
 
