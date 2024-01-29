@@ -1,5 +1,4 @@
 
-
 This article details the specific Event Grid events that form the request-response sequence for different Gridwich operations.
 
 ## Gridwich events
@@ -9,17 +8,10 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
 - [Gridwich Acknowledgment (ACK)](#gridwich-generic-ack-response) indicates that Gridwich has received, but not necessarily processed, the request in a Request-ACK-Response sequence.
 - Each operation has one or more unique Success response events, but almost all operations use the same [Gridwich Failure](#gridwich-generic-failure-response) event to communicate failure.
 
-**Publishing events**
-
-- [Publish via Azure Media Services](#requester-asks-gridwich-to-publish-content-via-azure-media-services)
-- [Create asset locator](#create-content-asset-locator)
-- [Delete asset locator](#delete-asset-locator)
-
-**Encoding events**
+### Encoding events
 
 - **Initiate new Encode job**
 
-  - [Encode with Media Services](#requester-asks-gridwich-to-encode-a-media-services-v3-transform)
   - [Encode with CloudPort workflow](#requester-asks-gridwich-to-encode-via-cloudport-workflow)
   - [Encode with Flip](#requester-asks-gridwich-to-encode-via-flip)
 
@@ -34,7 +26,7 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
   - [Encoding completed successfully](#encoding-status-success)
   - [Encoding canceled](#encoding-status-canceled)
 
-**Blob and container storage events**
+### Blob and container storage events
 
 - **Containers**
 
@@ -56,7 +48,7 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
   - [Blob created](#gridwich-tells-requester-that-it-created-a-blob)
   - [Blob deleted](#gridwich-informs-requester-that-it-deleted-a-blob)
 
-**Storage keys**
+### Storage keys
 
 - [Rotate storage keys](#requester-asks-gridwich-to-rotate-to-a-new-storage-key)
 
@@ -447,40 +439,6 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-### Requester asks Gridwich to encode a Media Services v3 transform
-
-**Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs)
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "operationContext": <OperationContextObject>,
-        "inputs": [
-         { "blobUri": "https://<storageaccountname>.blob.core.windows.net/<containername>/<filename>" }
-        ],
-        "outputContainer": "https://<storageaccountname>.blob.core.windows.net/<containername>/",
-        "transformName": "audio-mono-aac-video-mbr-no-bframes",
-        "timeBasedEncode": {
-          "startSeconds": 01.234,
-          "endSeconds": 12.345
-        }
-    },
-    "eventType": "request.encode.mediaservicesv3.create"
-}
-```
-
-The `transformName` property is one of the [CustomTransforms](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/src/Constants/CustomTransforms.cs):
-
-- `audio-mono-aac-video-mbr-no-bframes`
-- `audio-copy-video-mbr-no-bframes`
-- `audio-copy-video-mbr`
-
-The start and end times are always relative to the start of the media file, regardless of the presentation start time.
-
 ### Gridwich encoders common request successful dispatch response
 
 **Gridwich** > **Requester**, uses [ResponseEncodeDispatchedDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Responses/ResponseEncodeStatusBaseDTO.cs).
@@ -494,13 +452,13 @@ The start and end times are always relative to the start of the media file, rega
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id."
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance."
     },
     "eventType": "response.encode.<encodername>.dispatched"
 }
 ```
 
-The `<encodername>` is one of `cloudport`, `flip`, or `mediaservicesv3`.
+The `<encodername>` is one of `cloudport` or `flip`.
 
 ### Gridwich encoder asynchronous status messages
 
@@ -526,7 +484,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext":  <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id."
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance."
     },
     "eventType": "response.encode.<encodername>.scheduled"
 }
@@ -545,7 +503,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id.",
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance.",
         "currentStatus": "string",
         "percentComplete": 50,
     },
@@ -566,7 +524,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id.",
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance.",
         "outputs":[
             { "blobUri": "StorageURL-string" }
         ]
@@ -588,7 +546,7 @@ An encode request failure generates a Gridwich Failure event.
     "data": {
         "operationContext": <OperationContextObject>,
         "encoderContext": <EncoderContext>,
-        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance, or Media Services Job Id."
+        "workflowJobName": "CloudPort or Flip assigned job name for workflow instance."
     },
     "eventType": "response.encode.<encodername>.canceled"
 }
@@ -751,106 +709,6 @@ The request provides the container name and an `accessType` of `Blob`, `BlobCont
 }
 ```
 
-### Requester asks Gridwich to publish content via Azure Media Services
-
-The request is to create or delete a content asset locator.
-
-#### Create content asset locator
-
-**Requester** > **Gridwich** uses [RequestMediaServicesLocatorCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorCreateDTO.cs).
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "operationContext": <OperationContextObject>,
-        "containerUri": "",
-
-        "streamingPolicyName": "clearStreamingOnly",
-        "contentKeyPolicyName": null,
-    or
-        "streamingPolicyName": "cencDrmStreaming",
-        "contentKeyPolicyName": "cencDrmKey",
-    or
-        "streamingPolicyName": "multiDrmStreaming",
-        "contentKeyPolicyName": "multiDrmKey",
-
-        "timeBasedfilter":{
-            "startSeconds": 01.234,
-            "endSeconds": 12.345,
-        },
-        "generateAudioFilters": true
-    },
-    "eventType": "request.mediaservices.locator.create"
-}
-```
-
-The start and end times are always relative to the start of the media file, regardless of the presentation start time.
-
-| Streaming policy      | DRM technologies                                       |
-|-----------------------|--------------------------------------------------------|
-| cencDrmStreaming      | Microsoft PlayReady + Google Widevine                  |
-| multiDrmStreaming     | Microsoft PlayReady + Google Widevine + Apple FairPlay |
-
-**Gridwich** > **Requester** uses [ResponseMediaServicesLocatorCreateSuccessDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorCreateSuccessDTO.cs).
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "operationContext": <OperationContextObject>,
-        "locatorName": "someNameSetByGridwich",
-        "cencKeyId": "someKeyId for PlayReady and Widevine encryption",
-        "cbcsKeyId": "someKeyId for FairPlay encryption",
-        "dashUri": "someUri which ends with manifest(format=mpd-time . . .)",
-        "hlsUri": "someUri which ends with manifest(format=m3u8-aapl . . .)"
-    },
-    "eventType": "response.mediaservices.locator.create.success"
-}
-```
-
-#### Delete asset locator
-
- **Requester** > **Gridwich** uses [RequestMediaServicesLocatorDeleteDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesLocatorDeleteDTO.cs).
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "operationContext": <OperationContextObject>,
-        "locatorName": "someName"
-    },
-    "eventType": "request.mediaservices.locator.delete"
-}
-```
-
-The `locatorName` property is an opaque string generated by Gridwich.
-
-**Gridwich** > **Requester** uses [ResponseMediaServicesLocatorDeleteSuccessDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Responses/ResponseMediaServicesLocatorDeleteSuccessDTO.cs).
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "operationContext": <OperationContextObject>,
-        "locatorName": "someName"
-    },
-    "eventType": "response.mediaservices.locator.delete.success"
-}
-```
-
 ### Requester asks Gridwich to rotate to a new storage key
 
 The `Rollkey` event family differs from others in Gridwich in that, while the request accepts an `operationContext` value, none of the response events include it.
@@ -858,6 +716,7 @@ The `Rollkey` event family differs from others in Gridwich in that, while the re
 Failure events aren't of the normal [response.failure](#gridwich-generic-failure-response) event type, but instead have a type value of `response.rollkey.storage.failure`.
 
 The `response.rollkey.storage.failure` failure events:
+
 - Don't include any of the normal failure event logging information `log` data properties.
 - Contain an additional data property named `error` that contains error message text. Other Gridwich failures carry that text on the `logEventMessage` data property.
 
@@ -924,7 +783,6 @@ The `keyName` corresponds to the key name that Azure Storage defines in its [Get
 Product documentation:
 
 - [Gridwich cloud media system](gridwich-architecture.yml)
-- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
 - [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 
@@ -935,6 +793,5 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
 - [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
 - [Logging in Gridwich](gridwich-logging.yml)
