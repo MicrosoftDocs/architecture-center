@@ -3879,6 +3879,21 @@
       "source_path": "docs/reference-architectures/media-services/test-encoding.yml",
       "redirect_url": "https://github.com/mspnp/gridwich/blob/main/doc/6-test-mediainfo.md",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/gridwich-content-protection-drm.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/media-services/gridwich-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/media-services-setup-scale.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/media-services/gridwich-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/variable-group-terraform-flow.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/media-services/gridwich-architecture",
+      "redirect_document_id": false
     }
   ]
 }
