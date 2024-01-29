@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -28,6 +28,9 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)
+- [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml)
+- [Azure Virtual Machines baseline architecture in an Azure landing zone](./virtual-machines/baseline-landing-zone.yml)
+- [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml)
 - [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)
 - [Deploy Ansys HFSS on an Azure virtual machine](./guide/hpc/ansys-hfss.yml)
 - [Conceptual planning for IPv6 networking](./networking/guide/ipv6/ipv6-ip-planning.md)
@@ -37,6 +40,8 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#bdbd521054](https://github.com/MicrosoftDocs/architecture-center/commit/bdbd521054))
+- [Integrate data with Logic App and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#7de0775a15](https://github.com/MicrosoftDocs/architecture-center/commit/7de0775a15))
 - [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#e6cba7ec73](https://github.com/MicrosoftDocs/architecture-center/commit/e6cba7ec73))
 - [Deploy Altair Radioss on an Azure virtual machine](./guide/hpc/altair-radioss.yml)  ([#274173ea1e](https://github.com/MicrosoftDocs/architecture-center/commit/274173ea1e))
 
