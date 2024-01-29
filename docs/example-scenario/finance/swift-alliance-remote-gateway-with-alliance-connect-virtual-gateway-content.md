@@ -73,7 +73,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-For on-premises resilience, we recommend that you deploy into at least two separate data centers for reliability. The same considerations apply in Azure with some variations. Alliance Access/Entry and Alliance Web Platform using the embedded database can be deployed into Azure cloud. The Azure need to comply with the corresponding application’s requirements for performance and latency. For information about the database recovery process, see the Alliance Access administration guide, section 14, on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+You should deploy into at least two separate availability zones in Azure with some variations. Alliance Access/Entry and Alliance Web Platform using the embedded database can be deployed into Azure cloud. The Azure need to comply with the corresponding application’s requirements for performance and latency. For information about the database recovery process, see the Alliance Access administration guide, section 14, on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
 
 #### Azure resiliency concepts
 
