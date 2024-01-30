@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy BETA CAE EPILYSIS on an Azure virtual machine
-  description: Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on an Azure virtual machine.
+  description: Learn about the benefits and the test performance results of running BETA CAE EPILYSIS software on an Azure virtual machine.
   author: Basha-R
   ms.author: v-rbasha
   ms.date: 01/31/2024
@@ -14,7 +14,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
 name: Deploy BETA CAE EPILYSIS on an Azure virtual machine
-summary: Find out how Barracuda Virtual Reactor CFD software performs on an Azure virtual machine.
+summary: Learn about the benefits and the test performance results of running BETA CAE EPILYSIS software on an Azure virtual machine.
 thumbnailUrl: ../../browse/thumbs/hpc-epilysis-single.png
 content: |
   [!include[](epilysis-content.md)]
