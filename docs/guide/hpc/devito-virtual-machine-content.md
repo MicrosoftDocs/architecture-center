@@ -7,11 +7,13 @@ Devito is a functional language that you can implement as a Python package. With
 The following diagram shows a single-node architecture:
 
 :::image type="content" source="./media/hpc-devito-single-node.svg" alt-text="Diagram that shows the single-node architecture." lightbox="./media/hpc-devito-single-node.svg" border="false":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-devito-single.vsdx) of this architecture.*
 
 The following diagram shows a multi-node architecture:
 
 :::image type="content" source="./media/hpc-devito-multi-node.svg" alt-text="Diagram that shows the multi-node architecture." lightbox="./media/hpc-devito-multi-node.svg" border="false":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-devito-multi-node.vsdx) of this architecture.*
 
 ### Components
