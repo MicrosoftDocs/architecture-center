@@ -136,6 +136,8 @@ The following table shows the results for a cluster with 64 vCPUs per node:
 | 4 | 256 | 60.77 | 641.30 | 2.00 |
 | 8 | 512 | 51.94 | 750.40 | 2.34 |
 
+:::image type="content" source="./media/speed-increase-graph-64.png" alt-text="Graph that shows the relative speed increase for a 64-vCPU node.":::
+
 The following table shows the results for a cluster with 96 vCPUs per node:
 
 | VM configuration | Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative speed increase |
@@ -144,6 +146,8 @@ The following table shows the results for a cluster with 96 vCPUs per node:
 | Standard_HB120-96rs_v3 | 2 | 192 | 88.72 | 439.27 | 1.55 |
 | Standard_HB120-96rs_v3 | 4 | 384 | 75.11 | 518.93 | 1.83 |
 | Standard_HB120-96rs_v3 | 8 | 768 | 69.38 | 561 | 1.98 |
+
+:::image type="content" source="./media/speed-increase-graph-96.png" alt-text="Graph that shows the relative speed increase for a 96-vCPU node.":::
 
 ## Azure cost
 
