@@ -111,6 +111,7 @@ You can use the following table to find instructions for transitioning specific 
 
 ## Next steps
 
+- [Transition hub and spoke topology to IPv6](azure/architecture/networking/guide/ipv6-architecture-content.md)
 - [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
 - [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
 
