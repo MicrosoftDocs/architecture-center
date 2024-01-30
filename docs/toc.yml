@@ -2838,30 +2838,12 @@ items:
             href: reference-architectures/media-services/gridwich-project-names.yml
           - name: Gridwich CI/CD
             href: reference-architectures/media-services/gridwich-cicd.yml
-          - name: Content protection and DRM
-            href: reference-architectures/media-services/gridwich-content-protection-drm.yml
-          - name: Gridwich Media Services
-            href: reference-architectures/media-services/media-services-setup-scale.yml
           - name: Gridwich Storage Service
             href: reference-architectures/media-services/gridwich-storage-service.yml
           - name: Gridwich logging
             href: reference-architectures/media-services/gridwich-logging.yml
           - name: Gridwich message formats
             href: reference-architectures/media-services/gridwich-message-formats.yml
-          - name: Pipeline variables to Terraform flow
-            href: reference-architectures/media-services/variable-group-terraform-flow.yml
-        - name: Gridwich procedures
-          items:
-          - name: Run Azure admin scripts
-            href: reference-architectures/media-services/run-admin-scripts.yml
-          - name: Set up local dev environment
-            href: reference-architectures/media-services/set-up-local-environment.yml
-          - name: Create new cloud environment
-            href: reference-architectures/media-services/create-delete-cloud-environment.yml
-          - name: Maintain and rotate keys
-            href: reference-architectures/media-services/maintain-keys.yml
-          - name: Test Media Services V3 encoding
-            href: reference-architectures/media-services/test-encoding.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
@@ -5271,8 +5253,6 @@ items:
           - name: Media players for Media Services
             href: /azure/media-services/latest/player-media-players-concept
             maintainContext: true
-          - name: Test Media Services v3 encoding
-            href: reference-architectures/media-services/test-encoding.yml
         - name: Dynamics 365 media accelerator
           items:
           - name: Overview

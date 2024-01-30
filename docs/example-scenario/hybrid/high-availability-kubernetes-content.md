@@ -29,18 +29,20 @@ Services like Azure Container Registry and Azure Monitor are hosted outside of A
 ### Components
 
 - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure that can run workloads in an on-premises environment by providing Azure services in your datacenter.
-- [AKS Engine](https://github.com/Azure/aks-engine) is the engine behind the managed Kubernetes service, AKS, that's available in Azure. On Azure Stack Hub, you can use AKS Engine to deploy, scale, and upgrade fully featured, self-managed Kubernetes clusters using Azure Stack Hub IaaS capabilities.
-      
-   To learn more about the differences between AKS Engine on Azure and AKS Engine on Azure Stack Hub, see [Known Issues and Limitations](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#known-issues-and-limitations).
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides the network infrastructure on each Azure Stack Hub instance for the virtual machines (VMs) that host the Kubernetes cluster infrastructure.
+- [AKS Engine](https://github.com/Azure/aks-engine-azurestack) for Azure Stack provides a command-line tool to help provision a self-managed Kubernetes cluster on Azure Stack Hub. It uses the Azure Resource Manager to create, destroy and maintain clusters provisioned with basic IaaS resources in Azure Stack Hub.
+- [Virtual Network](https://azure.microsoft.com/products/virtual-network) provides the network infrastructure on each Azure Stack Hub instance for the virtual machines (VMs) that host the Kubernetes cluster infrastructure.
 - [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is used for the Kubernetes API endpoint and the Nginx Ingress Controller. The load balancer routes external (for example, internet) traffic to nodes and VMs that provide a specific service.
 - [Container Registry](https://azure.microsoft.com/products/container-registry) is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the container registry by using a Microsoft Entra identity. Kubernetes doesn't require Container Registry. You can use other container registries, like Docker Hub.
 - [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools that you can use to manage your code. You can also use GitHub or other Git-based repositories.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is part of Azure DevOps Services. It runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions like Jenkins.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Kubernetes to collect metrics from controllers, nodes, containers, container logs, and control plane node logs.
-- [Azure Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer that you can use to distribute traffic optimally to services across different Azure regions or Azure Stack Hub deployments. Traffic Manager also provides high availability and responsiveness. The application endpoints must be accessible from the outside. Other on-premises solutions are also available.
+- [Azure Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer that you can use to distribute traffic optimally to services across different Azure regions or Azure Stack Hub deployments. Traffic Manager also provides high availability and responsiveness. The application endpoints must be accessible from the outside to be added as endpoints to Azure Traffic Manager.
 - A Kubernetes ingress controller exposes HTTP(S) routes to services in a Kubernetes cluster. You can use [NGINX](https://www.nginx.com/products/nginx-ingress-controller) or any suitable ingress controller.
 - [Helm](https://helm.sh) is a package manager for Kubernetes deployment. It provides a way to bundle different Kubernetes objects, like `Deployments`, `Services`, and `Secrets`, into a single "chart." You can publish, deploy, version, and update a chart object. You can use Container Registry as a repository to store packaged Helm charts.
+
+### Alternatives
+
+Azure Traffic manager is one of the choices for distributing traffic between two Internet-reachable end points. Other load balancing solutions could also be used to distribute traffic between Azure Stack Hub instances. There may be scenarios where the application end points hosted in Azure Stack Hub should be restricted to only within your private network. Third party load balancers might be used in such scenarios to load balance traffic across Azure Stack Hub instances within your network, whether they are co-located in the same data center or deployed in multiple data centers.
 
 ## Scenario details
 
@@ -56,7 +58,7 @@ Many organizations are developing cloud-native solutions that take advantage of 
 - Connectivity.
 - Regulatory or statutory requirements.
 
-Azure, in combination with Azure Stack Hub, addresses most of these concerns. This article provides a broad set of options, decisions, and considerations to help you successfully implement Kubernetes on Azure Stack Hub.
+Azure, in combination with Azure Stack Hub, addresses most of these concerns. This article provides a broad set of options, decisions, and considerations to help you successfully architect highly available Kubernetes based solutions on Azure Stack Hub.
 
 The scenario described here is common for organizations with critical workloads in highly restricted and regulated environments. It's applicable in domains like finance, defense, and government.
 
@@ -85,7 +87,7 @@ The sample scenario implements scalability in three layers of the application st
 | Architecture level | Affects | How? |
 | --- | --- | ---
 | Application | Application | Horizontal scaling based on the number of pods / replicas / container instances.* |
-| Cluster | Kubernetes cluster | Number of nodes (between 1 and 50), VM SKU sizes, and, via the AKS Engine manual `scale` command, node pools. (AKS Engine on Azure Stack Hub currently supports only a single node pool.)  |
+| Cluster | Kubernetes cluster | Number of nodes (between 1 and 50), VM SKU sizes, and, via the AKS Engine manual `scale` command, node pools.  |
 | Infrastructure | Azure Stack Hub | Number of nodes, capacity, and scale units within an Azure Stack Hub deployment. |
 
 \* *Via the Kubernetes HorizontalPodAutoscaler, which provides automated metric-based scaling, or vertical scaling by sizing the container instances (CPU or memory).*
@@ -112,7 +114,7 @@ When you choose VM sizes for your initial deployment, take the following into co
 
     If your application needs more or fewer resources, you can scale the number of nodes out or in horizontally, between 1 and 50 nodes. If you need more than 50 nodes, you can create another cluster in a separate subscription. You can't scale up the actual VMs vertically to another VM size without redeploying the cluster.
 
-    Implement scaling manually by using the AKS Engine helper VM that you used to deploy the Kubernetes cluster. For more information, see [Scaling Kubernetes clusters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md).
+    Implement scaling manually by using the AKS Engine helper VM that you used to deploy the Kubernetes cluster. For more information, see [Scaling Kubernetes clusters](https://github.com/Azure/aks-engine-azurestack/blob/master/docs/topics/scale.md).
 
 - **Quotas.** Consider the [quotas](/azure-stack/operator/azure-stack-quota-types) that you've configured when you plan an AKS deployment on Azure Stack Hub. Make sure each [subscription](/azure-stack/operator/service-plan-offer-subscription-overview) has the proper plans and quotas configured. The subscription will need to accommodate the amount of compute, storage, and other services required for your clusters as they scale out.
 
@@ -139,7 +141,7 @@ Networking and connectivity also affect the three layers discussed previously. T
 On the application layer, the most important consideration is whether the application is exposed to the internet and can be accessed from the internet. From a Kubernetes perspective, internet access requires exposing a deployment or pod by using a Kubernetes Service or an ingress controller.
 
 > [!NOTE]
-> We recommend that you use ingress controllers to expose Kubernetes Services because the number of front-end public IPs on Azure Stack Hub is limited to five. That also limits the number of Kubernetes Services of type `LoadBalancer` to five, which is too small for many deployments. For more information, see the [AKS Engine documentation](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#limited-number-of-frontend-public-ips).
+> We recommend that you use ingress controllers to expose Kubernetes Services because the number of front-end public IPs on Azure Stack Hub is limited to five. That also limits the number of Kubernetes Services of type `LoadBalancer` to five, which is too small for many deployments.
 
 An application can be exposed with a public IP via a load balancer or an ingress controller without being accessible via the internet. Azure Stack Hub can have a public IP address that's visible only on the local intranet. Not all public IPs are truly internet-facing.
 
@@ -148,10 +150,11 @@ Besides ingress traffic to the application, you also need to consider outbound, 
 - Pulling container images that are stored in Docker Hub or Container Registry
 - Retrieving Helm charts
 - Emitting Application Insights data or other monitoring data
+- Connecting to external applications
 
-Some enterprise environments might require the use of _transparent_ or _non-transparent_ proxy servers. These servers require specific configuration on various components of the cluster. The AKS Engine documentation contains details on how to accommodate network proxies. For more information, see [AKS Engine and proxy servers](https://github.com/Azure/aks-engine/blob/master/docs/topics/proxy-servers.md).
+Some enterprise environments might require the use of _transparent_ or _non-transparent_ proxy servers. These servers require specific configuration on various components of the cluster. The AKS Engine documentation contains details on how to accommodate network proxies. For more information, see [AKS Engine and proxy servers](https://github.com/Azure/aks-engine-azurestack/blob/master/docs/topics/proxy-servers.md).
 
-Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The solution described here consists of individual Kubernetes clusters that run on individual Azure Stack Hub instances. Traffic between them, like the replication traffic between two databases, is considered external traffic. External traffic must be routed through either a site-to-site VPN or Azure Stack Hub public IP addresses:
+Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The solution described here consists of individual Kubernetes clusters that run on individual Azure Stack Hub instances. Traffic between them, like the replication traffic between two databases, is considered external traffic. External traffic must be routed through either a site-to-site VPN or Azure Stack Hub public IP addresses. Site-to-site VPN offers more security for data transfers and is preferred.
 
 :::image type="content" source="media/aks-cluster-traffic.svg" alt-text="Diagram that shows how traffic is routed." border="false":::
 
