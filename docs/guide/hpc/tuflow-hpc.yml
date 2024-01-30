@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Tuflow on an Azure virtual machine
+  description: Learn how to install and run Tuflow on an Azure virtual machine, and see the performance results of running Devito on Azure.
+  author: Basha-R
+  ms.author: v-rbasha
+  ms.date: 02/01/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-blob-storage
+  - azure-cyclecloud
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Devito on an Azure virtual machine
+summary: Learn how to install and run Tuflow on an Azure virtual machine, and see the performance results of running Devito on Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/.png
+content: |
+  [!include[](tuflow-hpc-content.md)]
