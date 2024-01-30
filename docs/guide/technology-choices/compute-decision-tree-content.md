@@ -6,7 +6,7 @@ Use the following flowchart to select a candidate compute service.
 
 :::image type="content" source="./images/compute-choices.svg" alt-text="Diagram that shows a decision tree for Azure compute services." lightbox="./images/compute-choices.svg" border="false":::
 
-[Download a Visio file](https://arch-center.azureedge.net/compute-choices.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/compute-choices.vsdx) of this decision tree.
 
 This diagram refers to two migration strategies:
 
