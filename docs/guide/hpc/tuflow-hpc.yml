@@ -17,6 +17,6 @@ products:
   - azure-virtual-network
 name: Deploy Devito on an Azure virtual machine
 summary: Learn how to install and run Tuflow on an Azure virtual machine, and see the performance results of running Devito on Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/.png
+thumbnailUrl: ../../browse/thumbs/hpc-tuflow-hpc-architecture.png
 content: |
   [!include[](tuflow-hpc-content.md)]
