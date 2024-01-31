@@ -132,15 +132,13 @@ Here are example UDRs for each subnet in one spoke virtual network:
 
 These UDRs are just samples. You must align these UDRs with your organizational network policies and the architecture of your Azure deployment.
 
-## Next steps
-
-- Learn more about [Create a VM with IPv6 Dual Stack](/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal)
-- Learn more about [managing IP Address ranges](/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range) on Virtual Networks.
-
 ## Related resources
 
-Read more about IPv6:
+Learn more about IPv6:
 
+- [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning)
+- [Create a VM with IPv6 Dual Stack](/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal)
+- [Managing IP Address ranges](/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range)
 - [Cloud Adoption Framework plan for ip addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing#ipv6-considerations)
 - [Azure Public IPv6 offerings are free](/azure-public-ipv6-offerings-are-free-as-of-july-31)
 - [Azure Virtual Networking IPv6](/azure/virtual-network/ip-services/ipv6-overview)
@@ -149,7 +147,7 @@ Read more about IPv6:
 - [Azure Load Balancer IPv6 Support](/azure/load-balancer/load-balancer-ipv6-overview)
 - [Add IPv6 support for private peering using the Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal)
 
-Read more about virtual network architecture:
+Learn more about virtual network architecture:
 
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
