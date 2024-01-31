@@ -18,14 +18,14 @@ CFX is used in the aerospace, defense, steam turbine, energy, automotive, constr
 
 Single-node configuration:
 
-:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX." lightbox="media/cfx/ansys-cfx.svg" border="false":::
+:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX on Single Node." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
 
 Multi-node configuration:
 
-:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX." lightbox="media/cfx/ansys-cfx.svg" border="false":::
+:::image type="content" source="media/cfx/hpc-ansys-cfx-multi-node.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX on Multi Node." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
@@ -247,7 +247,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |16|	1024|	2.22|	2.206|	5.12|	5.15|	0.63%|
 
 
-:::image type="content" source="media/cfx/graph-pump-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-pump-cmpr-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration." border="false":::
 
 2.	Airfoil with 10M mesh size
 
@@ -260,7 +260,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |16|	1024|	9.4|	9.79|	7.45|	7.16|	-4.11%|
 
 
-:::image type="content" source="media/cfx/graph-10m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-airfoil-10m-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
 
 3.	Airfoil with 50M mesh size
 
@@ -273,7 +273,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |16|	1024|	37.69|	39.30|	9.85|	9.45|	-4.26%|
 
 
-:::image type="content" source="media/cfx/graph-50m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-airfoil-50m-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
 
 4.	Airfoil with 100M mesh size  
 
@@ -285,7 +285,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|	512|	104|	106.35|	10.95|	10.71|	-2.26%|
 |16|	1024|	83.38|	84.34|	13.66|	13.50|	-1.16%|
 
-:::image type="content" source="media/cfx/graph-airfoil-100m-multi-node.png" alt-text="Graph that shows the relative speed increases for 100M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-100m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 100M airfoil, using the multi-node configuration." border="false":::
 
 ## Azure cost
 
@@ -319,9 +319,9 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 Ansys CFX Application 2021 R2 and 2022 R2 both are successfully deployed and tested on HBv3 120 AMD EPYC™ 7V73X-series (Milan-X) Azure Virtual Machines.
 
-1.	In case of single node configuration, it is observed that there is a speed up to 64 cores and there after it is saturated with further increase of cores.
+1.	In case of single node configuration, it is observed that there is a relative speed increase up to 64 cores and there after it is saturated with further increase of cores.
 2.	In case of multi-node runs, with sufficiently large models, Ansys CFX is scaling up linearly with increase in number of nodes.
-3.	A Relative speedup of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a very good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
+3.	A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a very good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
 4.	The Performance comparison between the CFX versions 2021 R2 and 2022 R2 is shown in this report.
 
 ## Running Ansys CFX on Azure Virtual Machines
