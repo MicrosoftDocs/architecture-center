@@ -100,7 +100,6 @@ Additional IoT architectures:
 
 IoT architecture guides:
 
-- [IoT concepts](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
 - [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
 - [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [IoT patterns](../iot/measure-control-loop.yml)

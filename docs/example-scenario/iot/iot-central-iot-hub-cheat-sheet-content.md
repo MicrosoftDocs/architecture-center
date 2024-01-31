@@ -111,7 +111,6 @@ The following table shows the level of support for various capabilities in IoT C
 
 ## Related resources
 
-- [IoT conceptual overview](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT and data analytics](../data/big-data-with-iot.yml)
 - [Azure Industrial IoT guidance](../../guide/iiot-guidance/iiot-architecture.yml)
