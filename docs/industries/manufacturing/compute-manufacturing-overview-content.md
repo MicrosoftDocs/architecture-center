@@ -100,7 +100,6 @@ Related guides:
 - [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
 - [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
 - [Use subject matter expertise in machine teaching and reinforcement learning](/azure/architecture/solution-ideas/articles/machine-teaching)
-- [Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)
 - [Azure industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
 
 Related architectures:
