@@ -6,8 +6,8 @@ The biggest advantage of using messaging over remote procedure call (RPC) techno
 
 While this characteristic is great for ensuring no information is lost by the running system, it has an inherent drawback that any given message may be delivered to the processing code multiple times. In absence of code that guards against processing a message multiple times the data quickly becomes corrupted by updates applied multiple times.
 
-Historically this issue has been mitigated by distributed transcation technologies implementing Two-Phase Commit protocol (2PC) like Microsoft Distributed Transaction Coordinator. Such technologies allowed a single transaction to span both the messaging infrastructure and the database, ensuring that either:
- - all the data is updated and the message is consumed
+Historically this issue has been mitigated by distributed transcation technologies implementing Two-Phase Commit (2PC) protocol, like Microsoft Distributed Transaction Coordinator (DTC). Such technologies allowed a single transaction to span both the messaging infrastructure and the database, ensuring that either:
+ - all the data is updated _and_ the message is consumed
  - no data is updated and the message is returned back to the queue
 
 Due to the issues with scalability, performance, and required trust level between parties, distributed transaction technologies are no longer available for modern messaging technologies, such as Azure Service Bus. Developers need to build code protecting against duplicate processing into their message handling logic. Adding such logic to a message handling code is referred to as making that code _idempotent_. 
@@ -27,7 +27,7 @@ Process(message);
 MarkProcessed(message);
 ```
 
-It does not, however, take into account that typical message handling code affects multiple external resources, i.e. a database (store or update some data) and messaging infrastructure (send follow-up messages). In other words, it may happen that the first attempt at processing a message resulted in updating the database but crashed before being able to send out messages. In that case, the message is "rolled back" to the queue, after which it will be picked up and re-processed. 
+It does not, however, take into account that typical message handling code affects multiple external resources, i.e. a database (store or update data) and messaging infrastructure (send or publish follow-up messages). In other words, it may happen that the first attempt at processing a message resulted in updating the database but crashed before being able to send messages. In that case, the message is "rolled back" to the queue, after which it will be picked up and re-processed. 
 
 In order for the system to eventually arrive at a consistent state, the logic of processing the message the second time must correctly emit the messages that should have been emitted after the first processing attempt, but not make any other changes to the database. This can pose a significant challenge because typically business code includes any number of external inputs that change from one invocation to the next:
  - data stores
@@ -38,7 +38,7 @@ In order for the system to eventually arrive at a consistent state, the logic of
 ## Solution
 
 Given multiple resources can be affected when processing a message, the solution to the problem is to split the execution of the message handling logic into two parts:
- - compute the effects (deltas) for each resource and persist them
+ - compute the effects, defined as deltas between the current state and the desired state, for each resource and persist them
  - apply these effects
 
 It is based on the assumption that once the effects are computed and made persistent they can always be applied against their respective resources. This, of course, is not true for the majority of interactions with databases in any environment that allows concurrent access. For that reason, the practical solution needs to distinguish between the primary and secondary (_side_) effects. One resource is designated primary and plays a double role. The effects of the message handling are applied to the primary resource _immediately_ in the same transaction as storing all _side_ effects. Only after this transaction is committed, the _side_ effects are applied e.g. messages are sent out. 
@@ -61,24 +61,26 @@ ApplySideEffects();
 CleanUpSideEffects();
 ```
 
-Being independent of the business logic, the pattern can be implemented once and applied to all message handlers in the system making them _idempotent_. The alternative approach to make each message handler _idempotent_ is to apply one or more of the following techniques:
+Being independent of the business logic, the pattern can be implemented once and applied to all message handlers in the system making them _idempotent_. The alternative is to apply one or more of the following techniques:
 
 - do not access more than one resource in any message handler
 - use deterministic or domain-based identifiers instead of GUIDs
 - do not rely on system clock or pseudo-random value generators
 - use idempotent-by-design data structures
 
+While each of them is useful in some context, all of them put significant constraints on the business logic.
+
 ### Benefits
 
 - Provides a simple programming abstraction, similar to one exposed by distributed transaction technologies
 - Can be implemented in the infrastructure layer with minimal effect to message handling code, allowing smooth transition away from distributed transaction technologies
 - Supports resources that had never been able to participate in distributed transactions, such as key-value stores
-- Guarantees it requires from the primary resource, i.e. optimistic concurrency control, are provided by many storage technologies
+- Has very modest requirements for the consistency model of the primary resource, making it viable for a wide range of technologies
 
 ### Drawbacks
 
-- Puts more load on the primary resource (database)- two additional operations per message
-- Increases message processing delay- checking if a message has been processed and cleaning up the side effects both required database round-trip
+- Puts more load on the primary resource (database) -- two additional operations per message
+- Increases message processing delay -- checking if a message has been processed and cleaning up the side effects both required database round-trip
 - Requires that the primary resource supports optimistic concurrency control
 - Requires storing information about all previously processed messages. In principle that information should never be removed but in practice often age-based approach is used to prevent data from growing indefinitely. 
 
@@ -106,7 +108,7 @@ First, it relies on querying the data store for all outstanding side effects. Th
 
 An alternative approach is to use the incoming message as a driver for side effects application. In this approach the side effects are applied immediately after the main transaction is committed and before the incoming message is consumed. If the application fails, the incoming message simply goes back to the queue and is picked up again. This time the business processing is skipped and only the side effects application is performed.
 
-This approach scales well, does not require any dedicated deployment items and does not rely on cross-partition queries. Its disadvantage is the fact that it cannot be used at the system boundary when no incoming message exists.
+This approach scales well, does not require any dedicated deployment entities and does not rely on cross-partition queries. Its disadvantage is the fact that it cannot be used at the system boundary when no incoming message exists.
 
 #### Control message
 
@@ -137,7 +139,8 @@ The following information may be relevant when implementing this pattern:
 - https://exactly-once.github.io/ contains resources on message deduplication techniques
 - Example with Cosmos DB https://learn.microsoft.com/en-us/azure/architecture/best-practices/transactional-outbox-cosmos
 - Outbox in NServiceBus https://docs.particular.net/nservicebus/outbox/
-
+- Transactional session in NServiceBus https://docs.particular.net/nservicebus/transactional-session/ showing the control message-based side effects application model
+  
 ## Related resources
 
 - https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing
