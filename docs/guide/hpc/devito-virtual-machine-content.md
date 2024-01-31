@@ -123,6 +123,8 @@ The following table shows the results for the CentOS-based 8.1 HPC image:
 | 96 | 132.86 | 293.25 | 1.39 |
 | 120 | 149.99 | 259.78 | 1.23 |
 
+:::image type="content" source="./media/speed-increase-graph-hbv3.png" alt-text="Graph that shows the relative speed increase for a HBv3-series VM.":::
+
 Note that for the single-node tests, the Devito operator is run on all HBv3-series VM configurations. The Standard_HB120-16rs_v3 VM runtime is used as the baseline to calculate the relative speed increase.
 
 #### Devito performance on a cluster (multi-node)
