@@ -1,51 +1,62 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to use Quorum Blockchain Service to track and trace physical assets, along with their metadata.
+This article describes how to use blockchain to track and trace physical assets, along with their metadata.
 
 ## Architecture
 
-:::image type="content" source="images/quorum-blockchain-service.png" alt-text="Screenshot that shows the Azure architecture of Quorum blockchain service." lightbox="images/quorum-blockchain-service.png":::
+:::image type="content" source="images/blockchain-service.png" alt-text="Screenshot that shows the Azure architecture of the blockchain service." lightbox="images/blockchain-service.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/quorum-blockchain-service.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/blockchain-service.vsdx) of this architecture.*
 
 ### Dataflow
 
-Quorum Blockchain Service (QBS) is a managed ledger service from [ConsenSys](https://consensys.net/). It allows organizations to run their own blockchain network without having to deal with infrastructure management.
+Kaleido Blockchain as a Service is a managed ledger service from [Kaleido](https://www.kaleido.io/blockchain-platform/azure). It allows organizations to run their own blockchain networks without having to deal with infrastructure management.
 
-The following are features of QBS:
+The following are features of  Kaleido Blockchain as a Service:
 
-- Uses standard Ethereum technology with privacy enhancements.
-- Supports open-source tools such as [Truffle](https://trufflesuite.com/) for developing and managing lifecycle of smart contracts.
-- Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
-- Provides extensions for Visual Studio Code (VS Code).
-  - Users can create and debug smart contracts using [Solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) in VS Code.
-  - Users can also deploy assets to Quorum via the [TruffleSuite](https://trufflesuite.com/docs/vscode-ext/quickstart/) using VS Code Extension.
-- Provides management APIs and supports monitoring and logging of blockchain nodes with integration to [Azure Monitor](/azure/azure-monitor/overview).
+- **Click-and-Go Networks**
+Launch blockchain networks without the cost and complexity of building from scratch. Start small and rapidly move into production.
 
-**Getting started with QBS:**
+- **Custom Configurations**
+Choose from popular cloud integrations and hybrid deployment options, geographic regions, protocols like Ethereum (Hyperledger Besu, Quorum, Geth), Polygon, Avalanche, Hyperledger Fabric, Corda and a variety of consensus mechanisms; all at the click of a button.
 
-QBS is currently accessible as a Private offering on Azure. You can access QBS using one of the following ways:
+- **Plug-and-Play Services**
+Accelerate development with a full-stack of plug-and-play services for tokens, wallets, key management, storage, collaboration, and more.
 
-- Sign-up directly on the [ConsenSys Quorum Blockchain Service](https://consensys.net/quorum/qbs/#qbs-private-preview) page.
-- Inquire directly with [QBS Support](https://quorum-support.zendesk.com).
+- **Enterprise-Grade Infrastructure**
+Designed to meet the most rigorous requirements, Kaleido is SOC 2 Type 2 compliant with built-in HA/DR and automatic failover, secure network isolation, SLAs and dedicated 24×7 support options.
+
+- **Integration Options**
+  Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
+
+ - **Integration Options** 
+- Provides management APIs and supports monitoring and logging of blockchain nodes and integration with Azure services such as Azure KeyVault. 
+
+**Getting started with Kaleido Blockchain as a Service :**
+
+Kaleido is currently accessible as both a Marketplace and Private offering on Azure. You can access Kaleido's Blockchain as a Service one of the following ways:
+
+- Sign-up directly on the [Kaleido Blockchain & Digital Assets](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kaleidoinc1626787540168.kaleido?tab=Overview) marketplace page.
+- Inquire about the Private Offering for the Kaleido Asset Platform directly with [Kaleido](https://www.kaleido.io/contact-us).
 
 The elements of the architectural diagram are explained below:
 
 - **Input/Intake**
 
-Input to the application uses existing Azure services. For instance, a traditional web application that runs in [Azure App Services](/azure/app-service/),  serves as an input from interactive users. Additionally, the need for batch type inputs driven by business logic not directly interactive by users is handled using Azure messaging services, primarily being Service Bus.
+Input to the application uses existing Azure services. For instance, a traditional web application that runs in [Azure App Services](/azure/app-service/), serves as an input from interactive users. Kaleido offers [powerful middleware and Web3 abstraction layers](https://www.kaleido.io/hyperledger-firefly) that make app development accessible to any full stack developer via RESTful APIs. 
+OpenAPI (Swagger) definitions are generated for the Solidity Smart Contracts you enable on the Kaleido REST API Gateway. The Blockchain becomes as simple to code against as any modern web based system. No thick client libraries needed in your app, no complex type mapping. Connect directly from your core applications, or use your existing Integration tier / Enterprise Service Bus (ESB) such as Azure Service Bus.
 
 - **Core ledger**
 
-Input that is destined to be persisted in the underlying ledger for the solution is handled by blockchain, using QBS. A set of validator nodes are created as part of QBS however the interaction from the input application is with the transaction nodes. Azure Virtual Machines or Virtual Machine Scale Sets that uses agent pool in [Azure Kubernetes Service](/azure/aks/) provide compute and storage/persistence needed by QBS.
+Input that is destined to be persisted in the underlying ledger for the solution is handled by blockchain, using Kaleido Blockchain as a Service. A set of  nodes are created as part of blockchain deployment, and the input application can interact with the blockchain either directly via those nodes or through the Kaleido REST API Gateway.Nodes can either be validators or transaction-only. The Kaleido Blockchain as a Service scales within its Azure footprint based on the user selection of node size which is based on [transaction throughput requirements.](https://docs.kaleido.io/using-kaleido/resource-limits/)
 
 - **Output/Analytics**
 
-As data continues to exist in the ledger in QBS, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
+As data continues to exist in the ledger in Kaleido, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. The Kaleido platform provides a number of native capabilities for reporting and analytics but also supports event-driven notifications via webhooks and websockets which send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL. In addition Kaleido provides a native document storage solution that allows any uploaded or received file to be conveniently organized using intuitive folder structures, and persisted in either Kaleido hosted storage or cloud-delegated and user-controlled services such as Azure Blob containers. All transferred data is deterministically hashed, signed, compressed and asymmetrically encrypted in flight using proven public key infrastructure techniques, offering provable guarantees that only the intended recipient can effectively decrypt the packet.
 
 #### Dataflow in action
 
-![Data flow across the chip manufacturing supply chain](images/quorum-blockchain-service-data-flow.png)
+![Data flow across the chip manufacturing supply chain](images/blockchain-service-data-flow.png)
 
 The above diagram represents a simplified version of the stages in supply chain for chip manufacturing. The stages involved are mining, manufacturing, distribution and retail, where material change hands many times in progression. For a company that values sustainability and ethical responsibility, it becomes important to track and trace the source of truth and quality details of the materials. In the past, each participant used to put the data in their own data technology stack and synchronize data to other parties.
 
@@ -95,7 +106,7 @@ Building and maintaining the electronic data interface (EDI) across suppliers to
 
 ### Potential use cases
 
-With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata, such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled component used.
+With the Kaleido Platform, supported by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata, such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled components used.
 
 Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
 While this could be built using traditional centralized components, this is usually not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
