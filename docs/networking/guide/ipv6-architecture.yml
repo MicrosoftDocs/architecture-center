@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: IPv6 hub-Spoke network topology in Azure
-  description: Learn to support and transition to IPv6
+  title: IPv6 hub-spoke network topology
+  description: Learn to transition a hub and spoke network topology in Azure to also support IPv6, creating a dual stack network.
   author: WernerRall147
   ms.author: weral
-  ms.date: 12/06/2023
+  ms.date: 2/09/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

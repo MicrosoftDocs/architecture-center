@@ -78,7 +78,7 @@ After this IP address space is allocated to the region, you can deploy new netwo
 
 **Transitioning virtual networks to IPv6.** You should assign a /56 IPv6 address space to each virtual network. This assignment facilitates networking management and streamlines the creation process. It enables you to create 4,096 virtual networks in a region and 256 subnets in a single virtual network.
 
-![Diagram that shows subnets at /64 size, virtual networks at /56, and regions at /44 to show the size and scope of these network structures.](./media/network-segments.png)
+![Diagram that shows subnets at /64 size, virtual networks at /56, and regions at /44 to show the size and scope of these network structures.](./images/network-segments.png)
 
 **Transitioning subnets to IPv6.** You can continue to use your existing subnet architecture and assign a /64 address block to each subnet. This subnet size also enables you to plan your network conceptually. You don't need to worry about resizing subnets due to address exhaustion.
 
@@ -111,7 +111,7 @@ You can use the following table to find instructions for transitioning specific 
 
 ## Next steps
 
-- [Transition hub and spoke topology to IPv6](../../ipv6-architecture.yml)
+- [IPv6 hub and spoke network topology](./ipv6-architecture.yml)
 - [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
 - [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
 
