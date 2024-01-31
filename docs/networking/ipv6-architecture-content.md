@@ -1,4 +1,4 @@
-This guide shows you how to transition an IPv4 hub and spoke network topology to IPv6. It uses the [Hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke-content) as the starting point and walks you through the steps required to support IPv6. The hub virtual network acts as a central point of connectivity to spoke virtual networks. The spoke virtual networks connect with the hub and isolate application resources. For more information, see [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning).
+This guide shows you how to transition an IPv4 hub and spoke network topology to IPv6. It uses the [Hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) as the starting point and walks you through the steps required to support IPv6. The hub virtual network acts as a central point of connectivity to spoke virtual networks. The spoke virtual networks connect with the hub and isolate application resources. For more information, see [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning).
 
 ## Architecture
 
@@ -140,7 +140,6 @@ Learn more about IPv6:
 - [Create a VM with IPv6 Dual Stack](/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal)
 - [Managing IP Address ranges](/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range)
 - [Cloud Adoption Framework plan for ip addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing#ipv6-considerations)
-- [Azure Public IPv6 offerings are free](/azure-public-ipv6-offerings-are-free-as-of-july-31)
 - [Azure Virtual Networking IPv6](/azure/virtual-network/ip-services/ipv6-overview)
 - [ExpressRoute Support for IPv6](/azure/expressroute/expressroute-howto-add-ipv6-portal)
 - [Azure DNS IPv6 support](/azure/dns/dns-reverse-dns-overview)
