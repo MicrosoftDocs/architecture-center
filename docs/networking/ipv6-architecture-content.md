@@ -9,32 +9,31 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 ### Workflow
 
 1. **Public internet and cross-premises network:**
-    - Users or services begin by accessing the system via the public internet, connecting to Azure resources.
-    - Cross-premises network has on-premises virtual machines that connect to the Azure network through a VPN Gateway, creating a secure connection from on-premises to Azure.
+    - Users or services can access Azure resources via the public internet.
+    - The cross-premises network has on-premises virtual machines that connect securely to the Azure network through a VPN Gateway.
 
 1. **Azure Virtual Network Manager:**
-    - It's the management layer that oversees the entire network infrastructure within Azure. It handles the routing, policies, and overall health of the virtual network.
+    - Azure Virtual Network Manager is the management layer that oversees the entire network infrastructure within Azure. It handles the routing, policies, and the overall health of the virtual network.
 
 1. **Hub virtual network:**
     - The hub is the central point of the network topology and is configured to support both IPv4 and IPv6 (hence "Dual Stack").
     - Azure Bastion provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS.
-    - Azure Firewall serves as a barrier between the hub and the public internet, filtering traffic and providing protection.
-    - Express Route connects the cross-premises network to the hub.
+    - Azure Firewall inspects and filters traffic between the hub and the public internet.
+    - ExpressRoute connects the cross-premises network to the hub.
     - VPN Gateway also connects the cross-premises network to the hub and is used for redundancy.
     - The services in the hub virtual network send logs and metrics (diagnostics) to Azure Monitor for monitoring.
 
 1. **Spoke virtual networks:**
-    - There are four spokes  connected to the hub. Each spoke is a dual stack network, supporting both IPv4 and IPv6.
-    - The networks are connected using [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are nontransitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router.
-    - In the production virtual networks, consider implementing user-defined routes (UDRs) to direct traffic from the spokes through Azure Firewall or an alternative Network Virtual Appliance (NVA). This adjustment facilitates inter-spoke connectivity. To enable this setup, Azure Firewall must be configured with forced tunneling. Further details are available in the Azure Firewall forced tunneling documentation see [forced tunneling](/azure/firewall/forced-tunneling).
-    - All outbound traffic from the spoke virtual networks flows through the hub, using a configuration in Azure Firewall called forced tunneling.
-    - Within each spoke, there are three subnets indicated as resource subnets, each hosting a virtual machine.
-    - Each virtual machine is connected to an Internal Load Balancer, which distributes incoming network traffic across the virtual machines to ensure that no single VM becomes a point of congestion.
+    - There are four spokes connected to the hub. Each spoke is a dual stack network, supporting both IPv4 and IPv6.
     - IPv6 user defined routes (UDR) define custom routes for IPv6 traffic from the spoke.
+    - The spoke virtual networks are connected using [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are nontransitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone.
+    - All outbound traffic from the spoke virtual networks flows through the hub, using a configuration in Azure Firewall called [forced tunneling](/azure/firewall/forced-tunneling).
+    - Within each spoke, there are three subnets indicated as resource subnets, each hosting a virtual machine.
+    - Each virtual machine is connected to an internal load balancer that is configured to support IPv4 and IPv6 address ranges. The load balancer distributes incoming network traffic across the virtual machines.
 
 ### Components
 
-- [Azure Virtual Network](/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
 
 - [Virtual network interface](/azure/virtual-network/virtual-network-network-interface) are required for virtual machine communication. Virtual machines and other resources can be set up to have multiple network interfaces. Multiple network interfaces are what allows you to create dual stack (IPv4 and IPv6) configurations.
 
@@ -44,13 +43,13 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 - [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service that protects your Azure Virtual Network resources. An Azure Firewall managed firewall instance exists in its own subnet.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/products/expressroute). A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction). A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity.
 
-- [Azure Load Balancer](/products/load-balancer) allows you to share traffic between multiple machines that have the same purpose. In this scenario, the load balancers distribute traffic between multiple subnets that support IPv6.
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) allows you to share traffic between multiple machines that have the same purpose. In this scenario, the load balancers distribute traffic between multiple subnets that support IPv6.
 
 - [Route Table](/azure/virtual-network/manage-route-table) in Azure is a set of user-defined routes that allow for custom path definitions for network traffic.
 
-- [Azure Virtual Machines](/products/virtual-machines) is an infrastructure-as-a-service computing solution that supports IPv6.
+- [Azure Virtual Machines](/azure/virtual-machines/overview) is an infrastructure-as-a-service computing solution that supports IPv6.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed Platform-as-a-Service (PaaS) offering provided and maintained by Microsoft. Its design provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
 
@@ -64,7 +63,7 @@ Transitioning a hub virtual network to support IPv6 means updating the network i
 
 | Virtual network address range | Subnet address ranges |
 | --- | --- |
-| Hub virtual network: `2001:db8:1234:0000::/56` | Azure Bastion subnet: `2001:db8:1234:0000::/64`<br>Azure Firewall subnet: `2001:db8:1234:0001::/64`<br>VPN gateway subnet: `2001:db8:1234:0002::/64`<br>ExpressRoute subnet: `2001:db8:1234:0003::/64`
+| Hub virtual network: `2001:db8:1234:0000::/56` | Azure Bastion subnet: `2001:db8:1234:0000::/64`<br>Azure Firewall subnet: `2001:db8:1234:0001::/64`<br> VPN gateway subnet: `2001:db8:1234:0002::/64`<br>ExpressRoute subnet: `2001:db8:1234:0003::/64` |
 
 Remember, these IPv6 addresses are just examples. You should replace `2001:db8:1234::` with your organization's IPv6 address block. Ensure that you carefully plan and document your IPv6 address allocations to avoid overlaps and ensure efficient utilization of the address space.
 
@@ -170,6 +169,5 @@ Other contributors:
 - [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b) | Senior Customer Engineer
 - [Sherri Babylon](https://www.linkedin.com/in/sbabylon) | Senior Technical Program Manager
 - [Dawn Bedard](https://www.linkedin.com/in/dawnbedard) | Principal Technical Program Manager
-- [Stephen Sumner](https://www.linkedin.com/in/stephen-t-sumner) | Senior Content Developer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
