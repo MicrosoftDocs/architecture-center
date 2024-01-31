@@ -34,7 +34,7 @@ The following new and updated articles have recently been published in the Azure
 - [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml)
 - [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)
 - [Deploy Ansys HFSS on an Azure virtual machine](./guide/hpc/ansys-hfss.yml)
-- [Conceptual planning for IPv6 networking](./networking/guide/ipv6/ipv6-ip-planning.md)
+- [Conceptual planning for IPv6 networking](./networking/guide/ipv6-ip-planning.md)
 - [Choose an Azure container service](./guide/choose-azure-container-service.md)
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)
 - [Deploy tNavigator on an Azure virtual machine](./guide/hpc/tnavigator.yml)
