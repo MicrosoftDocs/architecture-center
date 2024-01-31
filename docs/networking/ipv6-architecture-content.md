@@ -1,4 +1,4 @@
-This guide shows you how to transition an IPv4 hub and spoke network topology to IPv6. It uses the [Hub and spoke network topology](/azure/architecture/reference-architectures\hybrid-networking\hub-spoke-content) as the starting point and walks you through the steps required to support IPv6. The hub virtual network acts as a central point of connectivity to spoke virtual networks. The spoke virtual networks connect with the hub and isolate application resources. For more information, see [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning).
+This guide shows you how to transition an IPv4 hub and spoke network topology to IPv6. It uses the [Hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke-content) as the starting point and walks you through the steps required to support IPv6. The hub virtual network acts as a central point of connectivity to spoke virtual networks. The spoke virtual networks connect with the hub and isolate application resources. For more information, see [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning).
 
 ## Architecture
 
@@ -34,7 +34,7 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 ### Components
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
+- [Azure Virtual Network](/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
 
 - [Virtual network interface](/azure/virtual-network/virtual-network-network-interface) are required for virtual machine communication. Virtual machines and other resources can be set up to have multiple network interfaces. Multiple network interfaces are what allows you to create dual stack (IPv4 and IPv6) configurations.
 
@@ -44,13 +44,13 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 - [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service that protects your Azure Virtual Network resources. An Azure Firewall managed firewall instance exists in its own subnet.
 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/). A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/products/expressroute). A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity.
 
-- [Azure Load Balancer](/products/load-balancer/) allows you to share traffic between multiple machines that have the same purpose. In this scenario, the load balancers distribute traffic between multiple subnets that support IPv6.
+- [Azure Load Balancer](/products/load-balancer) allows you to share traffic between multiple machines that have the same purpose. In this scenario, the load balancers distribute traffic between multiple subnets that support IPv6.
 
 - [Route Table](/azure/virtual-network/manage-route-table) in Azure is a set of user-defined routes that allow for custom path definitions for network traffic.
 
-- [Azure Virtual Machines](/products/virtual-machines/) is an infrastructure-as-a-service computing solution that supports IPv6.
+- [Azure Virtual Machines](/products/virtual-machines) is an infrastructure-as-a-service computing solution that supports IPv6.
 
 - [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed Platform-as-a-Service (PaaS) offering provided and maintained by Microsoft. Its design provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
 
@@ -163,12 +163,13 @@ Read more about virtual network architecture:
 
 Principal author:
 
-- [Werner Rall](https://www.linkedin.com/in/werner-rall/) | Senior Cloud Solutions Architect Engineer
+- [Werner Rall](https://www.linkedin.com/in/werner-rall) | Senior Cloud Solutions Architect Engineer
 
 Other contributors:
 
-- [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b/) | Senior Customer Engineer
-- [Sherri Babylon](https://www.linkedin.com/in/sbabylon/) | Senior Technical Program Manager
-- [Dawn Bedard](https://www.linkedin.com/in/dawnbedard/) | Principal Technical Program Manager
+- [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b) | Senior Customer Engineer
+- [Sherri Babylon](https://www.linkedin.com/in/sbabylon) | Senior Technical Program Manager
+- [Dawn Bedard](https://www.linkedin.com/in/dawnbedard) | Principal Technical Program Manager
+- [Stephen Sumner](https://www.linkedin.com/in/stephen-t-sumner) | Senior Content Developer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
