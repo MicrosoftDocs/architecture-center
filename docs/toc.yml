@@ -1917,65 +1917,8 @@ items:
           href: guide/azure-resource-manager/advanced-templates/collector.md
         - name: Infrastructure as code with Bicep
           href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
-      - name: Azure Monitor guidance
-        items:
-        - name: Best practices
-          items:
-          - name: Plan your monitoring strategy
-            href: /azure/azure-monitor/best-practices-plan
-            maintainContext: true
-          - name: Configure data collection
-            href: /azure/azure-monitor/best-practices-data-collection
-            maintainContext: true
-          - name: Analyze and visualize data
-            href: /azure/azure-monitor/best-practices-analysis
-            maintainContext: true
-          - name: Alerts and automated actions
-            href: /azure/azure-monitor/best-practices-alerts
-            maintainContext: true
-        - name: Continuous monitoring
-          href: /azure/azure-monitor/continuous-monitoring
-          maintainContext: true
-        - name: Data sources
-          href: /azure/azure-monitor/data-sources
-          maintainContext: true
-        - name: Data platform
-          href: /azure/azure-monitor/data-platform
-          maintainContext: true
-        - name: Security
-          items:
-          - name: Log data security
-            href: /azure/azure-monitor/logs/data-security
-            maintainContext: true
-          - name: Customer-managed keys
-            href: /azure/azure-monitor/logs/customer-managed-keys
-            maintainContext: true
-          - name: Private Link connection
-            href: /azure/azure-monitor/logs/private-link-security
-            maintainContext: true
-          - name: Private Link design
-            href: /azure/azure-monitor/logs/private-link-design
-            maintainContext: true
-          - name: Personal log data handling
-            href: /azure/azure-monitor/logs/personal-data-mgmt
-            maintainContext: true
-          - name: Data collection, retention, and storage
-            href: /azure/azure-monitor/app/data-retention-privacy
-            maintainContext: true
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/monitor-security-baseline
-            maintainContext: true
-        - name: Design a Log Analytics workspace
-          href: /azure/azure-monitor/logs/workspace-design
-          maintainContext: true
-      - name: CI/CD for Synapse Analytics
-        href: /azure/synapse-analytics/cicd/continuous-integration-delivery
-        maintainContext: true
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
-      - name: Platform automation for VMware Solution
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
-        maintainContext: true
       - name: Use deployment scripts to check resource properties
         href: guide/devops/deployment-scripts-property-check.yml
     - name: Architectures
@@ -2000,8 +1943,6 @@ items:
         href: web-apps/spring-apps/guides/blue-green-spring.yml
       - name: Jenkins on Azure
         href: example-scenario/apps/jenkins.yml
-      - name: Microsoft 365 tenant configuration
-        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
       - name: Run containers in a hybrid environment
         href: hybrid/hybrid-containers.yml
       - name: Teacher-provisioned virtual labs in Azure
@@ -2897,30 +2838,12 @@ items:
             href: reference-architectures/media-services/gridwich-project-names.yml
           - name: Gridwich CI/CD
             href: reference-architectures/media-services/gridwich-cicd.yml
-          - name: Content protection and DRM
-            href: reference-architectures/media-services/gridwich-content-protection-drm.yml
-          - name: Gridwich Media Services
-            href: reference-architectures/media-services/media-services-setup-scale.yml
           - name: Gridwich Storage Service
             href: reference-architectures/media-services/gridwich-storage-service.yml
           - name: Gridwich logging
             href: reference-architectures/media-services/gridwich-logging.yml
           - name: Gridwich message formats
             href: reference-architectures/media-services/gridwich-message-formats.yml
-          - name: Pipeline variables to Terraform flow
-            href: reference-architectures/media-services/variable-group-terraform-flow.yml
-        - name: Gridwich procedures
-          items:
-          - name: Run Azure admin scripts
-            href: reference-architectures/media-services/run-admin-scripts.yml
-          - name: Set up local dev environment
-            href: reference-architectures/media-services/set-up-local-environment.yml
-          - name: Create new cloud environment
-            href: reference-architectures/media-services/create-delete-cloud-environment.yml
-          - name: Maintain and rotate keys
-            href: reference-architectures/media-services/maintain-keys.yml
-          - name: Test Media Services V3 encoding
-            href: reference-architectures/media-services/test-encoding.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
@@ -5330,8 +5253,6 @@ items:
           - name: Media players for Media Services
             href: /azure/media-services/latest/player-media-players-concept
             maintainContext: true
-          - name: Test Media Services v3 encoding
-            href: reference-architectures/media-services/test-encoding.yml
         - name: Dynamics 365 media accelerator
           items:
           - name: Overview

@@ -31,6 +31,7 @@ To encapsulate Azure Event Grid as a request and response broker, the library ha
 The Event Grid request adapter is an HTTP endpoint in the form of an [Azure Function HTTP Endpoint](/azure/azure-functions/functions-bindings-http-webhook). An adapter to convert web requests to Event Grid arrays is also in the same [EventGridFunction](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/src/Functions/EventGridFunction.cs).
 
 The Event Grid response gateway consists of:
+
 - The [EventGridHandlerBase](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Bases/EventGridHandlerBase.cs), which converts a response DTO into an `EventGridEvent` object.
 - The [EventGridDispatcher](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.EventGrid/src/EventGridDispatcher.cs), which places the Event Grid event on the correct response Event Grid topic endpoint URI by using the topic key.
 
@@ -39,13 +40,10 @@ The solution decouples the [saga participants](gridwich-saga-orchestration.yml#s
 - [Gridwich.SagaParticipants.Analysis.MediaInfo](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Analysis.MediaInfo/)
 - [Gridwich.SagaParticipants.Encode.CloudPort](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.CloudPort/)
 - [Gridwich.SagaParticipants.Encode.Flip](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.Flip/)
-- [Gridwich.SagaParticipants.Encode.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV3/)
-- [Gridwich.SagaParticipants.Publication.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/)
 - [Gridwich.SagaParticipants.Storage.AzureStorage](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/)
 
 For code reuse and centralization, Gridwich consolidates business logic or infrastructure gateways that several participants use into the following shared libraries:
 
-- [Gridwich.Core.MediaServicesV3](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core.MediaServicesV3/)
 - [Gridwich.SagaParticipants.Encode](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode/)
 - [Gridwich.SagaParticipants.Encode.TelestreamCloud](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.TelestreamCloud/)
 
@@ -53,7 +51,7 @@ For code reuse and centralization, Gridwich consolidates business logic or infra
 
 Nothing in the Gridwich problem space or architecture explicitly pushes the solution into either a monolithic app or several microservices.
 
-You could easily refactor the app into microservices, each a Function App hosting a single saga participant. Each Function app would link the core and core EventGrid libraries.  The apps would each have a linkage or use a common library for infrastructure gateways.
+You could easily refactor the app into microservices, each a Function App hosting a single saga participant. Each Function app would link the core and core Event Grid libraries.  The apps would each have a linkage or use a common library for infrastructure gateways.
 
 ![Diagram showing an alternative Gridwich microservices architecture.](media/microservices-components.png)
 
@@ -65,7 +63,6 @@ The drawback of microservices is that any shared models require synchronized rol
 
 - [What are microservices?](/devops/deliver/what-are-microservices): Explore microservice architecture.
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview): Learn more about Azure Functions.
-- [Azure Media Services as an Event Grid source](/azure/event-grid/event-schema-media-services?tabs=event-grid-event-schema): Familiarize yourself with the schemas and properties for Media Services events.
 
 ## Related resources
 
