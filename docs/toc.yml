@@ -1266,6 +1266,8 @@ items:
             href: guide/hpc/engys-elements.yml
           - name: Engys HELYX
             href: guide/hpc/engys-helyx.yml
+        - name: EPILYSIS
+          href: guide/hpc/epilysis.yml
         - name: GROMACS
           href: guide/hpc/gromacs.yml
         - name: Indica Labs HALO AI
