@@ -11,7 +11,7 @@ You can use an extract, transform, and load (ETL) process to move and transform 
 A big data architecture is designed to handle the ingestion, processing, and analysis of large or complex data.
 Big data solutions typically involve a large amount and mix of relational and non-relational (unstructured) data, which traditional RDBMS systems aren't well suited to store. Data stores that are suited better for this mix are typically classified as _data lakehouses_, mixing structured, semi-structured, and unstructured data.
 
-NoSQL databases are interchangeably referred to as “nonrelational,” “NoSQL DBs,” or “non-SQL” to highlight the fact that they can handle huge volumes of rapidly changing, unstructured data in different ways than a relational (SQL, RDBMS) database with rows and tables. For more information on NoSQL databases, please refer to [What are NoSQL databases?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-nosql-database)
+NoSQL databases are interchangeably referred to as "nonrelational," "NoSQL DBs," or "non-SQL" to highlight the fact that they can handle unstructured or semi-structured data in different ways than a traditional relational database with rows and tables. For more information on NoSQL databases, please refer to [What are NoSQL databases?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-nosql-database)
 
 This article provides resources to learn about Azure databases. It outlines paths to implement the architectures that meet your needs, and best practices to keep in mind as you design your solutions.
 
