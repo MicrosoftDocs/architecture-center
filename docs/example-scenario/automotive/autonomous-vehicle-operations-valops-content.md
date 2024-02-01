@@ -1,4 +1,4 @@
-This article presents a solution and guidance for developing a Validation Operations (ValOps) for Advanced Driving Assistance Systems (ADAS) and Autonomous Driving (AD). The ValOps solution is built on the framework that’s outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). ValOps is one of the building blocks of AVOps.  Other building blocks include [DataOps](./autonomous-vehicle-operations-dataops-content.md), machine learning operations (MLOps), DevOps and centralized AVOps functions (see related articles).  In addition, the approach in this article utilizes the [Software Defined Vehicle Reference Architecture toolchain](../../industries/automotive/software-defined-vehicle-reference-architecture-content.md) to provide an end-to-end automated driving stack that can orchestrate testing required for automated driving.  
+This article presents a solution and guidance for developing a Validation Operations (ValOps) for Advanced Driving Assistance Systems (ADAS) and Autonomous Driving (AD). The ValOps solution is built on the framework outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). ValOps is one of the building blocks of AVOps.  Other building blocks include [DataOps](./autonomous-vehicle-operations-dataops-content.md), machine learning operations (MLOps), DevOps and centralized AVOps functions (see related articles).  In addition, the approach in this article utilizes the [Software Defined Vehicle Reference Architecture toolchain](../../industries/automotive/software-defined-vehicle-reference-architecture-content.md) to provide an end-to-end automated driving stack that can orchestrate testing required for automated driving.  
 
 ## Architecture
 
@@ -6,14 +6,14 @@ This article presents a solution and guidance for developing a Validation Operat
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
 
-Validation of AD/ADAS functionalities are usually structured into three main workflows:
-- [Open Loop Testing (Re-simulation or Recompute)](../../solution-ideas/articles/avops-architecture-content.md#open-loop-testing) 
+Validation of AD/ADAS functionalities are structured into three main workflows:
+- [Open Loop Testing (Resimulation or Recompute)](../../solution-ideas/articles/avops-architecture-content.md#open-loop-testing) 
 - [Closed Loop Testing Simulation](../../solution-ideas/articles/avops-architecture-content.md#closed-loop-testing-and-simulation)
 - [Scenario Management](../../solution-ideas/articles/avops-architecture-content.md#scenario-management)
 
-Open Loop and Closed Loop validation typically has a SiL (Software-in-the-loop) and HiL (Hardware-in-the-loop) flavour. The later validates the stack (e. g. perception stack) with real vehicle hardware.
+Open Loop and Closed Loop validation typically has a SiL (Software-in-the-loop) and HiL (Hardware-in-the-loop) flavor. The latter validates the stack (e. g. perception stack) with real vehicle hardware.
 
-To validate the AD capabilities (Open Loop, Close Loop), a catalogue of specific real scenarios is required that is used to simulate the behaviour of vehicles. The objective is to accelerate the creation of scenario catalogues, by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. As part of the reference architecture open formats like OPENDrive (xodr) should be supported. Usually based on customer’s partner selection tools from Cognata, Ansys, dSPACE, or others that are used for Scenario Management. CARLA can be considered as OSS light weight alternative that also supports OPENDrive format, see carla-simulator/scenario_runner: Traffic scenario definition and execution engine (github.com).
+To validate the AD capabilities (Open Loop, Close Loop), a catalog of specific real scenarios is required that is used to simulate the behavior of vehicles. The objective is to accelerate the creation of scenario catalogs, by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. As part of the reference architecture open formats like OPENDrive (xodr) should be supported. Based on customer’s partner selection tools from Cognata, Ansys, dSPACE, or others that are used for Scenario Management. CARLA can be considered as OSS lightweight alternative that also supports OPENDrive format, see carla-simulator/scenario_runner: Traffic scenario definition and execution engine (github.com).
 
 - Trained Perception Stack for AD / ADAS functions are converted and integrated to vehicle software artifacts 
 - Scenarios are imported and created in Scenario Mgmt. Tool
@@ -22,14 +22,14 @@ To validate the AD capabilities (Open Loop, Close Loop), a catalogue of specific
 
 ### Open Loop Testing Dataflow
 
-Re-Simulation (or Recompute) is massively complex and has required years of development. Seeking government approval of Autonomous Driving (AD) raises strict requirements in areas such as safety, data privacy, data versioning and auditing. It can be considered an open loop test and validation system for AD functions. It processes recorded raw data from various car sensors through a graph in the cloud. The produced result can then be used to validate data processing algorithms or detect regressions. The OEMs combine the sensors together into a Directed acyclic graph that represents the real-world vehicle.
-Re-simulation or “sensor reprocessing” is typically a large-scale embarrassingly parallel compute job that processes 10~100s PBs of data using tens of thousands of cores and requiring very high I/O throughput of >30GB/sec. Data sets are fused from multiple sensor types representing a singular view of what the on-vehicle computer vision systems “saw” when navigating the real world. An open loop test is where the performance of the algorithms is tested & validated against ground truth using replay and scoring. The output is used later in the workflow for algorithm training:
-- Data sets sourced from test fleet vehicles that collect raw sensor data (E.g., camera, lidar, radar, etc.) or synthetically from simulators
+Re-Simulation (or Recompute) is massively complex and requires years of development. Seeking government approval of Autonomous Driving (AD) raises strict requirements in areas such as safety, data privacy, data versioning and auditing. It can be considered an open loop test and validation system for AD functions. It processes recorded raw data from various car sensors through a graph in the cloud. The produced result can then be used to validate data processing algorithms or detect regressions. The OEMs combine the sensors together into a Directed acyclic graph that represents the real-world vehicle.
+Resimulation or “sensor reprocessing” is typically a large-scale parallel compute job.  Resimulation processes 10~100s PBs of data using tens of thousands of cores and requiring high I/O throughput of >30GB/sec. Data sets are fused from multiple sensor types representing a singular view of what the on-vehicle computer vision systems “saw” when navigating the real world. An open loop test is where the performance of the algorithms is tested & validated against ground truth using replay and scoring. The output is used later in the workflow for algorithm training:
+- Data sets sourced from test fleet vehicles that collect raw sensor data (for example, camera, lidar, radar, etc.) or synthetically from simulators
 - Data volume is highly dependent on camera resolution and number of sensors on vehicle
 - Re-Processing of Raw Data against different software releases of the devices (e. g. perception) 
 - Raw sensor data is directly sent to the sensor input interface of the sensor-software
 - Output is compared with the output of previous SW-versions and is checked against bug fixing or new features like detecting new object types
-- A second “re-injection” or “re-run” of the job increasingly performed after model & software are updated
+- A second “reinjection” or “rerun” of the job increasingly performed after model & software are updated
 - Ground truth data is used to validate the results
 - Results are written to Storage and offloaded to Azure Data Explorer (for visualization) and can be visualized in reporting tools like Microsoft Fabric / Power BI
 
@@ -39,7 +39,7 @@ Closed Loop simulation validates the behavior of the vehicle end to end, includi
 
 - Import of HD-Maps (OpenDRIVE) or road model from real recordings to derive a simulation digital twin
 - Extract road information
-- Defining static (traffic signs etc.) and dynamic assets (other cars, pedestrians, vulnerable road user aka VRU)
+- Defining static (traffic signs etc.) and dynamic assets (other cars, pedestrians, vulnerable road user also known as VRU)
 - Configuration (ego vehicles, sensors etc.)
 - 3D Scene and Digital Twin map modeling (using asset catalogs)
 - Connecting perception and control planning stack with simulator environment (e. g. via SDKs)
@@ -47,14 +47,14 @@ Closed Loop simulation validates the behavior of the vehicle end to end, includi
 - Executing Simulation based on defined scenarios (incl. variations) and test plans (e. g. headless / automated and integrated in CI /CD DevOps workflows)
 - Generating report of executing (KPIs and measurements)
 
-These simulations can also be used to generate synthetical sequences / frame for training of the perception stack and Open Loop validation.
+These simulations can also be used to generate synthetic sequences / frame for training of the perception stack and Open Loop validation.
 
 #### Visualization of Measurement and KPIs 
-After executing Open Loop and Closed Loop simulations, measurements and KPIs are generated to validate the performance of the ADAS / AD software stack and where are improvements are required. Microsoft Fabric and Power BI support the visualization. The diagram shows a validated architecture to collect measurement and KPIs results and store these in Azure Data Explorer of interactive 
-:::image type="content" source="./images/example-resim-results-ingestion.png" alt-text="Architecture diagram that shows resim results ingested into fabric." border="false" lightbox="./images/example-resim-results-ingestion.png":::
+The output of Open Loop and Closed Loop simulations generate measurements and KPIs.  The outputs from the simulations that are generated are used to validate the performance of the ADAS / AD software stack.  In addition, AD engineers can determine what are improvements are required. Microsoft Fabric and Power BI support the visualization. The diagram shows a validated architecture to collect measurement and KPIs results stored in Microsoft Fabric. 
+:::image type="content" source="./images/example-resim-results-ingestion.png" alt-text="Architecture diagram that shows resim results ingested into Microsoft Fabric." border="false" lightbox="./images/example-resim-results-ingestion.png":::
 
-A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.com/power-query/connectors/azure-data-explorer), can be used so that results can be directly visualized and analyzed (like DTO – Distance to Objects metrics) as Power BI report / dashboard as shown below for an example re-simulation / recompute run*:
-:::image type="content" source="./images/example-resim-results-visualized.png" alt-text="Architecture diagram that shows resim results visualized in powerbi." border="false" lightbox="./images/example-resim-results-visualized.png":::
+A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.com/power-query/connectors/azure-data-explorer) can be used so that results can be directly visualized and analyzed (like DTO – Distance to Objects metrics) as Power BI report / dashboard as shown for an example resimulation / recompute run*:
+:::image type="content" source="./images/example-resim-results-visualized.png" alt-text="Architecture diagram that shows resim results visualized in Power BI." border="false" lightbox="./images/example-resim-results-visualized.png":::
 
 
 ### Components
@@ -64,7 +64,7 @@ A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.
 - [Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like resimulation jobs or closed-loop testing.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this case, Data Lake Storage stores data based on stages, for example, raw or extracted.
 - [Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless solution for creating and scheduling extract, transform, and load (ETL) and extract, load, and transform (ELT) workflows. Here, Data Factory performs ETL via [batch compute](/azure/batch) and creates data-driven workflows for orchestrating data movement and transforming data.
-- [Azure Deployment Environments](https://learn.microsoft.com/azure/deployment-environments/overview-what-is-azure-deployment-environments) empowers teams to quickly and easily spin up infrastructure based on templates.  Azure Deployment Environments is utilized by the SDV toolchain to spin up testing infrastructure consistently and securely
+- [Azure Deployment Environments](https://learn.microsoft.com/azure/deployment-environments/overview-what-is-azure-deployment-environments) empowers teams to quickly and easily spin up infrastructure based on templates.  SDV toolchain utilizes Azure Deployment Environments to spin up testing infrastructure consistently and securely
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for models and other SW modules for the automated driving stack.
 - [Eclipse Orchestrator](https://projects.eclipse.org/projects/iot.symphony) enables end-to-end orchestration and create a consistent workflow across different systems and toolchains.  The SDV toolchain utilizes Eclipse Symphony as the main orchestrator workflow
 - [Microsoft Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that incorporates real-time analytics and business intelligence.  
@@ -92,9 +92,9 @@ This AVOps DataOps solution provides guidance on how to address these challenges
 
 ### Potential use cases
 
-Simulation in ADAS/AD refers to the use of computer models to replicate the behaviour of a vehicle in a virtual environment. It is an important tool in the development and testing of ADAS/AD systems, as it allows engineers to evaluate the performance and safety of these systems in a controlled and repeatable way, without the risk and expense of testing on real vehicles.
+Simulation in ADAS/AD refers to the use of computer models to replicate the behavior of a vehicle in a virtual environment. It's an important tool in the development and testing of ADAS/AD systems.  Simulation allows engineers to evaluate the performance and safety of these systems in a controlled and repeatable way.  In addition, simulation allows testing without the risk and expense of testing on real vehicles.
 
-Simulation can be used to test various aspects of ADAS/AD systems, such as their ability to detect and respond to different types of obstacles, their performance in different weather conditions, or their behaviour in complex traffic scenarios. Simulation can also be used to test different versions of the software, and to identify and fix potential issues before they are deployed on real vehicles.
+Simulation can be used to test various aspects of ADAS/AD systems, such as their ability to detect and respond to different types of obstacles, their performance in different weather conditions, or their behavior in complex traffic scenarios. Simulation can also be used to test different versions of the software, and to identify and fix potential issues before they're deployed on real vehicles.
 
 Using synthetic data and test fleet data to run and validate these simulations at scale for  
 
@@ -103,16 +103,16 @@ In summary, simulation is an essential tool in the development of ADAS/AD system
 
 ### Alternatives
 #### 	Simulation and Validation management 
-First, it is important to understand that simulation test environments for ADAS/AD require a high degree of computational power, as they need to accurately replicate the behavior of complex vehicles and their surrounding environments. Therefore, a key aspect of the architecture is the selection of appropriate compute resources, such as virtual machines, GPUs, and high-performance computing clusters.
+First, it's important to understand that simulation test environments for ADAS/AD require a high degree of computational power, as they need to accurately replicate the behavior of complex vehicles and their surrounding environments. Therefore, a key aspect of the architecture is the selection of appropriate compute resources, such as virtual machines, GPUs, and high-performance computing clusters.
 
 :::image type="content" source="./images/services-for-valops-workload-management.png" alt-text="Diagram that shows options for workload management for simulation." border="false" lightbox="./images/services-for-valops-workload-management.png":::
 
-One possible architecture for building a simulation test environment on Azure is to use virtual machines (VMs) to host the simulation software, and to use Azure Virtual Network to connect the VMs and create a private network for the simulation. The simulation software can be run on the VMs, and the simulation data can be stored in Azure Storage, such as Azure Blob Storage. The simulation can be orchestrated and managed using Azure Batch or CycleCloud, which provides a scalable and efficient way to run large-scale parallel simulations.
+One possible architecture for building a simulation test environment on Azure is to use virtual machines (VMs) to host the simulation software.  With VMs, one can use an Azure Virtual Network to connect the VMs and create a private network for the simulation. The simulation software can be run on the VMs, and the simulation data can be stored in Azure Storage, such as Azure Blob Storage. The simulation can be orchestrated and managed using Azure Batch or CycleCloud.  Both of which provides a scalable and efficient way to run large-scale parallel simulations.
 
 Another possible architecture for building a simulation test environment on Azure is to use Azure Kubernetes Service (AKS) to orchestrate the simulation workloads. AKS can be used to deploy and manage containerized simulation software, which can be run on a cluster of Azure virtual machines. The simulation data can be stored in Azure Data Lake Storage, which provides a scalable and secure way to store and analyze large amounts of data. Azure Machine Learning can be used to train machine learning models on the simulation data, which can then be used to improve the performance of the ADAS/AD systems.
-In addition, it is important to ensure that the simulation test environment is secure and compliant with relevant regulations and standards. Azure provides a range of security features and compliance certifications, such as Azure Security Center and ISO/IEC 27001 certification, which can help to ensure the security and compliance of the simulation test environment.
+In addition, it's important to ensure that the simulation test environment is secure and compliant with relevant regulations and standards. Azure provides a range of security features and compliance certifications.  An example of such features is Azure Security Center.  An example of certifications is ISO/IEC 27001 certification.  Both of which can help to ensure the security and compliance of the simulation test environment.
 
-Overall, building a simulation test environment for ADAS/AD on the Azure cloud requires careful consideration of compute resources, storage, orchestration, and security. By selecting appropriate Azure services and designing a scalable and secure architecture, it is possible to build a powerful and efficient simulation test environment that can help to accelerate the development and testing of ADAS/AD systems.
+Overall, building a simulation test environment for ADAS/AD on the Azure cloud requires careful consideration of compute resources, storage, orchestration, and security. By selecting appropriate Azure services and designing a scalable and secure architecture, it's possible to build a powerful and efficient simulation test environment that can help to accelerate the development and testing of ADAS/AD systems.
 
 ## Considerations
 
@@ -137,7 +137,7 @@ It's important to understand the division of responsibility between an automotiv
 - Encryption of data at rest that uses native Azure storage and database services. For more information, see [Data protection considerations](/azure/well-architected/security/design-storage).
 - The safeguarding of cryptographic keys and secrets. Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) for this purpose.
 - Use of Private or Service Endpoints to avoid public network
-- NFS does not support Entra ID authentication (if that is required for enterprise security model, Blobfuse (e. g. with CSI Driver) or Storage SDKs should be considered for Azure Kubernetes and Azure Batch workloads and corresponding data access, see network file system security [article](https://learn.microsoft.com/azure/storage/blobs/network-file-system-protocol-support#network-security) for more details
+- NFS doesn't support Microsoft Entra ID authentication (if that is required for enterprise security model).  Blobfuse (for example with CSI Driver) or Storage SDKs should be considered for Azure Kubernetes and Azure Batch workloads. See network file system security [article](https://learn.microsoft.com/azure/storage/blobs/network-file-system-protocol-support#network-security) for more details
 
 ### Cost optimization
 
@@ -150,7 +150,7 @@ A key concern for OEMs and tier 1 suppliers that operate DataOps for automated v
 Based on the simulation requirements, [Azure Batch](https://learn.microsoft.com/azure/batch/) can provision permanently required containers or virtual machines based on the SLA. Here are some recommendations to save cost with various types of compute cost models and profiles. 
 
 Several choices VMs could be utilized, depending on the use case:
-- Pay-as-you-go – Only pay for what you consumed—applicable to interactive, ad hoc jobs
+- Pay-as-you-go – Only pay for what you consumed—applicable to interactive, unplanned jobs
 - Reserved instances – Keep for 3 to 5 years reservation mainly for batch type and long running jobs
 - Spot instances – Use sporadically for dev/tests jobs
 
@@ -158,13 +158,13 @@ Several choices VMs could be utilized, depending on the use case:
 - Refer to scalability and performance targets for [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account)
 
 ### Performance Efficiency
-- It is important the organizations storage location is in the same region as compute
-- Recommended when data is larger, it is not recommended to use Azure Files as blobs of data.  For example, images, video transaction rates or that use smaller objects IO performance will slow  ML training or require consistently low storage latency workloads. 
-- For most scenarios, it is recommended to use Standard Azure Blob, except in cases where there are many small files (KB magnitude) that cannot be processed into ‘fewer and larger’ blobs. 
+- It's important the organizations storage location is in the same region as compute
+- Recommended when data is larger, it isn't recommended to use Azure Files as blobs of data.  For example, images, video transaction rates or that use smaller objects IO performance slows  ML training or require consistently low storage latency workloads. 
+- For most scenarios, this guidance doesn't recommend using Standard Azure Blob, except in cases where there are many small files (KB magnitude) that can't be processed into ‘fewer and larger’ blobs. 
 
 ### Deploy this scenario
 There are several options to deploy this scenario:
-- dSPACE is a partner that has worked with Microsoft on this architecture and has a product called SIMPHERA that is a software solution for simulating and validating functions for autonomous driving.  To deploy SIMPHERA, follow the instructions in this [repo](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main)
+- dSPACE is a partner that worked with Microsoft on this architecture to create a product called SIMPHERA.  SIMPHERA is a software solution for simulating and validating functions for autonomous driving.  To deploy SIMPHERA, follow the instructions in this [repo](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main)
 - ANSYS is another partner that has a deployable solution that is aligned to this reference architecture.  The solution can be deployed in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview)
 - 
 ## Contributors
