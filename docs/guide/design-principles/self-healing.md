@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
 ms.custom:
-  - seojan19
   - guide
 products:
   - azure
