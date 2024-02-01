@@ -14,45 +14,38 @@ Kaleido Blockchain as a Service is a managed ledger service from [Kaleido](https
 
 The following are features of  Kaleido Blockchain as a Service:
 
-- **Click-and-Go Networks**
-Launch blockchain networks without the cost and complexity of building from scratch. Start small and rapidly move into production.
+- **Click-and-go networks**. Launch blockchain networks without the cost and complexity of building from scratch. Start small and rapidly move into production.
 
-- **Custom Configurations**
-Choose from popular cloud integrations and hybrid deployment options, geographic regions, protocols like Ethereum (Hyperledger Besu, Quorum, Geth), Polygon, Avalanche, Hyperledger Fabric, Corda and a variety of consensus mechanisms; all at the click of a button.
+- **Custom configurations**. Choose from popular cloud integrations and hybrid deployment options, geographic regions, protocols like Ethereum (Hyperledger Besu, Quorum, Geth), Polygon, Avalanche, Hyperledger Fabric, Corda and a variety of consensus mechanisms.
 
-- **Plug-and-Play Services**
-Accelerate development with a full-stack of plug-and-play services for tokens, wallets, key management, storage, collaboration, and more.
+- **Plug-and-play services**. Accelerate development with a full-stack of plug-and-play services for tokens, wallets, key management, storage, collaboration, and more.
 
-- **Enterprise-Grade Infrastructure**
-Designed to meet the most rigorous requirements, Kaleido is SOC 2 Type 2 compliant with built-in HA/DR and automatic failover, secure network isolation, SLAs and dedicated 24×7 support options.
+- **Enterprise-grade infrastructure**. Designed to meet the most rigorous requirements, Kaleido is SOC 2 Type 2 compliant with built-in HA/DR and automatic failover, secure network isolation, SLAs and dedicated 24×7 support options.
 
-- **Integration Options**
-  Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
+- **Integration options**.  Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
 
- - **Integration Options** 
-- Provides management APIs and supports monitoring and logging of blockchain nodes and integration with Azure services such as Azure KeyVault. 
+- **Integration options**. Provides management APIs and supports monitoring and logging of blockchain nodes and integration with Azure services such as Azure Key Vault.
 
-**Getting started with Kaleido Blockchain as a Service :**
-
-Kaleido is currently accessible as both a Marketplace and Private offering on Azure. You can access Kaleido's Blockchain as a Service one of the following ways:
+Kaleido is available as both a Marketplace and private offering on Azure. You can access Kaleido's Blockchain as a Service one of the following ways:
 
 - Sign-up directly on the [Kaleido Blockchain & Digital Assets](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kaleidoinc1626787540168.kaleido?tab=Overview) marketplace page.
-- Inquire about the Private Offering for the Kaleido Asset Platform directly with [Kaleido](https://www.kaleido.io/contact-us).
+- Inquire about the private offering for the Kaleido Asset Platform directly with [Kaleido](https://www.kaleido.io/contact-us).
 
 The elements of the architectural diagram are explained below:
 
 - **Input/Intake**
 
-Input to the application uses existing Azure services. For instance, a traditional web application that runs in [Azure App Services](/azure/app-service/), serves as an input from interactive users. Kaleido offers [powerful middleware and Web3 abstraction layers](https://www.kaleido.io/hyperledger-firefly) that make app development accessible to any full stack developer via RESTful APIs. 
+Input to the application uses existing Azure services. For instance, a traditional web application that runs in [Azure App Services](/azure/app-service/), serves as an input from interactive users. Kaleido offers [middleware and Web3 abstraction layers](https://www.kaleido.io/hyperledger-firefly) that make app development accessible to any full stack developer via RESTful APIs.
+
 OpenAPI (Swagger) definitions are generated for the Solidity Smart Contracts you enable on the Kaleido REST API Gateway. The Blockchain becomes as simple to code against as any modern web based system. No thick client libraries needed in your app, no complex type mapping. Connect directly from your core applications, or use your existing Integration tier / Enterprise Service Bus (ESB) such as Azure Service Bus.
 
 - **Core ledger**
 
-Input that is destined to be persisted in the underlying ledger for the solution is handled by blockchain, using Kaleido Blockchain as a Service. A set of  nodes are created as part of blockchain deployment, and the input application can interact with the blockchain either directly via those nodes or through the Kaleido REST API Gateway.Nodes can either be validators or transaction-only. The Kaleido Blockchain as a Service scales within its Azure footprint based on the user selection of node size which is based on [transaction throughput requirements.](https://docs.kaleido.io/using-kaleido/resource-limits/)
+Input that is destined to be persisted in the underlying ledger for the solution is handled by blockchain, using Kaleido Blockchain as a Service. A set of nodes are created as part of blockchain deployment, and the input application can interact with the blockchain either directly via those nodes or through the Kaleido REST API Gateway. Nodes can either be validators or transaction-only. The Kaleido Blockchain as a Service scales within its Azure footprint based on the user selection of node size which is based on [transaction throughput requirements](https://docs.kaleido.io/using-kaleido/resource-limits/).
 
 - **Output/Analytics**
 
-As data continues to exist in the ledger in Kaleido, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. The Kaleido platform provides a number of native capabilities for reporting and analytics but also supports event-driven notifications via webhooks and websockets which send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL. In addition Kaleido provides a native document storage solution that allows any uploaded or received file to be conveniently organized using intuitive folder structures, and persisted in either Kaleido hosted storage or cloud-delegated and user-controlled services such as Azure Blob containers. All transferred data is deterministically hashed, signed, compressed and asymmetrically encrypted in flight using proven public key infrastructure techniques, offering provable guarantees that only the intended recipient can effectively decrypt the packet.
+As data continues to exist in the ledger in Kaleido, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. The Kaleido platform provides a number of native capabilities for reporting and analytics but also supports event-driven notifications via webhooks and WebSockets which send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL. In addition, Kaleido provides a native document storage solution that allows any uploaded or received file to be organized using folder structures and persisted in either Kaleido hosted storage or Azure Blob containers. All transferred data is deterministically hashed, signed, compressed and asymmetrically encrypted in flight, offering provable guarantees that only the intended recipient can effectively decrypt the packet.
 
 #### Dataflow in action
 
