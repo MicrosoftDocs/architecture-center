@@ -9,8 +9,7 @@ Data from multiple sources in the organization can be consolidated into a data w
 You can use an extract, transform, and load (ETL) process to move and transform the source data.
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of large or complex data.
-Big data solutions typically involve a large amount of relational and non-relational data, which traditional RDBMS systems aren't well suited to store.
-This type of datastores are made of Data Lakes, lakehouses, etc.
+Big data solutions typically involve a large amount and mix of relational and non-relational (unstructured) data, which traditional RDBMS systems aren't well suited to store. Data stores that are suited better for this mix are typically classified as _data lakehouses_, mixing structured, semi-structured, and unstructured data.
 
 NoSQL databases are interchangeably referred to as “nonrelational,” “NoSQL DBs,” or “non-SQL” to highlight the fact that they can handle huge volumes of rapidly changing, unstructured data in different ways than a relational (SQL, RDBMS) database with rows and tables. For more information on NoSQL databases, please refer to [What are NoSQL databases?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-nosql-database)
 
