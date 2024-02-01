@@ -2,7 +2,7 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 ## Architecture
 
-[![Diagram that shows a Hub and Spoke architecture with the necessary components for IPv6 support.](./images/ipv6-hub-spoke.png)](./images/ipv6-hub-spoke.png#lightbox)
+[![Diagram that shows a Hub and Spoke architecture with the necessary components for IPv6 support.](./images/ipv6-hub-spoke.svg)](./images/ipv6-hub-spoke.svg#lightbox)
 
 ### Workflow
 
