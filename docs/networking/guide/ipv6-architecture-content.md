@@ -3,6 +3,7 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 ## Architecture
 
 [![Diagram that shows a Hub and Spoke architecture with the necessary components for IPv6 support.](./images/ipv6-hub-spoke.svg)](./images/ipv6-hub-spoke.svg#lightbox)
+*Download a [Visio file](https://arch-center.azureedge.net/ipv6-hub-spoke-network-topology.vsdx) of this architecture.*
 
 ### Workflow
 
