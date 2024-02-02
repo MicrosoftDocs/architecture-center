@@ -1308,6 +1308,8 @@ items:
             href: guide/hpc/siemens-tecnomatix.yml
         - name: tNavigator
           href: guide/hpc/tnavigator.yml
+        - name: TUFLOW HPC
+          href: guide/hpc/tuflow-hpc.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm

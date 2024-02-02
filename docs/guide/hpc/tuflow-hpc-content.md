@@ -1,6 +1,6 @@
-This article presents the performance results of running [TUFLOW HPC](https://wiki.tuflow.com/Hardware_Benchmarking_(2018-03-AA)) (heavily parallelized compute) models on an Azure virtual machine (VM).
+This article presents the performance results of running [TUFLOW (heavily parallelized compute) HPC](https://wiki.tuflow.com/Hardware_Benchmarking_(2018-03-AA)) models on an Azure virtual machine (VM).
 
-TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), including the sub-grid scale eddy viscosity model. It builds on the strength and accuracy of the TUFLOW Classic model. The HPC model incorporates finite volume TVD shock capturing, adaptive timestepping stability, and GPU acceleration that achieves simulation times that are 10 to 400 times shorter than the TUFLOW Classic model. 
+TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), including the sub-grid scale eddy viscosity model. It builds on the strength and accuracy of the TUFLOW Classic model. The TUFLOW HPC model provides finite volume TVD shock capturing, adaptive timestepping stability, and GPU acceleration that achieves simulation times that are 10 to 400 times faster than the TUFLOW Classic model. 
 
 ## Architecture
 
@@ -12,11 +12,11 @@ TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), incl
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows VMs. For information about deploying a VM and installing drivers, see [Windows VMs on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
 
-- The TUFLOW HPC application is installed on the operating system disk that's attached with the VM.
+- The TUFLOW HPC application is installed on the operating system disk that's attached to the VM.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.
 - A public IP address connects the internet to the VM. 
-- A premium solid-state drive (SSD) is used as an operating system disk for storage.
+- A [premium solid-state drive (SSD)](/azure/virtual-machines/disks-types#premium-ssds) is used as an operating system disk for storage.
 
 ## Scenario details
 
@@ -26,7 +26,7 @@ TUFLOW HPC is used in the environment and natural resource industries, specifica
 
 Deploy TUFLOW HPC on Azure to get benefits like:
 
-- Modern and diverse compute options to align to your workload's needs.
+- Modern and diverse compute options to meet your workload's needs.
 - The flexibility of virtualization without the need to buy and maintain physical hardware.
 - Rapid provisioning.
 - The ability to run the models on multiple GPU cards to increase modeling speeds.
@@ -71,9 +71,9 @@ The following table shows the details for each model that was used for testing:
 
 | Model | Cell size (m) | Number of cells |
 |:---:|:---:|:---:|
-| Model 1 | 20.0 | 181,981 |
-| Model 2 | 10.0 | 727,865 |
-| Model 3 | 5.0 | 2,911,472 |
+| Model 1 | 20 | 181,981 |
+| Model 2 | 10 | 727,865 |
+| Model 3 | 5 | 2,911,472 |
 | Model 4 | 2.5 | 11,645,341 |
 
 ### Model 1
@@ -82,13 +82,15 @@ Model 1 uses TUFLOW HPC and has a cell size of 20m, or 181,981 2D cells. It runs
 
 | VM configuration | CPU/GPU | Runtime (secs) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-| Standard NC24ads_A100_v4 | 8 CPUs | 5,973 | 1.00 |
-| Standard NC24ads_A100_v4 | 16 CPUs | 3,209 | 1.86 |
+|  | 8 CPUs | 5,973 | 1.00 |
+|  | 16 CPUs | 3,209 | 1.86 |
 | Standard NC24ads_A100_v4 | 1 GPU | 152 | 39.30 |
 
 For a performance analysis, the simulation runtime is a key parameter. To calculate the relative speed increase, the 8-vCPU (core) runtime is used as the baseline.
 
-This graph shows the relative speed increase in the model runtime as we increase the number of CPUs/GPUs.
+The following graph shows how the relative speed increase improves.
+
+:::image type="content" source="./media/tuflow-hpc/tuflow-hpc-20m-speed.png" alt-text="Graph that shows the relative speed increase for TUFLOW HPC with a 20m cell.":::
 
 ### Model 2
 
@@ -96,9 +98,11 @@ Model 2 uses TUFLOW HPC and has a cell size of 10m, or 727,865 2D cells. It runs
 
 | VM configuration | CPU/GPU | Runtime (secs) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-| Standard NC24ads_A100_v4 | 8 CPUs | 43,082 | 1.00 |
-| Standard NC24ads_A100_v4 | 16 CPUs | 25,071 | 1.72 |
+|  | 8 CPUs | 43,082 | 1.00 |
+|  | 16 CPUs | 25,071 | 1.72 |
 | Standard NC24ads_A100_v4 | 1 GPU | 808 | 53.32 |
+
+:::image type="content" source="./media/tuflow-hpc/tuflow-hpc-10m-speed.png" alt-text="Graph that shows the relative speed increase for TUFLOW HPC with a 10m cell.":::
 
 ### Model 3
 
@@ -110,6 +114,8 @@ Model 3 uses TUFLOW HPC and has a cell size of 5m, or 2,911,472 2D cells. This o
 | Standard NC48ads_A100_v4 | 2 | 4,860 | 1.37 |
 | Standard NC96ads_A100_v4 | 4 | 4,155 | 1.60 |
 
+:::image type="content" source="./media/tuflow-hpc/tuflow-hpc-5m-speed.png" alt-text="Graph that shows the relative speed increase for TUFLOW HPC with a 5m cell.":::
+
 ### Model 4
 
 Model 4 uses TUFLOW HPC and has a cell size of 2.5m, or 11,645,341 2D cells. This model is also for high-end GPU benchmarking.
@@ -119,6 +125,8 @@ Model 4 uses TUFLOW HPC and has a cell size of 2.5m, or 11,645,341 2D cells. Thi
 | Standard NC24ads_A100_v4 | 1 | 51,797 | 1.00 |
 | Standard NC48ads_A100_v4 | 2 | 47,496 | 1.09 |
 | Standard NC96ads_A100_v4 | 4 | 27,469 | 1.89 |
+
+:::image type="content" source="./media/tuflow-hpc/tuflow-hpc-2-5m-speed.png" alt-text="Graph that shows the relative speed increase for TUFLOW HPC with a 2.5m cell.":::
 
 ## Azure cost
 
@@ -132,7 +140,7 @@ To compute the total VM cost for your analysis, multiply the total runtime of th
 
 - The TUFLOW HPC models were tested with a single-precision version. This version requires less time and memory to calculate field data compared to a double-precision version. The memory requirement for a single-precision version is almost 50% less than that of a double-precision version.
 
-- We recommend the single precision version of TUFLOW HPC. Compared to a double precision version, it's faster and it enables you to run larger models with the available CPU/GPU memory.
+- We recommend the single-precision version of TUFLOW HPC. Compared to a double-precision version, it's faster and it enables you to run larger models with the available CPU/GPU memory.
 
 - TUFLOW HPC scales better with GPUs compared to CPUs. For the 10m model, when 1 GPU was used, the relative speed increase improved by about 53 times compared to the same test with 8 CPUs. These results indicate impressive scaling.
 
