@@ -83,7 +83,7 @@ This pattern might not be useful when:
 
 ## Example
 
-This example applies the [solution workflow](#solution) to a scenario where the workload team wants to integrate OCI artifacts from public registries to an Azure Container Registry (ACR) instance owned by the workload team and treated as a trusted artifact store. 
+This example applies the [solution workflow](#solution) to a scenario where the workload team wants to integrate OCI artifacts from public registries to an Azure Container Registry (ACR) instance owned by the workload team and treats it as a trusted artifact store. 
 
 The workload environment uses Azure Policy for Kubernetes to enforce governance. It restricts container pulls only from their trusted registry instance. Additionally, Azure Monitor alerts are set up to detect any imports into that registry from unexpected sources.
 
@@ -101,15 +101,17 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
      _Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks._
 
-4. The orchestrator makes a request to import the image into the quarantine Azure Container Registry (ACR) that deemed as an untrusted store. 
+4. The orchestrator makes a request to import the image into the quarantine Azure Container Registry (ACR) that is deemed as an untrusted store. 
 
 5. The import process on the quarantine registry gets the image from the untrusted external repository. If the import is successful, the quarantine registry has local copy of the image to execute validations. 
 
     _Security checkpoint: The quarantine registry protects against tampering during the validation process_.
 
-6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as  CVE detection, software bill of material (SBOM) evaluation, malware detection, image signing. The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All tasks can take a significant period of time and must be durable.
+6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as, CVE detection, software bill of material (SBOM) evaluation, malware detection, image signing, and others. 
 
-    _Security checkpoint: This step is the core of the quarantine process that performs all the checks. The type of checks could be custom, open-sourced, or vendor-purchased solutions._
+    The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All tasks can take a significant period of time and must be durable.
+
+    _Security checkpoint: This step is the core of the quarantine process that performs all the validation checks. The type of checks could be custom, open-sourced, or vendor-purchased solutions._
     
 7. The orchestrator makes a decision. If the image passes all validations, the event is noted in the audit database, the image is pushed to the trusted registry, and the local copy is deleted from the quarantine registry. Otherwise, the image is deleted from the quarantine registry to prevent its inadvertent use.
 
