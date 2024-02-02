@@ -85,14 +85,37 @@ This pattern might not be useful when:
 
 ## Example
 
-Let's consider the integration of OCI artifacts from public registries to Azure Container Registry (ACR). Suppose the workload uses a container image in Docker Hub. The workload team signals their intent of integrating that image by importing the image from Docker Hub into a local container registry. This purpose of this registry is to hold the image during quarantine. At this point there's no state change between the image in Docker Hub and the local registry. The image in both those sources is untrusted.
+This example applies the [solution workflow](#solution) to a scenario where the workload team wants to integrate OCI artifacts from public registries to an Azure Container Registry (ACR) instance owned by the workload team and treated as a trusted artifact store. 
 
-The workload team has governance policies in place that only allows the workload to use images an ACR instance owned by the team. So any image pulled from the local container registry is blocked. 
-
-Invoke security tooling - Microsoft Defender suite //TODO
-
-ACR has the ability to push metadata onto images themselves. However, it may be necessary to augment the design with some external tracking, because ACR itself may not be able to support all of this natively. 
-
-Keep a log of running the validation tests to track what happened and what didn't happen. If the artifact was not found satisfactory, don't keep it for consumption.
+The workload environment uses Azure Policy for Kubernetes to enforce governance. It restricts container pulls only from their trusted registry instance. Additionally, Azure Monitor alerts are set up to detect any imports into that registry from unexpected sources.
 
 ![This image shows Azure Container Registry implementation of the quarantine pattern.](./_images/quarantine-example.png)
+
+1. A request for an external image is made by the workload team through a custom application hosted on Azure Web Apps. The application collects the required information only from authorized users. 
+
+    _Security checkpoint: The identity of requestor, the destination container registry, and the requested image source, are verified._
+
+2. The request is stored in a Cosmos DB. 
+
+    _Security checkpoint: An audit trail is maintained in the database, keeping track of access to the image. This trail is also used for historical reporting_.
+
+3. The request is then handled by a workflow orchestrator, which is a durable Azure Function. The orchestrator uses a scatter-gather approach for running all validations. 
+
+     _Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks._
+
+4. The orchestrator makes a request to import the image into the quarantine Azure Container Registry (ACR) that deemed as an untrusted store. 
+
+5. The import process on the quarantine registry gets the image from the untrusted external repository. If the import is successful, the quarantine registry has local copy of the image to execute validations. 
+
+    _Security checkpoint: _The quarantine registry protects against tampering during the validation process_.
+
+6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as  CVE detection, software bill of material (SBOM) evaluation, malware detection, image signing. The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it's uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All task can take a significant period of time and must be durable.
+
+    _Security checkpoint: This step is the core of the quarantine process that performs all the checks. The type of checks could be custom, open-sourced, or vendor-purchased solutions._
+    
+7. The orchestrator makes a decision. If the image passes all validations, the event is noted in the audit database, the image is pushed to the trusted registry, and the local copy is deleted from the quarantine registry. Otherwise, the image is deleted from the quarantine registry to prevent inadvertant use.
+
+    _Security checkpoint: _The orchestrator maintains segmentation between trusted and untrusted resource location._
+
+All container registries are also covered by Microsoft Defender for Containers which augment the overall security posture with continuous scans for newly found issues. Those issues will be surfaced in Microsoft Defender Vulnerability Management.
+
