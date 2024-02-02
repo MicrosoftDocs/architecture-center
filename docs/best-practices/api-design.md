@@ -10,7 +10,6 @@ ms.service: architecture-center
 ms.subservice: best-practice
 products:
   - aspnet
-  - seo-aac-fy21q3
 ms.custom:
   - best-practice
 keywords:
