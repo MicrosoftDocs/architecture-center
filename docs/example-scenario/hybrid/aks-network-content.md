@@ -313,7 +313,7 @@ considerations are framed in the context of these tenets.
 **Principal authors:**
 
 - [Lisa DenBeste](https://www.linkedin.com/in/lisa-denbeste) | Project Management Program Manager
-- [Kenny Harder](https://www.linkedin.com/in/kenny-harder-03b14a64) | Project Manager
+- Kenny Harder | Project Manager
 - [Mike Kostersitz](https://www.linkedin.com/in/mikekostersitz) | Principal Program Manager Lead
 - [Meg Olsen](https://www.linkedin.com/in/megolsenpm) | Principal
 - [Nate Waters](https://www.linkedin.com/in/nate-waters) | Product Marketing Manager
