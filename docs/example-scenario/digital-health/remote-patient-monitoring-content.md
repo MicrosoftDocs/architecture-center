@@ -202,7 +202,7 @@ This solution provides a scalable near-realtime architecture for remote patient 
 Principal authors: 
 
  - [Mustafa Al-Durra](https://www.linkedin.com/in/mustafaaldurra/) | Healthcare Industry Architect
- - Janna Templin | Senior Program Manager
+ - Janna Templin | RN, MSN, MBA 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
