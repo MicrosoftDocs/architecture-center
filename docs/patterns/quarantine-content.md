@@ -22,6 +22,8 @@ It's important to note that the quarantine process doesn't change the compositio
 
 Here's a typical quarantine workflow:
 
+![This diagram shows the general quarantine pattern workflow.](./_images/quarantine.png)
+
 1. The consumer signals their intent, specifies the input source of the artifact, and blocks its use. 
 
 2. The quarantine process validates the origin of the request and gets the artifacts from the specified store. 
@@ -40,10 +42,6 @@ Here's a typical quarantine workflow:
     
     Based on the information, the consumers can choose to take actions to use the trusted artifact. Those actions are outside the scope of the quarantine pattern. 
 
-
-This image shows the flow of the quarantine process.
-
-![This diagram shows the general quarantine pattern workflow.](./_images/quarantine.png)
 
 ## Issues and considerations
 
@@ -117,5 +115,15 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
     _Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource location._
 
-All container registries are also covered by Microsoft Defender for Containers which augment the overall security posture with continuous scans for newly found issues. Those issues will be surfaced in Microsoft Defender Vulnerability Management.
+    > [!NOTE]
+    > An alternative to the orchestrator making the decision if the image should be used or not, it can offload the decision making to the workload team. In this alternative, the orchestrator publishes the validation results through an API and keeps the image in the quarantine registry for a period of time. 
+    >
+    > The workload team makes the decision after reviewing results. If the results meet their risk tolerance, they pull  the image from the quarantine repository into their container instance. This pull model is more practical when this pattern is used to support multiple workload teams with different security risk tolerances.
 
+All container registries are covered by Microsoft Defender for Containers which continuously scans for newly found issues. These issues are shown in Microsoft Defender Vulnerability Management.
+
+## Next steps
+
+The following guidance might be relevant when implementing this pattern:
+
+//TODO
