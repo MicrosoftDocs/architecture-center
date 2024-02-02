@@ -107,7 +107,7 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
 5. The import process on the quarantine registry gets the image from the untrusted external repository. If the import is successful, the quarantine registry has local copy of the image to execute validations. 
 
-    _Security checkpoint: _The quarantine registry protects against tampering during the validation process_.
+    _Security checkpoint: The quarantine registry protects against tampering during the validation process_.
 
 6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as  CVE detection, software bill of material (SBOM) evaluation, malware detection, image signing. The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All tasks can take a significant period of time and must be durable.
 
@@ -115,7 +115,7 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
     
 7. The orchestrator makes a decision. If the image passes all validations, the event is noted in the audit database, the image is pushed to the trusted registry, and the local copy is deleted from the quarantine registry. Otherwise, the image is deleted from the quarantine registry to prevent its inadvertent use.
 
-    _Security checkpoint: _The orchestrator maintains segmentation between trusted and untrusted resource location._
+    _Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource location._
 
 All container registries are also covered by Microsoft Defender for Containers which augment the overall security posture with continuous scans for newly found issues. Those issues will be surfaced in Microsoft Defender Vulnerability Management.
 
