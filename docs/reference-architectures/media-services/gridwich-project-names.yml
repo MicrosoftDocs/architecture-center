@@ -2,17 +2,17 @@
 metadata:
   title: Gridwich project naming and namespaces
   titleSuffix: Azure Reference Architectures
-  description: Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities, and technologies.
-  author: martinekuan
-  ms.author: architectures
-  ms.date: 12/23/2022
+  description: Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities and technologies.
+  author: xpouyat
+  ms.author: xpouyat
+  ms.date: 01/23/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
 name: Gridwich project naming and namespaces
-summary: Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities, and technologies.
+summary: Learn about Gridwich namespaces and project naming conventions and structure, based on components, capabilities and technologies.
 products:
   - azure-functions
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png

@@ -54,20 +54,13 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 - [Saga orchestration](../../reference-architectures/media-services/gridwich-saga-orchestration.yml)
 - [Project naming and namespaces](../../reference-architectures/media-services/gridwich-project-names.yml)
 - [CI/CD pipeline](../../reference-architectures/media-services/gridwich-cicd.yml)
-- [Content protection and DRM](../../reference-architectures/media-services/gridwich-content-protection-drm.yml)
-- [Media Services setup and scaling](../../reference-architectures/media-services/media-services-setup-scale.yml)
 - [Gridwich Azure Storage Service](../../reference-architectures/media-services/gridwich-storage-service.yml)
 - [Logging](../../reference-architectures/media-services/gridwich-logging.yml)
 - [Gridwich request-response messages](../../reference-architectures/media-services/gridwich-message-formats.yml)
-- [Variable flow with Terraform and Azure Pipelines](../../reference-architectures/media-services/variable-group-terraform-flow.yml)
 
-#### Gridwich procedures
+#### Gridwich procedure
 
-- [Run Azure admin scripts](../../reference-architectures/media-services/run-admin-scripts.yml)
-- [Set up a local development environment](../../reference-architectures/media-services/set-up-local-environment.yml)
-- [Create a cloud environment](../../reference-architectures/media-services/create-delete-cloud-environment.yml)
-- [Maintain and rotate keys](../../reference-architectures/media-services/maintain-keys.yml)
-- [Test Media Services v3 encoding](../../reference-architectures/media-services/test-encoding.yml)
+- [Set up Azure Project and Azure Pipelines](https://github.com/mspnp/gridwich/blob/main/doc/1-set-up-azure-devops.md)
 
 ### Live streaming
 

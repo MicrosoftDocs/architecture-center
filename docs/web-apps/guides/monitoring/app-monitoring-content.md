@@ -136,7 +136,6 @@ Check out these resources designed to help you get started with your own monitor
 
 - [Basic web application reference architecture][Basic web application reference architecture]
 - [Web application monitoring on Azure](/azure/architecture/web-apps/guides/monitoring/app-monitoring)
-- [Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)
 - [Hybrid availability and performance monitoring](/azure/architecture/hybrid/hybrid-perf-monitoring)
 - [High availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 

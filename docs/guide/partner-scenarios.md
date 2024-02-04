@@ -168,7 +168,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame provides. OpenFrame can integrate with RDBMSs like Oracle.|Mainframe|
 |[Oracle Database migration to Azure](../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)|Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.|Oracle|
 |[Oracle Database migration: Cross-cloud connectivity](../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml)|Create a connection between your existing Oracle database and your Azure applications.|Oracle|
-|[Oracle Database migration: Lift and shift](../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml)|Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.|Oracle|
 |[Oracle Database migration: Refactor](../example-scenario/oracle-migrate/oracle-migration-refactor.yml)|Refactor your Oracle database by using Azure Database Migration Service, and move it to PostgreSQL.|Oracle|
 |[Oracle Database migration: Rearchitect](../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml)|Rearchitect your Oracle database by using Azure SQL Managed Instance.|Oracle|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
@@ -187,7 +186,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |--|--|--|
 |[Design APIs for microservices](../microservices/design/api-design.yml)|Learn about good API design in a microservices architecture. IDLs used to define APIs can be consumed by API testing tools like Postman.|Microservices|
 |[Gridwich local development environment setup](../reference-architectures/media-services/set-up-local-environment.yml)|Set up a local development environment to work with Gridwich. Postman is an optional component in the configuration.|Media|
-|[Unified logging for microservices apps](../example-scenario/logging/unified-logging.yml)|Learn about logging, tracing, and monitoring for microservices apps.|Microservices|
+|[Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)|Learn about logging, tracing, and monitoring for microservices apps.|Microservices|
 
 ## Profisee
 

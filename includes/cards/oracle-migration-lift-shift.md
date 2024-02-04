@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift"><img src="/azure/architecture/browse/thumbs/oracle-migration-lift-shift.png" class="diagram" alt="Thumbnail of Oracle database migration: Lift and shift Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/virtual-machines/workloads/oracle/oracle-migration"><img src="/azure/architecture/browse/thumbs/oracle-migration-lift-shift.png" class="diagram" alt="Thumbnail of Oracle database migration: Lift and shift Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/oracle-migrate/oracle-migration-lift-shift">
+        <a class="card-content-title has-margin-top-none" href="/azure/virtual-machines/workloads/oracle/oracle-migration">
             <p>Oracle database migration: Lift and shift</p>
         </a>
         <ul class="card-content-metadata">

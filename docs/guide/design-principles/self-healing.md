@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
 ms.custom:
-  - seojan19
   - guide
 products:
   - azure
@@ -38,7 +37,7 @@ Also, don't just consider big events like regional outages, which are generally 
 
 **Protect failing remote services (Circuit Breaker)**. It's good to retry after a transient failure, but if the failure persists, you can end up with too many callers hammering a failing service. This can lead to cascading failures, as requests back up. Use the [Circuit Breaker pattern][circuit-breaker] to fail fast (without making the remote call) when an operation is likely to fail.
 
-**Isolate critical resources (Bulkhead)**. Failures in one subsystem can sometimes cascade. This can happen if a failure causes some resources, such as threads or sockets, not to get freed in a timely manner, leading to resource exhaustion. To avoid this, partition a system into isolated groups, so that a failure in one partition does not bring down the entire system.
+**Isolate critical resources (Bulkhead)**. Failures in one subsystem can sometimes cascade. This can happen if a failure causes some resources, such as threads or sockets, not to get freed in a timely manner, leading to resource exhaustion. To avoid this, use the [Bulkhead pattern][bulkhead] to partition a system into isolated groups, so that a failure in one partition does not bring down the entire system.
 
 **Perform load leveling**. Applications may experience sudden spikes in traffic that can overwhelm services on the backend. To avoid this, use the [Queue-Based Load Leveling pattern][load-level] to queue work items to run asynchronously. The queue acts as a buffer that smooths out peaks in the load.
 
@@ -66,6 +65,7 @@ For a structured approach to making your applications self healing, see [Design 
 
 <!-- links -->
 
+[bulkhead]: ../../patterns/bulkhead.yml
 [circuit-breaker]: ../../patterns/circuit-breaker.yml
 [compensating-transactions]: ../../patterns/compensating-transaction.yml
 [leader-election]: ../../patterns/leader-election.yml
