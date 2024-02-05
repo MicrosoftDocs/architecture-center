@@ -163,7 +163,7 @@ You can start a trial of CluedIn on their website, which can also help you scope
 
 ## Deploy this scenario
 
-To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](https://www.cluedin.com/version.3.2).
+To deploy CluedIn for development and evaluation purposes using Docker, see [Local installation guide](https://documentation.cluedin.net/deployment/local/step-2).
 
 To install CluedIn in production, CluedIn instances can be directly installed from the Azure Marketplace in your own Azure tenant.
 
@@ -181,7 +181,7 @@ Principal author:
 
 - For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com).
 - For instructions on deploying and using CluedIn, see the [CluedIn documentation](https://documentation.cluedin.net/).
-- [CluedIn with Docker](https://www.cluedin.com/version.3.2)
+- [CluedIn local installation guide](https://documentation.cluedin.net/deployment/local/step-2)
 
 ## Related resources
 
