@@ -90,24 +90,24 @@ To calculate the number of subnets of a certain size that can fit into a larger 
 
 ## Configure Azure services to use IPv6
 
-You can use the following table to find instructions for transitioning specific services to IPv6.
+You can use the following table to find instructions for transitioning specific services or components to IPv6.
 
-| Service | Transition instructions |
+| Service/component | Transition instructions |
 |--|--|
+| Azure Container Networking Interface (CNI) Overlay for AKS| For more information, see [Use Azure CNI Overlay](/azure/aks/azure-cni-overlay). |
+| Azure custom IP address prefix | You need to create new prefixes for your IPv6 address ranges. For instructions, see [Create a custom IPv6 address prefix using the Azure portal](/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal). |
+| Azure Data Explorer | You must perform an API request to update the `publicIPType` property to `DualStack`. For more information, see [Create or update clusters](/rest/api/azurerekusto/clusters/create-or-update#kustoclusterscreateorupdate). |
+| Azure DNS zone (public and private) | To add new IPv6 records, see [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record). |
 | Azure ExpressRoute gateway |  To transition ExpressRoute gateways, see [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal). |
-| Azure DNS zones (Public and Private) | To add new IPv6 records, see [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record). |
-| Virtual Network | To add new IPv6 space to existing subnets, see [Add IPv6 to virtual network](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network). |
-| Azure Virtual Network Manager | Network Manager can manage networks with IPv6 in them. |
-| Azure Load Balancers |  To create or modify new load balancers with IPv6, see [Standard Public Load Balancer with IPv6](/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell) and [Standard Internal Load Balancer with IPv6](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). |
-| Azure Front Door | Azure Front Door can target backends with IPv6. No special transition is needed other than updating the backend information. |
-| Azure Public IP address Basic | You need to create new public IPs with IPv6 Addresses. For instructions, see [Create IPv6 public IP address](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#create-ipv6-public-ip-address). |
-| Azure Custom IP Prefix | You need to create new prefixes for your IPv6 ranges. For instructions, see [Create a custom IPv6 address prefix using the Azure portal](/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal). |
-| Virtual Machines | To add IPv6 to existing virtual machines, see [Add IPv6 configuration to virtual machine](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine). |
-| Virtual Machine Scale Set | The process is similar to creating IPv6 virtual machines. However, the network profile needs to be different. For more information, see [Virtual machine scale set with IPv6](/azure/virtual-network/ip-services/ipv6-virtual-machine-scale-set). |
-| Azure Kubernetes Service |  See [Use kubenet with dual-stack networking](/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl) |
-| Azure CNI Overlay for AKS| See [Use Azure CNI overlay](/azure/aks/azure-cni-overlay) |
-| Azure Data Explorer | To transition to IPv6, you need to perform an API request to update its `publicIPType` to `Dualstack`. See [Clusters - Create or Update](/rest/api/azurerekusto/clusters/create-or-update?tabs=HTTP#kustoclusterscreateorupdate). |
-| Azure Service Fabric | For enabling IPv6, see [Configure managed cluster network settings](/azure/service-fabric/how-to-managed-cluster-networking#ipv6). |
+| Azure Front Door | Azure Front Door can target a back end with IPv6. You don't need a special transition, other than updating the back-end information. |
+| Azure Kubernetes Service (AKS) |  For more information, see [Use kubenet with dual-stack networking](/azure/aks/configure-kubenet-dual-stack). |
+| Azure Load Balancer |  To create or modify new load balancers with IPv6, see [Standard public load balancer with IPv6](/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell) and [Standard internal load balancer with IPv6](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). |
+| Azure public IP address (basic) | You need to create new public IP addresses with IPv6 addresses. For instructions, see [Create an IPv6 public IP address](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#create-ipv6-public-ip-address). |
+| Azure Service Fabric | For more information, see [Configure managed cluster network settings](/azure/service-fabric/how-to-managed-cluster-networking#ipv6). |
+| Azure Virtual Machine Scale Sets | The process is similar to creating IPv6 virtual machines, but you must change the network profile. For more information, see [Virtual Machine Scale Sets with IPv6](/azure/virtual-network/ip-services/ipv6-virtual-machine-scale-set). |
+| Azure Virtual Network Manager | Virtual Network Manager can manage networks that use IPv6. |
+| Virtual machine | To add IPv6 to existing virtual machines, see [Add the IPv6 configuration to a virtual machine](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine). |
+| Virtual network | To add new IPv6 space to existing subnets, see [Add IPv6 to a virtual network](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network). |
 
 ## Next steps
 
