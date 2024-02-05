@@ -3894,6 +3894,11 @@
       "source_path": "docs/reference-architectures/media-services/variable-group-terraform-flow.yml",
       "redirect_url": "/azure/architecture/reference-architectures/media-services/gridwich-architecture",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/networking/guide/ipv6/ipv6-ip-planning.md",
+      "redirect_url": "/azure/architecture/networking/guide/ipv6-ip-planning",
+      "redirect_document_id": false
     }
   ]
 }

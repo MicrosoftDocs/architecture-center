@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: IPv6 hub-spoke network topology
+  description: Learn to transition a hub and spoke network topology in Azure to also support IPv6, creating a dual stack network.
+  author: WernerRall147
+  ms.author: weral
+  ms.date: 2/09/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+name: IPv6 hub-spoke network topology
+azureCategories:
+  - networking
+  - security
+  - management-and-governance
+summary: Learn to support and transition to IPv6
+products:
+  - azure-firewall
+  - azure-virtual-network
+  - azure-virtual-wan
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/ipv6-hub-spoke.svg
+content: |
+   [!include[](ipv6-architecture-content.md)]
