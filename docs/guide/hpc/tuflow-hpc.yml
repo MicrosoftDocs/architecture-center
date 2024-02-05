@@ -4,7 +4,7 @@ metadata:
   description: Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.
   author: Basha-R
   ms.author: v-rbasha
-  ms.date: 02/01/2024
+  ms.date: 02/05/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

@@ -78,12 +78,12 @@ The following table shows the details for each model that was used for testing:
 
 ### Model 1
 
-Model 1 uses TUFLOW HPC and has a cell size of 20m, or 181,981 2D cells. It runs on both CPU and GPU hardware.
+Model 1 has a cell size of 20m, or 181,981 2D cells. TUFLOW HPC runs on both CPU and GPU hardware. The following table shows the performance results of running TUFLOW HPC on a NC_A100_v4-series VM compared to running the application on an AMD EPYC 9V33X processor.
 
-| VM configuration | CPU/GPU | Runtime (secs) | Relative speed increase |
+| Processor/VM series | CPU/GPU | Runtime (secs) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-|  | 8 CPUs | 5,973 | 1.00 |
-|  | 16 CPUs | 3,209 | 1.86 |
+| AMD EPYC 9V33X  | 8 CPUs | 5,973 | 1.00 |
+| AMD EPYC 9V33X  | 16 CPUs | 3,209 | 1.86 |
 | Standard NC24ads_A100_v4 | 1 GPU | 152 | 39.30 |
 
 For a performance analysis, the simulation runtime is a key parameter. To calculate the relative speed increase, the 8-vCPU (core) runtime is used as the baseline.
@@ -94,19 +94,19 @@ The following graph shows how the relative speed increase improves.
 
 ### Model 2
 
-Model 2 uses TUFLOW HPC and has a cell size of 10m, or 727,865 2D cells. It runs on both CPU and GPU hardware.
+Model 2 has a cell size of 10m, or 727,865 2D cells. The following table shows the performance results of running TUFLOW HPC on a NC_A100_v4-series VM compared to running the application on an AMD EPYC 9V33X processor.
 
-| VM configuration | CPU/GPU | Runtime (secs) | Relative speed increase |
+| Processor/VM series | CPU/GPU | Runtime (secs) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-|  | 8 CPUs | 43,082 | 1.00 |
-|  | 16 CPUs | 25,071 | 1.72 |
+| AMD EPYC 9V33X  | 8 CPUs | 43,082 | 1.00 |
+| AMD EPYC 9V33X  | 16 CPUs | 25,071 | 1.72 |
 | Standard NC24ads_A100_v4 | 1 GPU | 808 | 53.32 |
 
 :::image type="content" source="./media/tuflow-hpc/tuflow-hpc-10m-speed.png" alt-text="Graph that shows the relative speed increase for TUFLOW HPC with a 10m cell.":::
 
 ### Model 3
 
-Model 3 uses TUFLOW HPC and has a cell size of 5m, or 2,911,472 2D cells. This option runs large models on GPU hardware for high-end GPU benchmarking.
+Model 3 has a cell size of 5m, or 2,911,472 2D cells. This option runs large models on GPU hardware for high-end GPU benchmarking.
 
 | VM configuration | GPUs | Runtime (secs) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
@@ -118,7 +118,7 @@ Model 3 uses TUFLOW HPC and has a cell size of 5m, or 2,911,472 2D cells. This o
 
 ### Model 4
 
-Model 4 uses TUFLOW HPC and has a cell size of 2.5m, or 11,645,341 2D cells. This model is also for high-end GPU benchmarking.
+Model 4 has a cell size of 2.5m, or 11,645,341 2D cells. This model is also for high-end GPU benchmarking.
 
 | VM configuration | GPUs | Runtime (secs) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
