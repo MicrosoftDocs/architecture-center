@@ -59,6 +59,11 @@ The following options provide an opinionated approach to deploy and operate the 
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module and also allows you to deploy each capability individually or in part. |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md) | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
+### Variants
+| Deployment option | Description |
+| --- | ---|
+| [Sovereign Landing Zone](/industry/sovereignty/slz-overview) | The Sovereign Landing Zone (SLZ) is a variant of the enterprise scale Azure Landing Zone intended for organizations that need advanced sovereign controls |
+
 ### Operate Azure landing zones
 
 After you deploy the landing zone, you need to operate and maintain it. For more information, see the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
