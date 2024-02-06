@@ -62,7 +62,7 @@ The following options provide an opinionated approach to deploy and operate the 
 ### Variants
 | Deployment option | Description |
 | --- | ---|
-| [Sovereign Landing Zone](/industry/sovereignty/slz-overview) | The Sovereign Landing Zone (SLZ) is a variant of the enterprise scale Azure Landing Zone intended for organizations that need advanced sovereign controls |
+| [Sovereign landing zone](/industry/sovereignty/slz-overview) | The sovereign landing zone (SLZ) is a variant of the enterprise scale Azure landing zone intended for organizations that need advanced sovereign controls. |
 
 ### Operate Azure landing zones
 
