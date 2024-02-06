@@ -12,6 +12,8 @@ Use a message queue to implement the communication channel between the applicati
 
 ![Using a message queue to distribute work to instances of a service](./_images/competing-consumers-diagram.png)
 
+NOTE: Although there are multiple consumers of these messages, this is not the same as the [Publish Subscribe pattern](publisher-subscriber.yml) (pub/sub). With the Competing Consumers approach, each message is passed to a single consumer for processing, whereas with the Pub/Sub approach, **all** consumers get passed **every** message.
+
 This solution has the following benefits:
 
 - It provides a load-leveled system that can handle wide variations in the volume of requests sent by application instances. The queue acts as a buffer between the application instances and the consumer service instances. This buffer can help minimize the impact on availability and responsiveness, for both the application and the service instances. For more information, see [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). Handling a message that requires some long-running processing doesn't prevent other messages from being handled concurrently by other instances of the consumer service.
