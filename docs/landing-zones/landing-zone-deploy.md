@@ -60,6 +60,7 @@ The following options provide an opinionated approach to deploy and operate the 
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md) | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
 ### Variants
+
 | Deployment option | Description |
 | --- | ---|
 | [Sovereign landing zone](/industry/sovereignty/slz-overview) | The sovereign landing zone (SLZ) is a variant of the enterprise scale Azure landing zone intended for organizations that need advanced sovereign controls. |
