@@ -13,10 +13,10 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
     - The cross-premises network has on-premises virtual machines (VMs) that connect securely to the Azure network via a VPN gateway.
 
 1. **Azure Virtual Network Manager:**
-    - Virtual Network Manager is the management layer that oversees the entire network infrastructure within Azure. It handles the routing, policies, and overall health of the virtual network.
+    - Virtual Network Manager is the management layer that is used to oversee the entire network infrastructure within Azure. It handles the routing, policies, and overall health of the virtual network.
 
 1. **Hub virtual network:**
-    - The hub is the central point of the network topology and is configured to support both IPv4 and IPv6 (hence "Dual Stack").
+    - The hub is the central point of the network topology. It's configured to support both IPv4 and IPv6 (dual stack).
     - Azure Bastion provides secure and seamless RDP/SSH connectivity to your VMs directly in the Azure portal over TLS.
     - Azure Firewall inspects and filters traffic between the hub and the public internet.
     - ExpressRoute connects the cross-premises network to the hub.
