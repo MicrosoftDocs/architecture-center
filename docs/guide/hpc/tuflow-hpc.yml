@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy TUFLOW HPC on an Azure virtual machine
+  description: Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.
+  author: Basha-R
+  ms.author: v-rbasha
+  ms.date: 02/05/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-blob-storage
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy TUFLOW HPC on an Azure virtual machine
+summary: Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.
+thumbnailUrl: ../../browse/thumbs/hpc-tuflow-hpc-architecture.png
+content: |
+  [!include[](tuflow-hpc-content.md)]
