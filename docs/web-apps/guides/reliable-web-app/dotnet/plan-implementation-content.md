@@ -34,11 +34,11 @@ For business context, the guidance follows the cloud journey of a fictional comp
 | ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application to customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
 
 ## Existing web app
-
+<!-- diff creator -->
 The existing web app is on-premises. It's a monolithic ASP.NET web app. It runs an eCommerce, line-of-business web app on two virtual machines and has a Microsoft SQL Server database. The web app is employee-facing. The only application users are Relecloud's call center employees. Relecloud employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
 
 ## Service level objective
-
+<!-- diff creator -->
 A service level objective (SLO) for availability defines how available you want a web app to be for users. You need to define an SLO and what *available* means for your web app. Relecloud has a target SLO of 99.9% for availability, about 8.7 hours of downtime per year. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
 For each dependency in the critical path, you need to assign an availability goal. Service level agreements (SLAs) from Azure provide a good starting point. However, SLAs don't factor in (1) downtime that's associated with the application code running on the services (2) deployment and operation methodologies, (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
@@ -51,7 +51,7 @@ Relecloud used Azure SLAs for Azure services. The following diagram illustrates 
 When you have an SLA dependency map, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Relecloud needed a multi-region architecture to meet the 99.9% SLO. For more information, see [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas) and [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments).
 
 ## Choose the right services
-
+<!-- diff creator -->
 The Azure services you choose should support your short-term objectives. They should also prepare you to reach any long-term goals. To accomplish both, you should pick services that (1) meet your SLO, (2) require minimal re-platforming effort, and (3) support future modernization plans.
 
 When you move a web app to the cloud, you should select Azure services that mirror key on-premises features. The alignment helps minimize the re-platforming effort. For example, you should keep the same database engine (from SQL Server to Azure SQL Database) and app hosting platform (from IIS on Windows Server to Azure App Service). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if that's a long-term goal.
@@ -87,7 +87,7 @@ When you move a web app to the cloud, you should select Azure services that mirr
 - **Expertise and minimal rework.** SQL Database takes advantage of in-house expertise and requires minimal rework.
 
 ### Application performance monitoring
-
+<!-- diff creator -->
 [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. The web app uses Application Insights for the following reasons:
 
 - **Anomaly detection.** It automatically detects performance anomalies.
