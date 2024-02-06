@@ -74,7 +74,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Message scheduling.** A message might be temporarily embargoed and should not be processed until a specific date and time. The message should not be available to a receiver until this time.
 
-- **Scaling out subscribers** If a given subscriber is unable to keep up with the rate of messages it is receiving, use the [Competing Consumers pattern](competing-consumers.yml) to scale it out.
+- **Scaling out subscribers.** If a given subscriber is unable to keep up with the rate of messages it is receiving, use the [Competing Consumers pattern](competing-consumers.yml) to scale it out.
 
 ## When to use this pattern
 
