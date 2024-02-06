@@ -44,7 +44,7 @@ The servers that need to utilize these certificates must be equipped with the Ke
 As the certificate approaches expiration, two Event Grid subscriptions intercept this crucial lifetime event from the key vault.
 
 1. **Event Grid Triggers:** 
-One Event Grid subscription sends certificate renewal information to a Storage Account Queue, while the other subscription triggers the execution of a runbook through the configured webhook in the Automation Account. In the event that the runbook fails to renew the certificate, for instance, due to unavailability of the Certification Authority, a periodically scheduled execution of the runbook retries the process from this point ahead until the queue is cleared, ensuring robustness in the solution.
+One Event Grid subscription sends certificate renewal information to a Storage Account Queue, while the other subscription triggers the execution of a runbook through the configured webhook in the Automation Account. In the event that the runbook fails to renew the certificate, for instance, due to unavailability of the Certification Authority, a periodically scheduled execution of the runbook retries the process from this point ahead until the queue is cleared, ensuring robustness in the solution. To enhance the solution's resiliency, the implementation of a [dead-lettering](https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-dead-letter-location) mechanism could be considered to manage potential errors occurring during the transit of messages from Event Grid to the subscription targets (storage queue and webhook).
 
 1. **Storage Account Queue:**
 The RunBook, executed within the Certification Authority server configured as a Hybrid RunBook Worker, takes as input all the messages in the storage account queue containing the name of the expiring certificate and the Key Vault hosting it. The subsequent steps described below are performed for each message in the queue.
@@ -56,7 +56,8 @@ The RunBook, executed within the Certification Authority server configured as a 
     - The Certification Authority generate a new x509 certificate based on the correct template and send it back to the script. This ensures that the renewed certificate aligns with the predefined security policies.
 
 1. **Certificate Merging and Key Vault Update:**
-The script merges the renewed certificate back into the Key Vault, finalizing the update process and removing the message from the queue.
+The script merges the renewed certificate back into the Key Vault, finalizing the update process and removing the message from the queue. 
+Note that throughout the entire process, the private key of the certificate is never extracted from the key vault
 
 1. **Monitoring and e-mail notification:**
 All operations performed by the different Azure components (Automation account, Key Vault, Storage Account Queue and Event Grid) are logged within the Log Analytics workspace to enable monitoring. Following the certificate merge phase into the Key Vault, the script sends an email message to administrators to notify them of the renewal procedure's outcome.
@@ -215,32 +216,8 @@ The button below automatically deploys the environment described in this article
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Fmindeploy.json)
 
-To integrate the solution with your existing environment, you need to perform the following steps:
 
-- Configure an Hybrid Worker VM installing the [Azure Hybrid Worker Extension](https://learn.microsoft.com/azure/automation/extension-based-hybrid-runbook-worker-install) on the Certification Authority server (or on a server joined to the same AD domain) and adding it to the Hybrid Worker Group defined in the Automation Account.
-- Install the following Powershell modules on the Hybrid Worker VM:
-
-    ```powershell
-    # Required powershell modules for the Hybrid Worker
-        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-        Register-PSRepository -Default -InstallationPolicy Trusted
-        Install-Module Az.Resources -requiredVersion 6.6.0 -Repository PSGallery -Scope AllUsers -Force
-        Install-Module Az.Compute -requiredVersion 5.7.0 -Repository PSGallery -Scope AllUsers -Force
-        Install-Module Az.Storage -requiredVersion 5.5.0 -Repository PSGallery -Scope AllUsers -Force
-        Install-Module Az.KeyVault -requiredVersion 4.9.2 -Repository PSGallery -Scope AllUsers -Force
-        Install-Module Az.Accounts -requiredVersion 2.12.1
-        Install-Module PSPKI -Repository PSGallery -Scope AllUsers -Force
-    ```
-
-
-- Add the 'System' account of the Hybrid RunBook Worker VM the "Read" and "Enroll" permissions to the Certificate Template(s) used to generate the certificates.
-- Install the [Key Vault extension](#key-vault-extension) on the servers that need to retrieve the renewed certificates from the Key Vault.
-- Add the 'Key Vault Secret User' role to the the servers with the Key Vault extension on the Key Vault containing the certificates.
-- If you've specified the SMTPServer parameter during deployment, ensure the following: 
-    - the Hybrid RunBook Worker VM can reach the SMTP server, 
-    - the SMTP port is open in the firewall, 
-    - the SMTP server accepts mail submissions from the Hybrid RunBook Worker VM.
-- Import the certificates into the Key Vault and **TAG** them with the administrator e-mail address for notification purposes. If multiple recipients are required, the e-mail addresses should be separated by comma or semicolon. The expected tag name is 'Recipient' and the value is the e-mail address(es) of the administrator(s).
+Detailed information about the parameters needed for the deployment can be found in the [**code sample**](https://learn.microsoft.com/en-us/samples/azure/certlc/certlc/) portal.
 
 > [!IMPORTANT]
 > > If you want to deploy a **full LAB environment** ready to demonstrate the whole automatic certificate renewal workflow, you can refer to the provided [**code sample**](https://learn.microsoft.com/en-us/samples/azure/certlc/certlc/) that includes the deployment of the following additional resources:
