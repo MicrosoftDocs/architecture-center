@@ -20,6 +20,6 @@ products:
   - azure-virtual-network
   - azure-virtual-wan
   - azure-vpn-gateway
-thumbnailUrl: /../../browse/thumbs/ipv6-hub-spoke.png
+thumbnailUrl: ../../browse/thumbs/ipv6-hub-spoke.png
 content: |
    [!include[](ipv6-architecture-content.md)]
