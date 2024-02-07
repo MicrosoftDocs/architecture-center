@@ -72,15 +72,24 @@ This pattern might not be useful when:
 
 ## Example
 
-You can use a sequence of message queues to provide the infrastructure that's required to implement a pipeline. An initial message queue receives unprocessed messages that becomes the start of the pipes and filters pattern implementation. A component that's implemented as a filter task listens for a message on this queue, performs its work, and then posts a new or transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and so on, until the final step that ends the pipes and filters process. This diagram illustrates a pipeline that uses message queues:
+You can use a sequence of message queues to provide the infrastructure that's required to implement a pipeline. An initial message queue receives unprocessed messages that become the start of the pipes and filters pattern implementation. A component that's implemented as a filter task listens for a message on this queue, performs its work, and then posts a new or transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and so on, until the final step that ends the pipes and filters process. This diagram illustrates a pipeline that uses message queues:
 
 ![Diagram showing a pipeline that uses message queues.](./_images/pipes-and-filters-message-queues.png)
 
-An image processing pipeline could be implemented using this pattern. If your workload takes an image, the image could pass through a series of largely independent and reorderable filters to perform actions such as content moderation, resizing, watermarking, reorientation, EXIF removal, CDN updates, and so on. In this example, the filters could be implemented as individually deployed Azure Functions or even a single Azure Function app that contains each filter as a isolated function. The use of Azure Function triggers, input bindings, and output bindings can be simplify the filter code and work automatically with a queue-based pipe using a [claim check](./claim-check.yml) to the image to process.
+An image processing pipeline could be implemented using this pattern. If your workload takes an image, the image could pass through a series of largely independent and reorderable filters to perform actions such as:
+
+- content moderation
+- resizing
+- watermarking
+- reorientation
+- Exif metadata removal
+- Content delivery network (CDN) publication
+
+In this example, the filters could be implemented as individually deployed Azure Functions or even a single Azure Function app that contains each filter as an isolated deployment. The use of Azure Function triggers, input bindings, and output bindings can be simplify the filter code and work automatically with a queue-based pipe using a [claim check](./claim-check.yml) to the image to process.
 
 ![Diagram showing the image processing pipeline that uses Azure Queues Storage between a series of Azure Functions to take an image from unprocessed to processed.](./_images/pipes-and-filters-image-processing-example.png)
 
-Here is an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.
+Here's an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.
 
 ```csharp
 // This is the "Resize" filter.  It handles message from the pipe named "pipe-xfty",
