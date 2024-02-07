@@ -87,7 +87,9 @@ An image processing pipeline could be implemented using this pattern. If your wo
 
 In this example, the filters could be implemented as individually deployed Azure Functions or even a single Azure Function app that contains each filter as an isolated deployment. The use of Azure Function triggers, input bindings, and output bindings can be simplify the filter code and work automatically with a queue-based pipe using a [claim check](./claim-check.yml) to the image to process.
 
-![Diagram showing the image processing pipeline that uses Azure Queues Storage between a series of Azure Functions to take an image from unprocessed to processed.](./_images/pipes-and-filters-image-processing-example.png)
+:::image type="complex" source="./_images/pipes-and-filters-image-processing-example.svg" alt-text="Diagram showing an image processing pipeline that uses Azure Queue Storage between a series of Azure Functions." lightbox="./_images/pipes-and-filters-image-processing-example.svg":::
+   This diagram shows three unprocessed images on the left of various file types. To the right of those is an Azure Queue Storage pipe with claim check messages for each image; followed by an Azure Function that performs content moderation on the image as a filter. All the images are stored in an Azure Blob Storage account. There is another queue (pipe) and function (filter) that follows the first to handle image resizing. Then there is a dot dot dot which represents unshown pipes and filters. The last pipe and filter are responsible for publishing the final, fully processed image to its destination.
+:::image-end:::
 
 Here's an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.
 
