@@ -77,7 +77,7 @@ For the execution order of an NLP pipeline, Spark NLP follows the same developme
 
 Principal author:
 
-- Moritz Steller | Senior Cloud Solution Architect
+- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116/) | Senior Cloud Solution Architect
 
 ## Next steps
 

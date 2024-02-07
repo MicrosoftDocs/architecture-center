@@ -70,16 +70,16 @@ The following flow chart can help you choose a vision service for your specific 
 Principal authors:
 
 - [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
+- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta/) | Azure Senior Fast-Track Engineer
 
 Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect 
-- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
+- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332/) | Software Engineer
 - [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
+- [Nathan Widdup](https://www.linkedin.com/in/nwiddup/) | Azure Senior Fast-Track Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 

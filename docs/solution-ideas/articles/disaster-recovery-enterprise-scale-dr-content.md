@@ -42,4 +42,3 @@ Principal author:
 * [Introduction to Microsoft Azure Storage](/azure/storage/common/storage-introduction)
 * [Integrating your on-premises identities with Microsoft Entra ID](/azure/active-directory/hybrid/whatis-azure-ad-connect)
 * [Create a VNet with a Site-to-Site connection using the Azure portal](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-* [Designing your network infrastructure for disaster recovery](https://gallery.technet.microsoft.com/Designing-Your-Network-a849fa98)
