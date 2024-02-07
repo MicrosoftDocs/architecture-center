@@ -273,9 +273,6 @@ All three requirements should be in place if you worked through the previous sec
 
 One advantage of using Microsoft Sentinel as your SIEM is that it provides data correlation across multiple sources, which enables you to have an end-to-end visibility of your organization's security-related events.
 
-> [!NOTE]
-> To learn how to increase visibility in your data and identify potential threats, refer to [Azure playbooks on TechNet Gallery](https://learn.microsoft.com/en-us/teamblog/technet-gallery-retirement), which has a collection of resources including a lab in which you can simulate attacks. You should not use this lab in a production environment.
-
 To learn more about Microsoft Sentinel, refer to the following articles:
 
 - [Quickstart][azure-sentinel-quickstart]: Get started with Microsoft Sentinel
