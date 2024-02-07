@@ -94,27 +94,23 @@ In this example, the filters could be implemented as individually deployed Azure
 Here's an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.
 
 ```csharp
-// This is the "Resize" filter.  It handles message from the pipe named "pipe-xfty",
-// performs the resize work, and places a message in the next pipe for anther filter
-// to handle.
+// This is the "Resize" filter. It handles claim checks from input pipe, performs the
+// resize work, and places a claim check in the next pipe for anther filter to handle.
 [Function(nameof(ResizeFilter))]
 [QueueOutput("pipe-fjur", Connection = "pipe")]  // Destination pipe claim check
 public async Task<string> RunAsync(
   [QueueTrigger("pipe-xfty", Connection = "pipe")] string imageFilePath,  // Source pipe claim check
-  [BlobInput("{QueueTrigger}", Connection = "pipe")] BlockBlobClient imageBlob,  // Image to process from claim check
-  CancellationToken cancellationToken)
+  [BlobInput("{QueueTrigger}", Connection = "pipe")] BlockBlobClient imageBlob)  // Image to process
 {
   _logger.LogInformation("Processing image {uri} for resizing.", imageBlob.Uri);
 
   // Idempotency checks
-  if (await resizeFilterWorkRequiredAsync(imageBlob))
-  {
-    // Download image based on pipe's queue message body
-    
-    // Resize the image
 
-    // Write resized image back to storage
-  }
+  // Download image based on claim check in queue message body
+  
+  // Resize the image
+
+  // Write resized image back to storage
 
   // Add location information for in next queue message and place on the next pipe
   _logger.LogInformation("Image resizing done or not needed. Adding image \"{filePath}\" into the next pipe.", imageFilePath);
