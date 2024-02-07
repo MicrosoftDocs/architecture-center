@@ -71,7 +71,7 @@ More information:
 
 When working with a multitenant system that uses Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. Business-to-business (B2B) refers to selling to a business. Business-to-consumer (B2C) refers to selling directly to an individual customer who uses the product or service. Azure Cosmos DB supports several isolation models:
 
-|  | Partition key per tenant | Container per tenant (shared   throughput) | Container per tenant (dedicated   throughput) | Database per tenant | Database account per tenant |
+| | Partition key per tenant | Container per tenant (shared throughput) | Container per tenant (dedicated throughput) | Database per tenant | Database account per tenant |
 |---|:---:|:---:|:---:|:---:|:---:|
 | Queries   across tenants | Easy (container acts as boundary for   queries) | Hard | Hard | Hard | Hard |
 | Tenant density | High (lowest cost per tenant) | Medium | Low | Low | Low |
