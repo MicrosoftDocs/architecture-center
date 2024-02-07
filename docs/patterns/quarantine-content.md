@@ -53,7 +53,7 @@ Here's a typical quarantine workflow:
 
 -  An alternative to implementing your quarantine pattern is to outsource it. There are quarantine practitioners who specialize in public asset validation as their business model. You can trust them to perform this task for you. Instead of going to multiple registries, you can go to a single vendor who has already done the work. However, if your security requirements need more control, building your own process is recommended.
 
-- Automate the artifact ingestion process. //TODO
+- Automate the artifact ingestion process and also the process of publishing the artifact. 
 
 - The quarantine pattern can be implemented from both a centralized service perspective or an individual workload team. If there are many instances or variations of the quarantine process, these operations should be standardized and centralized by the organization.
 
@@ -99,7 +99,7 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
 3. The request is handled by a workflow orchestrator, which is a durable Azure Function. The orchestrator uses a scatter-gather approach for running all validations. 
 
-     _Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks._
+    _Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks._
 
 4. The orchestrator makes a request to import the image into the quarantine Azure Container Registry (ACR) that is deemed as an untrusted store. 
 
