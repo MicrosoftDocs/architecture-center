@@ -97,7 +97,7 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
     _Security checkpoint: An audit trail is maintained in the database, keeping track of access to the image. This trail is also used for historical reporting_.
 
-3. The request is then handled by a workflow orchestrator, which is a durable Azure Function. The orchestrator uses a scatter-gather approach for running all validations. 
+3. The request is handled by a workflow orchestrator, which is a durable Azure Function. The orchestrator uses a scatter-gather approach for running all validations. 
 
      _Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks._
 
@@ -115,14 +115,14 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
     
 7. The orchestrator makes a decision. If the image passes all validations, the event is noted in the audit database, the image is pushed to the trusted registry, and the local copy is deleted from the quarantine registry. Otherwise, the image is deleted from the quarantine registry to prevent its inadvertent use.
 
-    _Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource location._
+    _Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource locations._
 
     > [!NOTE]
-    > An alternative to the orchestrator making the decision if the image should be used or not, it can offload the decision making to the workload team. In this alternative, the orchestrator publishes the validation results through an API and keeps the image in the quarantine registry for a period of time. 
+    > An alternative to the orchestrator making the decision, it can offload the decision making to the workload team. In this alternative, the orchestrator publishes the validation results through an API and keeps the image in the quarantine registry for a period of time. 
     >
     > The workload team makes the decision after reviewing results. If the results meet their risk tolerance, they pull  the image from the quarantine repository into their container instance. This pull model is more practical when this pattern is used to support multiple workload teams with different security risk tolerances.
 
-All container registries are covered by Microsoft Defender for Containers which continuously scans for newly found issues. These issues are shown in Microsoft Defender Vulnerability Management.
+All container registries are covered by Microsoft Defender for Containers, which continuously scans for newly found issues. These issues are shown in Microsoft Defender Vulnerability Management.
 
 ## Next steps
 
