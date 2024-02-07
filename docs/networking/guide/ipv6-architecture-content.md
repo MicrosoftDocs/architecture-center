@@ -1,6 +1,6 @@
-This article describes how to transition an IPv4 hub-and-spoke network topology to IPv6. It presents the [hub-and-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) as a starting point and describes the steps you can take to provide IPv6 support.
+This article describes how to transition an IPv4 hub-and-spoke network topology to IPv6. It presents the [hub-and-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) as a starting point and describes the steps you can take to implement IPv6 support.
 
-A hub virtual network is a central point of connectivity for spoke virtual networks. The spoke virtual networks connect to the hub and can provide isolation for application resources. For more information, see [Transitioning to IPv6](./ipv6-ip-planning.md).
+In a hub-and-spoke network, the hub virtual network is a central point of connectivity for the spoke virtual networks. The spoke virtual networks connect to the hub and can provide isolation for application resources. For more information, see [Transitioning to IPv6](./ipv6-ip-planning.md).
 
 ## Architecture
 
@@ -59,9 +59,9 @@ A hub virtual network is a central point of connectivity for spoke virtual netwo
 
 - [Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from cloud and on-premises environments. You can use Monitor to maximize the availability and performance of your applications and services.
 
-## Transition the hub virtual network to IPv6
+## Transition a hub virtual network to IPv6
 
-To transition the hub virtual network to support IPv6, you must update the network infrastructure to accommodate IPv6 address ranges, so the central, controlling part of the network can handle IPv6 traffic. This approach ensures that the central hub can efficiently route and manage traffic among various network segments (spokes) by using IPv6.
+To transition a hub virtual network to support IPv6, you must update the network infrastructure to accommodate IPv6 address ranges, so the central, controlling part of the network can handle IPv6 traffic. This approach ensures that the central hub can efficiently route and manage traffic among various network segments (spokes) by using IPv6.
 
 To implement IPv6 in the hub virtual network, you need to:
 
@@ -116,9 +116,9 @@ To provide the ExpressRoute circuit with IPv6 support, you need to:
 
 These configurations extend IPv6 connectivity to your Azure services via an ExpressRoute circuit, so you can route dual-stack capabilities simultaneously. To modify ExpressRoute, you can use the [Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal), [PowerShell](/azure/expressroute/expressroute-howto-add-ipv6-powershell), or [Azure CLI](/azure/expressroute/expressroute-howto-add-ipv6-cli).
 
-## Transition the spoke virtual networks to IPv6
+## Transition spoke virtual networks to IPv6
 
-The spoke virtual networks are connected to the central hub. When you provide the spoke virtual networks with IPv6 support, each spoke network can communicate via the more advanced IPv6 protocol, and it extends uniformity across the network.
+Spoke virtual networks are connected to the central hub. When you provide the spoke virtual networks with IPv6 support, each spoke network can communicate via the more advanced IPv6 protocol, and it extends uniformity across the network.
 
 To provide the spoke virtual networks with IPv6 support, you need to:
 
