@@ -16,7 +16,7 @@ Some of those security issues can be avoided by adding checks to each artifact.
 
 Have a process that validates the software for security. During the process, each artifact undergoes thorough operational rigor that verifies it against specific conditions. Only after the artifact satisfies those conditions, the process marks it as _trusted_. 
 
-> The process of quarantining is a security measure that makes sure that an artifact transitions from an untrusted status to a trusted status.
+> The process of quarantining is a security measure, which consists of a series of checkpoints. Those security checkpoints make sure that an artifact transitions from an untrusted status to a trusted status.
 
 It's important to note that the quarantine process doesn't change the composition of the artifact. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've passed quarantine. 
 
@@ -45,7 +45,7 @@ Here's a typical quarantine workflow:
 
 ## Issues and considerations
 
-- As a team that consumes third-party artifacts, ensure that the artifact is obtained from a trusted source. Your organization must approve artifacts that are procured from third-party vendors. The vendors must be able to meet your security requirements and share a responsible disclosure plan. 
+- As a team that consumes third-party artifacts, ensure that it's obtained from a trusted source. Your choice must be aligned to organization-approved standards for artifacts that are procured from third-party vendors. The vendors must be able to meet the security requirements of your workload (and your organization). For example, make sure the vendor's responsible disclosure plan meets your organization's security requirements. 
 
 - Create segmentation between resources that stores trusted and untrusted artifacts. Use identity and network controls to restrict access to the authorized users.
 
