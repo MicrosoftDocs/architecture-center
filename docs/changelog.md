@@ -21,7 +21,7 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
-The following new and updated articles have recently been published in the Azure Architecture Center.
+The following new and updated articles are recently published in the Azure Architecture Center.
 
 ## January 2024
 
@@ -101,7 +101,7 @@ The following new and updated articles have recently been published in the Azure
 - [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
 - [Oil and gas tank level forecasting](./solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)  ([#621c73febb](https://github.com/MicrosoftDocs/architecture-center/commit/621c73febb))
 - [Improved-security access to multitenant web apps from an on-premises network](./web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)  ([#621c73febb](https://github.com/MicrosoftDocs/architecture-center/commit/621c73febb))
-- [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)  ([#6390c9099a](https://github.com/MicrosoftDocs/architecture-center/commit/6390c9099a))
+- [Migrate an app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)  ([#6390c9099a](https://github.com/MicrosoftDocs/architecture-center/commit/6390c9099a))
 - [Deploy Engys ELEMENTS on an Azure virtual machine](./guide/hpc/engys-elements.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
 - [Deploy GROMACS on an Azure virtual machine](./guide/hpc/gromacs.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
 - [Deploy Revit on an Azure virtual machine](./guide/hpc/hpc-autodesk-revit.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
@@ -238,9 +238,9 @@ The following new and updated articles have recently been published in the Azure
 - [Location-based access control for FSI applications](./example-scenario/financial/location-based-access.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
 - [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
 - [Governance of Teams guest users](./example-scenario/governance/governance-teams-guest-users.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
-- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
-- [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
-- [Enhanced-security hybrid messaging — web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
+- [Enhanced-security hybrid messaging—client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
+- [Enhanced-security hybrid messaging—mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
+- [Enhanced-security hybrid messaging—web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#551642c2db](https://github.com/MicrosoftDocs/architecture-center/commit/551642c2db))
 - [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#b0393ddd68](https://github.com/MicrosoftDocs/architecture-center/commit/b0393ddd68))
 - [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#b0393ddd68](https://github.com/MicrosoftDocs/architecture-center/commit/b0393ddd68))
 - [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)  ([#b0393ddd68](https://github.com/MicrosoftDocs/architecture-center/commit/b0393ddd68))
