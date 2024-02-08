@@ -9,7 +9,6 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-stack-edge
-  - azure-stack-hci
   - azure-arc
   - azure-kubernetes-service
 categories:
@@ -25,7 +24,7 @@ To meet these requirements, modern enterprises need both private 5G networks and
 
 Some challenges need to be addressed before enterprises can realize the benefits of private LTE/5G networks. These challenges include reducing operational and engineering complexity, ensuring end-to-end visibility for multi-site enterprises, providing access security, and improving the delivery of automated, software-based solutions. 
 
-To meet these challenges, Microsoft has introduced an approach that combines Azure managed services, including a platform and networking services together with a radio and application ISV ecosystem. The solution is a fully integrated private 5G network service that's created for enterprises. A growing list of mobile operators and managed service providers deliver and manage these services. The solution combines Azure, [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager), [Azure Arc](https://azure.microsoft.com/products/azure-arc), [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge), [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci), [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service), and [Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core). These services are all managed and orchestrated from the Azure cloud. 
+To meet these challenges, Microsoft has introduced an approach that combines Azure managed services, including a platform and networking services together with a radio and application ISV ecosystem. The solution is a fully integrated private 5G network service that's created for enterprises. A growing list of mobile operators and managed service providers deliver and manage these services. The solution combines Azure, [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager), [Azure Arc](https://azure.microsoft.com/products/azure-arc), [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge), [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service), and [Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core). These services are all managed and orchestrated from the Azure cloud. 
 
 This approach addresses the complexity and cost challenges faced by system integrators and enterprises. It enables enterprises to deploy high-performance, enhanced-security private 5G networks that can drive the adoption of modern industrial applications.
 

@@ -174,7 +174,7 @@ Using these data, core computing and head node applications can be optimized. Th
 
 The Azure portal provides a Batch monitoring dashboard that shows information about Batch as jobs are running and even account quota usage. It's sufficient for many Batch job applications.
 
-In addition to the Batch management and visualization tools available in the Azure portal, there's a free open-source tool, [BatchLabs](https://github.com/Azure/BatchLabs), for managing Batch. This is a standalone client tool to help create, debug, and monitor Azure Batch applications. Download an installation package for Mac, Linux, or Windows.
+In addition to the Batch management and visualization tools available in the Azure portal, there's a free open-source tool, [Batch Explorer](https://github.com/Azure/BatchExplorer), for managing Batch. This is a standalone client tool to help create, debug, and monitor Azure Batch applications. Download an installation package for Mac, Linux, or Windows.
 
 ## Network models
 
@@ -274,13 +274,9 @@ While there are many places to get started with a complex domain like Batch
 computing for risk grid computing, here are some logical starting points to
 better understand the Batch technology.
 
-[This is a great place to start](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr)
-working with Batch using coding and Azure portal examples. The Azure Batch
-sample applications are also freely available [on
-GitHub](https://github.com/Azure/azure-batch-samples).
+[The Azure Batch documentation](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) is a great place to start. The documentation includes portal examples, API references, and step-by-step tutorials with code examples. The Azure Batch sample applications are also freely available [on GitHub](https://github.com/Azure-Samples/azure-batch-samples).
 
-Below are some quick tutorials to help you build a simple application to create
-and run batch compute jobs. Options for building the application are as follows:
+Below are some quick tutorials to help you build a simple application to create and run batch compute jobs. Options for building the application are as follows:
 
 - [Batch .NET API](/azure/batch/batch-dotnet-get-started?WT.mc_id=gridbanksg-docs-dastarr)
 - [Batch SDK for Python](/azure/batch/tutorial-parallel-python)
@@ -304,7 +300,7 @@ enable complex scheduling scenarios, while simpler scenarios are achievable by u
 
 - [Batch Diagnostics Logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) is a feature of Azure Batch enabling creation of a detailed log from your Batch runs and the events generated. Logs are stored in Azure Storage.
 
-- [BatchLabs](https://github.com/Azure/BatchLabs) is a standalone application for Batch monitoring and management available Windows, macOS, and Linux.
+- [Batch Explorer](https://github.com/Azure/BatchExplorer) is a standalone application for Batch monitoring and management available Windows, macOS, and Linux.
 
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute) is a high speed and reliability hybrid network solution for joining on-premises and Azure networks.
 

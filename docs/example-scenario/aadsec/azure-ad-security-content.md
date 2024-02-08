@@ -14,7 +14,7 @@ The [zero trust security model](https://www.microsoft.com/security/business/zero
 
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive security combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
-The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.technet.microsoft.com/Cybersecurity-Reference-883fb54c) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments, that use Microsoft Entra ID for *Identity-as-a-Service (IDaaS)*.
+The [Microsoft Cybersecurity Reference Architecture (MCRA)](/security/cybersecurity-reference-architecture/mcra) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments, that use Microsoft Entra ID for *Identity-as-a-Service (IDaaS)*.
 
 This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Microsoft Entra platform.
 
@@ -157,7 +157,6 @@ Microsoft Entra pricing ranges from free, for features like SSO and MFA, to Prem
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Entra ID](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory)
 - [Overview of the security pillar](/azure/architecture/framework/security/overview)
-- [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
 - [Microsoft Entra demo tenant](https://demos.microsoft.com) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Microsoft Entra deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)
 

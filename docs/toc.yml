@@ -91,7 +91,7 @@ items:
     - name: Choose a container option
       items:
       - name: Container options
-        href: /azure/container-apps/compare-options
+        href: guide/choose-azure-container-service.md
         maintainContext: true
       - name: Containers for confidential computing
         href: /azure/confidential-computing/choose-confidential-containers-offerings
@@ -167,16 +167,30 @@ items:
           maintainContext: true
     - name: Choose a data store
       items:
-      - name: Understand data store models
-        href: guide/technology-choices/data-store-overview.md
-      - name: Select a data store
-        href: guide/technology-choices/data-store-decision-tree.md
-      - name: Review data options
-        href: guide/technology-choices/data-options.md
-      - name: Criteria for choosing a data store
-        href: guide/technology-choices/data-store-considerations.md
-      - name: Big data storage
-        href: data-guide/technology-choices/data-storage.md
+      - name: Understanding data store models
+        items:
+          - name: Types of data store models
+            href: guide/technology-choices/data-store-overview.md
+          - name: Non-relational data store
+            href: data-guide/big-data/non-relational-data.yml
+          - name: Review data options
+            href: guide/technology-choices/data-options.md
+          - name: Criteria for choosing a data store
+            href: guide/technology-choices/data-store-considerations.md
+      - name: Selecting a data store model
+        items:
+          - name: Big data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Compare NoSQL and relational
+            href: /azure/cosmos-db/relational-nosql
+          - name: Choose an API in Cosmos DB
+            href: /azure/cosmos-db/choose-api
+          - name: PostgreSQL options
+            href: /azure/postgresql/single-server/overview-postgres-choose-server-options
+          - name: Search data store
+            href: data-guide/technology-choices/search-options.md
+          - name: Select a data store
+            href: guide/technology-choices/data-store-decision-tree.md 
       - name: Database scenarios
         items:
         - name: OLAP solutions
@@ -185,23 +199,12 @@ items:
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
-        - name: Non-relational data store
-          href: data-guide/big-data/non-relational-data.yml
-        - name: Compare NoSQL and relational
-          href: /azure/cosmos-db/relational-nosql
-          maintainContext: true
+      - name: Data movement
+        items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
-        - name: Search data store
-          href: data-guide/technology-choices/search-options.md
-        - name: PostgreSQL options
-          href: /azure/postgresql/single-server/overview-postgres-choose-server-options
-          maintainContext: true
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
-        - name: Choose an API in Cosmos DB
-          href: /azure/cosmos-db/choose-api
-          maintainContext: true
     - name: Choose an analytics solution
       items:
       - name: Analytical data stores
@@ -614,8 +617,6 @@ items:
         href: /azure/architecture/browse/?terms=dynamics%20365
       - name: Customer 360 with Dynamics 365 CI
         href: example-scenario/analytics/synapse-customer-insights.yml
-      - name: Dynamics Business Central as a service
-        href: solution-ideas/articles/business-central.yml
       - name: Enhanced customer dimension
         href: solution-ideas/articles/customer-insights-synapse.yml
     - name: Azure and Microsoft on-premises servers
@@ -1233,6 +1234,8 @@ items:
             href: guide/hpc/ansys-cfx.yml
           - name: Ansys Fluent
             href: guide/hpc/ansys-fluent.yml
+          - name: Ansys HFSS
+            href: guide/hpc/ansys-hfss.yml  
           - name: Ansys LS-DYNA
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
@@ -1255,12 +1258,16 @@ items:
           href: guide/hpc/barracuda-virtual-reactor.yml
         - name: CP2K
           href: guide/hpc/cp2k.yml
+        - name: Devito
+          href: guide/hpc/devito-virtual-machine.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
             href: guide/hpc/engys-elements.yml
           - name: Engys HELYX
             href: guide/hpc/engys-helyx.yml
+        - name: EPILYSIS
+          href: guide/hpc/epilysis.yml
         - name: GROMACS
           href: guide/hpc/gromacs.yml
         - name: Indica Labs HALO AI
@@ -1299,6 +1306,10 @@ items:
             href: guide/hpc/siemens-nx.yml
           - name: Siemens Tecnomatix
             href: guide/hpc/siemens-tecnomatix.yml
+        - name: tNavigator
+          href: guide/hpc/tnavigator.yml
+        - name: TUFLOW HPC
+          href: guide/hpc/tuflow-hpc.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm
@@ -1371,6 +1382,10 @@ items:
         href: guide/spot/spot-eviction.yml
     - name: Architectures
       items:
+      - name: VM baseline
+        href: virtual-machines/baseline.yml
+      - name: VM baseline in Azure landing zones
+        href: virtual-machines/baseline-landing-zone.yml      
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
       - name: Computer-aided engineering
@@ -1416,7 +1431,13 @@ items:
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
-    items:
+    items: 
+    - name: Choose a container host
+      items: 
+      - name: Overview
+        href: guide/choose-azure-container-service.md
+      - name: Considerations
+        href: guide/container-service-general-considerations.md 
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -1790,8 +1811,6 @@ items:
           href: example-scenario/serverless/microservices-with-container-apps.yml
         - name: Microservices with Dapr and KEDA
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
-        - name: Unified logging for microservices apps
-          href: example-scenario/logging/unified-logging.yml
     - name: Serverless applications
       items:
       - name: Get started
@@ -1900,81 +1919,8 @@ items:
           href: guide/azure-resource-manager/advanced-templates/collector.md
         - name: Infrastructure as code with Bicep
           href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
-      - name: DevTest Labs guidance
-        items:
-        - name: Deliver a proof of concept
-          href: /azure/devtest-labs/deliver-proof-concept
-          maintainContext: true
-        - name: Orchestrate the implementation
-          href: /azure/devtest-labs/devtest-lab-guidance-orchestrate-implementation
-          maintainContext: true
-        - name: Scale up DevTest Labs infrastructure
-          href: /azure/devtest-labs/devtest-lab-guidance-scale
-          maintainContext: true
-        - name: Security baseline for DevTest Labs
-          href: /security/benchmark/azure/baselines/devtest-labs-security-baseline
-          maintainContext: true
-      - name: Azure Monitor guidance
-        items:
-        - name: Best practices
-          items:
-          - name: Plan your monitoring strategy
-            href: /azure/azure-monitor/best-practices-plan
-            maintainContext: true
-          - name: Configure data collection
-            href: /azure/azure-monitor/best-practices-data-collection
-            maintainContext: true
-          - name: Analyze and visualize data
-            href: /azure/azure-monitor/best-practices-analysis
-            maintainContext: true
-          - name: Alerts and automated actions
-            href: /azure/azure-monitor/best-practices-alerts
-            maintainContext: true
-        - name: Continuous monitoring
-          href: /azure/azure-monitor/continuous-monitoring
-          maintainContext: true
-        - name: Data sources
-          href: /azure/azure-monitor/data-sources
-          maintainContext: true
-        - name: Data platform
-          href: /azure/azure-monitor/data-platform
-          maintainContext: true
-        - name: Security
-          items:
-          - name: Log data security
-            href: /azure/azure-monitor/logs/data-security
-            maintainContext: true
-          - name: Customer-managed keys
-            href: /azure/azure-monitor/logs/customer-managed-keys
-            maintainContext: true
-          - name: Private Link connection
-            href: /azure/azure-monitor/logs/private-link-security
-            maintainContext: true
-          - name: Private Link design
-            href: /azure/azure-monitor/logs/private-link-design
-            maintainContext: true
-          - name: Personal log data handling
-            href: /azure/azure-monitor/logs/personal-data-mgmt
-            maintainContext: true
-          - name: Data collection, retention, and storage
-            href: /azure/azure-monitor/app/data-retention-privacy
-            maintainContext: true
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/monitor-security-baseline
-            maintainContext: true
-        - name: Design a Log Analytics workspace
-          href: /azure/azure-monitor/logs/workspace-design
-          maintainContext: true
-      - name: CI/CD for Synapse Analytics
-        href: /azure/synapse-analytics/cicd/continuous-integration-delivery
-        maintainContext: true
-      - name: DevOps for quantum computing
-        href: guide/quantum/devops-for-quantum-computing.yml
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
-      - name: Platform automation for VMware Solution
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
-        maintainContext: true
       - name: Use deployment scripts to check resource properties
         href: guide/devops/deployment-scripts-property-check.yml
     - name: Architectures
@@ -1999,8 +1945,6 @@ items:
         href: web-apps/spring-apps/guides/blue-green-spring.yml
       - name: Jenkins on Azure
         href: example-scenario/apps/jenkins.yml
-      - name: Microsoft 365 tenant configuration
-        href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
       - name: Run containers in a hybrid environment
         href: hybrid/hybrid-containers.yml
       - name: Teacher-provisioned virtual labs in Azure
@@ -2320,13 +2264,6 @@ items:
         - name: Resources for migrating to Microsoft Entra ID
           href: /azure/active-directory/manage-apps/migration-resources
           maintainContext: true
-      - name: Secure identity
-        items:
-        - name: Secure development with SPAs
-          href: guide/resilience/azure-ad-secure-single-page-application.yml
-        - name: Security baseline for Microsoft Entra ID
-          href: /security/benchmark/azure/baselines/aad-security-baseline
-          maintainContext: true
       - name: Identity management
         items:
         - name: Azure billing and Microsoft Entra tenants
@@ -2476,14 +2413,10 @@ items:
         href: reference-architectures/iot/industry-iot-hub-page.md
       - name: IoT concepts
         items:
-        - name: Introduction to IoT concepts
-          href: example-scenario/iot/introduction-to-solutions.yml
         - name: Devices, platform, and applications
           href: example-scenario/iot/devices-platform-application.yml
         - name: Attestation, authentication, provisioning
           href: example-scenario/iot/attestation-provisioning.yml
-        - name: Field and cloud edge gateways
-          href: example-scenario/iot/field-cloud-edge-gateways.yml
         - name: Application-to-device commands
           href: example-scenario/iot/cloud-to-device.yml
       - name: Computer vision with Azure IoT Edge
@@ -2578,6 +2511,8 @@ items:
       items:
       - name: Azure digital twins builder
         href: solution-ideas/articles/azure-digital-twins-builder.yml
+      - name: Azure load testing
+        href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: Buy online, pick up in store
         href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Condition monitoring
@@ -2701,6 +2636,8 @@ items:
           href: example-scenario/mainframe/imsql-rehost-ims.yml
         - name: Rehost mainframe with NTT DATA UniKix
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
+        - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
+          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
         - name: Unisys Dorado migration
@@ -2709,8 +2646,7 @@ items:
           href: reference-architectures/migration/unisys-mainframe-migration.yml
         - name: Use LzLabs SDM in Azure
           href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
-        - name: Virtualization of Unisys ClearPath Forward OS 2200 Enterprise Server on Azure
-          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
+        
       - name: Solution ideas
         items:
         - name: Migrate IBM apps with TmaxSoft
@@ -2904,30 +2840,12 @@ items:
             href: reference-architectures/media-services/gridwich-project-names.yml
           - name: Gridwich CI/CD
             href: reference-architectures/media-services/gridwich-cicd.yml
-          - name: Content protection and DRM
-            href: reference-architectures/media-services/gridwich-content-protection-drm.yml
-          - name: Gridwich Media Services
-            href: reference-architectures/media-services/media-services-setup-scale.yml
           - name: Gridwich Storage Service
             href: reference-architectures/media-services/gridwich-storage-service.yml
           - name: Gridwich logging
             href: reference-architectures/media-services/gridwich-logging.yml
           - name: Gridwich message formats
             href: reference-architectures/media-services/gridwich-message-formats.yml
-          - name: Pipeline variables to Terraform flow
-            href: reference-architectures/media-services/variable-group-terraform-flow.yml
-        - name: Gridwich procedures
-          items:
-          - name: Run Azure admin scripts
-            href: reference-architectures/media-services/run-admin-scripts.yml
-          - name: Set up local dev environment
-            href: reference-architectures/media-services/set-up-local-environment.yml
-          - name: Create new cloud environment
-            href: reference-architectures/media-services/create-delete-cloud-environment.yml
-          - name: Maintain and rotate keys
-            href: reference-architectures/media-services/maintain-keys.yml
-          - name: Test Media Services V3 encoding
-            href: reference-architectures/media-services/test-encoding.yml
       - name: Real-time monitoring and observable systems for media
         href: example-scenario/monitoring/monitoring-observable-systems-media.yml
     - name: Solution ideas
@@ -3037,8 +2955,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-overview.yml
         - name: Cross-cloud connectivity
           href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml
-        - name: Lift and shift to Azure VMs
-          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.yml
         - name: Refactor
           href: example-scenario/oracle-migrate/oracle-migration-refactor.yml
         - name: Rearchitect
@@ -3221,6 +3137,8 @@ items:
           href: industries/telecommunications/deploy-private-mobile-network.md
         - name: Build a private 5G network
           href: industries/telecommunications/build-private-5g-network.md
+      - name: SDWAN integration
+        href: networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml
       - name: Spoke-to-spoke networking
         href: networking/spoke-to-spoke-networking.yml
       - name: Network security
@@ -3344,6 +3262,10 @@ items:
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
           - name: Mission-critical content delivery
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+      - name: Adopting IPv6
+        items:
+          - name: Conceptual planning for IPv6 networking
+            href: networking/guide/ipv6/ipv6-ip-planning.md
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
@@ -3499,8 +3421,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-overview.yml
         - name: Cross-cloud connectivity
           href: example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml
-        - name: Lift and shift to Azure VMs
-          href: example-scenario/oracle-migrate/oracle-migration-lift-shift.yml
         - name: Refactor
           href: example-scenario/oracle-migrate/oracle-migration-refactor.yml
         - name: Rearchitect
@@ -3914,8 +3834,6 @@ items:
         - name: Connection quality
           href: /azure/virtual-desktop/connection-latency
           maintainContext: true
-      - name: Microsoft Entra join for Azure Virtual Desktop
-        href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
       - name: AVD for Azure Stack HCI
@@ -4013,8 +3931,6 @@ items:
           - name: Updates to cloud environments
             href: /dynamics365/fin-ops-core/dev-itpro/deployment/apply-deployable-package-system
             maintainContext: true
-      - name: Data management in retail
-        href: industries/retail/retail-data-management-overview.md
       - name: AI and ML in retail
         items:
         - name: Deploy AI-based footfall detection
@@ -4218,8 +4134,6 @@ items:
           maintainContext: true
       - name: Compliance risk analysis
         href: guide/ai/compliance-risk-analysis.yml
-      - name: Data management in banking
-        href: industries/finance/data-management-banking-overview.yml
       - name: Detect mobile bank fraud
         href: guide/ai/bank-fraud-solution.yml
       - name: Financial institutions with data mesh
@@ -4477,9 +4391,7 @@ items:
           maintainContext: true
         - name: HITRUST overview
           href: /azure/compliance/offerings/offering-hitrust
-          maintainContext: true
-        - name: Implement healthcare blueprint for AI
-          href: industries/healthcare/healthcare-ai-blueprint.yml
+          maintainContext: true        
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: HIPAA HITRUST 9.2 compliance
@@ -4747,9 +4659,6 @@ items:
         href: industries/manufacturing/compute-manufacturing-overview.yml
       - name: AI and ML scenarios
         items:
-        - name: Continuous manufacturing with Bonsai
-          href: /bonsai/concepts/continuous-manufacturing
-          maintainContext: true
         - name: Machine teaching for manufacturing
           href: solution-ideas/articles/machine-teaching.yml
         - name: MLOps to upscale ML lifecycle
@@ -4793,8 +4702,6 @@ items:
             maintainContext: true
         - name: Enable machine learning inference
           href: guide/iot/machine-learning-inference-iot-edge.yml
-        - name: Extract actionable insights
-          href: industries/manufacturing/extract-insights-iot-data.yml
         - name: Industrial IoT
           items:
           - name: Overview
@@ -5348,8 +5255,6 @@ items:
           - name: Media players for Media Services
             href: /azure/media-services/latest/player-media-players-concept
             maintainContext: true
-          - name: Test Media Services v3 encoding
-            href: reference-architectures/media-services/test-encoding.yml
         - name: Dynamics 365 media accelerator
           items:
           - name: Overview

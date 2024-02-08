@@ -84,7 +84,7 @@ Each of the saga participants must retain the operation context, but may impleme
 
 - Short-running synchronous operations retain the operation context.
 - Azure Storage provides an opaque string property called `ClientRequestId` for most operations.
-- Azure Media Services v3 has a `Job.CorrelationData` property.
+- Some services have a `Job.CorrelationData` property.
 - Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
 
 For more information about sagas and saga participants, see [Saga orchestration](gridwich-saga-orchestration.yml).
@@ -128,6 +128,7 @@ To complete the long-running request flow, the [BlobCreatedHandler](https://gith
 When Gridwich deploys a new Functions App, it may drop current long-running processes. If these processes end abruptly, there's no status and no report back to the caller. Gridwich must deploy new Functions Apps while gracefully handling the transition for long-running functions and not missing any messages.
 
 The solution must:
+
 - Not keep the state of running instances of the Gridwich app.
 - Not kill processes just because something new is deploying or a new message is requesting the same activity.
 - Not invoke any additional Azure workloads, like Durable Functions, Functions Apps, Logic Apps, or Azure Container Instances.
@@ -148,7 +149,7 @@ For more information, see [What happens during a slot swap for Azure Functions](
 
 ### Components
 
-The Gridwich media processing solution uses Azure Event Grid, Azure Functions, Azure Media Services, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD and saga orchestration processes use Azure Repos, Azure Pipelines, and Terraform.
+The Gridwich media processing solution uses Azure Event Grid, Azure Functions, Azure Blob Storage, Azure Logic Apps, and Azure Key Vault. The CI/CD and saga orchestration processes use Azure Repos, Azure Pipelines, and Terraform.
 
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) manages the routing of Gridwich events, with two sandwiched Event Grid jobs that allow for asynchronous media event processing. Event Grid is a highly reliable request delivery endpoint. The Azure platform provides necessary request delivery endpoint uptime and stability.
 
@@ -156,11 +157,8 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 
 - [Azure Functions](https://azure.microsoft.com/services/functions/) lets you run event-triggered code without having to explicitly provision or manage infrastructure. Gridwich is an Azure Functions App that hosts execution of various functions.
 
-- [Azure Media Services](https://azure.microsoft.com/services/media-services/) is a cloud-based workflow platform for indexing, packaging, protecting, and streaming media. Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). Gridwich lets you [scale Media Services resources](media-services-setup-scale.yml#scale-media-services-resources) to your expected workload.
-
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) provides scalable, cost-efficient cloud storage and access for unstructured data like media assets. Gridwich uses both Azure Storage block blobs and containers.
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you create automated cloud workflow solutions. Gridwich uses Logic Apps to [manage Key Vault keys and secrets](maintain-keys.yml).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
 
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) is a set of developer and operations services, including Git-based code repositories and automated build and release pipelines, that integrate with Azure. Gridwich uses [Azure Repos](https://azure.microsoft.com/services/devops/repos/) to store and update the code projects, and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) for CI/CD and other workflows.
@@ -179,7 +177,7 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 
   Alternatively, you could use the event subscription and filtering mechanism that the Event Grid platform provides. This mechanism imposes a 1:1 deployment model, where one Azure Function hosts only one event handler. Although Gridwich uses a 1:many model, its [clean architecture](gridwich-clean-monolith.yml) means that refactoring the solution for 1:1 wouldn't be difficult.
 
-- For an alternative microservices rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.yml#microservices-alternative).
+- For an alternative microservice rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.yml#microservices-alternative).
 
 ## Scenario details
 
@@ -198,7 +196,6 @@ The engineering team developed Gridwich to align with principles and industry st
 - [Clean monolith architecture](gridwich-clean-monolith.yml)
 - [Project structure and naming](gridwich-project-names.yml)
 - [CI/CD](gridwich-cicd.yml)
-- [Content protection and digital rights management (DRM)](gridwich-content-protection-drm.yml)
 - [Azure Storage usage and scaling](gridwich-storage-service.yml)
 - [Logging](gridwich-logging.yml)
 
@@ -206,24 +203,13 @@ The Gridwich system embodies best practices for processing and delivering media 
 
 ## Deploy this scenario
 
-- [Run the admin scripts](run-admin-scripts.yml) for Azure permissions.
-- [Set up a local development environment](set-up-local-environment.yml).
+- Go to the [Gridwich repository on GitHub](https://github.com/mspnp/gridwich/).
+- Follow [all the procedures](https://github.com/mspnp/gridwich/blob/main/README.md#procedures), starting with the [set up of Azure DevOps](https://github.com/mspnp/gridwich/blob/main/doc/1-set-up-azure-devops.md).
 
-## Next steps
+## Related resources
 
 - [Terraform starter project for Azure Pipelines](https://github.com/microsoft/terraform-azure-devops-starter)
 - [Azure Function with Event Grid and Terraform Sandwich sample](https://github.com/Azure-Samples/azure-functions-event-grid-terraform). Subscribe an Azure Function to Event Grid Events via Terraform, using a Terraform Sandwich.
 - [MediaInfoLib with Azure Storage](https://github.com/Azure-Samples/functions-dotnet-core-mediainfo). Azure Functions and console samples that use cross-platform .NET Core to retrieve a report on a media file stored in Azure Storage.
-- [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Microsoft Entra authorization support.
+- [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An Event Grid Viewer application, using Blazor and SignalR, with Microsoft Entra authorization support.
 - [Azure Function with Managed Service Identity for Azure Storage](https://github.com/Azure-Samples/functions-storage-managed-identity). Use Managed Service Identity between Azure Functions and Azure Storage.
-- [Handling serverless Key Vault rotation](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling). Use Event Grid and Logic Apps to handle Azure Key Vault secret rotation changes that an Azure Function uses.
-- [Updates to existing media-services-v3-dotnet-core-functions-integration sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding)
-- [Updates to vscode-dev-containers repo](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-dotnetcore-3.1). Updates to the vscode-dev-containers repo, adding the Azure Functions v3 and .NET Core 3.1 devcontainer.
-
-## Related resources
-
-- [Understand Azure Pipelines to Terraform variable flow](variable-group-terraform-flow.yml)
-- [Set up content protection and DRM](gridwich-content-protection-drm.yml)
-- [Create a new sandbox or test cloud environment](create-delete-cloud-environment.yml)
-- [Maintain and manage Key Vault keys](maintain-keys.yml)
-- [Scale Media Services resources](media-services-setup-scale.yml#scale-media-services-resources)

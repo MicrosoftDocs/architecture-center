@@ -115,19 +115,7 @@ The implementation uses [Form Recognizer Studio](https://formrecognizer.applieda
 
 ### Deployment repository
 
-The GitHub repository for the solution accelerator is:
-
-> [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator)
-
-The readme file that's displayed at that location provides an overview of the accelerator.
-
-The deployment files are in the top-level Deployment folder of the repository:
-
-> [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/tree/main/Deployment](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/tree/main/Deployment)
-
-The readme file that's displayed at that location is the deployment guide. You deploy by following the steps.
-
-Step 2 provides details about using sample PDF forms to create a custom-built machine learning model. You plug the model into the solution by setting the environment variable called **CUSTOM\_BUILT\_MODEL\_ID** to the machine model name in the function app. For more information, see step 3.
+The GitHub repository for the solution accelerator is at [Azure PDF Form Processing Automation Solution Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator) which contains the deployment guide for this solution.
 
 ### Deployment prerequisites
 
@@ -157,7 +145,7 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 - Follow the guidelines in [Business continuity and disaster recovery](/azure/logic-apps/business-continuity-disaster-recovery-guidance) when you design and provision the logic apps.
 - Follow the guidelines in [Reliability in Azure Functions](/azure/reliability/reliability-functions?toc=%2Fazure%2Fazure-functions%2FTOC.json&tabs=azure-portal) when you design and provision the function app.
 - Follow the guidelines in [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) when you design and provision a database that was created by using Azure Cosmos DB.
-- If you consider putting this system into production to process large volumes of PDF forms, you can modify the deployment scripts to create a Linux Host that has more resources. To do so, modify the code inside [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/blob/main/Deployment/1_deployment_scripts/deploy-functionsapp.bicep](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/blob/main/Deployment/1_deployment_scripts/deploy-functionsapp.bicep)
+- If you consider putting this system into production to process large volumes of PDF forms, you can modify the deployment scripts to create a Linux host that has more resources. To do so, modify the code inside [deploy-functionsapp.bicep](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/blob/main/Deployment/1_deployment_scripts/deploy-functionsapp.bicep)
 
 ## Contributors
 
@@ -165,13 +153,13 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 Principal author:
 
-- [Gail Zhou](http://linkedin.com/in/gailzhou) | Sr. Architect
+- [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
 
-- [Nalini Chandhi](http://linkedin.com/in/nalinichandhi) | Principal Technical Specialist
-- [Steve DeMarco](http://linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
-- [Travis Hilbert](http://linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
+- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
+- [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
+- [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
 - [DB Lee](https://www.linkedin.com/in/dongbum) | Sr. Technical Specialist
 - [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Technical Specialist Global Black Belt
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk) | Sr. Cloud Solution Architect

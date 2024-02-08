@@ -72,7 +72,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **Separate model repos:** To protect the deployed models, consider storing them in their own repository that the training and testing pipelines don't touch.
 - **Online inferencing:** If a pipeline loads and caches all models at the start, the models might exhaust the container's memory. Therefore, load the models on demand in the run method, even though it might increase latency slightly.
 - **Training scalability:** By using Spark, you can train hundreds of thousands of models in parallel. Spark spins up multiple training processes in every VM in a cluster. Each core can run a separate process. While this means good utilization of resources, it's important to size the cluster accurately and choose the right SKU, especially if the training process is expensive and long running.
-- **Implementation details:** For detailed information on implementing a many models solution, see [Implement many models for ML in Azure](https://github.com/microsoft/csa-misc-utils/tree/master/sa-dsml-many-models).
 
 ### Cost optimization
 
@@ -99,7 +98,7 @@ Principal author:
 ## Next steps
 
 - [What are compute targets in Azure Machine Learning?](/azure/machine-learning/concept-compute-target)
-- [Azure Arc-enabled Machine Learning](https://github.com/Azure/AML-Kubernetes#azure-arc-enabled-machine-learning)
+- [Configure a Kubernetes cluster for Azure Machine Learning](https://github.com/Azure/AML-Kubernetes#azure-arc-enabled-machine-learning)
 - [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
 - [ParallelRunStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py)
 - [pandas function APIs](/azure/databricks/spark/latest/spark-sql/pandas-function-apis)

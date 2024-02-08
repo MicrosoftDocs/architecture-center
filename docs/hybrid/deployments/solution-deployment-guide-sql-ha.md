@@ -116,4 +116,3 @@ Docker images for each deployment eliminate dependency issues between different 
 
 - Use SQL Server Management Studio to manually fail over the cluster. See [Perform a Forced Manual Failover of an Always On Availability Group (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017&preserve-view=true).
 - Learn more about hybrid cloud apps. See [Hybrid Cloud Solutions](/azure-stack/user/).
-- Use your own data or modify the code to this sample on [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

@@ -77,7 +77,7 @@ The following diagram shows a typical Azure IoT Edge device architecture.
 
 Most industrial equipment can't have software installed on it directly, so it needs a field gateway to connect to the cloud.
 
-IoT Edge free, open source [field gateway software](https://github.com/Azure/iotedge) runs on various [supported devices](/azure/iot-edge/support) or on a virtual machine (VM). Several Microsoft partner IoT Edge gateway devices are in the [Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}).
+IoT Edge free, open source [field gateway software](https://github.com/Azure/iotedge) runs on various [supported devices](/azure/iot-edge/support) or on a virtual machine (VM).
 
 To connect industrial equipment and systems to the cloud, you can use IoT Edge as the field gateway for:
 
@@ -112,8 +112,6 @@ Microsoft based the following open-source [Azure Industrial IoT](https://github.
 - [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin) uses microservices and an Azure IoT Edge module to connect the cloud to a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile for historical data.
 
 - [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) is an Azure IoT Edge module that publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
-
-- [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) is a cloud microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications.
 
 - [Discovery Services](https://azure.github.io/Industrial-IoT/web-api/#discovery) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
 
@@ -170,7 +168,6 @@ Principal author:
 
 ## Related resources
 
-- [Extract actionable insights from IoT data](../../industries/manufacturing/extract-insights-iot-data.yml)
 - [IoT analytics with Azure Data Explorer](../../solution-ideas/articles/iot-azure-data-explorer.yml)
 - [Industry specific Azure IoT reference architectures](../../reference-architectures/iot/industry-iot-hub-page.md)
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)

@@ -69,8 +69,6 @@ For more information about the featured Azure services, see the following articl
 * [Azure Stack Hub Deployment Options](/azure-stack/operator/azure-stack-overview#deployment-options)
 * [Container Registry documentation](/azure/container-registry)
 * [Storage documentation](/azure/storage)
-* [AKS Engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
-* [Azure Samples - Edge Intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
 * [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
 * [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
@@ -80,6 +78,5 @@ See the following related architectures:
 
 * [Disconnected AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected)
 * [Machine learning in Azure IoT Edge vision AI](/azure/architecture/guide/iot-edge-vision/machine-learning)
-* [Implement the Azure healthcare blueprint for AI](/azure/architecture/industries/healthcare/healthcare-ai-blueprint)
 * [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
 * [AI-based footfall detection](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection)

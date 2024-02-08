@@ -13,7 +13,6 @@ ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
-  - contperf-fy20q4
 products:
   - azure-machine-learning
 categories:

@@ -302,8 +302,6 @@ At the end of the project, the CSE team shared the following insights:
 
 ## Next steps
 
-* [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
-
 * [Autoscaling Java applications with KEDA using Azure Event Hubs](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
 
 * [Pattern: Saga](https://microservices.io/patterns/data/saga.html): Information about the Saga pattern on Microservices.io

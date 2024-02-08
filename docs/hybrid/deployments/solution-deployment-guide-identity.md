@@ -24,8 +24,8 @@ Learn how to configure a hybrid cloud identity for your Azure and Azure Stack Hu
 
 You have two options for granting access to your apps in both global Azure and Azure Stack Hub.
 
- * When Azure Stack Hub has a continuous connection to the internet, you can use Microsoft Entra ID.
- * When Azure Stack Hub is disconnected from the internet, you can use Azure Directory Federated Services (AD FS).
+- When Azure Stack Hub has a continuous connection to the internet, you can use Microsoft Entra ID.
+- When Azure Stack Hub is disconnected from the internet, you can use Azure Directory Federated Services (AD FS).
 
 You use service principals to grant access to your Azure Stack Hub apps for deployment or configuration using the Azure Resource Manager in Azure Stack Hub.
 
@@ -67,8 +67,8 @@ You need an Azure Stack Hub installation connected to Microsoft Entra ID with a 
 
 #### Connect to Azure Stack Hub using code
 
-To connect to Azure Stack Hub using code, use the Azure Resource Manager endpoints API to get the authentication and graph endpoints for your Azure Stack Hub installation. Then authenticate using REST requests. You can find a sample client application on
-[GitHub](https://github.com/shriramnat/HybridARMApplication).
+To connect to Azure Stack Hub using code, use the Azure Resource Manager endpoints API to get the authentication and graph endpoints for your Azure Stack Hub installation. Then authenticate using REST requests. You can find a sample client application on GitHub at
+[Hybrid ARM Application](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core/tree/master/HybridARMApplication-master).
 
 > [!Note]
 > Unless the Azure SDK for your language of choice supports Azure API Profiles, the SDK may not work with Azure Stack Hub. To learn more about Azure API Profiles, see the [manage API version profiles](/azure-stack/user/azure-stack-version-profiles) article.

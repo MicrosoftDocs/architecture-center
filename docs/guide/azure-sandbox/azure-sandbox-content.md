@@ -22,7 +22,7 @@ You can deploy all the following sandbox configurations, or just the ones you ne
 
 The Azure Sandbox environment requires the following prerequisites:
 
-- An [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tenant
+- A [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tenant
 - An [Azure subscription](https://azure.microsoft.com/support/legal/offer-details)
 - The appropriate [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) role assignments
 - A [service principal](/cli/azure/create-an-azure-service-principal-azure-cli)
@@ -36,7 +36,7 @@ To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with 
 - Keep the sandbox isolated from your private network.
 - Audit sandbox subscription activity.
 - Limit sandbox access, and remove access when it is no longer required.
-- Decomission sandboxes after an expiration period to control costs.
+- Decommission sandboxes after an expiration period to control costs.
 - Create a budget on sandbox subscriptions to control costs.
 
 See [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments) for more information.
@@ -65,18 +65,30 @@ For example, you can use the following capabilities and configurations that the 
   - Option 1: Internet-facing access by using a web browser and Azure Bastion
   - Option 2: Point-to-site VPN connectivity via Azure Virtual WAN
   
+- Use a preconfigured Active Directory Domain Services local domain as a domain administrator.
+  - Preconfigured integrated DNS server
+  - Preconfigured integration with Azure private DNS zones
+  - Preconfigured integration with Azure Private Link private endpoints.
+
 - Use an Azure Files preconfigured file share.
 
 - Use a Windows jumpbox VM as a developer workstation.
+  - Domain joined to local domain
+  - Administer Active Directory and DNS with preinstalled Windows Server Remote Server Administration Tools
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
   - Azure Storage Explorer, AzCopy, and Azure Data Studio preinstalled
   - SQL Server Management Studio preinstalled
   - MySQL Workbench preinstalled
 
+- Use a Linux jump box VM as a DevOps agent.
+  - Domain joined to local domain using Winbind
+  - Azure CLI, PowerShell, and Terraform preinstalled
+  - Dynamic CIFS mount to Azure Files preconfigured file share
+
 - Use a preconfigured SQL Server VM.
+  - Domain joined to local domain 
 
 - Use a preconfigured Azure SQL database or Azure Database for MySQL Flexible Server through private endpoints.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributor.*

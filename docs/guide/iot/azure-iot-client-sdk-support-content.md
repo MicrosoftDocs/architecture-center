@@ -291,8 +291,7 @@ The Azure IoT for Node.JS/JavaScript implements a SharedAccessSignatureAuthentic
 
 Use the device client methods fromSharedAccessSignature and updateSharedAccessSignature to initiate a connection with IoT Hub and supply a renewed token to the SharedAccessSignatuteAuthenticationProvider, which will cause the authentication provider to emit a newTokenAvailable event to the transports.
 
-A basic SAS token sample is provided in the
-[simple\_sample\_device\_with\_sas.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device_with_sas.js) example.
+A basic SAS token sample is provided in the [simple\_sample\_device\_with\_sas.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_with_sas.js) example.
 
 Summary of Azure IoT Hub device SDK for Node.JS/JavaScript:
 

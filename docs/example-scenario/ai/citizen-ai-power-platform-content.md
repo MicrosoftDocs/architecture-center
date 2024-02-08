@@ -151,7 +151,7 @@ You can use Power Automate to build a low-code workflow to parse the user's inpu
 
 :::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Diagram that shows architecture showing the schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
 
-To deploy this end-to-end example, follow [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
+To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure ML + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
 
 ## Extended scenarios
 

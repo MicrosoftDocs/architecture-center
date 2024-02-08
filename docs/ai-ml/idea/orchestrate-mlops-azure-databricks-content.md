@@ -137,7 +137,7 @@ Other contributor:
 - [Machine Learning Engineering for the Real World](https://databricks.com/p/ebook/machine-learning-engineering-in-action)
 - [Automate Your Machine Learning Pipeline](https://databricks.com/p/ebook/automate-your-machine-learning-pipeline)
 - [Databricks Academy](https://databricks.com/learn/training/home)
-- [Databricks Academy GitHub project](https://github.com/databricks-academy) (free training)
+- [Databricks Academy GitHub project](https://github.com/databricks-academy)
 - [MLOps glossary](https://databricks.com/glossary/mlops)
 - [Three Principles for Selecting Machine Learning Platforms](https://databricks.com/blog/2021/06/24/three-principles-for-selecting-machine-learning-platforms.html)
 - [What is a Lakehouse?](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html)
