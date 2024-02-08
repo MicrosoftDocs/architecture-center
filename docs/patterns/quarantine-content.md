@@ -1,10 +1,10 @@
 
-Consume software artifacts in your supply chain only when it's verified and marked as safe-for-use, by well-defined processes. This pattern is an operational sidecar, to the development process, which is invoked to block the use of third-party software that could potentially introduce security vulnerabilities in your deployment.
+Consume third-party software artifacts in your supply chain only when it's verified and marked as safe-for-use, by well-defined processes. This pattern is an operational sidecar to the development process. The consumer of this pattern invokes this process to verify and block the use of software that could potentially introduce security vulnerabilities.
 
 
 ## Context and problem
 
-Cloud solutions often rely on third-party software that's obtained from external sources. Open source binaries, public container images, vendor OS images are some examples of these types of artifacts. All such external artifacts must be treated as _untrusted_. 
+Cloud solutions often rely on third-party software obtained from external sources. Open source binaries, public container images, vendor OS images are some examples of these types of artifacts. All such external artifacts must be treated as _untrusted_. 
 
 In a typical workflow, the artifact is retrieved from a store outside the solution's scope and then integrated into the deployment pipeline. There are some potential issues in this approach. The source might not be trusted, the artifact might contain vulnerabilities, or it might not be compatible in some developer environments. 
 
@@ -18,7 +18,7 @@ Have a process that validates the software for security. During the process, eac
 
 > The process of quarantining is a security measure that makes sure that an artifact transitions from an untrusted status to a trusted status.
 
-It's important to note that the quarantine process doesn't change the composition of the artifact. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've been quarantined and marked as trusted. 
+It's important to note that the quarantine process doesn't change the composition of the artifact. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've passed quarantine. 
 
 Here's a typical quarantine workflow:
 
@@ -34,7 +34,7 @@ Here's a typical quarantine workflow:
 
     The actual checks depend on the type of artifact. Evaluating an OS image is different from evaluating a nugget package, for example.
 
-4. If the verification process is successful, the artifact is published in a safe store with clear annotations. Otherwise, it's deleted to prevent  use. 
+4. If the verification process is successful, the artifact is published in a safe store with clear annotations. Otherwise, it's removed. 
 
     The publishing process can include a cumulative report that shows proof of verification and the criticality of each check. Include expiration in the report beyond which the report should be invalid and the artifact is  considered unsafe.
 
@@ -49,14 +49,13 @@ Here's a typical quarantine workflow:
 
 - Create segmentation between resources that stores trusted and untrusted artifacts. Use identity and network controls to restrict access to the authorized users.
 
-- Have a reliable way to invoking the quarantine process. Make sure the artifact isn't consumed inadvertently to block its usage until marked as trusted. The signaling should be automated. For example, sending notification when an artifact is ingested into the developer environment, when a change is committed to GitHub repository, when an image is added to the private registry, and so on.  
+- Have a reliable way to invoking the quarantine process. Make sure the artifact isn't consumed inadvertently until marked as trusted. The signaling should be automated. For example, tasks related to notifying the responsible parties when an artifact is ingested into the developer environment, committing changes to a GitHub repository, adding an image to a private registry, and so on.  
 
--  An alternative to implementing your quarantine pattern is to outsource it. There are quarantine practitioners who specialize in public asset validation as their business model. You can trust them to perform this task for you. Instead of going to multiple registries, you can go to a single vendor who has already done the work. However, if your security requirements need more control, building your own process is recommended.
+-  An alternative to implementing your quarantine pattern is to outsource it. There are quarantine practitioners who specialize in public asset validation as their business model. Evaluate both the financial and operational costs of implementing the pattern versus outsouring the responsibility. If your security requirements need more control, implementing your own process is recommended.
 
-- Automate the artifact ingestion process and also the process of publishing the artifact. 
+- Automate the artifact ingestion process and also the process of publishing the artifact. Because validation tasks can take time, the automation process must be able to continue until all tasks are completed.
 
-- The quarantine pattern can be implemented from both a centralized service perspective or an individual workload team. If there are many instances or variations of the quarantine process, these operations should be standardized and centralized by the organization.
-
+- The quarantine pattern can be implemented by central teams of an organization or an individual workload team. If there are many instances or variations of the quarantine process, these operations should be standardized and centralized by the organization. In this case, workload teams share the process and benefit from offloading process managment. 
 
 
 ## When to use this pattern
@@ -65,25 +64,28 @@ Use this pattern when:
 
 - The workload integrates artifacts developed outside the scope of the application team. Common examples include:
 
-    - OCI artifacts from public registries such as DockerHub, GitHub Container registry, Microsoft container registry
-    - Software libraries or packages from public sources such as the NuGet Gallery, developer registry, Python Package Index, and so on. 
-    - External Infrastructure-as-Code (IaC) packages such as Terraform modules, Community Chef Cookbooks, Azure Verified Modules, 
-    - Vendor-supplied OS Images. 
+    -  Open Container Initiative (OCI) artifacts from public registries such as, DockerHub, GitHub Container registry, Microsoft container registry
+
+    - Software libraries or packages from public sources such as, the NuGet Gallery, developer registry, Python Package Index 
+
+    - External Infrastructure-as-Code (IaC) packages such as Terraform modules, Community Chef Cookbooks, Azure Verified Modules 
+
+    - Vendor-supplied OS Images 
     
 - Artifacts are considered as risks that you choose to mitigate. Integrating a compromised artifact can have negative consequences, such as a security breach or an outage. The quarantine pattern ensures that artifacts are tested and verified before integrating into a solution to reduce the risk of introducing vulnerabilities or other issues.
 
-- The team has a clear and shared understanding of the validation rules that should be applied, to take it from untrusted to trusted. Without consensus on the input constraints and checks, the pattern might not be effective. For example, if validating every OS image differently can lead to inconsistencies in the verification process.
+- The team has a clear and shared understanding of the validation rules that should be applied. Without consensus on the input constraints and checks, the pattern might not be effective. For example, if validating every OS image differently can lead to inconsistencies in the verification process.
 
 This pattern might not be useful when:
 
-- When all assets used in the workload, are created by the workload team or a trusted partner team. 
+- The software artifact is created by the workload team or a trusted partner team. 
 
 - The risk associated with not verifying the external artifacts is less expensive than the cost of building and maintaining the workload.
 
 
 ## Example
 
-This example applies the [solution workflow](#solution) to a scenario where the workload team wants to integrate OCI artifacts from public registries to an Azure Container Registry (ACR) instance owned by the workload team and treats it as a trusted artifact store. 
+This example applies the [solution workflow](#solution) to a scenario where the workload team wants to integrate OCI artifacts from public registries to an Azure Container Registry (ACR) instance, which is owned by the workload team. The team treats that instance as a trusted artifact store. 
 
 The workload environment uses Azure Policy for Kubernetes to enforce governance. It restricts container pulls only from their trusted registry instance. Additionally, Azure Monitor alerts are set up to detect any imports into that registry from unexpected sources.
 
@@ -93,7 +95,7 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
     _Security checkpoint: The identity of requestor, the destination container registry, and the requested image source, are verified._
 
-2. The request is stored in a Cosmos DB. 
+2. The request is stored in Azure Cosmos DB. 
 
     _Security checkpoint: An audit trail is maintained in the database, keeping track of access to the image. This trail is also used for historical reporting_.
 
@@ -107,9 +109,9 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
     _Security checkpoint: The quarantine registry protects against tampering during the validation process_.
 
-6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as, CVE detection, software bill of material (SBOM) evaluation, malware detection, image signing, and others. 
+6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as, Common Vulnerabilities and Exposures (CVE) detection, software bill of material (SBOM) evaluation, malware detection, image signing, and others. 
 
-    The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All tasks can take a significant period of time and must be durable.
+    The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All tasks can take significant time. 
 
     _Security checkpoint: This step is the core of the quarantine process that performs all the validation checks. The type of checks could be custom, open-sourced, or vendor-purchased solutions._
     
@@ -128,7 +130,7 @@ All container registries are covered by Microsoft Defender for Containers, which
 
 The following guidance might be relevant when implementing this pattern:
 
-- [Recommendations for securing a development lifecycle](/azure/well-architected/security/secure-development-lifecycle) provides guidance on the hardening process through the stages of the development lifecycle and using trusted units of code aquired as part of the software supply chain.  
+- [Recommendations for securing a development lifecycle](/azure/well-architected/security/secure-development-lifecycle) provides guidance about using trusted units of code through all stages of the development lifecycle.  
 
 - [Best practices for a secure software supply chain](/nuget/concepts/security-best-practices) especially when you have NuGet dependencies in your application.  
 
