@@ -4165,6 +4165,8 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host a Murex MX.3 workload on Azure
         href: example-scenario/finance/murex-mx3-azure.yml
+      - name: Host a Murex MX.3 workload using SQL
+        href: example-scenario/finance/murex-mx3-sql.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
