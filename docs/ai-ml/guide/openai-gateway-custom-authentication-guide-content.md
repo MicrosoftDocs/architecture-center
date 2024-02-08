@@ -48,10 +48,64 @@ Microsoft Entra ID is an identity and access management system that registers ap
 
 Scopes can be added to provide granular permission to consumers. These scopes allow client applications to request permission to perform operations defined by the web API.
 
- > [!Note]
+> [!Note]
 > To register your API and Client applications, follow this guide to expose the scope and grant permission to the API application.
 
 ### Azure API Management configuration for establishing authorization to Azure OpenAI Service 
 
-To access deployed Azure OpenAI Service instances, backends are required for each deployment. These will be referenced in the API Management policy for the Azure OpenAI API. 
+1. To access deployed Azure OpenAI Service instances, backends are required for each deployment. These will be referenced in the API Management policy for the Azure OpenAI API. 
 
+2. To provide a consistent API layer in Azure API Management for Azure OpenAI service deployments, the OpenAPI specification needs to be imported that targets the API version of Azure OpenAI that you are using.
+
+> [!Note]
+> The latest Azure OpenAI Service OpenAPI specifications can be found on GitHub here.
+
+3. As well as user access token validation, we recommend using a subscription key in addition. On its own, a subscription key isn’t a strong form of authentication, but it can be useful in scenarios, for example, tracking API usage or granting access to specific APIs.
+
+4. To validate the user’s access token, the inbound policies requires the validate-jwt policy to enforce the existence and validity of a supported JSON Web Token (JWT) extracted from a specified HTTP header, query parameter, or a specific value. 
+
+### Configuring Azure API Management to authenticate with Azure OpenAI Service using Managed Identity 
+
+1. For Azure API Management to call the Azure OpenAI Service APIs without API keys, the system-assigned managed identity must be enabled. This will provide you with an Object ID that you can associate with your Azure OpenAI Service instances.
+2. From your Azure OpenAI Service instances, using access control (IAM), create a role assignment for your Azure API Management managed identity with the role Cognitive Services OpenAI User.
+3. OpenAI API in Azure API Management, the authentication-managed-identity policy in conjunction with the set-header policy to ensure the request is authenticated.
+
+## Scenario considerations 
+
+With a well-configured Azure OpenAI gateway in place, let’s consider additional points to aid in achieving the successful outcome objectives within this scenario. 
+
+### User-assigned managed identity 
+
+An alternative approach to implementing the managed identity for Azure API Management is to use a user assigned. Unlike the system-assigned managed identity, which is managed for you by Azure, user-assigned managed identity allows you to create and manage it. This gives you more control over the identity implementation and its assigned roles. 
+
+To implement this approach, you need to create the user assigned managed identity within your resource group and assign it the same Cognitive Services OpenAI User role to the Azure OpenAI instances. The user-assigned managed identity has an associated client ID that is needed for configuring the authentication-managed-identity policy in Azure API Management. This must be set as the client-id parameter. 
+
+### External identity providers 
+
+Enabling the use of Microsoft Entra ID to build an identity platform for your application may not be feasible, for example, where you already have an external identity provider configured. Taking advantage of your existing identity platform ensures that your team feel familiar with their tools to focus on building core functionality. 
+
+When working with external OpenID Connect (OIDC) supported identity providers, ensure that a client is configured within that identity provider. This is equivalent to configuring your application within Microsoft Entra ID, discussed in the scenario. With this configured, configuring the validate-jwt policy requires configuration for the external well-known OpenID configuration path.  
+
+Include code snippet for policy 
+
+Additional configuration for required claims can be provided the same as the scenario solution. 
+
+## Contributors 
+
+Principal authors: 
+
+Lizet Pena De Sola | Senior Customer Engineer, FastTrack for Azure 
+Bappaditya Banerjee | Senior Customer Engineer, FastTrack for Azure
+James Croft | Customer Engineer, ISV & Digital Native Center of Excellence 
+
+## Summary 
+
+This article provides an effective solution for implementing alternative authentication mechanisms for intelligent applications communicating with Azure OpenAI Service instances through a gateway proxy. By leveraging an identity provider for user authentication combined with managed identity for authenticating with Azure OpenAI without the need for managed keys, teams can take advantage of fine-grained access control their Azure OpenAI endpoints and models.  
+
+## Related resources 
+
+- [Role-based access control for Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control)
+- [Use managed identities in Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Policies in Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies)
+- [Authentication and authorization to APIs in Azure API Management](https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview)
+- [Protect an API in API Management using OAuth 2.0 and Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad)
