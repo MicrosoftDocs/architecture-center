@@ -55,20 +55,20 @@ Scopes can be added to provide granular permission to consumers. These scopes al
 
 1. To access deployed Azure OpenAI Service instances, backends are required for each deployment. These will be referenced in the API Management policy for the Azure OpenAI API. 
 
-2. To provide a consistent API layer in Azure API Management for Azure OpenAI service deployments, the OpenAPI specification needs to be imported that targets the API version of Azure OpenAI that you are using.
+1. To provide a consistent API layer in Azure API Management for Azure OpenAI service deployments, the OpenAPI specification needs to be imported that targets the API version of Azure OpenAI that you are using.
 
 > [!Note]
 > The latest Azure OpenAI Service OpenAPI specifications can be found on GitHub here.
 
-3. As well as user access token validation, we recommend using a subscription key in addition. On its own, a subscription key isn’t a strong form of authentication, but it can be useful in scenarios, for example, tracking API usage or granting access to specific APIs.
+1. As well as user access token validation, we recommend using a subscription key in addition. On its own, a subscription key isn’t a strong form of authentication, but it can be useful in scenarios, for example, tracking API usage or granting access to specific APIs.
 
-4. To validate the user’s access token, the inbound policies requires the validate-jwt policy to enforce the existence and validity of a supported JSON Web Token (JWT) extracted from a specified HTTP header, query parameter, or a specific value. 
+1. To validate the user’s access token, the inbound policies requires the validate-jwt policy to enforce the existence and validity of a supported JSON Web Token (JWT) extracted from a specified HTTP header, query parameter, or a specific value. 
 
 ### Configuring Azure API Management to authenticate with Azure OpenAI Service using Managed Identity 
 
 1. For Azure API Management to call the Azure OpenAI Service APIs without API keys, the system-assigned managed identity must be enabled. This will provide you with an Object ID that you can associate with your Azure OpenAI Service instances.
-2. From your Azure OpenAI Service instances, using access control (IAM), create a role assignment for your Azure API Management managed identity with the role Cognitive Services OpenAI User.
-3. OpenAI API in Azure API Management, the authentication-managed-identity policy in conjunction with the set-header policy to ensure the request is authenticated.
+1. From your Azure OpenAI Service instances, using access control (IAM), create a role assignment for your Azure API Management managed identity with the role Cognitive Services OpenAI User.
+1. OpenAI API in Azure API Management, the authentication-managed-identity policy in conjunction with the set-header policy to ensure the request is authenticated.
 
 ## Scenario considerations 
 
