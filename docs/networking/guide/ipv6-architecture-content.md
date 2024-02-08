@@ -39,7 +39,7 @@ In a hub-and-spoke network, the hub virtual network is a central point of connec
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
 
-- A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is required for VM communication. You can set up VMs and other resources to have multiple network interfaces, which enables you to create dual-stack (IPv4 and IPv6) configurations.
+- A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is required for VM communication. You can set up VMs and other resources to have multiple network interfaces, which allows you to create dual-stack (IPv4 and IPv6) configurations.
 
 - [A public IP address](/azure/virtual-network/ip-services/public-ip-addresses) is used for inbound IPv4 and IPv6 connectivity to Azure resources.
 
@@ -71,7 +71,7 @@ To implement IPv6 in the hub virtual network, you need to:
 
 #### Add IPv6 address space to the virtual network and the subnets
 
-You need to add IPv6 address ranges to the hub virtual network first and then its subnets. Use the /56 address block for the virtual network and the /64 address block for each subnet. The following table shows an example setup.
+You need to add IPv6 address ranges to the hub virtual network first and then to its subnets. Use the /56 address block for the virtual network and the /64 address block for each subnet. The following table shows an example setup.
 
 | Virtual network address range | Subnet address range |
 | --- | --- |
@@ -87,10 +87,10 @@ UDRs are routes that you manually set up to override Azure's default system rout
 
 When you add IPv6 support to the hub virtual network, you need to:
 
-- *Add IPv6 routes*: If there's an established route table, add new routes that specify the IPv6 address prefixes.
+- *Add IPv6 routes*. If there's an established route table, add new routes that specify the IPv6 address prefixes.
 
-- *Modify existing routes*: If there are already routes for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic, or create separate IPv6-specific routes.
-- *Associate the route table with subnets*: After you define the routes, associate the route table with the relevant subnets within the virtual network. This association determines which subnets use the routes that you defined.
+- *Modify existing routes*. If there are already routes for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic, or create separate IPv6-specific routes.
+- *Associate the route table with subnets*. After you define the routes, associate the route table with the relevant subnets within the virtual network. This association determines which subnets use the routes that you defined.
 
 You don't need to add a route for every resource, but you do need a route for each subnet. Each subnet can have multiple resources, and they all follow the rules that are defined in the route table associated with their subnet. For more information, see [UDR overview](/azure/virtual-network/virtual-networks-udr-overview).
 
@@ -109,10 +109,10 @@ When you set up your UDRs, you must align them with your organizational network 
 
 To provide the ExpressRoute circuit with IPv6 support, you need to:
 
-- *Enable IPv6 private peering*: Enable IPv6 private peering for the ExpressRoute circuit. This configuration enables IPv6 traffic between your on-premises network and the hub virtual network.
+- *Enable IPv6 private peering*. Enable IPv6 private peering for the ExpressRoute circuit. This configuration enables IPv6 traffic between your on-premises network and the hub virtual network.
 
-- *Allocate IPv6 address space*: Provide IPv6 subnets for the primary and secondary ExpressRoute links.
-- *Update route tables*: Ensure that you direct IPv6 traffic appropriately through the ExpressRoute circuit.
+- *Allocate IPv6 address space*. Provide IPv6 subnets for the primary and secondary ExpressRoute links.
+- *Update route tables*. Ensure that you direct IPv6 traffic appropriately through the ExpressRoute circuit.
 
 These configurations extend IPv6 connectivity to your Azure services via an ExpressRoute circuit, so you can route dual-stack capabilities simultaneously. To modify ExpressRoute, you can use the [Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal), [PowerShell](/azure/expressroute/expressroute-howto-add-ipv6-powershell), or [Azure CLI](/azure/expressroute/expressroute-howto-add-ipv6-cli).
 
@@ -153,10 +153,10 @@ To configure UDRs, spoke virtual networks use the same configuration as hub virt
 
 When you add IPv6 support to a spoke virtual network, you need to:
 
-- *Add IPv6 routes*: If there's an established route table, add new routes that specify the IPv6 address prefixes.
+- *Add IPv6 routes*. If there's an established route table, add new routes that specify the IPv6 address prefixes.
 
-- *Modify existing routes*: If there are already routes for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic, or create separate IPv6-specific routes.
-- *Associate the route table with subnets*: After you define the routes, associate the route table with the relevant subnets within the virtual network. This association determines which subnets use the routes that you defined.
+- *Modify existing routes*. If there are already routes for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic, or create separate IPv6-specific routes.
+- *Associate the route table with subnets*. After you define the routes, associate the route table with the relevant subnets within the virtual network. This association determines which subnets use the routes that you defined.
 
 The following table shows example UDRs for each subnet in a spoke virtual network.
 
