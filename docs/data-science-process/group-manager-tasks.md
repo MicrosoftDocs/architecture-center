@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 01/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -21,247 +21,104 @@ categories:
 
 # Team Data Science Process group manager tasks
 
-This article describes the tasks that a *group manager* completes for a data science organization. The group manager manages the entire data science unit in an enterprise. A data science unit may have several teams, each of which is working on many data science projects in distinct business verticals. The group manager's objective is to establish a collaborative group environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP). For an outline of all the personnel roles and associated tasks handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article describes the tasks that a *group manager* completes for a data science organization. The group manager manages the entire data science unit in an enterprise. A data science unit might have several teams, each of which is working on many data science projects in distinct business verticals. The group manager's objective is to establish a collaborative group environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP). For an outline of all the personnel roles and associated tasks handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md). Group managers can delegate their tasks to surrogates, but the tasks associated with the role don't change.
 
-The following diagram shows the six main group manager setup tasks. Group managers may delegate their tasks to surrogates, but the tasks associated with the role don't change.
+## Major Roles of the Group Manager
 
-![Group manager tasks](./media/group-manager-tasks/tdsp-group-manager.png)
+1. **Strategic oversight:**
+    - Establish and oversee the strategic direction for the data science projects within the group.
+    - Ensure alignment of projects with broader business goals and objectives.
+1. **Resource management:**
+    - Allocate resources, including personnel, budget, and technology, effectively across projects.
+    - Balance resource allocation to meet project needs and maximize efficiency.
+1. **Team building and development:**
+    - Build and maintain a skilled and effective data science team.
+    - Foster professional development and continuous learning within the team.
+1.**Project Portfolio Management:**
+    - Oversee the portfolio of data science projects, ensuring a healthy mix of innovation, research, and application development.
+    - Monitor the progress and outcomes of projects, intervening when necessary.
+1.**Risk Management:**
+    - Identify and mitigate risks across projects, including technical, operational, and business risks.
+    - Implement strategies to manage uncertainties and ensure project success.
+1.**Stakeholder Communication:**
+    - Communicate effectively with stakeholders at various levels, including executive leadership, to report progress, results, and challenges.
+    - Act as a liaison between the data science team and other business units.
+1.**Quality Assurance:**
+    - Uphold standards of quality in methodologies, outputs, and documentation.
+    - Ensure adherence to best practices and ethical guidelines in data science work.
+1.**Innovation and Best Practices:**
+    - Encourage innovation and the adoption of emerging technologies and methodologies.
+    - Share best practices and knowledge across teams and projects.
 
-1. Set up an **Azure DevOps organization** for the group.
-2. Create the default **GroupCommon project** in the Azure DevOps organization.
-3. Create the **GroupProjectTemplate** repository in Azure Repos.
-4. Create the **GroupUtilities** repository in Azure Repos.
-5. Import the contents of the Microsoft TDSP team's **ProjectTemplate** and **Utilities** repositories into the group common repositories.
-6. Set up **membership** and **permissions** for team members to access the group.
+## Key Tasks for the Group Manager
 
-The following tutorial walks through the steps in detail.
+-   **Developing and Reviewing Project Plans:**
+    -   Review and approve project plans, ensuring they're viable, well-structured, and aligned with business objectives.
+-   **Monitoring Project Progress:**
+    -   Regularly monitor the progress of projects, offering guidance and support to ensure milestones and deliverables are met.
+-   **Facilitating Cross-Team Collaboration:**
+    -   Facilitate collaboration and communication between different teams and departments to ensure cohesive and integrated efforts.
+-   **Evaluating Team Performance:**
+    -   Evaluate the performance of the team, providing feedback and identifying areas for improvement.
+-   **Managing Stakeholder Expectations:**
+    -   Manage expectations of stakeholders, negotiate priorities, and communicate the value and limitations of data science projects.
+-   **Ensuring Compliance and Ethical Standards:**
+    -   Ensure that all projects comply with legal, ethical, and company standards, particularly regarding data usage and privacy.
 
-> [!NOTE]
-> This article uses Azure DevOps to set up a TDSP group environment, because that is how to implement TDSP at Microsoft. If your group uses other code hosting or development platforms, the Group Manager's tasks are the same, but the way to complete them may be different.
+## Using Large Language Models and Microsoft Copilots
 
-## Create an organization and project in Azure DevOps
+In the context of Microsoft's Team Data Science Process (TDSP), the "Group Manager" can effectively utilize Large Language Models (LLMs) and Microsoft copilots to enhance various aspects of managing data science teams and projects. Here's how the Group Manager can integrate these tools within the TDSP framework:
 
-1. Go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com), select **Sign in** at upper right, and sign into your Microsoft account.
+### Strategic Planning and Decision Making
 
-   ![Sign in to your Microsoft account](./media/group-manager-tasks/signinvs.png)
+- **Market Analysis and Trend Identification:** Use LLMs to analyze market trends, extract insights from large volumes of industry reports, and stay updated on the latest advancements in data science and technology.
+- **Strategic Decision Support:** Use LLMs to provide comprehensive overviews or summaries of complex strategic options, aiding in informed decision-making.
 
-   If you don't have a Microsoft account, select **Sign up now**, create a Microsoft account, and sign in using this account. If your organization has a Visual Studio subscription, sign in with the credentials for that subscription.
+### Resource and Portfolio Management
 
-1. After you sign in, at upper right on the Azure DevOps page, select **Create new organization**.
+- **Resource Optimization:** Employ copilots for helping optimizing resource allocation plans, forecasting project needs, and identifying potential skill gaps in teams.
+- **Project Portfolio Analysis:** Utilize LLMs to analyze and evaluate the performance of various projects within the portfolio, identifying areas for improvement or strategic realignment.
 
-   ![Create new organization](./media/group-manager-tasks/create-organization.png)
+### Team Development and Leadership
 
-1. If you're prompted to agree to the Terms of Service, Privacy Statement, and Code of Conduct, select **Continue**.
+- **Leadership Communication:** Use LLMs to draft clear and effective communications for internal stakeholders, ensuring alignment and clarity in strategic messages.
+- **Training and Development:** Use LLMs to curate or create customized training materials and resources for team skill development.
 
-1. In the signup dialog, name your Azure DevOps organization and accept the host region assignment, or drop down and select a different region. Then select **Continue**.
+### Risk Management and Quality Assurance
 
-1. Under **Create a project to get started**, enter *GroupCommon*, and then select **Create project**.
+-   **Risk Assessment:** Use LLMs to identify potential risks in projects by analyzing historical data and similar project outcomes, and suggest mitigation strategies.
+-   **Quality Standards Enforcement:** Employ LLMs to help develop and maintain quality standards and best practices documentation, ensuring consistency across projects.
 
-   ![Create project](./media/group-manager-tasks/create-project.png)
+### Stakeholder Engagement and Reporting
 
-The **GroupCommon** project **Summary** page opens. The page URL is *https:\//\<servername>/\<organization-name>/GroupCommon*.
+-   **Stakeholder Reports:** Utilize LLMs to generate comprehensive and understandable reports for stakeholders, summarizing project progress, challenges, and successes.
+-   **Meeting Preparation:** Use LLMs for preparing meeting agendas, key talking points, and presentations to effectively communicate with stakeholders.
 
-![Project summary page](./media/group-manager-tasks/project-summary.png)
+### Innovation and Best Practices
 
-## Set up the group common repositories
+-   **Research and Innovation Insights:** Use LLMs to stay abreast of cutting-edge research, new methodologies, and tools in data science. It helps translate these advances into actionable insights for the team.
+-   **Best Practices Compilation:** Utilize LLMs to compile and update a repository of best practices, lessons learned, and case studies from completed projects.
 
-Azure Repos hosts the following types of repositories for your group:
+### Collaboration and Workflow Enhancement
 
-- **Group common repositories**: General-purpose repositories that multiple teams within a data science unit can adopt for many data science projects.
-- **Team repositories**:  Repositories for specific teams within a data science unit. These repositories are specific for a team's needs, and may be used for multiple projects within that team, but are not general enough to be used across multiple teams within a data science unit.
-- **Project repositories**: Repositories for specific projects. Such repositories may not be general enough for multiple projects within a team, or for other teams in a data science unit.
+-   **Workflow Optimization:** Employ copilots and LLMs to streamline managerial workflows, automate routine tasks, and enhance efficiency in team management.
+-   **Collaborative Tool Integration:** Use LLMs and Microsoft copilots to integrate and optimize collaborative tools and platforms used by the team.
 
-To set up the group common repositories in your project, you:
-- Rename the default **GroupCommon** repository to **GroupProjectTemplate**
-- Create a new **GroupUtilities** repository
+The Group Manager can use LLMs and Microsoft copilots to enhance strategic planning, resource management, team development, risk management, stakeholder communication. The position should foster innovation in line with the TDSP framework. These tools can provide valuable support in decision-making, reporting, and maintaining high standards of quality and efficiency in data science projects.
 
-### Rename the default project repository to GroupProjectTemplate
+## Summary
 
-To rename the default **GroupCommon** project repository to **GroupProjectTemplate**:
+The Group Manager in TDSP is responsible for the overall management and success of data science projects. The role focuses on strategic alignment, resource allocation, team development, risk management, and stakeholder communication. These tasks bridge the gap between data science teams and the larger business objectives of the organization.
 
-1. On the **GroupCommon** project **Summary** page, select **Repos**. This action takes you to the default **GroupCommon** repository of the GroupCommon project, which is currently empty.
-
-1. At the top of the page, drop down the arrow next to **GroupCommon** and select **Manage repositories**.
-
-   ![Manage repositories](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
-
-1. On the **Project Settings** page, select the **...** next to **GroupCommon**, and then select **Rename repository**.
-
-   ![Select ... and then select Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
-
-1. In the **Rename the GroupCommon repository** popup, enter *GroupProjectTemplate*, and then select **Rename**.
-
-   ![Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
-
-### Create the GroupUtilities repository
-
-To create the **GroupUtilities** repository:
-
-1. On the **GroupCommon** project **Summary** page, select **Repos**.
-
-1. At the top of the page, drop down the arrow next to **GroupProjectTemplate** and select **New repository**.
-
-   ![Select New repository](./media/group-manager-tasks/create-grouputilities-repo-1.png)
-
-1. In the **Create a new repository** dialog, select **Git** as the **Type**, enter *GroupUtilities* as the **Repository name**, and then select **Create**.
-
-   ![Create GroupUtilities repository](./media/group-manager-tasks/create-grouputilities-repo-2.png)
-
-1. On the **Project Settings** page, select **Repositories** under **Repos** in the left navigation to see the two group repositories: **GroupProjectTemplate** and **GroupUtilities**.
-
-   ![Two group repositories](./media/group-manager-tasks/two-repositories.png)
-
-## Import the Microsoft TDSP team repositories
-
-In this part of the tutorial, you import the contents of the **ProjectTemplate** and **Utilities** repositories managed by the Microsoft TDSP team into your **GroupProjectTemplate** and **GroupUtilities** repositories.
-
-To import the TDSP team repositories:
-
-1. From the **GroupCommon** project home page, select **Repos** in the left navigation. The default **GroupProjectTemplate** repo opens.
-
-1. On the **GroupProjectTemplate is empty** page, select **Import**.
-
-   ![Select Import](./media/group-manager-tasks/import-repo.png)
-
-1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* for the **Clone URL**. Then select **Import**. The contents of the Microsoft TDSP team ProjectTemplate repository are imported into your GroupProjectTemplate repository.
-
-   ![Import Microsoft TDSP team repository](./media/group-manager-tasks/import-repo-2.png)
-
-1. At the top of the **Repos** page, drop down and select the **GroupUtilities** repository.
-
-Each of your two group repositories now contains all the files, except those in the *.git* directory, from the Microsoft TDSP team's corresponding repository.
-
-## Customize the contents of the group repositories
-
-If you want to customize the contents of your group repositories to meet the specific needs of your group, you can do that now. You can modify the files, change the directory structure, or add files that your group has developed or that are helpful for your group.
-
-### Make changes in Azure Repos
-
-To customize repository contents:
-
-1. On the **GroupCommon** project **Summary** page, select **Repos**.
-
-1. At the top of the page, select the repository you want to customize.
-
-1. In the repo directory structure, navigate to the folder or file you want to change.
-
-   - To create new folders or files, select the arrow next to **New**.
-
-     ![Create New file](./media/group-manager-tasks/new-file.png)
-
-   - To upload files, select **Upload file(s)**.
-
-     ![Upload files](./media/group-manager-tasks/upload-files.png)
-
-   - To edit existing files, navigate to the file and then select **Edit**.
-
-     ![Edit a file](./media/group-manager-tasks/edit-file.png)
-
-1. After adding or editing files, select **Commit**.
-
-   ![Commit changes](./media/group-manager-tasks/commit.png)
-
-### Make changes using your local machine or DSVM
-
-If you want to make changes using your local machine or DSVM and push the changes up to the group repositories, make sure you have the prerequisites for working with Git and DSVMs:
-
-- An Azure subscription, if you want to create a DSVM.
-- Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-- If you want to use a DSVM, the Windows or Linux DSVM created and configured in Azure. For more information and instructions, see the [Data Science Virtual Machine Documentation](/azure/machine-learning/data-science-virtual-machine/).
-- For a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it.
-- For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-
-First, copy or *clone* the repository to your local machine.
-
-1. On the **GroupCommon** project **Summary** page, select **Repos**, and at the top of the page, select the repository you want to clone.
-
-1. On the repo page, select **Clone** at upper right.
-
-1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
-
-   ![Clone repo](./media/group-manager-tasks/clone.png)
-
-1. On your local machine, create the following directories:
-
-   - For Windows: **C:\GitRepos\GroupCommon**
-   - For Linux, **$/GitRepos/GroupCommon** on your home directory
-
-1. Change to the directory you created.
-
-1. In Git Bash, run the command `git clone <clone URL>.`
-
-   For example, either of the following commands clones the **GroupUtilities** repository to the *GroupCommon* directory on your local machine.
-
-   **HTTPS connection:**
-
-   ```bash
-   git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupUtilities
-   ```
-
-   **SSH connection:**
-
-   ```bash
-   git clone git@ssh.dev.azure.com:v3/DataScienceUnit/GroupCommon/GroupUtilities
-   ```
-
-After making whatever changes you want in the local clone of your repository, you can push the changes to the shared group common repositories.
-
-Run the following Git Bash commands from your local **GroupProjectTemplate** or **GroupUtilities** directory.
-
-```bash
-git add .
-git commit -m "push from local"
-git push
-```
-
-> [!NOTE]
-> If this is the first time you commit to a Git repository, you may need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
->
-> `git config --global user.name <your name>`
->
-> `git config --global user.email <your email address>`
->
-> If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when building Power BI dashboards to track your Git activities in multiple repositories.
-
-## Add group members and configure permissions
-
-To add members to the group:
-
-1. In Azure DevOps, from the **GroupCommon** project home page, select **Project settings** from the left navigation.
-
-1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **GroupCommon Team**.
-
-   ![Configure Teams](./media/group-manager-tasks/teams.png)
-
-1. On the **Team Profile** page, select **Add**.
-
-   ![Add to GroupCommon Team](./media/group-manager-tasks/add-to-team.png)
-
-1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**.
-
-   ![Add users and groups](./media/group-manager-tasks/add-users.png)
-
-To configure permissions for members:
-
-1. From the **Project Settings** left navigation, select **Permissions**.
-
-1. On the **Permissions** page, select the group you want to add members to.
-
-1. On the page for that group, select **Members**, and then select **Add**.
-
-1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**.
-
-   ![Grant permissions to members](./media/group-manager-tasks/grant-permissions.png)
-   
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*Microsoft maintains this article. The following contributors originally wrote the article.*
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
