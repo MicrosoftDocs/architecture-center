@@ -51,11 +51,11 @@ Here's a typical quarantine workflow:
 
 - Have a reliable way to invoking the quarantine process. Make sure the artifact isn't consumed inadvertently until marked as trusted. The signaling should be automated. For example, tasks related to notifying the responsible parties when an artifact is ingested into the developer environment, committing changes to a GitHub repository, adding an image to a private registry, and so on.  
 
--  An alternative to implementing your quarantine pattern is to outsource it. There are quarantine practitioners who specialize in public asset validation as their business model. Evaluate both the financial and operational costs of implementing the pattern versus outsouring the responsibility. If your security requirements need more control, implementing your own process is recommended.
+-  An alternative to implementing your quarantine pattern is to outsource it. There are quarantine practitioners who specialize in public asset validation as their business model. Evaluate both the financial and operational costs of implementing the pattern versus outsourcing the responsibility. If your security requirements need more control, implementing your own process is recommended.
 
 - Automate the artifact ingestion process and also the process of publishing the artifact. Because validation tasks can take time, the automation process must be able to continue until all tasks are completed.
 
-- The quarantine pattern can be implemented by central teams of an organization or an individual workload team. If there are many instances or variations of the quarantine process, these operations should be standardized and centralized by the organization. In this case, workload teams share the process and benefit from offloading process managment. 
+- The quarantine pattern can be implemented by central teams of an organization or an individual workload team. If there are many instances or variations of the quarantine process, these operations should be standardized and centralized by the organization. In this case, workload teams share the process and benefit from offloading process management. 
 
 
 ## When to use this pattern
