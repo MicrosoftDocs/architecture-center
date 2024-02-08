@@ -178,7 +178,7 @@ Principal author:
 
 Other contributors:
 
-- Sherri Babylon | Senior Technical Program Manager
+- [Sherri Babylon](https://www.linkedin.com/in/sbabylon) | Senior Technical Program Manager
 - [Dawn Bedard](https://www.linkedin.com/in/dawnbedard) | Principal Technical Program Manager
 - [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b) | Senior Customer Engineer
 
