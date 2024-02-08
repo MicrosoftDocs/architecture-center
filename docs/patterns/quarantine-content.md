@@ -16,7 +16,7 @@ Some of those security issues can be avoided by adding checks to each artifact.
 
 Have a process that validates the software for security. During the process, each artifact undergoes thorough operational rigor that verifies it against specific conditions. Only after the artifact satisfies those conditions, the process marks it as _trusted_. 
 
-Therefore, the process of quarantining is a security measure that makes sure that an artifact transitions from an untrusted status to a trusted status.
+> The process of quarantining is a security measure that makes sure that an artifact transitions from an untrusted status to a trusted status.
 
 It's important to note that the quarantine process doesn't change the composition of the artifact. The process is independent of the software development cycle and is invoked by consumers, as needed. As a consumer of the artifact, block the use of artifacts until they've been quarantined and marked as trusted. 
 
@@ -128,4 +128,8 @@ All container registries are covered by Microsoft Defender for Containers, which
 
 The following guidance might be relevant when implementing this pattern:
 
-//TODO
+- [Recommendations for securing a development lifecycle](/azure/well-architected/security/secure-development-lifecycle) provides guidance on the hardening process through the stages of the development lifecycle and using trusted units of code aquired as part of the software supply chain.  
+
+- [Best practices for a secure software supply chain](/nuget/concepts/security-best-practices) especially when you have NuGet dependencies in your application.  
+
+- [Azure Artifacts documentation](/azure/devops/artifacts/) is a library of information related to managing software packages with Azure Artifacts.
