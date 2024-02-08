@@ -2,7 +2,7 @@
 title: Compare AWS and Azure database technology
 description: Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.
 author: splitfinity
-ms.author: architectures
+ms.author: yubaijna
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
