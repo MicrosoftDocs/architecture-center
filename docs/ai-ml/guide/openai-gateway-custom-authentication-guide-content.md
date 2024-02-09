@@ -5,9 +5,7 @@ This article shows how to implement alternative authentication mechanisms for cl
 
 ## Scenario
 
-:::image type="complex" source="_images/openai-gateway-custom-authentication-key.png" lightbox="_images/openai-gateway-custom-authentication-key.png" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
-    The diagram shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.
-:::image-end:::
+:::image type="content" source="_images/openai-gateway-custom-authentication-key.png" lightbox="_images/openai-gateway-custom-authentication-key.png" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
 *Figure 1: Starting point for application authentication with Azure OpenAI service using key-based authentication. 
 
 This section builds on the starting architecture defined in the overview guide, exploring the challenge of implementing authentication mechanisms to authorize user access to Azure OpenAI service.  
