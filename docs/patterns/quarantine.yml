@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Quarantine pattern
-  description: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as safe by an intermediary process.
+  description: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
   author: PageWriter-MSFT
   ms.author: prwilk
   ms.date: 01/19/2024
@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-container-registry
 name: Quarantine pattern
-summary: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as safe by an intermediary process.
+summary: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
 thumbnailUrl: /azure/architecture/browse/thumbs/quarantine.png
 content: |
   [!include[](quarantine-content.md)]
