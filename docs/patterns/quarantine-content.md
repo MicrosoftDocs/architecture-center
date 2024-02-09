@@ -72,8 +72,8 @@ Use this pattern when:
 
     - An external Infrastructure-as-Code (IaC) package such as Terraform modules, Community Chef Cookbooks, Azure Verified Modules 
 
-    - A vendor-supplied OS images
-    
+    - A vendor-supplied OS image
+        
 - The workload team considers the artifact as a risk that's worth mitigating. The team understands the negative consequences of integrating compromised artifacts and the value of quarantine in assuring a trusted environment.
 
 - The team has a clear and shared understanding of the validation rules that should be applied to a type of artifact. Without consensus, the pattern might not be effective. 
