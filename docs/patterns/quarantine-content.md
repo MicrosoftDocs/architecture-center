@@ -135,7 +135,7 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
     _Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource locations._
 
     > [!NOTE]
-    > An alternative to the orchestrator making the decision, it can offload the decision making to the workload team. In this alternative, the orchestrator publishes the validation results through an API and keeps the image in the quarantine registry for a period of time. 
+    > Instead of the orchestrator making the decision, the workload team can take on that responsibility. In this alternative, the orchestrator publishes the validation results through an API and keeps the image in the quarantine registry for a period of time. 
     >
     > The workload team makes the decision after reviewing results. If the results meet their risk tolerance, they pull the image from the quarantine repository into their container instance. This pull model is more practical when this pattern is used to support multiple workload teams with different security risk tolerances.
 
