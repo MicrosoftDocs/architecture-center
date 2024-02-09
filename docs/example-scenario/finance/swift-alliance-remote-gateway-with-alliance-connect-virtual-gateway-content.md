@@ -55,7 +55,8 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
   - Use a compute-optimized SKU for the Alliance Web Platform front end.
   - Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
 - **[Azure managed disks](https://azure.microsoft.com/products/storage/disks):** If you use Premium SSD managed disks, Alliance Access components benefit from high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
-- **Azure proximity placement groups:** You can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
+- **Azure proximity placement groups:** You can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are physically located close to each other. Proximity placement groups reduce network latency between Alliance Access components.
+
 
 ## Scenario details
 
