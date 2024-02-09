@@ -93,7 +93,7 @@ An architect and the workload team should evaluate how the Quarantine pattern ca
 
 |Pillar|How this pattern supports pillar goals|
 |---|---|
-|[Security](/azure/well-architected/security/) provide confidentiality, integrity, and availability guarantees to the workload.|The first responsibility of security validation is served by the Quarantine pattern. The validation on an external artifact is conducted in a segmented environment before it's consumed by the development process.|
+|[Security](/azure/well-architected/security/) provides confidentiality, integrity, and availability guarantees to the workload.|The first responsibility of security validation is served by the Quarantine pattern. The validation on an external artifact is conducted in a segmented environment before it's consumed by the development process.|
 |[Operational Excellence](/azure/well-architected/operational-excellence/) focuses on procedures for development practices, observability, and release management.|The Quarantine pattern supports safe deployment practices (SDP) by making sure that compromised artifacts aren't consumed by the workload, which could lead to security breaches during progressive exposure deployments.|
 
 
@@ -104,7 +104,7 @@ This example applies the [solution workflow](#solution) to a scenario where the 
 
 The workload environment uses Azure Policy for Kubernetes to enforce governance. It restricts container pulls only from their trusted registry instance. Additionally, Azure Monitor alerts are set up to detect any imports into that registry from unexpected sources.
 
-:::image type="content" source="./_images/quarantine-example.svg" alt-text="This image shows Azure Container Registry implementation of the Quarantine pattern." lightbox="./_images/quarantine-example.svg":::
+:::image type="content" source="./_images/quarantine-example.svg" alt-text="This image shows Azure Container Registry implementation of the Quarantine pattern." lightbox="./_images/quarantine-example.png":::
 
 1. A request for an external image is made by the workload team through a custom application hosted on Azure Web Apps. The application collects the required information only from authorized users. 
 
