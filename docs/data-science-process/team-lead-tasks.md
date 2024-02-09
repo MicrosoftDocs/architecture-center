@@ -1,5 +1,5 @@
 ---
-title: Tasks for the team lead in the Team Data Science Process Team
+title: Team lead in the Team Data Science Process
 description: A detailed walkthrough of the tasks for a team lead on a Team Data Science Process team
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/09/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,7 +19,7 @@ categories:
   - ai-machine-learning
 ---
 
-# Tasks for the team lead on a Team Data Science Process team
+# Team lead in the Team Data Science Process
 
 This article describes the tasks that a *team lead* completes for their data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP). The TDSP is designed to help improve collaboration and team learning.
 

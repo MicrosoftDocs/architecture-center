@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process roles and tasks
+title: Roles and tasks in the Team Data Science Process
 description: An outline of the key components, personnel roles, and associated tasks for a data science group.
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/15/2024
+ms.date: 02/09/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,7 +19,7 @@ categories:
   - ai-machine-learning
 ---
 
-# Team Data Science Process roles and tasks
+# Roles and tasks in the Team Data Science Process
 
 The Team Data Science Process (TDSP) is a framework developed by Microsoft that provides a structured methodology to efficiently build predictive analytics solutions and intelligent applications. This article outlines the key personnel roles and associated tasks for a data science team standardizing on this process.
 

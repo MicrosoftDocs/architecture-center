@@ -1,6 +1,6 @@
 ---
 title: Customer acceptance stage of the Team Data Science Process lifecycle
-description: The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects
+description: The goals, tasks, and deliverables for the customer acceptance stage of your data science projects
 author: marktab
 manager: marktab
 editor: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/15/2024
+ms.date: 02/09/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -20,7 +20,7 @@ categories:
 ---
 # Customer acceptance stage of the Team Data Science Process lifecycle
 
-This article outlines the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+This article outlines the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
 1. **Business understanding**
 2. **Data acquisition and understanding**
@@ -30,18 +30,21 @@ This article outlines the goals, tasks, and deliverables associated with the cus
 
 Here's a visual representation of the TDSP lifecycle:
 
-![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
+[![Diagram that shows the stages of the TDSP lifecycle.](./media/lifecycle/tdsp-lifecycle2.png)](./media/lifecycle/tdsp-lifecycle2.png)
+
+For Azure, we recommend that you use Azure Machine Learning to apply the TDSP. For more information, see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning).
 
 ## Goal
 
-**Finalize project deliverables**: Confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
+The goal of the customer acceptance stage is to **finalize project deliverables**. Your team should confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
 
 ## How to do it
 
-There are two main tasks addressed in this stage:
+The customer acceptance stage has two main tasks:
 
 - **System validation**: Confirm that the deployed model and pipeline meet the customer's needs.
-- **Project hand-off**: Hand the project off to the entity that's going to run the system in production. This entity might be, for example, an IT or customer data-science team or an agent of the customer that's responsible for running the system in production.
+
+- **Project hand-off**: Hand the project off to the person or team that's going to run the system in production. For example, it might be an IT team, customer data science team, or the customer's agent.
 
 The customer should validate that the system:
 
@@ -50,17 +53,17 @@ The customer should validate that the system:
 - Is deployable for use.
 - Has finalized documentation.
 
-## Integration with MLflow
+## Integrate with MLflow
 
-MLflow doesn't directly interact with customer acceptance. The tracking and registry features of MLflow help maintain a record of models, experiments, and deployments. This tracking can be crucial for final reporting, auditing, and obtaining customer acceptance.
+MLflow isn't directly related to the customer acceptance stage, but the tracking and registry features of MLflow help maintain a record of models, experiments, and deployments. This tracking is crucial for final reporting, auditing, and obtaining customer acceptance.
 
 ## Artifacts
 
-The main artifact produced in this final stage is the **Exit report of the project for the customer**. This technical report contains all the details of the project that are useful for learning about how to operate the system.
+The main artifact that your team creates in this final stage is the *exit report* of the project for the customer. This technical report contains details about the project that the customer can use to learn how to operate the system.
 
 ## Peer-reviewed literature
 
-Researchers publish studies about TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to TDSP, including the customer acceptance lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the customer acceptance lifecycle stage.
 
 ## Contributors
 
@@ -70,16 +73,15 @@ Principal author:
 
  - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
-Here are links to each step in the lifecycle of the TDSP:
+These articles describe the other stages of the TDSP lifecycle:
 
-1. [Business understanding](lifecycle-business-understanding.md)
-2. [Data acquisition and understanding](lifecycle-data.md)
-3. [Modeling](lifecycle-modeling.md)
-4. [Deployment](lifecycle-deployment.md)
-5. [Customer acceptance](lifecycle-acceptance.md)
+- [Business understanding](lifecycle-business-understanding.md)
+- [Data acquisition and understanding](lifecycle-data.md)
+- [Modeling](lifecycle-modeling.md)
+- [Deployment](lifecycle-deployment.md)
 
-For Azure, we recommend applying TDSP using Azure Machine Learning:  for an overview of Azure Machine Learning see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning).
+

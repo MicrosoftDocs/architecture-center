@@ -1,5 +1,5 @@
 ---
-title: Tasks for an individual contributor in the Team Data Science Process
+title: Individual contributor tasks in the Team Data Science Process
 description: A detailed walkthrough of the tasks for an individual contributor on a data science team project.
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/15/2024
+ms.date: 02/09/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,7 +19,7 @@ categories:
   - ai-machine-learning
 ---
 
-# Tasks for an individual contributor in the Team Data Science Process
+# Individual contributor tasks in the Team Data Science Process
 
 This article outlines the tasks that an *individual contributor* completes setting up a project in the [Team Data Science Process](overview.yml) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
