@@ -36,7 +36,7 @@ For Azure, we recommend that you use Azure Machine Learning to apply the TDSP. F
 
 ## Goal
 
-The goal of the customer acceptance stage is to **finalize project deliverables**. Your team should confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
+The goal of the customer acceptance stage is to finalize project deliverables. Your team should confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
 
 ## How to do it
 

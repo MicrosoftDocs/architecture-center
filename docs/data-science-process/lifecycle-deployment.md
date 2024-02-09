@@ -54,24 +54,24 @@ For examples of model operationalization with Azure Machine Learning, see [Deplo
 
 ## Integrate with MLflow
 
-The following features in Azure Machine Learning help support this deployment lifecycle element:
+To help support this stage, you can incorporate the following Azure Machine Learning features:
 
-- [Model management](/azure/machine-learning/how-to-manage-models-mlflow): Deployment involves taking a selected model and placing it into a production or operational environment. MLflow supports operationalization by managing and versioning deployment-ready models.
+- [Model management](/azure/machine-learning/how-to-manage-models-mlflow): To prepare a deployment, you place a model into a production or operational environment. MLflow manages and versions deployment-ready models, which helps to improve operationalization.
 
-- [Model serving and deployment](/azure/machine-learning/how-to-deploy-mlflow-models): MLflow's model serving functionalities facilitate the deployment process, allowing models to be easily served in various environments.
+- [Model serving and deployment](/azure/machine-learning/how-to-deploy-mlflow-models): MLflow's model serving functionalities facilitate the deployment process, so you can easily serve models in various environments.
 
 ## Artifacts
 
 In this stage, your team delivers:
 
-* A status dashboard (Power BI is recommended) that displays the system health and key metrics
+* **A status dashboard** that displays the system health and key metrics. We recommend using Power BI to create a dashboard.
 
-* A final modeling report with deployment details
-* A final solution architecture document
+* **A final modeling report** with deployment details.
+* **A final solution architecture document**.
 
 ## Peer-reviewed literature
 
-Researchers publish studies about TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to TDSP, including the deployment lifecycle stage.
+Researchers publish studies about the TDSP in peer-reviewed literature. [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to the TDSP, including the deployment lifecycle stage.
 
 ## Contributors
 
@@ -79,11 +79,11 @@ Researchers publish studies about TDSP in peer-reviewed literature.  [The citati
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
 These articles describe the other stages of the TDSP lifecycle:
 
