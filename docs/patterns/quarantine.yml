@@ -14,6 +14,6 @@ products:
   - azure-container-registry
 name: Quarantine pattern
 summary: Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.
-thumbnailUrl: ../../browse/thumbs/quarantine.png
+thumbnailUrl: ../browse/thumbs/quarantine.png
 content: |
   [!include[](quarantine-content.md)]
