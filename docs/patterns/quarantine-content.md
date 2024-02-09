@@ -106,6 +106,8 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
 ![This image shows Azure Container Registry implementation of the Quarantine pattern.](./_images/quarantine-example.png)
 
+:::image type="content" source="./_images/quarantine-example.png" alt-text="This image shows Azure Container Registry implementation of the Quarantine pattern." lightbox="./_images/quarantine-example.svg":::
+
 1. A request for an external image is made by the workload team through a custom application hosted on Azure Web Apps. The application collects the required information only from authorized users. 
 
     _Security checkpoint: The identity of requestor, the destination container registry, and the requested image source, are verified._
