@@ -19,6 +19,6 @@ products:
   - azure-monitor
 name: Host a Murex MX.3 workload on Azure using SQL
 summary: Learn how to implement an Azure architecture for Murex workloads using SQL Server as the database.
-thumbnailUrl: /azure/architecture/browse/thumbs/murex-azure-reference-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/murex-azure-reference-architecture-sql.png
 content: |
   [!include[](murex-mx3-sql-content.md)]
