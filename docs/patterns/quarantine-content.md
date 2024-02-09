@@ -105,7 +105,7 @@ This example applies the [solution workflow](#solution) to a scenario where the 
 
 The workload environment uses Azure Policy for Kubernetes to enforce governance. It restricts container pulls only from their trusted registry instance. Additionally, Azure Monitor alerts are set up to detect any imports into that registry from unexpected sources.
 
-:::image type="content" source="./_images/quarantine-example.svg" alt-text="This image shows Azure Container Registry implementation of the Quarantine pattern." lightbox="./_images/quarantine-example.png":::
+:::image type="content" source="./_images/quarantine-example.svg" alt-text="This diagram shows Azure Container Registry implementation of the Quarantine pattern." lightbox="./_images/quarantine-example.png":::
 
 1. A request for an external image is made by the workload team through a custom application hosted on Azure Web Apps. The application collects the required information only from authorized users. 
 
