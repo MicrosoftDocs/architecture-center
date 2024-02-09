@@ -137,18 +137,18 @@ An alternative approach to implementing the managed identity for Azure API Manag
 
 To implement this approach, you need to create the user assigned managed identity within your resource group and assign it the same Cognitive Services OpenAI User role to the Azure OpenAI instances. The user-assigned managed identity has an associated client ID that is needed for configuring the authentication-managed-identity policy in Azure API Management. This must be set as the client-id parameter.
 
-    ```xml
-    <policies>
-      <inbound>
-        <authentication-managed-identity resource="https://cognitiveservices.azure.com" client-id="00000000-0000-0000-0000-000000000000" output-token-variable-name="msi-access-token" ignore-error="false" />
-        <set-header name="Authorization" exists-action="override">
-          <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
-        </set-header>
-      </inbound>
-    </policies>
-    ```
+```xml
+<policies>
+  <inbound>
+    <authentication-managed-identity resource="https://cognitiveservices.azure.com" client-id="00000000-0000-0000-0000-000000000000" output-token-variable-name="msi-access-token" ignore-error="false" />
+    <set-header name="Authorization" exists-action="override">
+      <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+    </set-header>
+  </inbound>
+</policies>
+```
 
-    *Figure 11: Code snippet to implement authentication to Azure OpenAI service using a user-assigned managed identity in Azure API Management API policies.*
+*Figure 11: Code snippet to implement authentication to Azure OpenAI service using a user-assigned managed identity in Azure API ManagementAPI policies.*
 
 Using a user assigned managed identity can provide more flexibility and control over the authentication process. However, it also requires additional management and configuration on your part.
 
@@ -158,17 +158,17 @@ In scenarios where you already have an existing external identity provider, enab
 
 When working with external OpenID Connect (OIDC) supported identity providers, ensure that a client is configured within that identity provider. This is equivalent to configuring your application within Microsoft Entra ID, discussed in the scenario. With this configured, configuring the validate-jwt policy requires configuration for the external well-known OpenID configuration path.  
 
-    ```xml
-    <policies>
-      <inbound>
-        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-          <openid-config url="{external-identity-provider-well-known-openid-path}" />
-        </validate-jwt>
-      </inbound>
-    </policies>
-    ```
+```xml
+<policies>
+  <inbound>
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access tokenis missing or invalid.">
+      <openid-config url="{external-identity-provider-well-known-openid-path}" />
+    </validate-jwt>
+  </inbound>
+</policies>
+```
 
-    *Figure 12: Code snippet to implement external identity provider JWT token validation in Azure API Management API policies.*
+*Figure 12: Code snippet to implement external identity provider JWT token validation in Azure API Management API policies.*
 
 Additional configuration for required claims can be provided the same as the scenario solution.
 
