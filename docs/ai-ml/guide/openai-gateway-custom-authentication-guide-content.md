@@ -5,8 +5,8 @@ This article shows how to implement alternative authentication mechanisms for cl
 
 ## Scenario
 
-:::image type="complex" source="_images/openai-gateway-conceptual-architecture.svg" lightbox="_images/openai-gateway-conceptual-architecture.svg" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
-    The diagram shows an intelligent application icon with an arrow pointing into a dashed line box labeled gateway. The arrow goes through a line that is labeled 'Federated Authentication', pointing to a 'rate limiter' icon. The 'rate limiter' has an arrow that points to a 'router' icon. The 'router' has four arrows pointing to different icons. The first arrow points to a 'load balancer', which points to 'OpenAI deployment' or 'LLM' icons in two regions and on-premises. The second arrow points to a 'monitoring' icon that later points to a 'cost' and a 'usage' icon. The third arrow points to a 'compute' icon. The fourth points to a 'message queue' icon, which then points to the 'Load balancer'.
+:::image type="complex" source="_images/openai-gateway-custom-authentication-key.png" lightbox="_images/openai-gateway-custom-authentication-key.png" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
+    The diagram shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.
 :::image-end:::
 *Figure 1: Starting point for application authentication with Azure OpenAI service using key-based authentication. 
 
