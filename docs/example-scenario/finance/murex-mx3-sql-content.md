@@ -4,7 +4,7 @@ Murex is a leading global software provider of trading, risk management, process
 
 ## Architecture
 
-Murex MX.3 workloads can run on databases like Oracle, Sybase or SQL Server. With version V3.1.48, SQL Server 2019 Standard is supported for MX.3, which lets you benefit from the performance, scalability, resilience, and cost savings facilitated by SQL Server. MX.3 is available only on Azure virtual machines (VMs) running Windows OS.
+Murex MX.3 workloads can run on databases like Oracle, Sybase, or SQL Server. With version V3.1.48, SQL Server 2019 Standard is supported for MX.3, which lets you benefit from the performance, scalability, resilience, and cost savings facilitated by SQL Server. MX.3 is available only on Azure virtual machines (VMs) running Windows OS.
 
 :::image type="content" source="./media/murex-azure-reference-architecture-sql.svg" alt-text="Diagram that shows an Azure architecture for a Murex MX.3 application." lightbox="./media/murex-azure-reference-architecture-sql.svg":::
 
@@ -13,7 +13,7 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase or SQL Server. Wit
 ### Workflow
 
 - The MX.3 presentation layer is hosted in Azure and is accessible from an on-premises environment through ExpressRoute or a site-to-site VPN.
-- For added security, we recommend you use Azure Virtual Desktop or Windows 365 Cloud PC running a desktop application to access the presentation layer. However, you can also access it through a web interface. The application tier contains the presentation layer, business layer, orchestration layer, and grid layer. It accesses SQL Server on Windows VM for storing and retrieving data.
+- The application tier contains the presentation layer, business layer, orchestration layer, and grid layer. It accesses SQL Server on Windows VM for storing and retrieving data. For added security, we recommend you use Azure Virtual Desktop or Windows 365 Cloud PC running a desktop application to access the presentation layer. However, you can also access it through a web interface.
 - The presentation layer accesses the business layer, orchestration layer, and grid layer components to complete the business process.
 - The application layer accesses Azure Key Vault services to securely store encryption keys and secrets.
 - Admin users securely access the Murex MX.3 servers by using the Azure Bastion service.
@@ -26,12 +26,12 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase or SQL Server. Wit
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): Use Azure ExpressRoute to create private connections between Azure datacenters and infrastructure on premises or in a colocation environment.
 - [Azure Files](https://azure.microsoft.com/services/storage/files): Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols.
 - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Azure Disk Storage offers high-performance, durable block storage for your mission- and business-critical applications.
-- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery): Deploy replication, failover, and recovery processes through Site Recovery to help keep your applications running during planned and unplanned outages.
+- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery): To help keep your applications running during planned and unplanned outages, deploy replication, failover, and recovery processes through Site Recovery.
 - [SQL Server on Windows VM](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview): SQL Server on Azure Virtual Machines lets you use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Use Azure Key Vault to securely store and access secrets.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy): Use Azure Policy to create, assign, and manage policy definitions in your Azure environment.
-- [Azure Backup](https://azure.microsoft.com/services/backup): Azure Backup is a cost-effective, secure, one-click backup solution that's scalable based on your backup storage needs.
+- [Azure Backup](https://azure.microsoft.com/services/backup): Azure Backup is a cost-effective, secure, one-click backup solution that's scalable, based on your backup storage needs.
 
 ### Alternatives
 
@@ -70,64 +70,80 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- For backup, you can use Azure native backup services combined with Azure storage. Use these services for daily, weekly, or monthly backups of the application VMs or any other application tier-specific backup requirements. For database requirements, you can use Site Recovery to automate the disaster recovery process and native database replication. You can also use backup tools to achieve the required level of RPO metrics.
-- To get high availability and resiliency of the Murex solution on Azure, run each layer of the application tier in at least two VMs. You can use an Azure availability set configuration to achieve high availability across multiple VMs. You can also use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) for redundancy and improved performance of applications that are distributed across multiple instances. You can achieve high availability for the orchestration layer by hosting them in multiple instances and invoking the instances by using custom scripts. Use database high availability features like SQL Server Always On availability group to achieve the high availability requirements.
-- SQL Server Always On availability group can be used to automate DR failover by setting up a primary SQL Server instance and one or more secondary instances. Configure the [Always On availability group](/sql/linux/sql-server-linux-availability-group-configure-ha) feature on each server instance.
-- MX.3 requires DTC to be turned on on SQL Server. We recommend you host SQL Server on Windows Server VMs to support DTC transactions, as DTC support isn't yet available in SQL Server on RedHat Linux OS for SQL Server Always On availability group.
-- For disaster recovery, you should run the [disaster recovery site](/azure/virtual-machines/linux/tutorial-disaster-recovery) in a different Azure region. For SQL Server, you can use active-passive disaster recovery configurations based on the recovery point objective and recovery time objective requirements. Active-active isn't an option with SQL Server as multi region writes aren't possible. Data loss due to latency and the timing of backups has to be considered. You can use Site Recovery to automate the disaster recovery process and native database replication. You can also use backup tools to achieve the required level of RPO metrics.
+For backup, you can use Azure native backup services combined with Azure storage. Use these services for daily, weekly, or monthly backups of the application VMs or any other application tier-specific backup requirements. For database requirements, you can use Site Recovery to automate the disaster recovery process and native database replication. You can also use backup tools to achieve the required level of RPO metrics.
+
+To get high availability and resiliency of the Murex solution on Azure, run each layer of the application tier in at least two VMs. You can use an Azure availability set configuration to achieve high availability across multiple VMs. You can also use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) for redundancy and improved performance of applications that are distributed across multiple instances. You can achieve high availability for the orchestration layer by hosting them in multiple instances and invoking the instances by using custom scripts. To achieve the high availability requirements, use database high availability features like SQL Server Always On availability group.
+
+SQL Server Always On availability group can be used to automate DR failover by setting up a primary SQL Server instance and one or more secondary instances. Configure the [Always On availability group](/sql/linux/sql-server-linux-availability-group-configure-ha) feature on each server instance.
+
+MX.3 requires DTC to be turned on in SQL Server. We recommend you host SQL Server on Windows Server VMs to support DTC transactions, as DTC support isn't yet available in SQL Server on RedHat Linux OS for SQL Server Always On availability group.
+
+For disaster recovery, you should run the [disaster recovery site](/azure/virtual-machines/linux/tutorial-disaster-recovery) in a different Azure region. For SQL Server, you can use active-passive disaster recovery configurations based on the recovery point objective and recovery time objective requirements. Active-active isn't an option with SQL Server as multi region writes aren't possible. Data loss due to latency and the timing of backups has to be considered. You can use Site Recovery to automate the disaster recovery process and native database replication. You can also use backup tools to achieve the required level of RPO metrics.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Access the MX.3 client tier directly from the user desktop or through virtual desktop solutions like Azure Virtual Desktop, Windows 365 Cloud PCs, or other non-Microsoft solutions.
-- Use services like Azure Key Vault to address the security requirements of the MX.3 application in Azure by storing keys and certificates. You can use virtual networks, network security groups (NSGs), and application security groups to control access between various layers and tiers. Use Azure Firewall, DDoS protection, and Azure Application Gateway or Web Application Firewall services to protect the front-end layer depending on the security requirements.
-- SQL Server features and capabilities provide a method of security at the data level. In addition, with Azure security measures, it's possible to encrypt your sensitive data, protect VMs from viruses and malware, secure network traffic, identify and detect threats, meet compliance requirements, and provide a single method for administration and reporting for any security need in the hybrid cloud. For more information on Security Considerations for SQL Server on Azure VMs, see [Security considerations for SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices).
-- To learn more about SQL Server VM best practices, see the other articles in this series:
-  - [Checklist: Best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist)
-  - [VM size: Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size)
-  - [HADR configuration best practices](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
-  - [Collect baseline: Performance best practices for SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline)
+Access the MX.3 client tier directly from the user desktop or through virtual desktop solutions like Azure Virtual Desktop, Windows 365 Cloud PCs, or other non-Microsoft solutions.
+
+Use services like Azure Key Vault to address the security requirements of the MX.3 application in Azure by storing keys and certificates. You can use virtual networks, network security groups (NSGs), and application security groups to control access between various layers and tiers. Use Azure Firewall, DDoS protection, and Azure Application Gateway or Web Application Firewall services to protect the front-end layer depending on the security requirements.
+
+Check out the SQL Server features and capabilities that provide a method of security at the data level. In addition, with Azure security measures, it's possible to encrypt your sensitive data, protect VMs from viruses and malware, secure network traffic, identify and detect threats, meet compliance requirements, and provide a single method for administration and reporting for any security need in the hybrid cloud. For more information on these security considerations, see [Security considerations for SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices).
+
+For more information about SQL Server VM best practices, see the other articles in this series:
+
+- [Checklist: Best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist)
+- [VM size: Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size)
+- [HADR configuration best practices](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
+- [Collect baseline: Performance best practices for SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline)
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) lets you exchange your existing licenses for discounted rates on Azure SQL database and Azure SQL Managed Instance. You can save up to 30 percent or more on SQL database and SQL Managed Instance by using your Software Assurance-enabled SQL Server licenses on Azure. The Azure Hybrid Benefit page provides a calculator to help determine savings.
-- There are several options that affect cost, and it's important to pick the right VM SKU that balances costs with business requirements.  
-- Virtual Machine Scale Sets can automatically increase the number of VM instances as application demand increases, then reduce the number of VM instances as demand decreases.
-- Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low. Customers continue to receive an acceptable level of performance as demand grows and extra VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
-- For pricing guidance and more information, see [Pricing guidance for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/pricing-guidance).
+[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) lets you exchange your existing licenses for discounted rates on Azure SQL database and Azure SQL Managed Instance. You can save up to 30 percent or more on SQL database and SQL Managed Instance by using your Software Assurance-enabled SQL Server licenses on Azure. The Azure Hybrid Benefit page provides a calculator to help determine savings.
 
-You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs.
+Several options can affect cost, and it's important to pick the right VM SKU that balances costs with business requirements.  
+
+Virtual Machine Scale Sets can automatically increase the number of VM instances as application demand increases, then reduce the number of VM instances as demand decreases.
+
+Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low. Customers continue to receive an acceptable level of performance as demand grows and extra VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
+
+For more information about pricing, see [Pricing guidance for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/pricing-guidance). You can also use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs.
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- Use Azure Monitor to monitor the Azure infrastructure components. Its alerting mechanism lets you take any preventive actions like autoscaling or notification.
-- You can achieve infrastructure automation by using Infrastructure as Code services, like Azure Resource Manager templates or Terraform scripts.
-- Azure DevOps lets you deploy Azure SQL Server with any IaC that is supported, such as Terraform.
+Use Azure Monitor to monitor the Azure infrastructure components. Its alerting mechanism lets you take preventive actions like autoscaling or notification.
 
-You can use Murex DevOps tools to address the application-level DevOps requirements. Engage directly with Murex for guidance on this approach.
+You can achieve infrastructure automation by using Infrastructure as Code services, like Azure Resource Manager templates or Terraform scripts.
+
+Azure DevOps lets you deploy Azure SQL Server with any IaC that is supported, such as Terraform. You can use Murex DevOps tools to address the application-level DevOps requirements. Engage directly with Murex for guidance on this approach.
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Having Murex MX.3 workloads across various tiers requires specific types of compute resources to meet functional and technical requirements. See the [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture) to understand the compute, memory, and storage requirements for an MX.3 workload.
-- To achieve the required performance metrics for Murex workloads, consider storing the MX.3 application directory and databases on Azure Managed Disks with Premium SSD. You can use a proximity placement group and network acceleration in Azure to achieve high network throughput across layers.
-- Use Premium or Ultra SSD storage for SQL on Azure VM. For more information on Premium SSD, see [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+Having Murex MX.3 workloads across various tiers requires specific types of compute resources to meet functional and technical requirements. See the [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture) to understand the compute, memory, and storage requirements for an MX.3 workload.
 
-  Ultra SSD on the other hand is another storage offering available on Azure for mission-critical workloads with submillisecond latencies at high throughput. With Ultra SSD, we need only one Ultra SSD disk of 1 TB, which can scale up to 50,000 IOPS. Ultra SSD can be configured flexibly, and size and IOPS can scale independently. For more information on Ultra SSD, see [Mission critical performance with Ultra SSD for SQL Server on Azure VM | Azure Blog | Microsoft Azure](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/).
-- The article [Checklist: Best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) provides a quick checklist of best practices and guidelines to optimize performance of your SQL Server on Azure VMs. To learn more about SQL Server VM best practices, see the other articles in this series:
-  - [VM size: Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size)
-  - [Storage: Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage)
-  - [Security considerations for SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices)
-  - [HADR configuration best practices](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
-  - [Collect baseline: Performance best practices for SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline)
-- Enable [SQL Assessment for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-assessment-for-sql-vm#enable) and your SQL Server are evaluated against known best practices with results on the SQL VM management page of the Azure portal.
-- If you're using Virtual Machine Scale Sets, then it's possible to scale out and create extra VMs to meet the compute demand for business layer. However, for Murex MX.3, this has to be done without terminating active sessions. Murex MX.3 customers can engage with their product support engineers for strategies to accomplish safe VM scaling.
+To achieve the required performance metrics for Murex workloads, consider storing the MX.3 application directory and databases on Azure Managed Disks with Premium SSD. You can use a proximity placement group and network acceleration in Azure to achieve high network throughput across layers.
+
+Use Premium or Ultra SSD storage for SQL on Azure VM. For more information on Premium SSD, see [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+
+Ultra SSD on the other hand is another storage offering available on Azure for mission-critical workloads with submillisecond latencies at high throughput. With Ultra SSD, we need only one Ultra SSD disk of 1 TB, which can scale up to 50,000 IOPS. Ultra SSD can be configured flexibly, and size and IOPS can scale independently. For more information on Ultra SSD, see [Mission critical performance with Ultra SSD for SQL Server on Azure VM | Azure Blog | Microsoft Azure](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/).
+
+The article [Checklist: Best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) provides a quick checklist of best practices and guidelines to optimize performance of your SQL Server on Azure VMs. To learn more about SQL Server VM best practices, see the other articles in this series:
+
+- [VM size: Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size)
+- [Storage: Performance best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage)
+- [Security considerations for SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices)
+- [HADR configuration best practices](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
+- [Collect baseline: Performance best practices for SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline)
+
+Enable [SQL Assessment for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-assessment-for-sql-vm#enable) to evaluate your SQL Server against known best practices, with results provided on the SQL VM management page of the Azure portal.
+
+If you're using Virtual Machine Scale Sets, then it's possible to scale out and create extra VMs to meet the compute demand for business layer. However, for Murex MX.3, it must be done without terminating active sessions. Murex MX.3 customers can engage with their product support engineers for strategies to accomplish safe VM scaling.
 
 ## Network hub-and-spoke model
 
@@ -149,7 +165,7 @@ Each component in the landing zone is discussed here:
 
 **Virtual network peering**: Hub and spoke virtual networks are connected using virtual network peering, which supports low latency connections between the virtual networks.
 
-**Gateway**: A gateway is used to send traffic from an MX.3 client's on-premises network to the Azure virtual network. You can encrypt the traffic before it's sent.
+**Gateway**: A gateway is used to send traffic from an MX.3 client's on-premises network to the Azure virtual network. You can encrypt the traffic before you send it.
 
 **Gateway Subnet**: The gateway that sends traffic from on-premises to Azure uses a specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use.
 
