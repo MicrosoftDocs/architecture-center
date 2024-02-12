@@ -50,6 +50,5 @@ Principal author:
 
 - [Patch and upgrade AKS worker nodes](./aks-upgrade-practices.md)
 - [Troubleshoot AKS networking](./troubleshoot-network-aks.md)
-- [Troubleshoot virtual nodes](./troubleshoot-virtual-nodes-aks.md)
 - [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [AKS troubleshooting](/azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
