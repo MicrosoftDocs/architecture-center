@@ -3897,7 +3897,7 @@
     },
     {
       "source_path": "docs/operator-guides/aks/troubleshoot-virtual-nodes-aks.md",
-      "redirect_url": "/azure/architecture",
+      "redirect_url": "/azure/aks/virtual-nodes",
       "redirect_document_id": false
     }
   ]
