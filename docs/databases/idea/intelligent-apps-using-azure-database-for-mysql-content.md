@@ -73,7 +73,7 @@ This solution is ideal for organizations that run predictive analytics on data f
 
 Principal author:
 
-- [Matt Cowen](https://www.linkedin.com/in/matthew-cowen-4815235) | Senior Cloud Solution Architect
+- [Matt Cowen](https://www.linkedin.com/in/matt-cowen/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
