@@ -14,7 +14,7 @@ categories:
 ---
 # SaaS and multitenant solution architecture
 
-Software as a Service (SaaS) is a business model that enables an organization to deliver its software to customers quickly and efficiently. Typically, the SaaS vendor operates and manages the software on behalf of their customers. Many independent software vendors (ISVs) are migrating away from providing software that a customer has to install and manage themselves to a SaaS model due to the greater customer experience and lower overhead that it provides. This series of articles provides guidance and resources for organizations that build software as a service (SaaS), including startups. It also provides extensive guidance about architecting multitenant solutions on Azure.
+Software as a Service (SaaS) is a business model that enables an organization to deliver its software to customers quickly and efficiently. Typically, the SaaS vendor operates and manages the software on behalf of their customers. Many independent software vendors (ISVs) are migrating away from providing software that a customer has to install and manage themselves to a SaaS model due to the improved customer experience and lower overhead that doing so provides. This series of articles provides guidance and resources for organizations that build SaaS solutions, including startups. It also provides extensive guidance about architecting multitenant solutions on Azure.
 
 ## Key concepts
 
