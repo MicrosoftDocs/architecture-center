@@ -20,7 +20,7 @@ Software as a Service (SaaS) is a business model that enables an organization to
 
 The key concepts found in this article are *SaaS*, *startups*, and *multitenancy*. These terms are related, and often mistakenly used interchangeably, but it is important to understand that they are distinct. SaaS and startup are business concepts, and multitenancy is an architecture concept.
 
-**SaaS is a business model.** An organization can choose to provide their software product as a service to their customers. Commonly, SaaS products are sold to businesses (business-to-business, or B2B), or to consumers (business-to-consumer, or B2C). SaaS products are distinct from products that customers install and manage themselves. Many SaaS solutions use a multitenant architecture, but some don't. SaaS solutions might also use different multitenancy models or approaches.
+**SaaS is a business model.** An organization can choose to provide their software product as a service to their customers. Commonly, SaaS products are sold to businesses (business-to-business, or B2B), or to consumers (business-to-consumer, or B2C). SaaS products are distinct from products that customers install and manage themselves in that SaaS products are hosted and maintained entirely by the solution vendor. Many SaaS solutions use a multitenant architecture, but some don't. SaaS solutions might also use different multitenancy models or approaches.
 
 **Startups are businesses in an early stage of their lifecycle.** Many software startups build SaaS solutions, but some might provide software in other ways instead. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
