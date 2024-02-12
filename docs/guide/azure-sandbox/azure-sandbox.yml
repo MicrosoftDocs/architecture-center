@@ -4,7 +4,7 @@ metadata:
   description: Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
   author: doherty100
   ms.author: rdoherty
-  ms.date: 02/10/2023
+  ms.date: 01/17/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

@@ -244,7 +244,7 @@ The Machine Learning NLP architecture is based on the classical machine learning
 Principal authors:
 
 - [Scott Donohoo](https://www.linkedin.com/in/scottdonohoo) | Senior Cloud Solution Architect
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-mcse-mpp-426430116) | Senior Cloud Solution Architect
+- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

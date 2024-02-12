@@ -19,7 +19,6 @@ products:
   - azure-cosmos-db
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - "Antipattern singleton"
   - "what is instantiation"

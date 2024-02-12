@@ -1,8 +1,8 @@
 ---
 title: General considerations for choosing an Azure container service 
 description: Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series. 
-author: julie-ng
-ms.author: julng
+author: MarcosMMartinez
+ms.author: mamartin
 ms.date: 01/03/2024
 ms.topic: conceptual
 ms.service: architecture-center
@@ -164,10 +164,10 @@ If a workload requires user-defined routes (UDRs) and NAT gateway capabilities f
 
 AKS and Web App for Containers implement these two networking features through standard virtual network functionality or virtual network integration, respectively. To elaborate, AKS node pools and Web App for Containers in an App Service Environment are already direct virtual network resources. Web App for Containers that aren't in an App Service Environment support UDRs and NAT gateway via [virtual network integration](/azure/app-service/overview-vnet-integration). With virtual network integration, the resource technically doesn't reside directly in the virtual network, but all of its outbound access flows through the virtual network, and the network's associated rules affect traffic as expected.
 
-| | Container Apps | AKS | Web App for Containers|
+| | Container Apps| AKS| Web App for Containers|
 |---|---|--|--|
 | **UDR support** | Consumption plan: ❌<br>Dedicated plan: ✅ | ✅ | ✅ |
-| **NAT gateway support** | Consumption plan: ❌<br>Dedicated plan: ✅ | ✅ | ✅| |
+| **NAT gateway support** | Consumption plan: ❌<br>Dedicated plan: ✅ | ✅ | ✅|
 
 ### Private networking integration
 

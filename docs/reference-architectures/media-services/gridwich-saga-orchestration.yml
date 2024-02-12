@@ -3,9 +3,9 @@ metadata:
   title: Gridwich saga orchestration
   titleSuffix: Azure Reference Architectures
   description: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
-  author: bgener
-  ms.author: bogenera
-  ms.date: 11/22/2021
+  author: xpouyat
+  ms.author: xpouyat
+  ms.date: 01/23/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -14,7 +14,6 @@ metadata:
 name: Gridwich saga orchestration
 summary: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
 products:
-  - azure-media-services
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |

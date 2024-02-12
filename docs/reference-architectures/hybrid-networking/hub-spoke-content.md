@@ -377,7 +377,7 @@ Principal author:
 Other contributors:
 
 - [Matthew Bratschun](https://www.linkedin.com/in/matthewbratschun/) | Customer Engineer
-- [Jay Li](https://www.linkedin.com/in/jiayangl/) | Senior Product Manager
+- [Jay Li](https://www.linkedin.com/in/jie-jay-li/) | Senior Product Manager
 - [Telmo Sampaio](https://www.linkedin.com/in/telmo-sampaio-172200/) | Principal Service Engineering Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

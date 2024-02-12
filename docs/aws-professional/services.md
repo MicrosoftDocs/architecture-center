@@ -185,6 +185,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
+| [Cloud Development Kit](https://aws.amazon.com/cdk) | [Azure Developer CLI](/azure/developer/azure-developer-cli/) <br/><br/>[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) | Developer-friendly imperative commands that enable consistent and repeatable work and standardized Infrastructure-as-Code modules. |
 
 ### DevOps architectures
 

@@ -151,7 +151,7 @@ The same designs are applicable for Virtual WAN. However, one consideration is t
 
 Principal authors: 
 
-* [Jay Li](https://www.linkedin.com/in/jiayangl) | Senior Program Manager
+* [Jay Li](https://www.linkedin.com/in/jie-jay-li/) | Senior Product Manager
 * [Jose Moreno](https://www.linkedin.com/in/erjosito) | Principal Customer Engineer
 * [Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios) | Senior Azure Infrastructure Customer Engineer
 
@@ -161,7 +161,7 @@ Other contributors:
 * [Mohamed Hassan](https://www.linkedin.com/in/mohnader) | Principal PM Manager
 * [Andrea Michael](https://www.linkedin.com/in/amichael98) | Program Manager
 * [Yasukuni Morishima](https://www.linkedin.com/in/yasukuni-morishima-621aa9141) | Customer Engineer II
-* [Jithin PP](https://www.linkedin.com/in/jithin-pp-0456a621) | Customer Engineer
+* Jithin PP| Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

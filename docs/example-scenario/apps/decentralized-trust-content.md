@@ -113,7 +113,6 @@ Product documentation of Azure services:
 
 ## Related resources
 
-- [Data management in banking](../../industries/finance/data-management-banking-overview.yml)
 - [Patterns and implementations for a banking cloud transformation](../../example-scenario/banking/patterns-and-implementations.yml)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
 
