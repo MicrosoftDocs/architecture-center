@@ -3896,6 +3896,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/networking/guide/ipv6/ipv6-ip-planning.md",
+      "redirect_url": "/azure/architecture/networking/guide/ipv6-ip-planning",
+    },
+    {
       "source_path": "docs/operator-guides/aks/troubleshoot-virtual-nodes-aks.md",
       "redirect_url": "/azure/aks/virtual-nodes",
       "redirect_document_id": false

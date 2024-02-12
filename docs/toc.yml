@@ -3267,7 +3267,9 @@ items:
       - name: Adopting IPv6
         items:
           - name: Conceptual planning for IPv6 networking
-            href: networking/guide/ipv6/ipv6-ip-planning.md
+            href: networking/guide/ipv6-ip-planning.md
+          - name: IPv6 hub-spoke network topology
+            href: networking/guide/ipv6-architecture.yml
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
