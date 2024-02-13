@@ -22,7 +22,7 @@ TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), incl
 
 TUFLOW HPC is the latest explicit finite volume engine. It can be used to distribute hydrodynamic calculations across multiple cores, specifically GPUs. The accuracy, stability, and speed of TUFLOW HPC combined with features like a quadtree mesh structure and sub-grid sampling make it a powerful 1D/2D hydrodynamic computational engine.
 
-TUFLOW HPC is used in the environment and natural resource industries, specifically in flood, urban stormwater, and coastal simulation labs. UVA Hydroinformatics and Chartered Institution of Water and Environmental Management are groups that use TUFLOW HPC.
+TUFLOW HPC is used in the environment and natural resource industries, specifically in flood, urban stormwater, and coastal simulation labs.
 
 Deploy TUFLOW HPC on Azure to get benefits like:
 
