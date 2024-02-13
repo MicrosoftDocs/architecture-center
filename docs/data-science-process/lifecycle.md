@@ -20,19 +20,19 @@ categories:
 ---
 # The Team Data Science Process lifecycle
 
-The Team Data Science Process (TDSP) provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the complete steps that successful projects follow. If you use another data science lifecycle, such as the Cross Industry Standard Process for Data Mining [(CRISP-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), Knowledge Discovery in Databases [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), or your organization's own custom process, your team may still use the task-based TDSP.
+The Team Data Science Process (TDSP) provides a lifecycle that your team can use to structure your data science projects. The lifecycle outlines the steps you can take to successfully complete a project. 
 
-This lifecycle is designed for data-science projects that are intended to ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data-science projects and improvised analytics projects may also benefit from the use of this process. But for those projects, some of the steps described here might not be needed.
+You should use this lifecycle if you have a data science project that's part of an intelligent application. Intelligent applications deploy machine learning or AI models for predictive analytics. You can also use this process for exploratory data science projects and improvised analytics projects, but you might not need to implement every step of the lifecycle.
 
-The supporting links provide more guidance, especially on how to apply TDSP within Microsoft Azure.
+Your team can combine the task-based TDSP with other data science lifecycles, such as the cross-industry standard process for data mining [(CRISP-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), the knowledge discovery in databases [(KDD)](https://wikipedia.org/wiki/Data_mining#Process) process, or your organization's own custom process.
 
-## Purpose and impact
+## Purpose and credibility
 
-The purpose of TDSP is to streamline and standardize the approach to data science and artificial intelligence projects. Microsoft applied this structured methodology in hundreds of projects at Microsoft. Researchers studied TDSP and published their findings in the peer-reviewed literature.  The broad applicability and academic rigor provide assurance of the impact and effectiveness of the TDSP architectural framework.
+The purpose of TDSP is to streamline and standardize your approach to data science and AI projects. Microsoft has applied this structured methodology in hundreds of projects. Researchers studied TDSP and published their findings in peer-reviewed literature. The architectural framework of the TDSP is thoroughly tested and proven effective in many areas.
 
 ## Five lifecycle stages
 
-The TDSP lifecycle is composed of five major stages that are executed iteratively. These stages include:
+The TDSP lifecycle is composed of five major stages that your team performs iteratively. These stages include:
 
 1. [Business understanding](lifecycle-business-understanding.md)
 2. [Data acquisition and understanding](lifecycle-data.md)
@@ -42,19 +42,19 @@ The TDSP lifecycle is composed of five major stages that are executed iterativel
 
 Here's a visual representation of the TDSP lifecycle:
 
-![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
+[![Diagram that shows the stages of the TDSP lifecycle.](./media/lifecycle/tdsp-lifecycle2.png)](./media/lifecycle/tdsp-lifecycle2.png)
 
-The TDSP lifecycle is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models. Your team deploys the predictive models in the production environment that you plan to use to build the intelligent applications. The goal of this process lifecycle is to continue to move a data science project toward a clear engagement end point. Data science is an exercise in research and discovery. The ability to communicate tasks to your team and your customers by using a well-defined process increases the chance of the successful completion of a complex data science project.
+The TDSP lifecycle is a sequence of iterated steps that provide guidance for creating predictive models. Your team deploys the predictive models in a production environment that you plan to use to build intelligent applications. The goal of this process lifecycle is to navigate a data science project toward a clear engagement endpoint. Data science is an exercise in research and discovery. When you use a well-defined process to communicate tasks to your team, you increase the chance of successfully carrying out a data science project.
 
-For each stage, we provide the following information:
+Each stage has its own article that outlines:
 
-* **Goals**: The specific objectives.
-* **How to do it**: An outline of the specific tasks and guidance on how to complete them.
-* **Artifacts**: The deliverables and the support to produce them.
+* **Goals**: The objectives of the stage.
+* **How to do it**: An outline of the tasks you perform in that stage and guidance about how to complete them.
+* **Artifacts**: The deliverables that you need to produce during that stage and resources that you can use to help you create them.
 
-## Peer-Reviewed Citations
+## Peer-reviewed citations
 
-Researchers publish on TDSP in the peer-reviewed literature.  These citations provide an opportunity to investigate TDSP features and applications.
+Researchers publish peer-reviewed literature about the TDSP. Review the following material to investigate TDSP features and applications.
 
 Amershi, S., Begel, A., Bird, C., DeLine, R., Gall, H., Kamar, E., Nagappan, N., Nushi, B., & Zimmermann, T. (2019). Software Engineering for Machine Learning: A Case Study. 2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP), 291–300. https://doi.org/10.1109/ICSE-SEIP.2019.00042
 
@@ -78,21 +78,18 @@ Siebert, J., Joeckel, L., Heidrich, J., Trendowicz, A., Nakamichi, K., Ohashi, K
 
 Yablonsky, S. (2021, June 20). Machine Learning-driven Innovation Management: Conceptional Framework. Event Proceedings: LUT Scientific and Expertise Publications: ISBN 978-952-335-467-8. The ISPIM Innovation Conference – Innovating Our Common Future, Berlin, Germany on 20-23 June 2021, Berlin, Germany.
 
-## Next steps
-
-For the first element of the lifecycle, see [Business Understanding](/azure/architecture/data-science-process/lifecycle-business-understanding).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab) | Senior Cloud Solution Architect
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 
-- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
-- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- For the first element of the lifecycle, see [Business Understanding](lifecycle-business-understanding.md).
+- [What is the Team Data Science Process?](overview.yml)
+- [Compare machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)

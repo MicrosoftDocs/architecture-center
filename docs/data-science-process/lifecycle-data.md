@@ -17,7 +17,7 @@ categories:
 ---
 # Data acquisition and understanding stage of the Team Data Science Process lifecycle
 
-This article outlines the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+This article outlines the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
 
 1. **Business understanding**
 2. **Data acquisition and understanding**
@@ -37,7 +37,7 @@ The goals of the data acquisition and understanding stage are to:
 
 * Develop a solution architecture of the data pipeline that refreshes and scores the data regularly.
 
-## How to do it
+## How to complete the tasks
 
 The data acquisition and understanding stage has three main tasks:
 

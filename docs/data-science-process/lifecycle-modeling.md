@@ -20,7 +20,7 @@ categories:
 ---
 # Modeling stage of the Team Data Science Process lifecycle
 
-This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
 
 1. **Business understanding**
 2. **Data acquisition and understanding**
@@ -41,7 +41,7 @@ The goals of the modeling stage are to:
 * Create an informative machine learning model that predicts the target most accurately.
 * Create a machine learning model that's suitable for production.
 
-## How to do it
+## How to complete the tasks
 
 The modeling stage has three main tasks:
 

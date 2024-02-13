@@ -20,7 +20,7 @@ categories:
 ---
 # The business understanding stage of the Team Data Science Process lifecycle
 
-This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
 
 1. **Business understanding**
 2. **Data acquisition and understanding**
@@ -40,7 +40,7 @@ The goals of the business understanding stage are to:
 
 * Identify the relevant data sources that the business has access to or needs to obtain.
 
-## How to do it
+## How to complete the tasks
 
 The business understanding stage has two main tasks:
 

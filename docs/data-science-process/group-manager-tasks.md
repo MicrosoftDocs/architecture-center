@@ -30,6 +30,7 @@ Group managers can delegate their tasks to surrogates, but the tasks that are as
 - **Strategic oversight**:
     - Establish and oversee the strategic direction of the data science projects within the group.
     - Ensure that projects with broad business goals and objectives are aligned.
+
 - **Resource management**:
     - Allocate resources, including personnel, budget, and technology, effectively across projects.
     - Balance resource allocation to meet project needs and maximize efficiency.
@@ -56,6 +57,7 @@ Group managers can delegate their tasks to surrogates, but the tasks that are as
 
 -   **Develop and review project plans**:
     -   Review and approve project plans. Ensure that they're viable, well-structured, and aligned with business objectives.
+
 -   **Monitor project progress**:
     -   Regularly monitor the progress of projects. Offer guidance and support to help meet milestones and deliverable objectives.
 -   **Facilitate cross-team collaboration**:

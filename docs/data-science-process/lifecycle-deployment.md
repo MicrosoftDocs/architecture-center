@@ -20,7 +20,7 @@ categories:
 ---
 # Deployment stage of the Team Data Science Process lifecycle
 
-This article outlines the goals, tasks, and deliverables associated with the deployment of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+This article outlines the goals, tasks, and deliverables associated with the deployment of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data-science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
 
 1. **Business understanding**
 2. **Data acquisition and understanding**
@@ -36,7 +36,7 @@ Here's a visual representation of the TDSP lifecycle:
 
 The goal of the deployment stage is to deploy models with a data pipeline to a production or production-like environment for final customer acceptance.
 
-## How to do it
+## How to complete the task
 
 The main task for this stage is to **operationalize the model**. Deploy the model and pipeline to a production or production-like environment for application consumption.
 
