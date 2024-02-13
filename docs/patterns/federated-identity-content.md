@@ -60,7 +60,7 @@ This pattern might not be useful in the following situations:
 
 ## Workload design
 
-An architect should evaluate how the Federated Identity pattern can be used in their workloads's design to addresses the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Federated Identity pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
@@ -68,7 +68,7 @@ An architect should evaluate how the Federated Identity pattern can be used in t
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | By externalizing user management and authentication, you can get evolved capabilities for identity-based threat detection and prevention without needing to implement these capabilities in your workload. And external identity providers use modern interoperable authentication protocols.<br/><br/> - [SE:02 Secured development lifecycle](/azure/well-architected/security/secure-development-lifecycle)<br/> - [SE:10 Monitoring and threat detection](/azure/well-architected/security/monitor-threats) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | When you offload user management and authentication, you can devote application resources to other priorities.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might introduced with this pattern.
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 

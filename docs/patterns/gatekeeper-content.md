@@ -42,14 +42,14 @@ This pattern is helpful for applications that:
 
 ## Workload design
 
-An architect should evaluate how the Gatekeeper pattern can be used in their workloads's design to addresses the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Gatekeeper pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | Adding a gateway into the request flow enables you to centralize security functionality like web application firewalls, DDoS protection, bot detection, request manipulation, authentication initiation, and authorization checks.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:10 Monitoring and threat detection](/azure/well-architected/security/monitor-threats) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern is how you can implement throttling at a gateway level rather than implementing rate checks at the node level. Coordinating rate state among all nodes isn't inherently performant.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might introduced with this pattern.
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 

@@ -44,7 +44,7 @@ This pattern may not be suitable if it introduces coupling across services.
 
 ## Workload design
 
-An architect should evaluate how the Gateway Offloading pattern can be used in their workloads's design to addresses the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Gateway Offloading pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
@@ -54,7 +54,7 @@ An architect should evaluate how the Gateway Offloading pattern can be used in t
 | [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | In this pattern, the configuration and upkeep of the offloaded functionality is from single point instead of managing it from multiple nodes.<br/><br/> - [OE:04 Tools and processes]/azure/well-architected/operational-excellence/tools-processes) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Adding an offloading gateway to the request process enables you to use less resources per-node because functionality is centralized at the gateway. You can optimize the implementation of the offloaded functionality independently of the application code. Offloaded platform-provided functionality is already likely to be highly performant.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
 
-As with any design decision, consider any tradeoffs against the goals of the other pillars that might introduced with this pattern.
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
