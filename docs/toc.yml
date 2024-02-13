@@ -1242,6 +1242,8 @@ items:
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
             href: guide/hpc/ansys-rocky.yml
+          - name: Ansys Speos
+            href: guide/hpc/ansys-speos.yml
         - name: Autodesk deployments
           items:
           - name: Autodesk Civil 3D
