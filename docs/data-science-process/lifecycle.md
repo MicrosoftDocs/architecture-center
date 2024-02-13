@@ -44,13 +44,13 @@ Here's a visual representation of the TDSP lifecycle:
 
 [![Diagram that shows the stages of the TDSP lifecycle.](./media/lifecycle/tdsp-lifecycle2.png)](./media/lifecycle/tdsp-lifecycle2.png)
 
-The TDSP lifecycle is a sequence of iterated steps that provide guidance for creating predictive models. Your team deploys the predictive models in a production environment that you plan to use to build intelligent applications. The goal of this process lifecycle is to navigate a data science project toward a clear engagement endpoint. Data science is an exercise in research and discovery. When you use a well-defined process to communicate tasks to your team, you increase the chance of successfully carrying out a data science project.
+The TDSP lifecycle is a sequence of steps that provide guidance for creating predictive models. Your team deploys the predictive models in a production environment that you plan to use to build intelligent applications. The goal of this process lifecycle is to navigate a data science project toward a clear engagement endpoint. Data science is an exercise in research and discovery. When you use a well-defined process to communicate tasks to your team, you increase the chance of successfully carrying out a data science project.
 
 Each stage has its own article that outlines:
 
 * **Goals**: The objectives of the stage.
-* **How to do it**: An outline of the tasks you perform in that stage and guidance about how to complete them.
-* **Artifacts**: The deliverables that you need to produce during that stage and resources that you can use to help you create them.
+* **How to do it**: An outline of the tasks you perform in the stage and guidance about how to complete them.
+* **Artifacts**: The deliverables that you need to produce during the stage and resources that you can use to help you create them.
 
 ## Peer-reviewed citations
 
@@ -90,6 +90,6 @@ Principal author:
 
 ## Related resources
 
-- For the first element of the lifecycle, see [Business Understanding](lifecycle-business-understanding.md).
+- For the first stage of the lifecycle, see [Business understanding](lifecycle-business-understanding.md).
 - [What is the Team Data Science Process?](overview.yml)
 - [Compare machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)
