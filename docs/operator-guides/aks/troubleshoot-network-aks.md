@@ -2,7 +2,7 @@
 title: Troubleshoot network problems in AKS clusters
 description: Learn about steps to take to troubleshoot network problems in Azure Kubernetes Service (AKS) clusters.
 author: mosabami
-ms.author: miwalters
+ms.author: aayodeji
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: architecture-center
