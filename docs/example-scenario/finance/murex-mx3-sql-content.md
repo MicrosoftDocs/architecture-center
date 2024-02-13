@@ -35,7 +35,7 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase, or SQL Server. Wi
 
 ### Alternatives
 
-Aa an alternate solution, you can use Murex MX.3 with Oracle as a database instead of SQL. For more information, see [Host a Murex MX.3 workload on Azure](murex-mx3-azure.yml).
+As an alternate solution, you can use Murex MX.3 with Oracle as a database instead of SQL. For more information, see [Host a Murex MX.3 workload on Azure](murex-mx3-azure.yml).
 
 ## Scenario details
 
@@ -44,8 +44,6 @@ MX.3 is a client/server application based on a three-tier architecture structure
 Azure provides a fast and easy way to create and scale an MX.3 infrastructure. It offers a secure, reliable, and efficient environment for production, development, and test systems, and significantly reduces the infrastructure cost needed to operate the MX.3 environment.
 
 For detailed information about the various tiers and layers of the Murex MX.3 application, compute, and storage requirements, contact the [Murex technical team](https://www.murex.com/en/solutions/technology/mx3-architecture).
-
-*Linux is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
 ### Potential use cases
 
@@ -79,6 +77,8 @@ SQL Server Always On availability group can be used to automate DR failover by s
 MX.3 requires DTC to be turned on in SQL Server. We recommend you host SQL Server on Windows Server VMs to support DTC transactions, as DTC support isn't yet available in SQL Server on RedHat Linux OS for SQL Server Always On availability group.
 
 For disaster recovery, you should run the [disaster recovery site](/azure/virtual-machines/linux/tutorial-disaster-recovery) in a different Azure region. For SQL Server, you can use active-passive disaster recovery configurations based on the recovery point objective and recovery time objective requirements. Active-active isn't an option with SQL Server as multi region writes aren't possible. Data loss due to latency and the timing of backups has to be considered. You can use Site Recovery to automate the disaster recovery process and native database replication. You can also use backup tools to achieve the required level of RPO metrics.
+
+*Linux is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
 ### Security
 
