@@ -94,8 +94,8 @@ An architect and the workload team should evaluate how the Quarantine pattern ca
 
 |Pillar|How this pattern supports pillar goals|
 |---|---|
-|[Security](/azure/well-architected/security/) provides confidentiality, integrity, and availability guarantees to the workload.|The first responsibility of security validation is served by the Quarantine pattern. The validation on an external artifact is conducted in a segmented environment before it's consumed by the development process.|
-|[Operational Excellence](/azure/well-architected/operational-excellence/) focuses on procedures for development practices, observability, and release management.|The Quarantine pattern supports safe deployment practices (SDP) by making sure that compromised artifacts aren't consumed by the workload, which could lead to security breaches during progressive exposure deployments.|
+|[Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems.|The first responsibility of security validation is served by the Quarantine pattern. The validation on an external artifact is conducted in a segmented environment before it's consumed by the development process.|
+|[Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion.|The Quarantine pattern supports safe deployment practices (SDP) by making sure that compromised artifacts aren't consumed by the workload, which could lead to security breaches during progressive exposure deployments.|
 
 
 
