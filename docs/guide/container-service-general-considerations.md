@@ -243,7 +243,7 @@ AKS requires workload teams to set up their own ingress controllers, configure c
 
 ### Mutual TLS
 
-Another alternative for restricting incoming traffic is mutual TLS (mTLS). Manual TLS is a security protocol that ensures that both the client and server in communication are authenticated. To accomplish authentication, both parties exchange and verify certificates before any data is transmitted.
+Another alternative for restricting incoming traffic is mutual TLS (mTLS). Mutual TLS is a security protocol that ensures that both the client and server in communication are authenticated. To accomplish authentication, both parties exchange and verify certificates before any data is transmitted.
 
 Web App for Containers has built-in mTLS support for incoming client connections. However, the application needs to validate the certificate by [accessing the `X-ARR-ClientCert` HTTP header](/azure/app-service/app-service-web-configure-tls-mutual-auth#access-client-certificate) that the App Service platform forwards.
 

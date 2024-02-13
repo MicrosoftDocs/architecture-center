@@ -2,8 +2,8 @@
 metadata:
   title: Azure industrial IoT data analysis
   description: Analyze and visualize data in an Azure Industrial IoT (IIoT) analytics solution. Use Azure Data Explorer, Power BI, custom web applications, and notebooks.
-  author: khilscher
-  ms.author: kehilsch
+  author: asergaz
+  ms.author: sergaz
   ms.date: 05/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
