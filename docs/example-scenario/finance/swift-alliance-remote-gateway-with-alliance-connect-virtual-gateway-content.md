@@ -19,22 +19,22 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 
 - Customer Premises Connectivity: These users connect to the Azure-hosted applications via an ExpressRoute or VPN (Virtual Private Network) gateway, ensuring secure and reliable connectivity.
 
-- Customer Backoffice Subscription: This area contains back-office application VMs (Virtual Machines) that are part of the Azure services. It's connected to the main Azure infrastructure through VNET peering, indicating a direct network link between different Azure virtual networks.
+- Customer Backoffice Subscription: This area contains back-office application VMs (Virtual Machines) that are part of the Azure services. It connects to the main Azure infrastructure through virtual network peering, indicating a direct network link between different Azure virtual networks.
 
-- Alliance Remote Gateway Subscription: The central part of this architecture is the Alliance Remote Gateway Subscription. Within this subscription, there are different components:
-  - Hub VNET: Acts as the central point of connectivity with an ExpressRoute/VPN Gateway and Azure Firewall for secure and filtered internet access.
-  - SWIFT Alliance Access Spoke VNET: Contains infrastructure for SWIFT Alliance Access, with subnets for web platforms and access services, along with High Availability (HA) VMs.
+- Alliance Remote Gateway Subscription: The central part of this architecture is the Alliance Remote Gateway Subscription. Within this subscription, there are different components.
+  - Hub virtual network: Acts as the central point of connectivity with an ExpressRoute/VPN Gateway and Azure Firewall for secure and filtered internet access.
+  - SWIFT Alliance Access Spoke virtual network: Contains infrastructure for SWIFT Alliance Access, with subnets for web platforms and access services, along with High Availability (HA) VMs.
   - Security and Management Services: Services like Microsoft Defender for Cloud, Managed Identity, Azure Monitor, and Azure Storage for diagnostics are used to manage, secure, and monitor the environment.
   
-  The HA subnets and VMs ensure that the system remains operational even in the event of individual component failures.
+  The HA subnets and VMs ensure that the system remains operational even if individual component failures.
 
-  The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC). The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing. The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
+  The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC). The customer retains full control of the Alliance Access or Alliance Entry configuration and features. Control includes message entry and display, routing, operator definitions, scheduling, manual printing, and automated printing. The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
 
 - Alliance Connect Virtual Subscription: The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through Multi-Vendor Secure IP Network (MV-SIPN). The deployment of the respective Juniper Virtual Firewall (vSRX) components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
 
-  This subscription is peered with the Alliance Remote Gateway Subscription. It contains subnets for trust, interconnect, and untrust zones, each with their respective network interface cards (NICs) and user-defined routes (UDR) for controlled network traffic flow. Virtual Network Gateways are present in the gateway subnet with public IP addresses, suggesting external connectivity. There are also virtual appliances for VA and VB SRX, which are set up for redundancy and are connected to the management, untrust, and gateway subnets.
+  This subscription is peered with the Alliance Remote Gateway Subscription. It contains subnets for trust, interconnect, and untrust zones, each with their respective network interface cards (NICs) and user-defined routes (UDR) for controlled network traffic flow.
 
-  The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options i.e. Bronze, Silver and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+  The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options, such as Bronze, Silver, and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
 - External connectivity: The architecture includes connections to the SWIFTNet via the ExpressRoute or the internet, which would be used for the secure transfer of financial messages and transactions.
 
@@ -43,19 +43,18 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 ### Components  
   
 - **Azure subscription:** An Azure subscription is needed to deploy Alliance Remote Gateway. We recommend that you use a new Azure subscription to manage and scale Alliance Remote Gateway and its components.
-- **Azure resource group:** The Alliance Remote Gateway Secure Zone subscription has an Azure resource group that hosts these Alliance Remote Gateway components:
+- **Azure resource group:** The Alliance Remote Gateway Secure Zone subscription has an Azure resource group that hosts these Alliance Remote Gateway components.
   - Alliance Web Platform, running on an Azure virtual machine (VM).
   - Alliance Access, running on an Azure VM. The Alliance Access software contains an embedded Oracle database.
 - **[Azure Virtual Network](https://azure.microsoft.com/products/virtual-network):** Virtual Network forms a private network boundary around the SWIFT deployment. Choose a network address space that doesn't conflict with your on-premises sites, like back-office, Hardware Security Module (HSM), and user sites.
 - **Virtual Network subnet:** Alliance Access components should be deployed in separate subnets to allow traffic control between them via Azure network security groups.
-- **Azure route table:** You can control network connectivity between Alliance Access VMs and your on-premises sites by using an Azure route table. 
-- **[Azure Firewall](https://azure.microsoft.com/products/azure-firewall):** Any outbound connectivity from Alliance Access VMs to the internet should be routed by Azure Firewall. Typical examples of such connectivity are time syncs and antivirus definition updates.
-- **Azure Virtual Machines:** Virtual Machines provides compute services for running Alliance Access. Use these guidelines to choose the right SKU:
+- **Azure route table:** You can control network connectivity between Alliance Access VMs and your on-premises sites by using an Azure route table.
+- **[Azure Firewall](https://azure.microsoft.com/products/azure-firewall):** Any outbound connectivity from Alliance Access VMs to the internet should pass through Azure Firewall. Typical examples of such connectivity are time syncs and antivirus definition updates.
+- **Azure Virtual Machines:** Virtual Machines provides compute services for running Alliance Access. Use these guidelines to choose the right SKU.
   - Use a compute-optimized SKU for the Alliance Web Platform front end.
   - Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
 - **[Azure managed disks](https://azure.microsoft.com/products/storage/disks):** If you use Premium SSD managed disks, Alliance Access components benefit from high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
 - **Azure proximity placement groups:** You can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are physically located close to each other. Proximity placement groups reduce network latency between Alliance Access components.
-
 
 ## Scenario details
 
@@ -63,7 +62,7 @@ This approach can be used for migrating SWIFT connectivity from on-premises to A
 
 ### Potential use cases
 
-This solution is optimal for the finance industry. It's intended for existing SWIFT customers and can be used when migrating Alliance Access from on-premises to Azure.
+This solution is optimal for the finance industry. It's for existing SWIFT customers and can be used when migrating Alliance Access from on-premises to Azure.
 
 ## Considerations
 
@@ -73,7 +72,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-When you deploy SWIFT components on-premises, you need to make decisions about availability and resiliency. For on-premises resiliency, we recommend that you deploy components into at least two datacenters. This approach helps ensure that a datacenter failure won't compromise your business. The same considerations apply on Azure, although some different concepts apply.
+When you deploy SWIFT components on-premises, you need to make decisions about availability and resiliency. For on-premises resiliency, we recommend that you deploy components into at least two datacenters. The same considerations apply on Azure, although some different concepts apply.
 
 Alliance Access/Entry can be deployed into an Azure cloud infrastructure. The Azure infrastructure needs to comply with the corresponding application's requirements for performance and latency.
 
@@ -86,15 +85,15 @@ Azure provides service-level agreements (SLAs) for VM availability. These SLAs v
 
 #### Single-region multi-active resiliency
 
-Alliance Access uses an embedded Oracle database. To align with a multi-active Alliance Access deployment, you can use a path-resilient architecture. A path-resilient architecture places all required SWIFT components in one path. You duplicate each path as many times as you need to for resiliency and scaling. If there's a failure, you fail over an entire path instead of a single component. The following diagram shows what this resiliency approach looks like when you use availability zones. This architecture is easier to configure, but a failure in any component in a path requires that you switch to another path. 
+Alliance Access uses an embedded Oracle database. To align with a multi-active Alliance Access deployment, you can use a path-resilient architecture. A path-resilient architecture places all required SWIFT components in one path. You duplicate each path as many times as you need to for resiliency and scaling. If there's a failure, you fail over an entire path instead of a single component. The following diagram shows what this resiliency approach looks like when you use availability zones. This architecture is easier to configure, but a failure in any component in a path requires that you switch to another path.
 
-Adding additional components to this architecture likely increases the overall costs. It’s important to factor this into your planning and budgeting for the project.
+Adding other components to this architecture likely increases the overall costs. It’s important to factor these components into your planning and budgeting for the project.
 
 By combining Web Platform and Alliance Access on a single VM, you reduce the number of infrastructure components that can fail. Depending on the usage pattern of the SWIFT components, you might consider that configuration. For Alliance Access components and Alliance Connect Virtual instances, deploy the related systems in the same Azure zone, as shown in the preceding architecture diagram. For example, deploy Alliance Access Web Platform VMs, Alliance Access VMs, HA-VMs in two availability zones.
 
 ![Diagram that shows resiliency options.](media/swift-arg-multi-az-.svg)
 
-Because SWIFT components connect to different nodes, you can't use Azure Load Balancer to automate failover or to provide load balancing. Instead, you have to rely on SWIFT's software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and fail over. Because you're using availability zones or availability sets, the VM uptime SLA for each component is well-defined.
+Because SWIFT components connect to different nodes, you can't use Azure Load Balancer to automate failover or to provide load balancing. Instead, you have to rely on SWIFT's software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and fail over. Because you're using availability zones or availability sets, the virtual machine uptime service level agreement (SLA) for each component is well-defined.
 
 #### Multi-region multi-active resiliency
 
@@ -109,10 +108,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides connectivity transparency from the Azure portal to a VM by using RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) can be enforced. You can use [Conditional Access](/entra/identity/conditional-access/overview) to enforce other restrictions. For example, you can specify the public IP address that administrators can use to sign in. Deploying Azure Bastion also enables just-in-time access, which opens required ports on-demand when remote access is required.
 
-
 #### Authentication and authorization
 
-Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) service of the Azure tenant that's associated with the subscription. Microsoft Entra ID can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Microsoft Entra ID instance to comply with this recommendation.
+Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) service of the Azure tenant that associated with the subscription. Microsoft Entra ID can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Microsoft Entra ID instance to comply with this recommendation.
 
 
 
@@ -137,7 +135,7 @@ The SWIFT customer establishes a secure connection from their on-premises or col
 
 - ExpressRoute can be used to connect the customer's on-premises to Azure over a private connection.
 - Site-to-site VPN can be used to connect the customer's on-premises to Azure over the internet.
-- Using Remote Desktop Protocol (RDP) over the internet to connect customers (Azure Bastion can be utilized for the same).The customer's Azure environment can be peered. 
+- Remote Desktop Protocol (RDP) can be used over the internet to connect customers (Azure Bastion can be utilized for the same). The customer's Azure environment can be peered.
 
 ![Diagram that shows three connectivity methods.](media/secure-zone-alliance-connect-virtual.png)
 
