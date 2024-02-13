@@ -40,6 +40,17 @@ This pattern may not be suitable:
 - When client connectivity features are consumed by a single language. In that case, a better option might be a client library that is distributed to the development teams as a package.
 - When connectivity features cannot be generalized and require deeper integration with the client application.
 
+## Workload design
+
+An architect should evaluate how the Ambassador pattern can be used in their workloads's design to addresses the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The network communications mediation point facilitated by this pattern provides an opportunity to add reliability patterns to network communication, such as retry or buffering.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern provides an opportunity to augment security on network communications that could not have been handled by the client directly.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:07 Encryption](/azure/well-architected/security/encryption) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might introduced with this pattern.
+
 ## Example
 
 The following diagram shows an application making a request to a remote service via an ambassador proxy. The ambassador provides routing, circuit breaking, and logging. It calls the remote service and then returns the response to the client application:
