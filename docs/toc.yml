@@ -1530,8 +1530,6 @@ items:
               href: operator-guides/aks/aks-upgrade-practices.md
             - name: Troubleshoot networking
               href: operator-guides/aks/troubleshoot-network-aks.md
-            - name: Troubleshoot virtual nodes
-              href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
             - name: Monitor AKS with Azure Monitor
               href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
@@ -3269,7 +3267,9 @@ items:
       - name: Adopting IPv6
         items:
           - name: Conceptual planning for IPv6 networking
-            href: networking/guide/ipv6/ipv6-ip-planning.md
+            href: networking/guide/ipv6-ip-planning.md
+          - name: IPv6 hub-spoke network topology
+            href: networking/guide/ipv6-architecture.yml
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
