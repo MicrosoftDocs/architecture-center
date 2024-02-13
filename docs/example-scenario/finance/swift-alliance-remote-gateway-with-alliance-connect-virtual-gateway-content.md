@@ -46,7 +46,6 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 - **Azure resource group:** The Alliance Remote Gateway Secure Zone subscription has an Azure resource group that hosts these Alliance Remote Gateway components:
   - Alliance Web Platform, running on an Azure virtual machine (VM).
   - Alliance Access, running on an Azure VM. The Alliance Access software contains an embedded Oracle database.
-
 - **[Azure Virtual Network](https://azure.microsoft.com/products/virtual-network):** Virtual Network forms a private network boundary around the SWIFT deployment. Choose a network address space that doesn't conflict with your on-premises sites, like back-office, Hardware Security Module (HSM), and user sites.
 - **Virtual Network subnet:** Alliance Access components should be deployed in separate subnets to allow traffic control between them via Azure network security groups.
 - **Azure route table:** You can control network connectivity between Alliance Access VMs and your on-premises sites by using an Azure route table. 
