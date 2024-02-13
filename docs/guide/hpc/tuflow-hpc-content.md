@@ -1,4 +1,4 @@
-This article presents the performance results of running [TUFLOW (heavily parallelized compute) HPC](https://wiki.tuflow.com/Hardware_Benchmarking_(2018-03-AA)) models on an Azure virtual machine (VM).
+This article presents the performance results of running [TUFLOW (heavily parallelized compute) HPC](https://www.tuflow.com/) models on an Azure virtual machine (VM).
 
 TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), including the sub-grid scale eddy viscosity model. It builds on the strength and accuracy of the TUFLOW Classic model. The TUFLOW HPC model provides finite volume TVD shock capturing, adaptive timestepping stability, and GPU acceleration that achieves simulation times that are 10 to 400 times faster than the TUFLOW Classic model. 
 
