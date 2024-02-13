@@ -22,7 +22,7 @@ Ambassador services can be deployed as a [sidecar](./sidecar.yml) to accompany t
 
 - The proxy adds some latency overhead. Consider whether a client library, invoked directly by the application, is a better approach.
 - Consider the possible impact of including generalized features in the proxy. For example, the ambassador could handle retries, but that might not be safe unless all operations are idempotent.
-- Consider a mechanism to allow the client to pass some context to the proxy, as well as back to the client. For example, include HTTP request headers to opt out of retry or specify the maximum number of times to retry.
+- Consider a mechanism to allow the client to pass some context to the proxy, and back to the client. For example, include HTTP request headers to opt out of retry or specify the maximum number of times to retry.
 - Consider how you'll package and deploy the proxy.
 - Consider whether to use a single shared instance for all clients or an instance for each client.
 
@@ -47,7 +47,7 @@ An architect should evaluate how the Ambassador pattern can be used in their wor
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
 | [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The network communications mediation point facilitated by this pattern provides an opportunity to add reliability patterns to network communication, such as retry or buffering.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
-| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern provides an opportunity to augment security on network communications that could not have been handled by the client directly.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:07 Encryption](/azure/well-architected/security/encryption) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern provides an opportunity to augment security on network communications that couldn't have been handled by the client directly.<br/><br/> - [SE:06 Network controls](/azure/well-architected/security/networking)<br/> - [SE:07 Encryption](/azure/well-architected/security/encryption) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
