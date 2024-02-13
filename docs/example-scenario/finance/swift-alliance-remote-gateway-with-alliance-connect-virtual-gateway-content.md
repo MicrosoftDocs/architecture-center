@@ -80,7 +80,6 @@ Alliance Access/Entry can be deployed into an Azure cloud infrastructure. The Az
 For information about the database recovery process, see the Alliance Access administration guide, section 14, on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
 
-
 #### Azure resiliency concepts
 
 Azure provides service-level agreements (SLAs) for VM availability. These SLAs vary, depending on whether you deploy a single VM, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/reliability/availability-zones-overview). To mitigate the risk of a regional outage, deploy SWIFT Alliance Access in multiple Azure regions. For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
@@ -91,12 +90,9 @@ Alliance Access uses an embedded Oracle database. To align with a multi-active A
 
 Adding additional components to this architecture likely increases the overall costs. It’s important to factor this into your planning and budgeting for the project.
 
-By combining Web Platform and Alliance Access on a single VM, you reduce the number of infrastructure components that can fail. Depending on the usage pattern of the SWIFT components, you might consider that configuration. For Alliance Access components and Alliance Connect Virtual instances, deploy the related systems in the same Azure zone, as shown in the preceding architecture diagram. For example, deploy Alliance Access Web Platform 1 VMs, Alliance Access 1 VMs, HA-VM 1, and VA vSRX VM1 in AZ1.
+By combining Web Platform and Alliance Access on a single VM, you reduce the number of infrastructure components that can fail. Depending on the usage pattern of the SWIFT components, you might consider that configuration. For Alliance Access components and Alliance Connect Virtual instances, deploy the related systems in the same Azure zone, as shown in the preceding architecture diagram. For example, deploy Alliance Access Web Platform VMs, Alliance Access VMs, HA-VMs in two availability zones.
 
-
-![Diagram that shows resiliency options.](media/swift-resilience-options.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-alliance-access-with-alliance-connect-virtual-in-azure.vsdx) that contains this architecture diagram.*
+![Diagram that shows resiliency options.](media/swift-arg-multi-az-.svg)
 
 Because SWIFT components connect to different nodes, you can't use Azure Load Balancer to automate failover or to provide load balancing. Instead, you have to rely on SWIFT's software capabilities to detect failure and switch to a secondary node. The actual uptime you achieve depends on how quickly a component can detect failure and fail over. Because you're using availability zones or availability sets, the VM uptime SLA for each component is well-defined.
 
