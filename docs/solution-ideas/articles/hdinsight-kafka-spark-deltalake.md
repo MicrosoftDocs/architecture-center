@@ -35,7 +35,7 @@ There are multiple Apache components (Apache Spark, [Apache Flink](https://flink
 
 The Azure HDInsight offers these [open source frameworks](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-5x-component-versioning) part of HDInsight managed service for the enterprise analytics need. Moreover, you can run these Apache components in an Azure environment with (Enterprise-grade security)[https://learn.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-security-overview]. Azure HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight), including scalability, security, centralized monitoring, global availability, and extensibility.
 
-Using [PowerBI Delta Lake Table connector](https://github.com/delta-io/connectors/tree/master/powerbi), you can read Delta Lake Table from PowerBI.
+Using [PowerBI Delta Lake Table connector](https://github.com/delta-io/delta/tree/master/connectors/powerbi), you can read Delta Lake Table from PowerBI.
 
 ### Potential use cases
 
