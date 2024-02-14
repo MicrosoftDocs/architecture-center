@@ -68,7 +68,7 @@ MLflow consists of several key functionalities:
 
 MLflow aims to simplify and standardize the process of machine learning development, from experimentation to deployment.
 
-Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another git-compatible service. In addition to the assets already tracked in Azure Machine Learning, your team can develop their own taxonomy within their git-compatible service to store other project information, such as:
+Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use Git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another Git-compatible service. In addition to the assets already tracked in Azure Machine Learning, your team can develop their own taxonomy within their Git-compatible service to store other project information, such as:
 
 - Documentation
     - Project, for example the final project report

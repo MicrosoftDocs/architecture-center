@@ -58,7 +58,7 @@ This article outlines the tasks that an *individual contributor* completes to se
 
 ## Use language models and copilots
 
-In the context of the TDSP, the project individual contributor, such as a data scientist, analyst, or engineer, play a hands-on role in managing various aspects of data science projects. Language models and copilots can enhance the individual contributor's productivity, improve the quality of their work, and foster continuous learning and innovation in data science projects. The individual contributor can integrate language models and copilots to align with the TDSP framework in the following areas:
+In the context of the TDSP, the project individual contributor, such as a data scientist, analyst, or engineer, plays a hands-on role in managing various aspects of data science projects. Language models and copilots can enhance the individual contributor's productivity, improve the quality of their work, and foster continuous learning and innovation in data science projects. The individual contributor can integrate language models and copilots to align with the TDSP framework in the following areas:
 
 - **Develop and manage technical tasks**
 
