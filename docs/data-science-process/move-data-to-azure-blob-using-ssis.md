@@ -1,5 +1,5 @@
 ---
-title: Move Blob storage data with SSIS connectors
+title: Move Blob Storage data with SSIS connectors
 description: Learn how to move Data to or from Azure Blob Storage using SQL Server Integration Services Feature Pack for Azure.
 author: marktab
 manager: marktab
@@ -26,14 +26,14 @@ The [Azure Feature Pack for Integration Services (SSIS)](/sql/integration-servic
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Once customers have moved on-premises data into the cloud, they can access their data from any Azure service to leverage the full power of the suite of Azure technologies. The data may be subsequently used, for example, in Azure Machine Learning or on an HDInsight cluster.
+Once customers have moved on-premises data into the cloud, they can access their data from any Azure service to take advantage of the full power of the suite of Azure technologies. The data might be subsequently used, for example, in Azure Machine Learning or on an HDInsight cluster.
 
 Examples for using these Azure resources are in the [SQL](/azure/architecture/data-science-process/overview) and [HDInsight](/azure/architecture/data-science-process/overview) walkthroughs.
 
 For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238) blog.
 
 > [!NOTE]
-> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and to [Azure Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
+> For a complete introduction to Azure Blob Storage, refer to [Azure Blob basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and to [Azure Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
 >
 >
 
@@ -50,25 +50,25 @@ To use the **SSIS connectors**, you must download:
 * **Microsoft SQL Server 2014 or 2016 Integration Services Feature Pack for Azure**: These connectors can be downloaded, respectively, from the [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) and [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pages.
 
 > [!NOTE]
-> SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server Technical Documentation](/sql/sql-server/)
+> SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server technical documentation](/sql/sql-server/)
 >
 >
 
 For installing SSIS, see [Install Integration Services (SSIS)](/sql/integration-services/install-windows/install-integration-services)
 
-For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](/sql/integration-services/ssis-how-to-create-an-etl-package).
+For information on how to get up and running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS tutorial: Creating a simple ETL package](/sql/integration-services/ssis-how-to-create-an-etl-package).
 
 ## Download NYC Taxi dataset
 
 The example described here use a publicly available dataset, either available through [Azure Open Datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) or from the source [TLC Trip Record Data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). The dataset consists of about 173 million taxi rides in NYC in the year 2013. There are two types of data: trip details data and fare data.
 
-## Upload data to Azure blob storage
+## Upload data to Blob Storage
 
-To move data using the SSIS feature pack from on-premises to Azure blob storage, we use an instance of the [**Azure Blob Upload Task**](/sql/integration-services/control-flow/azure-blob-upload-task), shown here:
+To move data using the SSIS feature pack from on-premises to Blob Storage, we use an instance of the [**Azure Blob Upload Task**](/sql/integration-services/control-flow/azure-blob-upload-task), shown here:
 
 ![configure-data-science-vm](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
-The parameters that the task uses are described here:
+The follwing table describes the parameters that the task uses.
 
 | Field | Description |
 | --- | --- |
@@ -84,9 +84,9 @@ The parameters that the task uses are described here:
 >
 >
 
-## Download data from Azure blob storage
+## Download data from Blob Storage
 
-To download data from Azure blob storage to on-premises storage with SSIS, use an instance of the [Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task).
+To download data from Blob Storage to on-premises storage with SSIS, use an instance of the [Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task).
 
 ## More advanced SSIS-Azure scenarios
 

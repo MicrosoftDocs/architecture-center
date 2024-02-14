@@ -1,10 +1,10 @@
-The Team Data Science Process (TDSP) is an agile, iterative data science methodology to deliver predictive analytics solutions and AI applications efficiently. TDSP helps improve team collaboration and learning by suggesting how team roles work best together. TDSP includes best practices and structures from Microsoft and other industry leaders to help toward successful implementation of data science initiatives. The goal is to help companies fully realize the benefits of their analytics program.
+The Team Data Science Process (TDSP) is an agile, iterative data science methodology that you can use to deliver predictive analytics solutions and AI applications efficiently. The TDSP helps improve team collaboration and learning by suggesting how team roles work best together. The TDSP includes best practices and structures from Microsoft and other industry leaders to help your team successfully implement data science initiatives and fully realize the benefits of your analytics program.
 
-This article provides an overview of TDSP and its main components. We provide a generic description of the process here that can be implemented with different kinds of tools. A more detailed description of the project tasks and roles involved in the lifecycle of the process is provided in other linked articles. Guidance on how to implement the TDSP using a specific set of Microsoft tools and infrastructure that we use to implement the TDSP in our teams is also provided.
+This article provides an overview of TDSP and its main components. It presents guidance about how to implement the TDSP by using Microsoft tools and infrastructure. You can find more detailed resources throughout the article.
 
 ## Key components of the TDSP
 
-TDSP has the following key components:
+The TDSP has the following key components:
 
 - A **data science lifecycle** definition
 - A **standardized project structure**
@@ -13,88 +13,97 @@ TDSP has the following key components:
 
 ### Data science lifecycle
 
-The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. The lifecycle outlines the full steps that successful projects follow.
+The TDSP provides a lifecycle that you can use to structure the development of your data science projects. The lifecycle outlines the full steps that successful projects follow.
 
-If your team is using another data science lifecycle, such as cross-industry standard process for data mining (CRISP-DM), knowledge discovery in databases (KDD), or another custom process, your team can still use the task-based TDSP in the context of those development lifecycles. At a high level, these different methodologies have much in common.
+You can combine the task-based TDSP with other data science lifecycles, such as cross-industry standard process for data mining (CRISP-DM), the knowledge discovery in databases (KDD) process, or another custom process. At a high level, these different methodologies have much in common.
 
-This lifecycle addresses data science projects that ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects or improvised analytics projects can also benefit from using this process. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+You should use this lifecycle if you have a data science project that's part of an intelligent application. Intelligent applications deploy machine learning or AI models for predictive analytics. You can also use this process for exploratory data science projects and improvised analytics projects.
 
-* **Business Understanding**
-* **Data Acquisition and Understanding**
-* **Modeling**
-* **Deployment**
+The TDSP lifecycle is composed of five major stages that your team performs iteratively. These stages include:
 
-Here's a visual representation of the **Team Data Science Process lifecycle**.
+1. [Business understanding](lifecycle-business-understanding.md)
+2. [Data acquisition and understanding](lifecycle-data.md)
+3. [Modeling](lifecycle-modeling.md)
+4. [Deployment](lifecycle-deployment.md)
+5. [Customer acceptance](lifecycle-acceptance.md)
 
-![Diagram shows the data science lifecycle, including business understanding, data acquisition / understanding, modeling and deployment.](./media/overview/tdsp-lifecycle2.png)
+Here's a visual representation of the TDSP lifecycle:
 
-The goals, tasks, and documentation artifacts for each stage of the lifecycle in TDSP are described in the [Team Data Science Process lifecycle](lifecycle.md) article. These tasks and artifacts are associated with project roles:
+[![Diagram that shows the stages of the TDSP lifecycle.](./media/lifecycle/tdsp-lifecycle2.png)](./media/lifecycle/tdsp-lifecycle2.png)
 
-- Solution architect
-- Project manager
-- Data engineer
-- Data scientist
-- Application developer
-- Project lead
+For information about the goals, tasks, and documentation artifacts for each stage, see [The Team Data Science Process lifecycle](lifecycle.md).
 
-The following diagram provides a grid view of the tasks (in blue) and artifacts (in green) associated with each stage of the lifecycle (on the horizontal axis) for these roles (on the vertical axis).
+These tasks and artifacts are associated with project roles, for example:
 
-[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+- Solution architect.
+- Project manager.
+- Data engineer.
+- Data scientist.
+- Application developer.
+- Project lead.
+
+The following diagram shows the tasks (in blue) and artifacts (in green) associated with each stage of the lifecycle (on the horizontal axis) for these roles (on the vertical axis).
+
+[![Diagram that shows the tasks and artifacts for each stage.](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ### Standardized project structure
 
-Teams can use the Azure infrastructure to organize their data science assets.
+Your team can use the Azure infrastructure to organize your data science assets.
 
-Azure Machine Learning now supports the open-source [MLflow](/azure/machine-learning/concept-mlflow?view=azureml-api-2). MLflow is the recommended framework to use for data science and AI project management. MLflow is designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows you to use a consistent set of tools regardless of where your experiments are running: whether locally on your computer, on a remote compute target, on a virtual machine, or on an Azure Machine Learning compute instance.
+Azure Machine Learning supports the open-source [MLflow](/azure/machine-learning/concept-mlflow?view=azureml-api-2). MLflow is the recommended framework to use for data science and AI project management. MLflow is designed to manage the complete machine learning lifecycle. It trains and serves models on different platforms, so you can use a consistent set of tools regardless of where your experiments run. You can use MLflow locally on your computer, on a remote compute target, on a virtual machine, or on an Azure Machine Learning compute instance.
 
 MLflow consists of several key functionalities:
-It encompasses several key functionalities:
 
-- Tracking Experiments: MLflow allows you to keep track of experiments, including parameters, code versions, metrics, and output files. This feature helps in comparing different runs and managing the experimentation process efficiently.
-- Project Packaging: It offers a standardized format for packaging ML code, which includes dependencies and configurations. This packaging makes it easier to reproduce runs and share code with others.
-- Model Management: MLflow provides functionalities for managing and versioning models. It supports various ML frameworks and enables you to store, version, and serve models.
-- Model Serving and Deployment: MLflow integrates model serving and deployment capabilities, allowing you to easily deploy models in diverse environments.
-- Model Registry: This feature helps in managing the lifecycle of a model, including versioning, stage transitions, and annotations. It's useful for maintaining a centralized model store in a collaborative environment.
-- API and UI: Inside Azure, MLflow is bundled within the Microsoft Azure Machine Learning API v.2, making it accessible for users to interact with the system programmatically.  Users can use the Azure portal to interact with a UI.
+- **Track experiments**: With MLflow, you can keep track of experiments, including parameters, code versions, metrics, and output files. This feature helps you compare different runs and manage the experimentation process efficiently.
 
-Overall, MLflow aims to simplify and standardize the process of ML development, from experimentation to deployment, making it a valuable tool for ML practitioners and teams.
+- **Package code**: It offers a standardized format for packaging machine learning code, which includes dependencies and configurations. This packaging makes it easier to reproduce runs and share code with others.
 
-Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python) allowing for using any number of git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.  In addition to the assets already tracked in Azure Machine Learning, teams can develop their own taxonomy within their git-compatible service to store other project information:
+- **Manage models**: MLflow provides functionalities for managing and versioning models. It supports various machine learning frameworks, so you can store, version, and serve models.
+
+- **Serve and deploy models**: MLflow integrates model serving and deployment capabilities, so you can easily deploy models in diverse environments.
+
+- **Register models**: You can manage the lifecycle of a model, including versioning, stage transitions, and annotations. MLflow is useful for maintaining a centralized model store in a collaborative environment.
+
+- **Use an API and UI**: Inside Azure, MLflow is bundled within the Microsoft Azure Machine Learning API version 2, so you can interact with the system programmatically. You can use the Azure portal to interact with a UI.
+
+MLflow aims to simplify and standardize the process of machine learning development, from experimentation to deployment.
+
+Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another git-compatible service. In addition to the assets already tracked in Azure Machine Learning, your team can develop their own taxonomy within their git-compatible service to store other project information, such as:
 
 - Documentation
-    - Project (for example, Project, Final Project Report)
-    - Data Report (for example, Data Dictionary, Data Quality Reports)
-    - Model (for example, Model Reports)
+    - Project, for example the final project report
+    - Data report, for example the data dictionary or data quality reports
+    - Model, for example model reports
 - Code
-    - Data Preparation
-    - Model Development
-    - Operationalization (including Security and Compliance)
+    - Data preparation
+    - Model development
+    - Operationalization, including security and compliance
 
 ### Infrastructure and resources
 
-TDSP provides recommendations for managing shared analytics and storage infrastructure such as:
+The TDSP provides recommendations for managing shared analytics and storage infrastructure such as:
 
-- cloud file systems for storing datasets
-- databases
-- big data (SQL or Spark) clusters
-- machine learning service
+- Cloud file systems for storing datasets
+- Databases
+- Big data clusters, for example SQL or Spark
+- Machine learning services
 
-The analytics and storage infrastructure, where raw and processed datasets are stored, can be in the cloud or on-premises. This infrastructure enables reproducible analysis. It also avoids duplication, which can lead to inconsistencies and unnecessary infrastructure costs. Tools are provided to provision the shared resources, track them, and allow each team member to connect to those resources securely. It's also a good practice to have project members create a consistent compute environment. Different team members can then replicate and validate experiments.
+You can place the analytics and storage infrastructure, where raw and processed datasets are stored, in the cloud or on-premises. This infrastructure enables reproducible analysis. It also prevents duplication, which can lead to inconsistencies and unnecessary infrastructure costs. The infrastructure has tools to provision the shared resources, track them, and allow each team member to connect to those resources securely. It's also a good practice to have project members create a consistent compute environment. Various team members can then replicate and validate experiments.
 
-Here's an example of a team working on multiple projects and sharing various cloud analytics infrastructure components.
+Here's an example of a team working on multiple projects and sharing various cloud analytics infrastructure components:
 
-[![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox)
+[![Diagram that shows the infrastructure of a team.](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox)
 
 ### Tools and utilities
 
-Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption.
+In most organizations, it's challenging to introduce processes. The infrastructure provides tools to implement the TDSP and lifecycle help lower the barriers to and increase the consistency of their adoption.
 
-With Azure Machine Learning, data scientists can apply open-source tooling as part of the data science pipeline or workflow.  In addition, within Azure Machine Learning, Microsoft promotes [Responsible AI tools](/azure/machine-learning/concept-responsible-ai?view=azureml-api-2), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
+With Azure Machine Learning, data scientists can apply open-source tooling as part of the data science pipeline or workflow. In addition, within Azure Machine Learning, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai?view=azureml-api-2), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
 
-## Peer-Reviewed Citations
+## Peer-reviewed citations
 
-TDSP is a well-established methodology used across Microsoft engagements, and therefore has been documented and studied in peer-reviewed literature.  These citations provide an opportunity to investigate TDSP features and applications.  See the [lifecycle overview page](/azure/architecture/data-science-process/lifecycle) for a list of citations.
+TDSP is a well-established methodology used across Microsoft engagements, and therefore has been documented and studied in peer-reviewed literature. These citations provide an opportunity to investigate TDSP features and applications. See the [lifecycle overview page](lifecycle.md) for a list of citations.
 
-## Next steps
+## Related resources
 
-[Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Outlines the key personnel roles and their associated tasks for a data science team that standardizes on this process.
+[Roles and tasks in the Team Data Science Process](roles-tasks.md)

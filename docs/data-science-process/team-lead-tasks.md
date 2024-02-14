@@ -1,5 +1,5 @@
 ---
-title: Team lead in the Team Data Science Process
+title: Team lead tasks in the Team Data Science Process
 description: A detailed walkthrough of the tasks for a team lead on a Team Data Science Process team
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,11 +19,11 @@ categories:
   - ai-machine-learning
 ---
 
-# Team lead in the Team Data Science Process
+# Team lead tasks in the Team Data Science Process
 
-This article describes the tasks that a *team lead* completes for their data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP). The TDSP is designed to help improve collaboration and team learning.
+This article describes the tasks that a *team lead* completes for a data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP). The TDSP is designed to help improve collaboration and team learning.
 
-The TDSP is an agile, iterative data science methodology to efficiently deliver predictive analytics solutions and intelligent applications. The process distills the best practices and structures from Microsoft and the industry.  The goal is successful implementation of data science initiatives and fully realizing the benefits of their analytics programs. For an outline of the personnel roles and associated tasks, see [Team Data Science Process roles and tasks](roles-tasks.md).
+The TDSP is an agile, iterative data science methodology to efficiently deliver predictive analytics solutions and intelligent applications. The process distills the best practices and structures from Microsoft and the data science industry. The goal is successful implementation of data science initiatives and fully realizing the benefits of their analytics programs. For an outline of the personnel roles and associated tasks, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 A team lead manages a team consisting of several data scientists in the data science unit of an enterprise. Depending on the data science unit's size and structure, the [group manager](group-manager-tasks.md) and the team lead might be the same person, or they could delegate their tasks to surrogates. But the tasks themselves don't change.
 

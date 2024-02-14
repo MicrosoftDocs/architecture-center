@@ -33,16 +33,16 @@ This article outlines the tasks that an *individual contributor* completes to se
     -   Collaborate with other team members, sharing insights and knowledge.
     -   Communicate technical details and progress to the project lead and the rest of the team.
 -  **Problem solving**:
-    -   Address and solve technical challenges within your area of expertise.
+    -   Address and solve technical challenges within their area of expertise.
     -   Continuously adapt and apply innovative solutions to complex data problems.
 -  **Quality assurance**:
-    -   Ensure the quality and integrity of your work, from data handling to model development.
+    -   Ensure the quality and integrity of work, from data handling to model development.
     -   Adhere to best practices and standards in data science and programming.
 -  **Learning and development**:
     -   Continuously learn and stay updated with the latest trends and techniques in data science.
     -   Contribute to the team's knowledge base by sharing new findings and insights.
 -  **Documentation**:
-    -   Document your work thoroughly, including data preparation, analysis steps, model development, and results.
+    -   Document work thoroughly, including data preparation, analysis steps, model development, and results.
 
 ## Key tasks for the individual contributor
 
@@ -58,7 +58,7 @@ This article outlines the tasks that an *individual contributor* completes to se
 
 ## Use language models and copilots
 
-In the context of the TDSP, project individual contributors, such as data scientists, analysts, and engineers play a hands-on role in managing various aspects of data science projects. The individual contributor can integrate language models and copilots to align with the TDSP framework in the following areas:
+In the context of the TDSP, the project individual contributor, such as a data scientist, analyst, or engineer, play a hands-on role in managing various aspects of data science projects. Language models and copilots can enhance the individual contributor's productivity, improve the quality of their work, and foster continuous learning and innovation in data science projects. The individual contributor can integrate language models and copilots to align with the TDSP framework in the following areas:
 
 - **Develop and manage technical tasks**
 
@@ -76,35 +76,33 @@ In the context of the TDSP, project individual contributors, such as data scient
 
   -   *Model development guidance*: Use language models for guidance on building and refining predictive models, including feature engineering and hyperparameter tuning.
 
-  -   *Model evaluation and interpretation*: Use language models to understand and apply appropriate model evaluation metrics and interpret the results.
+  -   *Model evaluation and interpretation*: Use language models to understand and apply appropriate model evaluation metrics, and interpret the results.
 
 - **Problem solve and innovate**
 
-  -   *Technical problem solving*: Use language models for brainstorming solutions to technical challenges encountered during the project.
+  -   *Technical problem solving*: Use language models to brainstorm solutions for technical challenges that are encountered during the project.
 
   -   *Innovative approaches*: Use language models to stay updated on the latest data science techniques and tools, applying innovative approaches to the project.
 
 - **Document and report**
 
-  -   *Documentation automation*: Employ copilots to help generating and maintaining thorough documentation of the work, including data dictionaries, model descriptions, and analysis summaries.
+  -   *Documentation automation*: Employ copilots to help generate and maintain thorough documentation of work, including data dictionaries, model descriptions, and analysis summaries.
 
-  -   *Reporting insights and findings*: Use language models to create clear and comprehensive reports or presentations of analytical findings for both technical and nontechnical audiences.
+  -   *Insights and findings*: Use language models to create clear and comprehensive reports or presentations of analytical findings for both technical and nontechnical audiences.
 
 - **Collaborate and learn**
 
   -   *Collaborative workflows*: Use copilots to streamline collaboration with other team members, including sharing code, results, and insights.
 
-  -   *Continuous learning*: Utilize language models to access the latest research, tutorials, and resources for continuous skill development and staying current in the field.
+  -   *Continuous learning*: Use language models to access the latest research, tutorials, and resources for continuous skill development and to stay current in the field.
 
 - **Comply with ethical standards**
 
   -   *Compliance checks*: Employ language models to ensure adherence to data privacy, ethical standards, and organizational policies in data handling and analysis.
 
-Project Individual Contributors in TDSP can effectively use language models and Microsoft copilots for these tasks: technical execution, data analysis, model building, problem-solving, documentation, collaboration, and compliance. These tools can enhance their productivity, improve the quality of their work, and foster continuous learning and innovation in data science projects.
-
 ## Summary
 
-Project Individual Contributors in TDSP are responsible for the execution of specific tasks and deliverables within a data science project. They bring technical expertise to the table and play a crucial role in the practical aspects of data handling, analysis, modeling, and communication of results. Their contribution is vital to the project's success, requiring a blend of technical skills, collaboration, and continuous learning.
+In the TDSP, the project individual contributor is responsible for specific tasks and deliverables within a data science project. They provide technical expertise to the team and play a crucial role in tasks related to data, analysis, modeling, and results. Their contribution is vital to the project's success. It requires a blend of technical skills, collaboration, and continuous learning.
 
 ## Contributors
 
