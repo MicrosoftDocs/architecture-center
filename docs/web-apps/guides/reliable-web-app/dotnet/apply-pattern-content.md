@@ -2,29 +2,20 @@
 ms.custom:
   - devx-track-dotnet
 ---
-The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
+The reliable web app pattern provides essential guidance to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (re-platform) your web app to be successful in the cloud.
 
-There are two articles on the reliable web app pattern for .NET. This article provides code and architecture implementation guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample web app) of the pattern that you can deploy.
+This article provides code and architecture guidance for the reliable web app pattern. The companion article provides **[planning guidance](plan-implementation.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** in GitHub that you can deploy.
 
-## Architecture and code
-<!-- diff creator -->
-The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. It's important that your web app adheres to the principles of the pattern, not this specific architecture.
-[![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.png)](../../_images/reliable-web-app-dotnet.png)
+## Architecture
+
+[![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [nonproduction environment cost](https://azure.com/e/8a574d4811a74928b55956838db71093).*
-
-## Principles and implementation
-<!-- diff creator -->
-The following table lists the principles of the reliable web app pattern and how to implement those principles in your web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
-
-*Table 1. Pattern principles and how to implement them.*
-
-| Reliable web app pattern principles | How to implement the principles |
-| --- | --- |
-| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
 ## Reliability
 <!-- diff creator -->
-A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is a measure of whether your users can access your web application when they need to. You should use the Retry and Circuit Breaker patterns as critical first steps toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud.
+A reliable web application is one that is both resilient (recover from failures) and available (users can access).
+
+At the code level, the Retry pattern and Circuit Breaker pattern are first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud.
 
 ### Use the Retry pattern
 <!-- diff creator -->
@@ -34,7 +25,9 @@ The Retry pattern is a technique for handling temporary service interruptions. T
 
 If your code already uses the Retry pattern, you should update your code to use the retry mechanisms available in Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults) and [Retry pattern](/azure/architecture/patterns/retry).
 
-**Try the Azure service and client SDKs first.** Most Azure services and client SDKs have a built-in retry mechanism. You should use the built-in retry mechanism for Azure services to expedite the implementation. For more information, see [Azure service retry guidance](/azure/architecture/best-practices/retry-service-specific).
+#### Try the Azure service and client SDKs first
+
+Most Azure services and client SDKs have a built-in retry mechanism. You should use the built-in retry mechanism for Azure services to expedite the implementation. For more information, see [Azure service retry guidance](/azure/architecture/best-practices/retry-service-specific).
 
 *Reference implementation:* The reference implementation uses the connection resiliency mechanism in Entity Framework Core to apply the Retry pattern in requests to Azure SQL Database. For more information, see [SQL Database using Entity Framework Core](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) and [Connection Resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency).
 
@@ -49,7 +42,9 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
     }));
 ```
 <!-- diff creator -->
-**Use the Polly library when the client library doesn't support retries.** You might need to make calls to a dependency that isn't an Azure service or doesn't support the Retry pattern natively. In that case, you should use the Polly library to implement the Retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
+#### Use the Polly library when the client library doesn't support retries
+
+You might need to make calls to a dependency that isn't an Azure service or doesn't support the Retry pattern natively. In that case, you should use the Polly library to implement the Retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
 
 *Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core dependency injection. Polly enforces the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a *policy*. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the Retry pattern every time the front-end web app calls web API services. The following code applies the Retry pattern to all service calls to the concert search service.
 
@@ -59,7 +54,7 @@ private void AddConcertSearchService(IServiceCollection services)
     var baseUri = Configuration["App:RelecloudApi:BaseUri"];
     if (string.IsNullOrWhiteSpace(baseUri))
     {
-        services.AddScoped<IConcertSearchService, DummyConcertSearchService>();
+        services.AddScoped<IConcertSearchService, MockConcertSearchService>();
     }
     else
     {
@@ -83,14 +78,12 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
       .WaitAndRetryAsync(delay);
 }
 ```
-<!-- diff creator -->
+
 The policy handler for the `RelecloudApiConcertSearchService` instance applies the Retry pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
 
 ### Use the Circuit Breaker pattern
-<!-- diff creator -->
-You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
-*Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
+You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
 *Reference implementation:* The reference implementation adds the Circuit Breaker pattern in the `GetCircuitBreakerPolicy` method, as you can see in the following code snippet.
 
@@ -99,19 +92,22 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 {
     return HttpPolicyExtensions
         .HandleTransientHttpError()
+        .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
         .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
 }
 ```
 
 The policy handler for the `RelecloudApiConcertSearchService` instance applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. For more information, see [Implement the Circuit Breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
 
+You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
+
 ## Security
-<!-- diff creator -->
-Cloud applications are often composed of multiple Azure services. Communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+
+Communication between Azure services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Use managed identities
-<!-- diff creator -->
-You should use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting.
+
+Use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting.
 
 **Authentication:** Managed identities provide an automatically managed identity in Microsoft Entra ID that applications can use when they connect to resources that support Microsoft Entra authentication. Application code can use the application platform's managed identity to obtain Microsoft Entra tokens without having to access static credentials from configuration.
 
@@ -168,24 +164,24 @@ Many on-premises environments don't have a central secrets store. The absence ma
 
 *Reference implementation:* The reference implementation doesn't use Key Vault monitoring, and it also uses external secrets for these services:
 
-*Microsoft Entra client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Microsoft Entra ID and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
+- *Microsoft Entra client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Microsoft Entra ID and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
-*Azure Cache for Redis secret:* The service doesn't currently support managed identity. To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
+- *Azure Cache for Redis secret:* The service doesn't currently support managed identity. To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
 
 ### Secure communication with private endpoints
-<!-- diff creator -->
+
 You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services crosses the public internet. In the reference implementation, these services include Azure SQL Database, Azure Cache for Redis, and Azure App Service. Azure Private Link enables you to add security to that communication via private endpoints in a virtual network to avoid the public internet.
 
 This improved network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
 
 ### Use a web application firewall
-<!-- diff creator -->
+
 You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take advantage of the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
 
 *Reference implementation:* The reference implementation uses Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
 ## Cost optimization
-<!-- diff creator -->
+
 Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes optimize for horizontal scale to reduce costs rather than optimizing existing business processes. The latter can lead to higher risks.
 
 *Reference implementation:* The checkout process in the reference implementation has a hot path of rendering ticket images during request processing. You can isolate the checkout process to improve cost optimization and performance efficiency, but this change is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
@@ -212,35 +208,36 @@ The web app uses the Standard C1 SKU for the production environment and the Basi
 
 |   | Standard C1 SKU | Basic C0 SKU|
 | --- | --- | --- |
-|**SKU Features**| 1-GB cache <br> Dedicated service <br> Availability SLA <br> As many as 1,000 connections |250-MB cache <br> Shared infrastructure <br> No SLA <br> As many as 256 connections
+|**SKU Features**| 1-GB cache <br> Dedicated service <br> Availability SLA <br> As many as 1,000 connections |250-MB cache <br> Shared infrastructure <br> No SLA <br> As many as 256 connections|
 
 ### Automate scaling the environment
-<!-- diff creator -->
+
 You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent changes in demand. It's less cost efficient. For more information, see [Scaling in Azure App Service](/azure/app-service/manage-scale-up) and [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
 
 *Reference implementation:* The reference implementation uses the following configuration in the Bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance.
 
 ```csharp
-resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-preview' = if (isProd) {
-  name: '${resourceToken}-web-plan-autoscale'
-  location: location
-  properties: {
-    targetResourceUri: webAppServicePlan.id
-    enabled: true
-    profiles: [
-      {
-        name: 'Auto scale from one to ten'
-        capacity: {
-          maximum: '10'
-          default: '1'
-          minimum: '1'
-        }
-        rules: [
-          ...
-        ]
-      }
-    ]
-  }
+resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (autoScaleSettings != null) { 
+  name: '${name}-autoscale' 
+  location: location 
+  tags: tags 
+  properties: { 
+    targetResourceUri: appServicePlan.id 
+    enabled: true 
+    profiles: [ 
+      { 
+        name: 'Auto created scale condition' 
+        capacity: { 
+          minimum: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
+          maximum: string(autoScaleSettings!.maxCapacity) 
+          default: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
+        } 
+        rules: [ 
+          ... 
+        ] 
+      } 
+    ] 
+  } 
 }
 ```
 
