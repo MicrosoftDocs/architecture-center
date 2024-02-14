@@ -1,6 +1,6 @@
 ---
 title: Individual contributor tasks in the Team Data Science Process
-description: A detailed walkthrough of the tasks for an individual contributor on a data science team project.
+description: Learn about the tasks that an individual contributor performs on a Team Data Science Process team, including how they can incorporate language models and copilots.
 author: marktab
 manager: marktab
 editor: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath

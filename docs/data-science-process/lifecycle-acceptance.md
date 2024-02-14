@@ -1,6 +1,6 @@
 ---
 title: Customer acceptance stage of the Team Data Science Process lifecycle
-description: The goals, tasks, and deliverables for the customer acceptance stage of your data science projects
+description: Learn about the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process.
 author: marktab
 manager: marktab
 editor: marktab

@@ -1,6 +1,6 @@
 ---
 title: Team lead tasks in the Team Data Science Process
-description: A detailed walkthrough of the tasks for a team lead on a Team Data Science Process team
+description: Learn about the tasks that a team lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.
 author: marktab
 manager: marktab
 editor: marktab

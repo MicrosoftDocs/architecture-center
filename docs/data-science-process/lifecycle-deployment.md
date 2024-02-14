@@ -1,6 +1,6 @@
 ---
 title: Deployment stage of the Team Data Science Process lifecycle
-description: The goals, tasks, and deliverables for the deployment stage of your data science projects
+description: Learn about the goals, tasks, and deliverables associated with the deployment stage of the Team Data Science Process.
 author: marktab
 manager: marktab
 editor: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath

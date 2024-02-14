@@ -1,6 +1,6 @@
 ---
 title: Roles and tasks in the Team Data Science Process
-description: An outline of the key components, personnel roles, and associated tasks for a data science group.
+description: Learn about the outline of key components, personnel roles, and associated tasks for a data science group that uses the Team Data Science Process.
 author: marktab
 manager: marktab
 editor: marktab
