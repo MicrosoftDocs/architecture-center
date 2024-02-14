@@ -2,7 +2,7 @@
 
 This article outlines a solution for ingesting and processing millions of streaming events per second and writing them to a Delta Lake table. Core components include Azure HDInsight Spark and Kafka clusters.
 
-*Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Spark](https://spark.apache.org), [Delta Lake](https://learn.microsoft.com/en-us/azure/databricks/delta/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Spark](https://spark.apache.org), [Delta Lake](/azure/databricks/delta/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -22,7 +22,7 @@ This article outlines a solution for ingesting and processing millions of stream
 - [HDInsight](https://azure.microsoft.com/services/hdinsight)
 - [Delta Lake Format](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/delta-lake-on-hdinsight/ba-p/3678186)
 - [Power BI](https://powerbi.microsoft.com)
-- [Machine Learning](https://learn.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-deep-dive-advanced-analytics#machine-learning-and-apache-spark)
+- [Machine Learning](/azure/hdinsight/hadoop/apache-hadoop-deep-dive-advanced-analytics#machine-learning-and-apache-spark)
 
 ## Scenario details
 
@@ -33,7 +33,7 @@ There are multiple Apache components (Apache Spark, [Apache Flink](https://flink
 - Apache Spark Structured Streaming integration with Kafka allows to batch and stream queries and sink to the storage layer, database, Kafka, etc.
 - Delta Lake Table format is a storage layer that extends Apache Parquet data files with file-based transaction logs. Storing data in Delta Lake format has several benefits, including ACID transactions, Schema evolution, history versions, and many more.
 
-The Azure HDInsight offers these [open source frameworks](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-5x-component-versioning) part of HDInsight managed service for the enterprise analytics need. Moreover, you can run these Apache components in an Azure environment with (Enterprise-grade security)[https://learn.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-security-overview]. Azure HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight), including scalability, security, centralized monitoring, global availability, and extensibility.
+The Azure HDInsight offers these [open source frameworks](/azure/hdinsight/hdinsight-5x-component-versioning) part of HDInsight managed service for the enterprise analytics need. Moreover, you can run these Apache components in an Azure environment with [Enterprise-grade security](/azure/hdinsight/domain-joined/hdinsight-security-overview). Azure HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight), including scalability, security, centralized monitoring, global availability, and extensibility.
 
 Using [PowerBI Delta Lake Table connector](https://github.com/delta-io/delta/tree/master/connectors/powerbi), you can read Delta Lake Table from PowerBI.
 
@@ -75,10 +75,10 @@ Principal authors:
 ## Next steps
 
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
-- [Streaming at scale in HDInsight](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-streaming-at-scale-overview)
-- [Quickstart: Create Apache Spark cluster in Azure HDInsight](https://learn.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
-- [Quickstart: Create Apache Kafka cluster in Azure HDInsight](https://learn.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-get-started)
-- [Overview of enterprise security in Azure HDInsight](https://learn.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-security-overview)
+- [Streaming at scale in HDInsight](/azure/hdinsight/hdinsight-streaming-at-scale-overview)
+- [Quickstart: Create Apache Spark cluster in Azure HDInsight](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Quickstart: Create Apache Kafka cluster in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-get-started)
+- [Overview of enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
 
 ## Related resources
