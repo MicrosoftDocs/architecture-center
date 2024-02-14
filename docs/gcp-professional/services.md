@@ -14,6 +14,7 @@ products:
   - azure-machine-learning
 ms.custom:
   - fcp
+  - devx-track-jenkins
 keywords:
   - Google Cloud experts
   - Azure comparison
@@ -58,8 +59,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 <ul class="grid">
 
 [!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-[!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
-[!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
 
 </ul>
 
@@ -151,7 +150,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Vertex AI](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning models. |
 | [TensorFlow](https://www.tensorflow.org) | [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open source and cross-platform machine learning framework for both machine learning & AI. |
 | [TensorFlow](https://www.tensorflow.org/) | [ONNX (Open Neural Network Exchange)](http://onnx.ai) | ONNX is an open format built to represent machine learning models that facilitates maximum compatibility and increased inference performance. |
-| [Vision AI](https://cloud.google.com/vision) | [Azure Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) | Use visual data processing to label content, from objects to concepts, extract printed and handwritten text, recognize familiar subjects like brands and landmarks, and moderate content. No machine learning expertise is required. |
+| [Vision AI](https://cloud.google.com/vision) | [Azure Cognitive Services Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) | Use visual data processing to label content, from objects to concepts, extract printed and handwritten text, recognize familiar subjects like brands and landmarks, and moderate content. No machine learning expertise is required. |
 | [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Cognitive Services Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics) | Cloud-based services that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and named entity recognition. |
 | [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Cognitive Services Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | A machine learning-based service to build natural language understanding into apps, bots, and IoT devices. Quickly create enterprise-ready, custom models that continuously improve.|
 | [Speech-to-Text](https://cloud.google.com/speech-to-text) | [Azure Cognitive Services Speech To Text](https://azure.microsoft.com/services/cognitive-services/speech-to-text) | Swiftly convert audio into text from a variety of sources. Customize models to overcome common speech recognition barriers, such as unique vocabularies, speaking styles, or background noise. |
@@ -177,7 +176,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 <ul class="grid">
 
 [!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
-[!INCLUDE [Predictive Marketing with Machine Learning](../../includes/cards/predictive-marketing-campaigns-with-machine-learning-and-spark.md)]
 [!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
 
 </ul>
@@ -210,7 +208,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Apps](https://azure.microsoft.com/products/container-apps) | Azure Container Apps is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
 | [Artifact Registry (beta)](https://cloud.google.com/artifacts/docs) <br/><br/> [Container Registry](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
 | [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Simplify cluster management and monitoring through automatic upgrades and a built-in operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
-| [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor container insights is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
+| [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor container insights is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
 | [Anthos Service Mesh](https://cloud.google.com/service-mesh/docs) | [Open Service Mesh (OSM)](https://openservicemesh.io/) | It is a lightweight and extensible cloud native service mesh. OSM takes a simple approach for users to uniformly manage, secure, and get out-of-the box observability features for highly dynamic microservice environments |
 
 #### Container architectures
@@ -266,7 +264,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 [!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
 [!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
-[!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
 
 </ul>
 
@@ -316,7 +313,6 @@ Here are some architectures that use AKS as the orchestrator.
 [!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
 [!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
-[!INCLUDE [Ops Automation using Event Grid](../../includes/cards/ops-automation-using-event-grid.md)]
 
 </ul>
 
@@ -343,7 +339,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Web Application Firewall | [Cloud Armor](https://cloud.google.com/armor) | [Application Gateway - Web Application Firewall](/azure/web-application-firewall/ag/ag-overview) | Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. |
 | | [Cloud Armor](https://cloud.google.com/armor) | [Front door – Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) | Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. |
 | | [Cloud Armor](https://cloud.google.com/armor) | [CDN – Azure Web Application Firewall](/azure/web-application-firewall/cdn/cdn-overview) | Azure Web Application Firewall (WAF) on Azure Content Delivery Network (CDN) from Microsoft provides centralized protection for your web content. |
-| NAT Gateway | [Cloud NAT](https://cloud.google.com/nat) | [Azure Virtual Network NAT](/azure/virtual-network/nat-overview) | Virtual Network NAT (network address translation) provides outbound NAT translations for internet connectivity for virtual networks. |
+| NAT Gateway | [Cloud NAT](https://cloud.google.com/nat) | [Azure NAT Gateway](/azure/virtual-network/nat-overview) | NAT Gateway (network address translation) provides outbound NAT translations for internet connectivity for virtual networks. |
 | Private Connectivity to PaaS | [Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect) | [Azure Private Link](/azure/private-link/private-link-overview) | Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. |
 | Telemetry | [VPC Flow logs](https://cloud.google.com/vpc/docs/using-flow-logs) | [NSG Flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) | Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. |
 | | [Firewall Rules Logging](https://cloud.google.com/vpc/docs/firewall-rules-logging) | [NSG Flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview) | Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. |
@@ -367,12 +363,12 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Authentication and authorization | [Cloud Identity](https://cloud.google.com/identity) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | The Azure Active Directory (Azure AD) enterprise identity service provides single sign-on and multi-factor authentication, which enable the central management of users/groups and external identities federation. |
+| Authentication and authorization | [Cloud Identity](https://cloud.google.com/identity) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | The Microsoft Entra enterprise identity service provides single sign-on and multifactor authentication, which enable the central management of users/groups and external identities federation. |
 | | [Identity platform](https://cloud.google.com/identity-platform) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) | A highly available and global identity management service for consumer-facing applications, which scales to hundreds of millions of identities. Manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications. |
-| Multi-factor Authentication | [Multi-factor Authentication](https://cloud.google.com/identity) | [Azure Active Directory Multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
+| Multifactor authentication | [Multifactor authentication](https://cloud.google.com/identity) | [Microsoft Entra multifactor authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
 | RBAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | ABAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure attribute-based access control](/azure/role-based-access-control/conditions-overview) | Azure attribute-based access control (Azure ABAC) is an authorization system that defines access, based on attributes that are associated with security principals, resources, and environment. |
-| Zero trust | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise) | [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) | Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and to enforce organizational policies. |
+| Zero trust | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise) | [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/overview) | Conditional Access is the tool used by Microsoft Entra ID to bring signals together, to make decisions, and to enforce organizational policies. |
 | Resource management | [Resource Manager](https://cloud.google.com/resource-manager) | [Azure Resource Manager](/azure/azure-resource-manager/management/overview) | Provides a management layer that enables you to create, update, and delete resources in your Azure account, like access control, locks, and tags, to secure and organize your resources after deployment.|
 | Encryption | [Cloud KMS](https://cloud.google.com/kms), [Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault) | Provides a security solution and works with other services by allowing you to manage, create, and control encryption keys that are stored in hardware security modules (HSM). |
 | Data-at-rest encryption | [Encryption at rest](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |

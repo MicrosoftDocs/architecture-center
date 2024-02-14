@@ -18,10 +18,10 @@ The companion ARM template deploys a new virtual network with four subnets:
 The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, such as load balancers and managed disks in Azure. The ARM template allows you to deploy an AKS cluster with the following features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
-- [AKS-managed Azure AD integration](/azure/aks/managed-aad)
+- [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
 - [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
-- [Azure Active Directory workload identity](/azure/aks/workload-identity-overview) (preview)
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) (preview)
 - [Azure Network Policies](/azure/aks/use-network-policies)
 - [Azure Monitor container insights add-on](/azure/azure-monitor/containers/container-insights-enable-new-cluster)
 - [Application Gateway Ingress Controller add-on](https://azure.github.io/application-gateway-kubernetes-ingress/)
@@ -169,25 +169,25 @@ Although the security considerations are not fully pertaining to multitenancy in
 - Use network policies to segregate and secure intra-service communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure Network Policies or Calico Network Policies to define rules that control the traffic flow between different microservices. For more information, see [Network Policy](/azure/aks/use-network-policies).
 - Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 - Consider using a [private AKS cluster](/azure/aks/private-clusters) in your production environment, or at least secure access to the API server, by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in Azure Kubernetes Service.
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 #### Authentication and authorization
 
-- Deploy AKS clusters with Azure AD integration. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad). Using Azure AD centralizes the identity management component. Any change in user account or group status is automatically updated in access to the AKS cluster. Use [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [Bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to scope users or groups to the least number of permissions needed.
-- Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least number of permissions required. [Integrate Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac) so any change in user status or group membership is automatically updated and access to cluster resources is current.
+- Deploy AKS clusters with Microsoft Entra integration. For more information, see [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad). Using Microsoft Entra ID centralizes the identity management component. Any change in user account or group status is automatically updated in access to the AKS cluster. Use [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [Bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to scope users or groups to the least number of permissions needed.
+- Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least number of permissions required. [Integrate Kubernetes RBAC with Microsoft Entra ID](/azure/aks/azure-ad-rbac) so any change in user status or group membership is automatically updated and access to cluster resources is current.
 - Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions. For more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac) and [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
-- Consider using [Azure AD workload identity](/azure/aks/workload-identity-overview) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as Azure Key Vault, SQL Database, Service Bus, and Cosmos DB). All without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
+- Consider using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as Azure Key Vault, SQL Database, Service Bus, and Cosmos DB). All without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
 - Consider using the [Secret Store CSI Driver for Azure Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connections strings from Key Vault, rather than from Kubernetes secrets.
-- Consider using the [Dapr Secrets Stores](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
+- Consider using the [Dapr Secrets Stores](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/azure-authentication/authenticating-azure/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
 
 #### Workload and cluster
 
-- Securing access to the Kubernetes API-Server is one of the most important things you can do to secure your cluster. Integrate Kubernetes role-based access control (Kubernetes RBAC) with Azure Active Directory to control access to the API server. These controls let you secure AKS the same way that you secure access to your Azure subscriptions.
+- Securing access to the Kubernetes API-Server is one of the most important things you can do to secure your cluster. Integrate Kubernetes role-based access control (Kubernetes RBAC) with Microsoft Entra ID to control access to the API server. These controls let you secure AKS the same way that you secure access to your Azure subscriptions.
 - Limit access to actions that containers can perform. Use [Pod Security Policy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) to enable the fine-grained authorization of pod creation and updates. Provide the least number of permissions, and avoid the use of root / privileged escalation. For more best practices, see [Secure pod access to resources](/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources).
 - Whenever possible, avoid running containers as a root user.
 - Use the [AppArmor](https://kubernetes.io/docs/tutorials/clusters/apparmor) Linux kernel security module to limit the actions that containers can do.
 - Regularly upgrade your AKS clusters to the latest Kubernetes version to take advantage of new features and bug fixes.
-- AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/weaveworks/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
+- AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/kubereboot/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
 - Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io), [Consul](https://www.consul.io), or [Open Service Mesh](https://openservicemesh.io), or by using [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview).
 
 #### Azure Container Registry
@@ -230,7 +230,7 @@ Although the availability and reliability considerations are not fully pertainin
 
 - Consider deploying the node pools of your AKS cluster, across all the [Availability Zones](/azure/aks/availability-zones) within a region, and use an [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview) or [Azure Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency, in case of an outage of a single datacenter. This way, cluster nodes are distributed across multiple datacenters, in three separate Availability Zones within a region.
 - Enable [zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy), for intra-region resiliency and high availability.
-- Use [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) to control how pods are spread across your AKS cluster among failure-domains, such as regions, availability zones, and nodes.
+- Use [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how pods are spread across your AKS cluster among failure-domains, such as regions, availability zones, and nodes.
 - Consider using Uptime SLA for AKS clusters that host mission-critical workloads. [Uptime SLA](/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint, for clusters that use Availability Zones. And it guarantees 99.9% availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains, in order to ensure the SLA requirements are met.
 
 #### Disaster recovery and business continuity
@@ -261,7 +261,7 @@ Although some of the scheduler considerations are not fully pertaining to multit
 
 - Make sure you review and implement the [best practices](/azure/aks/best-practices), for cluster operators and application developers to build and run applications successfully on Azure Kubernetes Service (AKS).
 - Plan and apply [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) at the namespace level, for all namespaces. If pods don't define resource requests and limits, then reject the deployment. Monitor resource usage, and then adjust quotas as needed. When several teams or tenants share an AKS cluster with a fixed number of nodes, resource quotas can be used to assign a fair share of resources to each team or tenant.
-- Adopt [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) to constrain resource allocations (to pods or containers) in a namespace, in terms of CPU and memory.
+- Adopt [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range) to constrain resource allocations (to pods or containers) in a namespace, in terms of CPU and memory.
 - Explicitly define resource [requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for CPU and memory usage, for your pods in the YAML manifests or Helm charts that you use to deploy applications. When you specify the resource request for containers in a pod, the Kubernetes scheduler uses this information to decide which node to place the pod on. When you specify a resource limit (such as the CPU or memory) for a container, the kubelet enforces those limits so that the running container can't use more of that resource than the limit you set.
 - To maintain the availability of applications, define [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb), to make sure that a minimum number of pods are available in the cluster.
 - [Priority classes](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption) can be used to indicate the importance of a pod. If a pod cannot be scheduled, the scheduler tries to preempt (evict) lower priority pods, in order to make scheduling of the pending pod possible.
@@ -285,7 +285,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 
   - [Open Service Mesh Traffic Split](https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/traffic_split/)
   
-- Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry, by using its Azure AD identity.
+- Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry, by using its Microsoft Entra identity.
 
 ### Monitoring considerations
 
@@ -307,7 +307,7 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 ## Deploy this scenario
 
-The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/aks-agic/blob/main/LICENSE.md). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
+The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
 :::image type="content" border="false" source="./media/aks-agic-sample.png" alt-text="The diagram shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.png":::
 
@@ -342,7 +342,7 @@ Principal authors:
 
 ### Azure Kubernetes Service
 
-- [Create a private Azure Kubernetes Service cluster](https://github.com/paolosalvatori/private-aks-cluster)
+- [Create a private Azure Kubernetes Service cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Best practices for multitenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
 - [Best practices for basic scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
@@ -397,5 +397,5 @@ Principal authors:
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [CI/CD pipeline for container-based workloads](../apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Building a telehealth system on Azure](../apps/telehealth-system.yml)

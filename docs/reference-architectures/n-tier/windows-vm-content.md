@@ -2,7 +2,7 @@ Provisioning a virtual machine (VM) in Azure requires some additional components
 
 ## Architecture
 
-![Diagram that shows Windows virtual machine in Azure.](./images/single-vm-diagram.png)
+:::image type="content" border="false" source="./images/single-vm-diagram.svg" alt-text="Diagram that shows Windows virtual machine in Azure." lightbox="./images/single-vm-diagram.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-vm-single-vm-diagram.vsdx) of this architecture.*
 
@@ -30,11 +30,13 @@ For information about choosing a published VM image, see [Find Windows VM images
 
 ### Disks
 
-For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput).
+For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
-We also recommend using [Managed Disks][managed-disks]. Managed disks simplify disk management by handling the storage for you. Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource
+[Managed Disks][managed-disks] simplify disk management by handling the storage for you. Managed disks simplify disk management by handling the storage for you. Managed disks don't require a storage account. You simply specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
+The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data. 
+
+Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
 The VM is also created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 
@@ -112,11 +114,9 @@ Use [Microsoft Defender for Cloud][security-center] to get a central view of the
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach).Because all the resources are in the same virtual network, they're isolated in the same basic workload. That makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
-
-For higher availability architecture see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml), the reference architecture includes more than one VM and each VM is included in an availability set.
 
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
@@ -129,11 +129,9 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 ## Related resources
 
-- [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml)
 - [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
 
-<!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services

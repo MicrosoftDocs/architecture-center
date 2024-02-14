@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-bicep
+---
 Modularizing the management of your Azure Resource Manager templates (ARM templates) enables you to reduce repetition, model best practices in infrastructure development, and have consistent standard deployments. 
 
 An example use case for implementing this kind of modularization is deployment of virtual machines (VMs) by using the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard *medium* size of an older series. To transition to a new series might require a brief outage of service if you simply deployed new templates. However, by building version 1.5.0 and using modularization, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having old versions of the infrastructure available, your product and application teams have a known good configuration to rely on while upgrading to the new version as they have time.
@@ -12,7 +16,7 @@ When it comes to why you might want to have a strong preference for where your t
 
 Bicep is a declarative language for deploying Azure resources. Bicep's reusable code can use Azure Container Registry as a private registry for hosting versioned ARM templates. By using Container Registry this way, your enterprise can have a process of continuous integration and continuous delivery (CI/CD) for infrastructure. You can run integration and unit tests as part of the CI process, and the container registry can receive modules after they're successfully built. App teams can continue to use older versions until they're ready to upgrade, or they can update to take advantage of features in the newer versions of templates. 
 
-In addition to this use of Container Registry, you can combine this model with something like the [Azure Bicep ResourceModules](https://github.com/Azure/ResourceModules). Your implementation could consume from the public registry, or preferably, monitor the public repositories and pull changes into your private registry for further use. Pulling changes into your own container registry allows you to run tests against public modules while ensuring that they aren't used in production until quality and security practices are incorporated.  
+In addition to this use of Container Registry, you can combine this model with something like the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/). Your implementation could consume from the public registry, or preferably, monitor the public repositories and pull changes into your private registry for further use. Pulling changes into your own container registry allows you to run tests against public modules while ensuring that they aren't used in production until quality and security practices are incorporated.  
 
 ### Layers
 
@@ -137,8 +141,7 @@ Other contributors:
 ## Related resources
 
 - [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
-- [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
-- [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
-- [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
+- [Microservices with AKS and Azure DevOps](../../../guide/aks/aks-cicd-azure-pipelines.yml)

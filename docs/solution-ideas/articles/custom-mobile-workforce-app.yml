@@ -21,7 +21,6 @@ metadata:
     - Mobile Workforce Management Solution
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/custom-mobile-workforce-app.png
 name: Custom mobile workforce app
 azureCategories:
   - mobile
@@ -29,7 +28,7 @@ azureCategories:
   - databases
 summary: Learn how the custom mobile workforce management app architecture is built and implemented.  The step-by-step diagram illustrates the integration of Active Directory, SAP, and Azure App Service.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-api-management
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/custom-mobile-workforce-app.png

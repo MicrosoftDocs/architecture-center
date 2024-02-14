@@ -4,16 +4,16 @@ This solution idea describes how to extend your on-premises big data investments
 
 ## Architecture
 
-[ ![Architecture diagram that shows the big data architecture.](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg)](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg#lightbox)
+:::image type="content" source="../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg" alt-text="Architecture diagram that shows the big data architecture." lightbox="../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/extend-your-on-premises-big-data-investments-with-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 
-  1. Establish ExpressRoute between on-premises infrastructure and Microsoft datacenters, to allow private connection for reliable, speedy, and secure data replication from an on-premises Hadoop setup to an Azure HDInsight cluster.
-  1. Install the WANdisco Fusion server in the same Azure Virtual Network as the HDInsight cluster, which allows the server to access the cluster in a secure manner.
-  1. Install the WANdisco Fusion app on a HDInsight cluster (new or existing). In the License key field, enter the Public IP of the Fusion Server.
-  1. Configure the Fusion App on an HDInsight cluster to set up continuous active replication from on-premises large data/Hadoop deployments to Azure HDInsight, multi-region replication, backup and restore, and more.
+1. Establish ExpressRoute between on-premises infrastructure and Microsoft datacenters, to allow private connection for reliable, speedy, and secure data replication from an on-premises Hadoop setup to an Azure HDInsight cluster.
+1. Install the WANdisco Fusion server in the same Azure Virtual Network as the HDInsight cluster, which allows the server to access the cluster in a secure manner.
+1. Install the WANdisco Fusion app on a HDInsight cluster (new or existing). In the License key field, enter the Public IP of the Fusion Server.
+1. Configure the Fusion App on an HDInsight cluster to set up continuous active replication from on-premises large data/Hadoop deployments to Azure HDInsight, multi-region replication, backup and restore, and more.
 
 ### Components
 
@@ -59,4 +59,3 @@ Explore related architectures:
 
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [Extend an on-premises network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
-- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/22/2022
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -67,7 +67,7 @@ You might choose to deploy your solution to be both internet-facing and also to 
 
 When your solution is based on virtual machines that are behind a standard load balancer, you can expose your endpoint via the Private Link service. In this case, a web application firewall and application routing are likely already part of your virtual machine-based workload.
 
-Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Azure Active Directory tenants. You can use that service's Private Link capabilities to expose your endpoint.
+Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Microsoft Entra tenants. You can use that service's Private Link capabilities to expose your endpoint.
 
 When you use other internet-facing services, like Azure Front Door, it's important to consider whether they support Private Link for inbound traffic. If they don't, consider how your traffic flows through each path to your solution.
 

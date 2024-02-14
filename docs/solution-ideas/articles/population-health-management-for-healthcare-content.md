@@ -28,7 +28,7 @@ In this solution, we'll use the clinical and socioeconomic in-patient data gener
 
 ### Components
 
-* [Azure IoT Connector for FHIR](https://azure.microsoft.com/blog/microsoft-azure-iot-connector-for-fhir-now-in-preview) is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.  Alternatively, anyone wishing to have more control and flexibility with the IoT Connector, the [IoMT FHIR Connector for Azure](https://github.com/Microsoft/iomt-fhir) is an open-source project for ingesting data from IoMT devices and persisting the data in a FHIR® server.  A simplified deployment template is available [here](https://github.com/microsoft/iomt-fhir/blob/master/docs/ARMInstallation.md).
+* [Azure IoT Connector for FHIR](https://azure.microsoft.com/blog/microsoft-azure-iot-connector-for-fhir-now-in-preview) is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.  Alternatively, anyone wishing to have more control and flexibility with the IoT Connector, the [IoMT FHIR Connector for Azure](https://github.com/Microsoft/iomt-fhir) is an open-source project for ingesting data from IoMT devices and persisting the data in a FHIR® server.
 
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that allows you to create, schedule, and orchestrate your ETL/ELT workflows.
 
@@ -91,6 +91,5 @@ Product documentation:
 ## Related resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Business process management](./business-process-management.yml)
 * [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 * [Remote patient monitoring solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

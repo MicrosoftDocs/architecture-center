@@ -17,7 +17,6 @@ metadata:
     - SAP
     - example-scenario
     - e2e-sap
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-dev-test.png
 name: Development and test environments for SAP workloads on Azure
 azureCategories:
   - databases

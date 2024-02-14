@@ -32,8 +32,8 @@ The company has multiple regions and continues to deploy regions to the model. T
 |--|--|--|--|--|--|--|--|
 | ||**VNet1**        |**VNet2**   |**VNet3**   |**VNet4**   |**Branch**   |**Internet**   |
 |**Security-optimized source**|**VNet1**|Intra VNet|NVA1-VNet2 |NVA1-hub-VNet3|NVA1-hub-VNet4|NVA1-hub-branch|NVA1-internet|
-|**Performance-optimized source**|	**VNet3**|	hub-NVA1-VNet1	|hub-NVA1-VNet2|Intra VNet|	NVA2-VNet4	|hub-branch|	NVA2-internet|
-|**Branch source**|**Branch**|	hub-NVA1-VNet1|	hub-NVA1-VNet2|	hub-VNet3	|hub-VNet4|	Not applicable	|Not applicable|
+|**Performance-optimized source**| **VNet3**| hub-NVA1-VNet1 |hub-NVA1-VNet2|Intra VNet| NVA2-VNet4 |hub-branch| NVA2-internet|
+|**Branch source**|**Branch**| hub-NVA1-VNet1| hub-NVA1-VNet2| hub-VNet3 |hub-VNet4| Not applicable |Not applicable|
 
 ![Diagram that shows traffic pathways for the architecture.](./media/performance-security-optimized-vwan-azure.png)
 
@@ -45,39 +45,39 @@ The performance-optimized environment has a more customized routing schema. This
 
 Configure routes for the Virtual WAN hub as follows:
 
-|Name|	Associated to	|Propagating to|
+|Name| Associated to |Propagating to|
 |--|-|-|
-|NVA VNet1	|defaultRouteTable|	defaultRouteTable|
-|NVA VNet2	|PerfOptimizedRouteTable|	defaultRouteTable|
-|VNet3	|PerfOptimizedRouteTable	|defaultRouteTable|
-|VNet4	|PerfOptimizedRouteTable	|defaultRouteTable|
+|NVA VNet1 |defaultRouteTable| defaultRouteTable|
+|NVA VNet2 |PerfOptimizedRouteTable| defaultRouteTable|
+|VNet3 |PerfOptimizedRouteTable |defaultRouteTable|
+|VNet4 |PerfOptimizedRouteTable |defaultRouteTable|
 
 ### Routing requirements  
 
 - A custom route on the default route table in the Virtual WAN hub to route all traffic for VNet1 and VNet2 to secOptConnection.
 
-   |  Route name	|Destination type|	Destination prefix	|Next hop|	Next hop IP|
+   |  Route name |Destination type| Destination prefix |Next hop| Next hop IP|
    |-|-|-|-|-|
-   |Security optimized route|	CIDR|	10.1.0.0/16	|secOptConnection|	\<IP address of NVA1>|
+   |Security optimized route| CIDR| 10.1.0.0/16 |secOptConnection| \<IP address of NVA1>|
 
 - A static route on the secOptConnection forwarding the traffic for VNet1 and VNet2 to the IP address of NVA1.
 
-   |Name|	Address prefix|	Next hop type|	Next hop IP address|
+   |Name| Address prefix| Next hop type| Next hop IP address|
    |-|-|-|-|
-   |rt-to-secOptimized	|10.1.0.0/16	|Virtual appliance|	\<IP address of NVA1>|
+   |rt-to-secOptimized |10.1.0.0/16 |Virtual appliance| \<IP address of NVA1>|
 
 - A custom route table on the Virtual WAN hub that's named perfOptimizedRouteTable. This table is used to ensure the performance-optimized virtual networks can't communicate with each other over the hub and must use the peering to NVA VNet2.
 - A UDR associated with all subnets in VNet1 and VNet2 to route all traffic back to NVA1.
 
-   |Name|	Address prefix|	Next hop type|	Next hop IP address|
+   |Name| Address prefix| Next hop type| Next hop IP address|
    |-|-|-|-|
-   rt-all	|0.0.0.0/0|	Virtual appliance|	\<IP address of NVA1>|
+   rt-all |0.0.0.0/0| Virtual appliance| \<IP address of NVA1>|
 - A UDR associated with all subnets in VNet3 and VNet4 to route VNet-to-VNet traffic and internet traffic to NVA2.
 
-   Name	|Address prefix|	Next hop type|	Next hop IP address
+   Name |Address prefix| Next hop type| Next hop IP address
    |-|-|-|-|
-   rt-to-internet	|0.0.0.0/0	|Virtual appliance	|\<IP of address NVA2>
-   vnet-to-vnet	|10.2.0.0/16	|Virtual appliance	|\<IP address of NVA2>
+   rt-to-internet |0.0.0.0/0 |Virtual appliance |\<IP of address NVA2>
+   vnet-to-vnet |10.2.0.0/16 |Virtual appliance |\<IP address of NVA2>
 
  > [!NOTE]
  > You can replace NVA IP addresses with load balancer IP addresses in the routing if you're deploying a high-availability architecture with multiple NVAs behind the load balancer.

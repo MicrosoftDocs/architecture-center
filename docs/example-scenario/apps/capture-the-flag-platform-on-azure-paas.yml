@@ -5,7 +5,7 @@ metadata:
   description: Build a CTFd service with Azure PaaS so you can manage your games while Azure takes care of the infrastructure.
   author: balteravishay
   ms.author: architectures
-  ms.date: 01/11/2023
+  ms.date: 04/27/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - web-app
     - web apps
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ctfd.png
 name: Capture-the-Flag with CTFd on Azure PaaS
 azureCategories:
   - web

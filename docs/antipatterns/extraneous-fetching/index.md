@@ -13,7 +13,7 @@ azureCategories:
   - storage 
   - web
   - compute 
-  - devops 
+  - devops
 products:
   - azure-sql-database
   - azure-app-service
@@ -22,7 +22,6 @@ products:
   - azure-table-storage
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - anti-pattern
   - antipattern
@@ -256,7 +255,7 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 [data-partitioning]: ../../best-practices/data-partitioning.yml
 [new-relic]: https://newrelic.com/products/application-monitoring
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ExtraneousFetching
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/ExtraneousFetching
 
 [chatty-io]: ../chatty-io/index.md
 [MonolithicPersistence]: ../monolithic-persistence/index.md

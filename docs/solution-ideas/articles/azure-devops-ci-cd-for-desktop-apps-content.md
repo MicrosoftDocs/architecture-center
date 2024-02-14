@@ -22,9 +22,9 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 
 ## Architecture
 
-![Diagram that shows an architecture for C I / C D for Windows desktop apps.](../media/devops-windows-architecture.png)
+[ ![Diagram that shows an architecture for CI/CD for Windows desktop apps.](../media/devops-windows-architecture.svg)](../media/devops-windows-architecture.svg#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/Architecture.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/devops-windows-architecture.pptx) of this architecture.*
 
 1. A developer changes the application code.
 1. The code is committed to a source code repository, which can be hosted on Azure Repos or GitHub.

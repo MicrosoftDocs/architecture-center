@@ -1,10 +1,10 @@
-This solution uses confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
+This solution uses confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers with data from Azure Data Lake and Azure SQL Database. Confidential computing is provided by Intel Software Guard Extensions and AMD EPYC<sup>TM</sup> processors with Secure Encrypted Virtualization-Secure Nested Paging. For more information on provisioning an AKS cluster with AMD SEV-SNP confidential VMs, see [Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs](/azure/confidential-computing/confidential-node-pool-aks). For more information about deploying an AKS cluster with confidential computing Intel SGX agent nodes, see [Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 
 _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks._
 
 ## Architecture
 
-:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.png" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.png":::
+:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.svg" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.svg":::
 Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve are: ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 

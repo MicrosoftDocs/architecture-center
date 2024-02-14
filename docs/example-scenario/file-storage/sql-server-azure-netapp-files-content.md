@@ -174,7 +174,6 @@ Principal author:
 
 Fully deployable architectures that use Azure NetApp Files:
 
-- [FSLogix for the enterprise][FSLogix for the enterprise]
 - [Run SAP BW/4HANA with Linux virtual machines on Azure][Run SAP BW/4HANA with Linux virtual machines on Azure]
 - [Run SAP NetWeaver in Windows on Azure][Run SAP NetWeaver in Windows on Azure]
 
@@ -190,7 +189,6 @@ Fully deployable architectures that use Azure NetApp Files:
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
-[FSLogix for the enterprise]: ../wvd/windows-virtual-desktop-fslogix.yml
 [Highly performant systems section of this article]: #highly-performant-systems
 [Install SQL Server with SMB fileshare storage]: /sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017
 [Key benefits diagram in .svg format]: ./media/sql-server-azure-netapp-files-key-values.svg

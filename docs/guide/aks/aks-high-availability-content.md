@@ -164,5 +164,4 @@ Other contributors:
 
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Elastic demand handling with AKS](../../solution-ideas/articles/aks-demand-spikes.yml)
 - [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)

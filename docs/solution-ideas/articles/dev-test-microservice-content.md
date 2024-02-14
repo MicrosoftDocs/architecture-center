@@ -16,7 +16,7 @@ This solution architecture models a development and deployment environment that 
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for a microservice application.](../media/dev-test-microservice.svg)
+:::image type="content" border="false" source="../media/dev-test-microservice.svg" alt-text="Diagram showing the configuration of DevTest and DevOps for a microservice application." lightbox="../media/dev-test-microservice.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/dev-test-microservice.vsdx) of this architecture.*
 
@@ -48,7 +48,7 @@ The application uses [Azure Cosmos DB](https://azure.microsoft.com/services/cosm
 
 All services and environments report metrics to [Azure Monitor](/azure/devtest-labs/security-baseline).
 
-In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) manages identity for both the DevTest and Production subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
+In this solution, a single [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) manages identity for both the DevTest and Production subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
 
 ### Components
 
@@ -68,7 +68,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) makes it simple to deploy managed Kubernetes clusters by offloading much of the complexity, responsibility, and operational overhead to Azure.
 
-- [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access. A single Azure AD can manage identity for all environments across subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of production resources.
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access. A single Microsoft Entra ID can manage identity for all environments across subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of production resources.
 
 - [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Azure Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
 
@@ -90,7 +90,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 ## Related resources
 
-- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)

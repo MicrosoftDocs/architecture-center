@@ -15,17 +15,16 @@ metadata:
   ms.custom:
     - fcp
     - kr2b-contr-experiment
-  social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png
 name: DevSecOps with GitHub Security
 azureCategories:
   - devops
   - security
 summary: Learn how GitHub tools like Codespaces and Actions make security practices an integral part of DevOps while maintaining efficiency in an Azure framework.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-monitor
   - azure-policy
-  - azure-security-center
+  - defender-for-cloud
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-github-data-flow.png
 content: |

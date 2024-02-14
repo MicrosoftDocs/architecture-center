@@ -6,7 +6,9 @@ This architecture shows how the Raincode COBOL compiler modernizes mainframe leg
 
 The following diagram shows an example of a legacy COBOL-based mainframe architecture, before migration to Azure.
 
-[![Graphical example of legacy COBOL-based mainframe architecture.](media/raincode-reference-architecture-01.png)](media/raincode-reference-architecture-01.png#lightbox)
+:::image type="content" source="media/raincode-reference-architecture-01.svg" alt-text="Diagram that shows a legacy COBOL-based mainframe architecture." lightbox="media/raincode-reference-architecture-01.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/raincode-reference-architecture.vsdx) of this architecture.*
 
 #### Workflow
 
@@ -34,7 +36,10 @@ I. LPARs represent a subset of a computer's hardware resources. Each LPAR can ho
 
 This diagram shows how the legacy architecture can be migrated to Azure, taking advantage of the Raincode compiler and many other modern Azure services.
 
-[![Legacy architecture migration to Azure workflow.](media/raincode-reference-architecture-02.png)](media/raincode-reference-architecture-02.png#lightbox)
+
+:::image type="content" source="media/raincode-reference-architecture-02.svg" alt-text="Legacy architecture migration to Azure workflow." lightbox="media/raincode-reference-architecture-02.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/raincode-reference-architecture.vsdx) of this architecture.*
 
 #### Workflow
 

@@ -66,5 +66,3 @@ The use of digital workflows isn't limited to any one industry. Document-based d
 ## Related resources
 
 - [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
-- [API-first SaaS business model](./aks-api-first.yml)
-- [Modern customer support portal](./modern-customer-support-portal-powered-by-an-agile-business-process.yml)

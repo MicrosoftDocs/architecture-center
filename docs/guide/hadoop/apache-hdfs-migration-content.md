@@ -246,7 +246,7 @@ Other contributors:
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Engineer
 - [Eugene Chung](https://www.linkedin.com/in/eugenesc) | Senior Cloud Solution Architect
 - [Pawan Hosatti](https://www.linkedin.com/in/pawanhosatti) | Senior Cloud Solution Architect - Engineering
-- [Daman Kaur](https://www.linkedin.com/in/damankaur-architect) | Cloud Solution Architect
+- [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
 - [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
@@ -268,7 +268,7 @@ Other contributors:
 
 ### Azure product reference
 
-- [Azure Active Directory documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Databricks documentation](/azure/databricks)
@@ -294,4 +294,3 @@ Other contributors:
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Kafka migration to Azure](apache-kafka-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)

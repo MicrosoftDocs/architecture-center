@@ -2,7 +2,7 @@ This article describes a high-availability blue/green deployment solution for ap
 
 ## Architecture
 
-[ ![Architecture diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](media/blue-green-deployment.png)](media/blue-green-deployment.png#lightbox)
+[ ![Architecture diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](media/blue-green-deployment.svg)](media/blue-green-deployment.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture.*
 

@@ -2,7 +2,7 @@ This article can help businesses or teams reduce manual processes, also known as
 
 ## Architecture
 
-![Diagram that shows how to automate diagnostic notebooks by using an Azure serverless architecture.](media/automate-diagnostic-jupyter-notebook.png)
+[ ![Diagram that shows how to automate diagnostic notebooks by using an Azure serverless architecture.](media/automate-diagnostic-jupyter-notebook.svg)](media/automate-diagnostic-jupyter-notebook.svg#lightbox)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/automate-diagnostic-jupyter-notebook.pptx) of this architecture.*
 

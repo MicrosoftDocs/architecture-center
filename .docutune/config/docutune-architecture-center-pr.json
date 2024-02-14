@@ -1,0 +1,23 @@
+{
+  "BaseConfiguration": "docutune-default.json",
+  "DocSets": [
+    {
+      "DocsetName": "azure-architecture-center-pr2",
+      "BasePath": "/azure/architecture"
+  } ],
+  "MetadataMultilineValues": true,
+  "MarkdownListIndicator": "-",
+  "Exclude": [
+    "SECURITY.md"
+  ],
+  "TermFiles": [
+    "Bundle-Standard.txt",
+    "Bundle-Cloud.txt",
+    "Dictionary-EntraRebrand.ps1",
+    "Dictionary-AAC.ps1"
+  ],
+  "RemoveTermSets": [
+//    "invalid-microsoft-can-may",
+//    "*azure-batch*"
+  ]
+}

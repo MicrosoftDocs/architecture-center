@@ -71,7 +71,7 @@ Whatever your PdM needs, Azure has the tools, the scale, and the capabilities to
 
 A lot of equipment found on the factory floor generates data. Start collecting it as soon as possible. As failures occur, have the data scientists analyze the data to create models to detect future failures. As knowledge builds about failure detection, move to predictive mode where you fix components during planned downtime. The [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) provides a solid walkthrough of building the machine learning pieces of the solution.
 
-To see an example solution, review the solution, guide, and playbook for [PdM in Aerospace](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). If you need to learn about building models, we recommend visiting [Foundations of data science for machine learning](/training/paths/machine-learning-foundations-using-data-science). The [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml) Learn module introduces you to Azure tools.
+If you need to learn about building models, we recommend visiting [Foundations of data science for machine learning](/training/paths/machine-learning-foundations-using-data-science). The [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml) Learn module introduces you to Azure tools.
 
 ## Components
 
@@ -128,7 +128,6 @@ Principal author:
 ## Related resources
 
 - [Predictive maintenance solution](predictive-maintenance-solution.yml)
-- [Extract actionable insights from IoT data](extract-insights-iot-data.yml)
 - [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
 - [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)

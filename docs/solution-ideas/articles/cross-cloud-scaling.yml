@@ -22,7 +22,6 @@ metadata:
     - interactive-diagram
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
 name: Cross-cloud scaling with Azure Functions 
 azureCategories:
   - hybrid

@@ -4,7 +4,7 @@ Software AG provides a popular 4GL mainframe platform that's based on the Natura
 
 This diagram illustrates an example of a mainframe with Software AG's Adabas & Natural modules installed, before migration to Azure. This example shows an IBM z/OS architecture.
 
-![Diagram that shows a mainframe architecture that uses Software AG's Adabas & Natural, before migration to Azure.](media/mainframe-pre-migration.png)
+:::image type="content" border="false" source="media/mainframe-pre-migration.svg" alt-text="Diagram that shows a mainframe architecture that uses Software AG's Adabas & Natural, before migration to Azure." lightbox="media/mainframe-pre-migration.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-pre-migration.vsdx) of this architecture.*
 
@@ -30,7 +30,7 @@ H. Partitions are needed to run separate workloads and to segregate work types w
 
 This diagram shows how you can migrate the legacy architecture to Azure by using a refactoring approach to modernize the system:
 
-:::image type="content" border="false" source="media/mainframe-software-ag-azure-refactor.png" alt-text="Diagram that shows the legacy architecture after migration to Azure." lightbox="media/mainframe-software-ag-azure-refactor.png":::
+:::image type="content" border="false" source="media/mainframe-software-ag-azure-refactor.svg" alt-text="Diagram that shows the legacy architecture after migration to Azure." lightbox="media/mainframe-software-ag-azure-refactor.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-SoftwareAG-azure-refactor-r1.vsdx) of this architecture.*
 
@@ -100,7 +100,7 @@ Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of n
 
 ### Security  
 
-This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Azure Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. 
+This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. 
 
 ## Contributors
 

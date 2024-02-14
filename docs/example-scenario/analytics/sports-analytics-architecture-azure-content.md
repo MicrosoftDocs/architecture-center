@@ -4,7 +4,7 @@ The focus of this article is to show a practical architecture that uses Azure se
 
 ## Architecture
 
-:::image type="content" source="./media/sports-analytics-azure-reference-architecture.png" alt-text="Diagram that shows an example workload Azure architecture for sports analytics." lightbox="./media/sports-analytics-azure-reference-architecture.png":::
+:::image type="content" source="./media/sports-analytics-azure-reference-architecture.svg" alt-text="Diagram that shows an example workload Azure architecture for sports analytics." lightbox="./media/sports-analytics-azure-reference-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sports-analytics-azure-reference-architecture.vsdx) of this architecture.*
 
@@ -22,7 +22,7 @@ The focus of this article is to show a practical architecture that uses Azure se
 5. The final processed data is written to Data Lake Storage in Delta format.
 6. Transformed data that's used in the visualization layer, like Power BI, is written to an Azure SQL Database. This database becomes the data source for any reporting needs.
 7. Curated data is visualized and manipulated through Power BI, Power Apps, or a custom web application that's hosted by an Azure App Service.
-8. Azure Machine Learning builds and trains machine learning models by using data imported into Azure Machine Learning Datasets and external sources. The datasets and sources are directly linked to the Azure Machine Learning Workspace. You can control access and authentication for data and the Machine Learning workspace with Azure Active Directory (Azure AD) and Azure Key Vault. Models can also be retrained as necessary in Machine Learning.
+8. Azure Machine Learning builds and trains machine learning models by using data imported into Azure Machine Learning Datasets and external sources. The datasets and sources are directly linked to the Azure Machine Learning Workspace. You can control access and authentication for data and the Machine Learning workspace with Microsoft Entra ID and Azure Key Vault. Models can also be retrained as necessary in Machine Learning.
 9. As an alternative to storing model results in Data Lake Storage or SQL Database, you can deploy Machine Learning models to containers using Azure Kubernetes Services (AKS) as a web service and called via a REST API endpoint. The web service deploys by using an Azure App Service, and then you can send data to the REST API endpoint and receive the prediction returned by the model within the web application.
 
 Throughout the process:
@@ -46,7 +46,7 @@ Throughout the process:
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management) helps you understand your Azure invoice, manage your billing account and subscriptions, monitor, control Azure spending, and optimize resource use.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for securely storing and accessing secrets.
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is an identity service that provides single sign-on, multifactor authentication, and conditional access to guard against most cybersecurity attacks.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity service that provides single sign-on, multifactor authentication, and conditional access to guard against most cybersecurity attacks.
 - [Azure DevOps](https://azure.microsoft.com/services/devops) provides developer services so that teams can plan work, collaborate on code development, and build and deploy applications. Azure DevOps supports a collaborative culture and set of processes that bring together developers, project managers, and contributors to develop software.
 
 ### Alternatives
@@ -143,7 +143,6 @@ Other contributor:
 
 ## Related resources
 
-- [Baseball decision analysis with ML.NET and Blazor](../../data-guide/big-data/baseball-ml-workload.yml)
 - [IoT and data analytics](../data/big-data-with-iot.yml)
 - [Monitoring Azure Databricks](../../databricks-monitoring/index.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)

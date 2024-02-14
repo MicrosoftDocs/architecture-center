@@ -16,7 +16,7 @@ products:
   - azure-virtual-network
   - azure-kubernetes-service
   - azure-machine-learning
-  - azure-cognitive-services
+  - ai-services
 name: Azure public multi-access edge compute deployment
 summary: Learn how to use Azure public multi-access edge compute to exploit the speed of 5G and unlock key low latency and high bandwidth scenarios.
 thumbnailUrl: /azure/architecture/browse/thumbs/public-multi-access-edge-compute-deployment.png

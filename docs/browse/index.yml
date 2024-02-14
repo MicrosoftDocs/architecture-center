@@ -3,7 +3,7 @@ title: Browse Azure Architectures
 browseType: architecture
 summary: Find architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.
 metadata:
-  ms.topic: hub-page
+  ms.topic: browse-hub
   keywords:
     - "azure architecture"
     - "architecture diagrams"
@@ -11,5 +11,3 @@ metadata:
     - "reference architecture"
     - "example scenarios"
     - "solution ideas"
-  ms.custom:
-    - seo-aac-fy21q3

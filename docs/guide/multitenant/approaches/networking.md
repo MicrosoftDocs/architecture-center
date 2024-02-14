@@ -165,7 +165,7 @@ Depending on how your solution is designed, you might also be able to cache tena
 
 ### Failing to plan for VNet connectivity
 
-By deploying resources into VNets, you have a great deal of control over how traffic flows through your solution's components. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. This effect is especially true with platform at a service (PaaS) components.
+By deploying resources into VNets, you have a great deal of control over how traffic flows through your solution's components. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. This effect is especially true with platform as a service (PaaS) components.
 
 It's important to test and plan your network strategy, so that you uncover any issues before you implement it in a production environment.
 

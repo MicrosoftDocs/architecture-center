@@ -16,7 +16,7 @@ azureCategories:
 products:
   - azure-lab-services
   - azure-virtual-machines
-  - azure-active-directory
+  - entra-id
 name: Teacher-provisioned virtual labs in Azure
 summary: Learn how you can use Azure Lab Services to set up identical VMs from templates, for use in training, customer demos, and software development.
 thumbnailUrl: /azure/architecture/browse/thumbs/teacher-provisioned-virtual-labs-azure.png

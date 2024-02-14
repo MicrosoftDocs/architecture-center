@@ -27,7 +27,7 @@ The following list describes the benefits of deploying AVL FIRE M on Azure:
 
 This diagram shows a multi-node configuration:
 
-:::image type="content" source="media/fire-m/fire-m-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration architecture." lightbox="media/fire-m/fire-m-cluster-architecture.png" border="false":::
+:::image type="content" source="media/fire-m/fire-m-cluster-architecture.svg" alt-text="Diagram that shows a multi-node configuration architecture." lightbox="media/fire-m/fire-m-cluster-architecture.svg" border="false":::
 
 *Download a* *[Visio file](https://arch-center.azureedge.net/fire-m-cluster-architecture.vsdx) of this architecture.*
 
@@ -41,13 +41,13 @@ This diagram shows a multi-node configuration:
 
 Performance tests of AVL FIRE M on Azure use [HBv3-series VMs](/azure/virtual-machines/hbv3-series) running the Linux CentOS operating system. The following table provides the configuration details:
 
-|Size|	vCPU	|RAM memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
+|Size| vCPU |RAM memory (GiB)| Memory bandwidth (GBps)| Base CPU frequency (GHz)| All-cores frequency (GHz, peak)| Single-core frequency (GHz, peak)| RDMA performance (GBps)| Maximum data disks|
 |--|--|--|--|--|--|--|--|--|
-|Standard_HB120rs_v3|	120|	448|	350	|1.9|	3.0|	3.5|	200|	32|
-|Standard_HB120-96rs_v3|	96	|448	|350|	1.9|	3.0	|3.5|	200|	32|
-|Standard_HB120-64rs_v3|	64	|448	|350|	1.9|	3.0	|3.5|	200|	32|
-|Standard_HB120-32rs_v3 |	32	|448	|350|	1.9|	3.0	|3.5|	200|	32|
-|Standard_HB120-32rs_v3 |	16	|448	|350|	1.9|	3.0	|3.5|	200|	32|
+|Standard_HB120rs_v3| 120| 448| 350 |1.9| 3.0| 3.5| 200| 32|
+|Standard_HB120-96rs_v3| 96 |448 |350| 1.9| 3.0 |3.5| 200| 32|
+|Standard_HB120-64rs_v3| 64 |448 |350| 1.9| 3.0 |3.5| 200| 32|
+|Standard_HB120-32rs_v3 | 32 |448 |350| 1.9| 3.0 |3.5| 200| 32|
+|Standard_HB120-32rs_v3 | 16 |448 |350| 1.9| 3.0 |3.5| 200| 32|
 
 ### Required drivers
 
@@ -181,14 +181,15 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |  8 |                                2.5|
 |  16 |                                1.6|
 
-> [!NOTE]
-> *The total run time presented here is for 300 iterations only. The analysis time for a fully converged solution can differ. **The total run time presented here is for 500 iterations only. The analysis time for a fully converged solution can differ.
+*The total run time presented here is for 300 iterations only. The analysis time for a fully converged solution can differ.
+
+**The total run time presented here is for 500 iterations only. The analysis time for a fully converged solution can differ.
 
 ## Summary
 
 - HPC on Azure provides fully managed platform services and a robust architecture to run HPC workloads and applications.
 - Azure offers robust compute services that provide unlimited scalability options for HPC applications. You can use HB-series VMs for memory-bound applications and N-series VMs for graphic-intensive applications.
-- Azure CycleCloud lets you manage and orchestrate workloads, define access controls with Azure Active Directory, and customize cluster policies.
+- Azure CycleCloud lets you manage and orchestrate workloads, define access controls with Microsoft Entra ID, and customize cluster policies.
 - AVL FIRE M was successfully tested on HBv3 AMD EPYC™ 7V73X (Milan-X) series on Azure CycleCloud multi-node setup.
 - AVL FIRE M demonstrates good upscale with an increase in the number of CPUs in a multi-node setups.
 - For improved performance, there must be a minimum of 20,000 cells per CPU for single-phase incompressible flow simulations.

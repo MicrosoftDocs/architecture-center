@@ -13,10 +13,10 @@ metadata:
 azureCategories:
   - devops
 products:
-  - azure-active-directory
+  - entra-id
   - azure-devops
   - azure-key-vault
-  - azure-security-center
+  - defender-for-cloud
   - microsoft-sentinel
 name: Automate Sentinel integration with Azure DevOps
 summary: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center. 

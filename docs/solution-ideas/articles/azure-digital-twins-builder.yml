@@ -18,7 +18,7 @@ azureCategories:
 products:
   - azure-digital-twins
   - azure-functions
-  - azure-app-service-static
+  - static-web-apps
 name: Azure digital twins builder
 summary: Learn how a web app can use Azure Digital Twins and Autodesk Forge API to accelerate the process of creating digital twins from Build Information Modeling (BIM) models.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-digital-twins-builder-thumbnail-new.png

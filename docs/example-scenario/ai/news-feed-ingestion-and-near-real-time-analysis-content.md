@@ -5,6 +5,7 @@ This example scenario describes a pipeline for mass ingestion and near real-time
 ## Architecture
 
 ![Architecture diagram: ingest and analyze RSS feeds using image and text processing and send notifications.][architecture]
+*Download a [Visio file][visio-download] of this architecture.*
 
 ### Dataflow
 
@@ -133,7 +134,8 @@ Additional analytics architectures:
 * [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
 * [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
-[architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
+[architecture]: ./media/mass-ingestion-newsfeeds-architecture.svg
+[visio-download]: https://arch-center.azureedge.net/news-feed-ingestion-and-near-real-time.vsdx
 [aai]: /azure/azure-monitor/app/app-insights-overview
 [aas]: https://azure.microsoft.com/try/app-service
 [acs]: https://azure.microsoft.com/services/cognitive-services/directory

@@ -1,8 +1,10 @@
 This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
 
+*Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png" border="false":::
+:::image type="content" source="../media/build-data-lake-support-ad-hoc-queries-online-02.svg" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-ad-hoc-queries-online-02.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/build-data-lake-support-adhoc-queries-online.vsdx) of this architecture.*
 
@@ -66,7 +68,7 @@ manage user purchases. For example, leisure and travel booking systems
 disintermediate users and services providers for searching services, aggregating
 meaningful offers from providers, and managing user reservations.
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
+:::image type="content" source="../media/build-data-lake-support-ad-hoc-queries-online-01.svg" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
 
 ### Potential use cases
 
@@ -114,7 +116,7 @@ Azure Event Hubs is highly versatile when it comes to decoupling a transactional
 
 ### DevOps
 
-For deploying the used services in this example workload automatically, it's best to use [continuous integration and continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks). Consider using a solution such as Azure DevOps or GitHub Actions.
+For deploying the used services in this example workload automatically, it's best to use [continuous integration and continuous deployment (CI/CD) processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops). Consider using a solution such as Azure DevOps or GitHub Actions.
 
 ### Cost optimization
 
@@ -362,7 +364,6 @@ See the related architectural guidance:
 - [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 
 See these related architectures:
-- [Optimized storage – time based with Azure Data Lake](/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake)
 - [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 - [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb)

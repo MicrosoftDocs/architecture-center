@@ -4,7 +4,9 @@ Astadia’s automated COBOL refactoring solution delivers cloud-enabled applicat
 
 Here's a mainframe architecture that represents the kind of system that's suitable for the Astadia refactoring solution.
 
-:::image type="content" source="media/refactor-mainframe-applications-astadia-pre.png" alt-text="Diagram for a mainframe architecture that's suitable for Astadia refactoring." lightbox="media/refactor-mainframe-applications-astadia-pre.png" :::
+:::image type="content" source="media/refactor-mainframe-applications-astadia-pre.svg" alt-text="Diagram for a mainframe architecture that's suitable for Astadia refactoring." lightbox="media/refactor-mainframe-applications-astadia-pre.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-mainframe-applications-astadia.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -22,9 +24,9 @@ Here's a mainframe architecture that represents the kind of system that's suitab
 
 Here's an Azure architecture to replace the mainframe functionality with refactored applications.
 
-:::image type="content" source="media/refactor-mainframe-applications-astadia-post.png" alt-text="Architecture diagram for an Astadia refactoring solution." lightbox="media/refactor-mainframe-applications-astadia-post.png" :::
+:::image type="content" source="media/refactor-mainframe-applications-astadia-post.svg" alt-text="Architecture diagram for an Astadia refactoring solution." lightbox="media/refactor-mainframe-applications-astadia-post.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1930135-refactor-mainframe-applications-astadia.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-mainframe-applications-astadia.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -44,7 +46,7 @@ Here's an Azure architecture to replace the mainframe functionality with refacto
    - Azure Blob Storage serves as a landing zone for data from external data sources.
    - Azure Data Factory ingests data and synchronizes multiple Azure and external data sources.
 1. Azure Site Recovery provides disaster recovery for virtual machines (VMs) and container cluster components.
-1. Services like Azure Active Directory, Azure Networking, Azure DevOps, Azure Stream Analytics, Azure Databricks, GitHub, and Power BI are easily integrated with the modernized system.
+1. Services like Microsoft Entra ID, Azure Networking, Azure DevOps, Azure Stream Analytics, Azure Databricks, GitHub, and Power BI are easily integrated with the modernized system.
 
 ### Components
 

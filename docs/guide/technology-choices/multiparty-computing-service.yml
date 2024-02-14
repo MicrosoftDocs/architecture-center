@@ -13,7 +13,6 @@ azureCategories:
   - compute
 products:
   - azure-blob-storage
-  - azure-blockchain-service
   - azure-kubernetes-service
   - azure-sql-database
 name: Choose an Azure multiparty computing service

@@ -19,7 +19,7 @@ products:
   - azure-automation
   - azure-logic-apps
   - azure-monitor
-  - azure-sentinel
+  - microsoft-sentinel
 name: Enterprise monitoring with Azure Monitor
 summary: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-monitoring.png

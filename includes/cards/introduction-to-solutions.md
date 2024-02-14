@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/iot/introduction-to-solutions"><img src="/azure/architecture/browse/thumbs/introduction-to-solutions.png" class="diagram" alt="Thumbnail of IoT solutions conceptual overview Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/iot/iot-architecture-overview"><img src="/azure/architecture/browse/thumbs/introduction-to-solutions.png" class="diagram" alt="Thumbnail of IoT solutions conceptual overview Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/iot/introduction-to-solutions">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/iot/iot-architecture-overview">
             <p>IoT solutions conceptual overview</p>
         </a>
         <ul class="card-content-metadata">

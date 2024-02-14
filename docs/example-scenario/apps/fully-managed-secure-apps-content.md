@@ -19,7 +19,7 @@ Consider this scenario for the following use cases:
 ### Dataflow
 
 1. HTTP/HTTPS requests first hit the Application Gateway.
-1. Optionally (not shown in the diagram), you can have Azure Active Directory (Azure AD) authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user would be prompted to supply credentials to authenticate with the application.
+1. Optionally (not shown in the diagram), you can have Microsoft Entra authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user would be prompted to supply credentials to authenticate with the application.
 1. User requests flow through the internal load balancer (ILB) of the environment, which in turn routes the traffic to the Expenses Web App.
 1. The user then proceeds to create an expense report.
 1. As part of creating the expense report, the deployed API App is invoked to retrieve the user's manager name and email.
@@ -97,7 +97,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Resiliency
 
@@ -139,7 +139,7 @@ Principal author:
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
-- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+- [High availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 - [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
 <!-- links -->
@@ -154,11 +154,11 @@ Principal author:
 [azure-networking]: /azure/virtual-network/virtual-networks-overview
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
-[architecture]: ./media/ilb-ase-architecture.png
+[architecture]: ./media/fully-managed-secure-apps.svg
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
-[app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
+[app-service-reference-architecture]: /azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant
 [availability]: ../../checklist/resiliency-per-service.md
 
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns

@@ -97,7 +97,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                <a class="is-undecorated is-full-height is-block"
                  href="/azure/architecture/example-scenario/infrastructure/hpc-cfd">
-                 <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for computational fluid dynamics simulations on Azure." src="../example-scenario/infrastructure/media/architecture-hpc-cfd.svg">
                 </a>
                 </figure>
                 <div class="card-content has-text-overflow-ellipsis">
@@ -115,7 +115,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
           <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
               <a class="is-undecorated is-full-height is-block"
               href="/azure/architecture/example-scenario/infrastructure/video-rendering">
-                 <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.png">
+                 <img role="presentation" alt="Diagram shows example HPC architecture for 3D video rendering on Azure." src="../example-scenario/infrastructure/media/architecture-video-rendering.svg">
             </a>
           </figure>
           <div class="card-content has-text-overflow-ellipsis">
@@ -152,7 +152,6 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 
 - [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
-- [GlusterFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure)
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage)
 - [Blob, table, and queue storage](/azure/storage/common/storage-introduction)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction)
@@ -393,7 +392,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 ### AI and deep learning
 
 - [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
-- [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 ### MPI providers
 
@@ -484,8 +482,6 @@ These tutorials will provide you with details on running applications on Microso
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
 - [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
-- [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
-- [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
 
 ## Related resources

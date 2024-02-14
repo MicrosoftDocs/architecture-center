@@ -2,9 +2,9 @@ The Infinite i suite is from Microsoft partner Infinite Corporation. The archite
 
 ## Architecture
 
-:::image type="content" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="This architecture uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg":::
+:::image type="content" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="This architecture uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1828025-PR-2852-ibm-system-i-azure-infinite-i.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ibm-system-i-azure-infinite-i.vsdx) of this architecture.*
 
 ### Workflow
 

@@ -18,7 +18,6 @@ products:
   - azure-data-lake
   - azure-iot-edge
   - azure-iot-hub
-  - azure-iot-solution-accelerators
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-and-optimize.png
 content: |
    [!include[](analyze-optimize-loop-content.md)]

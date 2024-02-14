@@ -11,7 +11,7 @@ metadata:
 azureCategories:
   - identity
 products:
-  - azure-active-directory
+  - entra-id
 name:  Federated Identity pattern
 summary: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
 thumbnailUrl: /azure/architecture/browse/thumbs/federated-identity-multitenant.png

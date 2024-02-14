@@ -1,10 +1,10 @@
 ---
 title: Operations for mission-critical workloads on Azure
 description: Guidance for operations for the baseline reference architecture for a mission-critical workload on Azure. 
-author: robbagby
+author: asudbring
 categories: networking
 ms.author: allensu
-ms.date: 06/28/2022
+ms.date: 11/30/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture

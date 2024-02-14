@@ -23,7 +23,6 @@ metadata:
     - hybrid application
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/tiered-data-for-analytics"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/tiered-data-for-analytics.png
 name: Tier applications and data for analytics
 azureCategories:
   - analytics
@@ -33,7 +32,7 @@ products:
   - azure-functions
   - azure-stack
   - azure-storage
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/tiered-data-for-analytics.png
 content: |
    [!include[](tiered-data-for-analytics-content.md)]

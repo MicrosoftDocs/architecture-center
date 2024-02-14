@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Baseline OpenAI end-to-end chat reference architecture
+  titleSuffix: Azure Reference Architectures
+  description: Learn about proven practices for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Services.
+  author: robbagby
+  ms.author: robbag
+  ms.date: 1/17/2024
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - ai-machine-learning
+  - web
+  - networking
+  - security
+products:
+  - azure-openai
+  - azure-machine-learning
+  - azure-app-service
+  - azure-key-vault
+  - azure-monitor
+name: Baseline OpenAI end-to-end chat reference architecture
+summary: Learn about proven practices for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Services.
+thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end.png
+content: |
+   [!include[](baseline-openai-e2e-chat-content.md)]

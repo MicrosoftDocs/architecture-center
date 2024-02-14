@@ -49,7 +49,7 @@ In this solution, you'll build a sample environment to:
 - Two connected Azure Stack Hub integrated systems (Azure Stack Hub). This deployment doesn't work on the Azure Stack Development Kit (ASDK). To learn more about Azure Stack Hub, see the [Azure Stack overview](https://azure.microsoft.com/overview/azure-stack/).
 - A tenant subscription on each Azure Stack Hub.
   - **Make a note of each subscription ID and the Azure Resource Manager endpoint for each Azure Stack Hub.**
-- An Azure Active Directory (Azure AD) service principal that has permissions to the tenant subscription on each Azure Stack Hub. You may need to create two service principals if the Azure Stack Hubs are deployed against different Azure AD tenants. To learn how to create a service principal for Azure Stack Hub, see [Create service principals to give apps access to Azure Stack Hub resources](/azure-stack/user/azure-stack-create-service-principals).
+- A Microsoft Entra service principal that has permissions to the tenant subscription on each Azure Stack Hub. You may need to create two service principals if the Azure Stack Hubs are deployed against different Microsoft Entra tenants. To learn how to create a service principal for Azure Stack Hub, see [Create service principals to give apps access to Azure Stack Hub resources](/azure-stack/user/azure-stack-create-service-principals).
   - **Make a note of each service principal's application ID, client secret, and tenant name (xxxxx.onmicrosoft.com).**
 - SQL Server 2016 Enterprise syndicated to each Azure Stack Hub's Marketplace. To learn more about marketplace syndication, see [Download Marketplace items to Azure Stack Hub](/azure-stack/operator/azure-stack-download-azure-marketplace-item).
     **Make sure that your organization has the appropriate SQL licenses.**
@@ -116,4 +116,3 @@ Docker images for each deployment eliminate dependency issues between different 
 
 - Use SQL Server Management Studio to manually fail over the cluster. See [Perform a Forced Manual Failover of an Always On Availability Group (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017&preserve-view=true).
 - Learn more about hybrid cloud apps. See [Hybrid Cloud Solutions](/azure-stack/user/).
-- Use your own data or modify the code to this sample on [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

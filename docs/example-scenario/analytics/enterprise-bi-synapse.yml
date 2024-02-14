@@ -25,7 +25,7 @@ products:
   - power-bi
   - azure-synapse-analytics
   - azure-data-factory
-  - azure-active-directory
+  - entra-id
   - azure-blob-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-bi-scoped-architecture.png
 content: |

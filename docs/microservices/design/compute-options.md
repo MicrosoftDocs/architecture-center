@@ -2,7 +2,7 @@
 title: Choose a compute option for microservices
 description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -83,5 +83,5 @@ Our reference implementation primarily uses Kubernetes, but we did use Azure Fun
 
 - [Using domain analysis to model microservices](../model/domain-analysis.md)
 - [Design a microservices architecture](index.yml)
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
 - [Design APIs for microservices](../design/api-design.yml)

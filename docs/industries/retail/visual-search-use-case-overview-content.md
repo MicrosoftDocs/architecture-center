@@ -91,7 +91,7 @@ Other applicable technologies are a combination of Azure SQL Database (if fixed 
 
 The encoding process extracts salient features from pictures in the database and maps each of them to a sparse "feature" vector (a vector with many zeros) that can have thousands of components. This vector is a numerical representation of the features (such as edges and shapes) that characterize the picture. It's akin to a code.
 
-Feature extraction techniques typically use _transfer learning mechanisms_. This occurs when you select a pre-trained neural network, run each image through it and store the feature vector  produced back in your image database. In that way, you "transfer" the learning from whoever trained the network. Microsoft has developed and published several pre-trained networks that have been widely used for image recognition tasks, such as [ResNet50](https://www.kaggle.com/keras/resnet50).
+Feature extraction techniques typically use _transfer learning mechanisms_. This occurs when you select a pre-trained neural network, run each image through it and store the feature vector  produced back in your image database. In that way, you "transfer" the learning from whoever trained the network. Microsoft has developed and published several pre-trained networks that have been widely used for image recognition tasks, such as [ResNet50](https://github.com/onnx/models/tree/main/validated/vision/classification/resnet).
 
 Depending on the neural network, the feature vector will be more or less long and sparse, hence the memory and storage requirements will vary.
 
@@ -144,10 +144,6 @@ Other contributors:
 
 Implementing visual search need not be complex. You can use Bing or build your own with Azure services, while benefiting from Microsoft's AI research and tools.
 
-### Trial
-
-- Try out the [Visual Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac)
-
 ### Develop
 
 - To begin creating a customized service, see [Bing Visual Search API Overview](/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
@@ -164,7 +160,5 @@ Implementing visual search need not be complex. You can use Bing or build your o
 ## Related resources
 
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
-- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)
-- [Retail and e-commerce using Azure Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)

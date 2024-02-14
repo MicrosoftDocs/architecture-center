@@ -13,7 +13,6 @@ ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
-  - contperf-fy20q4
 products:
   - azure-machine-learning
 categories:
@@ -129,10 +128,9 @@ Principal author:
 
 ## Next steps
 
-To create features for data in specific environments, see the following articles:
+To create features for data in a specific environment, see the following article:
 
 - [Create features for data in SQL Server](create-features-sql-server.md)
-- [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
 
 ## Related resources
 

@@ -3,7 +3,7 @@ title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 10/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -49,7 +49,7 @@ Azure provides built-in autoscaling mechanisms that address common scenarios. If
 
 Azure provides built-in autoscaling for most compute options.
 
-- **Azure Virtual Machines** autoscale via [virtual machine scale sets][vm-scale-sets], which manage a set of Azure virtual machines as a group. See [How to use automatic scaling and virtual machine scale sets][vm-scale-sets-autoscale].
+- **Azure Virtual Machines** autoscale via [virtual machine scale sets][vm-scale-sets], which manage a set of virtual machines as a group. See [How to use automatic scaling and virtual machine scale sets][vm-scale-sets-autoscale].
 
 - **Service Fabric** also supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using autoscale rules][service-fabric-autoscale].
 

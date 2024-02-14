@@ -1,10 +1,14 @@
+---
+ms.custom:
+  - devx-track-jenkins
+---
 This scenario explains the architecture and considerations to take into account when [installing and configuring Jenkins][install-jenkins-section].
 
 ## Architecture
 
-![Diagram that demonstrates a Jenkins server running on Azure.][0]
+[ ![Architectural diagram that demonstrates a Jenkins server running on Azure.](./media/architecture-jenkins.svg)](./media/architecture-jenkins.svg#lightbox)
 
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Jenkins%20Server%20on%20Azure&templateid=TM66956692) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains a version of this architecture diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/jenkins-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -28,7 +32,7 @@ The architecture consists of the following aspects:
 
 - **Azure Blob storage.** The [Microsoft Azure Storage][configure-storage] Learn how to Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
 
-- **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [Azure role-based access control (Azure RBAC)][rbac]. Each service principal is associated with a Jenkins job.
+- **Microsoft Entra ID.** [Microsoft Entra ID][azure-ad] supports user authentication, allowing you to set up SSO. Microsoft Entra [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [Azure role-based access control (Azure RBAC)][rbac]. Each service principal is associated with a Jenkins job.
 
 - **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Azure Key Vault][key-vault].
 
@@ -169,4 +173,3 @@ The following online communities can answer questions and help you configure a s
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://plugins.jenkins.io/azure-vm-agents/
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[0]: ./media/architecture-jenkins.png

@@ -13,6 +13,7 @@ ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - devx-track-python
 products:
   - azure-machine-learning
 categories:
@@ -156,7 +157,6 @@ Principal author:
 ## Next steps
 
 - [Understand data science for machine learning](/training/paths/understand-machine-learning/)
-- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 - [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml/)
 - [Databricks Data Science & Engineering](/azure/databricks/scenarios/what-is-azure-databricks-ws)
 

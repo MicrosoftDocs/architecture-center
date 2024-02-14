@@ -15,7 +15,7 @@ azureCategories:
   - "security"
   - "web"
 products:
-  - "azure-app-service-web"
+  - azure-app-service
   - "azure-front-door"
   - "azure-private-link"
   - "azure-sql-database"

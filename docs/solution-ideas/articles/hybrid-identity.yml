@@ -23,14 +23,13 @@ metadata:
     - hybrid-infrastructure
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/hybrid-identity"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-identity.png
 name: Hybrid identity
 azureCategories:
   - identity
   - hybrid
 summary: Manage applications and user identity across clouds with Azure Stack Hub. Use the hybrid identity blueprint for on-premises apps that interact with the cloud.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-stack-hub
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-identity.png

@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-azurecli
+---
 Kubernetes architecture is based on two layers: The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
@@ -372,7 +376,7 @@ Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP address
 
 - Because pods have virtual network private IPs, they have direct connectivity to other cluster pods and resources in the virtual network. This ability supports better performance for very large clusters.
 
-- If pods have a separate subnet, you can configure virtual network policies for pods that are different from node policies. Separate policies allow many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for a pod in a node pool by using virtual network NAT, and using [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to filter traffic between node pools.
+- If pods have a separate subnet, you can configure virtual network policies for pods that are different from node policies. Separate policies allow many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for a pod in a node pool by using NAT Gateway, and using [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to filter traffic between node pools.
 
 - Both *Network Policy* and *Calico* Kubernetes network policies work with dynamic IP allocation.
 
@@ -420,4 +424,3 @@ Other contributors:
 - [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service/)
 - [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
 - [Optimize compute costs on Azure Kubernetes Service (AKS)](/learn/modules/aks-optimize-compute-costs/)
-

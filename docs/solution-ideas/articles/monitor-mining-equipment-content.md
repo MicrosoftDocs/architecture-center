@@ -58,8 +58,7 @@ Principal author:
 - [Copy data from FTP server by using Azure Data Factory](/azure/data-factory/connector-ftp)
 - [Load files from Azure Blob storage and Azure Data Lake Storage Gen1 and Gen2 using Auto Loader](/azure/databricks/spark/latest/structured-streaming/auto-loader)
 - [Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics)
-- [On GitHub: azure-notificationhubs-dotnet/Samples/AzFunctions/
-](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/AzFunctions)
+- [On GitHub: azure-notificationhubs-dotnet/Samples/AzFunctions/](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/AzFunctions)
 - [Azure SQL Data Warehouse with DirectQuery](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 - [Power Apps visual for Power BI](/powerapps/maker/canvas-apps/powerapps-custom-visual)
 
@@ -73,17 +72,15 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 
 See the following related database architectural guidance:
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
-- [Big data architectures](../../data-guide/big-data/index.yml)
-- [Batch processing](../../data-guide/big-data/batch-processing.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
-- [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
-- [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
-- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
+- [Master data management with Profisee and Azure Data Factory](../../databases/architecture/profisee-master-data-management-data-factory.yml)
+- [Master Data Management powered by CluedIn](../../databases/architecture/cluedin.yml)
+- [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 - [Real Time Analytics on Big Data Architecture](./real-time-analytics.yml)
 

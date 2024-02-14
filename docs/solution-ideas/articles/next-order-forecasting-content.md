@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific SKU (stock-keeping unit). By using Next Order Forecasting (NOF), distributors can provide customers with product recommendations and suggest optimal quantities. This article builds on the concepts described in the [many models machine learning architecture](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml). 
+This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific SKU (stock-keeping unit). By using Next Order Forecasting (NOF), distributors can provide customers with product recommendations and suggest optimal quantities. This article builds on the concepts described in the [many models machine learning architecture](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml). 
 
 ## Architecture
 
@@ -119,7 +119,7 @@ The technologies in this solution were chosen for scalability, availability, and
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Improved security is built in to the components of this scenario. You can use Azure Active Directory (Azure AD) authentication or role-based access control to manage permissions. Consider implementing [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish appropriate security levels.
+Improved security is built in to the components of this scenario. You can use Microsoft Entra authentication or role-based access control to manage permissions. Consider implementing [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish appropriate security levels.
 
 Azure Synapse offers enterprise-grade security features that provide component isolation to help protect data, improve network security, and improve threat protection. Component isolation can minimize exposure in the case of a security vulnerability. Azure Synapse also enables data obfuscation to help protect sensitive personal data.
 
@@ -185,11 +185,11 @@ Other contributors:
 
 ## Related resources
 
-- [Many models machine learning at scale with Azure Machine Learning](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml)
+- [Many models machine learning at scale with Azure Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
-- [Batch scoring with R models to forecast sales](../../reference-architectures/ai/batch-scoring-R-models.yml)
+- [Batch scoring with R models to forecast sales](../../ai-ml/architecture/batch-scoring-R-models.yml)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
 - [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml) 
 - [Forecast energy and power demand with machine learning](../../solution-ideas/articles/forecast-energy-power-demand.yml)
 - [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

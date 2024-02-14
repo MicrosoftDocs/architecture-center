@@ -62,7 +62,7 @@ The solution depicted in the architecture diagram uses the following components:
 
 - **Azure File Sync and cloud tiering** (component **9**) – Azure File Sync is a feature of [Azure Storage](https://azure.microsoft.com/products/category/storage) to centralize your organization's file shares in Azure, while keeping the flexibility, performance, and compatibility of an on-premises file server. Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings.
 
-- **Azure Files** (component **10**) - A fully managed service that offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. [Azure Files](https://azure.microsoft.com/services/storage/files) implements the SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds) (Azure AD DS). File shares from Azure Files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached nearer to where the data is being used, on Windows Servers with Azure File Sync for fast access.
+- **Azure Files** (component **10**) - A fully managed service that offers file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. [Azure Files](https://azure.microsoft.com/services/storage/files) implements the SMB v3 protocol and supports authentication through on-premises Active Directory Domain Services (AD DS) and [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds) (Microsoft Entra Domain Services). File shares from Azure Files can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached nearer to where the data is being used, on Windows Servers with Azure File Sync for fast access.
 
 - **Azure Private DNS** (components **11** and **12**) - A DNS service offered by Azure, Private DNS manages and resolves domain names in a virtual network, without the need to add a custom DNS solution.
 
@@ -70,7 +70,7 @@ The solution depicted in the architecture diagram uses the following components:
 
 ## Scenario details
 
-This solution allows you to access Azure file shares in a hybrid work environment over a virtual private network between on-premises and Azure virtual networks without traversing the internet. It also allows you to control and limit file access through Azure Active Directory Domain Services (AD DS) authentication.
+This solution allows you to access Azure file shares in a hybrid work environment over a virtual private network between on-premises and Azure virtual networks without traversing the internet. It also allows you to control and limit file access through Microsoft Entra Domain Services (AD DS) authentication.
 
 ### Potential use cases
 
@@ -149,19 +149,19 @@ For more information, see [About Azure file share backup](/azure/backup/azure-fi
 
 ### Support for hybrid identities on Azure Files
 
-Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Azure Active Directory for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following three methods:
+Although this article describes Active Directory for authenticating on Azure Files, it's possible to use Microsoft Entra ID for authenticating hybrid user identities. Azure Files supports identity-based authentication over Server Message Block (SMB), by using the Kerberos authentication protocol through the following three methods:
 
 - On-premises Active Directory Domain Services (AD DS)
-- Azure Active Directory Domain Services (Azure AD DS)
-- Azure Active Directory Kerberos (Azure AD) for hybrid user identities only
+- Microsoft Entra Domain Services (Microsoft Entra Domain Services)
+- Microsoft Entra Kerberos (Microsoft Entra ID) for hybrid user identities only
 
-For more information, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable).
+For more information, see [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 Security auditing is a necessary requirement for helping to maintain the security of an enterprise. Industry standards require enterprises to follow a strict set of rules related to data security and privacy.
 
@@ -199,7 +199,7 @@ Principal author:
 - [Create and modify peering for an ExpressRoute circuit](/azure/expressroute/expressroute-howto-routing-portal-resource-manager)
 - [About Azure file share backup](/azure/backup/azure-file-share-backup-overview)
 - [What is Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview)
-- [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
+- [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files (preview)](/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable)
 
 ## Related resources
 
@@ -208,4 +208,3 @@ Principal author:
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
 - [Use Azure file shares in a hybrid environment](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
 - [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
-- [Data management in banking](/azure/architecture/industries/finance/data-management-banking-overview)

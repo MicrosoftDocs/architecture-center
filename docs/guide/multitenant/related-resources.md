@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/13/2023
+ms.date: 07/06/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,7 +29,6 @@ The following articles provide examples of multitenant architectures on Azure.
 | ------- | ------- | ------- |
 | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Reference architecture for a multitenant SaaS scenario on Azure, which is deployed in multiple regions | Web |
 | [Use Application Gateway Ingress Controller with a multi-tenant Azure Kubernetes Service](../../example-scenario/aks-agic/aks-agic.yml) | Example for implementing multitenancy with AKS and AGIC | Kubernetes |
-| [Serverless batch processing with Durable Functions in Azure Container Instances](../../solution-ideas/articles/durable-functions-containers.yml) | Use cases include multitenant scenarios, where some tenants need large computing power, while other tenants have small computing requirements | Containers |
 | [All multitenant architectures](../../browse/index.yml?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
 
 ## Cloud design patterns
@@ -64,7 +63,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 ### Governance and compliance
 
 * [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions): It's important to consider how you manage your Azure subscriptions, as well as how you allocate tenant resources to subscriptions.
-* [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
+* [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Microsoft Entra tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
 * [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
 ### Compute
@@ -78,6 +77,10 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 [!include[](includes/private-link-resources.md)]
 
+#### Web
+
+* [Claims based routing for SaaS solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/claims-based-routing-for-saas-solutions/ba-p/3865707): This article discusses the usage of a reverse proxy to facilitate tenant routing and mapping requests to tenants, enhancing the management of backend services in SaaS solutions.
+  
 ### Storage and data
 
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
@@ -99,12 +102,13 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ### Identity
 
-* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps): Azure Active Directory has its own concept of multitenancy, which refers to operating across multiple Azure AD directories. When working with Azure AD apps, developers can choose to configure their app to be either single-tenant or multitenant.
+* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps): Microsoft Entra ID has its own concept of multitenancy, which refers to operating across multiple Microsoft Entra directories. When working with Microsoft Entra apps, developers can choose to configure their app to be either single-tenant or multitenant.
 * [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution that is capable of supporting millions of users and billions of authentications per day.
-* [Build a multi-tenant daemon with the Microsoft identity platform endpoint](/samples/azure-samples/ms-identity-aspnet-daemon-webapp/build-multi-tenant-daemon-aad): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
-* [Authenticate and authorize multitenant apps using Azure Active Directory (Azure AD)](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Azure Active Directory enables you to improve the functionality of cloud-native apps in multitenant scenarios.
+* [Build a multi-tenant daemon with the Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
+* [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 * [Azure Architecture Walkthrough: Building a multi-tenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multi-tenant mobile app with Azure Active Directory B2C and API Management.
-
+* [Define and implement permissions, roles and scopes with Microsoft Entra ID in SaaS solution](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication & authorization, which can be used by SaaS providers. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
+  
 ### Analytics
 
 * [Multitenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application that contains Power BI Embedded, you must carefully choose the tenancy model that best fits your needs.
@@ -124,7 +128,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 * [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
 * [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes is not a multitenant system out of the box. While it's possible to configure multitenancy, this can be challenging. This article explains Kubernetes multitenancy types.
 * [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multitenant system per se, getting multitenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multitenancy.
-* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/clastix/capsule): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
+* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/projectcapsule/capsule): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
 * [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multitenancy.
 * [Crossplane: The cloud native control plane framework](https://www.crossplane.io/): Crossplane enables you to build control planes for your own solution, by using a Kubernetes-based approach.
 

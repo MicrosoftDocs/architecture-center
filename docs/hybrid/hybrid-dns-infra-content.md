@@ -138,7 +138,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - If you require the use of DNSSEC, consider that Azure DNS currently does **not** support it.
 - For DNSSEC validation, deploy a custom DNS server and enable DNSEC validation.
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### DevOps
 
@@ -168,8 +168,7 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
-- [Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml)
-- [N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
+- [N-tier application with Apache Cassandra](../databases/architecture/n-tier-cassandra.yml)
 - [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
