@@ -56,27 +56,28 @@ Each stage has its own article that outlines:
 
 Researchers publish peer-reviewed literature about the TDSP. Review the following material to investigate TDSP features and applications.
 
-Amershi, S., Begel, A., Bird, C., DeLine, R., Gall, H., Kamar, E., Nagappan, N., Nushi, B., & Zimmermann, T. (2019). Software Engineering for Machine Learning: A Case Study. 2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP), 291–300. https://doi.org/10.1109/ICSE-SEIP.2019.00042
+- [Software Engineering for Machine Learning: A Case Study (pages 291-300)](https://doi.org/10.1109/ICSE-SEIP.2019.00042)
 
-Biswas, S., Wardat, M., & Rajan, H. (2022). The art and practice of data science pipelines: A comprehensive study of data science pipelines in theory, in-the-small, and in-the-large. Proceedings of the 44th International Conference on Software Engineering, 2091–2103. https://doi.org/10.1145/3510003.3510057
+- [The art and practice of data science pipelines: A comprehensive study of data science pipelines in theory, in-the-small, and in-the-large (pages 2091-2103)](https://doi.org/10.1145/3510003.3510057)
 
-De Silva, D., & Alahakoon, D. (2022). An artificial intelligence life cycle: From conception to production. Patterns, 3(6), 100489. https://doi.org/10.1016/j.patter.2022.100489
+- [An artificial intelligence life cycle: From conception to production](https://doi.org/10.1016/j.patter.2022.100489)
 
-Díaz Álvarez, Y., Hidalgo Reyes, M. Á., Lagunes Barradas, V., Pichardo Lagunas, O., & Martínez Seis, B. (2022). A Hybrid Methodology Based on CRISP-DM and TDSP for the Execution of Preprocessing Tasks in Mexican Environmental Laws. In O. Pichardo Lagunas, J. Martínez-Miranda, & B. Martínez Seis (Eds.), Advances in Computational Intelligence (Vol. 13613, pp. 68–82). Springer Nature Switzerland. https://doi.org/10.1007/978-3-031-19496-2_6
+- [A Hybrid Methodology Based on CRISP-DM and TDSP for the Execution of Preprocessing Tasks in Mexican Environmental Laws (volume 13613, pages 68-82)](https://doi.org/10.1007/978-3-031-19496-2_6)
 
-Karlsruhe Institute of Technology (KIT) / IBM, Kühl, N., Hirt, R., Karlsruhe Institute of Technology (KIT) / Prenode, Baier, L., Karlsruhe Institute of Technology (KIT), Schmitz, B., Karlsruhe Institute of Technology (KIT) / IBM, Satzger, G., & Karlsruhe Institute of Technology (KIT) / IBM. (2021). How to Conduct Rigorous Supervised Machine Learning in Information Systems Research: The Supervised Machine Learning Report Card. Communications of the Association for Information Systems, 48(1), 589–615. https://doi.org/10.17705/1CAIS.04845
+- [How to Conduct Rigorous Supervised Machine Learning in Information Systems Research: The Supervised Machine Learning Report Card (pages 589-615)](https://doi.org/10.17705/1CAIS.04845)
 
-Lu, J., Cairns, L., & Smith, L. (2021). Data science in the business environment: Customer analytics case studies in SMEs. Journal of Modelling in Management, 16(2), 689–713. https://doi.org/10.1108/JM2-11-2019-0274
+- [Data science in the business environment: Customer analytics case studies in SMEs (pages 689–713)](https://doi.org/10.1108/JM2-11-2019-0274)
 
-Martinez-Plumed, F., Contreras-Ochando, L., Ferri, C., Hernandez-Orallo, J., Kull, M., Lachiche, N., Ramirez-Quintana, M. J., & Flach, P. (2021). CRISP-DM Twenty Years Later: From Data Mining Processes to Data Science Trajectories. IEEE Transactions on Knowledge and Data Engineering, 33(8), 3048–3061. https://doi.org/10.1109/TKDE.2019.2962680
+- [CRISP-DM Twenty Years Later: From Data Mining Processes to Data Science Trajectories (pages 3048–3061)](https://doi.org/10.1109/TKDE.2019.2962680)
 
-Özsu, M. T. (2023). Data Science—A Systematic Treatment. Communications of the ACM, 66(7), 106–116. https://doi.org/10.1145/3582491
+- [Data Science—A Systematic Treatment (pages 106–116)](https://doi.org/10.1145/3582491)
 
-Schlegel, M., & Sattler, K.-U. (2023). Management of Machine Learning Lifecycle Artifacts: A Survey. ACM SIGMOD Record, 51(4), 18–35. https://doi.org/10.1145/3582302.3582306
+- [Management of Machine Learning Lifecycle Artifacts: A Survey (pages 18–35)](https://doi.org/10.1145/3582302.3582306)
 
-Siebert, J., Joeckel, L., Heidrich, J., Trendowicz, A., Nakamichi, K., Ohashi, K., Namba, I., Yamamoto, R., & Aoyama, M. (2022). Construction of a quality model for machine learning systems. Software Quality Journal, 30(2), 307–335. https://doi.org/10.1007/s11219-021-09557-y
+- [Construction of a quality model for machine learning systems (pages 307–335)](https://doi.org/10.1007/s11219-021-09557-y)
 
-Yablonsky, S. (2021, June 20). Machine Learning-driven Innovation Management: Conceptional Framework. Event Proceedings: LUT Scientific and Expertise Publications: ISBN 978-952-335-467-8. The ISPIM Innovation Conference – Innovating Our Common Future, Berlin, Germany on 20-23 June 2021, Berlin, Germany.
+
+- [Machine Learning-driven Innovation Management: Conceptional Framework. Event Proceedings: LUT Scientific and Expertise Publications: The ISPIM Innovation Conference – Innovating Our Common Future](https://www.innoget.com/innovation-events/1878/ispim-innovation-conference-2021-innovating-our-common-future)
 
 ## Contributors
 
