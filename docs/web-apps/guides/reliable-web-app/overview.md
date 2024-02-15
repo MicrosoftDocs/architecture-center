@@ -23,14 +23,14 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern aims to streamline the process of moving web applications to the cloud. It provides a systematic method for quickly adopting cloud technologies. This involves strategies for updating or 'replatforming' your web application, ensuring a successful transition to the cloud.
+The reliable web app pattern aims to streamline the process of moving web applications to the cloud. It provides a systematic method for quickly adopting cloud technologies. The pattern details strategies for updating or replatforming your web application to ensure a successful transition to the cloud.
 
 [![Diagram showing the principles of the reliable web app pattern](../_images/reliable-web-app-overview.svg)](../_images/reliable-web-app-overview.svg#lightbox)
 *Figure 1. Reliable web app pattern overview.*
 
 ## Principles and implementation techniques
 
-The pattern is underpinned by several key principles, divided into core principles and those derived from the Azure Well-Architected Framework. The core principles focus on making minimal code changes, applying reliability design patterns, and using managed services. The principles from the Well-Architected Framework emphasize cost optimization, observability, securing ingress points, employing infrastructure as code, and adopting identity-centric security measures.
+Several key principles underpin the pattern. There are core principles and principles from the Azure Well-Architected Framework. The core principles focus on making minimal code changes, applying reliability design patterns, and using managed services. The principles from the Well-Architected Framework emphasize cost optimization, observability, securing ingress points, employing infrastructure as code, and adopting identity-centric security measures.
 
 | Reliable web app pattern principles | Implementation techniques |
 | --- | --- |
@@ -38,11 +38,11 @@ The pattern is underpinned by several key principles, divided into core principl
 
 ## Web app architecture
 
-It's important to note that the reliable web app pattern is not a one-size-fits-all set of services or a specific architecture. The unique needs of your business and the characteristics of your existing web application are crucial in determining the most suitable architecture and network topology.
+It's important to note that the reliable web app pattern isn't a one-size-fits-all set of services or a specific architecture. The unique needs of your business and the characteristics of your existing web application are crucial in determining the most suitable architecture and network topology.
 
 ## Next steps
 
-For practical application, the pattern provides specific guidance for .NET and Java web applications. There are reference implementations available for both platforms, which incorporate the reliable web app pattern. These serve as examples to accelerate the adoption process. To make the most of this guidance, choose the direction that best fits your web app's technology stack and follow the provided reference implementation to streamline your transition to the cloud.
+For practical application, the pattern provides specific guidance for .NET and Java web applications. There are reference implementations available for both platforms, which incorporate the reliable web app pattern. These reference implementations serve as examples to accelerate the adoption process. To make the most of this guidance, choose the direction that best fits your web app's technology stack and follow the provided reference implementation to streamline your transition to the cloud.
 
 >[!div class="nextstepaction"]
 >[Reliable web app pattern for .NET](./dotnet/plan-implementation.yml)

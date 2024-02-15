@@ -19,7 +19,7 @@ The reliable web app pattern introduces two key design patterns at the code leve
 
 The [Retry pattern](/azure/architecture/patterns/retry) addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults), which usually resolve within seconds. These faults often result from service throttling, dynamic load distribution, and network issues in cloud environments. Implementing the Retry pattern involves resending failed requests, allowing configurable delays and attempts before conceding failure.
 
-Applications using the Retry pattern should integrate Azure's client SDKs and service-specific retry mechanisms for enhanced efficiency. Applications lacking this pattern should adopt it using the following guidance.
+Applications using the Retry pattern should integrate Azure's client software development kits (SDKs) and service-specific retry mechanisms for enhanced efficiency. Applications lacking this pattern should adopt it using the following guidance.
 
 #### Try the Azure service and client SDKs first
 
@@ -117,7 +117,7 @@ Managed identities have two components. There's a code component and the infrast
 
 #### Use DefaultAzureCredential to set up code
 
-Use `DefaultAzureCredential` to provide credentials for local development and managed identities in the cloud. `DefaultAzureCredential` generates a `TokenCredential` for OAuth token acquisition. It handles most Azure SDK scenarios and Microsoft client libraries. It auto-detects the application's environment to use the correct identity and requests access tokens as needed. `DefaultAzureCredential` streamlines authentication for Azure-deployed applications For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+Use `DefaultAzureCredential` to provide credentials for local development and managed identities in the cloud. `DefaultAzureCredential` generates a `TokenCredential` for OAuth token acquisition. It handles most Azure SDK scenarios and Microsoft client libraries. It detects the application's environment to use the correct identity and requests access tokens as needed. `DefaultAzureCredential` streamlines authentication for Azure-deployed applications For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
 *Reference implementation:* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault (*see code for an example*).
 
@@ -153,15 +153,15 @@ For Azure services not compatible with managed identities, store application sec
 
 *Reference implementation:*
 
-- Microsoft Entra client secret: The reference implementation uses Key Vault to store the Microsoft Entra client secret. It's required for the web app's on-behalf-of authentication flow. When it's time to update the secret, generate a new one in Key Vault and restart the web app restart to apply the change. Remove the old secret.
+- Microsoft Entra client secret: The reference implementation uses Key Vault to store the Microsoft Entra client secret. The web app's on-behalf-of authentication flow requires it. To update the secret, generate a new one in Key Vault and restart the web app restart to apply the change. Remove the old secret.
 
 - Azure Cache for Redis secret: Azure Cache for Redis doesn't support managed identities. Rotate the key and update Key Vault with the new connection string. Restart the web app for changes to take effect. Key regeneration is managed through the Azure CLI or portal.
 
 ### Use private endpoints
 
-By default, service communication to most Azure services crosses the public internet. Use private endpoints to secure Azure service endpoints. Private endpoints don't require any app configuration, connection string, or code changes. Putting the web app platform behind a private endpoint requires additional configuration for code deployment. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
+By default, service communication to most Azure services crosses the public internet. Use private endpoints to secure Azure service endpoints. Private endpoints don't require any app configuration, connection string, or code changes. Putting the web app platform behind a private endpoint requires extra configuration for app code deployment. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
 
-*Reference implementation:* Azure App Configuration, Azure SQL Database, Azure Cache for Redis, Azure Storage, Azure App Service, and Key Vault are all secured by a private endpoint.
+*Reference implementation:* Azure App Configuration, Azure SQL Database, Azure Cache for Redis, Azure Storage, Azure App Service, and Key Vault use a private endpoint.
 
 ### Use web application firewall and restrict inbound internet traffic
 
@@ -171,13 +171,13 @@ All inbound internet traffic to the web app must pass through a web application 
 
 ## Cost optimization
 
-The reliable web app pattern implements rightsizing techniques, autoscaling, and efficient resource resource usage for a more cost optimized web app.
+The reliable web app pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
 ### Rightsize resources for each environment
 
-Understand the different performance tiers of Azure services and only use the appropriate SKU for the needs of each environment. Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Non-production environments typically don't need the same capabilities. For additional savings, consider [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+Understand the different performance tiers of Azure services and only use the appropriate SKU for the needs of each environment. Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Nonproduction environments typically don't need the same capabilities. For extra savings, consider [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
 
-*Reference implementation:* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters tells Azure Resource Manager which SKUs to deploy. The following code gives Azure Cache for Redis different SKUs for production and non-production environments:
+*Reference implementation:* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters tells Azure Resource Manager which SKUs to deploy. The following code gives Azure Cache for Redis different SKUs for production and nonproduction environments:
 
 ```bicep
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
@@ -185,11 +185,11 @@ var redisCacheFamilyName = isProd ? 'C' : 'C'
 var redisCacheCapacity = isProd ? 1 : 0
 ```
 
-The web app uses the more performant and expensive SKU for the production environment (Standard C1 SKU) and the cheaper SKU (Basic C0 SKU) for the non-production environment.
+The web app uses the more performant and expensive SKU for the production environment (Standard C1 SKU) and the cheaper SKU (Basic C0 SKU) for the nonproduction environment.
 
 ### Use autoscale
 
-Autoscale automates horizontal scaling for production environments. Autoscale based on performance metrics. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application. Don't increase the size of your application platform (vertical scaling) to meet frequent changes in demand. It's less cost efficient. For more information, see [Scaling in Azure App Service](/azure/app-service/manage-scale-up) and [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
+Autoscale automates horizontal scaling for production environments. Autoscale based on performance metrics. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application. Don't scale vertically to meet frequent changes in demand. It's less cost efficient. For more information, see [Scaling in Azure App Service](/azure/app-service/manage-scale-up) and [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
 
 *Reference implementation:* The reference implementation uses the following configuration in the Bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance. It uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal.
 
@@ -224,7 +224,7 @@ resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (a
 
     *Reference implementation.* The reference implementation places Azure Firewall, Azure Bastion, and Key Vault in the hub virtual network.
 
-- *Delete unused environments.* Delete non-production environments after hours or during holidays to optimize cost. You can use infrastructure as code to delete Azure resources and entire environments. Remove the declaration of the resource that you want to delete from the Bicep template. Use the what-if operation to preview the changes before they take effect. Back up data you need later. Understand the dependencies on the resource you are deleting. If there are dependencies, you might need to update or remove those resources as well. For more information, see [Bicep deployment what-if operation](/azure/azure-resource-manager/bicep/deploy-what-if).
+- *Delete unused environments.* Delete nonproduction environments after hours or during holidays to optimize cost. You can use infrastructure as code to delete Azure resources and entire environments. Remove the declaration of the resource that you want to delete from the Bicep template. Use the what-if operation to preview the changes before they take effect. Back up data you need later. Understand the dependencies on the resource you're deleting. If there are dependencies, you might need to update or remove those resources as well. For more information, see [Bicep deployment what-if operation](/azure/azure-resource-manager/bicep/deploy-what-if).
 
 - *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types.
 
@@ -236,13 +236,13 @@ The reliable web app pattern implements infrastructure as code for infrastructur
 
 ### Automate deployment
 
-Use a CI/CD pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, use GitHub actions. Azure supports ARM (JSON), Bicep, and Terraform and has templates for every Azure resource For more information, see [Bicep, ARM, Terraform templates](/azure/templates/) and [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
+Use a CI/CD pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, use GitHub actions. Azure supports ARM template (JSON), Bicep, and Terraform and has templates for every Azure resource For more information, see [Bicep, ARM, and Terraform templates](/azure/templates/) and [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
 
 *Reference implementation:* The reference implementation uses Azure Dev CLI and infrastructure as code (Bicep templates) to create Azure resources, setup configuration, and deploy the required resources.  
 
 ### Configure monitoring
 
-To monitor your web app, collect and analyze metrics and logs from your application code, infrastructure (runtime), and the platform (Azure resources). Add a diagnostic setting for every Azure resource in your architecture. Each Azure service has a different set of logs and metrics you can capture. For more information, see [Monitor the platform](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#monitoring) and [Monitor App Service](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service-2)
+To monitor your web app, collect and analyze metrics and logs from your application code, infrastructure (runtime), and the platform (Azure resources). Add a diagnostic setting for every Azure resource in your architecture. Each Azure service has a different set of logs and metrics you can capture. For more information, see [Monitor the platform](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#monitoring) and [Monitor App Service](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service-2).
 
 #### Monitor baseline metrics
 
@@ -286,15 +286,15 @@ For more information, see [Application Insights TrackEvent](/azure/azure-monitor
 
 #### Gather log-based metrics
 
-Track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. For more information, see [Azure Application Insights log-based metrics](/azure/azure-monitor/essentials/app-insights-metrics) and [Log-based and pre-aggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
+Track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. For more information, see [Azure Application Insights log-based metrics](/azure/azure-monitor/essentials/app-insights-metrics) and [Log-based and preaggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
 
 ## Performance efficiency
 
-The reliable web app pattern uses the Cache-Aside pattern to minimize the latency for highly-requested data.
+The reliable web app pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
 
 ### Use the Cache-Aside pattern
 
-The [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) is a caching strategy that improves in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. Upon receiving a data request, the application first searches the cache. If the data is missing, it retrieves it from the database, responds to the request, and updates the cache accordingly. This approach shortens response times and enhances throughput and reduces the need for additional scaling. It also bolsters service availability by reducing the load on the primary datastore and minimizing outage risks.
+The [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) is a caching strategy that improves in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. When the web app receives a data request, it first searches the cache. If the data is missing, it retrieves it from the database, responds to the request, and updates the cache accordingly. This approach shortens response times and enhances throughput and reduces the need for more scaling. It also bolsters service availability by reducing the load on the primary datastore and minimizing outage risks.
 
 *Reference implementation:* The reference implementation enhances application efficiency by caching critical data, such as information for upcoming concerts crucial for ticket sales. It uses ASP.NET Core's distributed memory cache for in-memory item storage. The application automatically uses Azure Cache for Redis when it finds a specific connection string. It also supports local development environments without Redis to simplify setup and reduce costs and complexity. The following method (`AddAzureCacheForRedis`) configures the application to use Azure Cache for Redis.
 
@@ -353,7 +353,7 @@ public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
 
 #### Keep cache data fresh
 
-Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the the application uses the Cache-Aside pattern to provide both rapid access and current information.
+Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
 
 *Reference implementation:* The reference implementation caches data only for one hour. It has a process for clearing the cache key when the data changes. The following code from the `CreateConcertAsync` method clears the cache key.
 
