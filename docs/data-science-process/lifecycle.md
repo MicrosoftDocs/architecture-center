@@ -58,23 +58,23 @@ Researchers publish peer-reviewed literature about the TDSP. Review the followin
 
 - [Software Engineering for Machine Learning: A Case Study (pages 291-300)](https://doi.org/10.1109/ICSE-SEIP.2019.00042)
 
-- [The art and practice of data science pipelines: A comprehensive study of data science pipelines in theory, in-the-small, and in-the-large (pages 2091-2103)](https://doi.org/10.1145/3510003.3510057)
+- [The Art and Practice of Data Science Pipelines: A Comprehensive Study of Data Science Pipelines in Theory, In-The-Small, and In-The-Large (pages 2091-2103)](https://doi.org/10.1145/3510003.3510057)
 
-- [An artificial intelligence life cycle: From conception to production](https://doi.org/10.1016/j.patter.2022.100489)
+- [An Artificial Intelligence Life Cycle: From Conception to Production](https://doi.org/10.1016/j.patter.2022.100489)
 
 - [A Hybrid Methodology Based on CRISP-DM and TDSP for the Execution of Preprocessing Tasks in Mexican Environmental Laws (volume 13613, pages 68-82)](https://doi.org/10.1007/978-3-031-19496-2_6)
 
 - [How to Conduct Rigorous Supervised Machine Learning in Information Systems Research: The Supervised Machine Learning Report Card (pages 589-615)](https://doi.org/10.17705/1CAIS.04845)
 
-- [Data science in the business environment: Customer analytics case studies in SMEs (pages 689–713)](https://doi.org/10.1108/JM2-11-2019-0274)
+- [Data Science in the Business Environment: Customer Analytics Case Studies in SMEs (pages 689–713)](https://doi.org/10.1108/JM2-11-2019-0274)
 
 - [CRISP-DM Twenty Years Later: From Data Mining Processes to Data Science Trajectories (pages 3048–3061)](https://doi.org/10.1109/TKDE.2019.2962680)
 
-- [Data Science—A Systematic Treatment (pages 106–116)](https://doi.org/10.1145/3582491)
+- [Data Science: A Systematic Treatment (pages 106–116)](https://doi.org/10.1145/3582491)
 
 - [Management of Machine Learning Lifecycle Artifacts: A Survey (pages 18–35)](https://doi.org/10.1145/3582302.3582306)
 
-- [Construction of a quality model for machine learning systems (pages 307–335)](https://doi.org/10.1007/s11219-021-09557-y)
+- [Construction of a Quality Model for Machine Learning Systems (pages 307–335)](https://doi.org/10.1007/s11219-021-09557-y)
 
 
 - [Machine Learning-driven Innovation Management: Conceptional Framework. Event Proceedings: LUT Scientific and Expertise Publications: The ISPIM Innovation Conference – Innovating Our Common Future](https://www.innoget.com/innovation-events/1878/ispim-innovation-conference-2021-innovating-our-common-future)
