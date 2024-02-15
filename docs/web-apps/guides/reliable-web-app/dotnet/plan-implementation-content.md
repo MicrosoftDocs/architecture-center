@@ -16,7 +16,7 @@ This article helps you plan the implementation of the reliable web app pattern. 
 
 The first step in the move to the cloud should be to define your business goals. The reliable web app pattern encourages you to define the short-term and long-term goals for your web app based. These goals affect the cloud services you choose and the architecture of the web app in the cloud.
 
-*Reference implementation:* The reference implementation is a web app built by a fictional company called Relecloud. Relecloud sells concert tickets, and the reference implementation web app is how Relecloud sells tickets. Before you move to the cloud, Relecloud needed to meet increasing business demand with minimal investments in their existing on-premises web app. The web app was employee-facing. Relecloud call center employees use the web app to buy concert tickets on behalf of customers.
+*Reference implementation:* Let's imagine the reference implementation belongs to a fictional company called Relecloud. Relecloud sells concert tickets, and the reference implementation web app is how Relecloud sells tickets. Before you move to the cloud, Relecloud needed to meet increasing business demand with minimal investments in their existing on-premises web app. The web app was employee-facing. Relecloud call center employees use the web app to buy concert tickets on behalf of customers.
 
 Traffic to the current on-premises application increased due to increased sales. Relecloud expected the demand to increase. They concluded that the on-premises infrastructure wasn't a cost-efficient means to scale. They decided that moving the web app to the cloud offered the best return on investment and allowed them to meet their short and long-term goals.
 
@@ -179,12 +179,7 @@ The business goals determine the level of infrastructure and data redundancy you
 
 Assign an availability estimate for each dependency. Service level agreements (SLAs) provide a good starting point. SLAs don't account for code, deployment strategies, and architectural connectivity decisions.
 
-*Reference implementation:* Relecloud identified the services on the critical path of availability. They used Azure SLAs for availability estimates (*see figure 2*).
-
-[![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](../../_images/slo-dependencies.png)](../../_images/slo-dependencies.png#lightbox)
-*Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
-
-Based on the composite SLA calculation, Relecloud needed a multi-region architecture to meet the SLO of 99.9%.
+*Reference implementation:* Relecloud identified the services on the critical path of availability. They used Azure SLAs for availability estimates. Based on the composite SLA calculation, Relecloud needed a multi-region architecture to meet the SLO of 99.9%.
 
 ### Choose a network topology
 
