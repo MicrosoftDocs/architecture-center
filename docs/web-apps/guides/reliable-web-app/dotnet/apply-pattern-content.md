@@ -25,7 +25,7 @@ Applications using the Retry pattern should integrate Azure's client software de
 
 Most Azure services and client SDKs have a [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific). You should use the built-in retry mechanism for Azure services to expedite the implementation.
 
-*Reference implementation:* The reference implementation uses the connection resiliency mechanism in Entity Framework Core to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core). See also [Connection Resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency).
+*Reference implementation:* The reference implementation uses the connection resiliency mechanism in Entity Framework Core to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core). See [Connection Resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency).
 
 ```csharp
 services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
