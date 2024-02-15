@@ -2164,14 +2164,14 @@
 						class="st23">by Site Recovery)</tspan></text>		</g>
 		<g id="shape1354-601" v:mID="1354" v:groupContext="shape" transform="translate(312.187,-306.643)">
 			<title>Sheet.1354</title>
-			<desc>Active Directory replication</desc>
+			<desc>Directory replication</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(37000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="52.875" cy="776.089" width="105.75" height="31.8214"/>
 			<rect x="0" y="760.179" width="105.75" height="31.8214" class="st22"/>
-			<text x="14.4" y="772.19" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Active Directory <tspan
+			<text x="30.7" y="772.19" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Directory <tspan
 						x="27.32" dy="1.282em" class="st23">replication</tspan></text>		</g>
 		<g id="shape1355-605" v:mID="1355" v:groupContext="shape" transform="translate(308.25,-439.875)">
 			<title>Sheet.1355</title>
