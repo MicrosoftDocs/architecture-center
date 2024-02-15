@@ -14,27 +14,27 @@ This article helps you plan the implementation of the reliable web app pattern. 
 
 ## Define business goals
 
-The first step in the move to the cloud should be to define your business goals. The reliable web app pattern encourages you to define the short-term and long-term goals for your web app based. These goals affect the cloud services you choose and the architecture of the web app in the cloud.
+The initial step in transitioning to cloud computing is to clearly articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and how your web application will be structured in the cloud.
 
-*Reference implementation:* Let's imagine the reference implementation belongs to a fictional company called Relecloud. Relecloud sells concert tickets, and the reference implementation web app is how Relecloud sells tickets. Before you move to the cloud, Relecloud needed to meet increasing business demand with minimal investments in their existing on-premises web app. The web app was employee-facing. Relecloud call center employees use the web app to buy concert tickets on behalf of customers.
+*Reference implementation:* Consider the example of a fictional company named Relecloud, which specializes in selling concert tickets. The primary method Relecloud uses to sell tickets is through a web application. Prior to transitioning to the cloud, Relecloud aimed to accommodate growing business needs with minimal investment in their existing local web application. The web application enabled Relecloud's call center staff to purchase concert tickets on behalf of their clients.
 
-Traffic to the current on-premises application increased due to increased sales. Relecloud expected the demand to increase. They concluded that the on-premises infrastructure wasn't a cost-efficient means to scale. They decided that moving the web app to the cloud offered the best return on investment and allowed them to meet their short and long-term goals.
+The demand for Relecloud's on-site application surged as ticket sales increased, and Relecloud anticipated further demand growth. Relecloud determined that their on-premise infrastructure was not a cost-effective solution for scaling up. Consequently, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
-| Short-term app goals | Long-term app goals |
+| Immediate app goals | Future app goals |
 | --- | --- |
 | ▪ Make high-value code changes<br>▪ Service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Cost-optimize environments <br>▪ Improve reliability and security|▪ Expose app to customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Accelerate feature delivery<br>▪ Scale based on traffic.|
 
 ## Define the service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. You need to define what available means for your web app. It might be a core functionality of your web app, such as when customers can purchase products. When you have a definition of available for your web app, determine how available you need your web app to be. This percentage is the web app SLO. The SLO plays a significant role in the services you choose and the architecture you adopt.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. The definition of what *available* means is different for every web app. You need to define what available means for your web app. It might be a core functionality of your web app, such as when customers can purchase products. After you define *available* for your web app, you need to figure out how available you need your web app to be in percentage uptime. This percentage is the web app SLO. The SLO plays a significant role in the services you choose and the architecture you adopt.
 
-*Reference implementation:* Relecloud had a target SLO of 99.9% for availability, about 8.7 hours of downtime per year. For Relecloud, the web app is available when call center employees can purchase tickets.
+*Reference implementation:* For Relecloud, the web app is available when call center employees can purchase tickets. Relecloud had a target SLO of 99.9% for availability, about 8.7 hours of downtime per year.
 
 ## Choose the right Azure services
 
 When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, keep the same database engine and application hosting platform. The following sections provide guidance for selecting the right Azure services for your web app.
 
-*Reference implementation:* Before the move to the cloud, Relecloud's ticketing web app was an on-premises, monolithic, ASP.NET app. It ran on two virtual machines and had a Microsoft SQL Server database. The web app suffered from common challenges in scalability and feature deployment.
+*Reference implementation:* Before the move to the cloud, Relecloud's ticketing web app was an on-premises, monolithic, ASP.NET app. It ran on two virtual machines and had a Microsoft SQL Server database. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
 ### Application hosting platform
 
@@ -187,7 +187,7 @@ Choose the right network topology for your web and networking requirements. A hu
 
 *Reference implementation:* Relecloud chose a hub and spoke network topology to increase the security of their multi-region deployment at reduced cost and management overhead.
 
-## Next steps
+## Next step
 
 This article showed you how plan an implementation of the reliable web app pattern. The next step is to apply the implementation techniques of the reliable web app pattern.
 
