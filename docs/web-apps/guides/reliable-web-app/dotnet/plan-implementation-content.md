@@ -3,14 +3,14 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern provides essential guidance to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (replatform) your web app to be successful in the cloud.
+The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (replatform) your web app to be successful in the cloud.
 
 This article helps you plan the implementation of the reliable web app pattern. The companion article provides the implementation guidance to **[apply the pattern](apply-pattern.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** in GitHub that you can deploy (*see figure 1*).
 
 ## Architecture
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
-*Figure 1. Hub and spoke architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
+*Figure 1. Hub and spoke architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 ## Define business goals
 
@@ -30,7 +30,7 @@ A service level objective (SLO) for availability defines how available you want 
 
 *Reference implementation:* For Relecloud, the web app is available when call center employees can purchase tickets. Relecloud had a target SLO of 99.9% for availability, about 8.7 hours of downtime per year.
 
-## Choose the right Azure services
+## Choose the right managed services
 
 When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, keep the same database engine and application hosting platform. The following sections provide guidance for selecting the right Azure services for your web app.
 
