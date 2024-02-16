@@ -14,6 +14,6 @@ products:
   - azure
 name: Azure Governance Visualizer Accelerator guidance
 summary: Azure Governance Visualizer Accelerator guidance to streamline the process of deploying and maintaining the Azure Governance Visualizer tool.
-thumbnailUrl: /azure/architecture/browse/thumbs/AzGovViz-accelerator-architecture.png
+thumbnailUrl: ../browse/thumbs/AzGovViz-accelerator-architecture.png
 content: |
-  [!include[](azure-governance-visualizer-accelerator-content.md)]
+  [!INCLUDE[](azure-governance-visualizer-accelerator-content.md)]
