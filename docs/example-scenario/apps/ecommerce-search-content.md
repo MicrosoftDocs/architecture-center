@@ -73,13 +73,13 @@ If there's a need to make breaking changes to the index without downtime (for ex
 
 Azure AI Search is compliant with many [security and data privacy standards][search-security], which makes it possible to be used in most industries.
 
-For securing access to the service, Azure AI Search allows you to use [Azure roles for authorization](https://learn.microsoft.com/azure/search/search-security-rbac), but you can also [connect with API keys](https://learn.microsoft.com/azure/search/search-security-api-keys).
+For securing access to the service, Azure AI Search allows you to use [Azure role-based access control](/azure/search/search-security-rbac), but you can also [connect with API keys](/azure/search/search-security-api-keys).
 
-Azure roles are preferred as they integrate with Microsoft Entra ID and allow you to use secret-less authentication (for example, using [managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview)).
+Azure roles are preferred as they integrate with Microsoft Entra ID and allow you to use secret-less authentication, such as [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-When using API keys, there are **admin keys**, which allow you to perform *any* task against the service, and **query keys**, which can only be used for read-only operations like querying. Typically, the application that performs the search doesn't update the index, so it should only be configured with a query key and not an admin key (especially if the search is performed from an end-user device like script running in a web browser).
+When using API keys, there are **admin keys**, which provide full access for all content operations, and **query keys**, which provide read-only access to the documents collection of a search index. Applications that do not require the ability to update the index should be configured with a query key and not an admin key, especially if the search is performed from an end-user device like a script running in a web browser.
 
-You can also secure access to the Azure AI Search service at the network level by [exposing it through a private endpoint](https://learn.microsoft.com/azure/search/service-create-private-endpoint).
+You can also secure access to the Azure AI Search service at the network level by [exposing it through a private endpoint](/azure/search/service-create-private-endpoint).
 
 ### Search Relevance
 
