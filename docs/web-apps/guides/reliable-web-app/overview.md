@@ -29,11 +29,11 @@ The reliable web app pattern aims to streamline the process of moving web applic
 
 ## Principles and implementation techniques
 
-Several key principles underpin the pattern. There are core principles and principles from the Azure Well-Architected Framework. The core principles focus on making minimal code changes, applying reliability design patterns, and using managed services. The principles from the Well-Architected Framework emphasize cost optimization, observability, securing ingress points, employing infrastructure as code, and adopting identity-centric security measures.
+Several key principles underpin the pattern. There are core principles and principles from the Azure Well-Architected Framework. The pattern focus on making minimal code changes, applying reliability design patterns, and using managed services. It helps you create a web app that is cost optimized, observable, and ingress secure using infrastructure as code and identity-centric security.
 
 | Reliable web app pattern principles | Implementation techniques |
 | --- | --- |
-| *Core principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| <br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
 ## Web app architecture
 
@@ -41,7 +41,7 @@ It's important to note that the reliable web app pattern isn't a one-size-fits-a
 
 ## Next steps
 
-For practical application, the pattern provides specific guidance for .NET and Java web applications. There are reference implementations available for both platforms, which incorporate the reliable web app pattern. These reference implementations serve as examples to accelerate the adoption process. To make the most of this guidance, choose the direction that best fits your web app's technology stack and follow the provided reference implementation to streamline your transition to the cloud.
+There's reliable web app pattern guidance for .NET and Java web applications. Use the guidance and reference implementations to accelerate your move to Azure.
 
 >[!div class="nextstepaction"]
 >[Reliable web app pattern for .NET](./dotnet/plan-implementation.yml)
