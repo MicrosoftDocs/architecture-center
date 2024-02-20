@@ -25,7 +25,7 @@ Applications using the Retry pattern should integrate Azure's client software de
 
 Most Azure services and client SDKs have a [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific). You should use the built-in retry mechanism for Azure services to expedite the implementation.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the connection resiliency mechanism in Entity Framework Core to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core). See [Connection Resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency).
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
 
 ```csharp
 services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
@@ -42,7 +42,7 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
 
 You might need to make calls to a dependency that isn't an Azure service or doesn't support the Retry pattern natively. In that case, you should use the Polly library to implement the Retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses Polly to set up the ASP.NET Core dependency injection. Polly enforces the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a *policy*. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the Retry pattern every time the front-end web app calls web API services. The following code applies the Retry pattern to all service calls to the concert search service.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses Polly to set up the ASP.NET Core dependency injection. Polly enforces the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a *policy*. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the Retry pattern every time the front-end web app calls web API concert search services  (*see the following code*).
 
 ```csharp
 private void AddConcertSearchService(IServiceCollection services)
@@ -75,15 +75,13 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 }
 ```
 
-The policy handler for the `RelecloudApiConcertSearchService` instance applies the Retry pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
-
-You can simulate the Retry pattern in the reference implementation. For instructions, see [Simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern).
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the Retry pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs. You can [simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern) in the reference implementation.
 
 ### Use the Circuit Breaker pattern
 
 Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a non-responsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation adds the Circuit Breaker pattern in the `GetCircuitBreakerPolicy` method (*see code for an example*).
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation adds the Circuit Breaker pattern in the `GetCircuitBreakerPolicy` method (*see the following code*).
 
 ```csharp
 private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
@@ -95,9 +93,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 }
 ```
 
-In the code, the policy handler for the `RelecloudApiConcertSearchService` instance applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. For more information, see [Implement the Circuit Breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
-
-You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
+In the code, the policy handler for the `RelecloudApiConcertSearchService` instance applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. For more information, see [Implement the Circuit Breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly). You can [simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern) in the reference implementation.
 
 ## Security
 
@@ -113,7 +109,7 @@ Managed identities have two components. There's a code component and the infrast
 
 Use `DefaultAzureCredential` to provide credentials for local development and managed identities in the cloud. `DefaultAzureCredential` generates a `TokenCredential` for OAuth token acquisition. It handles most Azure SDK scenarios and Microsoft client libraries. It detects the application's environment to use the correct identity and requests access tokens as needed. `DefaultAzureCredential` streamlines authentication for Azure-deployed applications For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault (*see code for an example*).
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault  (*see the following code*).
 
 ```csharp
 builder.Configuration.AddAzureAppConfiguration(options =>
@@ -133,7 +129,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 
 You should use Bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don't use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses Bicep templates to (1) create the managed identity, (2) associate the identity with the web app, and (3) grant the identity permission to access the SQL database. The `Authentication` argument in the connection string tells the Microsoft client library to connect with a managed identity (*see code for an example*).
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses Bicep templates to (1) create the managed identity, (2) associate the identity with the web app, and (3) grant the identity permission to access the SQL database. The `Authentication` argument in the connection string tells the Microsoft client library to connect with a managed identity  (*see the following code*).
 
 ```csharp
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
@@ -171,7 +167,7 @@ The reliable web app pattern implements rightsizing techniques, autoscaling, and
 
 Understand the different performance tiers of Azure services and only use the appropriate SKU for the needs of each environment. Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Nonproduction environments typically don't need the same capabilities. For extra savings, consider [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters tells Azure Resource Manager which SKUs to deploy. The following code gives Azure Cache for Redis different SKUs for production and nonproduction environments:
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters indicates the resource tiers (SKUs) to deploy. The web app uses the more performant and expensive SKUs for the production environments and the cheaper SKUs for the nonproduction environment (*see the following code*).
 
 ```bicep
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
@@ -179,13 +175,11 @@ var redisCacheFamilyName = isProd ? 'C' : 'C'
 var redisCacheCapacity = isProd ? 1 : 0
 ```
 
-The web app uses the more performant and expensive SKU for the production environment (Standard C1 SKU) and the cheaper SKU (Basic C0 SKU) for the nonproduction environment.
-
 ### Use autoscale
 
 Autoscale automates horizontal scaling for production environments. Autoscale based on performance metrics. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application. Don't scale vertically to meet frequent changes in demand. It's less cost efficient. For more information, see [Scaling in Azure App Service](/azure/app-service/manage-scale-up) and [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the following configuration in the Bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance. It uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the following configuration in the Bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance. It uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal (*see the following code*).
 
 ```csharp
 resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (autoScaleSettings != null) { 
@@ -242,7 +236,7 @@ To monitor your web app, collect and analyze metrics and logs from your applicat
 
 Use Azure Application Insights to track baseline metrics, such as request throughput, average request duration, errors, and dependency monitoring. Use `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection).
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the following code to configure baseline metrics in Application Insights.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses code to configure baseline metrics in Application Insights (*see the following code*).
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -255,15 +249,15 @@ public void ConfigureServices(IServiceCollection services)
 
 #### Create custom telemetry as needed
 
-Use Application Insights to gather custom telemetry to better understand your web app users. Create an instance of the `TelemetryClient` class and use the `TelemetryClient` methods to create the right metric.
+Use Application Insights to gather custom telemetry to better understand your web app users. Create an instance of the `TelemetryClient` class and use the `TelemetryClient` methods to create the right metric. It's recommended to turn the query into an Azure Dashboard widget.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation augments the web app with metrics that help the operations team identify that the web app is completing transactions successfully. It validates that the web app is online by monitoring whether customers can place orders, not by measuring the number of requests or CPU usage. The reference implementation uses `TelemetryClient` via dependency injection and the `TrackEvent` method to gather telemetry on events related to cart activity. The telemetry tracks the tickets that users add, remove, and purchase.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation adds metrics that help the operations team identify that the web app is completing transactions successfully. It validates that the web app is online by monitoring whether customers can place orders, not by measuring the number of requests or CPU usage. The reference implementation uses `TelemetryClient` via dependency injection and the `TrackEvent` method to gather telemetry on events related to cart activity. The telemetry tracks the tickets that users add, remove, and purchase (*see the following code*).
 
 - `AddToCart` counts how many times users add a certain ticket (`ConcertID`) to the cart.
 - `RemoveFromCart` records tickets that users remove from the cart.
 - `CheckoutCart` records an event every time a user buys a ticket.
 
-The following code uses `this.telemetryClient.TrackEvent` to count the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies the output (a dictionary that has the `concertId` and `count`). You should turn the query into an Azure Dashboard widget.
+`this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
 
 ```csharp
 this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
@@ -290,7 +284,7 @@ The reliable web app pattern uses the Cache-Aside pattern to minimize the latenc
 
 The [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) is a caching strategy that improves in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. When the web app receives a data request, it first searches the cache. If the data is missing, it retrieves it from the database, responds to the request, and updates the cache accordingly. This approach shortens response times and enhances throughput and reduces the need for more scaling. It also bolsters service availability by reducing the load on the primary datastore and minimizing outage risks.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation enhances application efficiency by caching critical data, such as information for upcoming concerts crucial for ticket sales. It uses ASP.NET Core's distributed memory cache for in-memory item storage. The application automatically uses Azure Cache for Redis when it finds a specific connection string. It also supports local development environments without Redis to simplify setup and reduce costs and complexity. The following method (`AddAzureCacheForRedis`) configures the application to use Azure Cache for Redis.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation enhances application efficiency by caching critical data, such as information for upcoming concerts crucial for ticket sales. It uses ASP.NET Core's distributed memory cache for in-memory item storage. The application automatically uses Azure Cache for Redis when it finds a specific connection string. It also supports local development environments without Redis to simplify setup and reduce costs and complexity. The method (`AddAzureCacheForRedis`) configures the application to use Azure Cache for Redis (*see the following code*).
 
 ```csharp
 private void AddAzureCacheForRedis(IServiceCollection services)
@@ -315,7 +309,7 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 Prioritize caching for the most frequently accessed data. Identify key data points that drive user engagement and system performance. Implement caching strategies specifically for these areas to optimize the effectiveness of the Cache-Aside pattern, significantly reducing latency and database load.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation caches the data that supports the Upcoming Concerts. The Upcoming Concerts page creates the most queries to SQL Database and produces a consistent output for each visit. The Cache-Aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync` method to pull data into the Redis cache from SQL Database. The method populates the cache with the latest concerts. The method filters by time, sorts the data, and returns the data to the controller to display the results.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation caches the data that supports the Upcoming Concerts. The Upcoming Concerts page creates the most queries to SQL Database and produces a consistent output for each visit. The Cache-Aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync` method to pull data into the Redis cache from SQL Database. The method populates the cache with the latest concerts. The method filters by time, sorts the data, and returns the data to the controller to display the results (*see the following code*).
 
 ```csharp
 public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
@@ -349,7 +343,7 @@ public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
 
 Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation caches data only for one hour. It has a process for clearing the cache key when the data changes. The following code from the `CreateConcertAsync` method clears the cache key.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation caches data only for one hour. It has a process for clearing the cache key when the data changes. The `CreateConcertAsync` method clears the cache key (*see the following code*).
 
 ```csharp
 public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
@@ -365,7 +359,7 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 
 Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent.
+*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
 
 ```csharp
 public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
