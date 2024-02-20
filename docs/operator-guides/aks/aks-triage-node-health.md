@@ -2,8 +2,8 @@
 title: AKS triage—Node health
 titleSuffix: Azure Architecture Center
 description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.
-author: kevingbb
-ms.author: kevinhar
+author: paolosalvatori
+ms.author: paolos
 ms.date: 11/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -337,7 +337,6 @@ Several events and scenarios can trigger IOPS throttling, including:
 
 Principal authors:
 
-- [Kevin Harris](https://www.linkedin.com/in/kevbhar) | Principal Solution Specialist
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
 

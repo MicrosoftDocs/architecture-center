@@ -1,6 +1,6 @@
 This article demonstrates how to create a search service that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
 
-You can implement this service by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure AI Search](/azure/search/search-what-is-azure-search).
+You can implement this service by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure AI Search](/azure/search/search-what-is-azure-search). 
 
 This article uses an example workload to demonstrate how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
 

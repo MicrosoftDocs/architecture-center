@@ -208,4 +208,3 @@ Principal author:
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
 - [Use Azure file shares in a hybrid environment](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
 - [Hybrid file share with disaster recovery for remote and local branch workers](/azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers)
-- [Data management in banking](/azure/architecture/industries/finance/data-management-banking-overview)

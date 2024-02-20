@@ -2,8 +2,8 @@
 title: Azure Service Bus considerations for multitenancy
 titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.
-author: willvelida
-ms.author: willvelida
+author: landonpierce
+ms.author: landonpierce
 ms.date: 02/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -116,9 +116,6 @@ You can assign a partition to a specific tenant by setting the message's partiti
 Partitioning is available when you deploy namespaces with specific SKUs. For more information, see [Service Bus Premium and Standard messaging tiers](/azure/service-bus-messaging/service-bus-premium-messaging).
 
 See [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-partitioning).
-
-> [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU anymore, but any previously existing partitioned entities from when they were supported in Premium namespaces will continue to work as expected.
 
 ## Contributors
 

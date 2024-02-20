@@ -62,7 +62,7 @@ When you've decided on an approach, implementation comes next. For deployment re
   - [Microsoft Entra deployment plans][Azure Active Directory deployment plans]
   - [Azure Active Directory B2C deployment plans][Azure Active Directory B2C deployment plans]
 
-- To learn how to use Microsoft Entra ID and OAuth 2.0 to secure a single-page application, see [Secure development with single-page applications (SPAs)][Secure development with single-page applications (SPAs)].
+- To learn how to use Microsoft Entra ID to secure a single-page application, see the tutorials at [Register a Single-page application with the Microsoft identity platform][Register a Single-page application with the Microsoft identity platform].
 
 ## Best practices
 
@@ -161,7 +161,7 @@ The following resources provide practical recommendations and information for sp
 [Resources for migrating applications to Azure Active Directory]: /azure/active-directory/manage-apps/migration-resources?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Review the application activity report]: /azure/active-directory/manage-apps/migrate-adfs-application-activity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [SC-300: Implement an identity management solution]: /training/paths/implement-identity-management-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Secure development with single-page applications (SPAs)]: ../guide/resilience/azure-ad-secure-single-page-application.yml
+[Register a Single-page application with the Microsoft identity platform]: /entra/identity-platform/tutorial-single-page-app-react-register-app
 [Updated Guidance for M365 EDU Deployment during COVID-19]: /microsoft-365/education/deploy/guidance-for-m365-edu-deployment-during-covid19?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [What is Azure AD Connect?]: /azure/active-directory/hybrid/whatis-azure-ad-connect?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [What's new in Azure Active Directory?]: /azure/active-directory/fundamentals/whats-new?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
