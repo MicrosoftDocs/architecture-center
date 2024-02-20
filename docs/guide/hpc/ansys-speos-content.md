@@ -46,36 +46,112 @@ architecture.*
 
 ## Compute sizing and drivers
 
-The performance tests of Ansys Speos on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running Windows. The following table provides details about the VMs.
+The following table provides the configuration details of [NVadsA10 v5-series](/azure/virtual-machines/nva10v5-series) VM:
 
-|VM size|vCPU|Memory, in GiB| Temp storage (SSD) GiB | GPU partition | GPU memory, in GiB|Maximum data disks | Maximum uncached disk throughput, in IOPS / MBps | Maximum NICs (Mbps) |
+|VM size|vCPU|Memory, in GiB| Temp storage (SSD) GiB | GPU partition | GPU memory, in GiB|Maximum data disks | Maximum uncached disk throughput, in IOPS / MBps | Maximum NICs / Expected network bandwidth (Mbps) |
 |-|-|-|-|-|-|-|-|-|
-|Standard_ND96asr_v4|96|900|8 |40|32|80,000 / 800|-|-|
-|Standard_NC24ads_A100_v4|24|220|1|80|12|30,000 / 1,000|-|-|
-|Standard_NC48ads_A100_v4|48|440|2|160|24|60,000 / 2,000|-|-|
-|Standard_NC96ads_A100_v4|96|880|4|320|32|120,000 / 4,000|-|-|
-|Standard_NC96ads_A100_v4|96|880|4|320|32|120,000 / 4,000|-|-|
+|Standard_NV6ads_A10_v5|6|55|180 |1/6|4|4|6,400 / 100|2 / 5,000|
+|Standard_NV12ads_A10_v5|12|110|360|1/3|8|4|12,800 / 200|2 / 10,000|
+|Standard_NV18ads_A10_v5|18|220|720|1/2|12|8|25,600 / 384|4 / 20,000|
+|Standard_NV36ads_A10_v5|36|440|1440|1|24|16|51,200 / 768|4 / 40,000|
+|Standard_NV72ads_A10_v5|72|880|2880|2|48|32|80,000 / 1,200|8 / 80,000|
 
-### Required drivers
+The following table provides the configuration details of [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series) VM:
 
-To take advantage of the GPU capabilities of [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+|VM size|vCPU|Memory, in GiB| Temp storage (SSD) GiB | GPU partition | GPU memory, in GiB|Maximum data disks | Maximum NICs / Expected network bandwidth (Mbps) |
+|-|-|-|-|-|-|-|-|
+|Standard_NC4as_T4_v3|4|28|180 |1|16|8|2 / 8,000|
+|Standard_NC64as_T4_v3|64|440|2880|4|64|32|8 / 32,000|
 
-To use AMD processors on [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
+The following table provides the configuration details of [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) VM:
+
+|VM size|vCPU|Memory, in GiB| Temp storage (SSD) GiB | NVMe Disks | GPU partition | GPU memory, in GiB|Maximum data disks | Maximum uncached disk throughput, in IOPS / MBps | Maximum NICs / Expected network bandwidth (Mbps) |
+|-|-|-|-|-|-|-|-|-|-|
+|Standard_NC24ads_A100_v4|24|220|64|960 GB|1|80|12|30,000 / 1,000|2 / 20,000|
+|Standard_NC48ads_A100_v4|48|440|128|2x960 GB|2|160|24|60,000 / 2,000|4 / 40,000|
+|Standard_NC96ads_A100_v4|96|880|256|4x960 GB|4|320|32|120,000 / 4,000|8 / 80,000|
+
+The following table provides the configuration details of [NDm A100 v4-series](/azure/virtual-machines/ndm-a100-v4-series) VM:
+
+|VM size|vCPU|Memory, in GiB| Temp storage (SSD) GiB | GPU | GPU memory, in GiB|Maximum data disks | Maximum uncached disk throughput, in IOPS / MBps | Maximum network bandwidth | Maximum NICs |
+|-|-|-|-|-|-|-|-|-|-|
+|Standard_ND96amsr_A100_v4|96|1900|6400|8 A100 80 GB GPUs (NVLink 3.0)|80|32|80,000 / 800|24,000 Mbps|8|
 
 ## Ansys Speos installation
 
-Before you install Ansys Speos, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 image, and install the required NVIDIA and AMD drivers.
-
-For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
-
-> [!IMPORTANT]
-> NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch. NC_A100_v4 and ND_A100_v4 VMs use NVLink. 
-
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
-
-For information about installing Ansys Speos, see the [Ansys website](https://www.ansys.com/products/fluids/ansys-rocky).
+- **Deploy Azure VMs**. Use NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series and NDm A100 v4-series VMs to run Ansys Speos.
+- **Create and configure the supporting infrastructure**. Configure a public IP address for inbound connectivity. Use network security groups to provide security for the subnet.
+- **Install NVIDIA drivers**. To take advantage of the GPU capabilities of NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series and NDm A100 v4-series VMs, install NVIDIA GPU drivers. You need to deploy and connect a VM via Remote Desktop Protocol (RDP) to install the required NVIDIA drivers. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](/azure/virtual-machines/windows/n-series-driver-setup).
+- **Install Ansys Speos**. You can install Ansys Speos from the [Ansys portal](https://www.ansys.com/). For information about the installation process, see the [Ansys Speos website](https://www.ansys.com/products/optics/ansys-speos).
 
 ## Ansys Speos performance results
+
+A set of test case models are considered for testing the performance of Ansys Speos on Azure NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series and NDm A100 v4-series VMs. The model details are shown below.
+
+| Model | Model description | Analysis Type | Wavelength range | Wavelength number | Resolution |
+|-|-|-|-|-|-|
+| ![Image of Bottle Direct model.](./media/ansys-speos/bottle-direct.png) **Bottle Direct**| The model image shows a perfume bottle, Tangent transparent bodies, and caustics | Speos Core Direct Monte-Carlo Hybrid Simulation | 400nm – 700nm | 13 | 2048 x 2048 |
+| ![Image of Bottle Inverse model.](./media/ansys-speos/bottle-inverse.png) **Bottle Inverse** | The model image shows a perfume bottle, Tangent transparent bodies | Speos Core Inverse Monte Carlo Hybrid Simulation | 400nm – 700nm | 13 | 2048 x 2048 |
+| ![Image of FOG-Nightlight Direct model.](./media/ansys-speos/fog-nightlight-direct.png) **FOG-Nightlight Direct** | The model image shows road lighting, Volume scattering fog gathered towards sensor | Speos Core Direct Monte-Carlo Hybrid simulation | 400nm – 700nm | 13 | 1280 x 960 |
+| ![Image of FOG-Nightlight Radiance model.](./media/ansys-speos/fog-nightlight-radiance.png) **FOG-Nightlight Radiance** | The model image shows road lighting, Volume scattering fog gathered towards source | Speos Core Inverse Monte-Carlo Hybrid simulation | 400nm – 700nm | 13 | 1280 x 960 |
+| ![Image of RearLamp Demo Direct model.](./media/ansys-speos/rearlamp-demo-direct.png) **RearLamp Demo Direct** | The model image shows automotive lightings, facetted mirrors, stripped lightguide, volume scattering diffusors | Speos Core Direct Monte-Carlo Hybrid simulation | 400nm – 700nm | 13 | 1920 x 1080 |
+| ![Image of RearLamp Demo Inverse model.](./media/ansys-speos/rearlamp-demo-inverse.png) **RearLamp Demo Inverse** | The model image shows automotive lightings, facetted mirrors, stripped lightguide, volume scattering diffusors | Speos Core Inverse Monte-Carlo Hybrid simulation | 400nm – 700nm | 13 | 1920 x 1080 |
+| ![Image of Tunnel 4K Camera Timeline_single model.](./media/ansys-speos/tunnel-4k-camera.png) **Tunnel 4K Camera Timeline_single** | The model image shows tunnel exit, indirect lighting with strong dynamics, spectral physical camera sensor | Speos Core Inverse Monte-Carlo Hybrid simulation | 400nm – 700nm | 13 | 3856 x 2176 |
+
+### Results for NVadsA10v5-series VM
+
+The performance tests on Ansys Speos 2023 R2 used NVadsA10v5-series VMs. The following table provides the operating system and GPU details of NVadsA10v5-series VM:
+
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+|-|-|-|-|-|-|
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+
+The following table shows relative speed increase on NVadsA10v5-series VM:
+
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+|-|-|-|-|-|-|
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+
+| Size                   | No. of vCPUs/GPUs | Used          | Bottle Direct | Bottle Inverse | FOG-NightLight Direct | FOG-NightLight_Radiance | Rearlamp Demo Direct | Rearlamp Demo Inverse | Tunnel 4K Camera Timeline_single |
+|------------------------|-------------------|---------------|---------------|----------------|-----------------------|-------------------------|----------------------|-----------------------|---------------------------------|
+|                        | No of Rays/Computation time | Relative Speed Increase | No of Rays/Computation time | Relative Speed Increase | No of Rays/Computation time | Relative Speed Increase | No of Rays/Computation time | Relative Speed Increase | No of Rays/Computation time | Relative Speed Increase |
+|------------------------|-------------------|---------------|---------------|----------------|-----------------------|-------------------------|----------------------|-----------------------|---------------------------------|
+| Standard_NV6ads_A10_v5 | 6 vCPUs           | 5.35789E+05   | 1.00          | 4.75517E+05   | 1.00                  | 2.15933E+04             | 1.00                 | 1.06543E+04          | 1.00                  | 4.45442E+04                     | 1.00                 | 2.16231E+05                     | 1.00                 | 2.03505E+05                     | 1.00                 |
+| Standard_NV12ads_A10_v5 | 1/3 GPU           | 7.05502E+06   | 13.17         | 6.33147E+06   | 13.31                | 1.38082E+05             | 6.39                 | 4.32866E+04          | 4.06                  | 2.15824E+05                     | 4.85                 | 3.93593E+05                     | 1.82                 | 9.72960E+05                     | 4.78                 |
+| Standard_NV18ads_A10_v5 | 1/2 GPU           | 1.11367E+07   | 20.79         | 9.72984E+06   | 20.46                | 2.13309E+05             | 9.88                 | 6.95355E+04          | 6.53                  | 3.44093E+05                     | 7.72                 | 6.02317E+05                     | 2.79                 | 1.52759E+06                     | 7.51                 |
+| Standard_NV36ads_A10_v5 | 1 GPU             | 2.38216E+07   | 44.46         | 2.10233E+07   | 44.21                | 4.42797E+05             | 20.51                | 1.32615E+05          | 12.45                 | 7.38095E+05                     | 16.57                | 1.40697E+06                     | 6.51                 | 3.26173E+06                     | 16.03                |
+| Standard_NV72ads_A10_v5 | 2 GPUs            | 4.90611E+07   | 91.57         | 4.15515E+07   | 87.38                | 9.00568E+05             | 41.71                | 2.32190E+05          | 21.79                 | 1.48949E+06                     | 33.44                | 2.81894E+06                     | 13.04                | 6.37847E+06                     | 31.34                |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 A combine harvester simulation was used for the performance tests: 
 
