@@ -412,7 +412,7 @@ In general, AKS provides the most configurability and therefore the most diversi
 
 You need to ensure that your application's underlying OS is updated and regularly patched. Keep in mind, however, that with every update there's a risk of failure. This section and the next one describe the main considerations for the three container services with regard to the shared responsibility between the customer and the platform.
 
-As a managed Kubernetes service, AKS will provide the updated images for the node OS and control plane components. But customers are responsible for applying updates. You can manually trigger updates or leverage the [cluster auto-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure clusters are up to date. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
+As a managed Kubernetes service, AKS will provide the updated images for the node OS and control plane components. But cluster operators are responsible for applying updates to their clusters. You can manually trigger updates or use the [cluster auto-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure clusters are up to date. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
 Container Apps and Web App for Containers are PaaS solutions. Azure is responsible for managing updates and patches, so customers can avoid the complexity of AKS upgrade management.
 
