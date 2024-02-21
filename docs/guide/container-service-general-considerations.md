@@ -160,14 +160,14 @@ It's important to note that web apps that are integrated into an App Service Env
 
 ### User-defined routes and NAT gateway support
 
-If a workload requires user-defined routes (UDRs) and NAT gateway capabilities for granular networking control, Container Apps requires isolated infrastructure via [workload profiles](/azure/container-apps/workload-profiles-overview), which are available only in the Container Apps dedicated / workload profiles plan. 
+If a workload requires user-defined routes (UDRs) and NAT gateway capabilities for granular networking control, Container Apps requires the use of [workload profiles](/azure/container-apps/workload-profiles-overview). UDR and NAT gateway compatibility is not available in the consumption-only plan for ACA. 
 
 AKS and Web App for Containers implement these two networking features through standard virtual network functionality or virtual network integration, respectively. To elaborate, AKS node pools and Web App for Containers in an App Service Environment are already direct virtual network resources. Web App for Containers that aren't in an App Service Environment support UDRs and NAT gateway via [virtual network integration](/azure/app-service/overview-vnet-integration). With virtual network integration, the resource technically doesn't reside directly in the virtual network, but all of its outbound access flows through the virtual network, and the network's associated rules affect traffic as expected.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|---|--|--|
-| **UDR support** | Consumption plan: ❌<br>Dedicated plan: ✅ | ✅ | ✅ |
-| **NAT gateway support** | Consumption plan: ❌<br>Dedicated plan: ✅ | ✅ | ✅|
+| **UDR support** | Consumption-only plan: ❌<br>Workload profile plan: ✅ | ✅ | ✅ |
+| **NAT gateway support** | Consumption-only plan: ❌<br>Workload profile plan: ✅ | ✅ | ✅|
 
 ### Private networking integration
 
