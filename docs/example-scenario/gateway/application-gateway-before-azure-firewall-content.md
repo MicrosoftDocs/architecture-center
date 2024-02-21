@@ -177,6 +177,12 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 
 As with Virtual WAN, you might need to modify the routing when you use Route Server. If you advertise the 0.0.0.0/0 route, it might propagate to the Application Gateway subnet. But Application Gateway doesn't support that route. In this case, configure a route table for the Application Gateway subnet. Include a route for 0.0.0.0/0 and a next hop type of `Internet` in that table.
 
+## IDPS and private IP addresses
+
+As explained in [Azure Firewall IDPS Rules][IDPS-rules], Azure Firewall Premium will decide which IDPS rules to apply depending on the source and destination IP addresses of the packets. Azure Firewall will treat per default private IP addresses in the RFC 1918 ranges (`10.0.0.0/8`, `192.168.0.0/16` and `172.16.0.0/12`) and RFC 6598 range (`100.64.0.0/10`) as internal. Consequently, if as in the diagrams in this article the Application Gateway is deployed in a subnet in one of these ranges (`172.16.0.0/24` in the examples above), Azure Firewall Premium will consider traffic between the Application Gateway and the workload to be internal, and only IDPS signatures marked to be applied to internal traffic or to any traffic will be used. IDPS signatures marked to be applied for inbound or outbound traffic will not be applied to traffic between the Application Gateway and the workload.
+
+The easiest way of forcing IDPS inbound signature rules to be applied to the traffic between Application Gateway and the workload is by placing the Application Gateway in a subnet with a prefix outside of the private ranges. You don't necessarily need to use public IP addresses for this subnet, but instead you can customize the IP addresses that Azure Firewall Premium treat as internal for IDPS. For example, if in your organization you don't use the `100.64.0.0/10` range, you could eliminate this range from the list of internal prefixes for IDPS (see [Azure Firewall Premium private IPDS ranges][IDPS-private-ranges] for more details on how to do this) and deploy Application Gateway in a subnet configured with an IP address in `100.64.0.0/10`.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -207,6 +213,8 @@ Principal author:
 [Hub-spoke network topology in Azure]: ../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli
 [Hub-spoke network topology with Azure Virtual WAN]: ../../networking/hub-spoke-vwan-architecture.yml
 [IDPS]: /azure/firewall/premium-features#idps
+[IDPS-rules]: /azure/firewall/premium-features#idps-signature-rules
+[IDPS-private-ranges]: /azure/firewall/premium-features#idps-private-ip-ranges
 [Implement a secure hybrid network]: ../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal
 [Secure and govern workloads with network level segmentation]: ../../reference-architectures/hybrid-networking/network-level-segmentation.yml
 [Secure networks with Zero Trust]: /security/zero-trust/networks
