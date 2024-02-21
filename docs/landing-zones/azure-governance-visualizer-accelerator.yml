@@ -4,7 +4,7 @@ metadata:
   description: Azure Governance Visualizer Accelerator guidance to streamline the process of deploying and maintaining the Azure Governance Visualizer tool.
   author: sebassem
   ms.author: sebassem
-  ms.date: 11/19/2023
+  ms.date: 02/21/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
