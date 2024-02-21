@@ -139,7 +139,7 @@ For Container Apps, subnet integration applies only to a single Container Apps e
 
 Each Container Apps environment is meant only for a single workload in which dependent applications are colocated. Therefore, you need to introduce additional Azure networking appliances for ingress load balancing if you need both public and private ingress. Examples include Azure Application Gateway and Azure Front Door. Also, if you have multiple workloads that need to be segregated, additional Container Apps environments are required, so an additional subnet must be allocated for each environment.
 
-AKS provides granular east-west network flow control within the cluster in the form of Kubernetes network policy. This flow control enables you to segregate multiple workloads with different security boundaries within the same cluster.
+AKS provides granular east-west network flow control within the cluster in the form of Kubernetes network policy. This flow control enables you to segment multiple workloads with different network security boundaries within the same cluster.
 
 For Web App for Containers, there are no constraints on how many apps you can integrate with a single subnet, as long as the subnet is large enough. There are no best practices for access control between web apps in the same virtual network. Each web app independently manages access control for east-west or north-south traffic from the virtual network or internet, respectively.
 
