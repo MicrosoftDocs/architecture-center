@@ -239,7 +239,7 @@ Both Container Apps and Web App for Containers provide out-of-the-box solutions 
 | **Managed TLS for Azure FQDNs** | Out of the box | N/A | Out of the box |
 | **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | Out of the box or BYO |
 
-AKS requires workload teams to configure their own ingress controllers, configure custom domain names on the cluster and DNS, and manage their own certificates. Although AKS can use the CNCF [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates, and nginx or Traefik for ingress.
+AKS requires workload teams to configure their own ingress controllers, configure custom domain names on the cluster and DNS, and manage their own certificates. Although AKS can use the CNCF [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates, and Nginx or Traefik for ingress.
 
 ### Mutual TLS
 
