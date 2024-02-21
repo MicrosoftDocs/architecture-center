@@ -374,7 +374,9 @@ For more information, see:
 
 ### Threat protection and vulnerability assessments with Defender for Containers
 
-Threat protection against vulnerabilities is also important. It's a best practice to use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction).  Vulnerability assessments are supported in Azure container registries, so they can be used by any Azure container service, not just the ones described in this article. Defender for Containers runtime protection, however, is available only for AKS.
+Threat protection against vulnerabilities is also important. It's a best practice to use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Vulnerability assessments are supported in Azure container registries, so they can be used by any Azure container service, not just the ones described in this article. Defender for Containers runtime protection, however, is available only for AKS.
+
+As AKS exposes the native Kubernetes API, it also supports security tooling from the Kubernetes ecosystem. Container Apps and Web App for Containers only supports built-in features and Microsoft Defender offerings.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
