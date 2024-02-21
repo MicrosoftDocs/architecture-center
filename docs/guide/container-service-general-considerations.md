@@ -328,7 +328,7 @@ In all scenarios, you can regulate networking communication within the wider vir
 
 #### Built-in IP restrictions for ingress
 
-Container Apps and Web App for Containers don't require virtual network integration, so they provide built-in source IP restrictions for ingress traffic. If you use AKS, you can leverage the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#service-v1-core) to achieve traffic filtering.  
+Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic on individual applications. If you use AKS, you can leverage the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#service-v1-core) to achieve traffic filtering on a per-app basis.  
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
