@@ -96,7 +96,7 @@ Most containerized applications run in Linux containers, which are supported by 
 
 ## Networking considerations
 
-It's important to understand networking design early in your planning processes due to security and compliance constraints and imposed guidelines. In general, the major differences among the Azure services covered in this guide depend on preference:
+It's important to understand networking design early in your planning processes due to security and compliance constraints and imposed guidelines. In general, the major differences among the Azure services covered in this guide depend on preference, such as extensibility or operational paradigms.
 
 - [Container Apps](https://azure.microsoft.com/products/container-apps) is a PaaS offering that provides many Azure-managed networking features, like service discovery and internal managed domains. Workload teams that need a bit more configurability might be able to take advantage of workload/dedicated profiles before considering AKS to maximize their networking options.
 - [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. Customers can install and operate any add-on or software from the Kubernetes ecosystem.
