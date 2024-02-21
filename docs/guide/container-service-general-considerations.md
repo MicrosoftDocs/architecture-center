@@ -332,7 +332,7 @@ Container Apps and Web App for Containers don't require virtual network integrat
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Built-in app ingress IP restrictions** | ✅ | ❌ | ✅ |
+| **Built-in ingress IP restrictions** | ✅ | ❌ | ✅ |
 
 ## Application-level security
 
