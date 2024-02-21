@@ -910,6 +910,8 @@ items:
     href: patterns/priority-queue.yml
   - name: Publisher/Subscriber
     href: patterns/publisher-subscriber.yml
+  - name: Quarantine
+    href: patterns/quarantine.yml
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.yml
   - name: Rate Limiting
@@ -1308,6 +1310,8 @@ items:
             href: guide/hpc/siemens-tecnomatix.yml
         - name: tNavigator
           href: guide/hpc/tnavigator.yml
+        - name: TUFLOW HPC
+          href: guide/hpc/tuflow-hpc.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm
@@ -1526,8 +1530,6 @@ items:
               href: operator-guides/aks/aks-upgrade-practices.md
             - name: Troubleshoot networking
               href: operator-guides/aks/troubleshoot-network-aks.md
-            - name: Troubleshoot virtual nodes
-              href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
             - name: Monitor AKS with Azure Monitor
               href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
@@ -3265,7 +3267,9 @@ items:
       - name: Adopting IPv6
         items:
           - name: Conceptual planning for IPv6 networking
-            href: networking/guide/ipv6/ipv6-ip-planning.md
+            href: networking/guide/ipv6-ip-planning.md
+          - name: IPv6 hub-spoke network topology
+            href: networking/guide/ipv6-architecture.yml
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
@@ -4165,6 +4169,8 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host a Murex MX.3 workload on Azure
         href: example-scenario/finance/murex-mx3-azure.yml
+      - name: Host a Murex MX.3 workload using SQL
+        href: example-scenario/finance/murex-mx3-sql.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control

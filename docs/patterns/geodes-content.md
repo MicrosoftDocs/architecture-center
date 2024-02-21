@@ -69,6 +69,17 @@ This pattern might not be suitable for
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.
 
+## Workload design
+
+An architect should evaluate how the Geodes pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern uses data replication to support the ideal that any client can connect to any geographical instance and by doing so it can help your workload withstand one or more regional outages.<br/><br/> - [RE:05 High-availability multi-region design](/azure/well-architected/reliability/highly-available-multi-region-design)<br/> - [RE:05 Regions and availability zones](/azure/well-architected/reliability/regions-availability-zones) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | You can use this pattern to serve your application from a region that's closest to your distributed user base. Doing so reduces latency by eliminating long-distance traffic and because you share infrastructure only among users that are currently using the same geode.<br/><br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Examples
 
 - Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but Flexible Single Master Operation (FSMO) roles mean that all geodes aren't equal.
