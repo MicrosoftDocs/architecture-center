@@ -249,7 +249,7 @@ Web App for Containers has built-in mTLS support for incoming client connections
 
 Container Apps also has built-in support for mTLS. It forwards the client certificate to the application in the HTTP header [X-Forwarded-Client-Cert](/azure/container-apps/client-certificate-authorization). You can also easily enable [automatic mTLS for internal communication between apps](/azure/container-apps/networking#mtls) in a single environment.
 
-AKS takes a cloud native approach to implementing mTLS through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about), which includes mTLS capabilities for incoming client connections and intra cluster communication between services.
+mTLS in AKS can be implemented through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about), which includes mTLS capabilities for incoming client connections and intra cluster communication between services. Workload teams could also choose to install and manage another service mesh offering from the Kubernetes ecosystem. These options make mTLS implementation in Kubernetes the most flexible.
 
 ### Service-specific networking concepts
 
