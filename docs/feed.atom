@@ -2,12 +2,244 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-02-06T18:36:42.536Z</updated>
+    <updated>2024-02-20T19:03:30.581Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Host a Murex MX.3 workload on Azure using SQL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/murex-mx3-sql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/murex-mx3-sql"/>
+        <updated>2024-02-13T20:47:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement an Azure architecture for Murex workloads using SQL Server as the database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IPv6 hub-spoke network topology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture"/>
+        <updated>2024-02-12T21:22:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Quarantine pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/quarantine</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/quarantine"/>
+        <updated>2024-02-09T19:17:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy TUFLOW HPC on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc"/>
+        <updated>2024-02-06T21:43:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure icons]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//icons</id>
+        <link href="https://learn.microsoft.com/azure/architecture//icons"/>
+        <updated>2024-02-14T16:35:57.000Z</updated>
+        <summary type="html"><![CDATA[Icons for use in building architecture diagrams for Azure]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ambassador pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/ambassador</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/ambassador"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Anti-corruption Layer pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/anti-corruption-layer</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/anti-corruption-layer"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Examine the Anti-corruption Layer pattern. Implement a façade or adapter layer between a modern application and a legacy system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous Request-Reply pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/async-request-reply</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/async-request-reply"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Backends for Frontends pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bulkhead pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/bulkhead</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/bulkhead"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Isolate elements of an application into pools so that if one fails, the others will continue to function.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cache-Aside pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/cache-aside</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/cache-aside"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choreography pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/choreography</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/choreography"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Circuit Breaker pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Claim-Check pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/claim-check</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/claim-check"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compensating Transaction pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Competing Consumers pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/competing-consumers</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/competing-consumers"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Competing Consumers pattern. This pattern enables many concurrent consumers to process messages that are received on the same messaging channel.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compute Resource Consolidation pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/compute-resource-consolidation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/compute-resource-consolidation"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CQRS pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/cqrs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/cqrs"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment Stamps pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Event Sourcing pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/event-sourcing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/event-sourcing"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use an append-only store to record the full series of events that describe actions taken on data in a domain.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[External Configuration Store pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/external-configuration-store</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/external-configuration-store"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Federated Identity pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/federated-identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/federated-identity"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Federated Identity design pattern to delegate authentication to an external identity provider.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gatekeeper pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gatekeeper</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gatekeeper"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Aggregation pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-aggregation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-aggregation"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Offloading pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-offloading</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-offloading"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Routing pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-routing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-routing"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Geode pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/geodes</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/geodes"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Event Hubs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs"/>
+        <updated>2024-02-13T16:59:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pipes and Filters pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
+        <updated>2024-02-09T22:19:14.000Z</updated>
+        <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
         <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
@@ -94,14 +326,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-hfss"/>
         <updated>2024-01-09T18:49:40.000Z</updated>
         <summary type="html"><![CDATA[Learn how Ansys HFSS 3D electromagnetic simulation software performs on an Azure virtual machine (VM), and learn how to run HFSS on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Conceptual planning for IPv6 networking]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6/ipv6-ip-planning</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6/ipv6-ip-planning"/>
-        <updated>2024-01-05T17:49:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
