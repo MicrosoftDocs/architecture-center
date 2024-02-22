@@ -4,7 +4,7 @@ ms.custom:
 ---
 The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (replatform) your web app to be successful in the cloud.
 
-This article provides code and architecture guidance for the reliable web app pattern. The companion article provides **[planning guidance](plan-implementation.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** in GitHub that you can deploy.
+This article provides code and architecture guidance for the reliable web app pattern. The companion article provides **[implementation planning guidance](plan-implementation.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** in GitHub that you can deploy.
 
 ## Architecture
 
@@ -101,9 +101,9 @@ The reliable web app pattern uses managed identities to implement identity-centr
 
 ### Use managed identities
 
-Managed identities allow Azure resources to securely access resources without hard-coded credentials. Use managed identities where possible to automate authentication processes. Managed identities are similar to trusted connections and integrated security in on-premises applications that permit database authentication without exposing credentials in configuration files. Managed identities provide a more traceable way to control access to Azure resources than connection strings stored in Azure Key Vault.
+Managed identities create an identity in Microsoft Entra ID that eliminates the need for developers to manage credentials. The web app receives a workload identity (service principal) in Microsoft Entra ID. Azure manages the access tokens behind the scenes. Managed identities provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources such as Azure Key Vault and Azure databases. You can also use a managed identity to enable a CI/CD pipeline that deploys a web app to App Service.
 
-Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure as code (IaC) to deploy the infrastructure. For more information, see [Managed identities for developers](/entra/identity/managed-identities-azure-resources/overview-for-developers) and [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
+However, keeping your on-premises authentication and authorization configuration can improve your migration experience in some cases. For example, hybrid deployments, legacy systems, and robust on-premises identity solutions could be reasons to delay the adoption of managed identities. You should keep the on-premises setup and modernize your identity solution later. For more information, see [Managed identities for developers](/entra/identity/managed-identities-azure-resources/overview-for-developers) and [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
 
 #### Use DefaultAzureCredential to set up code
 
@@ -139,6 +139,8 @@ For more information, see [Connect to SQL database from .NET App Service](/azure
 
 #### Use a central secrets store to manage secrets
 
+The term *secret* refers to anything that you don't want exposed in plain text (passwords, keys, certificates). After you migrate your app to the cloud, you might have secrets that you need to manage. You should store all these secrets in Key Vault.
+
 For Azure services not compatible with managed identities, store application secrets in Azure Key Vault as a central repository. Azure Key Vault enables secure storage, key rotation, and access auditing of secrets. Additionally, Key Vault supports monitoring for enhanced security oversight. Store application configurations in Azure App Configuration.
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)*
@@ -147,9 +149,23 @@ For Azure services not compatible with managed identities, store application sec
 
 - Azure Cache for Redis secret: Azure Cache for Redis doesn't support managed identities. Rotate the key and update Key Vault with the new connection string. Restart the web app for changes to take effect. Key regeneration is managed through the Azure CLI or portal.
 
+#### Don't put Key Vault in the HTTP-request flow
+
+Key Vault has service limitations to safeguard resources and ensure optimal service quality for its clients. The original intent of Key Vault was to store and retrieve sensitive information during deployment. Organizations sometimes use Key Vault for runtime secret management, and many applications and services treat it like a database. However, the Key Vault limitations don't support high throughput rates and might affect performance if Key Vault is in the HTTP-request flow. When a key vault reaches a service threshold, it limits any further requests from the client and returns HTTP status code 429. The web app should load values from Key Vault at application start time. For more information, see [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
+
+#### Use one method to access secrets in Key Vault
+
+There are two methods to configure a web app to access secrets in Key Vault. (1) You can use an app setting in App Service and inject the secret as an [environment variable](/azure/app-service/app-service-key-vault-references#azure-resource-manager-deployment). (2) You can reference the secret in your application code. Add a reference to the app properties file so the app can communicate with Key Vault. You should pick one of these two methods and use it consistently. You should also avoid using both methods because it creates unneeded complexity.  
+
+#### Avoid using access keys for temporary access where possible
+
+Granting permanent access to a storage account is a security risk. If attackers obtain the access keys, they have permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
+
+For temporary account access, you should use a shared access signature (SAS). There's a user delegation SAS, a service SAS, and an account SAS. You should use a user delegation SAS when possible. It's the only SAS that uses Microsoft Entra credentials and doesn't require a storage account key.
+
 ### Use private endpoints
 
-By default, service communication to most Azure services crosses the public internet. Use private endpoints to secure Azure service endpoints. Private endpoints don't require any app configuration, connection string, or code changes. Putting the web app platform behind a private endpoint requires extra configuration for app code deployment. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
+Private endpoints provide private connections between resources in an Azure virtual network and Azure services. By default, communication to most Azure services crosses the public internet. You should use private endpoints in all production environments for all supported Azure services. Private endpoints don't require any code changes, app configurations, or connection strings. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* Azure App Configuration, Azure SQL Database, Azure Cache for Redis, Azure Storage, Azure App Service, and Key Vault use a private endpoint.
 
@@ -158,6 +174,14 @@ By default, service communication to most Azure services crosses the public inte
 All inbound internet traffic to the web app must pass through a web application firewall to protect against common web exploits. Force all inbound internet traffic to pass through the public load balancer, if you have one, and the web application firewall.
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation forces all inbound internet traffic through Front Door and Azure Web Application Firewall. In production, [preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
+
+### Configure database security
+
+Administrator-level access to the database grants permissions to perform privileged operations. Privileged operations include creating and deleting databases, modifying table schemas, or changing user permissions. Developers often need administrator-level access to maintain the database or troubleshoot issues.
+
+- *Avoid permanent elevated permissions.* You should only grant the developers just-in-time access to perform privileged operations. With just-in-time access, users receive temporary permissions to perform privileged tasks
+
+- *Don't give application elevated permissions.** You shouldn't grant administrator-level access to the application identity. You should configure least-privileged access for the application to the database. It limits the blast radius of bugs and security breaches.
 
 ## Cost optimization
 
@@ -276,6 +300,14 @@ For more information, see:
 
 Track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. For more information, see [Azure Application Insights log-based metrics](/azure/azure-monitor/essentials/app-insights-metrics) and [Log-based and preaggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
 
+#### Enable platform diagnostics
+
+A diagnostic setting in Azure allows you to specify the platform logs and metrics you want to collect and where to store them. Platform logs are built-in logs that provide diagnostic and auditing information. You can enable platform diagnostics for most Azure services, but each service defines its own log categories. Different Azure services have log categories to choose.
+
+- *Enable diagnostics for all supported services.* Azure services create platform logs automatically, but the service doesn't store them automatically. You must enable the diagnostic setting for each service, and you should enable it for every Azure service that supports diagnostics.
+
+- *Send diagnostics to same destination as the application logs.* When you enable diagnostics, you pick the logs you want to collect and where to send them. You should send the platform logs to the same destination as the application logs so you can correlate the two datasets.
+
 ## Performance efficiency
 
 The reliable web app pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
@@ -307,7 +339,7 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 #### Cache high-need data
 
-Prioritize caching for the most frequently accessed data. Identify key data points that drive user engagement and system performance. Implement caching strategies specifically for these areas to optimize the effectiveness of the Cache-Aside pattern, significantly reducing latency and database load.
+Prioritize caching for the most frequently accessed data. Identify key data points that drive user engagement and system performance. Implement caching strategies specifically for these areas to optimize the effectiveness of the Cache-Aside pattern, significantly reducing latency and database load. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU.
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* The reference implementation caches the data that supports the Upcoming Concerts. The Upcoming Concerts page creates the most queries to SQL Database and produces a consistent output for each visit. The Cache-Aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync` method to pull data into the Redis cache from SQL Database. The method populates the cache with the latest concerts. The method filters by time, sorts the data, and returns the data to the controller to display the results (*see the following code*).
 
@@ -370,6 +402,14 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
    return UpdateResult.SuccessResult();
 }
 ```
+
+### Test database performance
+
+Database performance can affect the performance and scalability of an application. It's important to test the performance of your database to ensure it's optimized. Some key considerations include choosing the right cloud region, connection pooling, cache-aside pattern, and optimizing queries.
+
+- *Test network hops.* Moving an application to the cloud can introduce extra network hops and latency to your database. You should test for extra hops that the new cloud environment introduces.
+
+- *Establish a performance baseline.* You should use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
 
 ## Next steps
 

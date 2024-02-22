@@ -5,7 +5,7 @@ ms.custom:
 
 The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (replatform) your web app to be successful in the cloud.
 
-This article helps you plan the implementation of the reliable web app pattern. The companion article provides the implementation guidance to **[apply the pattern](apply-pattern.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** in GitHub that you can deploy (*see figure 1*).
+This article helps you plan the implementation of the reliable web app pattern. The companion article provides the implementation guidance to **[apply the pattern](apply-pattern.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** in GitHub that you can deploy.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ The demand for Relecloud's on-site application surged as ticket sales increased,
 
 | Immediate app goals | Future app goals |
 | --- | --- |
-| ▪ Make high-value code changes<br>▪ Service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Cost-optimize environments <br>▪ Improve reliability and security|▪ Expose app to customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Accelerate feature delivery<br>▪ Scale based on traffic.|
+| ▪ Make high-value code changes<br>▪ Service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Cost-optimize environments <br>▪ Improve reliability and security|▪ Improve availability<br> ▪ Accelerate feature delivery<br>▪ Scale based on traffic.|
 
 ## Define the service level objective
 
@@ -146,7 +146,7 @@ Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to 
 
 ### Storage solution
 
-Choose the best storage solution for your web app. For help with deciding, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
+Choose the best storage solution for your web app. For help deciding, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* On-premises, the web app had disk storage mounted to each web server, but the team wanted to use an external data storage solution. Relecloud chose [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for the following reasons:
 
@@ -186,6 +186,16 @@ Assign an availability estimate for each dependency. Service level agreements (S
 Choose the right network topology for your web and networking requirements. A hub and spoke network topology is standard configuration in Azure. It provides cost, management, and security benefits. It also supports hybrid connectivity options to on-premises networks.
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* Relecloud chose a hub and spoke network topology to increase the security of their multi-region deployment at reduced cost and management overhead.
+
+### Choose data redundancy
+
+Ensure data reliability by distributing it across Azure's regions and availability zones; the greater their geographical separation, the higher the reliability.
+
+- *Set a recovery point objective (RPO).* RPO defines the maximum tolerable data loss during an outage, guiding how frequently data needs replication. For instance, an RPO of one hour means accepting up to an hour's worth of recent data loss.
+
+- *Implement data replication.* Align data replication with your architecture and RPO. Azure typically supports synchronous replication within availability zones. Utilize multiple zones to enhance reliability easily. For multi-region web apps in an active-passive setup, replicate data to the passive region as per the web app's RPO, ensuring replication frequency surpasses the RPO. Active-active configurations require near real-time data synchronization across regions, which might necessitate code adjustments.
+
+- *Create a failover plan.* Develop a failover (disaster recovery) plan outlining response strategies to outages, determined by downtime or functionality loss. Specify the recovery time objectives (RTO) for maximum acceptable downtime. Ensure the failover process is quicker than RTO. Decide on automated or manual failover mechanisms for consistency and control, and detail the return to normal operations process. Test the failover plan to ensure effectiveness.
 
 ## Next step
 
