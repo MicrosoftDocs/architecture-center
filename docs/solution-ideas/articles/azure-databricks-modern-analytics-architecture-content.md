@@ -162,7 +162,6 @@ To learn about related solutions, see this information:
 - [Observability patterns and metrics for performance tuning][Observability patterns and metrics for performance tuning]
 - [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
-[AGL achieves machine learning at scale]: https://customers.microsoft.com/story/844796-agl-energy-azure
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
