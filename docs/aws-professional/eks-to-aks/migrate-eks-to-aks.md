@@ -60,7 +60,7 @@ Analyze the existing EKS environment to understand the current architecture, res
 
    | AWS service | Dependency |
    | ----------- | ---------- |
-   | AWS Secret Manager | [Azure Key Vault](/azure/key-vault/general/overview%5d) |
+   | AWS Secret Manager | [Azure Key Vault](/azure/key-vault/general/overview) |
    | AWS Guard Duty Agent | [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) |
    | EKS Pod Identity Agent | [Microsoft Entra ID Workload Identity](/azure/aks/workload-identity-overview?tabs=dotnet) |
    | Amazon Elastic File System (EFS) or Elastic Block Store (EBS) Container Storage Interface (CSI) drivers | [AKS CSI Drivers](/azure/aks/csi-storage-drivers) |
@@ -118,7 +118,7 @@ Migrating your Kubernetes manifests involves adapting the configuration to work 
 
 ### Stateful workload migration considerations
 
-If your applications use [Persistent Volumes (PVs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) or [Persistent Volume Claims (PVCs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/"%20\l%20"persistentvolumeclaims) for data storage, make sure you back up this data. You can use tools like [Velero](https://velero.io/) to perform cluster backups, including for PVs and PVCs data. For more information, see [Backup and restore your Amazon EKS cluster resources using Velero](https://aws.amazon.com/blogs/containers/backup-and-restore-your-amazon-eks-cluster-resources-using-velero/).
+If your applications use [Persistent Volumes (PVs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) or [Persistent Volume Claims (PVCs)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) for data storage, make sure you back up this data. You can use tools like [Velero](https://velero.io/) to perform cluster backups, including for PVs and PVCs data. For more information, see [Backup and restore your Amazon EKS cluster resources using Velero](https://aws.amazon.com/blogs/containers/backup-and-restore-your-amazon-eks-cluster-resources-using-velero/).
 
 Stateful applications typically have persistent data storage requirements, which add complexity to the migration process. For a comparison of the storage capabilities of Amazon EKS and AKS, see [Storage options for a Kubernetes cluster](/azure/architecture/aws-professional/eks-to-aks/storage).
 
