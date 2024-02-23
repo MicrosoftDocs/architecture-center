@@ -10,7 +10,7 @@ You can deploy the solution by using a single Azure subscription. However, for b
 
 ## Architecture
 
-[![Diagram that shows the architecture for SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure.](media/swift-alliance-access-remote-gateway-with-alliance-connect-virtual.png)](media/swift-alliance-access-remote-gateway-with-alliance-connect-virtual.png#lightbox)
+[![Diagram that shows the architecture for SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure.](media/swift-alliance-remote-gateway-with-alliance-connect-virtual.png)](media/swift-alliance-remote-gateway-with-alliance-connect-virtual.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **ARG (All-GoldSilverBronze)** tab.*
 

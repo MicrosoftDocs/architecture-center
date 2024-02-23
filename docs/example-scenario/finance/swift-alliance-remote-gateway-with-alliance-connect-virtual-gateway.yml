@@ -23,6 +23,6 @@ products:
   - azure-managed-disks
   - azure-load-balancer
   - azure-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/alliance-access-with-alliance-connect-virtual.png
+thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.png
 content: |
    [!include[](swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway-content.md)]
