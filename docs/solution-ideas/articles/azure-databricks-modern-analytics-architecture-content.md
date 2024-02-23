@@ -142,7 +142,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 ## Next steps
 
-- [Tutorial: Build an end-to-end data pipeline in Databricks][/azure/databricks/getting-started/data-pipeline-get-started].
+- [Tutorial: Build an end-to-end data pipeline in Databricks](/azure/databricks/getting-started/data-pipeline-get-started).
 
 ## Related resources
 
