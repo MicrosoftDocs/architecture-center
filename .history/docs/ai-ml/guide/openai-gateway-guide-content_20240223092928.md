@@ -19,7 +19,6 @@ In this section, you learn about the key architectural challenges you face if yo
 ### Security
 
 - **Identity management** - Implement a centralized identity model for all language model usage, including non-Azure OpenAI models with different identity management solutions.Support alternative identity providers other than the Azure OpenAI default authentication.
-- **Network Security** - Ensure network traffic is not exposed to the public internet when not necessary.
 - **Data Security** - Ensure overseeing access to the application and data is securely transfered with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits. 
 - **Data sovereignty** - Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Ensure regional affinity for consumers to comply with data residency and sovereignty laws.
 
@@ -68,20 +67,20 @@ When you introduce a gateway into your architecture to address the consideration
 
 ### Security
 
-- Network Isolation with private network access
-- Data Security - Ensure overseeing access to the application and data is securely transfered with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits. 
-- **Multitenancy** - 
-- Federated identity - Support alternate identity providers other than the Azure OpenAI default authentication.
-- Data sovereignty - Ensure that hybrid system also adheres to multi-region availability requirements to support affinity.
+- **Network Isolation** - Private network access
+- **Data Security** - Ensure overseeing access to the application and data is securely transfered with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits. 
+- Multitenancy
+- **Federated identity** - Support alternate identity providers other than the Azure OpenAI default authentication.
+- **Data sovereignty** -Ensure that hybrid system also adheres to multi-region availability requirements to support affinity.
+- **Confidentiality** - Additional layers of detection and masking can increase the overall reponse latency for consumers. This factor must be balanced against the need for data privacy and compliance when designing the system.
 
 ### Cost Optimization
 
-- Higher cost and resource consumption - The gateway service adds to the cost of the architecture. When calculating the cost, take into account redundancy and multi-region capabilities required for the gateway.
-- There is no built-in option for tracking consumption withing streaming endpoints.
+- **High cost and resource consumption** - The gateway service adds to the cost of the architecture. When calculating the cost, take into account redundancy and multi-region capabilities required for the gateway.
 
 ### Operational Excellence
 
-- The gateway allows routing request based on there priority which requires monitoring the PTU utilization. Monitoring can be done in a couple of ways. Consider one method comes with a delay where the other approach is near real-time, it requires writing customer aggregation services.
+- If you need to track transactions, consider generating correlation IDs for logging purposes.
 - Adding a gateway service to your architecture adds complexity to the architecture. The gateway service deployment should be included in your Infrastructure as Code (IaC) strategy. The gateway should be included in your monitoring strategy.
 
 
