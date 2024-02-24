@@ -12,11 +12,11 @@ You can deploy the solution by using a single Azure subscription. However, for b
 
 [![Diagram that shows the architecture for SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure.](media/swift-alliance-remote-gateway-with-alliance-connect-virtual.png)](media/swift-alliance-remote-gateway-with-alliance-connect-virtual.png#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **ARG (All-GoldSilverBronze)** tab.*
+*Download a [Visio file](https://arch-center.azureedge.net/vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **ARG (Gold)** tab.*
 
 ### Workflow
 
-The following workflow corresponds to the above <!-- part of the template - should it be changed to "preceding"?--> diagram.
+The following workflow corresponds to the above <!-- "above" is part of the template - should it be changed to "preceding"?--> diagram.
 
 - Business users: Business users are located at the customer premises, usually within an enterprise or financial institution environment. They access the system through back-office applications.
 
@@ -47,7 +47,7 @@ The following workflow corresponds to the above <!-- part of the template - shou
 
 - External connectivity: The architecture includes connections to SWIFTNet Link via the ExpressRoute connection or the internet, which you use for the secure transfer of financial messages and transactions.
 
-- Routing and policies: Route tables and policies like the SWIFT CSP and CSCF policies and the SWIFTNet Link policy govern traffic routing and enforce security compliance within the deployment.
+- Routing and policies: Route tables and policies like the SWIFT CSP-CSCF policies and the SWIFTNet Link policy govern traffic routing and enforce security compliance within the deployment.
 
 ### Components
   
@@ -123,19 +123,19 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### Authentication and authorization
 
-Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) service of the Azure tenant that's associated with the subscription. Microsoft Entra ID can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT CSP and CSCF policies recommend separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Microsoft Entra ID instance to comply with this recommendation.
+Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) service of the Azure tenant that's associated with the subscription. Microsoft Entra ID can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT CSP-CSCF policies recommend separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Microsoft Entra ID instance to comply with this recommendation.
 
 Users who are enrolled in Microsoft Entra ID can sign in to the Azure portal or authenticate by using other management tools, like [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/powershell/azure/overview). You can configure [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) and other safeguards, like IP range restrictions, by using [Conditional Access](/entra/identity/conditional-access/overview). Users get permissions on Azure subscriptions via [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs the operations that users can do in a subscription.
 
 The Microsoft Entra ID associated with a subscription enables only the management of Azure services. For example, you might provision VMs in Azure under a subscription. Microsoft Entra ID provides credentials for signing in to those VMs only if you explicitly enable Microsoft Entra ID authentication. To learn about using Microsoft Entra ID for application authentication, see [Plan application migration to Microsoft Entra ID](/entra/identity/enterprise-apps/migrate-adfs-apps-phases-overview).
 
-#### Enforcing SWIFT CSP and CSCF policies
+#### Enforcing SWIFT CSP-CSCF policies
 
 You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to set policies that need to be enforced in an Azure subscription to meet compliance or security requirements. For example, you can use Azure Policy to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. You can use built-in policies or create your own policies.
 
-SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP and CSCF requirements. A part of this framework lets you use Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. By using separate subscriptions, you can apply the SWIFT CSP and CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
+SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP-CSCF requirements. A part of this framework lets you use Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. By using separate subscriptions, you can apply the SWIFT CSP-CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
 
-We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using separate subscriptions, you can ensure that SWIFT CSP and CSCF policies apply only to SWIFT components and not to your own components. Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
+We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using separate subscriptions, you can ensure that SWIFT CSP-CSCF policies apply only to SWIFT components and not to your own components. Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
 
 #### Connectivity methods
 
