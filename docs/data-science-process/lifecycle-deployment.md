@@ -22,11 +22,11 @@ categories:
 
 This article outlines the goals, tasks, and deliverables associated with the deployment of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data-science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
 
-1. **Business understanding**
-2. **Data acquisition and understanding**
-3. **Modeling**
-4. **Deployment**
-5. **Customer acceptance**
+- **Business understanding**
+- **Data acquisition and understanding**
+- **Modeling**
+- **Deployment**
+- **Customer acceptance**
 
 Here's a visual representation of the TDSP lifecycle:
 

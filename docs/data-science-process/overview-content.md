@@ -21,11 +21,11 @@ You should use this lifecycle if you have a data science project that's part of 
 
 The TDSP lifecycle is composed of five major stages that your team performs iteratively. These stages include:
 
-1. [Business understanding](lifecycle-business-understanding.md)
-2. [Data acquisition and understanding](lifecycle-data.md)
-3. [Modeling](lifecycle-modeling.md)
-4. [Deployment](lifecycle-deployment.md)
-5. [Customer acceptance](lifecycle-acceptance.md)
+- [Business understanding](lifecycle-business-understanding.md)
+- [Data acquisition and understanding](lifecycle-data.md)
+- [Modeling](lifecycle-modeling.md)
+- [Deployment](lifecycle-deployment.md)
+- [Customer acceptance](lifecycle-acceptance.md)
 
 Here's a visual representation of the TDSP lifecycle:
 
@@ -50,7 +50,7 @@ The following diagram shows the tasks (in blue) and artifacts (in green) associa
 
 Your team can use the Azure infrastructure to organize your data science assets.
 
-Azure Machine Learning supports the open-source [MLflow](/azure/machine-learning/concept-mlflow?view=azureml-api-2). MLflow is the recommended framework to use for data science and AI project management. MLflow is designed to manage the complete machine learning lifecycle. It trains and serves models on different platforms, so you can use a consistent set of tools regardless of where your experiments run. You can use MLflow locally on your computer, on a remote compute target, on a virtual machine, or on an Azure Machine Learning compute instance.
+Azure Machine Learning supports the open-source [MLflow](/azure/machine-learning/concept-mlflow?view=azureml-api-2). We recommend using MLflow for data science and AI project management. MLflow is designed to manage the complete machine learning lifecycle. It trains and serves models on different platforms, so you can use a consistent set of tools regardless of where your experiments run. You can use MLflow locally on your computer, on a remote compute target, on a virtual machine, or on a Machine Learning compute instance.
 
 MLflow consists of several key functionalities:
 
@@ -64,11 +64,11 @@ MLflow consists of several key functionalities:
 
 - **Register models**: You can manage the lifecycle of a model, including versioning, stage transitions, and annotations. MLflow is useful for maintaining a centralized model store in a collaborative environment.
 
-- **Use an API and UI**: Inside Azure, MLflow is bundled within the Microsoft Azure Machine Learning API version 2, so you can interact with the system programmatically. You can use the Azure portal to interact with a UI.
+- **Use an API and UI**: Inside Azure, MLflow is bundled within the Machine Learning API version 2, so you can interact with the system programmatically. You can use the Azure portal to interact with a UI.
 
 MLflow aims to simplify and standardize the process of machine learning development, from experimentation to deployment.
 
-Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use Git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another Git-compatible service. In addition to the assets already tracked in Azure Machine Learning, your team can develop their own taxonomy within their Git-compatible service to store other project information, such as:
+Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python), so you can use Git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or another Git-compatible service. In addition to the assets already tracked in Machine Learning, your team can develop their own taxonomy within their Git-compatible service to store other project information, such as:
 
 - Documentation
     - Project, for example the final project report
@@ -98,7 +98,7 @@ Here's an example of a team working on multiple projects and sharing various clo
 
 In most organizations, it's challenging to introduce processes. The infrastructure provides tools to implement the TDSP and lifecycle help lower the barriers to and increase the consistency of their adoption.
 
-With Azure Machine Learning, data scientists can apply open-source tooling as part of the data science pipeline or workflow. In addition, within Azure Machine Learning, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai?view=azureml-api-2), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
+With Machine Learning, data scientists can apply open-source tooling as part of the data science pipeline or workflow. Within Machine Learning, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
 
 ## Peer-reviewed citations
 

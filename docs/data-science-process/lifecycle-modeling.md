@@ -22,11 +22,11 @@ categories:
 
 This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data science projects. The lifecycle outlines the major stages that your team performs, often iteratively:
 
-1. **Business understanding**
-2. **Data acquisition and understanding**
-3. **Modeling**
-4. **Deployment**
-5. **Customer acceptance**
+- **Business understanding**
+- **Data acquisition and understanding**
+- **Modeling**
+- **Deployment**
+- **Customer acceptance**
 
 Here's a visual representation of the TDSP lifecycle:
 
@@ -54,55 +54,59 @@ The modeling stage has three main tasks:
 
 Feature engineering involves the inclusion, aggregation, and transformation of raw variables to create the features used in the analysis. If you want insight into how a model is built, then you need to study the model's underlying features.
 
-This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. Feature engineering is a balancing act of finding and including informative variables, but at the same time trying to avoid too many unrelated variables. Informative variables improve your result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. As a result, the generation of these features can only depend on data that's available at the time of scoring.
+This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. Feature engineering is a balancing act of finding and including informative variables but at the same time trying to avoid too many unrelated variables. Informative variables improve your result. Unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. As a result, the generation of these features can only depend on data that's available at the time of scoring.
 
 ### Model training
 
-Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing a prebuilt algorithm with designer, see [Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer](/azure/machine-learning/algorithm-cheat-sheet); other algorithms are available through open-source packages in R or Python. Although this article focuses on Azure Machine Learning, the guidance it provides is useful for any machine-learning projects.
+There are many modeling algorithms that you can use, depending on the type of question that you're trying to answer. For guidance on choosing a prebuilt algorithm, see [Machine Learning algorithm cheat sheet for Azure Machine Learning designer](/azure/machine-learning/algorithm-cheat-sheet). Other algorithms are available through open-source packages in R or Python. Although this article focuses on Azure Machine Learning, the guidance it provides is useful for many machine-learning projects.
 
 The process for model training includes the following steps:
 
 * **Split the input data** randomly for modeling into a training data set and a test data set.
 
 * **Build the models** by using the training data set.
-* **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms. Utilize various associated tuning parameters (known as a *parameter sweep*) that are geared toward answering the question of interest with the current data.
-* **Determine the "best" solution** to answer the question by comparing the success metrics between alternative methods.
+* **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms. Use various associated tuning parameters (known as *parameter sweeps*) that are geared toward answering the question of interest with the current data.
+* **Determine the *best* solution** to answer the question by comparing the success metrics between alternative methods.
 
-For options on training models in Azure Machine Learning, see [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model).
+For  more information, see [Train models with Machine Learning](/azure/machine-learning/concept-train-machine-learning-model).
 
 > [!NOTE]
-> **Avoid leakage**: You might cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies may be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results.
+> **Avoid leakage**: You might cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies might be hard to detect. Avoiding leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results.
 
 ## Model evaluation
 
-After you train the model, the data scientist focuses next on model evaluation.
+After you train the model, a data scientist on your team focuses on model evaluation.
 
-* **Checkpoint decision**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
+* **Make a determination**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
+
   * Does the model answer the question with sufficient confidence given the test data?
+
   * Should you try any alternative approaches?
   * Should you collect more data, do more feature engineering, or experiment with other algorithms?
 
-* **Interpreting the Model**: Use [the Azure Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
+* **Interpret the model**: Use [the Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
    * Explain the entire model behavior or individual predictions on your personal machine locally.
+
    * Enable interpretability techniques for engineered features.
    * Explain the behavior for the entire model and individual predictions in Azure.
-   * Upload explanations to Azure Machine Learning Run History.
-   * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning workspace.
+   * Upload explanations to the Machine Learning run history.
+   * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Machine Learning workspace.
    * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
-* **Assessing Fairness**: The [Fairlearn open-source Python package with Azure Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) performs the following tasks:
+* **Assess fairness**: Use the [fairlearn open-source Python package with Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) to perform the following tasks:
    * Assess the fairness of your model predictions. This process helps your team learn more about fairness in machine learning.
-   * Upload, list, and download fairness assessment insights to/from Azure Machine Learning studio.  
-   * See the fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights.
+
+   * Upload, list, and download fairness assessment insights to and from Machine Learning studio.  
+   * See the fairness assessment dashboard in Machine Learning studio to interact with your models' fairness insights.
 
 ## Integrate with MLflow
 
-Azure Machine Learning integrates with MLflow to support the modeling lifecycle. It uses MLflow’s tracking for experiments, project deployment, model management, and a model registry. This integration ensures a seamless and efficient machine learning workflow. The following features in Azure Machine Learning help support this modeling lifecycle element:
+Machine Learning integrates with MLflow to support the modeling lifecycle. It uses MLflow’s tracking for experiments, project deployment, model management, and a model registry. This integration ensures a seamless and efficient machine learning workflow. The following features in Machine Learning help support this modeling lifecycle element:
 
-- [Tracking experiments](/azure/machine-learning/how-to-track-monitor-analyze-runs): MLflow's core functionality is extensively used in the modeling stage to track various experiments, parameters, metrics, and artifacts.
+- [Track experiments](/azure/machine-learning/how-to-track-monitor-analyze-runs): MLflow's core functionality is extensively used in the modeling stage to track various experiments, parameters, metrics, and artifacts.
 
-- [Project deployment](/azure/machine-learning/concept-endpoints): Packaging code with MLflow Projects ensures consistent runs and easy sharing among team members, which is essential during iterative model development.
-- [Model management](/azure/machine-learning/concept-mlflow-models): Managing and versioning models is critical in this phase as different models are built, evaluated, and refined.
-- [Model registry](/azure/machine-learning/how-to-manage-models-mlflow): The model registry is used for versioning and managing models throughout their lifecycle.
+- [Deploy projects](/azure/machine-learning/concept-endpoints): Packaging code with MLflow Projects ensures consistent runs and easy sharing among team members, which is essential during iterative model development.
+- [Manage models](/azure/machine-learning/concept-mlflow-models): Managing and versioning models is critical in this phase as different models are built, evaluated, and refined.
+- [Register models](/azure/machine-learning/how-to-manage-models-mlflow): The model registry is used for versioning and managing models throughout their lifecycle.
 
 ## Peer-reviewed literature
 

@@ -34,11 +34,11 @@ The purpose of TDSP is to streamline and standardize your approach to data scien
 
 The TDSP lifecycle is composed of five major stages that your team performs iteratively. These stages include:
 
-1. [Business understanding](lifecycle-business-understanding.md)
-2. [Data acquisition and understanding](lifecycle-data.md)
-3. [Modeling](lifecycle-modeling.md)
-4. [Deployment](lifecycle-deployment.md)
-5. [Customer acceptance](lifecycle-acceptance.md)
+- [Business understanding](lifecycle-business-understanding.md)
+- [Data acquisition and understanding](lifecycle-data.md)
+- [Modeling](lifecycle-modeling.md)
+- [Deployment](lifecycle-deployment.md)
+- [Customer acceptance](lifecycle-acceptance.md)
 
 Here's a visual representation of the TDSP lifecycle:
 

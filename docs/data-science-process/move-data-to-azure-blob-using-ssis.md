@@ -60,7 +60,7 @@ For information on how to get up and running using SISS to build simple extracti
 
 ## Download NYC Taxi dataset
 
-The example described here use a publicly available dataset, available in [Azure open datasets](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets) and [TLC trip record data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). The dataset consists of about 173 million taxi rides in NYC in the year 2013. There are two types of data: trip details data and fare data.
+The example described here uses a publicly available dataset, available in [Azure open datasets](/azure/open-datasets/dataset-taxi-yellow) and [TLC trip record data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page). The dataset consists of about 173 million taxi rides in NYC in the year 2013. There are two types of data: trip details data and fare data.
 
 ## Upload data to Blob Storage
 
