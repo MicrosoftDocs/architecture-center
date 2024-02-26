@@ -22,11 +22,11 @@ categories:
 
 Preprocessing and cleaning data are important tasks that must be conducted before a dataset can be used for model training. Raw data is often noisy and unreliable, and might be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the preprocessing required. For more information, [What is the Team Data Science Process?](overview.yml).
 
-Preprocessing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio (classic). You can also use various tools and languages, such as R or Python. Where your data is stored and how its format affects these decisions. Since the TDSP is iterative in nature, these tasks can take place at various steps in the workflow of the process.
+Preprocessing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning studio (classic). You can also use various tools and languages, such as R or Python. Where your data is stored and how its format affects these decisions. Since the TDSP is iterative in nature, these tasks can take place at various steps in the workflow of the process.
 
-This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning Studio (classic).
+This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning studio (classic).
 
-For an example of data exploration and preprocessing done inside Azure Machine Learning Studio (classic), see the video, [Preprocessing data](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+For an example of data exploration and preprocessing done inside Azure Machine Learning studio (classic), see the video, [Preprocessing data](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 ## Why preprocess and clean data?
 
@@ -54,7 +54,7 @@ You can check the general quality of data by checking:
 
 When you find issues with data, perform processing steps, for example cleaning missing values, data normalization, discretization, text processing to remove or replace embedded characters that might affect data alignment, mixed data types in common fields, and others.
 
-**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, you can perform data preprocessing directly with Azure Machine Learning Studio (classic).  If data isn't in tabular form, for example if it's in XML format, you might need to parse the data to convert it to tabular form.
+**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, you can perform data preprocessing directly with Azure Machine Learning studio (classic).  If data isn't in tabular form, for example if it's in XML format, you might need to parse the data to convert it to tabular form.
 
 ## What are some of the major tasks in data preprocessing?
 
