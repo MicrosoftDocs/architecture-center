@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-02-20T19:03:30.581Z</updated>
+    <updated>2024-02-24T12:46:17.437Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate-eks-to-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate-eks-to-aks"/>
+        <updated>2024-02-23T17:04:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options for migrating from Amazon EKS to Azure Kubernetes Service (AKS).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Host a Murex MX.3 workload on Azure using SQL]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/murex-mx3-sql</id>
@@ -39,6 +47,30 @@
         <updated>2024-02-06T21:43:31.000Z</updated>
         <summary type="html"><![CDATA[Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[General considerations for choosing an Azure container service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
+        <updated>2024-02-21T18:35:24.000Z</updated>
+        <summary type="html"><![CDATA[Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Zero-trust network for web applications with Azure Firewall and Application Gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
+        <updated>2024-02-21T09:59:10.000Z</updated>
+        <summary type="html"><![CDATA[Protect web apps by implementing zero-trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Firewall, App Gateway for virtual networks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway"/>
+        <updated>2024-02-21T09:42:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Azure icons]]></title>
