@@ -9,7 +9,7 @@ Data from multiple sources in the organization can be consolidated into a data w
 You can use an extract, transform, and load (ETL) or extract, load and transform (ELT) process to move and transform the source data. For more information on RDBMS Databases, see [Explore Relational Databases in Azure](/training/modules/explore-provision-deploy-relational-database-offerings-azure/).
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of large or complex data.
-Big data solutions typically involve a large amount of relational and nonrelational data, which traditional RDBMS systems aren't well suited to store. These typically involve Data Lakes, Delta Lakes, lakehouses, etc. see more information in [Analytics Architecture Design.](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/analytics-start-here)
+Big data solutions typically involve a large amount of relational and nonrelational data, which traditional RDBMS systems aren't well suited to store. These typically involve solutions such as Data Lakes, Delta Lakes, and lakehouses. See more information in [Analytics Architecture Design](/azure/architecture/solution-ideas/articles/analytics-start-here).
 
 NoSQL databases are interchangeably referred to as "nonrelational", "NoSQL DBs", or "non-SQL" to highlight the fact that they can handle huge volumes of rapidly changing, unstructured data. They do not store data in tables, rows, and columns, like (SQL) databases. For more information on No SQL DBs Databases, see [What are NoSQL Databases?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-nosql-database/) and [NoSQL Data](/azure/architecture/data-guide/big-data/non-relational-data).
 
