@@ -49,7 +49,7 @@ To learn about data lakes, which hold a large amount of data in its native, raw 
 
 A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems.
 
-- For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/analytics-start-here)
+- For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here)
 
 A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md) or consider [Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/overview) combined with Azure databases.
 
