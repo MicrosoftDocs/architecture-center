@@ -51,7 +51,7 @@ A big data architecture can handle ingestion, processing, and analysis of data t
 
 - For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here)
 
-A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md) or consider [Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/overview) combined with Azure databases.
+A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md) or consider [Azure Arc](/azure/azure-arc/overview) combined with Azure databases.
 
 Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items).
 
