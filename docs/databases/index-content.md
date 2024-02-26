@@ -43,7 +43,7 @@ To find options helpful for dealing with relational data, consider these resourc
 - To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
 - Online transaction processing systems record business interactions as they occur. For more information, see [Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md).
 
-A *nonrelational database* doesn't use the tabular schema of rows and columns. For more information, see [Nonrelational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
+A *non-relational database* doesn't use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
