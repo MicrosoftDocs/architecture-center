@@ -30,7 +30,7 @@ Here are some Learn modules you might find useful:
 - [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
 - [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
 - [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database)
-- [Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction)
+- [Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/)
 - [Azure Database for MySQL](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview-single)
 - [SQL Server on Azure VMs](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql)
