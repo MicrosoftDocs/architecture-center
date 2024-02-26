@@ -32,7 +32,7 @@ Here are some Learn modules you might find useful:
 - [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database)
 - [Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
-- [Azure Database for MySQL](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview-single)
+- [Azure Database for MySQL](/azure/mysql/flexible-server/overview-single)
 - [SQL Server on Azure VMs](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql)
 
 ## Path to production
