@@ -2,7 +2,7 @@ This article provides an overview of the Azure database solutions described in A
 
 ![Diagram that contrasts relational database management system and big data solutions.](_images/data-service-classifications.jpg)
 
-Azure Database solutions include traditional relational database management systems (RDBMS OLTP), Big data & Analytics workloads (including OLAP), and NoSQL workloads.
+Azure Database solutions include traditional relational database management systems (RDBMS and OLTP), big data and analytics workloads (including OLAP), and NoSQL workloads.
 
 RDBMS workloads include online transaction processing (OLTP) and online analytical processing (OLAP).
 Data from multiple sources in the organization can be consolidated into a data warehouse.
