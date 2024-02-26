@@ -76,7 +76,7 @@ Review these best practices when designing your solutions.
 There are many options for technologies to use with Azure Databases.
 These articles help you choose the best technologies for your needs.
 
-- [Choose a Data Store](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/data-store-overview)
+- [Choose a Data Store](/azure/architecture/guide/technology-choices/data-store-overview)
 - [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
