@@ -4076,7 +4076,7 @@
     },
     {
       "source_path": "docs/reference-architectures/hybrid-networking/hub-spoke.yml",
-      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke",
       "redirect_document_id": true
     }
     
