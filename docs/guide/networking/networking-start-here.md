@@ -50,8 +50,7 @@ And here's a comprehensive learning path:
 Consider these technologies and solutions as you plan and implement your deployment: 
 - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml) 
 - [Azure Private Link in a hub-and-spoke network](private-link-hub-spoke-network.yml)
-- [Build solutions for high availability by using availability zones](../../high-availability/building-solutions-for-high-availability.yml) 
-- [Add IP address spaces to peered virtual networks](../../networking/prefixes/add-ip-space-peered-vnet.yml)
+- [Build solutions for high availability by using availability zones](../../high-availability/building-solutions-for-high-availability.yml)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Use Azure ExpressRoute with Microsoft Power Platform](/power-platform/guidance/expressroute/overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
