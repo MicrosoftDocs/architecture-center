@@ -166,7 +166,7 @@ Several choices VMs could be utilized, depending on the use case:
 There are several options to deploy this scenario:
 - [dSPACE](https://www.dspace.com/inc/home.cfm) is a partner that worked with Microsoft on this architecture to create a product called SIMPHERA.  SIMPHERA is a software solution for simulating and validating functions for autonomous driving.  To deploy SIMPHERA, follow the instructions in this [repo](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main)
 - [ANSYS](https://www.ansys.com/) is another partner that has a deployable solution that is aligned to this reference architecture.  The solution can be deployed in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview)
-
+- [Cognata](https://azuremarketplace.microsoft.com/marketplace/apps/cognata.simcloud10?tab=Overview) SimCloud is a deployable simulated test-drive environment  that enhances validation process by generating fast, highly accurate results, and eliminates the safety concerns, high costs, and limited scalability of road-testing in the physical world as well.
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
