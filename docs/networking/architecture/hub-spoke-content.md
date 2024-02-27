@@ -83,10 +83,10 @@ The virtual network gateway requires this subnet. You can also use a hub-spoke t
 
 Create a subnet named *GatewaySubnet* with an address range of at least `/27`. The `/27` address range gives the subnet enough scalability configuration options to prevent reaching the gateway size limitations in the future. For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
-- [Hybrid network using ExpressRoute](./expressroute.yml)
+- [Hybrid network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
 - [Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
-For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](./expressroute-vpn-failover.yml).
+For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 
 #### AzureFirewallSubnet
 
@@ -137,7 +137,7 @@ There are two main ways to allow spoke virtual networks to communicate with each
 
 If you need connectivity between spokes, consider deploying Azure Firewall or another NVA in the hub. Then create routes to forward traffic from a spoke to the firewall or NVA, which can then route to the second spoke. In this scenario, you must configure the peering connections to allow forwarded traffic.
 
-![Diagram that shows routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
+![Diagram that shows routing between spokes using Azure Firewall](./_images/spoke-spoke-routing.png)
 
 You can also use a VPN gateway to route traffic between spokes, although this choice affects latency and throughput. For configuration details, see [Configure VPN gateway transit for virtual network peering](/azure/vpn-gateway/vpn-gateway-peering-gateway-transit).
 
@@ -151,7 +151,7 @@ When you use Virtual Network Manager, you can add spoke virtual networks to netw
 
 The following diagram illustrates using Virtual Network Manager for direct connectivity between spokes.
 
-![Diagram that shows using Virtual Network Manager for direct connectivity between spokes.](./images/spoke-spoke-avnm.png)
+![Diagram that shows using Virtual Network Manager for direct connectivity between spokes.](./_images/spoke-spoke-avnm.png)
 
 ### Management recommendations
 
@@ -168,7 +168,7 @@ You define discoverability of the virtual networks that Virtual Network Manager 
 
 To connect spoke virtual networks in the same network group to each other, use Virtual Network Manager to implement virtual network peering or [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#direct-connectivity). Use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option to extend mesh direct connectivity to spoke networks in different regions. The following diagram shows global mesh connectivity between regions.
 
-![Diagram showing spoke global mesh direct connectivity over regions.](./images/hub-and-spoke.png)
+![Diagram showing spoke global mesh direct connectivity over regions.](./_images/hub-and-spoke.png)
 
 You can associate virtual networks within a network group to a baseline set of security admin rules. Network group security admin rules prevent spoke virtual network owners from overwriting baseline security rules, while letting them independently add their own sets of security rules and NSGs. For an example of using security admin rules in hub and spoke topologies, see [Tutorial: Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke).
 
@@ -362,9 +362,9 @@ Explore the following related architectures:
 
 - [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-- [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
+- [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
-- [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/baseline-aks.yml)
+- [Secure and govern workloads with network level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
