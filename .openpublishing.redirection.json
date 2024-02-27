@@ -4070,12 +4070,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "guide/networking/networking-start-here.md",
+      "source_path": "docs/guide/networking/networking-start-here.md",
       "redirect_url": "/azure/architecture/networking/",
       "redirect_document_id": true
     },
     {
-      "source_path": "reference-architectures/hybrid-networking/hub-spoke.yml",
+      "source_path": "docs/reference-architectures/hybrid-networking/hub-spoke.yml",
       "redirect_url": "/azure/architecture/networking/architecture/hub-spoke.yml",
       "redirect_document_id": true
     }
