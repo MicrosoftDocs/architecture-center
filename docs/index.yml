@@ -45,7 +45,7 @@ highlightedContent:
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
-  summary: Best practices and patterns for building applications on Microsoft Azure: # < 160 chars (optional)
+  summary: "Best practices and patterns for building applications on Microsoft Azure:" # < 160 chars (optional)
   items:
     # Card
     - title: Design for the cloud
