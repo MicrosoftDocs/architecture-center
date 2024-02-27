@@ -8,3 +8,5 @@ items:
         items: 
         - name: Hub-spoke network topology in Azure
           href: architecture/hub-spoke.yml
+        - name: Update route tables with Route Server
+          href: architecture/manage-routing-azure-route-server.yml
