@@ -2,7 +2,7 @@ This article presents a solution for managing the dynamic routing between NVAs a
 
 ## Architecture
 
-:::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
+:::image type="content" source="./_images/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./_images/manage-routing-azure-route-server-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
