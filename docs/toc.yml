@@ -3320,8 +3320,8 @@ items:
       #   maintainContext: true
       - name: TIC 3.0 compliance
         href: example-scenario/security/trusted-internet-connections.yml
-      - name: Update route tables with Route Server
-        href: example-scenario/networking/manage-routing-azure-route-server.yml
+      # - name: Update route tables with Route Server
+      #   href: example-scenario/networking/manage-routing-azure-route-server.yml
       - name: Virtual WAN solutions
         items:
         - name: Hub-spoke topology with VWAN
