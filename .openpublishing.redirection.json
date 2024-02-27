@@ -4063,6 +4063,11 @@
       "source_path": "docs/networking/prefixes/add-ip-space-peered-vnet.yml",
       "redirect_url": "/azure/virtual-network/update-virtual-network-peering-address-space",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "example-scenario/security/hardened-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
     }
   ]
 }
