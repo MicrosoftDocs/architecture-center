@@ -100,11 +100,24 @@ A set of test case models are considered for testing the performance of Ansys Sp
 
 ### Results for NVadsA10v5-series VM
 
-The performance tests on Ansys Speos 2023 R2 used NVadsA10v5-series VMs. The following table provides the operating system and GPU details of NVadsA10v5-series VM:
+The performance tests on Ansys Speos 2023 R2 used NVadsA10v5-series VMs. The following table provides the operating system and GPU details of NVadsA10v5-series VM. Each cell in the table shows the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the models.
 
-| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
-|-|-|-|-|-|-|
-| XXXXX | XXXXX | XXXXX | XXXXX | XXXXX | XXXXX |
+| Size | Number of vCPUs/ GPUs  used | Bottle Direct | Bottle Inverse | FOG-NightLight Direct | FOG-NightLight_Radiance | Rearlamp Demo Direct | Rearlamp Demo Inverse | Tunnel 4K Camera Timeline_single |
+|-|-|-|-|-|-|-|-|-|
+| Standard_NV6ads_A10_v5 | 6 vCPUs | 5.35789E+05 / 1.00 | 4.75517E+05 / 1.00 | 2.15933E+04 / 1.00 | 1.06543E+04 / 1.00 | 4.45442E+04 / 1.00 | 2.16231E+05 / 1.00 | 2.03505E+05 / 1.00 |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+| XXXXX | XXXXX | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx | xxx / xxx |
+
+
+
+
+
+
 
 The following table shows relative speed increase on NVadsA10v5-series VM:
 
