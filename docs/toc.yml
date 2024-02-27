@@ -3270,52 +3270,52 @@ items:
       items:
       - name: Azure DNS Private Resolver
         href: example-scenario/networking/azure-dns-private-resolver.yml
-      - name: High availability for IaaS apps
-        href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
+      # - name: High availability for IaaS apps
+      #   href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
       - name: Hub-spoke network topology in Azure
         href: reference-architectures/hybrid-networking/hub-spoke.yml
       - name: Hybrid networking
         items:
-        - name: Azure Automation Update Management
-          href: hybrid/azure-update-mgmt.yml
-        - name: Connect servers with Network Adapter
-          href: hybrid/azure-network-adapter.yml
-        - name: Design a hybrid DNS solution
-          href: hybrid/hybrid-dns-infra.yml
-        - name: Hybrid availability and monitoring
-          href: hybrid/hybrid-perf-monitoring.yml
+        # - name: Azure Automation Update Management
+        #   href: hybrid/azure-update-mgmt.yml
+        # - name: Connect servers with Network Adapter
+        #   href: hybrid/azure-network-adapter.yml
+        # - name: Design a hybrid DNS solution
+        #   href: hybrid/hybrid-dns-infra.yml
+        # - name: Hybrid availability and monitoring
+        #   href: hybrid/hybrid-perf-monitoring.yml
       - name: Implement a secure hybrid network
         href: reference-architectures/dmz/secure-vnet-dmz.yml
       - name: Implement an open-source jump server
         href: example-scenario/infrastructure/apache-guacamole.yml
-      - name: Interconnect with China using Virtual WAN
-        href: /azure/virtual-wan/interconnect-china
-        maintainContext: true
-      - name: Migrate to Azure Virtual WAN
-        href: /azure/virtual-wan/migrate-from-hub-spoke-topology
-        maintainContext: true
+      # - name: Interconnect with China using Virtual WAN
+      #   href: /azure/virtual-wan/interconnect-china
+      #   maintainContext: true
+      # - name: Migrate to Azure Virtual WAN
+      #   href: /azure/virtual-wan/migrate-from-hub-spoke-topology
+      #   maintainContext: true
       - name: Multi-region N-tier application
         href: reference-architectures/n-tier/multi-region-sql-server.yml
       - name: Multi-region load balancing
         href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
       - name: Multi-tier web application built for HA/DR
         href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
-      - name: Multitenant SaaS
-        href: example-scenario/multi-saas/multitenant-saas.yml
+      # - name: Multitenant SaaS
+      #   href: example-scenario/multi-saas/multitenant-saas.yml
       - name: Network-hardened web app
         href: example-scenario/security/hardened-web-app.yml
-      - name: Network topology and connectivity with AVS
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
-        maintainContext: true
-      - name: Private Link and DNS integration at scale
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
-        maintainContext: true
-      - name: SD-WAN connectivity with Virtual WAN
-        href: /azure/virtual-wan/sd-wan-connectivity-architecture
-        maintainContext: true
-      - name: Traditional Azure networking topology
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
-        maintainContext: true
+      # - name: Network topology and connectivity with AVS
+      #   href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+      #   maintainContext: true
+      # - name: Private Link and DNS integration at scale
+      #   href: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
+      #   maintainContext: true
+      # - name: SD-WAN connectivity with Virtual WAN
+      #   href: /azure/virtual-wan/sd-wan-connectivity-architecture
+      #   maintainContext: true
+      # - name: Traditional Azure networking topology
+      #   href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
+      #   maintainContext: true
       - name: TIC 3.0 compliance
         href: example-scenario/security/trusted-internet-connections.yml
       - name: Update route tables with Route Server
@@ -3324,20 +3324,20 @@ items:
         items:
         - name: Hub-spoke topology with VWAN
           href: networking/hub-spoke-vwan-architecture.yml
-        - name: Interconnect with China
-          href: /azure/virtual-wan/interconnect-china
-          maintainContext: true
+        # - name: Interconnect with China
+        #   href: /azure/virtual-wan/interconnect-china
+        #   maintainContext: true
         - name: Massive-scale VWAN architecture design
           href: example-scenario/networking/massive-scale-azure-architecture.yml
-        - name: Migrate to Azure Virtual WAN
-          href: /azure/virtual-wan/migrate-from-hub-spoke-topology
-          maintainContext: true
-        - name: SD-WAN connectivity with VWAN
-          href: /azure/virtual-wan/sd-wan-connectivity-architecture
-          maintainContext: true
-        - name: Virtual WAN network topology
-          href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
-          maintainContext: true
+        # - name: Migrate to Azure Virtual WAN
+        #   href: /azure/virtual-wan/migrate-from-hub-spoke-topology
+        #   maintainContext: true
+        # - name: SD-WAN connectivity with VWAN
+        #   href: /azure/virtual-wan/sd-wan-connectivity-architecture
+        #   maintainContext: true
+        # - name: Virtual WAN network topology
+        #   href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
+        #   maintainContext: true
         - name: Virtual WAN optimized for requirements
           href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
     - name: Solution ideas
