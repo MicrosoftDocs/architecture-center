@@ -220,7 +220,7 @@ Principal author:
 [Azure Firewall Premium certificates]: /azure/firewall/premium-certificates
 [Firewall and Application Gateway for virtual networks]: ./firewall-application-gateway.yml
 [How an application gateway works]: /azure/application-gateway/how-application-gateway-works
-[Hub-spoke network topology in Azure]: ../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli
+[Hub-spoke network topology in Azure]: ../../networking/architecture/hub-spoke.yml
 [Hub-spoke network topology with Azure Virtual WAN]: ../../networking/hub-spoke-vwan-architecture.yml
 [IDPS]: /azure/firewall/premium-features#idps
 [IDPS-rules]: /azure/firewall/premium-features#idps-signature-rules

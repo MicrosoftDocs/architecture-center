@@ -79,7 +79,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
-For more information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
+For more information, see [Hub-spoke network topology in Azure](../../../networking/architecture/hub-spoke.yml).
 
 To review the network design changes included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#network-design).
 

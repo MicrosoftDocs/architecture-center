@@ -1,0 +1,10 @@
+items:
+- name: Networking
+  href: index.md
+  items: 
+    - name: Design architectures
+      items:
+      - name: Network topology
+        items: 
+        - name: Hub-spoke network topology in Azure
+          href: architecture/hub-spoke.yml

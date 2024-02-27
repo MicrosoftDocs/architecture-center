@@ -3126,9 +3126,11 @@ items:
       - name: Task-based consumer mobile app
         href: solution-ideas/articles/task-based-consumer-mobile-app.yml
   - name: Networking
+    href: networking/index.md        
+  - name: Networking - Inline
     items:
-    - name: Get started
-      href: guide/networking/networking-start-here.md
+    # - name: Get started
+    #   href: guide/networking/networking-start-here.md
     - name: Guides
       items:
       # - name: Deploy private 5G networks
@@ -3272,10 +3274,10 @@ items:
         href: example-scenario/networking/azure-dns-private-resolver.yml
       # - name: High availability for IaaS apps
       #   href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
-      - name: Hub-spoke network topology in Azure
-        href: reference-architectures/hybrid-networking/hub-spoke.yml
-      - name: Hybrid networking
-        items:
+      # - name: Hub-spoke network topology in Azure
+      #   href: reference-architectures/hybrid-networking/hub-spoke.yml
+      # - name: Hybrid networking
+      #   items:
         # - name: Azure Automation Update Management
         #   href: hybrid/azure-update-mgmt.yml
         # - name: Connect servers with Network Adapter

@@ -1,5 +1,5 @@
 This hub-spoke architecture provides an alternate solution to the
-reference architectures [hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml) and [implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
+reference architectures [hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml) and [implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
 
 The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises data center(s) and the hub through an ExpressRoute or VPN gateway connection. The main differentiator of this approach is the use of
 [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) (VWAN) to replace hubs as a managed service.
@@ -190,7 +190,7 @@ Principal author:
 
 Learn more:
 
--   [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
+-   [Hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml)
 
 -   [Design a hybrid Domain Name System solution with Azure](../hybrid/hybrid-dns-infra.yml)
 
