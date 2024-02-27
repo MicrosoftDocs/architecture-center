@@ -89,7 +89,7 @@ Other contributor:
  
 ## Related resources
  
-* [Networking architecture design](/azure/architecture/networking/)
+* [Networking architecture design](../../networking/)
 * [Build applications on the Microsoft Cloud](../../guide/microsoft-cloud/overview.md)
 * [Storage architecture design](../../guide/storage/storage-start-here.md)
 * [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
