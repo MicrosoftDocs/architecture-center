@@ -139,15 +139,15 @@ Each component in the landing zone is discussed below.
 
 **Spoke**: The spokes are virtual networks that host MX.3’s Azure workloads and connect to the central hub through virtual network peering.
 
-**Virtual network peering**: Hub and spoke virtual networks are connected using virtual network peering, which supports low latency connections between the virtual networks.
+**Virtual network peering**: Hub-and-spoke virtual networks are connected using virtual network peering, which supports low latency connections between the virtual networks.
 
 **Gateway**: A gateway is used to send traffic from an MX.3 client’s on-premises network to the Azure virtual network. You can encrypt the traffic before it's sent.
 
-**Gateway Subnet**: The gateway that sends traffic from on-premises to Azure uses a specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use.
+**Gateway subnet**: The gateway that sends traffic from on-premises to Azure uses a specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use.
 
 **Azure Jumpbox VM**: Jumpbox connects Azure VMs of the application and persistence tiers by using dynamic IP. Jumpbox prevents all the application and database VMs from being exposed to the public. This connection is your entry point to connect through an RDP from the on-premises network.
 
-**Azure Firewall**: You should route any inbound and outbound connectivity between MX.3 VMs and the internet through Azure Firewall. Typical examples of such connectivity are time sync and anti-virus definition update.
+**Azure Firewall**: You should route any inbound and outbound connectivity between MX.3 VMs and the internet through Azure Firewall. Typical examples of such connectivity are time sync and antivirus definition update.
 
 **Azure Bastion**: By using Azure Bastion, you can securely connect the application and database VMs through Azure portal. Deploy the Azure Bastion host inside the hub virtual network, and then access the VMs in the peered spoke virtual networks. This component is optional, and you can use it as needed.
 
@@ -157,9 +157,9 @@ Each component in the landing zone is discussed below.
 
 **Application subnet**: You can place all the components under the application tier here. Having a dedicated application subnet also helps in controlling traffic to the business, orchestration, and technical services layers through NSGs.
 
-**Database Subnet**: You can place the components in the database subnet in a dedicated subnet to manage traffic around the database.
+**Database subnet**: You can place the components in the database subnet in a dedicated subnet to manage traffic around the database.
 
-**Private Link**: Azure services like Recovery Services vaults, Azure Cache for Redis, and Azure Files are all connected through a private link to the virtual network. Having a private link between these services and the virtual network secures the connection between endpoints in Azure by eliminating data exposure to the internet.
+**Private link**: Azure services like Recovery Services vaults, Azure Cache for Redis, and Azure Files are all connected through a private link to the virtual network. Having a private link between these services and the virtual network secures the connection between endpoints in Azure by eliminating data exposure to the internet.
 
 ## Contributors
 
