@@ -1,4 +1,4 @@
-This article presents a solution and guidance for developing a Validation Operations (ValOps) for Advanced Driving Assistance Systems (ADAS) and Autonomous Driving (AD). The ValOps solution is built on the framework outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). ValOps is one of the building blocks of AVOps.  Other building blocks include [DataOps](./autonomous-vehicle-operations-dataops-content.md), machine learning operations (MLOps), DevOps and centralized AVOps functions (see related articles).  In addition, the approach in this article utilizes the [Software Defined Vehicle Reference Architecture toolchain](../../industries/automotive/software-defined-vehicle-reference-architecture-content.md) to provide an end-to-end automated driving stack that can orchestrate testing required for automated driving.  
+This article presents a solution and guidance for developing a Validation Operations (ValOps) for Advanced Driving Assistance Systems (ADAS) and Autonomous Driving (AD). The ValOps solution is built on the framework outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). ValOps is one of the building blocks of AVOps.  Other building blocks include [DataOps](./autonomous-vehicle-operations-dataops-content.md), machine learning operations (MLOps), DevOps and centralized AVOps functions (see related articles).  In addition, the approach in this article utilizes the [Software defined vehicle DevOps toolchain Reference Architecture](../../industries/automotive/software-defined-vehicle-reference-architecture-content.md) to provide an end-to-end automated driving stack that can orchestrate testing required for automated driving.  
 
 ## Architecture
 
@@ -75,7 +75,7 @@ A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.
 
 ## Scenario details
 
-Designing a robust DataOps framework for autonomous vehicles is crucial for using your data, tracing its lineage, and making it available throughout your organization. Without a well-designed DataOps process, the massive amount of data that autonomous vehicles generate can quickly become overwhelming and difficult to manage.
+Designing a robust ValOps framework for autonomous vehicles is a critical stage to ensuring the safety of the automated driving stack.  Ensuring the organizations ValOps is operating efficiently and cost effectively is also an import consideration to ensure sustainability of operations. 
 
 When you implement an effective DataOps strategy, you help ensure that your data is properly stored, easily accessible, and has a clear lineage. You also make it easy to manage and analyze the data, leading to more informed decision-making and improved vehicle performance.
 
@@ -164,9 +164,9 @@ Several choices VMs could be utilized, depending on the use case:
 
 ### Deploy this scenario
 There are several options to deploy this scenario:
-- dSPACE is a partner that worked with Microsoft on this architecture to create a product called SIMPHERA.  SIMPHERA is a software solution for simulating and validating functions for autonomous driving.  To deploy SIMPHERA, follow the instructions in this [repo](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main)
-- ANSYS is another partner that has a deployable solution that is aligned to this reference architecture.  The solution can be deployed in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview)
-- 
+- [dSPACE](https://www.dspace.com/inc/home.cfm) is a partner that worked with Microsoft on this architecture to create a product called SIMPHERA.  SIMPHERA is a software solution for simulating and validating functions for autonomous driving.  To deploy SIMPHERA, follow the instructions in this [repo](https://github.com/dspace-group/simphera-reference-architecture-azure/tree/main)
+- [ANSYS](https://www.ansys.com/) is another partner that has a deployable solution that is aligned to this reference architecture.  The solution can be deployed in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/ansys.av_platform_azure?tab=Overview)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
