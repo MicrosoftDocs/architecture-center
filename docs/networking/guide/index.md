@@ -80,7 +80,7 @@ The following sections, organized by category, provide links to sample networkin
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 
 ### Hub-and-spoke topology 
-- [Hub-and-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-and-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Hub-and-spoke network topology with Azure Virtual WAN](../../networking/hub-spoke-vwan-architecture.yml)
 
 ### Virtual WAN

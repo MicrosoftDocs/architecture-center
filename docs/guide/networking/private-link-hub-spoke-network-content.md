@@ -185,7 +185,7 @@ Other contributor:
 [How to configure virtual hub routing]: /azure/virtual-wan/how-to-virtual-hub-routing
 [How network security groups filter network traffic]: /azure/virtual-network/network-security-group-how-it-works
 [Hub-and-spoke network topology]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
-[Hub-spoke network topology in Azure]: ../../reference-architectures/hybrid-networking/hub-spoke.yml
+[Hub-spoke network topology in Azure]: ../../networking/architecture/hub-spoke.yml
 [Integrate Azure services with virtual networks for network isolation]: /azure/virtual-network/vnet-integration-for-azure-services
 [Private Link and DNS integration at scale]: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
 [Securing your Microsoft Teams channel bot and web app behind a firewall]: ../../example-scenario/teams/securing-bot-teams-channel.yml

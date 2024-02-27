@@ -125,7 +125,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 A key consideration when you implement MX.3 workloads in Azure is defining the landing zone architecture. This architecture contains the subscription, resource group, virtual network isolation, and connectivity between various components of the solution. This section covers the [landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone) to implement an MX.3 workload on Azure, based on the Microsoft Cloud Adoption Framework.
 
-The diagram below shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
+The diagram below shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml).
 
 :::image type="content" source="./media/azure-hub-and-spoke-model.png" alt-text="Diagram that shows an example of a hub-and-spoke model with Azure services." lightbox="./media/azure-hub-and-spoke-model.png":::
 
@@ -190,6 +190,6 @@ Other contributors:
 
 ## Related resources
 
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml)
 - [Run Oracle databases on Azure](../../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)

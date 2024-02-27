@@ -2,7 +2,7 @@ This reference architecture implements a hub-spoke network pattern with customer
 
 ## Architecture
 
-[ ![Diagram that shows a hub-spoke virtual network topology in Azure with spoke networks connected through the hub or directly.](./images/hub-spoke.png)](./images/hub-spoke.png#lightbox)
+[ ![Diagram that shows a hub-spoke virtual network topology in Azure with spoke networks connected through the hub or directly.](./_images/hub-spoke.png)](./_images/hub-spoke.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-network-topology-architecture.vsdx) of this architecture.*
 

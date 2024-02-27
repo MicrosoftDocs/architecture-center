@@ -176,7 +176,7 @@ Other contributors:
 - [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
-- [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml)
 - [Hub-spoke network topology with Azure Virtual WAN](hub-spoke-vwan-architecture.yml)
 - [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology)
 

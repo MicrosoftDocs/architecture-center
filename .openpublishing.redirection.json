@@ -4065,9 +4065,20 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "example-scenario/security/hardened-web-app.yml",
+      "source_path": "docs/example-scenario/security/hardened-web-app.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "guide/networking/networking-start-here.md",
+      "redirect_url": "/azure/architecture/networking/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "reference-architectures/hybrid-networking/hub-spoke.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke.yml",
+      "redirect_document_id": true
     }
+    
   ]
 }
