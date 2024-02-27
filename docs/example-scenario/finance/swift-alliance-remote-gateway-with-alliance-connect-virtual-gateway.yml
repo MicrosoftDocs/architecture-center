@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure
-  description: Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure.
+  description: Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure. Migrate or establish new SWIFT connectivity in Azure.
   author: ravisharma24
   ms.author: ravisha
   ms.date: 02/22/2024
@@ -23,6 +23,6 @@ products:
   - azure-managed-disks
   - azure-load-balancer
   - azure-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.png
+thumbnailUrl: ../../browse/thumbs/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.png
 content: |
    [!include[](swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway-content.md)]
