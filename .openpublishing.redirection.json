@@ -4113,6 +4113,11 @@
       "source_path": "docs/example-scenario/security/trusted-internet-connections.yml",
       "redirect_url": "/azure/architecture/networking/architecture/trusted-internet-connections",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/spoke-to-spoke-networking.yml",
+      "redirect_url": "/azure/architecture/networking/guide/spoke-to-spoke-networking",
+      "redirect_document_id": true
     }
   ]
 }
