@@ -300,6 +300,6 @@ Principal author:
 
 ## Related resources
 
-- [Azure files accessed on-premises and secured by AD DS](../../hybrid/azure-files-on-premises-authentication.yml)
+- [Azure files accessed on-premises and secured by AD DS](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Design a hybrid DNS solution with Azure](../../hybrid/hybrid-dns-infra.yml)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)

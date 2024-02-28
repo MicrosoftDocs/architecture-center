@@ -6,7 +6,7 @@ This example scenario describes a [high-availability](/azure/architecture/framew
 
 The architecture includes a public load balancer that receives external access requests and directs them to two virtual machines (VMs) in the web layer. The web layer communicates with the data layer, where a MySQL database stores sign-in information, access events, and connections.
 
-[![Diagram that shows a reference architecture for using Apache Guacamole on Azure.](media/azure-architecture-guacamole.png)](media/azure-architecture-guacamole.png#lightbox)
+[![Diagram that shows a reference architecture for using Apache Guacamole on Azure.](_images/azure-architecture-guacamole.png)](_images/azure-architecture-guacamole.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-architecture-guacamole.vsdx) of this architecture.*
 
