@@ -22,3 +22,5 @@ items:
         items: 
         - name: Implement an open-source jump server
           href: architecture/apache-guacamole.yml        
+        - name: TIC 3.0 compliance
+          href: architecture/trusted-internet-connections.yml          

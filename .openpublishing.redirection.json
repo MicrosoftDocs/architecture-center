@@ -4108,6 +4108,11 @@
       "source_path": "docs/example-scenario/infrastructure/apache-guacamole.yml",
       "redirect_url": "/azure/architecture/networking/architecture/apache-guacamole",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/security/trusted-internet-connections.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/trusted-internet-connections",
+      "redirect_document_id": true
     }
   ]
 }

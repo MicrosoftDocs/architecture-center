@@ -5,7 +5,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
 ## Architecture
 
-:::image type="content" source="media/trusted-internet-connections.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="media/trusted-internet-connections.png":::
+:::image type="content" source="_images/trusted-internet-connections.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="_images/trusted-internet-connections.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/TIC_3.0-AzureReferenceArchitecture.vsdx)  of this architecture.*
 
@@ -131,7 +131,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 The following solution uses Azure Firewall to manage traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-azure-firewall.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Firewall uploads logs to CLAW." border="false" lightbox="media/trusted-internet-connections-azure-firewall.png":::
+:::image type="content" source="_images/trusted-internet-connections-azure-firewall.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Firewall uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-azure-firewall.png":::
 
  The solution includes:
 
@@ -146,9 +146,9 @@ The following solution uses Azure Firewall to manage traffic entering your Azure
 
 For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
 
-[![Deploy to Azure](media/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure](_images/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
-[![Deploy to Azure Government](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure Government](_images/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
 ### Post-deployment tasks 
 
@@ -166,7 +166,7 @@ You need to manually perform the following tasks after deployment. You can't com
 
 The following solution uses Application Gateway with WAF to manage traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-application-gateway.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Application Gateway with WAF uploads logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-application-gateway.png"::: 
+:::image type="content" source="_images/trusted-internet-connections-architecture-application-gateway.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Application Gateway with WAF uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-architecture-application-gateway.png"::: 
 
 The solution includes:
 
@@ -180,9 +180,9 @@ The solution includes:
 
 For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
 
-[![Deploy to Azure](media/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure](_images/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
 
-[![Deploy to Azure Government](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure Government](_images/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
 
 ### Post-deployment tasks  
 
@@ -200,7 +200,7 @@ You need to manually perform the following tasks after deployment. You can't com
 
 The following solution uses Azure Front Door with WAF to manage traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-front-door.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Front Door with WAF uploads logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-front-door.png":::
+:::image type="content" source="_images/trusted-internet-connections-architecture-front-door.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Front Door with WAF uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-architecture-front-door.png":::
 
  The solution includes:
 
@@ -214,9 +214,9 @@ The following solution uses Azure Front Door with WAF to manage traffic entering
 
 For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
 
-[![Deploy to Azure](media/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure](_images/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
 
-[![Deploy to Azure Government](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure Government](_images/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
 
 ### Post-deployment tasks
 
@@ -237,7 +237,7 @@ You need to manually perform the following tasks after deployment. You can't com
 
 The following solution illustrates how you can use a third-party firewall to manage traffic entering your Azure application environment and implement TIC 3.0 compliance. Third-party firewalls require the use of a Syslog forwarder virtual machine. Its agents need to be registered with the Log Analytics workspace. The third-party firewall is configured to export its logs in Syslog format to the Syslog forwarder virtual machine. The agent is configured to send its logs to the Log Analytics workspace. After the logs are in the Log Analytics workspace, they're sent to Event Hubs and processed as they are in the other solutions described in this article.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-nva.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. A third-party firewall uploads logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-nva.png":::
+:::image type="content" source="_images/trusted-internet-connections-architecture-nva.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. A third-party firewall uploads logs to CLAW." border="false" lightbox="_images/trusted-internet-connections-architecture-nva.png":::
 
 ### Post-deployment tasks
 
@@ -296,6 +296,6 @@ Other contributor:
 ## Related resources
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
+- [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml)
 - [Secure and govern workloads with network-level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
