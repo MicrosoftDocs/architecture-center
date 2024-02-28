@@ -1384,6 +1384,12 @@ items:
         href: virtual-machines/baseline.yml
       - name: VM baseline in Azure landing zones
         href: virtual-machines/baseline-landing-zone.yml
+      - name: Multi-region N-tier application
+        href: reference-architectures/n-tier/multi-region-sql-server.yml       
+      - name: Multi-region load balancing
+        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
+      - name: Multi-tier web application built for HA/DR
+        href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml             
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
       - name: Computer-aided engineering
@@ -2115,6 +2121,8 @@ items:
           href: hybrid/azure-update-mgmt.yml
         - name: Azure Automation State Configuration
           href: example-scenario/state-configuration/state-configuration.yml
+        - name: Implement a secure hybrid network
+          href: reference-architectures/dmz/secure-vnet-dmz.yml          
       - name: Azure enterprise cloud file share
         href: hybrid/azure-files-private.yml
       - name: Azure files secured by AD DS
@@ -3286,8 +3294,8 @@ items:
         #   href: hybrid/hybrid-dns-infra.yml
         # - name: Hybrid availability and monitoring
         #   href: hybrid/hybrid-perf-monitoring.yml
-      - name: Implement a secure hybrid network
-        href: reference-architectures/dmz/secure-vnet-dmz.yml
+      # - name: Implement a secure hybrid network
+      #   href: reference-architectures/dmz/secure-vnet-dmz.yml
       # - name: Implement an open-source jump server
       #   href: example-scenario/infrastructure/apache-guacamole.yml
       # - name: Interconnect with China using Virtual WAN
@@ -3296,12 +3304,12 @@ items:
       # - name: Migrate to Azure Virtual WAN
       #   href: /azure/virtual-wan/migrate-from-hub-spoke-topology
       #   maintainContext: true
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.yml
-      - name: Multi-region load balancing
-        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
-      - name: Multi-tier web application built for HA/DR
-        href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
+      # - name: Multi-region N-tier application
+      #   href: reference-architectures/n-tier/multi-region-sql-server.yml
+      # - name: Multi-region load balancing
+      #   href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
+      # - name: Multi-tier web application built for HA/DR
+      #   href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       # - name: Multitenant SaaS
       #   href: example-scenario/multi-saas/multitenant-saas.yml
       # - name: Network-hardened web app
@@ -3318,12 +3326,12 @@ items:
       # - name: Traditional Azure networking topology
       #   href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
       #   maintainContext: true
-      - name: TIC 3.0 compliance
-        href: example-scenario/security/trusted-internet-connections.yml
+      # - name: TIC 3.0 compliance
+      #   href: example-scenario/security/trusted-internet-connections.yml
       # - name: Update route tables with Route Server
       #   href: example-scenario/networking/manage-routing-azure-route-server.yml
-      - name: Virtual WAN solutions
-        items:
+      # - name: Virtual WAN solutions
+      #   items:
         # - name: Hub-spoke topology with VWAN
         #   href: networking/hub-spoke-vwan-architecture.yml
         # - name: Interconnect with China
