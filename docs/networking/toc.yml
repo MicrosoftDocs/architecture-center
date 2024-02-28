@@ -17,4 +17,8 @@ items:
         - name: Virtual WAN optimized for requirements
           href: architecture/performance-security-optimized-vwan.yml
         - name: Azure DNS Private Resolver
-          href: architecture/azure-dns-private-resolver.yml          
+          href: architecture/azure-dns-private-resolver.yml
+      - name: Network security
+        items: 
+        - name: Implement an open-source jump server
+          href: architecture/apache-guacamole.yml        

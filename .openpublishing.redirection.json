@@ -4103,6 +4103,11 @@
       "source_path": "docs/example-scenario/networking/azure-dns-private-resolver.yml",
       "redirect_url": "/azure/architecture/networking/architecture/azure-dns-private-resolver",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/apache-guacamole.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/apache-guacamole",
+      "redirect_document_id": true
     }
   ]
 }
