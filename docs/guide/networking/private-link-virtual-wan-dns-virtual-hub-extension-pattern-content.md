@@ -68,7 +68,7 @@ To design your scale units, test and document how each component in your extensi
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Hub-spoke network topology with Azure Virtual WAN](../../networking/hub-spoke-vwan-architecture.yml)
+> [Hub-spoke network topology with Azure Virtual WAN](../../networking/architecture/hub-spoke-vwan-architecture.yml)
 
 ## Related resources
 

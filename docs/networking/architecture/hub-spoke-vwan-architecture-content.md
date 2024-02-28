@@ -1,5 +1,5 @@
 This hub-spoke architecture provides an alternate solution to the
-reference architectures [hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml) and [implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
+reference architectures [hub-spoke network topology in Azure](../architecture/hub-spoke.yml) and [implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
 
 The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises data center(s) and the hub through an ExpressRoute or VPN gateway connection. The main differentiator of this approach is the use of
 [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) (VWAN) to replace hubs as a managed service.
@@ -24,7 +24,7 @@ Typical uses for this architecture include cases in which:
 
 ## Architecture
 
-![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-001.png)
+![Hub-spoke reference architecture infographic](_images/hub-spoke-vwan-architecture-001.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-001.vsdx) of this architecture.* 
 
@@ -61,7 +61,7 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub infras
 
 ## Advantages
 
-![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+![Hub-spoke reference architecture infographic](_images/hub-spoke-vwan-architecture-002.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
 
@@ -109,12 +109,12 @@ A virtual hub can be created as a secured virtual hub or converted to a secure o
 
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
--   [Hybrid network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
+-   [Hybrid network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
 
 -   [Hybrid network using a VPN Gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
-[Connect an on-premises network to Azure using ExpressRoute with VPN failover](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
+[Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 
 A hub-spoke topology cannot be used without a gateway, even if you don't need connectivity with your on-premises network.
 
@@ -132,11 +132,11 @@ You can also configure spokes to use the hub gateway to communicate with remote 
 
 -   Configure all peering connections to **allow forwarded traffic**.
 
-For additional information, see [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)*.*
+For additional information, see [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)*.*
 
 ### Hub extensions
 
-To support network-wide shared services like DNS resources, custom NVAs, Azure Bastion, and others, implement each service following the [virtual hub extension pattern](../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml). Following this model, you can build and operate single-responsibility extensions to individually expose these business-critical, shared services that you're otherwise unable to deploy directly in a virtual hub.
+To support network-wide shared services like DNS resources, custom NVAs, Azure Bastion, and others, implement each service following the [virtual hub extension pattern](../../guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml). Following this model, you can build and operate single-responsibility extensions to individually expose these business-critical, shared services that you're otherwise unable to deploy directly in a virtual hub.
 
 ## Considerations
 
@@ -190,21 +190,21 @@ Principal author:
 
 Learn more:
 
--   [Hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml)
+-   [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
 
--   [Design a hybrid Domain Name System solution with Azure](../hybrid/hybrid-dns-infra.yml)
+-   [Design a hybrid Domain Name System solution with Azure](../../hybrid/hybrid-dns-infra.yml)
 
--   [Implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml)
+-   [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 
 -   [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 
--   [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
+-   [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 
--   [Firewall and Application Gateway for virtual networks](../example-scenario/gateway/firewall-application-gateway.yml)
+-   [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 
 -   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
--   [Secure and govern workloads with network level segmentation](../reference-architectures/hybrid-networking/network-level-segmentation.yml)
+-   [Secure and govern workloads with network level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 
 ## Related resources
 

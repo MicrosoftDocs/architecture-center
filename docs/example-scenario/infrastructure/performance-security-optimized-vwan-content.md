@@ -155,6 +155,6 @@ Principal author:
 
 ## Related resources
 
-- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture)
+- [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture)
 - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)

@@ -3324,8 +3324,8 @@ items:
       #   href: example-scenario/networking/manage-routing-azure-route-server.yml
       - name: Virtual WAN solutions
         items:
-        - name: Hub-spoke topology with VWAN
-          href: networking/hub-spoke-vwan-architecture.yml
+        # - name: Hub-spoke topology with VWAN
+        #   href: networking/hub-spoke-vwan-architecture.yml
         # - name: Interconnect with China
         #   href: /azure/virtual-wan/interconnect-china
         #   maintainContext: true
