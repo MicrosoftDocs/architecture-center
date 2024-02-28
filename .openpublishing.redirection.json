@@ -4083,6 +4083,11 @@
       "source_path": "docs/example-scenario/networking/manage-routing-azure-route-server.yml",
       "redirect_url": "/azure/architecture/networking/architecture/manage-routing-azure-route-server",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/hub-spoke-vwan-architecture.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/hub-spoke-vwan-architecture",
+      "redirect_document_id": true
     }
   ]
 }

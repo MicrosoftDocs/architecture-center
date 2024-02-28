@@ -10,3 +10,5 @@ items:
           href: architecture/hub-spoke.yml
         - name: Update route tables with Route Server
           href: architecture/manage-routing-azure-route-server.yml
+        - name: Hub-spoke topology with VWAN
+          href: architecture/hub-spoke-vwan-architecture.yml
