@@ -229,7 +229,6 @@ This deployment includes one hub virtual network and two connected spokes, and a
 
 You can choose between virtual network peering or Virtual Network Manager connected groups to create the network connections. Each method has several deployment options.
 
-
 ### Use virtual network peering
 
 #### [Azure CLI](#tab/cli)
