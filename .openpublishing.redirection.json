@@ -4098,6 +4098,11 @@
       "source_path": "docs/example-scenario/infrastructure/performance-security-optimized-vwan.yml",
       "redirect_url": "/azure/architecture/networking/architecture/performance-security-optimized-vwan",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/networking/azure-dns-private-resolver.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/azure-dns-private-resolver",
+      "redirect_document_id": true
     }
   ]
 }
