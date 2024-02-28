@@ -96,4 +96,4 @@ Other contributors:
 
 - [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
 - [Azure Private Link in a hub-and-spoke network](../../guide/networking/private-link-hub-spoke-network.yml)
-- [Azure DNS Private Resolver](../../example-scenario/networking/azure-dns-private-resolver.yml)
+- [Azure DNS Private Resolver](../../networking/architecture/azure-dns-private-resolver.yml)
