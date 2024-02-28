@@ -4088,6 +4088,11 @@
       "source_path": "docs/networking/hub-spoke-vwan-architecture.yml",
       "redirect_url": "/azure/architecture/networking/architecture/hub-spoke-vwan-architecture",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/networking/massive-scale-azure-architecture.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/massive-scale-azure-architecture",
+      "redirect_document_id": true
     }
   ]
 }

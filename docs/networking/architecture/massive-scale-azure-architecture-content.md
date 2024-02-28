@@ -2,7 +2,7 @@ This example workload shows an Azure Virtual WAN deployment with multiple hubs p
 
 ## Architecture
 
-:::image type="content" source="./media/massive-scale-architecture.png" alt-text="Diagram that shows a massive-scale Azure Virtual WAN deployment." lightbox="./media/massive-scale-architecture.png":::
+:::image type="content" source="./_images/massive-scale-architecture.png" alt-text="Diagram that shows a massive-scale Azure Virtual WAN deployment." lightbox="./_images/massive-scale-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/massive-scale-architecture.vsdx) of this architecture.*
 
