@@ -3149,8 +3149,8 @@ items:
       #     href: industries/telecommunications/build-private-5g-network.md
       - name: SDWAN integration
         href: networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml
-      - name: Spoke-to-spoke networking
-        href: networking/spoke-to-spoke-networking.yml
+      # - name: Spoke-to-spoke networking
+      #   href: networking/spoke-to-spoke-networking.yml
       # - name: Network security
       #   items:
       #   - name: Azure network security overview

@@ -24,3 +24,7 @@ items:
           href: architecture/apache-guacamole.yml        
         - name: TIC 3.0 compliance
           href: architecture/trusted-internet-connections.yml          
+    - name: Apply guidance
+      items:
+      - name: Spoke-to-spoke networking
+        href: networking/spoke-to-spoke-networking.yml
