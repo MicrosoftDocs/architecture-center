@@ -4,9 +4,9 @@ This article describes the conversion technologies that Microsoft partner [Avana
 
 The following diagram shows the typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
 
-:::image type="content" source="./media/unisys-components.svg" alt-text="Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/unisys-components.svg" border="false":::
+:::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/avanade-unisys-migration.svg" border="false":::
 
-[Download a Visio file](https://arch-center.azureedge.net/unisys-mainframe-migration.vsdx) of this architecture.
+[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-mainframe-migration.vsdx) of this architecture.
 
 ### Workflow
 
