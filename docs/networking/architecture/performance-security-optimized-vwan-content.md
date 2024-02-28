@@ -12,7 +12,7 @@ Typical use cases for this architecture include:
 
 ## Architecture
 
-:::image type="content" source="./media/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./media/performance-security-optimized-vwan-architecture-azure-main.png":::
+:::image type="content" source="./_images/performance-security-optimized-vwan-architecture-azure-main.png" alt-text="Diagram that shows an architecture optimized for either security or performance, depending the on department." lightbox="./_images/performance-security-optimized-vwan-architecture-azure-main.png":::
 
 Download a [Visio file](https://arch-center.azureedge.net/Performance-security-optimized-VWAN-architecture-azure.vsdx) of this architecture.
 
@@ -35,7 +35,7 @@ The company has multiple regions and continues to deploy regions to the model. T
 |**Performance-optimized source**| **VNet3**| hub-NVA1-VNet1 |hub-NVA1-VNet2|Intra VNet| NVA2-VNet4 |hub-branch| NVA2-internet|
 |**Branch source**|**Branch**| hub-NVA1-VNet1| hub-NVA1-VNet2| hub-VNet3 |hub-VNet4| Not applicable |Not applicable|
 
-![Diagram that shows traffic pathways for the architecture.](./media/performance-security-optimized-vwan-azure.png)
+![Diagram that shows traffic pathways for the architecture.](./_images/performance-security-optimized-vwan-azure.png)
 
 As the preceding diagram shows, an NVA and routing architecture force all traffic pathways in the security-optimized environment to use the NVA between the virtual networks and the hub in a common layered architecture. 
 
@@ -107,7 +107,7 @@ To deploy a custom NVA model that supports both routing traffic to a dedicated f
 
 In this deployment, routes that cross the Virtual WAN hub to a performance-optimized environment don't pass through the NVA in that environment. This presents a potential problem with cross-regional traffic that's illustrated here: 
 
-![Diagram that shows a potential problem with cross-regional traffic.](./media/performance-security-optimized-vwan-architecture-regions.png)
+![Diagram that shows a potential problem with cross-regional traffic.](./_images/performance-security-optimized-vwan-architecture-regions.png)
 
 Traffic across regions between performance-optimized environments doesn't cross the NVA. This is a limitation of directly routing hub traffic to the virtual networks.
 

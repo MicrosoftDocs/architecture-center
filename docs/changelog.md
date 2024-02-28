@@ -156,7 +156,7 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy AVL FIRE M on an Azure virtual machine](./guide/hpc/hpc-avl-fire-m.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
 - [Deploy Sandi HiFUN on an Azure virtual machine](./guide/hpc/hpc-sandi-hifun.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
 - [Deploy Luxion KeyShot on an Azure virtual machine](./guide/hpc/luxion-keyshot.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
-- [Virtual WAN architecture optimized for department-specific requirements](./example-scenario/infrastructure/performance-security-optimized-vwan.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
+- [Virtual WAN architecture optimized for department-specific requirements](./networking/architecture/performance-security-optimized-vwan.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
 - [Deploy Altair EDEM on an Azure virtual machine](./guide/hpc/altair-edem.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
 - [Deploy Ansys Fluent on an Azure virtual machine](./guide/hpc/ansys-fluent.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
 - [Deploy Ansys Rocky on an Azure virtual machine](./guide/hpc/ansys-rocky.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
