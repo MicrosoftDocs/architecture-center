@@ -4093,6 +4093,11 @@
       "source_path": "docs/example-scenario/networking/massive-scale-azure-architecture.yml",
       "redirect_url": "/azure/architecture/networking/architecture/massive-scale-azure-architecture",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/performance-security-optimized-vwan.yml",
+      "redirect_url": "/azure/architecture/networking/architecture/performance-security-optimized-vwan",
+      "redirect_document_id": true
     }
   ]
 }
