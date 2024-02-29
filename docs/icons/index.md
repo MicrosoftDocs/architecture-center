@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 # Azure architecture icons
 
-Helping our customers design solutions is core to the Azure Architecture Center's mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload. On this page you'll find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution.
+Helping our customers design solutions is core to the Azure Architecture Center's mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload. On this page you'll find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution. To learn more about communicating design intent, see [Architecture design diagrams](/azure/well-architected/architect-role/design-diagrams) in the Azure Well-Architected Framework.
 
 ## General guidelines
 
