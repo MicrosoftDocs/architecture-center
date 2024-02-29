@@ -23,4 +23,4 @@ products:
   - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/standard-lb-inbound.png
 content: |
-   [!include[](index-content.md)]
+   [!include[](network-virtual-appliances-architecture-content.md)]

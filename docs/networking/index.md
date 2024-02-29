@@ -48,7 +48,7 @@ And here's a comprehensive learning path:
 
 ## Path to production
 Consider these technologies and solutions as you plan and implement your deployment: 
-- [Azure Firewall architecture overview](../example-scenario/firewalls/index.yml) 
+- [Azure Firewall architecture overview](guide/network-virtual-appliances-architecture.yml) 
 - [Azure Private Link in a hub-and-spoke network](../guide/networking/private-link-hub-spoke-network.yml)
 - [Build solutions for high availability by using availability zones](../high-availability/building-solutions-for-high-availability.yml)
 - [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)

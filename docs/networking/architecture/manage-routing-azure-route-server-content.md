@@ -166,7 +166,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [About Azure Route Server support for ExpressRoute and Azure VPN]: /azure/route-server/expressroute-vpn-support
 [About dual-homed network with Azure Route Server]: /azure/route-server/about-dual-homed-network
 [Azure ExpressRoute pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[Azure Firewall architecture overview]: ../../example-scenario/firewalls/index.yml
+[Azure Firewall architecture overview]: ../guide/network-virtual-appliances-architecture.yml
 [Azure road map]: https://azure.microsoft.com/updates/?category=networking
 [Azure Route Server]: https://azure.microsoft.com/services/route-server
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq
