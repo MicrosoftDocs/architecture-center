@@ -114,7 +114,9 @@ In addition, it's important to ensure that the simulation test environment is se
 Overall, building a simulation test environment for ADAS/AD on the Azure cloud requires careful consideration of compute resources, storage, orchestration, and security. By selecting appropriate Azure services and designing a scalable and secure architecture, it's possible to build a powerful and efficient simulation test environment that can help to accelerate the development and testing of ADAS/AD systems.
 
 #### AKS based architecture
-Jochen to add content
+:::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.png" alt-text="Architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
 
 ## Considerations
 
@@ -175,12 +177,16 @@ There are several options to deploy this scenario:
 
 Principal authors:
 
-- [Ryan Matsumura](https://www.linkedin.com/in/ryan-matsumura-4167257b) | Senior Program Manager
+- [Ryan Matsumura](https://www.linkedin.com/in/ryan-matsumura-4167257b) | Senior Program Manager, MCI SDV & Mobility
 - [Jochen Schroeer](https://www.linkedin.com/in/jochen-schroeer) | Lead Architect (Service Line Mobility)
 - [Gabriel Sallah](https://www.linkedin.com/in/gabrielsallah/) | Senior Specialist GBB
 - [Wolfgang De Salvador](https://www.linkedin.com/in/wolfgang-de-salvador/) | Senior Specialist GBB
 - [Lukasz Miroslaw](https://www.linkedin.com/in/lukaszmiroslaw/?originalSubdomain=ch) | Senior Specialist GBB
 - [Benedict Berger](https://www.linkedin.com/in/benedict-berger-msft/) | Senior Product Manager
+
+Other Contributors:
+- [Filipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobililty
+
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
