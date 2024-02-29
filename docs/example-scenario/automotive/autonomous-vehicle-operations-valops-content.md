@@ -59,16 +59,15 @@ A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.
 
 ### Components
 - [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) provides a way for operators to manage non-Azure and/or on-premises resources such as HIL rigs from Azure Resource Manager
+- [Azure Front Doors](https://learn.microsoft.com/azure/frontdoor/front-door-overview)
 - [Azure HPC Cache](https://learn.microsoft.com/azure/hpc-cache/hpc-cache-overview) speeds access to your data for high-performanc computing (HPC) tasks such as resimulation, simulation, or model training
 - [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft cloud over a private connection.
 - [Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like resimulation jobs or closed-loop testing.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this case, Data Lake Storage stores data based on stages, for example, raw or extracted.
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless solution for creating and scheduling extract, transform, and load (ETL) and extract, load, and transform (ELT) workflows. Here, Data Factory performs ETL via [batch compute](/azure/batch) and creates data-driven workflows for orchestrating data movement and transforming data.
 - [Azure Deployment Environments](https://learn.microsoft.com/azure/deployment-environments/overview-what-is-azure-deployment-environments) empowers teams to quickly and easily spin up infrastructure based on templates.  SDV toolchain utilizes Azure Deployment Environments to spin up testing infrastructure consistently and securely
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for models and other SW modules for the automated driving stack.
 - [Eclipse Orchestrator](https://projects.eclipse.org/projects/iot.symphony) enables end-to-end orchestration and create a consistent workflow across different systems and toolchains.  The SDV toolchain utilizes Eclipse Symphony as the main orchestrator workflow
 - [Microsoft Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that incorporates real-time analytics and business intelligence.  
-- [Ingress Load Balancer](https://learn.microsoft.com/azure/load-balancer/load-balancer-overview) used to build high availability and network performance for traffic between service node pools
 - [Azure Private Link](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) used as a network interfaces that uses a private IP address within the private virtual network.  Allows for private connection between resources and secures a service within the private virtual network
 - [Azure Firewall](https://learn.microsoft.com/azure/firewall/overview) is a firewall security service that provides threat protection for local workloads running in Azure
 - [Azure Private Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) provides a private network for deployment
@@ -113,6 +112,9 @@ Another possible architecture for building a simulation test environment on Azur
 In addition, it's important to ensure that the simulation test environment is secure and compliant with relevant regulations and standards. Azure provides a range of security features and compliance certifications.  An example of such features is Azure Security Center.  An example of certifications is ISO/IEC 27001 certification.  Both of which can help to ensure the security and compliance of the simulation test environment.
 
 Overall, building a simulation test environment for ADAS/AD on the Azure cloud requires careful consideration of compute resources, storage, orchestration, and security. By selecting appropriate Azure services and designing a scalable and secure architecture, it's possible to build a powerful and efficient simulation test environment that can help to accelerate the development and testing of ADAS/AD systems.
+
+#### AKS based architecture
+Jochen to add content
 
 ## Considerations
 
