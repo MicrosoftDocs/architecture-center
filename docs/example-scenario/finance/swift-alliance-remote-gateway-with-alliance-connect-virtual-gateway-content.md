@@ -26,12 +26,12 @@ The following workflow corresponds to the preceding diagram.
 
 - Alliance Remote Gateway subscription: The central part of this architecture is the Alliance Remote Gateway subscription. This subscription contains the following components:
   - Hub virtual network: Acts as the central point of connectivity via a connection to ExpressRoute or a VPN gateway and Azure Firewall for secure and filtered internet access.
-  - SWIFT Alliance Access spoke virtual network: Contains infrastructure for SWIFT Alliance Access with subnets for web platforms, access services, and high-availability virutal machines.
+  - SWIFT Alliance Access spoke virtual network: Contains infrastructure for SWIFT Alliance Access with subnets for web platforms, access services, and high-availability virtual machines.
   - Security and management services: Manage, secure, and monitor the environment by using services like Microsoft Defender for Cloud, Microsoft Entra managed identities, Azure Monitor, and Azure Storage.
   
   The high-availability subnets and VMs help ensure that the system remains operational even if individual components fail.
 
-  The Alliance Remote Gateway subscription contains resources that you manage. After you implement a service, the Alliance Access or Alliance Entry on-premises systems connect to the Alliance Remote Gateway server that's deployed at the SWIFT Operating Centres. 
+  The Alliance Remote Gateway subscription contains resources that you manage. After you implement a service, the Alliance Access or Alliance Entry on-premises systems connect to the Alliance Remote Gateway server that's deployed at the SWIFT operating centres. 
   
   You retain full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, and manual or automated printing.
   
@@ -65,9 +65,9 @@ The following workflow corresponds to the preceding diagram.
 
 - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall): Any outbound connectivity from Alliance Access VMs to the internet should pass through Azure Firewall. Typical examples of this connectivity are time syncs and antivirus definition updates.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines): Virtual Machines provides compute services for running Alliance Access. Use these guidelines to choose the right SKU.
-  - Use a compute-optimized SKU for the Alliance Web Platform SE front end.
-  - Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines): Virtual Machines provides compute services for running Alliance Access. Use these guidelines to choose the right subscription.
+  - Use a compute-optimized subscription for the Alliance Web Platform SE front end.
+  - Use a memory-optimized subscription for Alliance Access with an embedded Oracle database.
 
 - [Azure managed disks](https://azure.microsoft.com/products/storage/disks): Azure Premium SSD managed disks provide high-throughput, low-latency disk performance for Alliance Access components. The components can also back up and restore disks that are attached to VMs.
 
@@ -99,7 +99,7 @@ For information about the database recovery process, see section 14 in the Allia
 
 #### Azure resiliency concepts
 
-Azure provides service-level agreements (SLAs) for VM availability. These SLAs vary depending on whether you deploy a single virutal machine, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/reliability/availability-zones-overview). To mitigate the risk of a regional outage, deploy SWIFT Alliance Access in multiple Azure regions. For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
+Azure provides service-level agreements (SLAs) for VM availability. These SLAs vary depending on whether you deploy a single virtual machine, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/reliability/availability-zones-overview). To mitigate the risk of a regional outage, deploy SWIFT Alliance Access in multiple Azure regions. For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 #### Single-region multi-active resiliency
 
@@ -133,7 +133,7 @@ Administrators who manage the SWIFT infrastructure in Azure need to have an iden
 
 Users who are enrolled in Microsoft Entra ID can sign in to the Azure portal or authenticate by using other management tools, like [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/powershell/azure/overview). You can configure [MFA](/entra/identity/authentication/concept-mfa-howitworks) and other safeguards like IP range restrictions by using [Conditional Access](/entra/identity/conditional-access/overview). Users get permissions on Azure subscriptions via [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs the operations that users can perform in a subscription.
 
-The Microsoft Entra ID instance that's associated with a subscription enables only the management of Azure services. For example, you might provision VMs in Azure under a subscription. Microsoft Entra ID provides credentials for signing in to those VMs only if you explicitly enable Microsoft Entra authentication. To learn about using Microsoft Entra ID for application authentication, see [Plan application migration to Microsoft Entra ID](/entra/identity/enterprise-apps/migrate-adfs-apps-phases-overview).
+The Microsoft Entra ID instance that's associated with a subscription enables only the management of Azure services. For example, you might set up VMs in Azure under a subscription. Microsoft Entra ID provides credentials for signing in to those VMs only if you explicitly enable Microsoft Entra authentication. To learn about using Microsoft Entra ID for application authentication, see [Plan application migration to Microsoft Entra ID](/entra/identity/enterprise-apps/migrate-adfs-apps-phases-overview).
 
 #### Enforce SWIFT CSP-CSCF policies
 
@@ -167,7 +167,7 @@ You're responsible for operating the Alliance Access software and the underlying
 
 - You can use [Log Analytics in Monitor](/azure/azure-monitor/logs/log-analytics-overview) to edit and run log queries against data in Monitor Logs.
 
-- You should use [ARM templates](/azure/azure-resource-manager/templates/overview) to provision Azure infrastructure components.
+- You should use [ARM templates](/azure/azure-resource-manager/templates/overview) to set up Azure infrastructure components.
 
 - You should consider using [Azure virtual machine extensions](/azure/virtual-machines/extensions/overview) to set up other solution components for your Azure infrastructure.
 
