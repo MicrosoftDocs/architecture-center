@@ -1,6 +1,6 @@
 ---
 title: Cross Tenant Communication using Multi-Tenanted Applications
-description: This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants. It includes a compelling identity story that avoids introducing unnecessary credentials and rotation infrastructure. This pattern can be reused for any Azure multitenanted scenario with various services that need to communicate across Azure AD tenant boundaries.
+description: This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants. It includes a compelling identity story that avoids introducing unnecessary credentials and rotation infrastructure. This pattern can be reused for any Azure multitenant scenario with various services that need to communicate across Azure AD tenant boundaries.
 author: aulong-msft, ashtmMSFT, John-Garland
 ms.author: aulong, ashtm, johngarland
 ms.date: 2/23/2024
@@ -21,7 +21,7 @@ categories:
 
 We need to address the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants.
 
-Securing multi-tenanted communications in Azure is challenging with our current cloud service offerings. Azure managed identities do not work across tenant boundaries, and the typical alternative is to use access tokens. Introducting access tokens, introduce a need to securely distribute and rotate secrets across Entra tenant boundaries. One option which avoids this overhead is to create a multi-tenant application to represent your workload's identity. Then, through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
+Securing multi-tenanted communications in Azure is challenging with our current cloud service offerings. Azure managed identities don't work across tenant boundaries, and the typical alternative is to use access tokens. Introducing access tokens, introduce a need to securely distribute and rotate secrets across Entra tenant boundaries. One option which avoids this overhead is to create a multi-tenant application to represent your workload's identity. Then, through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
 
 This article covers one such example implementation of this pattern and is accompanied by [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
 
@@ -47,7 +47,7 @@ So, the Provider needs to authenticate using an identity the Customer recognizes
 
 ### Viable Solutions
 
-1. (Chosen approach) Customer creates/hosts a queue from which the Provider can read. Customer writes a message into the queue. Using the existing service principal mentioned above, the Provider implements some process for repeatedly polling each Customer queue for messages. This has the downside of introducing polling latency when receiving a message. This also means code needs to run more often in the Provider, as it must wake up and perform polling logic vs. being triggered by an event. However, credential management remains the sole responsibility of the Provider, greatly bolstering security.
+1. (Chosen approach) Customer creates/hosts a queue from which the Provider can read. Customer writes a message into the queue. Using a service principal, the Provider implements some process for repeatedly polling each Customer queue for messages. This has the downside of introducing polling latency when receiving a message. This also means code needs to run more often in the Provider, as it must wake up and perform polling logic vs. being triggered by an event. However, credential management remains the sole responsibility of the Provider, greatly bolstering security.
 
 1. Provider creates/hosts a queue for each of its Customers. Provider provisions a single-tenant SP for each Customer and communicates those credentials to the Customer. The Customer then uses those credentials to send messages to their Customer-specific queue on the Provider side. Credential management/rotation is a pain point because secrets have to be communicated from one tenant to the other. One upside to this approach is that the Customer tenant isn't required to register any apps/service principals in its own tenant.
 
@@ -59,19 +59,19 @@ So, the Provider needs to authenticate using an identity the Customer recognizes
 
 1. Provider deploys (per-Customer) an Azure Function with a Service Bus trigger using its multitenanted service principal to bind to a response queue in the Customer's Service Bus to listen for messages. This solution would be ideal, and is an optimization over the first viable solution, but it isn't currently possible: [Service Bus Managed Identity Limitation](https://learn.microsoft.com/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.ServiceBus-readme#managed-identity-authentication)
 
-## Sample Code Set-up
+## Sample Code Setup
 
 ### Provider Setup
 
 1. The Provider setup includes generating and provisioning a Service Principal and the provisioning steps for the Customer tenant.
 
-1. Create an HTTP triggerd Azure Function to kick off a message to be written to Customer's Service Bus command queue within the Customer tenant.
+1. Create an HTTP triggered Azure Function to kick off a message to be written to Customer's Service Bus command queue within the Customer tenant.
 
 1. Create a time-triggered Azure Function to periodically check a status queue within the Customer's Service Bus within the Customer tenant.
 
-#### Create a MultiTenant Application within the Provider's Tenant
+#### Create a Multitenant Application within the Provider's Tenant
 
-We first need to create a Service Principal in the Provider's tenant and provision that identity within the Customer's tenant. The architecture image provided showcases how to setup and provision a Service Principal from the Provider's tenant into the Customer's tenant. This architecture also demonstrates the process of provisioning with multiple Entra tenant's.
+We first need to create a Service Principal in the Provider's tenant and provision that identity within the Customer's tenant. The architecture image provided showcases how to setup and provision a Service Principal from the Provider's tenant into the Customer's tenant. This architecture also demonstrates the process of provisioning with multiple Entra tenants's.
 
 1. Navigate to Entra click "New Registration."
 
@@ -89,7 +89,7 @@ We first need to create a Service Principal in the Provider's tenant and provisi
 
 1. Enter secret details and generate the secret.
 
-1. Save the generated secret in a safe location. The secret combined with the client ID are your client credentials that will be required to exchange the code, in authorization code flow, for an ID Token in the next step.
+1. Save the generated secret in a safe location. The secret combined with the client ID is your client credentials that will be required to exchange the code, in authorization code flow, for an ID Token in the next step.
 
 #### Azure Function - HTTP Triggered
 
@@ -123,7 +123,7 @@ This timer triggered function is used to poll the deployment status queue from w
 
 1. Verify the identity within the Customer's Entra tenant by navigating to "Enterprise Applications" to witness the newly provisioned service principal.
 
-#### Set up RBAC for the Provisioned Service Principal
+#### Setup RBAC for the Provisioned Service Principal
 
 Scope the Provider SP (from Provider Service Principal Setup) to have "Service Bus Data Owner" roles on the Service Bus. This Service Principal is used in both writing to a queue with an HTTP triggered function, and reading from a queue from a timer triggered function*.
 
@@ -167,7 +167,7 @@ Your app should appear in a list below the input fields. If you don't see it, yo
 
 #### Connect to Service Bus in your function app
 
-1. In the portal, search for the your function app, or browse to it in the Function App page.
+1. In the portal, search for your function app, or browse to it in the Function App page.
 
 1. In your function app, select "Configuration" under Settings.
 
