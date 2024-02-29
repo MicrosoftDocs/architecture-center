@@ -68,7 +68,7 @@ The [Cloud Adoption Framework](/azure/cloud-adoption-framework) is a collection 
 ## Networking architectures
 The following sections, organized by category, provide links to sample networking architectures. 
 ### High availability
-- [Deploy highly available NVAs](../reference-architectures/dmz/nva-ha.yml)
+- [Deploy highly available NVAs](guide/nva-ha.yml)
 - [High availability and disaster recovery scenarios for IaaS apps](../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 

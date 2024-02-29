@@ -30,3 +30,5 @@ items:
         href: guide/spoke-to-spoke-networking.yml
       - name: Azure NVA Firewall architecture overview
         href: guide/network-virtual-appliances-architecture.yml        
+      - name: Deploy highly available NVAs
+        href: guide/nva-ha.yml        

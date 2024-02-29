@@ -175,7 +175,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Build solutions for high availability using availability zones]: ../../high-availability/building-solutions-for-high-availability.yml
 [Choose between virtual network peering and VPN gateways]: ../../reference-architectures/hybrid-networking/vnet-peering.yml
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: /azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
-[Deploy highly available NVAs]: ../../reference-architectures/dmz/nva-ha.yml
+[Deploy highly available NVAs]: ../guide/nva-ha.yml
 [Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json
 [Linux Virtual Machines Pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [Networking blog]: https://azure.microsoft.com/blog/topics/networking

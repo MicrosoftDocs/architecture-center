@@ -145,8 +145,8 @@ Principal authors:
 
 <!-- images -->
 
-[alb_internet]: ./images/nva-ha/nvaha-load-balancer-internet.png "Internet traffic with Azure Load Balancer integration"
-[alb_onprem]: ./images/nva-ha/nvaha-load-balancer-on-premises.png "On-premises traffic with Azure Load Balancer integration"
-[ars_internet]: ./images/nva-ha/nvaha-route-server-internet.png "Internet traffic with Azure Route Server integration"
-[gwlb_internet]: ./images/nva-ha/nvaha-gateway-load-balancer-internet.png "Internet traffic with Gateway Load Balancer integration"
-[pipudr_internet]: ./images/nva-ha/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"
+[alb_internet]: ./images/nvaha-load-balancer-internet.png "Internet traffic with Azure Load Balancer integration"
+[alb_onprem]: ./images/nvaha-load-balancer-on-premises.png "On-premises traffic with Azure Load Balancer integration"
+[ars_internet]: ./images/nvaha-route-server-internet.png "Internet traffic with Azure Route Server integration"
+[gwlb_internet]: ./images/nvaha-gateway-load-balancer-internet.png "Internet traffic with Gateway Load Balancer integration"
+[pipudr_internet]: ./images/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"

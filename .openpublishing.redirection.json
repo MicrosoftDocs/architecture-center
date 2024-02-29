@@ -4123,6 +4123,11 @@
       "source_path": "docs/example-scenario/firewalls/index.yml",
       "redirect_url": "/azure/architecture/networking/guide/network-virtual-appliances-architecture",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/dmz/nva-ha.yml",
+      "redirect_url": "/azure/architecture/networking/guide/nva-ha",
+      "redirect_document_id": true
     }
   ]
 }

@@ -3223,8 +3223,8 @@ items:
       #   maintainContext: true
       - name: Build solutions with availability zones
         href: high-availability/building-solutions-for-high-availability.yml
-      - name: Deploy highly available NVAs
-        href: reference-architectures/dmz/nva-ha.yml
+      # - name: Deploy highly available NVAs
+      #   href: reference-architectures/dmz/nva-ha.yml
       # - name: Use ExpressRoute with Power Platform
       #   items:
         # - name: Overview

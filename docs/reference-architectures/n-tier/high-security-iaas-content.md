@@ -89,7 +89,7 @@ Most Azure services allow you to use a [virtual network service tag](/azure/virt
 
 Another way to control network security is through [virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview) and *forced tunneling*. Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create or remove system routes, but you can override some system routes with custom routes. Custom routing lets you route traffic over a *network virtual appliance (NVA)* like a firewall or proxy, or drop unwanted traffic, which has a similar effect to blocking the traffic with an NSG.
 
-You can use NVAs like [Azure Firewall](/azure/firewall/overview) to allow, block, and inspect network traffic. Azure Firewall is a managed, highly available platform firewall service. You can also deploy third-party NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com). To make these NVAs highly available, see [Deploy highly available network virtual appliances](../../reference-architectures/dmz/nva-ha.yml).
+You can use NVAs like [Azure Firewall](/azure/firewall/overview) to allow, block, and inspect network traffic. Azure Firewall is a managed, highly available platform firewall service. You can also deploy third-party NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com). To make these NVAs highly available, see [Deploy highly available network virtual appliances](../../networking/guide/nva-ha.yml).
 
 ### Application security groups
 

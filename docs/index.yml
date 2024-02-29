@@ -397,7 +397,7 @@ conceptualContent:
           url: reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: architecture
-          url: reference-architectures/dmz/nva-ha.yml
+          url: networking/guide/nva-ha.yml
         - text : Segmenting Virtual Networks
           itemType: architecture
           url: reference-architectures/hybrid-networking/network-level-segmentation.yml
