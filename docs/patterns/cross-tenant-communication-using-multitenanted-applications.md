@@ -180,12 +180,7 @@ Each subdirectory contains a stubbed version of the local.settings.json files wh
 
 ## Contributors
 
-> Start with the explanation text (same for every article), in italics. This makes it clear that Microsoft takes responsibility for the article (not the one contributor). Then include the "Pricipal authors" list and the "Additional contributors" list (if there are additional contributors) (all in plain text, not italics or bold). Link each contributor's name to the person's LinkedIn profile. After the name, place a pipe symbol ("|") with spaces, and then enter the person's title. We don't include the person's company, MVP status, or links to additional profiles (to minimize edits/updates). (The profiles can be linked to from the person's LinkedIn page, and we hope to automate that on the platform in the future). 
-> Implement this format:
-
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors: > Only the primary authors. List them alphabetically, by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s).
 
  * [Audrey Long](https://www.linkedin.com/in/aulong/) | "Senior Security Software Engineer"
  * [Ashton Mickey](https://www.linkedin.com/in/ashtonmickey/) |  "Principal Software Engineer"
