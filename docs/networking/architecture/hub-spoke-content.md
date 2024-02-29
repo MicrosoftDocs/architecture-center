@@ -366,5 +366,5 @@ Explore the following related architectures:
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
-- [Secure and govern workloads with network level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
+- [Secure and govern workloads with network level segmentation](../guide/network-level-segmentation.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)

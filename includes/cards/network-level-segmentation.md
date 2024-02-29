@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation"><img src="/azure/architecture/browse/thumbs/network-level-segmentation.png" class="diagram" alt="Thumbnail of Secure and govern workloads with network level segmentation Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/networking/guide/network-level-segmentation"><img src="/azure/architecture/browse/thumbs/network-level-segmentation.png" class="diagram" alt="Thumbnail of Secure and govern workloads with network level segmentation Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/networking/guide/network-level-segmentation">
             <p>Secure and govern workloads with network level segmentation</p>
         </a>
         <ul class="card-content-metadata">

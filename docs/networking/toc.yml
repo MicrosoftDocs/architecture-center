@@ -32,3 +32,5 @@ items:
         href: guide/network-virtual-appliances-architecture.yml        
       - name: Deploy highly available NVAs
         href: guide/nva-ha.yml        
+      - name: Segment virtual networks
+        href: guide/network-level-segmentation.yml        

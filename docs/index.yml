@@ -400,7 +400,7 @@ conceptualContent:
           url: networking/guide/nva-ha.yml
         - text : Segmenting Virtual Networks
           itemType: architecture
-          url: reference-architectures/hybrid-networking/network-level-segmentation.yml
+          url: networking/guide/network-level-segmentation.yml
 
     - title: Serverless applications
       links:

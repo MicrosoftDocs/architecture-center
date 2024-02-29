@@ -3199,8 +3199,8 @@ items:
           href: guide/networking/ipv4-exhaustion.yml
         # - name: Add IP spaces to peered virtual networks
         #   href: networking/prefixes/add-ip-space-peered-vnet.yml
-        - name: Segment virtual networks
-          href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+        # - name: Segment virtual networks
+        #   href: reference-architectures/hybrid-networking/network-level-segmentation.yml
         # - name: VNet peering and VPN gateways
         #   href: reference-architectures/hybrid-networking/vnet-peering.yml
         # - name: Integrate virtual networks for isolation
