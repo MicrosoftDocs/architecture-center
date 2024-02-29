@@ -4133,6 +4133,11 @@
       "source_path": "docs/reference-architectures/hybrid-networking/network-level-segmentation.yml",
       "redirect_url": "/azure/architecture/networking/guide/network-level-segmentation",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/networking/private-link-ip-constraints.yml",
+      "redirect_url": "/azure/architecture/networking/guide/private-link-ip-constraints",
+      "redirect_document_id": true
     }
   ]
 }
