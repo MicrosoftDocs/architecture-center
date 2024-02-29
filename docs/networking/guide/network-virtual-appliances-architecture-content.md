@@ -16,21 +16,21 @@ That's why the third option is most preferred. The downtime is minimized as the 
 
 The following picture starts with two FWs (FW-1 & FW-2), with an external load balancer and a backend server S1.
 
-![Standard Load Balancer in front of two NVAs](./_images/standard-lb-inbound.png)
+![Standard Load Balancer in front of two NVAs](./images/standard-lb-inbound.png)
 
 This architecture is a simple setup, used for inbound traffic. A packet hits the load balancer, which chooses the destination FW from its configuration. The chosen firewall then sends the traffic to the backend (web) server. If FW-1 has SNAT enabled, server S1 will see the traffic that comes from the internal IP of FW-1, so it also will send the reply to the packet to FW-1. Failover can happen quickly to FW-2 in this scenario. For outbound traffic, we could add another load balancer on the internal side. When server S1 starts traffic, the same principle will apply. Traffic hits the internal LB (iLB), which chooses a firewall that then translates NAT for external resolution:
 
-![Standard Load Balancer in front and back of two NVAs with trusted/untrusted zones](./_images/sandwich-fw.png)
+![Standard Load Balancer in front and back of two NVAs with trusted/untrusted zones](./images/sandwich-fw.png)
 
 ## Three-legged firewalls
 
 Problems arise when we add another interface to the firewall, and you need to disable NAT translation between *internal* zones. In this case, see Subnet-B and Subnet-C:
 
-![Standard Load Balancer in front and back of two NVAs with three zones](./_images/three-legged-fw-overview.png)
+![Standard Load Balancer in front and back of two NVAs with three zones](./images/three-legged-fw-overview.png)
 
 The L3 routing between the internal zones (Subnet-B and Subnet-C) will both be load balanced without NAT. This setup becomes clearer looking at the traffic flows including the load-balancers in a different view. The diagram below shows the view where the internal Load Balancers [iLB] are linked to a specific NIC on the FWs:
 
-![Detailed traffic flows with 3-legged FWs with Load Balancers](./_images/three-legged-fw-details.png)
+![Detailed traffic flows with 3-legged FWs with Load Balancers](./images/three-legged-fw-details.png)
 
 With L3 traffic (without NAT), S2 will see the S1 IP address as the source address. S2 will then send the return traffic for subnet B (to which S1-IP belongs) to the iLB in Subnet-C. As iLB in Subnet-B and iLB in Subnet-C don't synchronize their session states, depending on the load-balancing algorithm traffic could end-up on FW-2. FW-2 by default doesn't know anything about the initial (green) packet, so it will drop the connection.
 
@@ -42,13 +42,13 @@ The best way to deal with this problem is to eliminate it. In the example above,
 
 When there are two VMs in a single subnet, you can apply an NSG that isolates traffic between the two. By default, traffic inside a VNet is entirely allowed. Adding a *Deny all* rule on the NSG, isolates all VMs from each other.
 
-![Block internet subnet traffic with NSGs](./_images/inter-subnet-blocked.png)
+![Block internet subnet traffic with NSGs](./images/inter-subnet-blocked.png)
 
 ### VNets use the same backend (virtual) routers
 
 VNet/subnets use a single backend router system from Azure and as such, there's no need to specify a router IP for each subnet. The route destination can be anywhere in the same VNET or even outside.
 
-![NVA with single NICs and how traffic flows](./_images/single-nic-fw.png)
+![NVA with single NICs and how traffic flows](./images/single-nic-fw.png)
 
 With the virtualized networks, you can control the routes in every subnet. These routes can also point to a single IP in another subnet. In the picture above, that would be the iLB in Subnet-D, which load-balances the two firewalls. As S1 starts traffic (green), it will be load balanced to, for example, FW-1. FW-1 will then connect to S2 (still green). S2 will send the response traffic to the IP of S1 (as NAT is disabled). Because of the route tables, S2 uses the same iLB IP as its gateway. The iLB may match the traffic to the initial session, so it will always point this traffic back to FW-1. FW-1 then sends it to S1, establishing a synchronous traffic flow.
 
@@ -58,7 +58,7 @@ For this setup to work, the FW needs to have a route table (internally) pointing
 
 When you deploy a reverse proxy service, *normally* it would be behind the FW. You may instead put it *in-line* with the FW and actually route the traffic through the FW. The advantage of this setup is that the reverse proxy service would *see* the original IP of the connecting client:
 
-![Diagram showing reverse proxy service in-line with the NVA and routing the traffic through the firewall.](./_images/two-legged-revproxy.png)
+![Diagram showing reverse proxy service in-line with the NVA and routing the traffic through the firewall.](./images/two-legged-revproxy.png)
 
 For this configuration, the route tables on Subnet-E need to point Subnet-B and Subnet-C through the internal load balancer. Some reverse proxy services have built-in firewalls that allow you to remove the FW all together in this network flow. The built-in firewalls point from reverse proxy straight to Subnet-B/C servers.
 
@@ -68,7 +68,7 @@ In this scenario, SNAT will be required on the reverse proxy's as well to avoid 
 
 Azure provides BGP-enabled/highly-available VPN/ER services through the Azure Virtual Network Gateways. Most architects keep these for backend or non-internet facing connections. This setup means the routing table needs to accommodate the subnets behind these connections, too. While there isn't a large difference to subnet-B/C connectivity, there is in the design of the return traffic, completing the picture:
 
-![Diagram showing reverse proxy service supporting BGP-enabled/highly-available VPN/ER services through Azure Virtual Network Gateway.](./_images/two-legged-revproxy-gw.png)
+![Diagram showing reverse proxy service supporting BGP-enabled/highly-available VPN/ER services through Azure Virtual Network Gateway.](./images/two-legged-revproxy-gw.png)
 
 In this architecture, traffic hitting the FW from, for example Subnet-B to Subnet-X would be sent to the iLB, which in turn sends it to either firewall. The internal route inside the FW will send the traffic back to the Subnet-GW (first available IP in Subnet-D). You don't have to send the traffic straight to the Gateway appliance itself, as another route on Subnet-D will have a route for Subnet-X pointing it to the *Virtual Network Gateway*. Azure Networking will take care of the actual routing.
 
