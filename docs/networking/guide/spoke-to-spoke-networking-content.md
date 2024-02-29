@@ -176,10 +176,9 @@ Other contributors:
 - [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
-- [Hub-spoke network topology in Azure](../networking/architecture/hub-spoke.yml)
-- [Hub-spoke network topology with Azure Virtual WAN](hub-spoke-vwan-architecture.yml)
+- [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
+- [Hub-spoke network topology with Azure Virtual WAN](../architecture/hub-spoke-vwan-architecture.yml)
 - [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology)
-
 
 [vwan]: /azure/virtual-wan/virtual-wan-about
 [vwan_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
@@ -195,7 +194,7 @@ Other contributors:
 [azfw]: /azure/firewall/overview
 [azfw_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
 [azfw_multi_hub_and_spoke]: /azure/firewall/firewall-multi-hub-spoke
-[nva_ha]: ../reference-architectures/dmz/nva-ha.yml
+[nva_ha]: ../../reference-architectures/dmz/nva-ha.yml
 [vm_flows]: /azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations
 [vnet_to_vnet]: /azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal
 [vnet_peering]: /azure/virtual-network/virtual-network-peering-overview

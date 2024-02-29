@@ -27,6 +27,6 @@ items:
     - name: Apply guidance
       items:
       - name: Spoke-to-spoke networking
-        href: networking/spoke-to-spoke-networking.yml
+        href: guide/spoke-to-spoke-networking.yml
       - name: Azure NVA Firewall architecture overview
-        href: example-scenario/firewalls/network-virtual-appliances-architecture.yml        
+        href: guide/network-virtual-appliances-architecture.yml        
