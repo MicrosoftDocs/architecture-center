@@ -239,11 +239,16 @@ You can choose between virtual network peering or Virtual Network Manager connec
    az group create --name hub-spoke --location eastus
    ```
 
+1. Run the following command to download the Bicep template.
+
+   ```azurecli-interactive
+   curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
+   ```
+
 1. Run the following command to deploy the hub and spoke network configuration, virtual network peerings between the hub and spokes, and an Azure Bastion host. When prompted, enter a user name and password. You can use this user name and password to access VMs in the spoke networks.
 
    ```azurecli-interactive
-   az deployment group create --resource-group hub-spoke \
-       --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
+   az deployment group create --resource-group hub-spoke --template-file main.bicep
    ```
 
 #### [PowerShell](#tab/powershell)
@@ -260,27 +265,6 @@ You can choose between virtual network peering or Virtual Network Manager connec
    New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
        -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
    ```
-
-#### [Bicep](#tab/bicep)
-
-1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try It** to use an embedded shell.
-
-   ```azurecli-interactive
-   az group create --name hub-spoke --location eastus
-   ```
-
-1. Run the following command to download the Bicep template.
-
-   ```azurecli-interactive
-   curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
-   ```
-
-1. Run the following command to deploy the hub and spoke network configuration, virtual network peerings between the hub and spokes, and an Azure Bastion host. When prompted, enter a user name and password. You can use this user name and password to access VMs in the spoke networks.
-
-   ```azurecli-interactive
-   az deployment group create --resource-group hub-spoke --template-file main.bicep
-   ```
-
 #### [Azure portal](#tab/portal)
 
 Select the following button to deploy the reference architecture as an Azure Resource Manager (ARM) template in the Azure portal:
@@ -290,41 +274,11 @@ Select the following button to deploy the reference architecture as an Azure Res
 ---
 
 
-For detailed information and extra deployment options, see the [hub and spoke templates](/samples/mspnp/samples/hub-and-spoke-deployment) that deploy this solution.
+For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment) that deploy this solution.
 
 ### Use Virtual Network Manager connected groups
 
 #### [Azure CLI](#tab/cli)
-
-1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try It** to use an embedded shell.
-
-   ```azurecli-interactive
-   az group create --name hub-spoke --location eastus
-   ```
-
-1. Run the following command to deploy the hub and spoke network configuration, virtual network connections between the hub and spokes, and an Azure Bastion host. When prompted, enter a user name and password. You can use this user name and password to access VMs in the spoke networks.
-
-   ```azurecli-interactive
-   az deployment group create --resource-group hub-spoke \
-       --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/azuredeploy.json
-   ```
-
-#### [PowerShell](#tab/powershell)
-
-1. Run the following command to create a resource group for the deployment. Select **Try It** to use an embedded shell.
-
-   ```azurepowershell-interactive
-   New-AzResourceGroup -Name hub-spoke -Location eastus
-   ```
-
-1. Run the following command to deploy the hub and spoke network configuration, virtual network connections between the hub and spokes, and an Azure Bastion host. When prompted, enter a user name and password. You can use this user name and password to access VMs in the spoke networks.
-
-   ```azurepowershell-interactive
-   New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
-       -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/azuredeploy.json
-   ```
-
-#### [Bicep](#tab/bicep)
 
 1. Run the following command to create a resource group for the deployment. Select **Try It** to use an embedded shell.
 
@@ -355,6 +309,20 @@ For detailed information and extra deployment options, see the [hub and spoke te
    az deployment group create --resource-group hub-spoke --template-file main.bicep
    ```
 
+#### [PowerShell](#tab/powershell)
+
+1. Run the following command to create a resource group for the deployment. Select **Try It** to use an embedded shell.
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name hub-spoke -Location eastus
+   ```
+
+1. Run the following command to deploy the hub and spoke network configuration, virtual network connections between the hub and spokes, and an Azure Bastion host. When prompted, enter a user name and password. You can use this user name and password to access VMs in the spoke networks.
+
+   ```azurepowershell-interactive
+   New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
+       -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/azuredeploy.json
+   ```
 #### [Azure portal](#tab/portal)
 
 Select the following button to deploy the reference architecture as an ARM template in the Azure portal:
