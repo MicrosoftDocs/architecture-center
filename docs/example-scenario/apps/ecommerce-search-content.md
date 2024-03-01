@@ -124,7 +124,7 @@ To find out more about other Azure components, see these resources:
 - [What is Azure SQL Database?][docs-sql-database]
 - [App Service overview][docs-webapps]
 - [Azure AI Bot Service documentation][docs-botservice]
-- [What are Azure AI Services?][docs-cognitive]
+- [What is Azure AI services?][docs-cognitive]
 
 ## Related resources
 
