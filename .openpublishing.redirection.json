@@ -2922,7 +2922,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/wordpress.yml",
-      "redirect_url": "/azure/architecture/web-apps/hosting-applications/wordpress",
+      "redirect_url": "/azure/architecture/guide/infrastructure/wordpress-overview",
       "redirect_document_id": true
     },
     {
@@ -4057,6 +4057,11 @@
     {
       "source_path": "docs/operator-guides/aks/troubleshoot-virtual-nodes-aks.md",
       "redirect_url": "/azure/aks/virtual-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/hosting-applications/wordpress.yml",
+      "redirect_url": "/azure/architecture/guide/infrastructure/wordpress-overview",
       "redirect_document_id": false
     }
   ]
