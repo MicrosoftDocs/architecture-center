@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy Ansys Speos on an Azure virtual machine
-  description: Find out how Ansys Speos BLAHBLAHBLAH software performs on an Azure virtual machine (VM).
+  description: Find out how Ansys Speos optical-system simulation software performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 02/13/2024
+  ms.date: 02/29/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -15,6 +15,6 @@ products:
   - azure-virtual-network
 name: Deploy Ansys Speos on a virtual machine
 summary: Find out how Ansys Speos performs on an Azure VM.
-thumbnailUrl: /azure/architecture/browse/thumbs/speos-thumbnail.png
+thumbnailUrl: ../../browse/thumbs/speos-thumbnail.png
 content: |
   [!include[](ansys-speos-content.md)]

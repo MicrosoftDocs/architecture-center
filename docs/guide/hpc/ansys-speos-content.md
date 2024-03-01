@@ -1,22 +1,21 @@
-This article briefly describes the steps for running [Ansys Speos](https://www.ansys.com/products/optics/ansys-speos) on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Ansys Speos on Azure.
+This article describes the steps for running [Ansys Speos](https://www.ansys.com/products/optics/ansys-speos) on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Ansys Speos on Azure.
 
 Ansys Speos is a high-precision simulation tool for optical systems based on human visual perception. Integrated into virtual product development, Ansys Speos can realistically simulate the real-life individual user experience for improved and even more precise optimization of the product design.
 
-Ansys Speos delivers an intuitive and comprehensive user interface, enhanced productivity with use of GPUs for simulation previews and easy access to the Ansys ecosystem. Ansys Speos offers a wide range of advanced innovative tools for Aerospace, Automotive, Healthcare, Energy and Defense engineering disciplines.
+Ansys Speos delivers an intuitive and comprehensive user interface, enhanced productivity with use of GPUs for simulation previews, and easy access to the Ansys ecosystem. Ansys Speos offers a wide range of advanced innovative tools for Aerospace, Automotive, Healthcare, Energy, and Defense engineering disciplines.
 
 ## Why deploy Ansys Speos on Azure?
 
 - Modern and diverse compute options to meet your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- Complex simulations with varying level of complexity can be solved by adding a greater number of GPUs
+- Complex simulations with varying level of complexity, solved by adding a greater number of GPUs
 
 ## Architecture
 
 :::image type="content" source="media/ansys-speos/ansys-speos-architecture.svg" alt-text="Diagram that shows an architecture for deploying Ansys Speos." lightbox="media/ansys-speos/ansys-speos-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/ansys-speos.vsdx) of this
-architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ansys-speos.vsdx) of this architecture.*
 
 ### Components
 
@@ -59,18 +58,18 @@ The following table provides the configuration details of [NDm A100 v4-series](/
 
 |VM size|vCPU|Memory, in GiB| Temp storage (SSD) GiB | GPU | GPU memory, in GiB|Maximum data disks | Maximum uncached disk throughput, in IOPS / MBps | Maximum network bandwidth | Maximum NICs |
 |-|-|-|-|-|-|-|-|-|-|
-|Standard_ND96amsr_A100_v4|96|1900|6400|8 A100 80 GB GPUs (NVLink 3.0)|80|32|80,000 / 800|24,000 Mbps|8|
+|Standard_ND96amsr_A100_v4|96|1900|6400|8 A100 80-GB GPUs (NVLink 3.0)|80|32|80,000 / 800|24,000 Mbps|8|
 
 ## Ansys Speos installation
 
-- **Deploy Azure VMs**. Use NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series and NDm A100 v4-series VMs to run Ansys Speos.
+- **Deploy Azure VMs**. Use NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series, and NDm A100 v4-series VMs to run Ansys Speos.
 - **Create and configure the supporting infrastructure**. Configure a public IP address for inbound connectivity. Use network security groups to provide security for the subnet.
-- **Install NVIDIA drivers**. To take advantage of the GPU capabilities of NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series and NDm A100 v4-series VMs, install NVIDIA GPU drivers. You need to deploy and connect a VM via Remote Desktop Protocol (RDP) to install the required NVIDIA drivers. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](/azure/virtual-machines/windows/n-series-driver-setup).
+- **Install NVIDIA drivers**. To take advantage of the GPU capabilities of NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series, and NDm A100 v4-series VMs, install NVIDIA GPU drivers. You need to deploy and connect a VM via Remote Desktop Protocol (RDP) to install the required NVIDIA drivers. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](/azure/virtual-machines/windows/n-series-driver-setup).
 - **Install Ansys Speos**. You can install Ansys Speos from the [Ansys portal](https://www.ansys.com/). For information about the installation process, see the [Ansys Speos website](https://www.ansys.com/products/optics/ansys-speos).
 
 ## Ansys Speos performance results
 
-A set of test case models are considered for testing the performance of Ansys Speos on Azure NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series and NDm A100 v4-series VMs. The model details are shown below.
+A set of test case models are considered for testing the performance of Ansys Speos on Azure NVadsA10v5-series, NCasT4_v3 series, NC A100 v4 series, and NDm A100 v4-series VMs. The following table shows the model details.
 
 | Model | Model description | Analysis Type | Wavelength range | Wavelength number | Resolution |
 |-|-|-|-|-|-|
@@ -92,7 +91,7 @@ The performance tests on Ansys Speos 2023 R2 used NVadsA10v5-series VMs. The fol
 
 The following table shows relative speed increase on NVadsA10v5-series VM.
 
-The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the Standard_NV6ads_A10_v5 VM in the Bottle Direct model, the **Number of Rays (Computation time)** is 5.35789E+05 and the **Relative Speed Increase** is 1.00 (displayed as 5.35789E+05 / 1.00).
+The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the Standard_NV6ads_A10_v5 VM in the Bottle Direct model, the **Number of Rays (Computation time)** is 5.35789E+05 and the **Relative Speed Increase** is 1.00 (displayed in the table as 5.35789E+05 / 1.00).
 
 | Size | Number of vCPUs/ GPUs  used | Bottle Direct | Bottle Inverse | FOG-NightLight Direct | FOG-NightLight_Radiance | Rearlamp Demo Direct | Rearlamp Demo Inverse | Tunnel 4K Camera Timeline_single |
 |-|-|-|-|-|-|-|-|-|
@@ -106,7 +105,7 @@ This graph shows the relative speed increase of models on NVadsA10v5-series VM:
 
 ![Graph showing relative speed increase of models on NVadsA10v5-series VM.](./media/ansys-speos/graph-relative-speed-increase-nvadsa10v5.png)
 
-**NOTE:** 6 vCPUs result on Standard_NV6ads_A10_v5 VM size are used as baseline to calculate relative speed increase.
+**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Results for NCasT4_v3 series VM
 
@@ -118,7 +117,7 @@ The performance tests of Ansys Speos 2023 R1 on Azure used NCasT4_v3 series VM r
 
 The following table shows relative speed increase on NCasT4_v3 series VM.
 
-The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the BLAHBLAHBLAH VM in the Bottle Direct model, the **Number of Rays (Computation time)** is xxxxxxxxxxx and the **Relative Speed Increase** is xxxxxxxxxx (displayed as --- / ---).
+The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the Standard_NV6ads_A10_v5 VM in the Bottle Direct model, the **Number of Rays (Computation time)** is 5.35789E+05 and the **Relative Speed Increase** is 1.00 (displayed in the table as 5.35789E+05 / 1.00).
 
 | Size | Number of vCPUs/ GPUs  used | Bottle Direct | Bottle Inverse | FOG-NightLight Direct | FOG-NightLight_Radiance | Rearlamp Demo Direct | Rearlamp Demo Inverse | Tunnel 4K Camera Timeline_single |
 |-|-|-|-|-|-|-|-|-|
@@ -132,7 +131,7 @@ This graph shows the relative speed increase of models on NCasT4_v3 series VM:
 
 ![Graph showing relative speed increase of models on NCasT4_v3 series VM.](./media/ansys-speos/graph-relative-speed-increase-ncast4v3.png)
 
-**NOTE:** 6 vCPUs result on Standard_NV6ads_A10_v5 VM size are used as baseline to calculate relative speed increase.
+**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Results for NC A100 v4-series VM
 
@@ -144,7 +143,7 @@ The performance tests of Ansys Speos 2023 R1 on Azure used NC A100 v4 VM series 
 
 The following table shows relative speed increase on NC A100 v4 series  VM.
 
-The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the BLAHBLAHBLAH VM in the Bottle Direct model, the **Number of Rays (Computation time)** is xxxxxxxxxxx and the **Relative Speed Increase** is xxxxxxxxxx (displayed as --- / ---).
+The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the Standard_NV6ads_A10_v5 VM in the Bottle Direct model, the **Number of Rays (Computation time)** is 5.35789E+05 and the **Relative Speed Increase** is 1.00 (displayed in the table as 5.35789E+05 / 1.00).
 
 | Size | Number of vCPUs/ GPUs  used | Bottle Direct | Bottle Inverse | FOG-NightLight Direct | FOG-NightLight_Radiance | Rearlamp Demo Direct | Rearlamp Demo Inverse | Tunnel 4K Camera Timeline_single |
 |-|-|-|-|-|-|-|-|-|
@@ -158,7 +157,7 @@ This graph shows the relative speed increase of models on NC A100 v4 series VM:
 
 ![Graph showing relative speed increase of models on NC A100 v4 series VM.](./media/ansys-speos/graph-relative-speed-increase-nca100v4.png)
 
-**NOTE:** 6 vCPUs result on Standard_NV6ads_A10_v5 VM size are used as baseline to calculate relative speed increase.
+**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Results for NDm A100 v4-series VM
 
@@ -170,7 +169,7 @@ The Performance tests of Ansys Speos 2023 R2 on Azure used NDm A100 v4-series VM
 
 The following table shows relative speed increase on NDm A100 v4-series VM.
 
-The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the BLAHBLAHBLAH VM in the Bottle Direct model, the **Number of Rays (Computation time)** is xxxxxxxxxxx and the **Relative Speed Increase** is xxxxxxxxxx (displayed as --- / ---).
+The cells below each model show the **Number of Rays (Computation time)** / **Relative Speed Increase** for each of the specified VMs. For example, for the Standard_NV6ads_A10_v5 VM in the Bottle Direct model, the **Number of Rays (Computation time)** is 5.35789E+05 and the **Relative Speed Increase** is 1.00 (displayed in the table as 5.35789E+05 / 1.00).
 
 | Size | Number of vCPUs/ GPUs  used | Bottle Direct | Bottle Inverse | FOG-NightLight Direct | FOG-NightLight_Radiance | Rearlamp Demo Direct | Rearlamp Demo Inverse | Tunnel 4K Camera Timeline_single |
 |-|-|-|-|-|-|-|-|-|
@@ -181,48 +180,48 @@ This graph shows the relative speed increase of models on NDm A100 v4-series VM:
 
 ![Graph showing relative speed increase of models on NDm A100 v4-series VM.](./media/ansys-speos/graph-relative-speed-increase-ndma100v4.png)
 
-**NOTE:** 6 vCPUs result on Standard_NV6ads_A10_v5 VM size are used as baseline to calculate relative speed increase.
+**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Comparison of performance results
 
-The following graph shows performance on 1 GPU of NCasT4_v3 series (NVIDIA Tesla T4 GPU), NVadsA10v5-series (NVIDIA A10 GPU) and NC A100 v4 series (NVIDIA A100 GPU) VM:
+The following graph shows performance on one GPU of NCasT4_v3 series (NVIDIA Tesla T4 GPU), NVadsA10v5-series (NVIDIA A10 GPU), and NC A100 v4 series (NVIDIA A100 GPU) VM:
 
-![Graph showing performance on 1 GPU of various size VMs.](./media/ansys-speos/graph-performance-various-vms.png)
+![Graph showing performance on one GPU of various size VMs.](./media/ansys-speos/graph-performance-various-vms.png)
 
-### Additional notes about tests on Ansys Speos
+### Other notes about tests on Ansys Speos
 
-The additional testing notes for Ansys Speos on Azure reveal significant performance enhancements for different GPU configurations compared to the Standard_NV6ads_A10_v5 baseline:
+Running Ansys Speos on Azure reveals significant performance enhancements for different GPU configurations compared to the Standard_NV6ads_A10_v5 baseline:
 
-1. NCasT4_v3 Series (1 GPU): Shows approximately 22X improvement in performance.
-1. NVadsA10v5-Series (1 GPU): Exhibits around 45X enhancement in performance.
-1. NC A100 v4 Series (1 GPU): Demonstrates an approximately 44X increase in performance.
+1. NCasT4_v3 Series (one GPU): Shows approximately 22X improvement in performance.
+1. NVadsA10v5-Series (one GPU): Exhibits around 45X enhancement in performance.
+1. NC A100 v4 Series (one GPU): Demonstrates an approximately 44X increase in performance.
 
 These results indicate notable performance gains across various configurations, highlighting the efficiency of using more advanced GPU setups in Azure's virtual machines for running Ansys Speos simulations.
 
 ## Azure Cost
 
-Only model running time is considered for the cost calculations. Application installation time isn't considered. The calculations are indicative. Below summary details cost consumption on various SKU’s used for the validation.
+Only model running time is considered for the cost calculations. Application installation time isn't considered. The calculations are indicative. The [summary](#summary) details the cost consumption on various SKUs used for the validation.
 
 ### NVadsA10v5-series (NVIDIA A10 GPU)
 
 1. Standard_NV12ads_A10_v5 1/3 GPU configuration serves as a baseline for cost performance evaluation of other VMs.
-1. A linear increase in Azure cost is noted with each GPU size increment in the NVadsA10 v5-series (from 1/3 GPU to 2 GPUs).
+1. A linear increase in Azure cost is noted with each GPU size increment in the NVadsA10 v5-series (from 1/3 GPU to two GPUs).
 
 ### NCasT4_v3 series (NVIDIA Tesla T4 GPU)
 
 1. NCasT4_v3 series 1 GPU configuration is the baseline for cost performance evaluation.
 1. The cost remains consistent across NCasT4_v3-series VMs for 2 to 4 GPU simulations.
-1. The NCasT4_v3 series with 1 GPU offers the best cost performance among its configurations.
+1. The NCasT4_v3 series with one GPU offers the best cost performance among its configurations.
 1. For multi-GPU simulations, the NVadsA10v5-series VMs are more cost-effective than the NCasT4_v3 series.
 
-### A100 GPU based VM’s : NC A100 v4 series & NDm A100 v4
+### A100 GPU based VMs: NC A100 v4 series and NDm A100 v4
 
-1. NCasT4_v3 series 1 GPU configuration is the baseline for cost performance evaluation.
-1. The cost remains consistent across NCasT4_v3-series VMs for 2 to 4 GPU simulations.
-1. The NCasT4_v3 series with 1 GPU offers the best cost performance among its configurations.
+1. NCasT4_v3 series one GPU configuration is the baseline for cost performance evaluation.
+1. The cost remains consistent across NCasT4_v3-series VMs for two to four GPU simulations.
+1. The NCasT4_v3 series with one GPU offers the best cost performance among its configurations.
 1. For multi-GPU simulations, the NVadsA10v5-series VMs are more cost-effective than the NCasT4_v3 series.
 
-For the latest pricing details in each region, one can refer [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+For the latest pricing details in each region, see [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Summary
 
@@ -233,11 +232,11 @@ The study focuses on four Azure virtual machine series: NVadsA10v5, NCasT4_v3, N
 Key findings include:
 
 1. NVadsA10v5-Series: Exhibits up to 90X performance scalability when upgrading from partial to two GPUs. Best suited for less complex models and when cost is the primary concern.
-1. NCasT4_v3 Series: Shows up to 70X performance increase with each additional GPU, up to four GPUs.
+1. NCasT4_v3 Series: Shows up to 70X performance increase with each extra GPU, up to four GPUs.
 1. NC A100 v4 Series: Demonstrates up to 170X performance scalability with each added GPU, up to four GPUs.
 1. NDm A100 v4-Series: Achieves remarkable performance scalability of up to 350X with 8 GPUs, outperforming other series when prioritizing performance.
 
-Additionally, a comparative analysis between Standard_NC96ads_A100_v4 and Standard_ND96amsr_A100_v4 in a 4 GPU scenario showed equivalent computation times and performance levels.
+Additionally, a comparative analysis between Standard_NC96ads_A100_v4 and Standard_ND96amsr_A100_v4 in a four GPU scenario showed equivalent computation times and performance levels.
 
 Overall, the use of the latest NVIDIA graphics card-enabled virtual machines on Azure showed significant performance improvements, balancing both cost and performance effectively.
 
