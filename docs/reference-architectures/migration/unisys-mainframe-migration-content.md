@@ -6,7 +6,7 @@ The following diagram shows the typical components of Unisys Burroughs MCP or Un
 
 :::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/avanade-unisys-migration.svg" border="false":::
 
-[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-mainframe-migration.vsdx) of this architecture.
+_[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-mainframe-migration.vsdx) of this architecture._
 
 ### Workflow
 
@@ -32,7 +32,7 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 :::image type="content" source="./media/unisys-migration.svg" alt-text="Diagram showing how Unisys mainframe components can map to Azure capabilities." lightbox="./media/unisys-migration.svg" border="false":::
 
-[Download a Visio file](https://arch-center.azureedge.net/unisys-mainframe-migration.vsdx) of this architecture.
+_[Download a Visio file](https://arch-center.azureedge.net/unisys-mainframe-migration.vsdx) of this architecture._
 
 ### Workflow
 
