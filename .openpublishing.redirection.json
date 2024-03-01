@@ -4168,6 +4168,11 @@
       "source_path": "docs/guide/networking/ipv4-exhaustion.yml",
       "redirect_url": "/azure/architecture/networking/guide/ipv4-exhaustion",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/networking/guide/ipv6/ipv6-ip-planning.md",
+      "redirect_url": "/azure/architecture/networking/guide/ipv6-ip-planning",
+      "redirect_document_id": true
     }
   ]
 }
