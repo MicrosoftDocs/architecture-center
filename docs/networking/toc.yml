@@ -41,4 +41,12 @@ items:
         - name: Private Link in hub-and-spoke network
           href: guide/private-link-hub-spoke-network.yml
         - name: Cross-tenant secure access to apps
-          href: guide/cross-tenant-secure-access-private-endpoints.yml          
+          href: guide/cross-tenant-secure-access-private-endpoints.yml
+        - name: Guide to Private Link and DNS with Azure Virtual WAN
+          items:
+          - name: Guide overview
+            href: guide/private-link-virtual-wan-dns-guide.yml
+          - name: Virtual hub extension pattern
+            href: guide/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml
+          - name: Single region accessing single resource
+            href: guide/private-link-virtual-wan-dns-single-region-workload.yml          

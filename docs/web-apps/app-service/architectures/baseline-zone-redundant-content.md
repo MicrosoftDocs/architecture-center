@@ -357,7 +357,7 @@ See more built-in policies for key services such as [Application Gateway and net
 
 ## Related resources
 
-- [Guide to Private Link in Virtual WAN](../../../guide/networking/private-link-virtual-wan-dns-guide.yml)
+- [Guide to Private Link in Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
 - [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up)
 - [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service)
 - [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)

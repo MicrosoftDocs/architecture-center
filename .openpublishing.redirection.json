@@ -4148,6 +4148,21 @@
       "source_path": "docs/guide/networking/cross-tenant-secure-access-private-endpoints.yml",
       "redirect_url": "/azure/architecture/networking/guide/cross-tenant-secure-access-private-endpoints",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/networking/private-link-virtual-wan-dns-guide.yml",
+      "redirect_url": "/azure/architecture/networking/guide/private-link-virtual-wan-dns-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml",
+      "redirect_url": "/azure/architecture/networking/guide/private-link-virtual-wan-dns-virtual-hub-extension-pattern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/networking/private-link-virtual-wan-dns-single-region-workload.yml",
+      "redirect_url": "/azure/architecture/networking/guide/private-link-virtual-wan-dns-single-region-workload",
+      "redirect_document_id": true
     }
   ]
 }
