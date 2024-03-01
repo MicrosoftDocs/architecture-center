@@ -341,7 +341,6 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 
 - [Migration architecture design](../guide/migration/migration-start-here.md)
 - [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
-- [Modernize enterprise applications with Azure Service Fabric](../service-fabric/modernize-app-azure-service-fabric.yml)
 
 <!-- links -->
 
