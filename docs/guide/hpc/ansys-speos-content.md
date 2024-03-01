@@ -101,11 +101,9 @@ The cells below each model show the **Number of Rays (Computation time)** / **Re
 | Standard_NV36ads_A10_v5 | 1 GPU | 2.38216E+07 / 44.46 | 2.10233E+07 / 44.21 | 4.42797E+05 / 20.51 | 1.32615E+05 / 12.45 | 7.38095E+05 / 16.57 | 1.40697E+06 / 6.51 | 3.26173E+06 / 16.03 |
 | Standard_NV72ads_A10_v5 | 2 GPUs | 4.90611E+07 / 91.57 | 4.15515E+07 / 87.38 | 9.00568E+05 / 41.71 | 2.32190E+05 / 21.79 | 1.48949E+06 / 33.44 | 2.81894E+06 / 13.04 | 6.37847E+06 / 31.34 |
 
-This graph shows the relative speed increase of models on NVadsA10v5-series VM:
+This graph shows the relative speed increase of models on NVadsA10v5-series VM. The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ![Graph showing relative speed increase of models on NVadsA10v5-series VM.](./media/ansys-speos/graph-relative-speed-increase-nvadsa10v5.png)
-
-**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Results for NCasT4_v3 series VM
 
@@ -127,11 +125,9 @@ The cells below each model show the **Number of Rays (Computation time)** / **Re
 | Standard_NC64as_T4_v3 | 3 GPUs | 3.05910E+07 / 57.10 | 2.48829E+07 / 52.33 | 5.70076E+05 / 26.40 | 1.11019E+05 / 10.42 | 7.91452E+05 / 17.77 | 1.60324E+06 / 7.41 | 3.07666E+06 / 15.12 |
 | Standard_NC64as_T4_v3 | 4 GPUs | 4.05449E+07 / 75.67 | 3.29510E+07 / 69.30 | 7.47098E+05 / 34.60 | 1.34858E+05 / 12.66 | 1.00682E+06 / 22.60 | 2.29814E+06 / 10.63 | 4.02254E+06 / 19.77 |
 
-This graph shows the relative speed increase of models on NCasT4_v3 series VM:
+This graph shows the relative speed increase of models on NCasT4_v3 series VM. The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ![Graph showing relative speed increase of models on NCasT4_v3 series VM.](./media/ansys-speos/graph-relative-speed-increase-ncast4v3.png)
-
-**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Results for NC A100 v4-series VM
 
@@ -153,11 +149,9 @@ The cells below each model show the **Number of Rays (Computation time)** / **Re
 | Standard_NC96ads_A100_v4 | 3 GPUs | 6.95990E+07 / 129.90 | 5.48402E+07 / 115.33 | 2.41858E+06 / 112.01 | 3.82667E+05 / 35.92 | 1.24048E+06 / 27.85 | 1.42305E+06 / 6.58 | 8.34561E+06 / 41.01 |
 | Standard_NC96ads_A100_v4 | 4 GPUs | 9.25311E+07 / 172.70 | 7.33142E+07 / 154.18 | 3.22258E+06 / 149.24 | 4.60494E+05 / 43.22 | 1.60306E+06 / 35.99 | 2.05639E+06 / 9.51 | 1.10394E+07 / 54.25 |
 
-This graph shows the relative speed increase of models on NC A100 v4 series VM:
+This graph shows the relative speed increase of models on NC A100 v4 series VM. The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ![Graph showing relative speed increase of models on NC A100 v4 series VM.](./media/ansys-speos/graph-relative-speed-increase-nca100v4.png)
-
-**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Results for NDm A100 v4-series VM
 
@@ -176,11 +170,9 @@ The cells below each model show the **Number of Rays (Computation time)** / **Re
 | Standard_NV6ads_A10_v5 | 6 vCPUs  | 5.35789E+05 / 1.00 | 4.75517E+05 / 1.00 | 2.15933E+04 / 1.00 | 1.06543E+04 / 1.00 | 4.45442E+04 / 1.00 | 2.16231E+05 / 1.00 | 2.03505E+05 / 1.00 |
 | Standard_ND96amsr_A100_v4 | 8 GPUs | 1.87027E+08 / 349.07 | 1.51959E+08 / 319.57 | 6.21946E+06 / 288.03 | 1.13890E+06 / 106.90 | 2.95877E+06 / 66.42 | 5.13853E+06 / 23.76 | 1.98535E+07 / 97.56 |
 
-This graph shows the relative speed increase of models on NDm A100 v4-series VM:
+This graph shows the relative speed increase of models on NDm A100 v4-series VM. The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ![Graph showing relative speed increase of models on NDm A100 v4-series VM.](./media/ansys-speos/graph-relative-speed-increase-ndma100v4.png)
-
-**NOTE:** The result of six vCPUs on a Standard_NV6ads_A10_v5 VM is used as a baseline to calculate relative speed increase.
 
 ### Comparison of performance results
 
