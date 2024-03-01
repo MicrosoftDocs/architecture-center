@@ -4138,6 +4138,11 @@
       "source_path": "docs/guide/networking/private-link-ip-constraints.yml",
       "redirect_url": "/azure/architecture/networking/guide/private-link-ip-constraints",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/networking/private-link-hub-spoke-network.yml",
+      "redirect_url": "/azure/architecture/networking/guide/private-link-hub-spoke-network",
+      "redirect_document_id": true
     }
   ]
 }

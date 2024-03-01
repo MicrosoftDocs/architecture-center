@@ -3183,8 +3183,8 @@ items:
         #   maintainContext: true
       - name: NAT gateway framework review
         href: networking/guide/well-architected-network-address-translation-gateway.yml
-      - name: Private Link in hub-and-spoke network
-        href: guide/networking/private-link-hub-spoke-network.yml
+      # - name: Private Link in hub-and-spoke network
+      #   href: guide/networking/private-link-hub-spoke-network.yml
       - name: Guide to Private Link and DNS with Azure Virtual WAN
         items:
         - name: Guide overview

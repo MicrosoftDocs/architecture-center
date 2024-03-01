@@ -38,3 +38,5 @@ items:
         items:
         - name: Resolve overlapping IP address space constraints
           href: guide/private-link-ip-constraints.yml        
+        - name: Private Link in hub-and-spoke network
+          href: guide/private-link-hub-spoke-network.yml        
