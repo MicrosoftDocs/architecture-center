@@ -59,7 +59,7 @@ A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.
 
 ### Components
 - [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) provides a way for operators to manage non-Azure and/or on-premises resources such as HIL rigs from Azure Resource Manager
-- [Azure Front Doors](https://learn.microsoft.com/azure/frontdoor/front-door-overview)
+- [Azure Front Doors] (https://learn.microsoft.com/azure/frontdoor/front-door-overview) protects for traffic surges and protect network  from attacks
 - [Azure HPC Cache](https://learn.microsoft.com/azure/hpc-cache/hpc-cache-overview) speeds access to your data for high-performanc computing (HPC) tasks such as resimulation, simulation, or model training
 - [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft cloud over a private connection.
 - [Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like resimulation jobs or closed-loop testing.
@@ -69,7 +69,6 @@ A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.
 - [Eclipse Orchestrator](https://projects.eclipse.org/projects/iot.symphony) enables end-to-end orchestration and create a consistent workflow across different systems and toolchains.  The SDV toolchain utilizes Eclipse Symphony as the main orchestrator workflow
 - [Microsoft Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution that incorporates real-time analytics and business intelligence.  
 - [Azure Private Link](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) used as a network interfaces that uses a private IP address within the private virtual network.  Allows for private connection between resources and secures a service within the private virtual network
-- [Azure Firewall](https://learn.microsoft.com/azure/firewall/overview) is a firewall security service that provides threat protection for local workloads running in Azure
 - [Azure Private Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) provides a private network for deployment
 
 ## Scenario details
@@ -117,6 +116,15 @@ Overall, building a simulation test environment for ADAS/AD on the Azure cloud r
 :::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.png" alt-text="Architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
+
+#### Architecture Overview
+
+#### Components
+[Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp) lets you write stateful functions in a serverless compute environment
+[kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+[Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview) storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. 
+
+#### Considerations
 
 ## Considerations
 
