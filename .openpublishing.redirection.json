@@ -4163,6 +4163,11 @@
       "source_path": "docs/guide/networking/private-link-virtual-wan-dns-single-region-workload.yml",
       "redirect_url": "/azure/architecture/networking/guide/private-link-virtual-wan-dns-single-region-workload",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/networking/ipv4-exhaustion.yml",
+      "redirect_url": "/azure/architecture/networking/guide/ipv4-exhaustion",
+      "redirect_document_id": true
     }
   ]
 }
