@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 02/20/2024
+ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)](./aws-professional/eks-to-aks/migrate-eks-to-aks.md)
 - [Host a Murex MX.3 workload on Azure using SQL](./example-scenario/finance/murex-mx3-sql.yml)
 - [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.yml)
 - [Quarantine pattern](./patterns/quarantine.yml)
@@ -34,6 +35,9 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#b91e17155e](https://github.com/MicrosoftDocs/architecture-center/commit/b91e17155e))
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#7dd617e4dd](https://github.com/MicrosoftDocs/architecture-center/commit/7dd617e4dd))
+- [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#31392db970](https://github.com/MicrosoftDocs/architecture-center/commit/31392db970))
 - [Azure icons](./icons/index.md)  ([#f8fdaf5929](https://github.com/MicrosoftDocs/architecture-center/commit/f8fdaf5929))
 - [Ambassador pattern](./patterns/ambassador.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
 - [Anti-corruption Layer pattern](./patterns/anti-corruption-layer.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))

@@ -4169,7 +4169,7 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
       - name: Finance management using PostgreSQL
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
-      - name: Host a Murex MX.3 workload on Azure
+      - name: Host a Murex MX.3 workload on Azure using Oracle
         href: example-scenario/finance/murex-mx3-azure.yml
       - name: Host a Murex MX.3 workload using SQL
         href: example-scenario/finance/murex-mx3-sql.yml
