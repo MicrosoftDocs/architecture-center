@@ -115,7 +115,24 @@ Overall, building a simulation test environment for ADAS/AD on the Azure cloud r
 #### AKS based architecture
 :::image type="content" source="./images/autonomous-vehicle-operations-valops-aks-architecture.png" alt-text="Architecture diagram that shows a solution for validating autonomous vehicle software." border="false" lightbox="./images/autonomous-vehicle-operations-valops-aks-architecture.png":::
 
+
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
+
+Azure Batch is the recommended choice for HPC and (Re-)simulation workloads. We understand that due to the broad adoption of Kubernetes (on Azure available as managed Azure Kubernetes Service aka AKS) customers wants to utilize the similiar compute infrastructure that is already used for APIs and other applications. 
+
+One concern that needs be addressed is the Job scheduling (which for instance Azure Batch or 3rd party scheduler like Slurm provide out of the box) to parallelize sequence processing (e. g. validate images with ground truth data) for (re-) simulation. 
+
+One solution for job scheduling on AKS is depicted in the architecture above to leverage Azure Durable Functions as an external orchestrator and scheduler that reads from Metadata database which sequences need to be validated and chunk these by sending batches as events to a work queue (like Kafka) for parallel processing (each event / batch represents an activity in the Azure Durable Function). These batches contain references to images and frames (stored on Azure Storage) that should be re-processed. Azure Durable Function provides state management and can easily be integrated in an Azure Data Factory / Fabric pipeline (see picture below) or called by an orchestrator like Symphony. This pattern is aligned with the work queue job scheduling approach, see [link](https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/). 
+
+
+:::image type="content" source="./images/adf-durable-functions.png" alt-text="Example Azure Fata Factory flow that shows integration with Azure Durable Functions" border="false" lightbox="./images/adf-durable-functions.png":::
+
+Several pods listen to the work queue / Kafka topic and one of them consumes the event (sent by an Azure Durable Function) and performs the actual re-processing / re-simulation that scales horizontally.
+
+Alternative options for Job scheduling and orchestration on AKS are 3rd party tools like:
+
+- https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/kubernetes.html (available as managed service in Azure Data Factory as preview)
+- https://www.kubeflow.org/
 
 #### Architecture Overview
 
