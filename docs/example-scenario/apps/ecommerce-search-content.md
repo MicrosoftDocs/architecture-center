@@ -19,7 +19,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 ### Components
 
-- [App Service - Web Apps][docs-webapps-service-page] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service - Web Apps][docs-webapps-service-page] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
 - [SQL Database][docs-sql-database-service-page] is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 - [Azure AI Search][docs-search-service-page] is a search-as-a-service cloud solution that provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 - [Azure AI Bot Service][docs-botservice-service-page] provides tools to build, test, deploy, and manage intelligent bots.
@@ -73,15 +73,15 @@ If there's a need to make breaking changes to the index without downtime (for ex
 
 AI Search is compliant with many [security and data privacy standards][search-security], so you can use it in most industries.
 
-To secure access to the service, you can use [Azure role-based access control](/azure/search/search-security-rbac) or [connect with API keys](/azure/search/search-security-api-keys).
+To secure access to the service, you can use [Azure role-based access control (Azure RBAC)](/azure/search/search-security-rbac) or connect with [API keys](/azure/search/search-security-api-keys). 
 
-We recommend using Azure roles because they integrate with Microsoft Entra ID. When you use Azure roles, you can also use passwordless authentication methods like[managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+We recommend that you use Azure RBAC because it uses Azure roles, which integrate with Microsoft Entra ID. When you use Azure roles, you can also use passwordless authentication methods like [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 API keys include **admin keys**, which provide full access for all content operations, and **query keys**, which provide read-only access to the documents collection of a search index. You should set up applications that don't need to update the index to use a query key and not an admin key, especially if an end-user device, like a script running in a web browser, performs the search.
 
 You can also secure access to the Azure AI Search service at the network level by [exposing it through a private endpoint](/azure/search/service-create-private-endpoint).
 
-### Search Relevance
+### Search relevance
 
 How successful your e-commerce application is depends largely on the relevance of the search results to your customers. Carefully tuning your search service to provide optimal results based on user research, or relying on [search traffic analysis][search-analysis] to understand your customer's search patterns allows you to make decisions based on data.
 
