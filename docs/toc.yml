@@ -779,7 +779,7 @@ items:
         - name: Repo access with AWS CodeCommit
           href: /azure/databricks/repos/set-up-git-provider-access
           maintainContext: true
-      - name: Azure Service Fabric for AWS
+      - name: Azure Service Fabric in AWS
         href: /azure/service-fabric/service-fabric-tutorial-standalone-create-infrastructure
         maintainContext: true
       - name: Azure VPN Gateway for AWS
