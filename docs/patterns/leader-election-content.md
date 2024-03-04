@@ -50,7 +50,7 @@ This pattern might not be useful if:
 
 ## Example
 
-The DistributedMutex project in the LeaderElection solution (a sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/leader-election)) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of role instances in an Azure cloud service. The first role instance to acquire the lease is elected the leader, and remains the leader until it releases the lease or isn't able to renew the lease. Other role instances can continue to monitor the blob lease in case the leader is no longer available.
+The DistributedMutex project in the LeaderElection solution (a sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election)) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of role instances in an Azure cloud service. The first role instance to acquire the lease is elected the leader, and remains the leader until it releases the lease or isn't able to renew the lease. Other role instances can continue to monitor the blob lease in case the leader is no longer available.
 
 > A blob lease is an exclusive write lock over a blob. A single blob can be the subject of only one lease at any point in time. A role instance can request a lease over a specified blob, and it'll be granted the lease if no other role instance holds a lease over the same blob. Otherwise the request will throw an exception.
 >
@@ -68,10 +68,11 @@ public class BlobDistributedMutex
   ...
 
   public BlobDistributedMutex(BlobSettings blobSettings,
-           Func<CancellationToken, Task> taskToRunWhenLeaseAcquired)
+           Func<CancellationToken, Task> taskToRunWhenLeaseAcquired, ... )
   {
     this.blobSettings = blobSettings;
     this.taskToRunWhenLeaseAcquired = taskToRunWhenLeaseAcquired;
+    ...
   }
 
   public async Task RunTaskWhenMutexAcquired(CancellationToken token)
@@ -92,7 +93,7 @@ The `RunTaskWhenMutexAcquired` method in the code sample above invokes the `RunT
     {
       // Try to acquire the blob lease.
       // Otherwise wait for a short time before trying again.
-      string leaseId = await this.TryAcquireLeaseOrWait(leaseManager, token);
+      string? leaseId = await this.TryAcquireLeaseOrWait(leaseManager, token);
 
       if (!string.IsNullOrEmpty(leaseId))
       {
@@ -152,11 +153,24 @@ The `KeepRenewingLease` method is another helper method that uses the `BlobLease
 The following code example shows how to use the `BlobDistributedMutex` class in a worker role. This code acquires a lease over a blob named `MyLeaderCoordinatorTask` in the lease's container in development storage, and specifies that the code defined in the `MyLeaderCoordinatorTask` method should run if the role instance is elected the leader.
 
 ```csharp
-var settings = new BlobSettings(CloudStorageAccount.DevelopmentStorageAccount,
-  "leases", "MyLeaderCoordinatorTask");
-var cts = new CancellationTokenSource();
-var mutex = new BlobDistributedMutex(settings, MyLeaderCoordinatorTask);
-mutex.RunTaskWhenMutexAcquired(this.cts.Token);
+// Create a new shared cancellation token source
+CancellationTokenSource source = new CancellationTokenSource();
+CancellationToken token = source.Token;
+
+// Get the connection string from app settings
+var storageConnStr = ConfigurationManager.AppSettings["StorageConnectionString"];
+...
+
+// Create a BlobSettings object with the connection string and the name of the blob to use for the lease
+BlobSettings blobSettings = new BlobSettings(storageConnStr, "leases", "MyLeaderCoordinatorTask");
+
+// Create a new BlobDistributedMutex object with the BlobSettings object and a task to run when the lease is acquired
+var distributedMutex = new BlobDistributedMutex(
+    blobSettings, MyLeaderCoordinatorTask);
+
+// Wait for completion of the DistributedMutex and the UI task before exiting
+await distributedMutex.RunTaskWhenMutexAcquired(token);
+
 ...
 
 // Method that runs if the role instance is elected the leader
@@ -177,7 +191,7 @@ Note the following points about the sample solution:
 
 The following guidance might also be relevant when implementing this pattern:
 
-- This pattern has a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/leader-election).
+- This pattern has a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election).
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It's possible to start and stop instances of the task hosts as the load on the application varies. Autoscaling can help to maintain throughput and performance during times of peak processing.
 - [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10)). This guidance describes how to allocate tasks to hosts in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
 - The [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap).
