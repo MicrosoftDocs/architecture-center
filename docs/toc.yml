@@ -3147,8 +3147,8 @@ items:
       #     href: industries/telecommunications/deploy-private-mobile-network.md
       #   - name: Build a private 5G network
       #     href: industries/telecommunications/build-private-5g-network.md
-      - name: SDWAN integration
-        href: networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml
+      # - name: SDWAN integration
+      #   href: networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml
       # - name: Spoke-to-spoke networking
       #   href: networking/spoke-to-spoke-networking.yml
       # - name: Network security
@@ -3181,8 +3181,8 @@ items:
         # - name: Security baseline for Azure Firewall
         #   href: /security/benchmark/azure/baselines/firewall-security-baseline
         #   maintainContext: true
-      - name: NAT gateway framework review
-        href: networking/guide/well-architected-network-address-translation-gateway.yml
+      # - name: NAT gateway framework review
+      #   href: networking/guide/well-architected-network-address-translation-gateway.yml
       # - name: Private Link in hub-and-spoke network
       #   href: guide/networking/private-link-hub-spoke-network.yml
       # - name: Guide to Private Link and DNS with Azure Virtual WAN
@@ -3221,8 +3221,8 @@ items:
       # - name: Global transit network and Virtual WAN
       #   href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
       #   maintainContext: true
-      - name: Build solutions with availability zones
-        href: high-availability/building-solutions-for-high-availability.yml
+      # - name: Build solutions with availability zones
+      #   href: high-availability/building-solutions-for-high-availability.yml
       # - name: Deploy highly available NVAs
       #   href: reference-architectures/dmz/nva-ha.yml
       # - name: Use ExpressRoute with Power Platform

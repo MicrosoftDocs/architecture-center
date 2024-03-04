@@ -4168,6 +4168,11 @@
       "source_path": "docs/guide/networking/ipv4-exhaustion.yml",
       "redirect_url": "/azure/architecture/networking/guide/ipv4-exhaustion",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/high-availability/building-solutions-for-high-availability.yml",
+      "redirect_url": "/azure/well-architected/reliability/regions-availability-zones",
+      "redirect_document_id": false
     }
   ]
 }

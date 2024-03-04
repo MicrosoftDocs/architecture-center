@@ -159,7 +159,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 
 - [Azure Firewall architecture overview][Azure Firewall architecture overview]
 - [Choose between virtual network peering and VPN gateways][Choose between virtual network peering and VPN gateways]
-- [Build solutions for high availability using availability zones][Build solutions for high availability using availability zones]
+- [Recommendations for using availability zones and regions][Recommendations for using availability zones and regions]
 - [Deploy highly available NVAs][Deploy highly available NVAs]
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway][Zero-trust network for web applications with Azure Firewall and Application Gateway]
 
@@ -172,7 +172,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq
 [Azure Route Server pricing]: https://azure.microsoft.com/pricing/details/route-server
 [Azure security baseline for Virtual Network]: /security/benchmark/azure/baselines/virtual-network-security-baseline
-[Build solutions for high availability using availability zones]: ../../high-availability/building-solutions-for-high-availability.yml
+[Recommendations for using availability zones and regions]: /azure/well-architected/reliability/regions-availability-zones
 [Choose between virtual network peering and VPN gateways]: ../../reference-architectures/hybrid-networking/vnet-peering.yml
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: /azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
 [Deploy highly available NVAs]: ../guide/nva-ha.yml

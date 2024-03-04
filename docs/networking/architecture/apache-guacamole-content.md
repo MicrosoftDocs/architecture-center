@@ -150,7 +150,7 @@ Principal author:
  
 ## Related resources
 
-- [Build solutions for high availability using availability zones](../../high-availability/building-solutions-for-high-availability.yml)
+- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [Baseline zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
 - [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
