@@ -328,19 +328,6 @@ In all scenarios, you can regulate networking communication within the wider vir
 |---|--|--|--|
 | **Network security groups** | Consumption plan: ✅<br>Dedicated plan: ✅ | ✅ | ✅ VNet-integrated apps: egress only |
 
-#### Built-in IP restrictions for ingress
-
-While some customers restrict traffic on the network level via NSGs described above, others may choose to restrict traffic on the application level.
-
-Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic on individual applications.
-
-For AKS workloads, implementation depends on the chosen ingress controller. When using the Azure managed [application routing add-on](/azure/aks/app-routing) IP restrictions can be [configured in the ingress object with nginx-specific annotations](/aks/app-routing-nginx-configuration). 
-
-
-| | Container Apps| AKS | Web App for Containers|
-|---|--|--|--|
-| **Built-in ingress IP restrictions** | ✅ | Shared or self-managed | ✅ |
-
 ## Application-level security
 
 You need to secure workloads not just at the network and infrastructure level, but also at the workload and application level. Azure container solutions integrate with Azure security offerings to help standardize security implementation and controls for your applications.
