@@ -1805,8 +1805,6 @@ items:
             maintainContext: true
       - name: Architectures
         items:
-        - name: Decompose apps with Service Fabric
-          href: example-scenario/infrastructure/service-fabric-microservices.yml
         - name: Enterprise-grade logging on Azure
           href: reference-architectures/logging/enterprise-grade-logging.yml
         - name: Microservices on Azure Service Fabric

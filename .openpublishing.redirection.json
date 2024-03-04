@@ -4063,6 +4063,11 @@
       "source_path": "docs/service-fabric/migrate-from-cloud-services.yml",
       "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/service-fabric-microservices.yml",
+      "redirect_url": "/azure/service-fabric/service-fabric-overview-microservices",
+      "redirect_document_id": false
     }
   ]
 }
