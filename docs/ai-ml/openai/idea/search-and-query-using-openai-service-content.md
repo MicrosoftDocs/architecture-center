@@ -1,11 +1,11 @@
-This article describes how to use [Azure OpenAI Service](/azure/ai-services/openai/overview) or [Azure Cognitive Search](/azure/search/search-what-is-azure-search) to search documents in your enterprise data and retrieve results to provide a ChatGPT-style question and answer experience. This solution describes two approaches:
+This article describes how to use [Azure OpenAI Service](/azure/ai-services/openai/overview) or [Azure AI Search](/azure/search/search-what-is-azure-search) (formerly Azure Cognitive Search) to search documents in your enterprise data and retrieve results to provide a ChatGPT-style question and answer experience. This solution describes two approaches:
 
 - **Embeddings approach:** Use the Azure OpenAI embedding model to create vectorized data. Vector search is a feature that significantly increases the semantic relevance of search results.
 
-- **Azure Cognitive Search approach**: Use [Azure Cognitive Search](/azure/search/search-what-is-azure-search) to search and retrieve relevant text data based on a user query. This service supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search).
+- **Azure AI Search approach**: Use [Azure AI Search](/azure/search/search-what-is-azure-search) to search and retrieve relevant text data based on a user query. This service supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search).
 
 > [!NOTE]
-> In Azure Cognitive Search, the [semantic search](/azure/search/semantic-search-overview) and [vector search](/azure/search/vector-search-overview) features are currently in public preview.
+> In Azure AI Search, the [semantic search](/azure/search/semantic-search-overview) and [vector search](/azure/search/vector-search-overview) features are currently in public preview.
 
 ## Architecture: Embedding approach
 
@@ -40,21 +40,21 @@ Query and retrieval:
 
 1. The search results are presented as the answer to the search query that was initiated by the user, or the search results can be used as [the grounding data](/azure/cognitive-services/openai/concepts/advanced-prompt-engineering#provide-grounding-context) for a multi-turn conversation scenario.
 
-## Architecture: Azure Cognitive Search pull approach
+## Architecture: Azure AI Search pull approach
 
 :::image type="content" source="_images/pull-approach.svg" alt-text="Diagram that shows the pull approach." lightbox="_images/pull-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 Index creation:
 
-1. [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is used to create a [search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Azure Cognitive Search [supports Blob Storage](/azure/search/search-indexer-overview#supported-data-sources), so the pull model is used to crawl the content, and the capability is implemented via [indexers](/azure/search/search-indexer-overview).
+1. [Azure AI Search](/azure/search/search-what-is-azure-search) is used to create a [search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Azure AI Search [supports Blob Storage](/azure/search/search-indexer-overview#supported-data-sources), so the pull model is used to crawl the content, and the capability is implemented via [indexers](/azure/search/search-indexer-overview).
 
    > [!NOTE]
-   > Azure Cognitive Search supports other [data sources](/azure/search/search-data-sources-gallery) for indexing when using the pull model. Documents can also be indexed from [multiple data sources](/azure/search/tutorial-multiple-data-sources) and consolidated into a single index.
+   > Azure AI Search supports other [data sources](/azure/search/search-data-sources-gallery) for indexing when using the pull model. Documents can also be indexed from [multiple data sources](/azure/search/tutorial-multiple-data-sources) and consolidated into a single index.
 
 1. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a feature that's included in the built-in skill.
 
-1. If the documents are nonsearchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure Cognitive Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
+1. If the documents are nonsearchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure AI Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
 
    If AI enrichment is a requirement, pull model (indexers) must be used to load an index.
 
@@ -64,15 +64,15 @@ Query and retrieval:
 
 1. A user sends a query via a user application.
 
-1. The query is passed to Azure Cognitive Search via the [search documents REST API](/rest/api/searchservice/search-documents). The query type can be [simple](/azure/search/search-query-simple-examples), which is optimal for full-text search, or [full](/azure/search/search-query-lucene-examples), which is for advanced query constructs like regular expressions, fuzzy and wild card search, and proximity search. If the query type is set to semantic, a [semantic search](/azure/search/semantic-search-overview) is performed on the documents, and the relevant content is retrieved. Azure Cognitive Search also supports [vector search](/azure/search/vector-search-overview) and [hybrid search](/azure/search/vector-search-ranking#hybrid-search), which requires the user query to be converted to vector embeddings.
+1. The query is passed to Azure AI Search via the [search documents REST API](/rest/api/searchservice/search-documents). The query type can be [simple](/azure/search/search-query-simple-examples), which is optimal for full-text search, or [full](/azure/search/search-query-lucene-examples), which is for advanced query constructs like regular expressions, fuzzy and wild card search, and proximity search. If the query type is set to semantic, a [semantic search](/azure/search/semantic-search-overview) is performed on the documents, and the relevant content is retrieved. Azure AI Search also supports [vector search](/azure/search/vector-search-overview) and [hybrid search](/azure/search/vector-search-ranking#hybrid-search), which requires the user query to be converted to vector embeddings.
 
 1. The retrieved content and the system prompt are sent to the Azure OpenAI language model, like [GPT-3.5 Turbo or GPT-4](/azure/cognitive-services/openai/how-to/chatgpt).
 
 1. The search results are presented as the answer to the search query that was initiated by the user, or the search results can be used as [the grounding data](/azure/cognitive-services/openai/concepts/advanced-prompt-engineering#provide-grounding-context) for a multi-turn conversation scenario.
 
-## Architecture: Azure Cognitive Search push approach
+## Architecture: Azure AI Search push approach
 
-If the data source isn't supported, you can use the [push model](/azure/search/tutorial-optimize-indexing-push-api) to upload the data to Azure Cognitive Search.
+If the data source isn't supported, you can use the [push model](/azure/search/tutorial-optimize-indexing-push-api) to upload the data to Azure AI Search.
 
 :::image type="content" source="_images/push-approach.svg" alt-text="Diagram that shows the push approach." lightbox="_images/push-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
@@ -81,7 +81,7 @@ Index creation:
 
 1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used.
 1. If the document is in a nonsearchable format, like a PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text.
-1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure Cognitive Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
+1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure AI Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
 
 Query and retrieval:
 
@@ -95,7 +95,7 @@ The query and retrieval in this approach is the same as the pull approach earlie
 
 - [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a UI for exploring Azure AI Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
 
-- [Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud service that provides infrastructure, APIs, and tools for searching. Use Azure Cognitive Search to build search experiences over private disparate content in web, mobile, and enterprise applications.
+- [Azure AI Search](https://azure.microsoft.com/services/search) is a cloud service that provides infrastructure, APIs, and tools for searching. Use Azure AI Search to build search experiences over private disparate content in web, mobile, and enterprise applications.
 
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for various languages, such as .NET, Node.js, and Python. Applications can access files in Blob Storage via HTTP or HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large amounts of data.
 
@@ -157,5 +157,5 @@ Principal authors:
 
 - [Query-based document summarization](../../guide/query-based-summarization.md)
 - [Automate document identification, classification, and search by using Durable Functions](../../architecture/automate-document-classification-durable-functions.yml)
-- [Index file content and metadata by using Azure Cognitive Search](../../architecture/search-blob-metadata.yml)
+- [Index file content and metadata by using Azure AI Search](../../architecture/search-blob-metadata.yml)
 - [AI enrichment with image and text processing](../../../solution-ideas/articles/cognitive-search-with-skillsets.yml)

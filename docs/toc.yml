@@ -751,6 +751,8 @@ items:
           - name: Migrate an AWS Windows VM
             href: /azure/virtual-machines/windows/aws-to-azure
             maintainContext: true
+        - name: Migrate from EKS to AKS
+          href: aws-professional/eks-to-aks/migrate-eks-to-aks.md
       - name: Security for AWS
         items:
         - name: Azure security for AWS
@@ -1242,6 +1244,8 @@ items:
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
             href: guide/hpc/ansys-rocky.yml
+          - name: Ansys Speos
+            href: guide/hpc/ansys-speos.yml
         - name: Autodesk deployments
           items:
           - name: Autodesk Civil 3D
@@ -3267,7 +3271,9 @@ items:
       - name: Adopting IPv6
         items:
           - name: Conceptual planning for IPv6 networking
-            href: networking/guide/ipv6/ipv6-ip-planning.md
+            href: networking/guide/ipv6-ip-planning.md
+          - name: IPv6 hub-spoke network topology
+            href: networking/guide/ipv6-architecture.yml
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
@@ -4165,8 +4171,10 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
       - name: Finance management using PostgreSQL
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
-      - name: Host a Murex MX.3 workload on Azure
+      - name: Host a Murex MX.3 workload on Azure using Oracle
         href: example-scenario/finance/murex-mx3-azure.yml
+      - name: Host a Murex MX.3 workload using SQL
+        href: example-scenario/finance/murex-mx3-sql.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
@@ -4193,6 +4201,8 @@ items:
           href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
         - name: SWIFT Alliance Message Hub
           href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+        - name: SWIFT Alliance Remote Gateway with Alliance Connect Virtual
+          href: example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml
     - name: Datasets
       items:
       - name: US Consumer Price Index

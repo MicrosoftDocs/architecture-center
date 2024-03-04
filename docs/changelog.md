@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 02/06/2024
+ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -25,8 +25,44 @@ The following new and updated articles have recently been published in the Azure
 
 ## February 2024
 
+### New articles
+
+- [Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)](./aws-professional/eks-to-aks/migrate-eks-to-aks.md)
+- [Host a Murex MX.3 workload on Azure using SQL](./example-scenario/finance/murex-mx3-sql.yml)
+- [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.yml)
+- [Quarantine pattern](./patterns/quarantine.yml)
+- [Deploy TUFLOW HPC on an Azure virtual machine](./guide/hpc/tuflow-hpc.yml)
+
 ### Updated articles
 
+- [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#b91e17155e](https://github.com/MicrosoftDocs/architecture-center/commit/b91e17155e))
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#7dd617e4dd](https://github.com/MicrosoftDocs/architecture-center/commit/7dd617e4dd))
+- [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#31392db970](https://github.com/MicrosoftDocs/architecture-center/commit/31392db970))
+- [Azure icons](./icons/index.md)  ([#f8fdaf5929](https://github.com/MicrosoftDocs/architecture-center/commit/f8fdaf5929))
+- [Ambassador pattern](./patterns/ambassador.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Anti-corruption Layer pattern](./patterns/anti-corruption-layer.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Asynchronous Request-Reply pattern](./patterns/async-request-reply.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Backends for Frontends pattern](./patterns/backends-for-frontends.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Bulkhead pattern](./patterns/bulkhead.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Cache-Aside pattern](./patterns/cache-aside.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Choreography pattern](./patterns/choreography.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Circuit Breaker pattern](./patterns/circuit-breaker.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Claim-Check pattern](./patterns/claim-check.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Compensating Transaction pattern](./patterns/compensating-transaction.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Competing Consumers pattern](./patterns/competing-consumers.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Compute Resource Consolidation pattern](./patterns/compute-resource-consolidation.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [CQRS pattern](./patterns/cqrs.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Deployment Stamps pattern](./patterns/deployment-stamp.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Event Sourcing pattern](./patterns/event-sourcing.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [External Configuration Store pattern](./patterns/external-configuration-store.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Federated Identity pattern](./patterns/federated-identity.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Gatekeeper pattern](./patterns/gatekeeper.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Gateway Aggregation pattern](./patterns/gateway-aggregation.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Gateway Offloading pattern](./patterns/gateway-offloading.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Gateway Routing pattern](./patterns/gateway-routing.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Geode pattern](./patterns/geodes.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
+- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#67b065b5a7](https://github.com/MicrosoftDocs/architecture-center/commit/67b065b5a7))
+- [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#3384d4cef1](https://github.com/MicrosoftDocs/architecture-center/commit/3384d4cef1))
 - [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#851289722f](https://github.com/MicrosoftDocs/architecture-center/commit/851289722f))
 - [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#adc0cbe6cd](https://github.com/MicrosoftDocs/architecture-center/commit/adc0cbe6cd))
 - [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)  ([#ae882b9576](https://github.com/MicrosoftDocs/architecture-center/commit/ae882b9576))
@@ -43,7 +79,6 @@ The following new and updated articles have recently been published in the Azure
 - [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml)
 - [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)
 - [Deploy Ansys HFSS on an Azure virtual machine](./guide/hpc/ansys-hfss.yml)
-- [Conceptual planning for IPv6 networking](./networking/guide/ipv6/ipv6-ip-planning.md)
 - [Choose an Azure container service](./guide/choose-azure-container-service.md)
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)
 - [Deploy tNavigator on an Azure virtual machine](./guide/hpc/tnavigator.yml)

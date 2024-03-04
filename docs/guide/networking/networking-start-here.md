@@ -2,7 +2,7 @@
 title: Networking architecture design
 description: Learn about sample architectures, solutions, and guides that can help you explore the various networking services in Azure.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
