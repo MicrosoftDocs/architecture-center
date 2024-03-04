@@ -4,7 +4,7 @@ This solution describes how manufacturers can use high-performance, low-latency 
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server." source="../media/low-latency-network.png" lightbox="../media/low-latency-network.png":::
+:::image type="content" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server." source="_images_/low-latency-network.png" lightbox="_images/low-latency-network.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/low-latency-network.vsdx) of this architecture.*
 
@@ -55,4 +55,4 @@ Principal author:
 ## Related resources
 
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
-- [Condition monitoring for Industrial IoT](./condition-monitoring.yml)
+- [Condition monitoring for Industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)

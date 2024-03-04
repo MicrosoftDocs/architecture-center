@@ -6,6 +6,8 @@ items:
       items: 
       - name: Low-latency network for industry
         href: idea/low-latency-network.yml
+      - name: Video capture and analytics for retail
+        href: idea/video-analytics.yml
     - name: Design architectures
       items:
       - name: Network topology

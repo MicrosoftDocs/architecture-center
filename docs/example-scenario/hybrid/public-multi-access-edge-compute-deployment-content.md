@@ -121,5 +121,5 @@ Principal author:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
 - [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)

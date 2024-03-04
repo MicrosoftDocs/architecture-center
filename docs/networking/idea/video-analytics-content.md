@@ -4,7 +4,7 @@ This solution describes how retailers like grocery stores can monitor storefront
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through Azure IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis." source="../media/video-analytics-architecture.png" lightbox="../media/video-analytics-architecture.png":::
+:::image type="content" alt-text="Screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through Azure IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis." source="_images/video-analytics-architecture.png" lightbox="_images/video-analytics-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/video-analytics-architecture.vsdx) of this architecture.*
 
@@ -69,4 +69,4 @@ Principal author:
 ## Related resources
 
 - [IoT event routing](../../example-scenario/iot/event-routing.yml)
-- [Contactless IoT interfaces with Azure intelligent edge](./contactless-interfaces.yml)
+- [Contactless IoT interfaces with Azure intelligent edge](../../solution-ideas/articles/contactless-interfaces.yml)

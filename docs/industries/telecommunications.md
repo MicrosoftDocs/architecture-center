@@ -59,4 +59,4 @@ The following are other ideas that you can use as a starting point for your tele
 - [IoT device connectivity for healthcare facilities](../solution-ideas/articles/healthcare-network.yml)
 - [IoT Edge data storage and processing](../solution-ideas/articles/data-storage-edge.yml)
 - [Low-latency network connections for industry](../networking/idea/low-latency-network.yml)
-- [Video capture and analytics](../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics](../networking/idea/video-analytics.yml)

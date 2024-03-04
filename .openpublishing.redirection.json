@@ -4178,6 +4178,11 @@
       "source_path": "docs/solution-ideas/articles/low-latency-network.yml",
       "redirect_url": "/azure/architecture/networking/idea/low-latency-network",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/video-analytics.yml",
+      "redirect_url": "/azure/architecture/networking/idea/video-analytics",
+      "redirect_document_id": true
     }
   ]
 }
