@@ -120,6 +120,6 @@ Principal author:
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Low-latency network connections for industry](../../solution-ideas/articles/low-latency-network.yml)
+- [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
 - [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
 - [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)

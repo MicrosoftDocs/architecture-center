@@ -4173,6 +4173,11 @@
       "source_path": "docs/high-availability/building-solutions-for-high-availability.yml",
       "redirect_url": "/azure/well-architected/reliability/regions-availability-zones",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/low-latency-network.yml",
+      "redirect_url": "/azure/architecture/networking/idea/low-latency-network",
+      "redirect_document_id": true
     }
   ]
 }

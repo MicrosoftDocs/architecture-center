@@ -65,5 +65,5 @@ The following are other ideas that you can use as a starting point for your faci
 - [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml) 
 - [IoT monitor and manage loops](../example-scenario/iot/monitor-manage-loop.yml)
-- [Low-latency network connections for industry](../solution-ideas/articles/low-latency-network.yml)
+- [Low-latency network connections for industry](../networking/idea/low-latency-network.yml)
 - [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

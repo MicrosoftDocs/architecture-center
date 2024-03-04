@@ -2,6 +2,10 @@ items:
 - name: Networking
   href: index.md
   items: 
+    - name: Explore ideas about
+      items: 
+      - name: Low-latency network for industry
+        href: idea/low-latency-network.yml
     - name: Design architectures
       items:
       - name: Network topology
@@ -63,6 +67,6 @@ items:
         - name: Deploy highly available NVAs
           href: guide/nva-ha.yml        
         - name: SDWAN integration
-          href: networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml          
+          href: guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml          
       - name: NAT gateway framework review
-        href: networking/guide/well-architected-network-address-translation-gateway.yml          
+        href: guide/well-architected-network-address-translation-gateway.yml          

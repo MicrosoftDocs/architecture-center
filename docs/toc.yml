@@ -3139,8 +3139,8 @@ items:
     items:
     # - name: Get started
     #   href: guide/networking/networking-start-here.md
-    - name: Guides
-      items:
+    # - name: Guides
+    #   items:
       # - name: Deploy private 5G networks
       #   items:
       #   - name: Overview
@@ -3276,8 +3276,8 @@ items:
       #   items:
       #     - name: Conceptual planning for IPv6 networking
       #       href: networking/guide/ipv6/ipv6-ip-planning.md
-    - name: Architectures
-      items:
+    # - name: Architectures
+    #   items:
       # - name: Azure DNS Private Resolver
       #   href: example-scenario/networking/azure-dns-private-resolver.yml
       # - name: High availability for IaaS apps
@@ -3352,8 +3352,8 @@ items:
         #   href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
     - name: Solution ideas
       items:
-      - name: Low-latency network for industry
-        href: solution-ideas/articles/low-latency-network.yml
+      # - name: Low-latency network for industry
+      #   href: solution-ideas/articles/low-latency-network.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
       - name: IoT network for healthcare facilities
