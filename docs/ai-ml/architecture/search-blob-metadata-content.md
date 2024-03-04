@@ -28,7 +28,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 This scenario uses [indexers in Azure AI Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources, like blob and table storage, and then add it to the search index. Alternatively, you can use the APIs provided by Azure AI Search to [push data to the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). If you do, however, you need to write code to push the data into the search index and also to parse and extract text from the binary documents that you want to search. The [Blob Storage indexer supports many document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
 
-Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Azure Cognitive Services to perform [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
+Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Azure AI Services to perform [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
 
 This architecture uses blob and table storage because they're cost-effective and efficient. This design also enables combined storage of the documents and metadata in a single storage account. Alternative supported data sources for the documents themselves include [Azure Data Lake Storage](/azure/search/search-howto-index-azure-data-lake-storage) and [Azure Files](/azure/search/search-file-storage-integration). Document metadata can be stored in any other supported data source that holds structured data, like [Azure SQL Database](/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers) and [Azure Cosmos DB](/azure/search/search-howto-index-cosmosdb).
 
@@ -73,7 +73,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure AI Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high SLA for *updates* (updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations. 
+Azure AI Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high SLA for *updates* (updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations.
 
 [Azure Storage always stores multiple copies of your data](/azure/storage/common/storage-redundancy) to help protect it against planned and unplanned events. Azure Storage provides additional redundancy options for replicating data across regions. These safeguards apply to data in blob and table storage.
 
@@ -115,7 +115,7 @@ Principal author:
 
 Other contributor:
 
-- [Mick Alberts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
