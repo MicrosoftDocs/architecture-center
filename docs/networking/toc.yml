@@ -62,6 +62,8 @@ items:
         items:
         - name: Prevent IPv4 exhaustion
           href: guide/ipv4-exhaustion.yml
+        - name: IPv6 hub-spoke network topology
+          href: guide/ipv6-architecture.yml
         - name: Conceptual planning for IPv6 networking
           href: guide/ipv6-ip-planning.md
       - name: Resource organization
