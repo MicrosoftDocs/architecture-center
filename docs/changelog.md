@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 02/24/2024
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -23,6 +23,17 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## March 2024
+
+### New articles
+
+- [SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml)
+- [Deploy Ansys Speos on an Azure virtual machine](./guide/hpc/ansys-speos.yml)
+
+### Updated articles
+
+- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#f22cff3106](https://github.com/MicrosoftDocs/architecture-center/commit/f22cff3106))
+
 ## February 2024
 
 ### New articles
@@ -35,10 +46,28 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Group manager tasks in the Team Data Science Process](./data-science-process/group-manager-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Customer acceptance stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-acceptance.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Business understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-business-understanding.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Data acquisition and understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-data.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Deployment stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-deployment.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [The Team Data Science Process lifecycle](./data-science-process/lifecycle.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Move Blob Storage data with SSIS connectors](./data-science-process/move-data-to-azure-blob-using-ssis.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [What is the Team Data Science Process?](./data-science-process/overview.yml)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Prepare data for Machine Learning Studio (classic)](./data-science-process/prepare-data.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Individual contributor tasks in the Team Data Science Process](./data-science-process/project-ic-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Project lead tasks in the Team Data Science Process](./data-science-process/project-lead-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Roles and tasks in the Team Data Science Process](./data-science-process/roles-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Team lead tasks in the Team Data Science Process](./data-science-process/team-lead-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
+- [Azure icons](./icons/index.md)  ([#e57764588e](https://github.com/MicrosoftDocs/architecture-center/commit/e57764588e))
+- [Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search](./ai-ml/openai/idea/search-and-query-using-openai-service.yml)  ([#f8cde6690c](https://github.com/MicrosoftDocs/architecture-center/commit/f8cde6690c))
+- [Databases architecture design](./databases/index.yml)  ([#3ba5551b02](https://github.com/MicrosoftDocs/architecture-center/commit/3ba5551b02))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#da0418b10f](https://github.com/MicrosoftDocs/architecture-center/commit/da0418b10f))
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#b91e17155e](https://github.com/MicrosoftDocs/architecture-center/commit/b91e17155e))
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#7dd617e4dd](https://github.com/MicrosoftDocs/architecture-center/commit/7dd617e4dd))
 - [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#31392db970](https://github.com/MicrosoftDocs/architecture-center/commit/31392db970))
-- [Azure icons](./icons/index.md)  ([#f8fdaf5929](https://github.com/MicrosoftDocs/architecture-center/commit/f8fdaf5929))
 - [Ambassador pattern](./patterns/ambassador.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
 - [Anti-corruption Layer pattern](./patterns/anti-corruption-layer.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
 - [Asynchronous Request-Reply pattern](./patterns/async-request-reply.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
@@ -98,7 +127,7 @@ The following new and updated articles have recently been published in the Azure
 - [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b0be31cf9a](https://github.com/MicrosoftDocs/architecture-center/commit/b0be31cf9a))
 - [Deploy Barracuda Virtual Reactor on a virtual machine](./guide/hpc/barracuda-virtual-reactor.yml)  ([#ca7fc55dae](https://github.com/MicrosoftDocs/architecture-center/commit/ca7fc55dae))
 - [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#bdbd521054](https://github.com/MicrosoftDocs/architecture-center/commit/bdbd521054))
-- [Index file content and metadata by using Azure Cognitive Search](./ai-ml/architecture/search-blob-metadata.yml)  ([#3d146959dc](https://github.com/MicrosoftDocs/architecture-center/commit/3d146959dc))
+- [Index file content and metadata by using Azure AI Search](./ai-ml/architecture/search-blob-metadata.yml)  ([#3d146959dc](https://github.com/MicrosoftDocs/architecture-center/commit/3d146959dc))
 - [Integrate data with Logic App and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#7de0775a15](https://github.com/MicrosoftDocs/architecture-center/commit/7de0775a15))
 - [Azure Well-Architected Framework review of an Azure NAT gateway](./networking/guide/well-architected-network-address-translation-gateway.yml)  ([#75bef49965](https://github.com/MicrosoftDocs/architecture-center/commit/75bef49965))
 - [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#e6cba7ec73](https://github.com/MicrosoftDocs/architecture-center/commit/e6cba7ec73))
@@ -143,8 +172,8 @@ The following new and updated articles have recently been published in the Azure
 - [Industrial IoT visibility patterns](./guide/iiot-patterns/iiot-visibility-patterns.yml)  ([#29e60f5149](https://github.com/MicrosoftDocs/architecture-center/commit/29e60f5149))
 - [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
 - [Customer acceptance stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-acceptance.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
-- [Business understanding in Team Data Science Process](./data-science-process/lifecycle-business-understanding.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
-- [Data acquisition and understanding of Team Data Science Process](./data-science-process/lifecycle-data.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
+- [Business understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-business-understanding.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
+- [Data acquisition and understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-data.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
 - [Deployment stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-deployment.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
 - [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
 - [Oil and gas tank level forecasting](./solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)  ([#621c73febb](https://github.com/MicrosoftDocs/architecture-center/commit/621c73febb))
@@ -178,37 +207,4 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)  ([#df1ada0a5c](https://github.com/MicrosoftDocs/architecture-center/commit/df1ada0a5c))
 - [Deploy Ansys CFX on an Azure virtual machine](./guide/hpc/ansys-cfx.yml)  ([#df1ada0a5c](https://github.com/MicrosoftDocs/architecture-center/commit/df1ada0a5c))
 - [Deploy Engys HELYX on an Azure virtual machine](./guide/hpc/engys-helyx.yml)  ([#df1ada0a5c](https://github.com/MicrosoftDocs/architecture-center/commit/df1ada0a5c))
-
-## November 2023
-
-### New articles
-
-- [Use Azure Batch to run Financial Service Industry (FSI) workloads](./example-scenario/batch/fsi-workloads-using-batch.yml)
-- [Deploy Quantum ESPRESSO on an Azure virtual machine](./guide/hpc/quantum-espresso.yml)
-- [Mainframe workload migration proof of concept](./mainframe/mainframe-proof-of-concept.yml)
-- [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)
-- [Deploy M-Star on a virtual machine](./guide/hpc/m-star.yml)
-- [Software-defined vehicle DevOps toolchain](./industries/automotive/software-defined-vehicle-reference-architecture.yml)
-- [Architectural approaches for control planes in multitenant solutions](./guide/multitenant/approaches/control-planes.md)
-- [Deploy CP2K on an Azure virtual machine](./guide/hpc/cp2k.yml)
-- [Deploy NAMD on a virtual machine](./guide/hpc/hpc-namd.yml)
-
-### Updated articles
-
-- [Deploy WRF on an Azure virtual machine](./guide/hpc/weather-research-forecasting.yml)  ([#0280138a15](https://github.com/MicrosoftDocs/architecture-center/commit/0280138a15))
-- [Continuous validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)  ([#4522d8522f](https://github.com/MicrosoftDocs/architecture-center/commit/4522d8522f))
-- [Deploy GROMACS on an Azure virtual machine](./guide/hpc/gromacs.yml)  ([#7cf6296c95](https://github.com/MicrosoftDocs/architecture-center/commit/7cf6296c95))
-- [AKS triage—Cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
-- [AKS triage—Container registry connectivity](./operator-guides/aks/aks-triage-container-registry.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
-- [AKS triage—Admission controllers](./operator-guides/aks/aks-triage-controllers.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
-- [AKS triage—Workload deployments](./operator-guides/aks/aks-triage-deployment.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
-- [AKS triage—Node health](./operator-guides/aks/aks-triage-node-health.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
-- [Azure Kubernetes Service (AKS) operations triage](./operator-guides/aks/aks-triage-practices.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
-- [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)  ([#df60074cf9](https://github.com/MicrosoftDocs/architecture-center/commit/df60074cf9))
-- [Azure Arc-enabled SQL Managed Instance disaster recovery](./hybrid/arc-sql-managed-instance-disaster-recovery.yml)  ([#cf8ed420ea](https://github.com/MicrosoftDocs/architecture-center/commit/cf8ed420ea))
-- [Azure Arc-enabled server configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#cf8ed420ea](https://github.com/MicrosoftDocs/architecture-center/commit/cf8ed420ea))
-- [The journey to SaaS: Dynamics 365](./guide/saas/case-studies/dynamics-365-journey-saas.md)  ([#56ce7c6db6](https://github.com/MicrosoftDocs/architecture-center/commit/56ce7c6db6))
-- [Azure landing zones - Bicep modules design considerations](./landing-zones/bicep/landing-zone-bicep.md)  ([#399bd77fc2](https://github.com/MicrosoftDocs/architecture-center/commit/399bd77fc2))
-- [Azure landing zones - Terraform module design considerations](./landing-zones/terraform/landing-zone-terraform.md)  ([#399bd77fc2](https://github.com/MicrosoftDocs/architecture-center/commit/399bd77fc2))
-- [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)  ([#e517b9a52f](https://github.com/MicrosoftDocs/architecture-center/commit/e517b9a52f))
 
