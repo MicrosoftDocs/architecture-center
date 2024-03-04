@@ -100,7 +100,7 @@ It's important to understand networking design early in your planning processes 
 
 - [Container Apps](https://azure.microsoft.com/products/container-apps) is a PaaS offering that provides many Azure-managed networking features, like service discovery and internal managed domains. Workload teams that need a bit more configurability can use workload/dedicated profiles before considering alternatives to maximize their networking options.
 - 
-- [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. Workload teams can take advantage of various Azure managed [networking add-ons](https://learn.microsoft.com/azure/aks/integrations), as well as install and operate any add-ons from the broader Kubernetes ecosystem.
+- [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. Workload teams can take advantage of various Azure managed [networking add-ons](/azure/aks/integrations), as well as install and operate any add-ons from the broader Kubernetes ecosystem.
 
 - [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) is feature of App Service. Thus the networking concepts, especially private networking integration, are very specific to App Service. This service will be familiar to workload teams that already use App Service. Teams that don't have experience with App Service and that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
 
@@ -334,7 +334,7 @@ While some customers restrict traffic on the network level via NSGs described ab
 
 Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic on individual applications.
 
-For AKS workloads, implementation depends on the chosen ingress controller. When using the Azure managed [application routing add-on](/azure/aks/app-routing) IP restrictions can be [configured in the ingress object with nginx-specific annotations](/aks/app-routing-nginx-configuration#configuration-per-ingress-resource-through-annotations). 
+For AKS workloads, implementation depends on the chosen ingress controller. When using the Azure managed [application routing add-on](/azure/aks/app-routing) IP restrictions can be [configured in the ingress object with nginx-specific annotations](/aks/app-routing-nginx-configuration). 
 
 
 | | Container Apps| AKS | Web App for Containers|
