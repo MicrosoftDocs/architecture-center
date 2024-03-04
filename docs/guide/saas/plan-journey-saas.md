@@ -110,6 +110,6 @@ Other contributors:
 
 ## Related resources
 
-- [SaaS and multitenant solution architecture](overview.md)
+- [SaaS and multitenant solution architecture](../saas-multitenant-solution-architecture/index.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
 - [Learn about multitenant architectural approaches](../multitenant/overview.md)
