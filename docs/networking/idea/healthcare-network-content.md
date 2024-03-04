@@ -4,7 +4,7 @@ This solution describes how buildings and campuses can securely and reliably con
 
 ## Architecture
 
-:::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices." border="false" lightbox="../media/healthcare-architecture.png":::
+:::image type="content" source="_images/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices." border="false" lightbox="_images/healthcare-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/healthcare-architecture.vsdx) of this architecture.*
 

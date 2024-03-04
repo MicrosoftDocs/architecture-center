@@ -4,7 +4,7 @@ This solution describes how manufacturers can use high-performance, low-latency 
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server." source="_images_/low-latency-network.png" lightbox="_images/low-latency-network.png":::
+:::image type="content" alt-text="Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server." source="_images/low-latency-network.png" lightbox="_images/low-latency-network.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/low-latency-network.vsdx) of this architecture.*
 

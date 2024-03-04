@@ -3356,8 +3356,8 @@ items:
       #   href: solution-ideas/articles/low-latency-network.yml
       # - name: Video capture and analytics for retail
       #   href: solution-ideas/articles/video-analytics.yml
-      - name: IoT network for healthcare facilities
-        href: solution-ideas/articles/healthcare-network.yml
+      # - name: IoT network for healthcare facilities
+      #   href: solution-ideas/articles/healthcare-network.yml
   - name: Oracle
     items:
     - name: Get started
@@ -5441,7 +5441,7 @@ items:
         - name: IoT connected light, power, and internet
           href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities
-          href: solution-ideas/articles/healthcare-network.yml
+          href: networking/idea/healthcare-network.yml
         - name: Lighting and disinfection system
           href: solution-ideas/articles/uven-disinfection.yml
         - name: Smart places with Azure Digital Twins

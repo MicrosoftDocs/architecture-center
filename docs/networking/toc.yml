@@ -8,6 +8,8 @@ items:
         href: idea/low-latency-network.yml
       - name: Video capture and analytics for retail
         href: idea/video-analytics.yml
+      - name: IoT network for healthcare facilities
+        href: idea/healthcare-network.yml        
     - name: Design architectures
       items:
       - name: Network topology
