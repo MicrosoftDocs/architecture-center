@@ -607,11 +607,9 @@ The ability to deploy and replace applications without causing any downtime for 
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Zero-downtime strategy** | Rolling update | Rolling update and all other Kubernetes strategies | Slots |
+| **Zero-downtime strategy** | [Rolling update](/azure/container-apps/revisions#zero-downtime-deployment) | [Rolling update, plus all other Kubernetes strategies](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) | [Deployment slots](/azure/app-service/deploy-staging-slots) |
 
-- **Web App for Containers**: Web App for Containers implements [slots](/azure/app-service/deploy-staging-slots), which are placeholders in which you can deploy new versions of your containers and test them before sending them to the production slot. Each slot has its own host name, configuration, and binaries. However, this feature needs to be implemented and isn't configured out-of-the-box.
-- **AKS**: The default deployment strategy in Kubernetes is called [rolling update](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/). The process starts a new instance of your container in parallel with the existing one. The old one is removed only after the new one starts, so there's no downtime. You can also choose [other deployment strategies that are available in Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy).
-- **Container Apps**: By default, any container that's deployed to Container Apps has [zero downtime](/azure/container-apps/revisions#zero-downtime-deployment). The implementation works like a Kubernetes rolling update. You also have the option to validate and test containers before you send them to production by using [direct revision access](/azure/container-apps/revisions#direct-revision-access).
+Please note that the application architectures must also support zero-downtime deployment. See [Azure Well-Architected Framework](/azure/well-architected/) for guidance.
 
 ### Resource limits
 
