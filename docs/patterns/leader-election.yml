@@ -10,6 +10,8 @@ metadata:
   ms.subservice: azure-guide
 azureCategories:
   - analytics
+products:
+  - azure-blob-storage
 name: Leader Election pattern
 summary: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
 thumbnailUrl: /azure/architecture/browse/thumbs/leader-election.png
