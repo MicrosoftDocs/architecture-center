@@ -345,7 +345,7 @@
     {
       "source_path": "docs/service-fabric/refactor-migrated-app.md",
       "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/databricks-monitoring/configure-cluster.md",
