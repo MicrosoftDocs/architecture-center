@@ -1,6 +1,6 @@
 ---
 title: SaaS and multitenant solution architecture
-description: This guide provides an overview of the architectural content for SaaS, startups, and multitenancy.
+description: This guide provides an overview of the architectural content for SaaS, startups, and multitenancy and guidance about architecting multitenant solutions on Azure.
 author: landonpierce 
 ms.author: landonpierce 
 ms.date: 03/04/2024
@@ -14,7 +14,7 @@ categories:
 ---
 # SaaS and multitenant solution architecture
 
-An organization can use software as a service (SaaS) to efficiently deliver software to its customers. Typically, a SaaS vendor operates and manages the software for their customers. Many independent software vendors (ISVs) are migrating from providing software that customers must install and manage by themselves to using a SaaS model because it improves customer experience and reduces overhead. This series of articles provides guidance and resources for organizations, including startups, that build SaaS solutions. It also provides extensive guidance about architecting multitenant solutions on Azure.
+An organization can use software as a service (SaaS) to efficiently deliver software to its customers. Typically, a SaaS vendor operates and manages the software for their customers. Many independent software vendors (ISVs) are migrating from providing software that customers must install and manage by themselves to using a SaaS model because it improves customer experience and reduces overhead. This is an introduction to a series of articles that provide guidance and resources for organizations, including startups, that build SaaS solutions. It also provides extensive guidance about architecting multitenant solutions on Azure.
 
 ## Key concepts
 
@@ -27,9 +27,9 @@ The key concepts in this article are *SaaS*, *startups*, and *multitenancy*. The
 **Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** You usually use multitenant architectures in SaaS solutions. You can also use multitenant architectures outside of SaaS, such as in organizations that build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Rather, it implies that at least *some* components of a solution are reused across multiple tenants. How you [define a tenant](../multitenant/considerations/tenancy-models.yml#define-a-tenant) and choose a [tenancy model](../multitenant/considerations/tenancy-models.yml#common-tenancy-models) depends on whether your business model is B2C SaaS or B2B SaaS or you're a large organization.
 
 > [!NOTE]
-> In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. The guidance can help you build your own multitenant software solutions on top of the Azure platform.
+> This series uses the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. The guidance can help you build your own multitenant software solutions on top of the Azure platform.
 >
-> Microsoft Entra ID also includes the concept of a tenant to refer to individual directories. It uses the term *multitenancy* to refer to interactions between multiple Microsoft Entra tenants. Although the terms are the same, the concepts are not. When we need to refer to the Microsoft Entra concept of a tenant, we disambiguate it by using the full term, *Microsoft Entra tenant*.
+> In Microsoft Entra ID, a tenant refers to individual directories, and multitenancy refers to interactions between multiple Microsoft Entra tenants. Although the terms are the same, the concepts are not. For clarity, this series uses the full term, Microsoft Entra tenant, when referring to the Microsoft Entra ID concept of a tenant.
 
 This diagram illustrates the differences between these concepts for an organization that uses a SaaS business model:
 
