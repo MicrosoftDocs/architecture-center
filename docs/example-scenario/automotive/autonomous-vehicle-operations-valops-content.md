@@ -59,10 +59,10 @@ A [Power BI Azure Data Explorer Direct Query Connector](https://learn.microsoft.
 
 ### Components
 - [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) provides a way for operators to manage non-Azure and/or on-premises resources such as HIL rigs from Azure Resource Manager
-- [Azure Front Doors] (https://learn.microsoft.com/azure/frontdoor/front-door-overview) protects for traffic surges and protect network  from attacks
+- [Azure Front Doors](https://learn.microsoft.com/azure/frontdoor/front-door-overview) protects for traffic surges and protect network  from attacks
 - [Azure HPC Cache](https://learn.microsoft.com/azure/hpc-cache/hpc-cache-overview) speeds access to your data for high-performanc computing (HPC) tasks such as resimulation, simulation, or model training
 - [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft cloud over a private connection.
-- [Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like resimulation jobs or closed-loop testing.
+- [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like resimulation jobs or closed-loop testing.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this case, Data Lake Storage stores data based on stages, for example, raw or extracted.
 - [Azure Deployment Environments](https://learn.microsoft.com/azure/deployment-environments/overview-what-is-azure-deployment-environments) empowers teams to quickly and easily spin up infrastructure based on templates.  SDV toolchain utilizes Azure Deployment Environments to spin up testing infrastructure consistently and securely
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for models and other SW modules for the automated driving stack.
@@ -118,30 +118,29 @@ Overall, building a simulation test environment for ADAS/AD on the Azure cloud r
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
 
-Azure Batch is the recommended choice for HPC and (Re-)simulation workloads. We understand that due to the broad adoption of Kubernetes (on Azure available as managed Azure Kubernetes Service aka AKS) customers want to utilize the similiar compute infrastructure that is already used for APIs and other applications. 
+#### Architecture Overview
+Although [Azure Batch](https://azure.microsoft.com/products/batch) is the recommended choice for HPC and (Re-)simulation workloads, there is a broad demand for a Kubernetes based solution for ValOps. Due to the broad adoption of Kubernetes organizations that want to utilize the similiar compute infrastructure that is already used for APIs and other applications, organizations can utilize [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/). 
+ Azure Kubernetes Service or AKS is a managed Azure service that allows for API comp. 
 
-One concern that needs be addressed is the Job scheduling (which for instance Azure Batch or 3rd party scheduler like Slurm provide out of the box) to parallelize sequence processing (e. g. validate images with ground truth data) for (re-) simulation. 
+An architectural difference for ValOps when utilizing AKS vs Azure Batch is the role of job scheduling.  Job scheduling is supported by Azure Batch out of the box. There are also 3rd party schedulers such as [Slurm](https://slurm.schedmd.com/overview.html)) that could be utilized to parallelize sequence processing.  For example, during resimulation validating images with ground truth data. 
 
-One solution for job scheduling on AKS is depicted in the architecture above to leverage Azure Durable Functions as an external orchestrator / scheduler that reads from Metadata database which sequences need to be validated and chunk these by sending batches as events to a work queue (like Kafka) for parallel processing (each event / batch represents an activity in the Azure Durable Function). These batches contain references to images and frames (stored on Azure Storage) that should be re-processed. Azure Durable Function provides state management and can easily be integrated in an Azure Data Factory / Fabric pipeline (see picture below) or called by an orchestrator like Symphony. This pattern is aligned with the work queue job scheduling approach, see [link](https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/). 
+For the ValOps reference architecture in AKS, it is recommended to utilize [Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp) as an external orchestrator and scheduler. Azure Durable Functions reads from the metadata database to determine which sequences need validation and chunks them into batches for parallel processing. These batches are sent as events to a work queue, such as [Kafka](https://kafka.apache.org/), where each event represents an activity in the Azure Durable Function. The batches contain references to images and frames stored on Azure Storage that require re-processing. Azure Durable Functions provides state management and can be easily integrated into an Azure Data Factory/Fabric pipeline or called by an orchestrator like Symphony. This approach aligns with the work queue job scheduling pattern, as described in the [Kubernetes documentation](https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/). 
 
+To achieve horizontal scalability, multiple pods are configured to listen to the work queue or Kafka topic. When an event is sent by an Azure Durable Function, one of the pods consumes the event and performs the re-processing or re-simulation of the chunk or batch.
 
 :::image type="content" source="./images/adf-durable-functions.png" alt-text="Example Azure Fata Factory flow that shows integration with Azure Durable Functions" border="false" lightbox="./images/adf-durable-functions.png":::
 
-Several pods listen to the work queue / Kafka topic and one of them consumes the event (sent by an Azure Durable Function) and performs the actual re-processing / re-simulation of that chunck / batch to scale horizontally.
+#### Components
+- [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/) managed Azure service to deploy a Kubernetes cluster for Validation use cases such as Open Loop testing or Closed loop testing
+- [Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp) lets you write stateful functions in a serverless compute environment
+- [Kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+- [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview) storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. 
 
+#### Alternatives
 Alternative options for Job scheduling and orchestration on AKS are 3rd party tools like:
 
-- https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/kubernetes.html (available as managed service in Azure Data Factory as preview)
-- https://www.kubeflow.org/
-
-#### Architecture Overview
-
-#### Components
-[Azure Durable Functions](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp) lets you write stateful functions in a serverless compute environment
-[kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
-[Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview) storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. 
-
-#### Considerations
+- [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/kubernetes.html) is an open source platform that allows organizations to schedule and monitor worklows (available as managed service in Azure Data Factory as preview)
+- [kubeflow](https://www.kubeflow.org/) is an open source project that makes deployments of workflows running on kubernetes simple
 
 ## Considerations
 
