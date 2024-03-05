@@ -1058,8 +1058,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Virtual WAN architecture optimized for department-specific requirements]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan"/>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/performance-security-optimized-vwan</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/performance-security-optimized-vwan"/>
         <updated>2023-12-07T20:31:42.000Z</updated>
         <summary type="html"><![CDATA[Learn how to design a single network that has varying security and performance requirements.]]></summary>
         <category label="updated" term="updated"/>
