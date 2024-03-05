@@ -431,9 +431,9 @@ conceptualContent:
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
-        - text: WordPress overview
-          itemType: get-started
-          url: /azure/architecture/guide/infrastructure/wordpress-overview
+        - text: WordPress on virtual machines
+          itemType: architecture
+          url: example-scenario/infrastructure/wordpress-iaas.yml
 
     - title: SAP
       links:
