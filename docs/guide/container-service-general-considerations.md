@@ -350,15 +350,11 @@ For more information, see:
 
 ### Managed identity support
 
-It's a best practice to use managed identities to access Azure resources without using secrets. For example, you can pull images from Azure Container Registry without using a username and password.
-
-Azure container services provide managed identity support, configurable out of the box for Container Apps and Web App for Containers. AKS provides integrated managed identity support for the Kubernetes control plane, Container Registry image management, and cluster add-ons. Managed identity for AKS applications is provided through the [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) feature.
+Applications with assigned managed identities can access Azure resources without passwords. All container services mentioned in this guide support managed identities.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Infrastructure managed identity support** | N/A | ✅ | N/A |
-| **Container-pull managed identity support** | ✅ | ✅ | ✅ |
-| **Application managed identity support** | ✅ | ✅ | ✅ |
+| **Managed identity support** | ✅ | ✅ | ✅ |
 
 For more information, see:
 
