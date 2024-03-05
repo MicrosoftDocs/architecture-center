@@ -20,7 +20,7 @@ items:
   - name: Application landing zone design guides
     items:
     - name: Azure Virtual Desktop
-      href: landing-zones/azure-virtual-desktop/design-guide.md      
+      href: landing-zones/azure-virtual-desktop/design-guide.md
   - name: Subscription vending implementation
     href: landing-zones/subscription-vending.yml
 - name: Application architecture fundamentals
@@ -190,7 +190,7 @@ items:
           - name: Search data store
             href: data-guide/technology-choices/search-options.md
           - name: Select a data store
-            href: guide/technology-choices/data-store-decision-tree.md 
+            href: guide/technology-choices/data-store-decision-tree.md
       - name: Database scenarios
         items:
         - name: OLAP solutions
@@ -224,7 +224,7 @@ items:
       items:
       - name: Cognitive Services
         href: data-guide/technology-choices/cognitive-services.md
-      - name: API services  
+      - name: API services
         items:
         - name: Language API services
           href: data-guide/cognitive-services/language-api.md
@@ -442,7 +442,7 @@ items:
           href: guide/multitenant/approaches/deployment-configuration.yml
         - name: Compute
           href: guide/multitenant/approaches/compute.md
-        - name: Control planes 
+        - name: Control planes
           href: guide/multitenant/approaches/control-planes.md
         - name: Networking
           href: guide/multitenant/approaches/networking.md
@@ -524,7 +524,7 @@ items:
       - name: Multitenancy checklist
         href: guide/multitenant/checklist.md
       - name: Related resources
-        href: guide/multitenant/related-resources.md      
+        href: guide/multitenant/related-resources.md
   - name: Mission-critical applications
     items:
     - name: Mission-critical baseline architecture
@@ -566,7 +566,7 @@ items:
           - name: Content delivery
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
           - name: Global HTTP ingress
-            href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md 
+            href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
   - name: Solutions across Microsoft platforms
     items:
     - name: Microsoft cloud developer docs
@@ -751,8 +751,6 @@ items:
           - name: Migrate an AWS Windows VM
             href: /azure/virtual-machines/windows/aws-to-azure
             maintainContext: true
-        - name: Migrate from EKS to AKS
-          href: aws-professional/eks-to-aks/migrate-eks-to-aks.md
       - name: Security for AWS
         items:
         - name: Azure security for AWS
@@ -912,8 +910,6 @@ items:
     href: patterns/priority-queue.yml
   - name: Publisher/Subscriber
     href: patterns/publisher-subscriber.yml
-  - name: Quarantine
-    href: patterns/quarantine.yml
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.yml
   - name: Rate Limiting
@@ -943,7 +939,7 @@ items:
 - name: Azure categories
   items:
   - name: AI + Machine Learning
-    href: ai-ml/index.md  
+    href: ai-ml/index.md
   - name: Analytics
     items:
     - name: Get started
@@ -1007,7 +1003,7 @@ items:
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
         - name: Observability patterns and metrics
-          href: databricks-monitoring/databricks-observability.yml          
+          href: databricks-monitoring/databricks-observability.yml
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -1121,7 +1117,7 @@ items:
       - name: Enhanced customer dimension
         href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Enterprise data warehouse
-        href: solution-ideas/articles/enterprise-data-warehouse.yml        
+        href: solution-ideas/articles/enterprise-data-warehouse.yml
       - name: ETL using HDInsight
         href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
       - name: Highly scalable customer service and ERP
@@ -1239,7 +1235,7 @@ items:
           - name: Ansys Fluent
             href: guide/hpc/ansys-fluent.yml
           - name: Ansys HFSS
-            href: guide/hpc/ansys-hfss.yml  
+            href: guide/hpc/ansys-hfss.yml
           - name: Ansys LS-DYNA
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
@@ -1254,8 +1250,8 @@ items:
             href: guide/hpc/autodesk-inventor.yml
           - name: Autodesk Maya
             href: guide/hpc/autodesk-maya.yml
-          - name: Autodesk Revit 
-            href: guide/hpc/hpc-autodesk-revit.yml 
+          - name: Autodesk Revit
+            href: guide/hpc/hpc-autodesk-revit.yml
           - name: Autodesk VRED
             href: guide/hpc/hpc-autodesk-vred.md
         - name: AVL FIRE M
@@ -1279,13 +1275,13 @@ items:
         - name: Indica Labs HALO AI
           href: guide/hpc/indica-labs-halo-ai.yml
         - name: LAMMPS
-          href: guide/hpc/hpc-lammps.yml  
+          href: guide/hpc/hpc-lammps.yml
         - name: Luxion KeyShot
           href: guide/hpc/luxion-keyshot.yml
-        - name: M-Star  
+        - name: M-Star
           href: guide/hpc/m-star.yml
         - name: NAMD
-          href: guide/hpc/hpc-namd.yml  
+          href: guide/hpc/hpc-namd.yml
         - name: OpenFOAM
           href: guide/hpc/openfoam.yml
         - name: OpenRadioss
@@ -1314,8 +1310,6 @@ items:
             href: guide/hpc/siemens-tecnomatix.yml
         - name: tNavigator
           href: guide/hpc/tnavigator.yml
-        - name: TUFLOW HPC
-          href: guide/hpc/tuflow-hpc.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm
@@ -1391,7 +1385,13 @@ items:
       - name: VM baseline
         href: virtual-machines/baseline.yml
       - name: VM baseline in Azure landing zones
-        href: virtual-machines/baseline-landing-zone.yml      
+        href: virtual-machines/baseline-landing-zone.yml
+      - name: Multi-region N-tier application
+        href: reference-architectures/n-tier/multi-region-sql-server.yml       
+      - name: Multi-region load balancing
+        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml    
+      - name: Multi-tier web application built for HA/DR
+        href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml             
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
       - name: Computer-aided engineering
@@ -1403,7 +1403,7 @@ items:
       - name: Digital image modeling
         href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
-        href: example-scenario/batch/fsi-workloads-using-batch.yml        
+        href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: HPC cluster deployed in the cloud
         href: solution-ideas/articles/hpc-cluster.yml
       - name: Linux virtual desktops with Citrix
@@ -1437,13 +1437,13 @@ items:
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
-    items: 
+    items:
     - name: Choose a container host
-      items: 
+      items:
       - name: Overview
         href: guide/choose-azure-container-service.md
       - name: Considerations
-        href: guide/container-service-general-considerations.md 
+        href: guide/container-service-general-considerations.md
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -1463,7 +1463,7 @@ items:
           - name: Advanced microservices on AKS
             href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
         - name: Infrastructure
-          items: 
+          items:
           - name: AKS baseline cluster
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
@@ -1534,6 +1534,8 @@ items:
               href: operator-guides/aks/aks-upgrade-practices.md
             - name: Troubleshoot networking
               href: operator-guides/aks/troubleshoot-network-aks.md
+            - name: Troubleshoot virtual nodes
+              href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
             - name: Monitor AKS with Azure Monitor
               href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
@@ -1559,9 +1561,9 @@ items:
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
         - name: JBoss deployment with Red Hat on Azure
-          href: solution-ideas/articles/jboss-deployment-red-hat.yml         
+          href: solution-ideas/articles/jboss-deployment-red-hat.yml
         - name: AKS in event stream processing
-          href: solution-ideas/articles/serverless-event-processing-aks.yml          
+          href: solution-ideas/articles/serverless-event-processing-aks.yml
     - name: PaaS container hosting
       items:
       - name: Architectures
@@ -1569,9 +1571,9 @@ items:
         - name: Microservices with Container Apps
           href: example-scenario/serverless/microservices-with-container-apps.yml
         - name: Microservices with Dapr and KEDA
-          href: example-scenario/serverless/microservices-with-container-apps-dapr.yml        
+          href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
   - name: Databases
-    href: databases/index.yml  
+    href: databases/index.yml
   - name: DataOps
     items:
     - name: Get started
@@ -1840,7 +1842,7 @@ items:
           - name: CI/CD for a serverless frontend
             href: serverless/guide/serverless-app-cicd-best-practices.yml
         - name: Monitor a distributed system
-          href: guide/devops/monitor-with-opencensus-application-insights.yml 
+          href: guide/devops/monitor-with-opencensus-application-insights.yml
         - name: Monitoring serverless event processing
           href: serverless/guide/monitoring-serverless-event-processing.md
         - name: Serverless Functions app operations
@@ -2108,7 +2110,7 @@ items:
         - name: AKS on Azure Stack HCI network architecture
           href: example-scenario/hybrid/aks-network.yml
         - name: Deploy apps with AKS hybrid on Azure Stack ACI
-          href: example-scenario/hybrid/aks-hybrid-stack-hci.yml  
+          href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
       - name: Azure Automation solutions
         items:
         - name: Azure Automation hybrid environment
@@ -2117,6 +2119,8 @@ items:
           href: hybrid/azure-update-mgmt.yml
         - name: Azure Automation State Configuration
           href: example-scenario/state-configuration/state-configuration.yml
+        - name: Implement a secure hybrid network
+          href: reference-architectures/dmz/secure-vnet-dmz.yml          
       - name: Azure enterprise cloud file share
         href: hybrid/azure-files-private.yml
       - name: Azure files secured by AD DS
@@ -2477,7 +2481,7 @@ items:
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
         href: guide/iot/migrate-iot-solution-azure.yml
-      - name: Scale your Azure IoT solutions 
+      - name: Scale your Azure IoT solutions
         href: guide/iot/scale-iot-solution-azure.md
       - name: Azure IoT client SDK support
         href: guide/iot/azure-iot-client-sdk-support.yml
@@ -2505,7 +2509,7 @@ items:
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.yml
-      - name: Secure tunneling with Azure Relay  
+      - name: Secure tunneling with Azure Relay
         href: example-scenario/networking/secure-tunneling-azure-relay.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
@@ -2595,7 +2599,7 @@ items:
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs
-          href: example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml 
+          href: example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM System i to Azure using Infinite i
@@ -2648,7 +2652,7 @@ items:
           href: reference-architectures/migration/unisys-mainframe-migration.yml
         - name: Use LzLabs SDM in Azure
           href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
-        
+
       - name: Solution ideas
         items:
         - name: Migrate IBM apps with TmaxSoft
@@ -3126,230 +3130,7 @@ items:
       - name: Task-based consumer mobile app
         href: solution-ideas/articles/task-based-consumer-mobile-app.yml
   - name: Networking
-    items:
-    - name: Get started
-      href: guide/networking/networking-start-here.md
-    - name: Guides
-      items:
-      - name: Deploy private 5G networks
-        items:
-        - name: Overview
-          href: industries/telecommunications/deploy-private-mobile-network.md
-        - name: Build a private 5G network
-          href: industries/telecommunications/build-private-5g-network.md
-      - name: SDWAN integration
-        href: networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml
-      - name: Spoke-to-spoke networking
-        href: networking/spoke-to-spoke-networking.yml
-      - name: Network security
-        items:
-        - name: Azure network security overview
-          href: /azure/security/fundamentals/network-overview
-          maintainContext: true
-        - name: Best practices for network security
-          href: /azure/security/fundamentals/network-best-practices
-          maintainContext: true
-        - name: Network security and containment
-          href: /security/compass/network-security-containment
-          maintainContext: true
-        - name: Azure DDoS Protection features
-          href: /azure/ddos-protection/ddos-protection-features
-          maintainContext: true
-        - name: Azure DDoS Protection architectures
-          href: /azure/ddos-protection/ddos-protection-reference-architectures
-          maintainContext: true
-        - name: Security baseline for DDoS Protection
-          href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline
-          maintainContext: true
-      - name: Application Gateway v2 framework review
-        href: /azure/architecture/framework/services/networking/azure-application-gateway
-        maintainContext: true
-      - name: Azure Firewall guidance
-        items:
-        - name: Azure NVA Firewall architecture overview
-          href: example-scenario/firewalls/index.yml
-        - name: Security baseline for Azure Firewall
-          href: /security/benchmark/azure/baselines/firewall-security-baseline
-          maintainContext: true
-      - name: NAT gateway framework review
-        href: networking/guide/well-architected-network-address-translation-gateway.yml
-      - name: Private Link in hub-and-spoke network
-        href: guide/networking/private-link-hub-spoke-network.yml
-      - name: Guide to Private Link and DNS with Azure Virtual WAN
-        items:
-        - name: Guide overview
-          href: guide/networking/private-link-virtual-wan-dns-guide.yml
-        - name: Virtual hub extension pattern
-          href: guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml
-        - name: Single region accessing single resource
-          href: guide/networking/private-link-virtual-wan-dns-single-region-workload.yml
-      - name: Virtual Network guidance
-        items:
-        - name: Prevent IPv4 exhaustion
-          href: guide/networking/ipv4-exhaustion.yml        
-        - name: Add IP spaces to peered virtual networks
-          href: networking/prefixes/add-ip-space-peered-vnet.yml
-        - name: Segment virtual networks
-          href: reference-architectures/hybrid-networking/network-level-segmentation.yml
-        - name: VNet peering and VPN gateways
-          href: reference-architectures/hybrid-networking/vnet-peering.yml
-        - name: Integrate virtual networks for isolation
-          href: /azure/virtual-network/vnet-integration-for-azure-services
-          maintainContext: true
-        - name: Deploy services into virtual networks
-          href: /azure/virtual-network/virtual-network-for-azure-services
-          maintainContext: true
-        - name: Virtual Network service endpoints
-          href: /azure/virtual-network/virtual-network-service-endpoints-overview
-          maintainContext: true
-        - name: Limit cross-tenant private endpoints
-          href: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections
-          maintainContext: true
-        - name: Virtual network service tags
-          href: /azure/virtual-network/service-tags-overview
-          maintainContext: true
-      - name: Global transit network and Virtual WAN
-        href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
-        maintainContext: true
-      - name: Build solutions with availability zones
-        href: high-availability/building-solutions-for-high-availability.yml
-      - name: Deploy highly available NVAs
-        href: reference-architectures/dmz/nva-ha.yml
-      - name: Use ExpressRoute with Power Platform
-        items:
-        - name: Overview
-          href: /power-platform/guidance/expressroute/overview
-          maintainContext: true
-        - name: Benefits of using ExpressRoute
-          href: /power-platform/guidance/expressroute/benefits
-          maintainContext: true
-        - name: How ExpressRoute works
-          href: /power-platform/guidance/expressroute/how-expressroute-works
-          maintainContext: true
-        - name: Before you use ExpressRoute
-          href: /power-platform/guidance/expressroute/things-to-consider
-          maintainContext: true
-        - name: Understand Power Platform architecture
-          href: /power-platform/guidance/expressroute/understanding-architecture
-          maintainContext: true
-        - name: Plan an ExpressRoute deployment
-          href: /power-platform/guidance/expressroute/planning-expressroute
-          maintainContext: true
-        - name: Set up ExpressRoute for Power Platform
-          href: /power-platform/guidance/expressroute/setup
-          maintainContext: true
-        - name: ExpressRoute readiness checklist
-          href: /power-platform/guidance/expressroute/checklist
-          maintainContext: true
-      - name: ExpressRoute for Office 365
-        href: /microsoft-365/enterprise/azure-expressroute
-        maintainContext: true
-      - name: Connectivity to other cloud providers
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers
-        maintainContext: true
-      - name: Connectivity to Oracle Cloud Infrastructure
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
-        maintainContext: true
-      - name: Resolve overlapping IP address space constraints
-        href: guide/networking/private-link-ip-constraints.yml
-      - name: Cross-tenant secure access to apps
-        href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
-      - name: Global web applications
-        items:
-          - name: Overview
-            href: guide/networking/global-web-applications/overview.md
-          - name: Mission-critical global HTTP ingress
-            href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
-          - name: Mission-critical content delivery
-            href: guide/networking/global-web-applications/mission-critical-content-delivery.md
-      - name: Adopting IPv6
-        items:
-          - name: Conceptual planning for IPv6 networking
-            href: networking/guide/ipv6-ip-planning.md
-          - name: IPv6 hub-spoke network topology
-            href: networking/guide/ipv6-architecture.yml
-    - name: Architectures
-      items:
-      - name: Azure DNS Private Resolver
-        href: example-scenario/networking/azure-dns-private-resolver.yml
-      - name: High availability for IaaS apps
-        href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
-      - name: Hub-spoke network topology in Azure
-        href: reference-architectures/hybrid-networking/hub-spoke.yml
-      - name: Hybrid networking
-        items:
-        - name: Azure Automation Update Management
-          href: hybrid/azure-update-mgmt.yml
-        - name: Connect servers with Network Adapter
-          href: hybrid/azure-network-adapter.yml
-        - name: Design a hybrid DNS solution
-          href: hybrid/hybrid-dns-infra.yml
-        - name: Hybrid availability and monitoring
-          href: hybrid/hybrid-perf-monitoring.yml
-      - name: Implement a secure hybrid network
-        href: reference-architectures/dmz/secure-vnet-dmz.yml
-      - name: Implement an open-source jump server
-        href: example-scenario/infrastructure/apache-guacamole.yml
-      - name: Interconnect with China using Virtual WAN
-        href: /azure/virtual-wan/interconnect-china
-        maintainContext: true
-      - name: Migrate to Azure Virtual WAN
-        href: /azure/virtual-wan/migrate-from-hub-spoke-topology
-        maintainContext: true
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.yml
-      - name: Multi-region load balancing
-        href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
-      - name: Multi-tier web application built for HA/DR
-        href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
-      - name: Multitenant SaaS
-        href: example-scenario/multi-saas/multitenant-saas.yml
-      - name: Network-hardened web app
-        href: example-scenario/security/hardened-web-app.yml
-      - name: Network topology and connectivity with AVS
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
-        maintainContext: true
-      - name: Private Link and DNS integration at scale
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
-        maintainContext: true
-      - name: SD-WAN connectivity with Virtual WAN
-        href: /azure/virtual-wan/sd-wan-connectivity-architecture
-        maintainContext: true
-      - name: Traditional Azure networking topology
-        href: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
-        maintainContext: true
-      - name: TIC 3.0 compliance
-        href: example-scenario/security/trusted-internet-connections.yml
-      - name: Update route tables with Route Server
-        href: example-scenario/networking/manage-routing-azure-route-server.yml
-      - name: Virtual WAN solutions
-        items:
-        - name: Hub-spoke topology with VWAN
-          href: networking/hub-spoke-vwan-architecture.yml
-        - name: Interconnect with China
-          href: /azure/virtual-wan/interconnect-china
-          maintainContext: true
-        - name: Massive-scale VWAN architecture design
-          href: example-scenario/networking/massive-scale-azure-architecture.yml
-        - name: Migrate to Azure Virtual WAN
-          href: /azure/virtual-wan/migrate-from-hub-spoke-topology
-          maintainContext: true
-        - name: SD-WAN connectivity with VWAN
-          href: /azure/virtual-wan/sd-wan-connectivity-architecture
-          maintainContext: true
-        - name: Virtual WAN network topology
-          href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
-          maintainContext: true
-        - name: Virtual WAN optimized for requirements
-          href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
-    - name: Solution ideas
-      items:
-      - name: Low-latency network for industry
-        href: solution-ideas/articles/low-latency-network.yml
-      - name: Video capture and analytics for retail
-        href: solution-ideas/articles/video-analytics.yml
-      - name: IoT network for healthcare facilities
-        href: solution-ideas/articles/healthcare-network.yml
+    href: networking/index.md        
   - name: Oracle
     items:
     - name: Get started
@@ -3584,7 +3365,7 @@ items:
       - name: Improved-security access to multitenant
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Loan credit risk modeling
-        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml        
+        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
@@ -4167,8 +3948,6 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host a Murex MX.3 workload on Azure using Oracle
         href: example-scenario/finance/murex-mx3-azure.yml
-      - name: Host a Murex MX.3 workload using SQL
-        href: example-scenario/finance/murex-mx3-sql.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
@@ -4291,7 +4070,7 @@ items:
       href: industries/healthcare.md
     - name: Guides
       items:
-      - name: Azure Health Data Services architecture  
+      - name: Azure Health Data Services architecture
         href: guide/data/azure-health-data-services.yml
     - name: Architectures
       items:
@@ -4397,7 +4176,7 @@ items:
           maintainContext: true
         - name: HITRUST overview
           href: /azure/compliance/offerings/offering-hitrust
-          maintainContext: true        
+          maintainContext: true
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: HIPAA HITRUST 9.2 compliance
@@ -4729,17 +4508,17 @@ items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
       - name: Siemens Teamcenter
-        items: 
+        items:
         - name: Teamcenter baseline architecture
           href: example-scenario/manufacturing/teamcenter-baseline.yml
         - name: Teamcenter with Azure NetApp Files
-          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml 
+          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Anomaly detector process
         href: solution-ideas/articles/anomaly-detector-process.yml
       - name: Automated fab scheduling and dispatching
-        href: example-scenario/manufacturing/fab-scheduling-azure.yml  
+        href: example-scenario/manufacturing/fab-scheduling-azure.yml
       - name: Batch integration in a factory
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: CAE simulations for manufacturing
@@ -4846,9 +4625,9 @@ items:
     - name: Solution ideas
       items:
       - name: Energy supply optimization
-        href: solution-ideas/articles/energy-supply-optimization.yml      
+        href: solution-ideas/articles/energy-supply-optimization.yml
       - name: Energy demand forecasting
-        href: solution-ideas/articles/forecast-energy-power-demand.yml          
+        href: solution-ideas/articles/forecast-energy-power-demand.yml
   - name: Telecommunications
     items:
     - name: Overview
@@ -4889,7 +4668,7 @@ items:
     - name: Architectures
       items:
       - name: All telecommunications architectures
-        href: /azure/architecture/browse/?terms=telecommunications      
+        href: /azure/architecture/browse/?terms=telecommunications
       - name: Carrier-grade example solution
         href: industries/telecommunications/carrier-grade.yml
       - name: Geospatial analysis for telecommunications
@@ -4941,7 +4720,7 @@ items:
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Automotive connected fleets
-        href: industries/automotive/automotive-connected-fleets.yml 
+        href: industries/automotive/automotive-connected-fleets.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
       - name: DataOps for autonomous vehicle operations
@@ -5437,7 +5216,7 @@ items:
         - name: IoT connected light, power, and internet
           href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities
-          href: solution-ideas/articles/healthcare-network.yml
+          href: networking/idea/healthcare-network.yml
         - name: Lighting and disinfection system
           href: solution-ideas/articles/uven-disinfection.yml
         - name: Smart places with Azure Digital Twins
