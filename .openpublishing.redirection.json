@@ -344,8 +344,8 @@
     },
     {
       "source_path": "docs/service-fabric/refactor-migrated-app.md",
-      "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
-      "redirect_document_id": true
+      "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/databricks-monitoring/configure-cluster.md",
@@ -2025,7 +2025,7 @@
     },
     {
       "source_path": "docs/service-fabric/index.md",
-      "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
+      "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
       "redirect_document_id": false
     },
     {
@@ -4053,6 +4053,7 @@
     {
       "source_path": "docs/networking/guide/ipv6/ipv6-ip-planning.md",
       "redirect_url": "/azure/architecture/networking/guide/ipv6-ip-planning",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/operator-guides/aks/troubleshoot-virtual-nodes-aks.md",
@@ -4188,6 +4189,16 @@
       "source_path": "docs/solution-ideas/articles/healthcare-network.yml",
       "redirect_url": "/azure/architecture/networking/idea/healthcare-network",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/service-fabric/migrate-from-cloud-services.yml",
+      "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/service-fabric-microservices.yml",
+      "redirect_url": "/azure/service-fabric/service-fabric-overview-microservices",
+      "redirect_document_id": false
     }
   ]
 }

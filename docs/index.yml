@@ -356,18 +356,12 @@ conceptualContent:
         - text: CI/CD for microservices on Kubernetes
           itemType: how-to-guide
           url: microservices/ci-cd-kubernetes.yml
-        - text: Migrate from Cloud Services to Service Fabric
-          itemType: how-to-guide
-          url: service-fabric/migrate-from-cloud-services.yml
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
           url: reference-architectures/containers/aks-microservices/aks-microservices.yml
         - text: Azure Service Fabric
           itemType: architecture
           url: reference-architectures/microservices/service-fabric.yml
-        - text: Decomposing a monolithic application
-          itemType: get-started
-          url:  example-scenario/infrastructure/service-fabric-microservices.yml
       footerLink:
         text: Introduction to microservices on Azure
         url: ./microservices/index.yml
