@@ -5,7 +5,7 @@ metadata:
   description: Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 01/19/2024
+  ms.date: 03/01/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
