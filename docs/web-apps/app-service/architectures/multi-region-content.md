@@ -217,7 +217,7 @@ Use Transparent Data Encryption if you need to encrypt data at rest in the datab
 When you define identities for the components in this architecture, use [system managed identities][system-managed-identities] where possible to reduce your need to manage credentials and the risks inherent to managing credentials. Where it's not possible to use system managed identities, ensure that every user managed identity exists in only one region and is never shared across region boundaries.
 
 **Service firewalls**
-When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that the services only allow outbound connections, which is explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Network-hardened web application with private connectivity to PaaS datastores][hardened-web-app].
+When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that the services only allow outbound connections, which is explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant).
 
 ### Cost optimization
 
@@ -339,7 +339,6 @@ Principal author:
 [endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring
 [Design-principles-for-Azure-Application]: /azure/architecture/guide/design-principles
 [private-link]: /azure/private-link/private-link-overview
-[hardened-web-app]: /azure/architecture/example-scenario/security/hardened-web-app
 [durable-functions]: /azure/azure-functions/durable/durable-functions-overview
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [azure-search-scaling]: /azure/search/search-capacity-planning

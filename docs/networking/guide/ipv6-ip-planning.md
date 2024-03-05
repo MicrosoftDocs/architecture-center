@@ -117,4 +117,4 @@ You can use the following table to find instructions for transitioning specific 
 
 ## Related resources
 
-- [Networking architecture design](/azure/architecture/guide/networking/networking-start-here)
+- [Networking architecture design](../index.md)
