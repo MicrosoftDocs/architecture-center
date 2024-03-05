@@ -82,11 +82,14 @@ Check the allocated IP addresses in the plugin IPAM store. You might find that a
 
 ```bash
 # Kubenet, for example. The actual path of the IPAM store file depends on network plugin implementation. 
-cd /var/lib/cni/networks/kubenet 
-ls -al|wc -l 
+chroot /host/
+cd /var/lib/cni/networks/k8s-pod-network
+ls -la | grep -v -e "lock\|last" -e '\.$' | wc -l
 258 
-
-docker ps | grep POD | wc -l 
+```
+```bash
+# Check running Pod IPs
+kubectl get pods --field-selector spec.nodeName=<your_node_name>,status.phase=Running -A -o json | jq -r '.items[] | select(.spec.hostNetwork != 'true').status.podIP' | wc -l
 7 
 ```
 
