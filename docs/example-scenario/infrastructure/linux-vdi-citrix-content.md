@@ -123,5 +123,4 @@ Principal author:
 
 ## Related resources
 
-- [High-performance computing (HPC) for manufacturing](/azure/architecture/industries/manufacturing/compute-manufacturing-overview)
 - [Conditional Access framework and policies](/azure/architecture/guide/security/conditional-access-framework)

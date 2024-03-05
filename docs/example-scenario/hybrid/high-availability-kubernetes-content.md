@@ -199,7 +199,6 @@ Data is the most important consideration in most application designs. Applicatio
 Here are some solutions for implementing a highly available database on Azure Stack Hub:
 
 - [Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-sql-ha)
-- [Deploy a highly available MongoDB solution to Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-mongodb-ha?toc=/hybrid/app-solutions)
 
 If you're working with data across multiple locations, implementing a highly available and resilient solution is even more complex. Consider:
 
