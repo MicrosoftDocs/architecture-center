@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-02-24T12:46:17.437Z</updated>
+    <updated>2024-03-04T17:13:30.729Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway"/>
+        <updated>2024-03-01T18:56:49.000Z</updated>
+        <summary type="html"><![CDATA[Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure. Migrate or establish new SWIFT connectivity in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Ansys Speos on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos"/>
+        <updated>2024-03-01T18:50:25.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Ansys Speos optical-system simulation software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Intelligent e-commerce product search engine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search"/>
+        <updated>2024-03-01T09:44:44.000Z</updated>
+        <summary type="html"><![CDATA[This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)]]></title>
         <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate-eks-to-aks</id>
@@ -49,6 +73,158 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Group manager tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/group-manager-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/group-manager-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a group manager performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer acceptance stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Business understanding stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data science projects in the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data acquisition and understanding stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the deployment stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modeling stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data science projects.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move Blob Storage data with SSIS connectors]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to move data to or from Azure Blob Storage using SQL Server Integration Services Feature Pack for Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is the Team Data Science Process?]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/overview"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the Team Data Science Process provides a data science methodology to deliver predictive analytics solutions and intelligent applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Prepare data for Machine Learning Studio (classic)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/prepare-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/prepare-data"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Preprocess and clean data to prepare it to be used effectively for machine learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Individual contributor tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/project-ic-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/project-ic-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that an individual contributor performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project lead tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/project-lead-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/project-lead-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a project lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Roles and tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/roles-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/roles-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the outline of key components, personnel roles, and associated tasks for a data science group that uses the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process for data scientists]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies using the Team Data Science Process and Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team lead tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/team-lead-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/team-lead-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a team lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure icons]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//icons</id>
+        <link href="https://learn.microsoft.com/azure/architecture//icons"/>
+        <updated>2024-02-29T20:47:14.000Z</updated>
+        <summary type="html"><![CDATA[Icons for use in building architecture diagrams for Azure]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service"/>
+        <updated>2024-02-29T18:21:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure OpenAI and Azure AI Search to search documents in your enterprise data and retrieve results.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Databases architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
+        <updated>2024-02-29T17:51:52.000Z</updated>
+        <summary type="html"><![CDATA[This article provides an overview of the Azure database solutions described in Azure Architecture Center.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"/>
+        <updated>2024-02-29T10:49:15.000Z</updated>
+        <summary type="html"><![CDATA[Learn about hub-spoke topology in Azure, where the spoke virtual networks connect to the hub virtual network and can connect to each other.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[General considerations for choosing an Azure container service]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
@@ -70,14 +246,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway"/>
         <updated>2024-02-21T09:42:26.000Z</updated>
         <summary type="html"><![CDATA[Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure icons]]></title>
-        <id>https://learn.microsoft.com/azure/architecture//icons</id>
-        <link href="https://learn.microsoft.com/azure/architecture//icons"/>
-        <updated>2024-02-14T16:35:57.000Z</updated>
-        <summary type="html"><![CDATA[Icons for use in building architecture diagrams for Azure]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -489,11 +657,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Index file content and metadata by using Azure Cognitive Search]]></title>
+        <title type="html"><![CDATA[Index file content and metadata by using Azure AI Search]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/search-blob-metadata</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/search-blob-metadata"/>
         <updated>2024-01-19T21:27:03.000Z</updated>
-        <summary type="html"><![CDATA[Build an Azure Cognitive Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.]]></summary>
+        <summary type="html"><![CDATA[Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -717,7 +885,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle"/>
         <updated>2023-12-08T22:32:39.000Z</updated>
-        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data-science projects.]]></summary>
+        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data science projects.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -781,23 +949,23 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Business understanding in Team Data Science Process]]></title>
+        <title type="html"><![CDATA[Business understanding stage of the Team Data Science Process lifecycle]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.]]></summary>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data science projects in the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Data acquisition and understanding of Team Data Science Process]]></title>
+        <title type="html"><![CDATA[Data acquisition and understanding stage of the Team Data Science Process lifecycle]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the data acquisition and understanding stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -805,7 +973,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the deployment stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the deployment stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -813,7 +981,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the modeling stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -890,8 +1058,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Virtual WAN architecture optimized for department-specific requirements]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan"/>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/performance-security-optimized-vwan</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/performance-security-optimized-vwan"/>
         <updated>2023-12-07T20:31:42.000Z</updated>
         <summary type="html"><![CDATA[Learn how to design a single network that has varying security and performance requirements.]]></summary>
         <category label="updated" term="updated"/>
@@ -1062,206 +1230,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/engys-helyx"/>
         <updated>2023-12-02T05:14:02.000Z</updated>
         <summary type="html"><![CDATA[Learn how Engys HELYX computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Batch to run Financial Service Industry (FSI) workloads]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/batch/fsi-workloads-using-batch</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/batch/fsi-workloads-using-batch"/>
-        <updated>2023-11-17T20:05:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to run FSI workloads on Azure using Azure Batch.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Quantum ESPRESSO on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/quantum-espresso</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/quantum-espresso"/>
-        <updated>2023-11-16T20:44:18.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Quantum ESPRESSO materials modeling software performs on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mainframe workload migration proof of concept]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/mainframe/mainframe-proof-of-concept</id>
-        <link href="https://learn.microsoft.com/azure/architecture/mainframe/mainframe-proof-of-concept"/>
-        <updated>2023-11-16T17:19:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn about guidance for creating a proof of concept, which helps you migrate a workload from a mainframe to the cloud.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics"/>
-        <updated>2023-11-15T22:06:12.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy M-Star on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/m-star</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/m-star"/>
-        <updated>2023-11-07T19:21:49.000Z</updated>
-        <summary type="html"><![CDATA[Learn how M-Star computational fluid dynamics software performs on an Azure virtual machine (VM). Learn the steps for running M-Star on an Azure VM.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Software-defined vehicle DevOps toolchain]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture"/>
-        <updated>2023-11-07T15:40:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn about an architecture for transitioning to SDVs in which the in-vehicle software stack undergoes simulation and testing in cloud-based environments.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Architectural approaches for control planes in multitenant solutions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/control-planes</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/control-planes"/>
-        <updated>2023-11-06T23:21:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy CP2K on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/cp2k</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/cp2k"/>
-        <updated>2023-11-03T22:36:22.000Z</updated>
-        <summary type="html"><![CDATA[Find out how CP2K quantum chemistry and solid-state physics software performs on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy NAMD on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-namd</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-namd"/>
-        <updated>2023-11-01T20:54:53.000Z</updated>
-        <summary type="html"><![CDATA[Learn how NAMD, a parallel molecular dynamics application designed for high-performance simulation of large biomolecular systems, performs on an Azure VM.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy WRF on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/weather-research-forecasting</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/weather-research-forecasting"/>
-        <updated>2023-11-29T22:22:39.000Z</updated>
-        <summary type="html"><![CDATA[Find out how WRF performs on an Azure virtual machine and get a brief description of the steps for running the software on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Continuous validation with Azure Load Testing and Azure Chaos Studio]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing"/>
-        <updated>2023-11-28T20:20:52.000Z</updated>
-        <summary type="html"><![CDATA[Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy GROMACS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/gromacs</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/gromacs"/>
-        <updated>2023-11-22T20:54:25.000Z</updated>
-        <summary type="html"><![CDATA[Find out how GROMACS molecular dynamics simulation software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Cluster health]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Container registry connectivity]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Admission controllers]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Workload deployments]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Node health]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) operations triage]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Autodesk Maya on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya"/>
-        <updated>2023-11-21T21:22:50.000Z</updated>
-        <summary type="html"><![CDATA[See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Arc-enabled SQL Managed Instance disaster recovery]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/arc-sql-managed-instance-disaster-recovery</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/arc-sql-managed-instance-disaster-recovery"/>
-        <updated>2023-11-20T21:29:08.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Arc to deploy an Azure Arc-enabled SQL managed instance across two sites that are outside of Azure in a highly available architecture.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Arc-enabled server configurations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config"/>
-        <updated>2023-11-20T21:29:08.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The journey to SaaS: Dynamics 365]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/dynamics-365-journey-saas</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/dynamics-365-journey-saas"/>
-        <updated>2023-11-14T18:49:18.000Z</updated>
-        <summary type="html"><![CDATA[Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure landing zones - Bicep modules design considerations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/landing-zones/bicep/landing-zone-bicep</id>
-        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/bicep/landing-zone-bicep"/>
-        <updated>2023-11-07T18:14:10.000Z</updated>
-        <summary type="html"><![CDATA[Design considerations for the Azure landing zones Bicep modules.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure landing zones - Terraform module design considerations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/landing-zones/terraform/landing-zone-terraform</id>
-        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/terraform/landing-zone-terraform"/>
-        <updated>2023-11-07T18:14:10.000Z</updated>
-        <summary type="html"><![CDATA[Design considerations for the Azure landing zones Terraform module.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Architectural considerations for identity in a multitenant solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity"/>
-        <updated>2023-11-07T15:51:55.000Z</updated>
-        <summary type="html"><![CDATA[This article describes the considerations for managing identities in a multitenant solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>

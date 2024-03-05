@@ -105,7 +105,7 @@ The following are other ideas that you can use as a starting point for your reta
 
 **Networking**:
 
-- [Video capture and analytics for retail](../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../networking/idea/video-analytics.yml)
 
 **Web**:
 
