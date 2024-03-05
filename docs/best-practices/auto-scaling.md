@@ -55,8 +55,6 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
 
-- **Azure Cloud Services** has built-in autoscaling at the role level. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
-
 These compute options all use [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality.
 
 - **Azure Functions** differs from the previous compute options, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
@@ -158,7 +156,6 @@ The following patterns and guidance may also be relevant to your scenario when i
 [monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
 [app-service-autoscale]: /azure/app-service/manage-scale-up
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
-[cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [functions-scale]: /azure/azure-functions/functions-scale
 [service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
