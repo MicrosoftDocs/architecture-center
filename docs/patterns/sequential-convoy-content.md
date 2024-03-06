@@ -39,6 +39,16 @@ This pattern might not be suitable for:
 
 - Extremely high throughput scenarios (millions of messages/minute or second), as the FIFO requirement limits the scaling that can be done by the system.
 
+## Workload design
+
+An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern can eliminate race conditions that are hard to troubleshoot, contentious message handling, or other workarounds for addressing incorrectly ordered messages that can lead to malfunctions.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 On Azure, this pattern can be implemented using Azure Service Bus [message sessions](/azure/service-bus-messaging/message-sessions). For the consumers, you can use either Logic Apps with the [Service Bus peek-lock connector](/azure/connectors/connectors-create-api-servicebus) or Azure Functions with the [Service Bus trigger](/azure/azure-functions/functions-bindings-service-bus).

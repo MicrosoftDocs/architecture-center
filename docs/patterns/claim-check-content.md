@@ -37,7 +37,7 @@ The pattern can also be used if the payload should be accessed only by services 
 
 ## Workload design
 
-An architect should evaluate how the Claim-Check pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Claim-Check pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |

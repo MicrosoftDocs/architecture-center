@@ -2922,7 +2922,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/wordpress.yml",
-      "redirect_url": "/azure/architecture/web-apps/hosting-applications/wordpress",
+      "redirect_url": "/azure/architecture/guide/infrastructure/wordpress-overview",
       "redirect_document_id": true
     },
     {
@@ -4202,6 +4202,11 @@
     {
       "source_path": "docs/example-scenario/infrastructure/service-fabric-microservices.yml",
       "redirect_url": "/azure/service-fabric/service-fabric-overview-microservices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/hosting-applications/wordpress.yml",
+      "redirect_url": "/azure/architecture/guide/infrastructure/wordpress-overview",
       "redirect_document_id": false
     }
   ]

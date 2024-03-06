@@ -46,7 +46,7 @@ This pattern might not be suitable:
 
 ## Workload design
 
-An architect should evaluate how the Cache-Aside pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Cache-Aside pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |

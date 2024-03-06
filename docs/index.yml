@@ -425,9 +425,9 @@ conceptualContent:
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
-        - text: Highly scalable WordPress
-          itemType: get-started
-          url: web-apps/hosting-applications/wordpress.yml
+        - text: WordPress on virtual machines
+          itemType: architecture
+          url: example-scenario/infrastructure/wordpress-iaas.yml
 
     - title: SAP
       links:

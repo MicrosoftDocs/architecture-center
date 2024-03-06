@@ -40,6 +40,18 @@ This pattern is useful to any application that uses services that are subject to
 
 This pattern isn't useful if the application expects a response from the service with minimal latency.
 
+## Workload design
+
+An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The approach described in this pattern can provide resilience against sudden spikes in demand by decoupling the arrival of tasks from their processing. It can also isolate malfunctions in queue processing so that they don't affect intake.<br/><br/> - [RE:06 Scaling](/azure/well-architected/reliability/scaling)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | Because load processing is decoupled from the request or task intake, you can use this approach to reduce the need to overprovision resources to handle peak load.<br/><br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This approach enables intentional design on throughput performance because the intake of requests doesn't need to correlate to the rate in which they're processed.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 A web app writes data to an external data store. If a large number of instances of the web app run concurrently, the data store might be unable to respond to requests quickly enough, causing requests to time out, be throttled, or otherwise fail. The following diagram shows a data store being overwhelmed by a large number of concurrent requests from instances of an application.
@@ -62,7 +74,7 @@ The following guidance might also be relevant when implementing this pattern:
 
 ## Related resources
 
-- [Web-Queue-Worker architecture style](/azure/architecture/guide/architecture-styles/web-queue-worker). The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing. 
+- [Web-Queue-Worker architecture style](/azure/architecture/guide/architecture-styles/web-queue-worker). The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing.
 
 The following patterns might also be relevant when implementing this pattern:
 
