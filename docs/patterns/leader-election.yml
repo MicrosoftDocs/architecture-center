@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-blob-storage
 name: Leader Election pattern
-summary: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
+summary: Learn how to use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
 thumbnailUrl: /azure/architecture/browse/thumbs/leader-election.png
 content: |
   [!include[](leader-election-content.md)]
