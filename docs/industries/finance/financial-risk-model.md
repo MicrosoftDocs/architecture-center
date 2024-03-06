@@ -428,7 +428,6 @@ Principal authors:
 
 - [Actuarial risk analysis and financial modeling](actuarial-risk-analysis-financial-model.yml)
 - [Risk grid computing solution](risk-grid-banking-solution-guide.yml)
-- [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
 - [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)
 - [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
