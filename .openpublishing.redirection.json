@@ -4066,7 +4066,7 @@
     },
     {
       "source_path": "docs/service-fabric/modernize-app-azure-service-fabric.yml",
-      "redirect_url": "https://github.com/MicrosoftDocs/architecture-center-archive-pr/tree/main/architecture-center-pr2/service-fabric/modernize-app-azure-service-fabric",
+      "redirect_url": "/previous-versions/azure/architecture/service-fabric/modernize-app-azure-service-fabric",
       "redirect_document_id": false
     },
     {

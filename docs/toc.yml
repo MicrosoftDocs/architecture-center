@@ -1642,8 +1642,6 @@ items:
           items:
           - name: Migrate monolith to microservices
             href: microservices/migrate-monolith.yml
-          - name: Migrate from Cloud Services to ASF
-            href: service-fabric/migrate-from-cloud-services.yml
         - name: .NET microservices
           items:
           - name: Design a microservice-oriented app
