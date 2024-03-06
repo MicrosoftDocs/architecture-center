@@ -219,7 +219,7 @@
     {
       "source_path": "docs/example-scenario/infrastructure/ServiceFabricMicroservices.md",
       "redirect_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/apps/commerce-chatbot.md",
@@ -4112,12 +4112,7 @@
     {  
       "source_path": "docs/guide/iiot-patterns/iiot-patterns-overview.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
-      "redirect_document_id": false     
-       },
-    {  
-      "source_path": "docs/guide/iiot-patterns/iiot-transparency-patterns.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
-      "redirect_document_id": false              
+      "redirect_document_id": false                  
     },
     {  
       "source_path": "docs/guide/iiot-patterns/iiot-transparency-patterns.yml",
