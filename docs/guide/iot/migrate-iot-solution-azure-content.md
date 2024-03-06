@@ -333,4 +333,4 @@ Here are examples of architectures and quick starts to understand how to use Azu
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 - [Industrial IoT Patterns](../iiot-patterns/iiot-patterns-overview.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)

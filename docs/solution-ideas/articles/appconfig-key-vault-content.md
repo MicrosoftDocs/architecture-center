@@ -48,7 +48,7 @@ By using App Configuration, you can manage and store all your app's configuratio
 
 Any application can use App Configuration, but the following types of applications benefit most from it:
 
-* Microservices that are based on Azure Kubernetes Service (AKS), Azure Service Fabric, or other containerized apps that are deployed in one or more regions.
+* Microservices running on Azure Kubernetes Service (AKS) or other containerized apps that are deployed in one or more regions.
 * Serverless apps, which include Azure Functions or other event-driven stateless compute apps.
 * Apps that use a continuous deployment (CD) pipeline.
 
@@ -82,5 +82,4 @@ Learn more about the component technologies:
 
 * [Security architecture design](../../guide/security/security-start-here.yml)
 * [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
 * [External Configuration Store pattern](../../patterns/external-configuration-store.yml)

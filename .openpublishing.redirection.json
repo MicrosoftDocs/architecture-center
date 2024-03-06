@@ -344,8 +344,8 @@
     },
     {
       "source_path": "docs/service-fabric/refactor-migrated-app.md",
-      "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
-      "redirect_document_id": true
+      "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/databricks-monitoring/configure-cluster.md",
@@ -2025,7 +2025,7 @@
     },
     {
       "source_path": "docs/service-fabric/index.md",
-      "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
+      "redirect_url": "/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service",
       "redirect_document_id": false
     },
     {
@@ -2922,7 +2922,7 @@
     },
     {
       "source_path": "docs/example-scenario/infrastructure/wordpress.yml",
-      "redirect_url": "/azure/architecture/web-apps/hosting-applications/wordpress",
+      "redirect_url": "/azure/architecture/guide/infrastructure/wordpress-overview",
       "redirect_document_id": true
     },
     {
@@ -3953,6 +3953,10 @@
     {
       "source_path": "docs/data-science-process/sqldw-walkthrough.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
+    },
+    {  
+      "source_path": "docs/guide/saas/overview.md",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
       "redirect_document_id": false
     },
     {
@@ -4053,6 +4057,7 @@
     {
       "source_path": "docs/networking/guide/ipv6/ipv6-ip-planning.md",
       "redirect_url": "/azure/architecture/networking/guide/ipv6-ip-planning",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/operator-guides/aks/troubleshoot-virtual-nodes-aks.md",

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to use Azure OpenAI and Azure AI Search to search documents in your enterprise data and retrieve results.
   author: DixitArora-MSFT
-  ms.author: dixitaro, jyravi  
+  ms.author: dixitaro  
   ms.date: 08/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
