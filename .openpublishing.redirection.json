@@ -4113,16 +4113,11 @@
       "source_path": "docs/guide/iiot-patterns/iiot-patterns-overview.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
       "redirect_document_id": false     
-       },
-    {  
-      "source_path": "docs/guide/iiot-patterns/iiot-transparency-patterns.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
-      "redirect_document_id": false              
     },
     {  
       "source_path": "docs/guide/iiot-patterns/iiot-transparency-patterns.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
-      "redirect_document_id": false
+      "redirect_document_id": false              
     },
     {  
       "source_path": "docs/guide/iiot-patterns/iiot-prediction-patterns.yml",
@@ -4155,4 +4150,3 @@
       "redirect_document_id": false                                                                                                                                      
   }       
   ]
-}
