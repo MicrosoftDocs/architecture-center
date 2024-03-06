@@ -50,9 +50,9 @@ This pattern might not be useful if:
 
 ## Example
 
-The DistributedMutex project in the LeaderElection solution (a sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election)) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of role instances in an Azure cloud service. The first role instance to acquire the lease is elected the leader, and remains the leader until it releases the lease or isn't able to renew the lease. Other role instances can continue to monitor the blob lease in case the leader is no longer available.
+The [Leader Election sample on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/main/leader-election)) shows how to use a lease on an Azure Storage blob to provide a mechanism for implementing a shared, distributed mutex. This mutex can be used to elect a leader among a group of available worker instances. The first instance to acquire the lease is elected the leader and remains the leader until it releases the lease or isn't able to renew the lease. Other worker instances can continue to monitor the blob lease in case the leader is no longer available.
 
-> A blob lease is an exclusive write lock over a blob. A single blob can be the subject of only one lease at any point in time. A role instance can request a lease over a specified blob, and it'll be granted the lease if no other role instance holds a lease over the same blob. Otherwise the request will throw an exception.
+> A blob lease is an exclusive write lock over a blob. A single blob can be the subject of only one lease at any point in time. A worker instance can request a lease over a specified blob, and it'll be granted the lease if no other worker instance holds a lease over the same blob. Otherwise, the request will throw an exception.
 >
 > To avoid a faulted role instance retaining the lease indefinitely, specify a lifetime for the lease. When this expires, the lease becomes available. However, while a role instance holds the lease it can request that the lease is renewed, and it'll be granted the lease for a further period of time. The role instance can continually repeat this process if it wants to retain the lease.
 > For more information on how to lease a blob, see [Lease Blob (REST API)](/rest/api/storageservices/Lease-Blob).
@@ -150,18 +150,10 @@ The `KeepRenewingLease` method is another helper method that uses the `BlobLease
 
 ![Figure 1 illustrates the functions of the BlobDistributedMutex class](./_images/leader-election-diagram.png)
 
-The following code example shows how to use the `BlobDistributedMutex` class in a worker role. This code acquires a lease over a blob named `MyLeaderCoordinatorTask` in the lease's container in development storage, and specifies that the code defined in the `MyLeaderCoordinatorTask` method should run if the role instance is elected the leader.
+The following code example shows how to use the `BlobDistributedMutex` class within a worker instance. This code acquires a lease over a blob named `MyLeaderCoordinatorTask` in the lease's container Azure Blob Storage, and specifies that the code defined in the `MyLeaderCoordinatorTask` method should run if the worker instance is elected the leader.
 
 ```csharp
-// Create a new shared cancellation token source
-CancellationTokenSource source = new CancellationTokenSource();
-CancellationToken token = source.Token;
-
-// Get the connection string from app settings
-var storageConnStr = ConfigurationManager.AppSettings["StorageConnectionString"];
-...
-
-// Create a BlobSettings object with the connection string and the name of the blob to use for the lease
+// Create a BlobSettings object with the connection string or managed identity and the name of the blob to use for the lease
 BlobSettings blobSettings = new BlobSettings(storageConnStr, "leases", "MyLeaderCoordinatorTask");
 
 // Create a new BlobDistributedMutex object with the BlobSettings object and a task to run when the lease is acquired
@@ -169,11 +161,11 @@ var distributedMutex = new BlobDistributedMutex(
     blobSettings, MyLeaderCoordinatorTask);
 
 // Wait for completion of the DistributedMutex and the UI task before exiting
-await distributedMutex.RunTaskWhenMutexAcquired(token);
+await distributedMutex.RunTaskWhenMutexAcquired(cancellationToken);
 
 ...
 
-// Method that runs if the role instance is elected the leader
+// Method that runs if the worker instance is elected the leader
 private static async Task MyLeaderCoordinatorTask(CancellationToken token)
 {
   ...
