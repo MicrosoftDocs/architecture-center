@@ -4,9 +4,9 @@ This article describes the conversion technologies that Microsoft partner [Avana
 
 The following diagram shows the typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
 
-:::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/avanade-unisys-migration.svg" border="false":::
+:::image type="content" source="./media/unisys-components.svg" alt-text="Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/unisys-components.svg" border="false":::
 
-_[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-mainframe-migration.vsdx) of this architecture._
+_[Download a Visio file](https://arch-center.azureedge.net/unisys-mainframe-migration.vsdx) of this architecture._
 
 ### Workflow
 
@@ -30,9 +30,9 @@ _[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-ma
 
 The second diagram shows how the Unisys mainframe components can map and migrate to Azure capabilities.
 
-:::image type="content" source="./media/unisys-migration.svg" alt-text="Diagram showing how Unisys mainframe components can map to Azure capabilities." lightbox="./media/unisys-migration.svg" border="false":::
+:::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram showing how Unisys mainframe components can map to Azure capabilities." lightbox="./media/avanade-unisys-migration.svg" border="false":::
 
-_[Download a Visio file](https://arch-center.azureedge.net/unisys-mainframe-migration.vsdx) of this architecture._
+_[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-mainframe-migration.vsdx) of this architecture._
 
 ### Workflow
 
