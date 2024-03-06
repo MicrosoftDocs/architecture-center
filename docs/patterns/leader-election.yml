@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Leader Election pattern
-  description: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
+  description: Learn how to use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
   author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
@@ -11,9 +11,9 @@ metadata:
 azureCategories:
   - analytics
 products:
-  - azure-hdinsight
+  - azure-blob-storage
 name: Leader Election pattern
-summary: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
+summary: Learn how to use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
 thumbnailUrl: /azure/architecture/browse/thumbs/leader-election.png
 content: |
   [!include[](leader-election-content.md)]
