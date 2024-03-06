@@ -76,6 +76,6 @@ For more information about the featured Azure services, see the following articl
 
 See the following related architectures:
 
-* [Disconnected AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected)
+* [Disconnected AI at the edge with Azure Stack Hub](ai-at-the-edge-disconnected.md)
 * [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
 * [AI-based footfall detection](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection)
