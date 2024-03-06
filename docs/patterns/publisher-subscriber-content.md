@@ -82,7 +82,7 @@ Use this pattern when:
 
 - An application needs to broadcast information to a significant number of consumers.
 
-- An application needs to communicate with one or more independently-developed applications or services, which may use different platforms, programming languages, and communication protocols.
+- An application needs to communicate with one or more independently developed applications or services, which may use different platforms, programming languages, and communication protocols.
 
 - An application can send information to consumers without requiring real-time responses from the consumers.
 
