@@ -193,3 +193,4 @@ You might choose to implement this deployment pattern for the following reasons.
 - [Holly Kelly](https://www.linkedin.com/in/holly-kelly-9466063/) | Principal Program Manager
 - [Gabi Muenster](https://www.linkedin.com/in/gabimuenster/) | Senior Program Manager
 - [Sarath Sasidharan](https://www.linkedin.com/in/sarathsasidharan/) | Senior Program Manager
+- Amanjeet Singh | Principal Program Manager
