@@ -106,7 +106,6 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Scalability
 
-- [Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 

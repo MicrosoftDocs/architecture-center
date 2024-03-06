@@ -45,7 +45,7 @@ The solution was set up in this way to:
 
 ### Alternatives
 
-On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service or Azure Service Fabric.
+On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service.
 
 ## Scenario details
 
