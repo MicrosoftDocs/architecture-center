@@ -1,12 +1,12 @@
-Organizations use the Azure Governance Visualizer to capture pertinent governance information about their Azure tenants. The tool captures:
+Organizations can use the Azure Governance Visualizer to capture pertinent governance information about their Azure tenants. The tool captures:
 
 - Management group hierarchy.
-- Policy information such as custom policy definitions, orphaned custom policy definitions, and policy assignments.
-- Role-based access control (RBAC) information such as custom role definitions, orphaned custom role definitions, and role assignments.
+- Policy information, such as custom policy definitions, orphaned custom policy definitions, and policy assignments.
+- Role-based access control (RBAC) information, such as custom role definitions, orphaned custom role definitions, and role assignments.
 - Azure security and best practice analysis.
 - Microsoft Entra ID insights.
 
-The Azure Governance Visualizer accelerator runs the visualizer in an automated way through Azure Pipelines or GitHub Actions. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report is made easily accessible to authorized users in the organization. This article shows how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on the Web Apps feature of Azure App Service.
+The Azure Governance Visualizer accelerator runs the visualizer in an automated way through Azure Pipelines or GitHub Actions. The visualizer outputs the summary as HTML, MD, and CSV files. Ideally, the generated HTML report is made easily accessible to authorized users in the organization. This article shows you how to automate running the Azure Governance Visualizer and host the reporting output securely and cost effectively on the Web Apps feature of Azure App Service.
 
 An example implementation is available on GitHub at [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
@@ -62,7 +62,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Restricting the reporting HTML to only those users authorized to view this data is important. This data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls.
 
-- Use Microsoft Entra authentication to restrict access to those individuals. Consider using Web Apps authentication to provide this service. In the accelerator, the deployment configures to Web Apps and actively verifies that authentication is enabled before deploying.
+- Use Microsoft Entra authentication to restrict access to authorized individuals. Consider using Web Apps authentication to provide this service. In the accelerator, the deployment configures to Web Apps and actively verifies that authentication is enabled before deploying.
 
 - Consider applying network security controls to expose the site to your team only over a [private endpoint](/azure/private-link/private-endpoint-overview). And to restrict traffic, consider using the IP restrictions of Web Apps.
 
@@ -74,7 +74,7 @@ Restricting the reporting HTML to only those users authorized to view this data 
 
 - Use the [latest versions of the runtime stack](/azure/app-service/language-support-policy?tabs=windows) of the Azure web app.
 
-- Make sure to rotate the secret of this service principal regularly and monitor its activity. The visualizer deployed by the accelerator depends on a service principal with Microsoft Entra ID permissions to be able to gather all the required information.
+- Make sure to rotate the secret of this service principal regularly and monitor its activity. To gather all the required information, the visualizer deployed by the accelerator depends on a service principal with Microsoft Entra ID permissions.
 
 For more information about security controls, see [Azure security baseline for App Service](/security/benchmark/azure/baselines/app-service-security-baseline).
 
@@ -121,5 +121,5 @@ Principal authors:
 
 ## Related resources
 
-- [Azure landing zones - Bicep modules design considerations](/bicep/landing-zone-bicep.md)
+- [Azure landing zones - Bicep modules design considerations](../landing-zones/bicep/landing-zone-bicep.md)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)
