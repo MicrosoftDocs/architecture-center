@@ -119,7 +119,7 @@ conceptualContent:
     - title: Popular articles
       links:
       - text: AKS production baseline
-        url: /azure/architecture/reference-architectures/containers/aks/baseline-aks
+        url: ./reference-architectures/containers/aks/baseline-aks.yml
         itemType: reference
       - text: Google Cloud to Azure services comparison
         url: ./gcp-professional/services.md
@@ -213,7 +213,7 @@ conceptualContent:
           url: ./solution-ideas/articles/monitor-mining-equipment.yml
         - text: Predict the length of stay in hospitals
           itemType: architecture
-          url: /azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay
+          url: ./example-scenario/digital-health/predict-length-of-stay.yml
           
     - title: Databases
       links:
@@ -268,7 +268,7 @@ conceptualContent:
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
         - text: Enterprise BI with SQL Data Warehouse
           itemType: architecture
-          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
+          url: ./example-scenario/analytics/enterprise-bi-synapse.yml
         - text: Enterprise integration with queues and events
           itemType: architecture
           url: example-scenario/integration/queues-events.yml
@@ -436,10 +436,10 @@ conceptualContent:
           url: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
         - text: SAP NetWeaver in Windows on Azure
           itemType: architecture
-          url: /azure/architecture/guide/sap/sap-netweaver
+          url: ./guide/sap/sap-netweaver.yml
         - text: SAP S/4HANA in Linux on Azure
           itemType: architecture
-          url: /azure/architecture/guide/sap/sap-s4hana
+          url: ./guide/sap/sap-s4hana.yml
         - text: SAP BW/4HANA in Linux on Azure
           itemType: architecture
           url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
