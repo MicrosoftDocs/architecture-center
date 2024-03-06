@@ -37,6 +37,10 @@ With the geo-distributed pattern, your app spans regions. You can default to the
 
 ### Issues and considerations
 
+#### Scalability considerations
+
+The solution you'll build with this article isn't to accommodate scalability. However, if used in combination with other Azure and on-premises solutions, you can accommodate scalability requirements.
+
 #### Availability considerations
 
 As is the case with scalability considerations, this solution doesn't directly address availability. However, Azure and on-premises solutions can be implemented within this solution to ensure high availability for all components involved.
