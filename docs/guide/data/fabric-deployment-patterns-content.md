@@ -1,8 +1,8 @@
 # Deployment patterns for Microsoft Fabric
 
-This architecture guide outlines four different deployment patterns for Microsoft Fabric. For each deployment pattern it describes considerations, recommendations, and any potential nonreversible decisions that you should be alert for in your Fabric deployment.
+This architecture guide outlines four different deployment patterns for Microsoft Fabric. For each deployment pattern, the article describes considerations, recommendations, and any potential nonreversible decisions that you should be aware of for your Fabric deployment.
 
-For each deployment pattern, it describes considerations for the following areas:
+For each deployment pattern, the following design areas are discussed:
 
 - Governance
 - Security
@@ -18,9 +18,9 @@ A Fabric deployment hierarchy consists of four levels: [tenant](/fabric/enterpri
 
 There are many technical aspects that apply to each level of the hierarchy. These aspects form boundaries, and they include security, scale, governance, and application lifecycle. Each aspect can strongly influence each of the deployment patterns. Some deployment patterns are centered around how these components are analyzed.
 
-In addition to these technical aspects, you might look for governance patterns to structure your landscape by organizational aspects. You can achieve that by using _domains_ in Fabric. [Domains](/fabric/governance/domains) allow you to group workspaces into the organizational structure that works for you. You can apply domains at any point in time, and they have no immediate affect on your choice of deployment pattern.
+In addition to these technical aspects, you might look for governance patterns to structure your landscape by organizational aspects. You can achieve that by using _domains_ in Fabric. [Domains](/fabric/governance/domains) allow you to group workspaces into the organizational structure that works for you. You can apply domains at any point in time, and they have no immediate effect on your choice of deployment pattern.
 
-Apart from structuring the landscape from a technical and governance perspective, a centralized option to find content and collaborate with Fabric is required. [OneLake data hub](/fabric/get-started/onelake-data-hub) was designed to provide you that centralized access point, and it's integrated with other commonly used products, like Microsoft Teams and Microsoft Excel.
+Apart from structuring the landscape from a technical and governance perspective, a centralized option to find content and collaborate with Fabric is required. [OneLake data hub](/fabric/get-started/onelake-data-hub) provides a centralized access point, and it's integrated with other commonly used products, like Microsoft Teams and Microsoft Excel.
 
 For large organizations that might have business units that reside in different geographical locations, you can use capacities to control where data resides. Further, you can manage a business unit that operates in a different geographical location as a single unit by using Fabric domains. Domains can span workspaces that belong to different regions.
 
@@ -42,7 +42,7 @@ The deployment patterns presented in this article adhere to the following set of
 This article defines scenarios to describe how each of the deployment patterns can address various business requirements.
 
 - **Scenario 1** - For organizations that want to have faster (or lower) time to market with teams that can cross-collaborate with lower restrictions on data usage. In this scenario, organizations can benefit with a _monolithic_ deployment pattern where there's a single workspace to manage and operate. See [deployment pattern 1 (Monolithic deployment)](#pattern-1-monolithic-deployment).
-- **Scenario 2** - For organizations that want to provide isolated environments for teams to work on, with a central team responsible for providing and managing infrastructure. This scenario also suits organizations that want to implement data mesh. In this scenario, organizations can implement _multiple workspaces_ that are backed by a shared capacity or separate capacities. See [deployment pattern 2 (Multiple workspaces backed by a single Fabric capacity)](#pattern-2-multiple-workspaces-backed-by-a-single-fabric-capacity) and [deployment pattern 3 (Multiple workspaces backed by separate capacities)](#pattern-3-multiple-workspaces-backed-by-separate-capacities).
+- **Scenario 2** - For organizations that want to provide isolated environments for teams to work on, with a central team responsible for providing and managing infrastructure. This scenario also suits organizations that want to implement data mesh. In this scenario, organizations can implement _multiple workspaces_ that make use of a shared capacity or separate capacities. See [deployment pattern 2 (Multiple workspaces backed by a single Fabric capacity)](#pattern-2-multiple-workspaces-backed-by-a-single-fabric-capacity) and [deployment pattern 3 (Multiple workspaces backed by separate capacities)](#pattern-3-multiple-workspaces-backed-by-separate-capacities).
 - **Scenario 3** - For organizations that want to have an entirely decentralized model that provides business units or teams with the freedom to control and manage their data platforms. In this scenario, organizations can choose to adopt a model where they use _separate workspaces_, each with dedicated capacity or possibly multiple Fabric tenants. See [deployment pattern 3 (Multiple workspaces backed by separate capacities)](#pattern-3-multiple-workspaces-backed-by-separate-capacities) and [deployment pattern 4 (Multiple Fabric tenants)](#pattern-4-multiple-fabric-tenants).
 - **Scenario 4** - Some organizations might choose a hybrid approach where they combine multiple patterns to achieve their requirements. For instance, an organization might set up a single workspace for specific business units (monolithic) while using separate, dedicated workspaces along with separate capacities for other business units.
 
@@ -89,7 +89,7 @@ The following table presents considerations that could influence your decision t
 
 ### Pattern 2: Multiple workspaces backed by a single Fabric capacity
 
-This deployment pattern is about using separate workspaces. Because a single capacity is shared across workspaces, performance of jobs and interactive queries are influenced by workloads that run concurrently at any given point in time.
+This deployment pattern is about using separate workspaces. Because a single capacity is shared across workspaces, performance of jobs and interactive queries can be affected by workloads that run concurrently at any given point in time.
 
 :::image type="content" source="./media/fabric-deployment-pattern-2-multiple-workspaces-single-capacity.svg" alt-text="Diagram shows a single Fabric tenant that contains a single capacity with two workspaces." border="false":::
 
