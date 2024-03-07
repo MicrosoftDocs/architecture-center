@@ -19,6 +19,8 @@ items:
       href: landing-zones/terraform/landing-zone-terraform.md
   - name: Application landing zone design guides
     items:
+    - name: Azure Governance Visualizer Accelerator
+      href: landing-zones/azure-governance-visualizer-accelerator.yml
     - name: Azure Virtual Desktop
       href: landing-zones/azure-virtual-desktop/design-guide.md
   - name: Subscription vending implementation
