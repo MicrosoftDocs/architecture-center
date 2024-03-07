@@ -13,7 +13,6 @@ An example implementation is available on GitHub at [Azure Governance Visualizer
 ## Architecture
 
 ![Diagram showing the architecture of the Azure Governance Visualizer accelerator.](images/azure-governance-visualizer-accelerator-architecture.svg)
-*Figure 1. Azure Governance Visualizer accelerator architecture.*
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-governance-visualizer-accelerator.vsdx) of this architecture.*
 
