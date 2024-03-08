@@ -6,6 +6,15 @@ This article presents a solution and guidance for developing a Validation Operat
 
 *Download a [Visio file](https://arch-center.azureedge.net/autonomous-vehicle-operations-valops.vsdx) that contains the architecture diagrams in this article.*
 
+### Workflow
+1. The Invoke Environment is triggered via a deployment GitHub action. The GitHub action triggers the metadata and orchestration services, which run the deployment campaign.
+1. The metadata and orchestration services use the Azure development environment to deploy the required compute for Open Loop or Closed Loop testing.
+1. The metadata and orchestration services set the desired state of the compute based on the campaign. The services use the artifacts store to mount and configure the required HPC images.
+1. When the Validation Engineer manually triggers or a GitOps Engineer triggers a test trigger, the toolchain pulls the software stack container and a definition of the build.
+1. The toolchain and orchestration services trigger the test process. The services deploy the required infrastructure to build, validate, and release software containers.
+1. The metadata and orchestration invokes the job submission on the HPC cluster.
+1. Azure Batch runs the job submission and stores KPI metrics into the dedicated storage account. Microsoft Fabric mounts the storage account where the Validation engineer can monitor test plans and visualize results.
+
 ### Components
 - [Azure Arc](https://learn.microsoft.com/azure/azure-arc/overview) provides a way for operators to manage non-Azure and/or on-premises resources such as Hardware-in-Loop (HIL) rigs from Azure Resource Manager
 - [Azure Front Doors](https://learn.microsoft.com/azure/frontdoor/front-door-overview) protects for traffic surges and protect network  from attacks
