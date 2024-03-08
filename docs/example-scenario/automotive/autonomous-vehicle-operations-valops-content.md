@@ -128,6 +128,17 @@ Alternative options for Job scheduling and orchestration on AKS are third party 
 - [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/kubernetes.html) is an open source platform that allows organizations to schedule and monitor workflow (available as managed service in Azure Data Factory as preview)
 - [kubeflow](https://www.kubeflow.org/) is an open source project that makes deployments of workflows running on kubernetes simple
 
+## Recommendations
+The following recommendations help ensure that you effectively manage your Azure environment. Follow these recommendations unless you have a requirement that overrides them.
+
+- Follow best practices when you deploy and configure Azure services to help ensure a secure, efficient, and cost-effective environment
+- Define your Azure resources according to your implementation requirements. These resources can include VMs, Kubernetes clusters, messaging services, and data and analytics services
+- Implement Resource Manager templates for infrastructure as code (IaC) so you can automate your deployment and maintain consistency
+- Implement role-based access control (RBAC) to grant permissions to users and services on a least-privilege basis
+- Use Azure Security Center to proactively monitor and mitigate security threats
+- Consider using Azure load balancers and availability sets or availability zones to improve scalability and redundancy
+- Regularly monitor the performance and usage of your Azure resources so you can optimize costs and enhance performance. Use tools like Azure Monitor and Microsoft Cost Management
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -165,7 +176,7 @@ Cost optimization looks at ways to reduce unnecessary expenses and improve opera
 A key concern for OEMs and tier 1 suppliers that operate DataOps for automated vehicles is the cost of operating. This solution uses the following practices to help optimize costs:
 
 - Taking advantage of various options that Azure offers for hosting application code. This solution uses App Service and Batch. For guidance about how to choose the right service for your deployment, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).  
-### Compute Options
+#### Compute Options
 Based on the simulation requirements, [Azure Batch](https://learn.microsoft.com/azure/batch/) can provision permanently required containers or virtual machines based on the SLA. Here are some recommendations to save cost with various types of compute cost models and profiles. 
 
 Several choices VMs could be utilized, depending on the use case:
@@ -173,8 +184,21 @@ Several choices VMs could be utilized, depending on the use case:
 - Reserved instances – Keep for 3 to 5 years reservation mainly for batch type and long running jobs
 - Spot instances – Use sporadically for dev/tests jobs
 
-### Storage Options
+#### Storage Options
 - Refer to scalability and performance targets for [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account)
+
+
+### Operational excellence
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see Overview of the [operational excellence pillar](https://learn.microsoft.com/azure/architecture/framework/devops/overview).
+
+ValOps embraces key software engineering strategies, such as:
+
+- IaC environment provisioning
+- CI/CD pipelines for building and releasing automotive software stacks
+- Automated testing 
+- Configuration as code to avoid configuration drift among environments
+
+Consider an infrastructure that's enabled by Azure Arc to simplify governance and management across Azure cloud and on-premises environments, HIL testing, and validation farms.
 
 ### Performance Efficiency
 - It's important the organizations storage location is in the same region as compute.
