@@ -68,7 +68,7 @@ For information about installing CFX, see the [Ansys website](https://www.ansys.
 
 Many factors can influence HPC scalability, including the mesh size, element type, mesh topology, and physical models. To get meaningful and case-specific benchmark results, it's best to use the standard HPC benchmark cases that are available on the [Ansys Customer Portal](https://support.ansys.com/Home/HomePage).
 
-The following models were tested. For more information about the current Ansys models, see [CFX benchmarks](https://fluidcodes.com/customer-support/platform-support/benchmarks-overview/ansys-cfx-benchmarks). 
+The following models were tested. For more information about the current Ansys models, see [Ansys Engineering Simulation Solutions](https://fluidcodes.com/softwares/ansys/). 
 
 ### Pump
 
