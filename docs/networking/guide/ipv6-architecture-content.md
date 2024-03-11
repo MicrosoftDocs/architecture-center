@@ -56,9 +56,7 @@ You need to add IPv6 address ranges to the hub virtual network first and then to
 | --- | --- |
 | Hub virtual network: `2001:db8:1234:0000::/56` | Azure Bastion subnet: `2001:db8:1234:0000::/64`<br>Azure Firewall subnet: `2001:db8:1234:0001::/64`<br> VPN Gateway subnet: `2001:db8:1234:0002::/64`<br>ExpressRoute subnet: `2001:db8:1234:0003::/64` |
 
-These IPv6 addresses are examples. You should replace `2001:db8:1234::` with your organization's IPv6 address block. Carefully plan and document your IPv6 address allocations to avoid overlaps and ensure efficient use of the address space.
-
-To add the IPv6 address space to the hub virtual network, you can use the [Azure portal](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network), [PowerShell](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell#add-ipv6-to-virtual-network), or [Azure CLI](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli#add-ipv6-to-virtual-network).
+These IPv6 addresses are examples. You should replace `2001:db8:1234::` with your organization's IPv6 address block. Carefully plan and document your IPv6 address allocations to avoid overlaps and ensure efficient use of the address space. To add the IPv6 address space to the hub virtual network, you can use the [Azure portal](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network), [PowerShell](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell#add-ipv6-to-virtual-network), or [Azure CLI](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli#add-ipv6-to-virtual-network).
 
 ### Configure user-define routes (UDRs) for each hub subnet
 
