@@ -78,7 +78,7 @@ create pod sandbox: rpc error: code = Unknown desc = NetworkPlugin cni failed to
 delegate: Failed to allocate address: No available addresses 
 ```
 
-Another example of the error:
+Or a `not enough IPs available` error:
 
 ```output
 Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox 
@@ -94,7 +94,7 @@ a1231464635654a123646565456cc146841c1313546a515432161a45a5316541, OrchestratorCo
 
 Check the allocated IP addresses in the plugin IPAM store. You might find that all IP addresses are allocated, but the number is much less than the number of running Pods:
 
-**If using [`kubenet`](/azure/aks/configure-kubenet):**
+**If using [kubenet](/azure/aks/configure-kubenet):**
 
 ```bash
 # Kubenet, for example. The actual path of the IPAM store file depends on network plugin implementation. 
@@ -104,7 +104,7 @@ ls -la "/var/lib/cni/networks/$(ls /var/lib/cni/networks/ | grep -e "k8s-pod-net
 ```
 
 > [!NOTE]
-> For `kubenet` without `calico`, the path is `/var/lib/cni/networks/kubenet`. For `kubenet` with `calico`, the path is `/var/lib/cni/networks/k8s-pod-network`. In this demo, it will auto-select the path while executing the command.
+> For kubenet without Calico, the path is `/var/lib/cni/networks/kubenet`. For kubenet with Calico, the path is `/var/lib/cni/networks/k8s-pod-network`. The script above will auto select the path while executing the command.
 
 ```bash
 # Check running Pod IPs
@@ -112,15 +112,18 @@ kubectl get pods --field-selector spec.nodeName=<your_node_name>,status.phase=Ru
 7 
 ```
 
-**If using [`Azure CNI for dynamic IP allocation`](/azure/aks/configure-azure-cni-dynamic-ip-allocation):**
+**If using [Azure CNI for dynamic IP allocation](/azure/aks/configure-azure-cni-dynamic-ip-allocation):**
 
-```
+```bash
 kubectl get nnc -n kube-system -o wide
+```
+
+```output
 NAME                               REQUESTED IPS  ALLOCATED IPS  SUBNET  SUBNET CIDR   NC ID                                 NC MODE  NC TYPE  NC VERSION
 aks-agentpool-12345678-vmss000000  32             32             subnet  10.18.0.0/15  559e239d-f744-4f84-bbe0-c7c6fd12ec17  dynamic  vnet     1
 ```
 
-```
+```bash
 # Check running Pod IPs
 kubectl get pods --field-selector spec.nodeName=aks-agentpool-12345678-vmss000000,status.phase=Running -A -o json | jq -r '.items[] | select(.spec.hostNetwork != 'true').status.podIP' | wc -l
 21
