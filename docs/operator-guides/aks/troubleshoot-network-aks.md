@@ -99,7 +99,7 @@ Check the allocated IP addresses in the plugin IPAM store. You might find that a
 ```bash
 # Kubenet, for example. The actual path of the IPAM store file depends on network plugin implementation. 
 chroot /host/
-ls -la "/var/lib/cni/networks/$(ls /var/lib/cni/networks/ | grep -e "k8s-pod-network" -e "kubenet")" | grep -v -e "lock\|last\|total" -e '\.$' | more | wc -l
+ls -la "/var/lib/cni/networks/$(ls /var/lib/cni/networks/ | grep -e "k8s-pod-network" -e "kubenet")" | grep -v -e "lock\|last\|total" -e '\.$' | wc -l
 244
 ```
 
