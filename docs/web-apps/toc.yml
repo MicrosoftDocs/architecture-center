@@ -96,8 +96,6 @@ items:
         items:
         - name: Overview
           href: ../guide/infrastructure/wordpress-overview.yml
-        - name: Scalable and secure WordPress
-          href: hosting-applications/wordpress.yml
         - name: Container hosting (AKS)
           href: ../example-scenario/infrastructure/wordpress-container.yml
         - name: App Service hosting

@@ -96,4 +96,4 @@ Principle author:
 - [Industrial IoT connectivity patterns](../../guide/iiot-patterns/iiot-connectivity-patterns.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)

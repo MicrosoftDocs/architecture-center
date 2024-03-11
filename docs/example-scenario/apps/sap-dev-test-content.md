@@ -143,4 +143,4 @@ Explore related architectures:
 [sap-netweaver]: /azure/architecture/guide/sap/sap-netweaver
 [sap-hana]: /azure/architecture/guide/sap/sap-s4hana
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.yml
-[hub-spoke]: ../../reference-architectures/hybrid-networking/hub-spoke.yml
+[hub-spoke]: ../../networking/architecture/hub-spoke.yml

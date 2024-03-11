@@ -149,7 +149,7 @@ If you're using Virtual Machine Scale Sets, then it's possible to scale out and 
 
 A key consideration when you implement MX.3 workloads in Azure is defining the landing zone architecture. This architecture contains the subscription, resource group, virtual network isolation, and connectivity between various components of the solution. This section covers the [landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone) to implement an MX.3 workload on Azure, based on the Microsoft Cloud Adoption Framework.
 
-This diagram shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
+This diagram shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml).
 
 :::image type="content" source="./media/murex-landing-zone-architecture.png" alt-text="Diagram that shows an example of a hub-and-spoke model with Azure services." lightbox="./media/murex-landing-zone-architecture.png":::
 
@@ -205,5 +205,5 @@ Principal authors:
 
 ## Related resources
 
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
