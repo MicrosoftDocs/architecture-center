@@ -60,29 +60,15 @@ For more information on KEDA scalers, see the following KEDA documents:
 
 ### Load testing architecture
 
-![Load Testing Pipeline with JMeter, ACI and Terraform](./images/load-testing-pipeline-jmeter.png)
+![Load Testing Pipeline with JMeter and Azure Load Testing](./images/load-testing-pipeline-jmeter.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/load-testing-pipeline-jmeter.vsdx) of this architecture.*
 
-The solution provisions JMeter agents as [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances) instances. It uses the remote testing approach. In the approach, a JMeter controller configures all workers using its own protocol and combines all load testing results. Finally, it generates the resulting artifacts like dashboard and logs.
-
-The CSE team created a Python script to convert the JMeter test results format (.jtl file) to JUnit format (.xml file). The script allowed the integration of JMeter results with the Azure Pipelines test results.
+1. The solution leverages Azure Load Testing with JMeter (JMX) scripts. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted and can utilize existing JMeter scripts.
 
 #### Workflow
 
-The CSE team structured the load testing framework into two Azure Pipelines:
-
-1. A pipeline that builds a custom JMeter Docker container and pushes the image to [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry). This structure brings flexibility for adding any JMeter plugin.
-
-1. A pipeline that validates the JMeter test definition (.jmx file), dynamically provisions the load testing infrastructure, runs the load test, publishes the test results and artifacts to Azure Pipelines, and destroys the infrastructure.
-
-For more information about the load testing pipeline solution, see [Implementation reference for JMeter load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml).
-
-#### Load testing framework
-
-The load testing framework used during the engagement is now open-sourced on GitHub. The framework is a flexible and scalable cloud load and stress testing pipeline solution. It uses Apache JMeter as the open-source load/performance tool and Terraform to dynamically provision and destroy the infrastructure on Azure.
-
-The solution creates a great experience for developers and testers. Integrating and combining JMeter testing results on [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) through test results and artifacts improves the experience. See [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform).
+You can automate a load test in Azure Load Testing by creating a CI/CD pipeline: [Manually configure your CI/CD workflow for running load tests](https://learn.microsoft.com/en-us/azure/load-testing/how-to-configure-load-test-cicd?tabs=pipelines. Doing so allows a you automate a load test to continuously validate your application performance and stability under load. 
 
 ## Scenario details
 
