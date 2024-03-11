@@ -76,8 +76,6 @@ The CSE team structured the load testing framework into two Azure Pipelines:
 
 1. A pipeline that validates the JMeter test definition (.jmx file), dynamically provisions the load testing infrastructure, runs the load test, publishes the test results and artifacts to Azure Pipelines, and destroys the infrastructure.
 
-For more information about the load testing pipeline solution, see [Implementation reference for JMeter load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml).
-
 #### Load testing framework
 
 The load testing framework used during the engagement is now open-sourced on GitHub. The framework is a flexible and scalable cloud load and stress testing pipeline solution. It uses Apache JMeter as the open-source load/performance tool and Terraform to dynamically provision and destroy the infrastructure on Azure.
