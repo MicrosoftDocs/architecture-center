@@ -40,7 +40,7 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
     The CSE team used [KEDA](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
 
-    KEDA is only supported on AKS.
+    KEDA is supported on AKS and Azure Container Apps
 
 1. Next is load testing. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications without the needing of deploying additional resources. Azure Load Testing also comes with the capability to take an existing Apache JMeter script and use it to run a load test.
 
