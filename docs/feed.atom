@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-03-04T17:13:30.729Z</updated>
+    <updated>2024-03-11T19:05:23.065Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[SaaS and multitenant solution architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture"/>
+        <updated>2024-03-05T18:08:11.000Z</updated>
+        <summary type="html"><![CDATA[This guide provides an overview of the architectural content for SaaS, startups, and multitenancy and guidance about architecting multitenant solutions on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Governance Visualizer Accelerator guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator"/>
+        <updated>2024-03-07T18:00:45.000Z</updated>
+        <summary type="html"><![CDATA[Azure Governance Visualizer Accelerator guidance to streamline the process of deploying and maintaining the Azure Governance Visualizer tool.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway</id>
@@ -25,11 +41,179 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Health Endpoint Monitoring pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Implement the functional checks of the Health Endpoint Monitoring pattern. Use external tools to check apps at regular intervals through exposed endpoints.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Index Table pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/index-table</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/index-table"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Leader Election pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/leader-election</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/leader-election"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Materialized View pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/materialized-view</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/materialized-view"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging Bridge pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/messaging-bridge</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/messaging-bridge"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Messaging Bridge pattern to integrate disparate systems built on top of different messaging infrastructures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pipes and Filters pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Priority Queue pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/priority-queue</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/priority-queue"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Publisher-Subscriber pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Quarantine pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/quarantine</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/quarantine"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Queue-Based Load Leveling pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rate Limiting pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[You can use a rate limiting pattern to help you avoid or minimize throttling errors.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retry pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/retry</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/retry"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when the app tries to connect to a service or network resource.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scheduler Agent Supervisor pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sequential Convoy pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sequential-convoy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sequential-convoy"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[The sequential convoy cloud design pattern allows for first-in-first-out processing of data in a serverless environment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sharding pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sharding</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sharding"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sidecar pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sidecar</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sidecar"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Deploy components of an application into a separate process or container to provide isolation and encapsulation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Static Content Hosting pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/static-content-hosting</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/static-content-hosting"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Deploy static content to a cloud-based storage service that can deliver them directly to the client.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Strangler Fig pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/strangler-fig</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/strangler-fig"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Throttling pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/throttling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/throttling"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Valet Key pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/valet-key</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/valet-key"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Use a token or key that provides clients with restricted direct access to a specific resource or service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Intelligent e-commerce product search engine]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search"/>
-        <updated>2024-03-01T09:44:44.000Z</updated>
+        <updated>2024-03-05T18:43:48.000Z</updated>
         <summary type="html"><![CDATA[This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Databases architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
+        <updated>2024-03-05T17:10:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the different Azure database solutions described in Azure Architecture Center.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -213,15 +397,7 @@
         <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
         <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
         <updated>2024-02-29T17:51:52.000Z</updated>
-        <summary type="html"><![CDATA[This article provides an overview of the Azure database solutions described in Azure Architecture Center.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke"/>
-        <updated>2024-02-29T10:49:15.000Z</updated>
-        <summary type="html"><![CDATA[Learn about hub-spoke topology in Azure, where the spoke virtual networks connect to the hub virtual network and can connect to each other.]]></summary>
+        <summary type="html"><![CDATA[Learn about the different Azure database solutions described in Azure Architecture Center.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1054,14 +1230,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/luxion-keyshot"/>
         <updated>2023-12-07T21:47:02.000Z</updated>
         <summary type="html"><![CDATA[Find out how Luxion KeyShot real-time 3D rendering software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Virtual WAN architecture optimized for department-specific requirements]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/performance-security-optimized-vwan</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/performance-security-optimized-vwan"/>
-        <updated>2023-12-07T20:31:42.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to design a single network that has varying security and performance requirements.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
