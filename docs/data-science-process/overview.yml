@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: What is the Team Data Science Process?
-  description: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
+  description: Learn how the Team Data Science Process provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
   author: marktab
   ms.author: matabl
-  ms.date: 11/17/2020
+  ms.date: 02/15/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

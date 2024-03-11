@@ -247,8 +247,8 @@
 		<title>VBackground-1</title>
 		<v:pageProperties width="12.2" height="8.5" v:drawingScale="1" v:pageScale="1" v:drawingUnits="0" v:shadowOffsetX="9"
 				v:shadowOffsetY="-9"/>
-		<g id="shape1000-1" v:mID="1000" v:groupContext="shape">
-			<title>Solid.1000</title>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape">
+			<title>Solid</title>
 			<v:userDefs>
 				<v:ud v:nameU="Background" v:val="VT0(0):26"/>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -1443,16 +1443,16 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(21000):26"/>
 			</v:userDefs>
 		</g>
-		<g id="shape1225-453" v:mID="1225" v:groupContext="shape" transform="translate(442.8,-223.2)">
+		<g id="shape1225-453" v:mID="1225" v:groupContext="shape" transform="translate(420.664,-223.2)">
 			<title>Sheet.1225</title>
-			<desc>SQL Server on Linux VM</desc>
+			<desc>SQL Server on Windows VM</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(22000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="55.8" cy="606.6" width="111.61" height="10.8"/>
-			<rect x="0" y="601.2" width="111.6" height="10.8" class="st46"/>
-			<text x="7.45" y="609.6" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server on Linux VM</text>		</g>
+			<v:textRect cx="66.8679" cy="606.6" width="133.74" height="10.8"/>
+			<rect x="0" y="601.2" width="133.736" height="10.8" class="st46"/>
+			<text x="10.17" y="609.6" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server on Windows VM</text>		</g>
 		<g id="shape1231-456" v:mID="1231" v:groupContext="shape" transform="translate(466.2,-540)">
 			<title>Sheet.1231</title>
 			<desc>Availability zone 1</desc>
@@ -2076,46 +2076,46 @@
 			<switch>
 				<foreignObject x="0" y="588.671" width="22.989" height="23.3291"
 						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
-					<v:foreignData v:dataType="ole" v:type="33280" v:orgSize="47616" v:data="data:metafile;base64,eNrtnVtsFFUcxs
-								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
-								T/J5/+ZA=="/>
+					<v:foreignData v:dataType="ole" v:type="33280" v:orgSize="47616" v:data="data:metafile;base64,eNrtnW1sFEUcxu
+								fuAEuBUhAroOKBiPiGxRe8qiBQW6naeuILVb+IpkkxgNAWg4kJ8UMlJhKiiZAYozEmtokfiMZEE2NqIgl+IIFoFHwhtCqICK
+								ioEEB7PnO7187N3W13D3Z3rjx/9oFrb99+u7Mz/52dh929a0Lv2+9P7RNaLBAx0Z8aLUYpv4vYSkelEFH75/5UKpX5dYpRUv
+								EftMA+h1Ij8Vme8wugMmg0VA6NgcZC46AKaLxVBMQEaCJ0ITQJugiqgi6GJkNToKnQJdCl0GXQNOhyKA5Nh2ZAV0AzoSuhWd
+								BV0Gzoauga6FroOuh6aA50A1QNzYVuhG6CboZugeZBt0IJqAa6DbodugOar7AuxOdF0GKoFroLqoPqobuhJVADdA90L3Qf1A
+								g1QfdDSegBaCn0IPQQ9DD0CLQMaoYehR6DHre3a1osFc/gTwfORZ1YjX/bxHPCS1SJkQPXfDRdVmLp339mfV2fb5mYGKxIIj
+								iSK0WLKDbKRTSi8rhdbtJAnVYL/lViDfbjSfG05+1PxPYlygi77nOzTMQuKzKiNn8SR75FtKNMV6fLtduYjDV45Zf7+mO79b
+								nfPm+Za4JxfkXEasaLjghKTqzcKvv6tS/bkOTitnXtrUL5KFuP5PIVqzvmJFc81bGurUX8XfPB2uK3b7UrjOJCnrcKu06I2D
+								/H7e82oOH7FA3fi+3yO2QCsc9lcypeSR/wKjT/s0aNFzPiyxrrayP22XjjXatWs5r3vWj+99ZYa16pbHUtUoyXldRywp34C8
+								1xvK6xXs4tl4mp2aYd3UhB1iAtmY8vvtK+W/LNCJFIxNItcnNN4W1lItPSJ+1MYz3Um7C+i4udog3LbBplfZeZN5LOaaz5Et
+								MtDdPMlzzkMYLnRN+O3z7Z0Pf6wr3Pl+1ZL0KffngpfqCr+ej2zf+e/N0bT/+Zk4c/Xm8CQ97p+87Jf337kVsewOzbNNtYmI
+								EJR9wVz6FtrebDWNM/+3qG4MEcpQJjXVEoTU48P7+TVBdATXCkZ+OZ47+YUHGdPLjrpzeXaEh/7u5y4gGxOvcfO98yrTpGfa
+								vu4a8frinIg/OgzvrdC5UGNi+o2dSd7N2SKMijXTy5s5oQp4/t1y4htzw4s8HsYmdnp/u0uAR4uru7gTR8eIZbeSNP4DxY1a
+								nDe9z/3kQe7KiaXhx874ncedTGDTcjzpl/mDy59xfOPAOZf96cMmQeZFa5yaIbHkz7X63OzSlD5sFto7ogbp+Of72t0PWDG0
+								wUNnX+Y19sNYsHxUZNyYfMx0HrnFOGyYPS4nUpVAPqIqhFDOLRLp68l43zheSp4vGdR1uKPOQxkEetso3mQRbjZim1oyJ3n8
+								LkQWtYROOo9dS4TxH85UFLgoRFXQrbc7NbR3o2FnFW/eU5tK1VzQzcXzypdF+StiyOC/KGMHm0zBJFyFNmeaJvh9ZR7uZwBM
+								SDtM2hzz9vAB6Zm6E8hXpfHULrWw6fBwcYtZn6tAufXRY5rZsTFw+KX/j1W3ScNVbg9BR1rEBmBJQ1TkCGfO6P2bXy5eb6R+
+								C0qUshATalrdJufFzW0r1bEsV1qgedS6DCd7OUmkugYJrLw1ycPL7yoE4eVjzFdYSY23eSyr6Ry/t82vmUmtW3pTUmVpXtgH
+								Tq8B7tdsS4vkekeLl5X96GVXvWbnV3e+rBD6jvXjvk7vu6j27fnPISAfHgGOOEqHnskDxWl3jKYwT67At3qFgJwDDlPfAHup
+								qtrxweqXgan1MCzybJM4x4ckcjlTBP3qFVpcpTaJxYSfI4DHob5EEmorXcZvI4j+DLGgSlPdU9y3ESfvAMORwxi0cbKYgmPH
+								gkBx43YyuzeNBya6vAGQOk1eQHM2ldWV4HiuqD7rTk35DJ/ahXnQcFzBAzQHFDePMMisx9SlAqMKlC3g3L7qA9zjEfJkWvEH
+								nIc1Y8FYrDvtL+LB2msUiZkP/DxJi0QVR+Ght9LdYZk47SRWOk67I+7bUUQv5WCLovyUOeMHnovgxoovuyRNyKdF/Sfel30H
+								1ZeFYTgu7LwHnoviQPebKC7kvDeOi+HBzeSfelzzx0X9J9GRgPRxSTx3weui+D4qH7Ugbdl/7zaJkl3Zd0X9J96bm+pqNSBh
+								2VIfEwvyaPrzx0VOo8dFT6zENHZVYXNh2V/vPQUdlTaCV0IJLHWB46Kk3loaOSjsoAeOiozF4FHZUhW93oqDTbhEhHpdlBHv
+								IEymO9WbVpUVND5i2dZcobUOXP8t8vo1sapCo8vD/Vev/wXFEtmsRy0SFWiGc9vI95qohGYraXM72jLkK+7HNmTe72G7D1Fr
+								EqvR+rXO7DtCLef5zZ33P5DlUv2/fjHa7Fbj+O87C4sco+G/McHLdOW2WNQR7ynBseOm4Dmui4LRGHKh23dNz6HXTcFp7VhK
+								DjNnAeOm7JQ56soOPWMB46bgeH/9Jx6zMPHbd03AbGwxHn5DGfh47boHjouJVBx63/PFpmScctHbd03Hqur+m4lUHHbUg8zK
+								/J4ysPHbc6Dx23PvPQcZvVhU3Hrf88dNz2FFoJHarkMZaHjltTeei4peM2AB46brNXQcdtyFZIOm7NNqnScWt2kIc8gfKcH/
+								E/XaH/wQ=="/>
 				</foreignObject>
 				<svg viewBox="0 0 1650.2 1677.2" enable-background="new" color-interpolation-filters="sRGB" height="23.3291"
 						preserveAspectRatio="none" width="22.989" x="0" y="588.671">
 					<defs>
-						<clipPath id="mfid1">
-							<rect id="mfid2" x="0" y="0" width="1650.2" height="1677.2"/>
+						<clipPath id="mfid3">
+							<rect id="mfid4" x="0" y="0" width="1650.2" height="1677.2"/>
 						</clipPath>
 					</defs>
-					<g clip-path="url(#mfid1)">
+					<g clip-path="url(#mfid3)">
 						<g stroke="#000000" stroke-miterlimit="10" fill="none">
-							<image width="1650" height="1677" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABGCAIAAAAVe87QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOtSURBVGhD7Zo9TBRBFMevtLS0tLS0pLS0tKS0pLSkMDEWF2JhSCwwsdDCAhILGhNJLGhIsDDRxuAXAaIgnoCKEaIY8ZfM4+7t273Z2Ut2dhf3n1fAvn2z89v5ejN7nePTpZan3vo/eA6P/k4u9M5133UmVyq0B8+/SYWClcGzvHFw4faqKboqK4pkeVZ6v85cf20KrdYKIVmesZl1U1wdLBwpwTO9tGsKOnvz7aV7GzeefolmVx9tmTo4C0RK8FB1XQSjiO4nvlhaXP2p66AtBCnBQ2vo+PgwyMOD5SINeKi9jmSyFkdc+XkwP9KAxxRE3xNHXOXyYB6kRvJgw5CayoNlIjWYB0sjNZvn/K33Enailme4Pu0fUYhb5kk15KrS+Oymc3GbXEqpFjxfD/9QUZ3IkraIT6nvxUg+5l/tiyNYa3u/dSFl8Vy8s6ZjsVweZ5nN6FEMntmX33WgM5pL3Eo83txGFkLbijtAMXjMFmNifpvtrfhSIqsyjXn32Z74AhSDR2exPMAD48T+t38/du3xZ3EEqHQeeouOuvLwozi8GiHEqXQe87Izp4G0dEh4R0Cl85iolqflUbGl8zBZi8Mr6tEPYfqWqwEqnYecRUdlLqNp6SWL6V6uBqh0HlYPHRWYktEtddSLrUNx5KlEHtZNlnadg/J37mLq9OTNj34URpdj3hefVyXy6JudkciJL0AsoyY8ZC6JxEPL8MrFESZa0vTVGvFgl+9/COxsTumvGBXzMDWbD0SBiw9iJ2tiGUIhc0mJPIhk1CT/PE98Xk0t7uiowFkelcuDmOJ0VOBmhs6po8I7auk8JirwTVOPfki6Th7F5gkcQnoLGPggp5ry6JCWZxDb8uSJVFJHNZ6HqbZo1GhHKE6l8yC90pPIsfaLY4jMlqle51VofHZTB7qD6cxvyTxiemnXfHWu3XmiGULOMgeSuQcjXSqUxcbgQZMLPR2LhfDQUXmo+MIUiQfRwfQWzc9DlyMzKnQS7xSPR4uiho2fzOvhqoanPLU8J9byjKi5ublutyv/5KkBPMB0OoNq+DU6z9jMujjqpAI85F361kLHytFkDlbTLz3R0ODqu/2/NKtEjAJdw3Qum+AxZ7Aky1OLO7n5chyRJZpTISx9wpzgMUOo5kZvSueyCR40Mb9twmprvH2ptJLlgbg+P473GBm91Dgpy4NASuf/9TF2GZ5vGRk8TssbB6T0zCf6i1WFxmhhI8z21r/LGMrTULU89dbp4jk+/gdAo/TsHuEmXQAAAABJRU5ErkJggg=="/>
+							<image width="1650" height="1677" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABGCAIAAAAVe87QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAOtSURBVGhD7Zo9TBRBFMevtLS0tLS0pLS0tKS0pLSkMDEWF2JhSCwwsdDCAhILGhNJLGhIsDDRxuAXAaIgnoCKEaIY8ZfM4+7t273Z2Ut2dhf3n1fAvn2z89v5ejN7nePTpZan3vo/eA6P/k4u9M5133UmVyq0B8+/SYWClcGzvHFw4faqKboqK4pkeVZ6v85cf20KrdYKIVmesZl1U1wdLBwpwTO9tGsKOnvz7aV7GzeefolmVx9tmTo4C0RK8FB1XQSjiO4nvlhaXP2p66AtBCnBQ2vo+PgwyMOD5SINeKi9jmSyFkdc+XkwP9KAxxRE3xNHXOXyYB6kRvJgw5CayoNlIjWYB0sjNZvn/K33Enailme4Pu0fUYhb5kk15KrS+Oymc3GbXEqpFjxfD/9QUZ3IkraIT6nvxUg+5l/tiyNYa3u/dSFl8Vy8s6ZjsVweZ5nN6FEMntmX33WgM5pL3Eo83txGFkLbijtAMXjMFmNifpvtrfhSIqsyjXn32Z74AhSDR2exPMAD48T+t38/du3xZ3EEqHQeeouOuvLwozi8GiHEqXQe87Izp4G0dEh4R0Cl85iolqflUbGl8zBZi8Mr6tEPYfqWqwEqnYecRUdlLqNp6SWL6V6uBqh0HlYPHRWYktEtddSLrUNx5KlEHtZNlnadg/J37mLq9OTNj34URpdj3hefVyXy6JudkciJL0AsoyY8ZC6JxEPL8MrFESZa0vTVGvFgl+9/COxsTumvGBXzMDWbD0SBiw9iJ2tiGUIhc0mJPIhk1CT/PE98Xk0t7uiowFkelcuDmOJ0VOBmhs6po8I7auk8JirwTVOPfki6Th7F5gkcQnoLGPggp5ry6JCWZxDb8uSJVFJHNZ6HqbZo1GhHKE6l8yC90pPIsfaLY4jMlqle51VofHZTB7qD6cxvyTxiemnXfHWu3XmiGULOMgeSuQcjXSqUxcbgQZMLPR2LhfDQUXmo+MIUiQfRwfQWzc9DlyMzKnQS7xSPR4uiho2fzOvhqoanPLU8J9byjKi5ublutyv/5KkBPMB0OoNq+DU6z9jMujjqpAI85F361kLHytFkDlbTLz3R0ODqu/2/NKtEjAJdw3Qum+AxZ7Aky1OLO7n5chyRJZpTISx9wpzgMUOo5kZvSueyCR40Mb9twmprvH2ptJLlgbg+P473GBm91Dgpy4NASuf/9TF2GZ5vGRk8TssbB6T0zCf6i1WFxmhhI8z21r/LGMrTULU89dbp4jk+/gdAo/TsHuEmXQAAAABJRU5ErkJggg=="/>
 						</g>
 					</g>
 				</svg>
@@ -2358,14 +2358,14 @@
 		</g>
 		<g id="shape1461-687" v:mID="1461" v:groupContext="shape" transform="translate(655.2,-223.2)">
 			<title>Sheet.1461</title>
-			<desc>SQL Server on Linux VM</desc>
+			<desc>SQL Server on Windows VM</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(65000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="55.8" cy="606.6" width="111.61" height="10.8"/>
-			<rect x="0" y="601.2" width="111.6" height="10.8" class="st46"/>
-			<text x="7.45" y="609.6" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server on Linux VM</text>		</g>
+			<v:textRect cx="66.8679" cy="606.6" width="133.74" height="10.8"/>
+			<rect x="0" y="601.2" width="133.736" height="10.8" class="st46"/>
+			<text x="10.17" y="609.6" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server on Windows VM</text>		</g>
 		<g id="shape1463-690" v:mID="1463" v:groupContext="shape" transform="translate(433.8,-237.6)">
 			<title>Sheet.1463</title>
 			<desc>Fin</desc>
@@ -3255,8 +3255,8 @@
 			</v:userDefs>
 			<rect v:rectContext="foreign" x="0" y="549.56" width="118.212" height="62.4396" class="st83"/>
 			<image x="0" y="549.56" width="118.212" height="62.4396" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						iVBORw0KGgoAAAANSUhEUgAABqYAAAODCAYAAADetLAsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7D
-						AcdvqGQAAHBxSURBVHhe7d3NseRG1iboEIEaTFpLkAL0okTI3WwpAs0gQFOEFGAWXIwAuZ1efSJQBGrQtFCg5ngxo75L1Lk3I4DjDg/E
+						iVBORw0KGgoAAAANSUhEUgAABqYAAAODCAYAAADetLAsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0
+						Ad5mH3gAAHBxSURBVHhe7d3NseRG1iboEIEaTFpLkAL0okTI3WwpAs0gQFOEFGAWXIwAuZ1efSJQBGrQtFCg5ngxo75L1Lk3I4DjDg/E
 						s3iMVecG3B2Iv4S/Acfln//8JwAAAAAAAHSXFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAA
 						AACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBq
 						aREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAA
