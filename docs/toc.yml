@@ -1047,10 +1047,8 @@ items:
         href: example-scenario/blockchain/multi-cloud-blockchain.yml
     - name: Solution ideas
       items:
-      - name: Blockchain workflow application
-        href: https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
-      - name: Supply chain management with QBS
-        href: guide/blockchain/quorum-blockchain-service.yml
+      - name: Supply chain management with Kaliedo
+        href: guide/blockchain/blockchain-service.yml
       - name: Supply chain track and trace
         href: solution-ideas/articles/supply-chain-track-and-trace.yml
   - name: Compute + HPC

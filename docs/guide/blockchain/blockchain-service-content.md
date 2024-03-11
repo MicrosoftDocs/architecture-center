@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to use blockchain to track and trace physical assets, along with their metadata.
+This article describes how to use Kaleido Blockchain Service to track and trace physical assets, along with their metadata. Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical, and sustainability requirements.
 
 ## Architecture
 
@@ -22,9 +22,9 @@ The following are features of  Kaleido Blockchain as a Service:
 
 - **Enterprise-grade infrastructure**. Designed to meet the most rigorous requirements, Kaleido is SOC 2 Type 2 compliant with built-in HA/DR and automatic failover, secure network isolation, SLAs and dedicated 24×7 support options.
 
-- **Integration options**.  Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
+- **Integration options (Ethereum events)**.  Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
 
-- **Integration options**. Provides management APIs and supports monitoring and logging of blockchain nodes and integration with Azure services such as Azure Key Vault.
+- **Integration options (Infrastructure management)**. Provides management APIs and supports monitoring and logging of blockchain nodes and integration with Azure services such as Azure Key Vault.
 
 Kaleido is available as both a Marketplace and private offering on Azure. You can access Kaleido's Blockchain as a Service one of the following ways:
 
@@ -33,7 +33,7 @@ Kaleido is available as both a Marketplace and private offering on Azure. You ca
 
 The elements of the architectural diagram are explained below:
 
-- **Input/Intake**
+- **Input/intake**
 
 Input to the application uses existing Azure services. For instance, a traditional web application that runs in [Azure App Services](/azure/app-service/), serves as an input from interactive users. Kaleido offers [middleware and Web3 abstraction layers](https://www.kaleido.io/hyperledger-firefly) that make app development accessible to any full stack developer via RESTful APIs.
 
@@ -86,8 +86,6 @@ The ledger system of the QBS helps organizations get the history of low-level co
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components. QBS is integrated with Azure Monitor to provide additional telemetry data on blockchain nodes.
 
 ## Scenario details
-
-Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical, and sustainability requirements.
 
 The need for the blockchain technology started with organizations trying to understand more about the products, like:
 
