@@ -174,7 +174,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Choose an Azure multiparty computing service](../guide/technology-choices/multiparty-computing-service.yml)|Decide which multiparty computing services to use for your solution. Includes information about using Kubernetes to manage containers.|Blockchain|
 |[Container CI/CD using Jenkins and Kubernetes on AKS](../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)|Get replicable, manageable clusters of containers by orchestrating the deployment of containers with AKS.|DevOps|
 |[Container orchestration for microservices](../microservices/design/orchestration.yml)|Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health. Review options for microservices container orchestration, including AKS.|Microservices|
-|[Create a CI/CD pipeline for AI apps using Azure Pipelines, Docker, and Kubernetes](../data-science-process/ci-cd-flask.yml)|Create a continuous integration and continuous delivery pipeline for AI applications by using Docker and Kubernetes.|AI|
 |[Employee retention with Databricks and Kubernetes](../example-scenario/ai/employee-retention-databricks-kubernetes.yml)|Learn how to use Kubernetes to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications.|Analytics|
 |[GitOps for Azure Kubernetes Service](../example-scenario/gitops-aks/gitops-blueprint-aks.yml)|See a GitOps solution for an AKS cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.|Containers|
 |[Helm-based deployments for Apache NiFi](../guide/data/helm-deployments-apache-nifi.yml)|Use Helm charts when you deploy NiFi on AKS. Helm streamlines the process of installing and managing Kubernetes applications.|Analytics|
@@ -201,7 +200,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. Store data in Azure Database for MariaDB.|Mainframe|
 |[Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)|Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure. Azure Database for MariaDB is one recommended relational database.|Mainframe|
 |[Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)|Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization. Azure Database for MariaDB is one recommended relational database.|Mainframe|
-|[Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)|Learn how to use Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress. In this scenario, MariaDB is used as a data store.|Web|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for MariaDB is one example of a relational database.|Databases|
 
 ## MLflow
@@ -370,12 +368,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)|Run an Umbraco content management system on the Web Apps feature of App Service. Use Azure managed services for a high availability environment.|Web|
-
-## WordPress
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)|Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress.|Web|
 
 ## Related resources
 

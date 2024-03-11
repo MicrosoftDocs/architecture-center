@@ -5,7 +5,8 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/07/2022
   ms.collection: collection
-  ms.author: martinek
+  ms.author: robbag
+  author: RobBagby
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
@@ -44,7 +45,7 @@ highlightedContent:
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
-  summary: Best practices and patterns for building applications on Microsoft Azure # < 160 chars (optional)
+  summary: "Best practices and patterns for building applications on Microsoft Azure:" # < 160 chars (optional)
   items:
     # Card
     - title: Design for the cloud
@@ -113,7 +114,7 @@ productDirectory:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Technology Areas # < 60 chars (optional)
-  summary: Explore architectures and guides for different technologies # < 160 chars (optional)
+  summary: Explore architectures and guides for different technologies. # < 160 chars (optional)
   items:
     - title: Popular Articles
       links:
@@ -148,7 +149,7 @@ conceptualContent:
         url: ./guide/index.md
         itemType: reference
       - text: Hub-spoke network topology
-        url: ./reference-architectures/hybrid-networking/hub-spoke.yml
+        url: ./networking/architecture/hub-spoke.yml
         itemType: architecture
       - text: Architect multitenant solutions on Azure
         url: ./guide/multitenant/overview.md
@@ -355,18 +356,12 @@ conceptualContent:
         - text: CI/CD for microservices on Kubernetes
           itemType: how-to-guide
           url: microservices/ci-cd-kubernetes.yml
-        - text: Migrate from Cloud Services to Service Fabric
-          itemType: how-to-guide
-          url: service-fabric/migrate-from-cloud-services.yml
         - text: Azure Kubernetes Service (AKS)
           itemType: architecture
           url: reference-architectures/containers/aks-microservices/aks-microservices.yml
         - text: Azure Service Fabric
           itemType: architecture
           url: reference-architectures/microservices/service-fabric.yml
-        - text: Decomposing a monolithic application
-          itemType: get-started
-          url:  example-scenario/infrastructure/service-fabric-microservices.yml
       footerLink:
         text: Introduction to microservices on Azure
         url: ./microservices/index.yml
@@ -387,7 +382,7 @@ conceptualContent:
           url: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
         - text: Hub-spoke topology
           itemType: architecture
-          url: reference-architectures/hybrid-networking/hub-spoke.yml
+          url: networking/architecture/hub-spoke.yml
         - text: DMZ between Azure and on-premises
           itemType: architecture
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml
@@ -396,10 +391,10 @@ conceptualContent:
           url: reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: architecture
-          url: reference-architectures/dmz/nva-ha.yml
+          url: networking/guide/nva-ha.yml
         - text : Segmenting Virtual Networks
           itemType: architecture
-          url: reference-architectures/hybrid-networking/network-level-segmentation.yml
+          url: networking/guide/network-level-segmentation.yml
 
     - title: Serverless applications
       links:
@@ -430,9 +425,9 @@ conceptualContent:
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
-        - text: Highly scalable WordPress
-          itemType: get-started
-          url: web-apps/hosting-applications/wordpress.yml
+        - text: WordPress on virtual machines
+          itemType: architecture
+          url: example-scenario/infrastructure/wordpress-iaas.yml
 
     - title: SAP
       links:
