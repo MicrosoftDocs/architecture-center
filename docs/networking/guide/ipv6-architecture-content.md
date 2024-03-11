@@ -10,13 +10,13 @@ In a hub-and-spoke network, the hub virtual network is a central point of connec
 
 ### Workflow
 
-1. **Public internet and cross-premises network:** Users or services can access Azure resources via the public internet. The cross-premises network has on-premises virtual machines (VMs) that connect securely to the Azure network via a VPN gateway.
+1. **Public internet and cross-premises network:** Users or services can access Azure resources via the public internet. The cross-premises network has on-premises virtual machines that connect securely to the Azure network via a VPN gateway.
 
 1. **Azure Virtual Network Manager:** This component is the management layer that oversees the entire network infrastructure within Azure. It handles the routing, policies, and overall health of the virtual network.
 
-1. **Hub virtual network:** The hub is the central point of the network topology. It's configured to support both IPv4 and IPv6 (dual stack).
+1. **Hub virtual network:** The hub is the central point of the network topology. The network configuration supports both IPv4 and IPv6 (dual stack).
 
-    - Azure Bastion provides secure and seamless Remote Desktop Protocol/Secure Shell (RDP/SSH) connectivity from the Azure portal to the VMs directly over Transport Layer Security (TLS).
+    - Azure Bastion provides secure and seamless Remote Desktop Protocol/Secure Shell (RDP/SSH) connectivity from the Azure portal to the virtual machines directly over Transport Layer Security (TLS).
     - Azure Firewall inspects and filters traffic between the hub and the public internet.
     - ExpressRoute connects the cross-premises network to the hub.
     - VPN Gateway also connects the cross-premises network to the hub and provides redundancy.
@@ -27,21 +27,21 @@ In a hub-and-spoke network, the hub virtual network is a central point of connec
     - IPv6 user-defined routes (UDRs) define custom routes for IPv6 traffic from the spoke.
     - The spoke virtual networks are connected via [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are nontransitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone.
     - All outbound traffic from the spoke virtual networks flows through the hub, using a configuration in Azure Firewall called [forced tunneling](/azure/firewall/forced-tunneling).
-    - Within each spoke, there are three subnets designated as resource subnets, each hosting a VM.
-    - Each VM is connected to an internal load balancer that's configured to support IPv4 and IPv6 address ranges. The load balancer distributes incoming network traffic across the VMs.
+    - Within each spoke, there are three subnets designated as resource subnets, each hosting a virtual machine.
+    - Each virtual machine connects to an internal load balancer configured to support IPv4 and IPv6 address ranges. The load balancer distributes incoming network traffic across the virtual machines.
 
 ### Components
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
-- A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is required for VM communication. You can set up VMs and other resources to have multiple network interfaces, which allows you to create dual-stack (IPv4 and IPv6) configurations.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure Virtual Machines, to securely communicate with each other, cross-premises networks, and the internet.
+- A [virtual network interface](/azure/virtual-network/virtual-network-network-interface) is required for virtual-machine communication. You can set up virtual machines and other resources to have multiple network interfaces, which allows you to create dual-stack (IPv4 and IPv6) configurations.
 - [A public IP address](/azure/virtual-network/ip-services/public-ip-addresses) is used for inbound IPv4 and IPv6 connectivity to Azure resources.
 - [Virtual Network Manager](/azure/virtual-network-manager/overview) is used to create and manage [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
-- [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service that's used to help protect your Azure Virtual Network resources. An Azure Firewall managed firewall instance is in its own subnet.
+- [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service. It protects your Azure Virtual Network resources. An Azure Firewall managed firewall instance is in its own subnet.
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) can be used to create a virtual network gateway to connect a virtual network to a virtual private network (VPN) device or an ExpressRoute circuit. The gateway provides cross-premises network connectivity.
 - [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is used to enable multiple machines that have the same purpose to share traffic. In this architecture, the load balancers distribute traffic among multiple subnets that support IPv6.
 - A [route table](/azure/virtual-network/manage-route-table) in Azure is a set of UDRs that provide custom path definitions for network traffic.
 - [Azure Virtual Machines](/azure/virtual-machines/overview) is an infrastructure as a service (IaaS) computing solution that supports IPv6.
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) offering that Microsoft provides and maintains. It provides secure and seamless RDP and SSH access to VMs without public IP address exposure.
+- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed platform as a service (PaaS) offering that Microsoft provides and maintains. It provides secure and seamless remote desktop protocol and SSH access to virtual machines without public IP address exposure.
 - [Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from cloud and on-premises environments. You can use Monitor to maximize the availability and performance of your applications and services.
 
 ## Transition a hub virtual network to IPv6
@@ -66,7 +66,7 @@ UDRs are routes that you manually set up to override Azure's default system rout
 - *Modify existing routes*. If there are already routes for IPv4, you might need to modify them to ensure that they also apply to IPv6 traffic, or create separate IPv6-specific routes.
 - *Associate the route table with subnets*. After you define the routes, associate the route table with the relevant subnets within the virtual network. This association determines which subnets use the routes that you defined.
 
-You don't need to add a route for every resource, but you do need a route for each subnet. Each subnet can have multiple resources, and they all follow the rules that are defined in the route table associated with their subnet. For more information, see [UDR overview](/azure/virtual-network/virtual-networks-udr-overview).
+You don't need to add a route for every resource, but you do need a route for each subnet. Each subnet can have multiple resources, and they all follow the rules that are defined in the route table associated with their subnet. For more information, see [User-define route overview](/azure/virtual-network/virtual-networks-udr-overview).
 
 For the example architecture, the hub virtual network has four subnets: Azure Bastion, Azure Firewall, VPN Gateway, and ExpressRoute. The following table shows example UDRs for each subnet.
 
@@ -108,11 +108,11 @@ For your setup, adjust the IPv6 addresses according to your organization's alloc
 
 ### Modify spoke virtual network resources
 
-Each spoke virtual network contains multiple VMs and an internal load balancer. The internal load balancer enables you to route IPv4 and IPv6 traffic to the VMs. You must modify the VMs and internal load balancers so they support IPv6.
+Each spoke virtual network contains multiple virtual machines and an internal load balancer. The internal load balancer enables you to route IPv4 and IPv6 traffic to the virtual machines. You must modify the virtual machines and internal load balancers so they support IPv6.
 
-For each VM, you must create an IPv6 network interface and associate it with the VM to add IPv6 support. For more information, see [Add IPv6 configuration to a VM](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine).
+For each virtual machine, you must create an IPv6 network interface and associate it with the virtual machine to add IPv6 support. For more information, see [Add IPv6 configuration to a virtual machine](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine).
 
-If there isn't an internal load balancer in each spoke virtual network, you should create a dual-stack internal load balancer. For more information, see, [Create a dual-stack internal load balancer](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). If there is an internal load balancer, you can use [PowerShell](/azure/load-balancer/ipv6-add-to-existing-vnet-powershell) or [Azure CLI](/azure/load-balancer/ipv6-add-to-existing-vnet-cli) to add IPv6 support.
+If there isn't an internal load balancer in each spoke virtual network, you should create a dual-stack internal load balancer. For more information, see, [Create a dual-stack internal load balancer](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell). If there's an internal load balancer, you can use [PowerShell](/azure/load-balancer/ipv6-add-to-existing-vnet-powershell) or [Azure CLI](/azure/load-balancer/ipv6-add-to-existing-vnet-cli) to add IPv6 support.
 
 ### Configure user-defined routes (UDRs) for each spoke subnet
 
@@ -135,7 +135,7 @@ For your setup, you must align the UDRs with your organizational network policie
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors originally wrote the article.*
 
 Principal author:
 
@@ -147,11 +147,11 @@ Other contributors:
 - [Dawn Bedard](https://www.linkedin.com/in/dawnbedard) | Principal Technical Program Manager
 - [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b) | Senior Customer Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Create a VM with a IPv6 dual-stack network](/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal)
+- [Create a virtual machine with a IPv6 dual-stack network](/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal)
 - [Manage IP address ranges](/azure/virtual-network/manage-virtual-network#add-or-remove-an-address-range)
 - [Cloud Adoption Framework: Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing#ipv6-considerations)
 - [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
