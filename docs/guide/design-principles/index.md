@@ -12,7 +12,6 @@ categories:
 products:
   - azure
 ms.custom:
-  - seojan19
   - guide
 ---
 

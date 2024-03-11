@@ -14,7 +14,7 @@ The [zero trust security model](https://www.microsoft.com/security/business/zero
 
 Gartner promotes an [adaptive security architecture](https://www.gartner.com/smarterwithgartner/build-adaptive-security-architecture-into-your-organization/) that replaces an incident response-based strategy with a *prevent-detect-respond-predict* model. Adaptive security combines access control, behavioral monitoring, usage management, and discovery with continuous monitoring and analysis.
 
-The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.technet.microsoft.com/Cybersecurity-Reference-883fb54c) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments, that use Microsoft Entra ID for *Identity-as-a-Service (IDaaS)*.
+The [Microsoft Cybersecurity Reference Architecture (MCRA)](/security/cybersecurity-reference-architecture/mcra) describes Microsoft's cybersecurity capabilities and how they integrate with existing security architectures, including cloud and hybrid environments, that use Microsoft Entra ID for *Identity-as-a-Service (IDaaS)*.
 
 This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Microsoft Entra platform.
 

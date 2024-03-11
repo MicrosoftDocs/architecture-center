@@ -3,7 +3,7 @@ title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 10/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -54,8 +54,6 @@ Azure provides built-in autoscaling for most compute options.
 - **Service Fabric** also supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using autoscale rules][service-fabric-autoscale].
 
 - **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up).
-
-- **Azure Cloud Services** has built-in autoscaling at the role level. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
 
 These compute options all use [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality.
 
@@ -158,7 +156,6 @@ The following patterns and guidance may also be relevant to your scenario when i
 [monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
 [app-service-autoscale]: /azure/app-service/manage-scale-up
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
-[cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [functions-scale]: /azure/azure-functions/functions-scale
 [service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling
 [vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

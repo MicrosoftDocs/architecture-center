@@ -53,7 +53,7 @@ The following articles provide more details about retail architectural topics. A
 
 | Guide | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Data Management in Retail](/previous-versions/azure/industry-marketing/retail/retail-data-management-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
+| [Overview of Retail data solutions in Microsoft Fabric](/industry/retail/retail-data-solutions/overview-retail-data-solutions) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
 | [Migrate your e-commerce solution to Azure](/previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Learn how to move an existing e-commerce solution to the cloud. The three stages are to rehost, refactor, and rebuild your solution. | Migration |
 | [Visual search in retail with Azure Cosmos DB](/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
 | [SKU optimization for consumer brands](/previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Topics include automating decision making, SKU assortment optimization, descriptive analytics, predictive analytics, parametric models, non-parametric models, implementation details, data output and reporting, and security considerations. | Analytics |
@@ -105,7 +105,7 @@ The following are other ideas that you can use as a starting point for your reta
 
 **Networking**:
 
-- [Video capture and analytics for retail](../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../networking/idea/video-analytics.yml)
 
 **Web**:
 

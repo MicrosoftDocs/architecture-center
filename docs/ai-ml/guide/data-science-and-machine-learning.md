@@ -11,7 +11,6 @@ ms.subservice: azure-guide
 products:
   - azure-machine-learning
 ms.custom:
-  - contperf-fy21q1
   - guide
 ---
 

@@ -17,7 +17,6 @@ products:
   - entra-id
   - ms-graph
   - azure-app-service
-  - azure-fluid-relay
   - m365
 name: Real-time collaboration with Azure and Microsoft 365
 summary: Learn about a custom collaboration solution that uses libraries and Azure services. 

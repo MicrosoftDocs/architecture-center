@@ -14,7 +14,6 @@ ms.category:
   - fcp
 ms.custom:
   - guide
-  - seo-aac-fy21q3
 keywords:
   - community jury
   - stakeholder collaboration

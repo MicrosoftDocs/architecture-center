@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/logging/unified-logging"><img src="/azure/architecture/browse/thumbs/unified-logging.png" class="diagram" alt="Thumbnail of Unified logging for microservices applications Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/best-practices/monitoring"><img src="/azure/architecture/browse/thumbs/unified-logging.png" class="diagram" alt="Thumbnail of Unified logging for microservices applications Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/logging/unified-logging">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/best-practices/monitoring">
             <p>Unified logging for microservices applications</p>
         </a>
         <ul class="card-content-metadata">

@@ -14,7 +14,6 @@ azureCategories: developer-tools
 categories: developer-tools
 ms.custom:
   - guide
-  - seo-aac-fy21q3
 keywords:
   - Innovation toolkit
   - responsible innovation

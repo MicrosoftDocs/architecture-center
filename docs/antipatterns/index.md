@@ -9,7 +9,6 @@ ms.service: architecture-center
 ms.subservice: anti-pattern
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - antipatterns
   - antipattern

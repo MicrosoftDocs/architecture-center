@@ -59,6 +59,12 @@ The following options provide an opinionated approach to deploy and operate the 
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module and also allows you to deploy each capability individually or in part. |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md) | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
+### Variants
+
+| Deployment option | Description |
+| --- | ---|
+| [Sovereign landing zone](/industry/sovereignty/slz-overview) | The sovereign landing zone (SLZ) is a variant of the enterprise scale Azure landing zone intended for organizations that need advanced sovereign controls. |
+
 ### Operate Azure landing zones
 
 After you deploy the landing zone, you need to operate and maintain it. For more information, see the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
@@ -104,3 +110,4 @@ You can use the following options to deploy and manage applications or workloads
 | [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone) | Azure Arc-enabled servers, Kubernetes, and Azure Arc-enabled SQL Managed Instance. See the Jumpstart ArcBox overview. |
 | [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) | Azure Spring Apps landing zone accelerator is intended for an application team that builds and deploys Spring Boot applications in a typical landing enterprise zone design. As the workload owner, use architectural guidance provided in this accelerator to achieve your target technical state with confidence. |
 | [Enterprise-scale landing zone for Citrix on Azure](/azure/cloud-adoption-framework/scenarios/wvd/landing-zone-citrix/citrix-enterprise-scale-landing-zone) | Design guidelines for the Cloud Adoption Framework for Citrix Cloud in an Azure enterprise-scale landing zone cover for many design areas. |
+| [Azure Container Apps Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator) | This Azure Container Apps landing zone accelerator outlines the strategic design path and defines the target technical state for deploying Azure Container Apps. It is owned and operated by a dedicated workload team. |

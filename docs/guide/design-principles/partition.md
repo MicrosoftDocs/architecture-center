@@ -11,7 +11,6 @@ ms.subservice: azure-guide
 products:
   - azure-app-service
 ms.custom:
-  - seojan19
   - guide
 ---
 

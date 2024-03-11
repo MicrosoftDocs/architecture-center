@@ -13,7 +13,6 @@ products:
   - azure-cache-redis
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - antipattern
   - anti-pattern

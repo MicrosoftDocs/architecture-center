@@ -13,7 +13,6 @@ products:
   - azure-devops
 categories: devops
 ms.custom:
-  - seojan19
   - guide
 ---
 

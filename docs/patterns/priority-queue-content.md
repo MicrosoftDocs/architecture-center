@@ -10,7 +10,7 @@ A queue usually is a first-in, first-out (FIFO) structure, and consumers typical
 
 ![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-pattern.png)
 
->[!NOTE] 
+>[!NOTE]
 > Most message queue implementations support multiple consumers. (See the [Competing Consumers pattern](./competing-consumers.yml).) The number of consumer processes can be scaled up and down based on demand.
 
 In systems that don't support priority-based message queues, an alternative solution is to maintain a separate queue for each priority. The application is responsible for posting messages to the appropriate queue. Each queue can have a separate pool of consumers. Higher priority queues can have a larger pool of consumers that run on faster hardware than lower priority queues. This diagram illustrates the use of separate message queues for each priority:
@@ -58,6 +58,17 @@ This pattern is useful in scenarios where:
 - The system must handle multiple tasks that have different priorities.
 
 - Different users or tenants should be served with different priorities.
+
+## Workload design
+
+An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | Separating items based on business priority enables you to focus reliability efforts on the most critical work.<br/><br/> - [RE:02 Critical flows](/azure/well-architected/reliability/identify-flows)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Separating items based on business priority enables you to focus performance efforts on the most time-sensitive work.<br/><br/> - [PE:09 Critical flows](/azure/well-architected/performance-efficiency/prioritize-critical-flows) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
