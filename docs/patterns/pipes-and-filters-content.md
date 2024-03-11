@@ -2,25 +2,27 @@ Decompose a task that performs complex processing into a series of separate elem
 
 ## Context and problem
 
-You have a pipeline of tasks that you need to process asynchronously. It's important to note that this pattern applies to the asynchronous processing of a series of sequential steps. A straightforward but inflexible approach to implementing an application is to perform this async processing in a monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere in the application.
+You have a pipeline of sequential tasks that you need to process asynchronously. A straightforward but inflexible approach to implement this application is to perform this async processing in a monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere in the application.
 
-The following diagram illustrates one of the problems with processing data using the monolithic approach, the inability to reuse code across multiple pipelines. In this example, an application receives and processes data from two sources. A separate module processes the data from each source by performing a series of tasks to transform the data before passing the result to the business logic of the application.
+The following diagram illustrates one of the problems with processing data using a monolithic approach, the inability to reuse code across multiple pipelines. In this example, an application receives and processes data from two sources. A separate module processes the data from each source by performing a series of tasks to transform the data before passing the result to the business logic of the application.
 
 ![Diagram that shows a solution implemented with monolithic modules.](./_images/pipes-and-filters-modules.png)
 
-Some of the tasks that the monolithic modules perform are functionally similar, but the code has to be repeated in both modules. In addition the inability to reuse logic, this approach introduces a risk when requirements change. You must remember to update the code in both places.
+Some of the tasks that the monolithic modules perform are functionally similar, but the code has to be repeated in both modules. In addition to the inability to reuse logic, this approach introduces a risk when requirements change. You must remember to update the code in both places.
 
-There are other challenges with a monolithic implementation that aren't related to multiple pipelines or reuse. With a monolith, you don't have the ability to run specific tasks in different environments or scale them independently. Some tasks might be compute-intensive and would benefit from running on powerful hardware or running multiple instances in parallel. Other tasks might not have the same requirements. Further, with monoliths, it's challenging to reorder tasks or to inject new tasks in the pipeline. These changes require retesting the entire pipeline.
+There are other challenges with a monolithic implementation unrelated to multiple pipelines or reuse. With a monolith, you don't have the ability to run specific tasks in different environments or scale them independently. Some tasks might be compute-intensive and would benefit from running on powerful hardware or running multiple instances in parallel. Other tasks might not have the same requirements. Further, with monoliths, it's challenging to reorder tasks or to inject new tasks in the pipeline. These changes require retesting the entire pipeline.
 
 ## Solution
 
 Break down the processing required for each stream into a set of separate components (or filters), each performing a single task. The filters are composed into pipelines by connecting the filters with pipes. Filters receive messages from an inbound pipe and publish messages to an outbound pipe. Pipes don't perform routing or any other logic. They only connect filters, passing the output message from one filter as the input to the next.
+
 Filters act independently and are unaware of other filters. They're only aware of their input and output schemas. As such, the filters can be arranged in any order so long as the input schema for any filter matches the output schema for the previous filter. Using a standardized schema for all filters enhances the ability to reorder filters.
+
 The loose coupling of filters makes it easy to:
 
 - Create new pipelines composed of existing filters
 - Update or replace logic in individual filters
-- Reorder filters, where necessary
+- Reorder filters, when necessary
 - Run filters on differing hardware, where required
 - Run filters in parallel
 
@@ -53,9 +55,9 @@ Consider the following points when you decide how to implement this pattern:
   > [!NOTE]
   > If you implement the pipeline by using message queues (like Azure Service Bus queues), the message queuing infrastructure might provide automatic duplicate message detection and removal.
 
-- **Context and state**. In a pipeline, each filter essentially runs in isolation and shouldn't make any assumptions about how it was invoked. Therefore, each filter should be provided with sufficient context to perform its work. This context could include a significant amount of state information. If filters use external state, such as data in a database or external storage, then there are performance efficiency considerations. Every filter has to load, operate, and persist that state, which adds overhead over other solutions that load the external state a single time.
+- **Context and state**. In a pipeline, each filter essentially runs in isolation and shouldn't make any assumptions about how it was invoked. Therefore, each filter should be provided with sufficient context to perform its work. This context could include a significant amount of state information. If filters use external state, such as data in a database or external storage, then you must consider the impact on performance. Every filter has to load, operate, and persist that state, which adds overhead over solutions that load the external state a single time.
 
-- **Message tolerance**. Filters must be tolerant of data in a message that they don't operate against. They must ignore that data and pass it along unchanged in the output message.
+- **Message tolerance**. Filters must be tolerant of data in the incoming message that they don't operate against. They operate on the data pertinent to them and ignore other data and pass it along unchanged in the output message.
 
 - **Error handling** - Every filter must determine what to do in the case of a breaking error. The filter must determine if it fails the pipeline or propagates the exception.
 
