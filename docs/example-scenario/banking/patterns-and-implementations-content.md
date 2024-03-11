@@ -64,11 +64,11 @@ For more information on KEDA scalers, see the following KEDA documents:
 
 *Download a [Visio file](https://arch-center.azureedge.net/load-testing-pipeline-jmeter.vsdx) of this architecture.*
 
-1. The solution leverages Azure Load Testing with JMeter (JMX) scripts. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted and can utilize existing JMeter scripts.
+The solution leverages Azure Load Testing with JMeter (JMX) scripts. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted and can utilize existing JMeter scripts.
 
 #### Workflow
 
-You can automate a load test in Azure Load Testing by creating a CI/CD pipeline: [Manually configure your CI/CD workflow for running load tests](https://learn.microsoft.com/en-us/azure/load-testing/how-to-configure-load-test-cicd?tabs=pipelines. Doing so allows a you automate a load test to continuously validate your application performance and stability under load. 
+You can automate a load test in Azure Load Testing by creating a CI/CD pipeline: [Manually configure your CI/CD workflow for running load tests](https://learn.microsoft.com/en-us/azure/load-testing/how-to-configure-load-test-cicd?tabs=pipelines). Doing so allows a you automate a load test to continuously validate your application performance and stability under load. 
 
 ## Scenario details
 
