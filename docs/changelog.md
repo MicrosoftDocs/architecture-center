@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 03/04/2024
+ms.date: 03/11/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,12 +27,35 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [SaaS and multitenant solution architecture](./guide/saas-multitenant-solution-architecture/index.md)
+- [Azure Governance Visualizer Accelerator guidance](./landing-zones/azure-governance-visualizer-accelerator.yml)
 - [SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml)
 - [Deploy Ansys Speos on an Azure virtual machine](./guide/hpc/ansys-speos.yml)
 
 ### Updated articles
 
-- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#f22cff3106](https://github.com/MicrosoftDocs/architecture-center/commit/f22cff3106))
+- [Health Endpoint Monitoring pattern](./patterns/health-endpoint-monitoring.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Index Table pattern](./patterns/index-table.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Leader Election pattern](./patterns/leader-election.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Materialized View pattern](./patterns/materialized-view.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Messaging Bridge pattern](./patterns/messaging-bridge.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Priority Queue pattern](./patterns/priority-queue.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Publisher-Subscriber pattern](./patterns/publisher-subscriber.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Quarantine pattern](./patterns/quarantine.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Queue-Based Load Leveling pattern](./patterns/queue-based-load-leveling.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Rate Limiting pattern](./patterns/rate-limiting-pattern.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Retry pattern](./patterns/retry.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Scheduler Agent Supervisor pattern](./patterns/scheduler-agent-supervisor.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Sequential Convoy pattern](./patterns/sequential-convoy.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Sharding pattern](./patterns/sharding.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Sidecar pattern](./patterns/sidecar.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Static Content Hosting pattern](./patterns/static-content-hosting.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Strangler Fig pattern](./patterns/strangler-fig.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Throttling pattern](./patterns/throttling.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Valet Key pattern](./patterns/valet-key.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
+- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#b227ec9aa9](https://github.com/MicrosoftDocs/architecture-center/commit/b227ec9aa9))
+- [Databases architecture design](./databases/index.yml)  ([#48b8f2e522](https://github.com/MicrosoftDocs/architecture-center/commit/48b8f2e522))
 
 ## February 2024
 
@@ -64,7 +87,6 @@ The following new and updated articles have recently been published in the Azure
 - [Azure icons](./icons/index.md)  ([#e57764588e](https://github.com/MicrosoftDocs/architecture-center/commit/e57764588e))
 - [Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search](./ai-ml/openai/idea/search-and-query-using-openai-service.yml)  ([#f8cde6690c](https://github.com/MicrosoftDocs/architecture-center/commit/f8cde6690c))
 - [Databases architecture design](./databases/index.yml)  ([#3ba5551b02](https://github.com/MicrosoftDocs/architecture-center/commit/3ba5551b02))
-- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#da0418b10f](https://github.com/MicrosoftDocs/architecture-center/commit/da0418b10f))
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#b91e17155e](https://github.com/MicrosoftDocs/architecture-center/commit/b91e17155e))
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#7dd617e4dd](https://github.com/MicrosoftDocs/architecture-center/commit/7dd617e4dd))
 - [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#31392db970](https://github.com/MicrosoftDocs/architecture-center/commit/31392db970))
@@ -185,7 +207,6 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy AVL FIRE M on an Azure virtual machine](./guide/hpc/hpc-avl-fire-m.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
 - [Deploy Sandi HiFUN on an Azure virtual machine](./guide/hpc/hpc-sandi-hifun.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
 - [Deploy Luxion KeyShot on an Azure virtual machine](./guide/hpc/luxion-keyshot.yml)  ([#3d99b29393](https://github.com/MicrosoftDocs/architecture-center/commit/3d99b29393))
-- [Virtual WAN architecture optimized for department-specific requirements](./networking/architecture/performance-security-optimized-vwan.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
 - [Deploy Altair EDEM on an Azure virtual machine](./guide/hpc/altair-edem.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
 - [Deploy Ansys Fluent on an Azure virtual machine](./guide/hpc/ansys-fluent.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
 - [Deploy Ansys Rocky on an Azure virtual machine](./guide/hpc/ansys-rocky.yml)  ([#2b25212288](https://github.com/MicrosoftDocs/architecture-center/commit/2b25212288))
