@@ -91,7 +91,6 @@ a1231464635654a123646565456cc146841c1313546a515432161a45a5316541, OrchestratorCo
 {'PodName':'a_podname','PodNamespace':'my_namespace'}]
 ```
 
-
 Check the allocated IP addresses in the plugin IPAM store. You might find that all IP addresses are allocated, but the number is much less than the number of running Pods:
 
 **If using [kubenet](/azure/aks/configure-kubenet):**
