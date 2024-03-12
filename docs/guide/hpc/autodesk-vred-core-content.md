@@ -39,7 +39,7 @@ VRED Core provides:
 
 ## Deploy infrastructure and install VRED Core
 
-**Deploy Azure VMs.** Before you install VRED Core, deploy your Azure VMs. Use a [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VM and a [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM to run VRED Core. Make sure the VMs meet the [system requirements](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/System-requirements-for-Autodesk-VRED-2024-products.html) to install the application.
+**Deploy Azure VMs.** Before you install VRED Core, deploy your Azure VMs. Use a [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VM and a [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM to run VRED Core. Make sure the VMs meet the [system requirements](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/System-requirements-for-Autodesk-VRED-2024-products.html) when you install the application.
 
 **Create and configure the supporting infrastructure.** Configure a public IP address for inbound connectivity. Use network security groups to provide security for the subnet.
 
@@ -88,7 +88,7 @@ The following Automotive Genesis model is used for testing:
 
 ### Results on NVadsA10_v5
 
-The following table shows the render time in seconds for various number of nodes of NVadsA10_v5 series VM instances. The results for a NCasT4_v3 series VM with 8 vCPUs (cores) serves as the baseline for determining relative speed increase.
+The following table shows the render time in seconds for various number of nodes of NVadsA10_v5 series VM instances. The results for a NCasT4_v3 series VM with 8 vCPUs (cores) serve as the baseline for determining relative speed increase.
 
 | VM Name | Number of nodes | Number of vCPUs | Number of GPUs | Render time (sec) | Relative speed increase |
 | --- | --- | --- | --- | --- | --- |
@@ -114,7 +114,7 @@ The following graph shows the relative speed increase as the number of nodes inc
 
 ### Results on NCasT4_v3
 
-The following table shows the render time in seconds for various available NCasT4_v3 series VM instances. The results for a NCasT4_v3 series VM with 8 vCPUs (cores) serves as the baseline for computing the relative speed increase of the rest of the instances.
+The following table shows the render time in seconds for various available NCasT4_v3 series VM instances. The results for a NCasT4_v3 series VM with 8 vCPUs (cores) serve as the baseline for computing the relative speed increase of the rest of the instances.
 
 | VM Name | Number of nodes | Number of vCPUs | Number of GPUs | Render time (sec) | Relative speed increase |
 | --- | --- | --- | --- | --- | --- |

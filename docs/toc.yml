@@ -1108,7 +1108,7 @@ items:
           - name: Autodesk VRED
             href: guide/hpc/hpc-autodesk-vred.md
           - name: Autodesk VRED Core
-            href: guide/hpc/autodesk-vred-core.md
+            href: guide/hpc/autodesk-vred-core.yml
         - name: AVL FIRE M
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
