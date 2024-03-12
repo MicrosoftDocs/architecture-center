@@ -37,7 +37,7 @@ The data flows through the solution as follows:
 - [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 - [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
-- Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/technology-choices/real-time-ingestion.md).
+- Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. 
 
 ## Scenario details
 
@@ -49,7 +49,7 @@ The company wants to build a cloud-based "smart construction" solution. It shoul
 - Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling lower-skilled workers to succeed.
 - Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety.
 - Easily scaling the infrastructure to support increases in telemetry data.
-- Complying with all relevant legal requirements by provisioning resources in-country without compromising system availability.
+- Complying with all relevant legal requirements by provisioning resources in-country/region without compromising system availability.
 - Using open-source software to maximize the investment in workers' current skills.
 
 Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].
@@ -88,23 +88,17 @@ Principal author:
 
 * [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
-## Next Steps
-
-Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
-
 ## Related resources
 
 Additional IoT architectures:
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
-- [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)
 
 IoT architecture guides:
 
-- [IoT concepts](../iot/introduction-to-solutions.yml)
 - [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
 - [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [IoT patterns](../iot/measure-control-loop.yml)

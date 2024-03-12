@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-azurecli
+---
 Kubernetes architecture is based on two layers: The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
@@ -420,4 +424,3 @@ Other contributors:
 - [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service/)
 - [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
 - [Optimize compute costs on Azure Kubernetes Service (AKS)](/learn/modules/aks-optimize-compute-costs/)
-

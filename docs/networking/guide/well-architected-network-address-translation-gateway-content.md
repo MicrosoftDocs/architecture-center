@@ -1,6 +1,6 @@
 This article provides best practices for an Azure NAT gateway. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have a working knowledge of Azure NAT Gateway) and that you are well-versed with the respective features. As a refresher, review the full set of [Azure NAT Gateway](/azure/virtual-network/nat-gateway) documentation.
+We assume that you have a working knowledge of Azure NAT Gateway and that you are well-versed with the respective features. As a refresher, review the full set of [Azure NAT Gateway documentation](/azure/virtual-network/nat-gateway).
 
 NAT stands for *network address translation*. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
 
@@ -18,7 +18,7 @@ Each NAT gateway public IP address provides 64,512 SNAT ports. Up to 16 IP addre
 
 - NAT gateway resources have a default TCP idle timeout of 4 minutes that can be configured up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can cause unnecessary pressure on SNAT port inventory.
 - Atomic requests (one request per connection) are a poor design choice, because it limits scale, reduces performance, and reduces reliability. Instead, reuse HTTP/S connections, to reduce the numbers of connections and associated SNAT ports. Connection reuse will better allow the application to scale. Application performance will improve, due to reduced handshakes, overhead, and cryptographic operation costs when using TLS.
-- DNS can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS typically stands for *Domain Name System*, the naming system for the resources that are connected to the Internet or to a private network.
+- Domain Name System (DNS) lookups can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS is the naming system that maps domain names to IP addresses for resources that are connected to the Internet or to a private network.
 - UDP flows, such as DNS lookups, use SNAT ports during the idle timeout. The UDP idle timeout timer is fixed at 4 minutes and cannot be changed.
 - Use connection pools to shape your connection volume.
 - Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, the TCP connection remains open. Intermediate systems and endpoints will keep this connection in use, which in turn makes the SNAT port unavailable for other connections. This anti-pattern can trigger application failures and SNAT exhaustion.
@@ -34,7 +34,7 @@ Review the following guidance to improve the scale and reliability of your servi
 
 ## Operational excellence
 
-Although NAT gateway can be used with Azure Kubernetes Service (AKS), it isn't managed as part of AKS. If you assign a NAT gateway to the CNI subnet, you will enable AKS pods to egress through the NAT gateway.
+Although NAT gateway can be used with Azure Kubernetes Service (AKS), it isn't managed as part of AKS. If you assign a NAT gateway to the Container Networking Interface (CNI) subnet, you will enable AKS pods to egress through the NAT gateway.
 
 When using multiple NAT gateways across zones or across regions, keep the outbound IP estate manageable by using Azure Public IP prefixes or BYOIP prefixes. An IP prefix size that is larger than 16 IP addresses (/28 prefix size) cannot be assigned to NAT gateway. 
 
@@ -52,11 +52,11 @@ Availability zone isolation cannot be provided, unless each subnet only has reso
 
 ![Diagram that demonstrates the directional flow of a zonal stack.](./images/az-directions.png)
 
-Virtual networks and subnets [span all availability zones in a region](/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zone). You don't need to divide them by availability zones to accommodate zonal resources.
+Virtual networks and subnets [span all availability zones in a region](/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zones). You don't need to divide them by availability zones to accommodate zonal resources.
 
 ## Security
 
-With NAT gateway, individual virtual machines (or other compute resources) don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.
+With NAT gateway, individual virtual machines (or other compute resources) don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound connectivity. Destination firewall rules can be configured based on this predictable IP list.
 
 A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).
 
@@ -81,7 +81,7 @@ Principal author:
 
 ## Related resources
 
-- [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
+- [Azure Network Virtual Appliances Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Multi-region load balancing with Traffic Manager and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
+- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)

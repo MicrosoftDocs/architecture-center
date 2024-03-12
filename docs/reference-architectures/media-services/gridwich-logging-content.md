@@ -1,5 +1,4 @@
 
-
 Best practices for logging include:
 
 - Don't use string formatting or interpolation. Logging a string with `$"This broke {brokenThing}"` isn't useful for debugging.
@@ -69,10 +68,10 @@ Assigning the appropriate logging level may not be straightforward. The followin
 |LogTrace|0|Contains the most detailed messages and may contain sensitive application data. These messages are turned off by default and shouldn't be turned on in a production environment.|
 |LogDebug| 1|Used for interactive investigation during development. These logs primarily contain information that is useful for debugging and have no long-term value.|
 |LogInformation| 2|Tracks the general flow of the application. These logs should have long-term value.|
-|LogWarning| 3|Highlights an abnormal or unexpected event in the application flow, but doesn't stop application execution.
+|LogWarning| 3|Highlights an abnormal or unexpected event in the application flow, but doesn't stop application execution.|
 |LogError| 4|Logs when the current flow of execution is stopped due to a failure. These logs should indicate failures in the current activity, not an application-wide failure.|
-|LogCritical| 5|Describes an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention.
-|LogNone| 6| Not used for writing log messages. Specifies that a logging category should not write any messages.|
+|LogCritical| 5|Describes an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention.|
+|LogNone| 6| Not used for writing log messages. Specifies that a logging category shouldn't write any messages.|
 
 ## Next steps
 

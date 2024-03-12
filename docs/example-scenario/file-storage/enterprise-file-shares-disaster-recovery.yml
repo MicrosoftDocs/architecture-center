@@ -16,7 +16,7 @@ azureCategories:
   - storage
 products:
   - azure-netapp-files
-  - azure-active-directory-domain
+  - entra
   - windows-server
 name: Enterprise file shares with disaster recovery
 summary: Learn how to implement resilient NetApp file shares. Failure of the primary Azure region causes automatic failover to the secondary Azure region.

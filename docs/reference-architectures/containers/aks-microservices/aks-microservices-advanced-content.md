@@ -1,6 +1,6 @@
 This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
@@ -39,12 +39,12 @@ This architecture uses the following Azure components:
 
 The AKS infrastructure features used in this architecture include:
 
-  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
-  - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
-  - [Azure AD workload identity](/azure/aks/workload-identity-overview)
-  - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
-  - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
+- [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+- [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/managed-aad)
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
+- [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
+- [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
+- [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
 **[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
@@ -60,7 +60,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** stores and manages security keys for AKS services.
 
-**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Azure AD managed identity. You can also use other container registries like Docker Hub.
+**[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images that can be run in the AKS cluster. AKS authenticates with Container Registry using its Microsoft Entra managed identity. You can also use other container registries like Docker Hub.
 
 **[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
@@ -302,7 +302,7 @@ Consider the following points when planning for manageability.
 
 - Manage the AKS cluster infrastructure via an automated deployment pipeline. The [reference implementation](https://github.com/mspnp/aks-fabrikam-dronedelivery) for this architecture provides a [GitHub Actions](https://help.github.com/actions) workflow that you can reference when building your pipeline.
 
-- The workflow file deploys the infrastructure only, not the workload, into the already-existing virtual network and Azure AD configuration. Deploying infrastructure and workload separately lets you address distinct lifecycle and operational concerns.
+- The workflow file deploys the infrastructure only, not the workload, into the already-existing virtual network and Microsoft Entra configuration. Deploying infrastructure and workload separately lets you address distinct lifecycle and operational concerns.
 
 - Consider your workflow as a mechanism to deploy to another region if there is a regional failure. Build the pipeline so that you can deploy a new cluster in a new region with parameter and input alterations.
 
@@ -312,15 +312,15 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider the following points when planning for security.
 
-- An AKS pod authenticates itself by using a *workload identity* stored in Azure AD. Using a workload identity is preferable because it doesn't require a client secret.
+- An AKS pod authenticates itself by using a *workload identity* stored in Microsoft Entra ID. Using a workload identity is preferable because it doesn't require a client secret.
 
-- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) workload identity](/azure/aks/workload-identity-overview).
+- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
 
 - Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
 
 - In cases where an application component requires Kubernetes API access, ensure that application pods are configured to use a service account with appropriately scoped API access. For more information on configuring and managing Kubernetes service account, see [Managing Kubernetes Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
 
-- Not all Azure services support data plane authentication using Azure AD. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
+- Not all Azure services support data plane authentication using Microsoft Entra ID. To store credentials or application secrets for those services, for third-party services, or for API keys, use Azure Key Vault. Azure Key Vault provides centralized management, access control, encryption at rest, and auditing of all keys and secrets.
 
 - In AKS, you can mount one or more secrets from Key Vault as a volume. The pod can then read the Key Vault secrets just like a regular volume. For more information, see the [secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure) project on GitHub.
 
@@ -333,6 +333,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
+
+- Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
 
 ## Next steps
 

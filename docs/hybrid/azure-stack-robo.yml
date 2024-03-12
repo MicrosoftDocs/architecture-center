@@ -23,7 +23,7 @@ products:
   - azure-arc
   - azure-monitor
   - azure-policy
-  - azure-security-center
+  - defender-for-cloud
   - azure-stack-hci
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
 content: |

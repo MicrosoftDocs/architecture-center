@@ -2,7 +2,7 @@ CloudFrame Renovate migrates COBOL code to Java Spring Boot Batch quickly, witho
 
 ## Legacy IBM zSeries architecture 
 
-:::image type="content" source="media/cloudframe-refactor.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/cloudframe-refactor.png":::
+:::image type="content" source="media/cloudframe-refactor.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/cloudframe-refactor.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 
@@ -30,7 +30,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ## Migrated Azure architecture 
 
-:::image type="content" source="media/cloudframe-refactor-after.png" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.png"::: 
+:::image type="content" source="media/cloudframe-refactor-after.svg" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.svg" border="false"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 
@@ -104,7 +104,7 @@ High availability and performance are built into this solution because of the lo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Security in Azure is achieved through a layered approach of policy, process, automated governance and incident reporting, training, network vulnerability analysis, penetration testing, encryption, and DevSecOps operating models. Services like Azure Active Directory (Azure AD), Azure Virtual Network, Azure Private Link, and network security groups are fundamental to achieving this enhanced security.
+Security in Azure is achieved through a layered approach of policy, process, automated governance and incident reporting, training, network vulnerability analysis, penetration testing, encryption, and DevSecOps operating models. Services like Microsoft Entra ID, Azure Virtual Network, Azure Private Link, and network security groups are fundamental to achieving this enhanced security.
 
 ### Cost optimization
 

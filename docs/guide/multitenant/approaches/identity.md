@@ -4,14 +4,14 @@ titleSuffix: Azure Architecture Center
 description: This article describes the approaches for managing identities in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/16/2022
+ms.date: 05/24/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
-  - azure-active-directory
-  - azure-active-directory-b2c
+  - entra-id
+  - entra-external-id
 categories:
   - identity
 ms.category:
@@ -40,7 +40,7 @@ You might need to federate with other identity providers (IdPs). Federation can 
 
 For general information about federation, see the [Federated Identity pattern](../../../patterns/federated-identity.yml).
 
-If you choose to support tenant-specific identity providers, ensure you clarify which services and protocols you need to support. For example, will you support the OpenID Connect protocol and the Security Assertion Markup Language (SAML) protocol? Or, will you only support federating with Azure Active Directory instances?
+If you choose to support tenant-specific identity providers, ensure you clarify which services and protocols you need to support. For example, will you support the OpenID Connect protocol and the Security Assertion Markup Language (SAML) protocol? Or, will you only support federating with Microsoft Entra instances?
 
 When you implement any identity provider, consider any scale and limits that might apply. For example, if you use Azure Active Directory (Azure AD) B2C as your own identity provider, you might need to deploy custom policies to federate with certain types of tenant identity providers. Azure AD B2C [limits the number of custom policies](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#azure-ad-b2c-configuration-limits) that you can deploy, which might limit the number of tenant-specific identity providers that you can federate with.
 
@@ -50,9 +50,9 @@ You can also consider providing federation as a feature that only applies to cus
 
 Single sign-on experiences enable users to switch between applications seamlessly, without being prompted to reauthenticate at each point.
 
-When users visits an application, the application directs them to an IdP. If the IdP sees they have an existing session, it issues a new token without requiring the users to interact with the login process. A federated identity model support single sign-on experiences, by enabling users to use a single identity across multiple applications.
+When users visit an application, the application directs them to an IdP. If the IdP sees they have an existing session, it issues a new token without requiring the users to interact with the login process. A federated identity model support single sign-on experiences, by enabling users to use a single identity across multiple applications.
 
-In a multitenant solution, you might also enable another form of single sign-on. If users are authorized to work with data for multiple tenants, you might need to provide a seamless experience when the users change their context from one tenant to another. Consider whether you need to support seamless transitions between tenants, and if so, whether your identity provider needs to reissue tokens with specific tenant claims. For example, a user who signed into the Azure portal can switch between different Azure AD directories, which causes reauthentication, and it reissues the token from the newly selected Azure AD instance.
+In a multitenant solution, you might also enable another form of single sign-on. If users are authorized to work with data for multiple tenants, you might need to provide a seamless experience when the users change their context from one tenant to another. Consider whether you need to support seamless transitions between tenants, and if so, whether your identity provider needs to reissue tokens with specific tenant claims. For example, a user who signed into the Azure portal can switch between different Microsoft Entra directories, which causes reauthentication, and it reissues the token from the newly selected Microsoft Entra instance.
 
 ### Sign-in risk evaluation
 
@@ -82,7 +82,7 @@ Authorization is the process of determining what a user is allowed to do.
 
 Authorization data can be stored in several places, including in the following locations:
 
-- **In your identity provider.** For example, if you use Azure AD as your identity provider, you can use features like [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) and [groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) to store authorization information. Your application can then use the associated token claims to enforce your authorization rules.
+- **In your identity provider.** For example, if you use Microsoft Entra ID as your identity provider, you can use features like [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) and [groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) to store authorization information. Your application can then use the associated token claims to enforce your authorization rules.
 - **In your application.** You can build your own authorization logic, and then store information about what each user can do in a database or similar storage system. You can then design fine-grained controls for role-based or resource-level authorization.
 
 In most multitenant solutions, role and permission assignments are managed by the tenant or customer, not by you as the vendor of the multitenant system.
@@ -101,15 +101,19 @@ However, if a single user is allowed to access multiple tenants, you might need 
 
 An alternative approach is to make the identity system agnostic to tenant identifiers and roles. The users are identified using their credentials or a federation relationship, and tokens don't include a tenant identifier claim. A separate list or database contains which users have been granted access to each tenant. Then, the application tier can verify whether the specified user should be allowed to access the data for a specific tenant, based on looking up that list.
 
-## Use Azure AD or Azure AD B2C
+<a name='use-azure-ad-or-azure-ad-b2c'></a>
 
-Microsoft provides Azure Active Directory (Azure AD) and Azure AD B2C, which are managed identity platforms that you can use within your own multitenant solution.
+## Use Microsoft Entra ID or Azure AD B2C
 
-Many multitenant solutions are software as a service (SaaS). Your choice of whether to use Azure AD or Azure AD B2C depends, in part, on how you define your tenants or customer base.
+Microsoft provides Microsoft Entra ID and Azure AD B2C, which are managed identity platforms that you can use within your own multitenant solution.
 
-- If your tenants or customers are organizations, they might already use Azure AD for services like Office 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/azure/active-directory/develop/single-and-multi-tenant-apps) in your own Azure AD directory, to make your solution available to other Azure AD directories. You can even list your solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations who use Azure AD.
-- If your tenants or customers don't use Azure AD, or if they're individuals rather than organizations, then consider using Azure AD B2C. Azure AD B2C provides a set of features to control how users sign up and sign in. For example, you can restrict access to your solution just to users that you've already invited, or you might allow for self-service sign-up. Use [custom policies](/azure/active-directory-b2c/active-directory-b2c-overview-custom) in Azure AD B2C to fully control how users interact with the identity platform. You can use [custom branding](/azure/active-directory-b2c/customize-ui-overview), and you can [federate Azure AD B2C with your own Azure AD tenant](/azure/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory), to enable your own staff to sign in. Azure AD B2C also enables [federation with other identity providers](/azure/active-directory-b2c/tutorial-add-identity-providers).
-- Some multitenant solutions are intended for both situations listed above. Some tenants might have their own Azure AD tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Azure AD directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom). However, if you use custom policies to establish federation between tenants, ensure that you [consider the limits on the number of custom policies](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#azure-ad-b2c-configuration-limits) that a single Azure AD B2C directory can use.
+Many multitenant solutions are software as a service (SaaS). Your choice of whether to use Microsoft Entra ID or Azure AD B2C depends, in part, on how you define your tenants or customer base.
+
+- If your tenants or customers are organizations, they might already use Microsoft Entra ID for services like Office 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/azure/active-directory/develop/single-and-multi-tenant-apps) in your own Microsoft Entra directory, to make your solution available to other Microsoft Entra directories. You can even list your solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations who use Microsoft Entra ID.
+- If your tenants or customers don't use Microsoft Entra ID, or if they're individuals rather than organizations, then consider using Azure AD B2C. Azure AD B2C provides a set of features to control how users sign up and sign in. For example, you can restrict access to your solution just to users that you've already invited, or you might allow for self-service sign-up. Use [custom policies](/azure/active-directory-b2c/active-directory-b2c-overview-custom) in Azure AD B2C to fully control how users interact with the identity platform. You can use [custom branding](/azure/active-directory-b2c/customize-ui-overview), and you can [federate Azure AD B2C with your own Microsoft Entra tenant](/azure/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory), to enable your own staff to sign in. Azure AD B2C also enables [federation with other identity providers](/azure/active-directory-b2c/tutorial-add-identity-providers).
+- Some multitenant solutions are intended for both situations listed above. Some tenants might have their own Microsoft Entra tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Microsoft Entra directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom). However, if you use custom policies to establish federation between tenants, ensure that you [consider the limits on the number of custom policies](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#azure-ad-b2c-configuration-limits) that a single Azure AD B2C directory can use.
+
+For more information, see [Considerations for using Azure Active Directory B2C in a multitenant architecture](../service/azure-ad-b2c.md).
 
 ## Antipatterns to avoid
 
@@ -121,7 +125,7 @@ When you run your own identity system, you need to store password hashes or othe
 
 When you run an identity system, you're also responsible for generating and distributing MFA or one-time password (OTP) codes. These requirements then mean you need a mechanism to distribute these codes, by using SMS or email. Furthermore, you're responsible for detecting both targeted and brute-force attacks, throttling sign-in attempts, auditing, and so on.
 
-Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Azure Active Directory (Azure AD) or Azure AD B2C, which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically to support the current identity and authentication standards.
+Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Microsoft Entra ID or Azure AD B2C, which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically to support the current identity and authentication standards.
 
 ### Failing to consider your tenants' requirements
 

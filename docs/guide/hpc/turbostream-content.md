@@ -16,7 +16,7 @@ Turbostream is used by NASA and in the design of aircraft engines, turbomachiner
 
 ## Architecture
 
-:::image type="content" source="media/turbostream/architecture.png" alt-text="Diagram that shows an architecture for deploying Turbostream." lightbox="media/turbostream/architecture.png" border="false":::
+:::image type="content" source="media/turbostream/turbostream-architecture.svg" alt-text="Diagram that shows an architecture for deploying Turbostream." lightbox="media/turbostream/turbostream-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/turbostream.vsdx) of this
 architecture.*
@@ -60,9 +60,9 @@ You can install Turbostream by signing in to [ExaVault](https://app.exavault.com
 
 Four simulations were tested, as described in the following table.  
 
-|Model number|	Number of grid nodes (millions)|
+|Model number| Number of grid nodes (millions)|
 |-|-|
-|1|	6|
+|1| 6|
 | 2|12|
 |3|24|
 | 4|48|
@@ -99,9 +99,9 @@ Only simulation runtime is included in the reported time. Application installati
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM size|	GPUs	|Elapsed time (seconds)|
+|VM size| GPUs |Elapsed time (seconds)|
 |-|-|-|
-|Standard_ND96asr_v4	|	8 A100|	196.10|
+|Standard_ND96asr_v4 | 8 A100| 196.10|
 
 ## Summary
 
@@ -144,4 +144,3 @@ Other contributors:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

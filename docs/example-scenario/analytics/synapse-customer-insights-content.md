@@ -49,7 +49,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure solutions in the architecture. You can manage permissions via Azure AD authentication or role-based access control. 
+This solution uses Microsoft Entra ID to authenticate users to the Azure solutions in the architecture. You can manage permissions via Microsoft Entra authentication or role-based access control. 
 
 Follow these security guidelines when you implement this solution:
 - [Security in Azure](/azure/security/fundamentals/overview)
@@ -85,7 +85,7 @@ Azure services like Azure Storage accounts, Key Vault, Container Registry, Appli
 
 ## Deploy this scenario
 
-To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#about-this-repository) for the solution.
+To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator) for the solution.
 
 ## Contributors
 

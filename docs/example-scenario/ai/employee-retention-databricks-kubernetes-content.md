@@ -90,7 +90,7 @@ All services deployed in this solution use a consumption-based pricing model. Yo
 
 ## Deploy this scenario
 
-A proof-of-concept implementation of this scenario is available on GitHub at [employee-retention-databricks-kubernetes-poc](https://github.com/Azure/employee-retention-databricks-kubernetes-poc), a repository.
+A proof-of-concept implementation of this scenario is available on GitHub at [Employee Retention with Databricks and Kubernetes](https://github.com/Azure/employee-retention-databricks-kubernetes-poc).
 
 :::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.svg" lightbox="media/employee-retention-databricks-kubernetes-workflow.svg":::
 
@@ -138,6 +138,6 @@ Microsoft Learn modules:
 
 You might also find these Architecture Center articles useful:
 
-- [Machine Learning operations maturity model](../../example-scenario/mlops/mlops-maturity-model.yml)
+- [Machine Learning operations maturity model](../../ai-ml/guide/mlops-maturity-model.yml)
 - [Team Data Science Process for data scientists](../../data-science-process/team-data-science-process-for-data-scientists.md)
 - [Modern analytics architecture with Azure Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)

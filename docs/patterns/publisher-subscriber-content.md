@@ -74,13 +74,15 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Message scheduling.** A message might be temporarily embargoed and should not be processed until a specific date and time. The message should not be available to a receiver until this time.
 
+- **Scaling out subscribers.** If a given subscriber is unable to keep up with the rate of messages it is receiving, use the [Competing Consumers pattern](competing-consumers.yml) to scale it out.
+
 ## When to use this pattern
 
 Use this pattern when:
 
 - An application needs to broadcast information to a significant number of consumers.
 
-- An application needs to communicate with one or more independently-developed applications or services, which may use different platforms, programming languages, and communication protocols.
+- An application needs to communicate with one or more independently developed applications or services, which may use different platforms, programming languages, and communication protocols.
 
 - An application can send information to consumers without requiring real-time responses from the consumers.
 
@@ -93,6 +95,20 @@ This pattern might not be useful when:
 - An application has only a few consumers who need significantly different information from the producing application.
 
 - An application requires near real-time interaction with consumers.
+
+## Workload design
+
+An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The decoupling introduced in this pattern enables independent reliability targets on components and removes direct dependencies.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern introduces an important security segmentation boundary that enables queue subscribers to be network-isolated from the publisher.<br/><br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This decoupled design can enable an event-driven approach in your architecture, which couples well with consumption-based billing to avoid overprovisioning.<br/><br/> - [CO:05 Rate optimization](/azure/well-architected/cost-optimization/get-best-rates)<br/> - [CO:12 Scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs) |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This layer of indirection can enable you to safely change the implementation on either the publisher or subscriber side without needing to coordinate changes to both components.<br/><br/> - [OE:06 Workload development](/azure/well-architected/operational-excellence/workload-supply-chain)<br/> - [OE:11 Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | The decoupling of publishers from consumers enables you to optimize the compute and code specifically for the task that the consumer needs to perform for the specific message.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 

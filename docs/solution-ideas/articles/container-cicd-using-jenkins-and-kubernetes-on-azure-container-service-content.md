@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-jenkins
+---
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
@@ -18,7 +22,7 @@ Dynamic build agents for Jenkins can be provisioned on Azure Kubernetes Service.
 
 ## Architecture
 
-![Diagram showing container C I/C D using Jenkins and Kubernetes on Azure Kubernetes Service.](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
+:::image type="content" source="../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg" lightbox="../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg" alt-text="Diagram showing container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/container-cicd-jenkins-aks.vsdx) of this architecture.*
 

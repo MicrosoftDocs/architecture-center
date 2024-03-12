@@ -11,7 +11,7 @@ ms.lastreviewed: 11/05/2019
 products:
   - azure-stack-hubx
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
   - azure-iot-edge
   - azure-iot-hub
 categories:
@@ -211,6 +211,5 @@ porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployme
 
 - [Configure hybrid cloud connectivity using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity)
 - [Configure hybrid cloud identity for Azure and Azure Stack Hub apps](/azure/architecture/hybrid/deployments/solution-deployment-guide-identity)
-- [Deploy an app that scales cross-cloud using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling)
 - [Deploy a high availability Kubernetes cluster on Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes)
 - [Deploy a hybrid app with on-premises data that scales cross-cloud](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data)

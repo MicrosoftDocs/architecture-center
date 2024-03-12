@@ -14,9 +14,11 @@ azureCategories:
   - analytics
 summary: Overview of solution idea recommendations.
 products:
-  - azure-active-directory
-  - azure-analysis-services
-  - azure-sql-database
+  - azure-synapse-analytics
+  - azure-machine-learning
+  - azure-cosmos-db
+  - azure-data-lake
+  - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
    [!include[](dr-for-azure-data-platform-recommendations-content.md)]

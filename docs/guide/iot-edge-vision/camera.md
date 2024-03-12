@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Get information about camera selection in an Azure IoT Edge vision solution. Explore camera features, camera placement, and the communication interface.
 author: MSKeith
 ms.author: keith
-ms.date: 02/16/2022
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

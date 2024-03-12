@@ -60,6 +60,18 @@ Use this pattern for tasks that are not cost effective if they run in their own 
 
 This pattern might not be suitable for tasks that perform critical fault-tolerant operations, or tasks that process highly sensitive or private data and require their own security context. These tasks should run in their own isolated environment, in a separate computational unit.
 
+## Workload design
+
+An architect should evaluate how the Compute Resource Consolidation pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This pattern maximizes the utilization of computing resources by avoiding unused provisioned capacity via aggregation of components or even whole workloads on a pooled infrastructure.<br/><br/> - [CO:14 Consolidation](/azure/well-architected/cost-optimization/consolidation) |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | Consolidation can lead to a more homogenous compute platform, which can simplify management and observability, reduce disparate approaches to operational tasks, and reduce the amount of tooling that's required.<br/><br/> - [OE:07 Monitoring system](/azure/well-architected/operational-excellence/observability)<br/> - [OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Consolidation maximizes the utilization of computing resources by using spare node capacity and reducing the need for overprovisioning. Large (vertically scaled) compute instances are often used in the resource pool for these infrastructures.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/capacity-planning) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Application platform choices
 
 This pattern can be achieved in different ways, depending on the compute service you use. See the following example services:
@@ -67,7 +79,7 @@ This pattern can be achieved in different ways, depending on the compute service
 - **Azure App Service** and **Azure Functions**: Deploy shared App Service plans, which represent the hosting server infrastructure. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
 - **Azure Container Apps**: Deploy container apps to the same shared environments; especially in situations when you need to manage related services or you need to deploy different applications to the same virtual network.
 - **Azure Kubernetes Service (AKS)**: AKS is a container-based hosting infrastructure in which multiple applications or application components can be configured to run co-located on the same computing resources (nodes), grouped by computational requirements such as CPU or memory needs (node pools).
-- **Virtual machines**: Deploy a single set of virtual machines for all tenants to use, that way the management costs are shared accross the tenants. Virtual Machine Scale Sets is a feature that supports shared resource management, load-balancing, and horizontal scaling of Virtual Machines.
+- **Virtual machines**: Deploy a single set of virtual machines for all tenants to use, that way the management costs are shared across the tenants. Virtual Machine Scale Sets is a feature that supports shared resource management, load-balancing, and horizontal scaling of Virtual Machines.
 
 ## Related resources
 

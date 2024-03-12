@@ -21,6 +21,6 @@ products:
   - power-bi
 name: Modern analytics architecture with Azure Databricks
 summary: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture-diagram-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture.png
 content: |
   [!include[](azure-databricks-modern-analytics-architecture-content.md)]

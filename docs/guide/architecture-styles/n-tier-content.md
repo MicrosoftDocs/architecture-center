@@ -4,7 +4,7 @@ An N-tier architecture divides an application into **logical layers** and **phys
 
 Layers are a way to separate responsibilities and manage dependencies. Each layer has a specific responsibility. A higher layer can use services in a lower layer, but not the other way around.
 
-Tiers are physically separated, running on separate machines. A tier can call to another tier directly, or use asynchronous messaging (message queue). Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
+Tiers are physically separated, running on separate machines. A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
 
 A traditional three-tier application has a presentation tier, a middle tier, and a database tier. The middle tier is optional. More complex applications can have more than three tiers. The diagram above shows an application with two middle tiers, encapsulating different areas of functionality.
 
@@ -68,12 +68,6 @@ Network security groups restrict access to each tier. For example, the database 
 > [!NOTE]
 > The layer labeled "Business Tier" in our reference diagram is a moniker to the business logic tier. Likewise, we also call the presentation tier the "Web Tier." In our example, this is a web application, though multi-tier architectures can be used for other topologies as well (like desktop apps).  Name your tiers what works best for your team to communicate the intent of that logical and/or physical tier in your application - you could even express that naming in resources you choose to represent that tier (e.g. vmss-appName-business-layer).
 
-For more information about running N-tier applications on Azure:
-
-- [Run Windows VMs for an N-tier application][n-tier-linux]
-- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
-- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
-- [Azure Bastion](/azure/bastion/bastion-overview)
 
 ### Additional considerations
 
@@ -81,13 +75,13 @@ For more information about running N-tier applications on Azure:
 
 - Tiers are the boundary of scalability, reliability, and security. Consider having separate tiers for services with different requirements in those areas.
 
-- Use virtual machine scale sets for autoscaling.
+- Use virtual machine scale sets for [autoscaling][autoscaling].
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases.
 
 - For higher security, place a network DMZ in front of the application. The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. For more information, see [Network DMZ reference architecture][dmz].
 
-- For high availability, place two or more NVAs in an availability set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva].
+- For high availability, place two or more NVAs in an availability set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva] and this example scenario of [High availability and disaster recovery for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery).
 
 - Do not allow direct RDP or SSH access to VMs that are running application code. Instead, operators should log into a jumpbox, also called a bastion host. This is a VM on the network that administrators use to connect to the other VMs. The jumpbox has a network security group that allows RDP or SSH only from approved public IP addresses.
 
@@ -97,14 +91,21 @@ For more information about running N-tier applications on Azure:
 
 - If you need higher availability than the Azure SLA for VMs provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions][multiregion-windows] or [Run Linux VMs in multiple regions][multiregion-linux].
 
+### Related Resources
+
+- [N-tier application with Apache Cassandra][n-tier-linux]
+- [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
+- [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
+- [Azure Bastion](/azure/bastion/bastion-overview)
+- More information on messaging in an [N-tier architecture style on Azure](https://docs.particular.net/architecture/azure/n-tier)
+
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
-[ha-nva]: ../../reference-architectures/dmz/nva-ha.yml
+[ha-nva]: ../../networking/guide/nva-ha.yml
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [identity]: ../../reference-architectures/identity/index.yml
-[multiregion-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.yml
+[multiregion-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [multiregion-windows]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
-[n-tier-linux]: ../../reference-architectures/n-tier/n-tier-cassandra.yml
-[n-tier-windows-SQL]: ../../reference-architectures/n-tier/n-tier-sql-server.yml
+[n-tier-linux]: ../../databases/architecture/n-tier-cassandra.yml
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server

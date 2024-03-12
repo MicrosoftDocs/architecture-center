@@ -17,7 +17,7 @@ azureCategories:
 summary: Learn about proven approaches for data sync when multiple instances are present.
 products:
   - power-platform
-  - common-data-service
+  - dataverse
   - azure-logic-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/solution-thumbnail.png
 content: |

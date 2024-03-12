@@ -2,8 +2,8 @@
 title: Services in an Azure industrial IoT (IIoT) analytics solution
 titleSuffix: Azure Application Architecture Guide
 description: Explore services like time series, microservices, asset hierarchies, and calculations engines in an IIoT analytics solution.
-author: khilscher
-ms.author: kehilsch
+author: asergaz
+ms.author: sergaz
 ms.date: 05/03/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -51,7 +51,7 @@ Azure Functions helps you:
 - Deploy and operate at scale in the cloud.
 - Integrate Azure services by using triggers and bindings.
 
-For container-based microservices, consider using [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) or [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). For more information, see [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications).
+For container-based microservices, consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). For more information, see [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications).
 
 Regardless of platform choice, you can use [Azure API Management](https://azure.microsoft.com/services/api-management) to create consistent and modern API gateways for microservices. API Management helps you abstract, publish, secure, and version your APIs.
 
@@ -60,12 +60,12 @@ The following sections describe common microservices in Azure IIoT analytics sol
 ### HTTP REST APIs for web applications
 
 - You can create HTTP-triggered Azure Functions to implement your APIs.
-- You can develop and host your REST APIs with Azure Service Fabric or AKS.
+- You can develop and host your REST APIs with Azure Web Apps or AKS.
 
 ### REST API interfaces to factory floor OPC UA servers
 
-- Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for device discovery, registration, and remote control.
-- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md).
+- Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for device discovery, registration, and remote control.
+- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/deploy/helm/azure-industrial-iot/README.md).
 
 ### Data transformation services
 
@@ -99,13 +99,13 @@ Use the following workflow to let solution administrators know about new or upda
 1. Whenever tags are created or edited in the SCADA system, the system operator triggers the Logic Apps workflow by using a Power Apps form.
 
    - Alternatively, Logic Apps [connectors](/azure/connectors/apis-list) can monitor a table in the SCADA system database for tag changes.
-   - The Azure IIoT [Discovery Service](https://azure.github.io/Industrial-IoT/modules/discovery.html) can find OPC UA servers and the tags and methods they use.
+   - The Azure IIoT [Discovery Service](https://azure.github.io/Industrial-IoT/web-api/#discovery) can find OPC UA servers and the tags and methods they use.
 
 1. In the approval step, the IIoT analytics solution owners can approve the new or updated tags.
 
 1. Once the solution owners approve the new or updated tags and assign them a frequency, Logic Apps calls a function in Azure Functions.
 
-1. The function calls the [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) microservice, which directs the [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) module to subscribe to the new tags.
+1. The function calls the [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin) microservice, which directs the [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) module to subscribe to the new tags.
 
    If your solution involves third-party software, configure the function to call a third-party API instead of OPC Publisher. Either call the API directly or by using an IoT Hub [direct method](/azure/iot-hub/iot-hub-devguide-direct-methods).
 
@@ -248,7 +248,7 @@ User profile management involves:
 
 You can use [Microsoft Graph](https://developer.microsoft.com/graph) for these operations.
 
-To control which actions users can take and what data they can view in the system, use role-based access control (RBAC). Implement RBAC by using the [Microsoft identity platform](/azure/active-directory/develop) with [Azure Active Directory (Azure AD)](/azure/active-directory). Azure platform as a service (PaaS) services in an IIoT analytics solution can integrate directly with Azure AD, ensuring security across your solution.
+To control which actions users can take and what data they can view in the system, use role-based access control (RBAC). Implement RBAC by using the [Microsoft identity platform](/azure/active-directory/develop) with [Microsoft Entra ID](/azure/active-directory). Azure platform as a service (PaaS) services in an IIoT analytics solution can integrate directly with Microsoft Entra ID, ensuring security across your solution.
 
 Your web application and custom microservices can interact with the Microsoft identity platform. Use libraries such as the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) and protocols such as OAuth 2.0 and OpenID Connect.
 

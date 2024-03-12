@@ -24,7 +24,7 @@ The proxy can be implemented as a state machine with the following states that m
 
 - **Open**: The request from the application fails immediately and an exception is returned to the application.
 
-- **Half-Open**: A limited number of requests from the application are allowed to pass through and invoke the operation. If these requests are successful, it's assumed that the fault that was previously causing the failure has been fixed and the circuit breaker switches to the **Closed** state (the failure counter is reset). If any request fails, the circuit breaker assumes that the fault is still present so it reverts back to the **Open** state and restarts the timeout timer to give the system a further period of time to recover from the failure.
+- **Half-Open**: A limited number of requests from the application are allowed to pass through and invoke the operation. If these requests are successful, it's assumed that the fault that was previously causing the failure has been fixed and the circuit breaker switches to the **Closed** state (the failure counter is reset). If any request fails, the circuit breaker assumes that the fault is still present so it reverts to the **Open** state and restarts the timeout timer to give the system a further period of time to recover from the failure.
 
     > The **Half-Open** state is useful to prevent a recovering service from suddenly being flooded with requests. As a service recovers, it might be able to support a limited volume of requests until the recovery is complete, but while recovery is in progress a flood of work can cause the service to time out or fail again.
 
@@ -77,6 +77,17 @@ This pattern isn't recommended:
 
 - For handling access to local private resources in an application, such as in-memory data structure. In this environment, using a circuit breaker would add overhead to your system.
 - As a substitute for handling exceptions in the business logic of your applications.
+
+## Workload design
+
+An architect should evaluate how the Circuit Breaker pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This pattern prevents overloading a faulting dependency. You can also use this pattern to trigger graceful degradation in the workload. Circuit breakers are often coupled with automatic recovery to provide both self-preservation and self-healing.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:07 Transient faults](/azure/well-architected/reliability/handle-transient-faults)<br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern avoids the retry-on-error approach which can lead to excessive resource utilization during dependency recovery and can also overload performance on a dependency that's attempting recovery.<br/><br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure)<br/> - [PE:11 Live-issues responses](/azure/well-architected/performance-efficiency/respond-live-performance-issues) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
@@ -266,7 +277,7 @@ catch (Exception ex)
 
 The following patterns might also be useful when implementing this pattern:
 
-- [Reliable web app pattern for .NET](../reference-architectures/reliable-web-app/dotnet/pattern-overview.yml) shows you how to apply the circuit-breaker pattern to an ASP.NET web application converging on the cloud.
+- [Reliable web app pattern](../web-apps/guides/reliable-web-app/overview.md) shows you how to apply the circuit-breaker pattern to web applications converging on the cloud.
 
 - [Retry pattern](./retry.yml). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
 

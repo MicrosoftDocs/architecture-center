@@ -23,9 +23,9 @@ This scenario covers the back-end components of a real-time analytics pipeline. 
 
 ### Alternatives
 
-Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the Azure Data Architecture Guide.
+Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting.
 
-Algorithms for fraud detection that are more complex can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+Algorithms for fraud detection that are more complex can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../ai-ml/guide/data-science-and-machine-learning.md).
 
 For scenarios that are built by using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates that use Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].
 
@@ -116,7 +116,7 @@ Principal author:
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
-[architecture]: ./media/architecture-fraud-detection-new.png
+[architecture]: ./media/architecture-fraud-detection-new.svg
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction

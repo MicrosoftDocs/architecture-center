@@ -2,7 +2,9 @@ This article describes how [Avanade's Automated Migration Technology](https://ww
 
 ## Architecture
 
-![Diagram showing how Avanade A M T migration maps z/O S mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
+:::image type="content" source="./media/avanade-zos-migration.svg" alt-text="Diagram showing how Avanade AMT migration maps z/OS mainframe components to Azure capabilities." lightbox="./media/avanade-zos-migration.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/avanade-amt-zos-migration.vsdx) of this architecture.*
 
 ## Workflow
 

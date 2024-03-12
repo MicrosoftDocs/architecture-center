@@ -2,7 +2,7 @@
 title: Virtual desktop architecture design
 description: Get an overview of Azure virtual desktop technologies, guidance offerings, solution ideas, and reference architectures. 
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -58,9 +58,9 @@ The following sections, organized by category, provide links to example scenario
 ### Identity
 
 - [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Azure AD join for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)
-- [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest.yml)
-- [Multiple forests with AD DS, Azure AD, and Azure AD DS](../../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Multiple forests with AD DS and Microsoft Entra ID](../../example-scenario/wvd/multi-forest.yml)
+- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../../example-scenario/wvd/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
 
@@ -76,7 +76,7 @@ FSLogix is designed for roaming profiles in remote computing environments like A
 
 ## Stay current with virtual desktop technologies on Azure
 
-Get the [latest updates on Azure virtual desktop technologies](https://azure.microsoft.com/updates/?category=windows-virtual-desktop).
+Get the [latest updates on Azure Virtual Desktop technologies](https://azure.microsoft.com/updates/?category=windows-virtual-desktop).
 
 ## Additional resources
 

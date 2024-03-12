@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - web-app
     - web apps
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ctfd.png
 name: Capture-the-Flag with CTFd on Azure PaaS
 azureCategories:
   - web

@@ -71,9 +71,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 As previously described, costs beyond your Azure subscription can include:
 
-  1. Microsoft Defender for Cloud costs. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
-  1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
-  1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
+1. Microsoft Defender for Cloud costs. For more information, refer to [Defender for Cloud pricing][azure-security-center-pricing].
+1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
+1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
 ### Operational excellence
 
@@ -238,7 +238,7 @@ There are two types of icons represented on the **Compute** blade:
 
 The role of Microsoft Sentinel is to ingest data from different data sources and perform data correlation across these data sources. Microsoft Sentinel leverages machine learning and AI to make threat hunting, alert detection, and threat responses smarter.
 
-To onboard Microsoft Sentinel, you need to enable it, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration, including Microsoft Security Center, Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure Active Directory (Azure AD), Microsoft Defender for Servers, Microsoft Defender for Cloud Apps, and more. Additionally, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format, syslog, or the Representational State Transfer API to connect your data sources with Microsoft Sentinel.
+To onboard Microsoft Sentinel, you need to enable it, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration, including Microsoft Defender for Cloud, Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Microsoft Entra ID, Microsoft Defender for Servers, Microsoft Defender for Cloud Apps, and more. Additionally, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format, syslog, or the Representational State Transfer API to connect your data sources with Microsoft Sentinel.
 
 ### Requirements for integrating Microsoft Sentinel with Microsoft Defender for Cloud
 
@@ -272,9 +272,6 @@ All three requirements should be in place if you worked through the previous sec
 1. To use the relevant schema in Log Analytics for the Microsoft Defender for Cloud alerts, search for **SecurityAlert**.
 
 One advantage of using Microsoft Sentinel as your SIEM is that it provides data correlation across multiple sources, which enables you to have an end-to-end visibility of your organization's security-related events.
-
-> [!NOTE]
-> To learn how to increase visibility in your data and identify potential threats, refer to [Azure playbooks on TechNet Gallery][technet-gallery-azure-playbooks], which has a collection of resources including a lab in which you can simulate attacks. You should not use this lab in a production environment.
 
 To learn more about Microsoft Sentinel, refer to the following articles:
 
@@ -382,5 +379,4 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 [screenshot-overview]: ./images/hybrid-security-monitoring-asc-overview.png
 [screenshot-search]: ./images/hybrid-security-monitoring-search-sentinel.png
 [screenshot-workspace]: ./images/hybrid-security-monitoring-workspace.png
-[technet-gallery-azure-playbooks]: https://gallery.technet.microsoft.com/site/search?query=Azure%20playbook&f[1].Value=Azure%20playbook&f[1].Type=SearchText&f[0].Value=security&f[0].Type=RootCategory&ac=5
 [windows-defender-atp-onboard]: /windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints

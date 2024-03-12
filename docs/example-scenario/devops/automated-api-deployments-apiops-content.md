@@ -116,7 +116,7 @@ Deploying this solution involves these steps:
   - Run a pipeline that downloads changes in the portal to the API Management instance.
       <!--Pipeline named _APIM-download-portal-changes_ in the scenario.-->
 
-  - Enter the names of the branch, the API Management instance, and the resource group.
+  - [Enter the names of the branch, your APIM artifacts repository, the API Management instance, and the resource group](https://azure.github.io/apiops/apiops/4-extractApimArtifacts/apiops-azdo-3-1.html#extract-apim-artifacts-in-azure-devops-from-extractor-tool).
 
       :::image type="content" alt-text="Screenshot of 'Run pipeline', where you enter the names of the API Management instance and the resource group." source="media/automated-api-deployments-run-pipeline.png":::
 
@@ -164,22 +164,22 @@ Deploying this solution involves these steps:
 
 Principal author:
 
-- [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
+- [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Principal Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
-- [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
+- [APIOps for Azure API Management](https://azure.github.io/apiops/)
 - [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 - [GitOps Overview](https://www.gitops.tech)
-- [Guide to GitOps](https://www.weave.works/technologies/gitops)
+- [Weave GitOps](https://github.com/weaveworks/weave-gitops)
 - [Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster)
 
 ## Related resources
 
 - [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
 - [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)

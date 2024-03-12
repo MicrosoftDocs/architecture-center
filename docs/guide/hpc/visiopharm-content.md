@@ -18,7 +18,7 @@ Visiopharm is used in academic institutions, the biopharmaceutical industry, and
 
 ## Architecture
 
-:::image type="content" source="media/visiopharm/architecture.png" alt-text="Diagram that shows an architecture for deploying Visiopharm." lightbox="media/visiopharm/architecture.png" border="false":::
+:::image type="content" source="media/visiopharm/visiopharm-architecture.svg" alt-text="Diagram that shows an architecture for deploying Visiopharm." lightbox="media/visiopharm/visiopharm-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/visiopharm.vsdx) of this
 architecture.*
@@ -37,10 +37,10 @@ architecture.*
 
 The performance tests of Visiopharm used [Standard_NC24s_v3](/azure/virtual-machines/ncv3-series) and [Standard_NC16as_T4_v3](/azure/virtual-machines/nct4-v3-series) VMs running Windows. The following table provides details about the VMs.
 
-|VM |	vCPU|	Memory (GiB)|	SSD (GiB)|	GPU	|GPU memory (GiB)|	Maximum data disks|
+|VM | vCPU| Memory (GiB)| SSD (GiB)| GPU |GPU memory (GiB)| Maximum data disks|
 |-|-|-|-|-|-|-|
-|Standard_NC24s_v3	|24|	448|	2,948|	4 V100|	64|	32|
-|Standard_NC16as_T4_v3|	16|	110|	360|	1 T4|	16	|32|
+|Standard_NC24s_v3 |24| 448| 2,948| 4 V100| 64| 32|
+|Standard_NC16as_T4_v3| 16| 110| 360| 1 T4| 16 |32|
 
 ### Required drivers
 
@@ -91,9 +91,9 @@ Only analysis time is considered for these calculations. Application installatio
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM |		APP1: Tissue detection	|APP2: Segmentation|	APP3: Cell detection AI|
+|VM | APP1: Tissue detection |APP2: Segmentation| APP3: Cell detection AI|
 |-|-|-|-|
-|Standard_NC16as_T4_v3|		21 seconds	|3 hours, 33 minutes|	42 minutes, 43 seconds|
+|Standard_NC16as_T4_v3| 21 seconds |3 hours, 33 minutes| 42 minutes, 43 seconds|
 
 ## Summary
 
@@ -136,4 +136,3 @@ Other contributors:
 
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

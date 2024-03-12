@@ -3,11 +3,14 @@
 This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions. This solution depicts a simple scale-up scenario to demonstrate core concepts in the deployment and operation of an SAP HANA system on Azure. For options, see other [installation scenarios for HANA Large Instances][scenarios].
 
 > [!NOTE]
+> HANA Large Instance service is in sunset mode and does not accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, please check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24).
+
+> [!NOTE]
 > Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
 
 ## Architecture
 
-:::image type="complex" source="./images/sap-hana-large-instances.png" alt-text="SAP HANA architecture using Azure Large Instances":::
+:::image type="complex" source="./images/sap-hana-large-instances.svg" alt-text="SAP HANA architecture using Azure Large Instances." lightbox="./images/sap-hana-large-instances.svg":::
 The diagram shows two Azure regions. The primary region contains an application tier with SAP applications, an SAP HANA server pool, and an ExpressRoute gateway. The ExpressRoute gateway connects to the secondary region, which contains a replicated HANA server pool.
 :::image-end:::
 

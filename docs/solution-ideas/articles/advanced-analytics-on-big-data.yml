@@ -21,7 +21,6 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/advanced-analytics-on-big-data.png
 name: Advanced analytics architecture
 azureCategories:
   - analytics

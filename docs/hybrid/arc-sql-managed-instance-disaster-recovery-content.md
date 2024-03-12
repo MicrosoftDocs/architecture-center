@@ -1,4 +1,4 @@
-This article demonstrates how to deploy an Azure Arc-enabled SQL managed instance in a highly available architecture across two sites. It's based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops) implementation.
+This article demonstrates how to deploy an Azure Arc-enabled SQL managed instance in a highly available architecture across two sites. It's based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps) implementation.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ The following workflow corresponds to the preceding diagram:
 
 ## Scenario details
 
-This scenario is based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops) implementation. ArcBox is a solution that provides an easy-to-deploy sandbox for Azure Arc. ArcBox for DataOps is a version of ArcBox that can help you experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
+This scenario is based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps) implementation. ArcBox is a solution that provides an easy-to-deploy sandbox for Azure Arc. ArcBox for DataOps is a version of ArcBox that can help you experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 
 ### Potential use cases
 
@@ -101,7 +101,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Determine the Azure regions in which to deploy your Azure Arc-enabled SQL managed instance and data controllers. Take into account your security and compliance requirements and any data sovereignty requirements. Be aware of [the types of data that are collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in directly connected mode and in indirectly connected mode, and plan accordingly based on the data residency requirements of your organization.
 - Your Azure Arc-enabled SQL managed instance can reside in hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your cloud provider and Kubernetes distribution.
 - Taking into account your organization's separation of duties and least-privileged access requirements, define cluster administration, operations, database administration, and developer roles for your organization. A mapping of each team to actions and responsibilities determines Azure role-based access control (RBAC) roles or the Kubernetes `ClusterRoleBinding` and `RoleBinding`, depending on the connectivity mode you use.
-- Determine the authentication model to use in your Azure Arc-enabled SQL managed instance: Azure Active Directory (Azure AD) authentication or SQL authentication. Review the [identity and access management design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-identity-access-management) for considerations and recommendations that can help you choose the right model.
+- Determine the authentication model to use in your Azure Arc-enabled SQL managed instance: Microsoft Entra authentication or SQL authentication. Review the [identity and access management design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-identity-access-management) for considerations and recommendations that can help you choose the right model.
 - Review the [security capabilities](/azure/azure-arc/data/managed-instance-features#RDBMSS) that are available in Azure Arc-enabled SQL Managed Instance for your data workloads.
 - Consider the need for keeping your Azure Arc-enabled SQL managed instance up to date with the latest versions, whether they're deployed in directly connected mode or in indirectly connected mode. For guidance, see the [upgradeability disciplines critical design area](/azure/Cloud-Adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines).
 - Review the design considerations in the Azure Arc-enabled Kubernetes [governance and security disciplines design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-governance-disciplines).
@@ -124,7 +124,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Review the upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) for best practices on how to keep your instances up to date.
-- Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/day2) to learn about more operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
+- Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data/day2) to learn about more operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 
 ### Performance efficiency
 
@@ -135,12 +135,12 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops), which is part of the [Azure Arc Jumpstart](https://azurearcjumpstart.io) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc. 
+You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc. 
 
 To get started, go to Jumpstart ArcBox for DataOps:
 
 > [!div class="nextstepaction"]
-> [Deploy the reference implementation](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/#deployment-options-and-automation-flow)
+> [Deploy the reference implementation](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps/#deployment-options-and-automation-flow)
 
 ## Contributors
 
@@ -167,13 +167,13 @@ Other contributor:
 - [Manage configurations for Azure Arc-enabled servers](azure-arc-hybrid-config.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 
-[Arc Jumpstart]: https://azurearcjumpstart.io
+[Arc Jumpstart]: https://aka.ms/AzureArcJumpstart
 [Azure Arc docs]: /azure/azure-arc
 [Azure Arc-enabled SQL Managed Instance docs]: /azure/azure-arc/data/managed-instance-overview
 [Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure Arc]: /azure/azure-arc
-[Arc Jumpstart data services scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data
+[Arc Jumpstart data services scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud

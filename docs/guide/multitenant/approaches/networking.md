@@ -100,7 +100,7 @@ However, this approach means it's unlikely that you can peer your tenants' VNets
 
 ### Hub and spoke topology
 
-The [hub and spoke VNet topology](../../../reference-architectures/hybrid-networking/hub-spoke.yml) enables you to peer a centralized *hub* VNet with multiple *spoke* VNets. You can centrally control the traffic ingress and egress for your VNets, and control whether the resources in each spoke's VNet can communicate with each other. Each spoke VNet can also access shared components, like Azure Firewall, and it might be able to use services like Azure DDoS Protection.
+The [hub and spoke VNet topology](../../../networking/architecture/hub-spoke.yml) enables you to peer a centralized *hub* VNet with multiple *spoke* VNets. You can centrally control the traffic ingress and egress for your VNets, and control whether the resources in each spoke's VNet can communicate with each other. Each spoke VNet can also access shared components, like Azure Firewall, and it might be able to use services like Azure DDoS Protection.
 
 When you use a hub and spoke topology, ensure you plan around limits, [such as the maximum number of peered VNets](/azure/virtual-network/virtual-network-peering-overview), and ensure that you don't use overlapping address spaces for each tenant's VNet.
 
@@ -165,7 +165,7 @@ Depending on how your solution is designed, you might also be able to cache tena
 
 ### Failing to plan for VNet connectivity
 
-By deploying resources into VNets, you have a great deal of control over how traffic flows through your solution's components. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. This effect is especially true with platform at a service (PaaS) components.
+By deploying resources into VNets, you have a great deal of control over how traffic flows through your solution's components. However, VNet integration also introduces additional complexity, cost, and other factors that you need to consider. This effect is especially true with platform as a service (PaaS) components.
 
 It's important to test and plan your network strategy, so that you uncover any issues before you implement it in a production environment.
 

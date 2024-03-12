@@ -19,7 +19,7 @@ This solution uses Azure Traffic Manager to route traffic to endpoints to satisf
 * **Domain Name System (DNS)**. DNS translates (or resolves) a website or service name to its IP address.
 * **Cloud endpoint**. Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the public cloud app resources.
 * **Local endpoint**. Public IP addresses route incoming traffic through Traffic Manager to the endpoints for the local cloud app resources.
-* [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+* [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Alternatives
 
@@ -87,7 +87,7 @@ Principal author:
 
 ## Related resources
 
-* [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
+* [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 * [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect)
 * [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 * [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)

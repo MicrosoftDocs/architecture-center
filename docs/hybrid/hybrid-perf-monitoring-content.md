@@ -202,8 +202,7 @@ Explore related architectures:
 
 - [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Unified logging for microservices applications](../example-scenario/logging/unified-logging.yml)
-- [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)
+- [Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx

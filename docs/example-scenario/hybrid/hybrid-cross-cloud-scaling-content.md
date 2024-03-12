@@ -21,7 +21,7 @@ This solution shows how to use Azure Traffic Manager to extend an app that's loc
 - **Domain Name System (DNS)** translates (or resolves) a website or service name to its IP address.
 - **The hosted build server** is an environment for hosting your build pipeline.
 - **Public IP addresses** are used to route the incoming traffic through Traffic Manager to the endpoint for the public cloud app resources.
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Alternatives
 
@@ -97,8 +97,6 @@ Principal author:
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 ## Related resources
-
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components.
 
 See the following related architectures:
 

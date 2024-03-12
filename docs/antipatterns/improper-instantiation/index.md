@@ -19,7 +19,6 @@ products:
   - azure-cosmos-db
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - "Antipattern singleton"
   - "what is instantiation"
@@ -187,7 +186,7 @@ The next graph shows a similar load test using a shared instance of the `Expensi
 
 ![Graph showing a similar load test using a shared instance of the ExpensiveToCreateService object.][throughput-single-ExpensiveToCreateService-instance]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
 [new-relic]: https://newrelic.com/products/application-monitoring
 [throughput-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequest.jpg

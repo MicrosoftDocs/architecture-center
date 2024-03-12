@@ -45,9 +45,9 @@ Design areas for the Azure Virtual Desktop landing zone are indicated with lette
 
 | Legend | Design area | Objective |
 |--------|-------------|-----------|
-| A | [Enterprise enrollment](/azure/cloud-adoption-framework/scenarios/wvd/eslz-enterprise-enrollment)	| Proper tenant creation, enrollment, and billing setup are important early steps. |
+| A | [Enterprise enrollment](/azure/cloud-adoption-framework/scenarios/wvd/eslz-enterprise-enrollment) | Proper tenant creation, enrollment, and billing setup are important early steps. |
 | B, G | [Identity and access management](/azure/cloud-adoption-framework/scenarios/wvd/eslz-identity-and-access-management) | Identity and access management is a primary security boundary in the public cloud. It's the foundation for any secure and fully compliant architecture. |
-| C-H, J | [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) |	As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
+| C-H, J | [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) | As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
 | C-H, J | [Management and monitoring](/azure/cloud-adoption-framework/scenarios/wvd/eslz-management-and-monitoring) | For stable, ongoing operations in the cloud, a management baseline is required to provide visibility, operations compliance, and protect and recover capabilities. |
 | E, F | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/wvd/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
 | G, F, J | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery) | Automate auditing and enforcement of governance policies. |

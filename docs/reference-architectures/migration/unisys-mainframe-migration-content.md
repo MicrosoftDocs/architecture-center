@@ -4,7 +4,9 @@ This article describes the conversion technologies that Microsoft partner [Avana
 
 The following diagram shows the typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
 
-![Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components.](media/unisys-components.png)
+:::image type="content" source="./media/unisys-components.svg" alt-text="Diagram showing Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/unisys-components.svg" border="false":::
+
+_[Download a Visio file](https://arch-center.azureedge.net/unisys-mainframe-migration.vsdx) of this architecture._
 
 ### Workflow
 
@@ -28,7 +30,9 @@ The following diagram shows the typical components of Unisys Burroughs MCP or Un
 
 The second diagram shows how the Unisys mainframe components can map and migrate to Azure capabilities.
 
-![Diagram showing how Unisys mainframe components can map to Azure capabilities.](media/unisys-migration.png)
+:::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram showing how Unisys mainframe components can map to Azure capabilities." lightbox="./media/avanade-unisys-migration.svg" border="false":::
+
+_[Download a Visio file](https://arch-center.azureedge.net/avanade-amt-unisys-mainframe-migration.vsdx) of this architecture._
 
 ### Workflow
 
@@ -54,7 +58,7 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. Azure Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
 - [Azure Virtual Networks](https://azure.microsoft.com/products/virtual-network) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although an Azure Virtual Network is similar to a traditional network on premises, it offers the extra benefits of Azure's infrastructure, such as scalability, availability, and isolation.
 
@@ -145,12 +149,8 @@ Principal author:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
-- [Azure Files](/azure/storage/files/storage-files-introduction)
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview)
-- [Azure Setup Guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
-- [Migration Best Practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
+- [Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
+- [Migration best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
 - [Avanade](https://avanade.com)
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
@@ -160,9 +160,11 @@ For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2
 Explore related resources:
 
 - [Unisys ClearPath Forward MCP mainframe rehost to Azure using Unisys virtualization](../../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Replicate and sync mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
 - [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
-- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
+- [Modernize mainframe & midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)

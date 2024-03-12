@@ -19,7 +19,7 @@ Altair ultraFluidX is used in the automotive, building, facilities, energy, and 
 
 ## Architecture
 
-:::image type="content" source="media/ultrafluidx/hpc-ultrafluidx.png" alt-text="Diagram that shows an architecture for deploying Altair ultraFluidX." lightbox="media/ultrafluidx/hpc-ultrafluidx.png" border="false":::
+:::image type="content" source="media/ultrafluidx/hpc-ultrafluidx.svg" alt-text="Diagram that shows an architecture for deploying Altair ultraFluidX." lightbox="media/ultrafluidx/hpc-ultrafluidx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-ultrafluidx.vsdx) of this
 architecture.*
@@ -190,4 +190,3 @@ Other contributors:
 
 -   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 -   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
--   [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

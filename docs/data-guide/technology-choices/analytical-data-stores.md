@@ -2,7 +2,7 @@
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 03/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -91,7 +91,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
+| Authentication  | SQL / Microsoft Entra ID | SQL / Microsoft Entra ID | Microsoft Entra ID | local / Microsoft Entra ID <sup>1</sup> | local / Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | database users / Microsoft Entra ID via access control (IAM) |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
 | Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |

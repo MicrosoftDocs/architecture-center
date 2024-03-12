@@ -5,9 +5,9 @@ The architecture uses AKS to implement compute clusters of the applications that
 
 ## Architecture
 
-:::image type="content" source="media/process-batch-transactions.png" alt-text="Diagram of an architecture implemented by using AKS and Service Bus":::
+:::image type="content" source="media/process-batch-transactions.svg" alt-text="Diagram of an architecture implemented by using AKS and Service Bus." lightbox="media/process-batch-transactions.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1813862-PR-2603-process-batch-transactions.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/process-batch-transactions.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -89,7 +89,7 @@ The following considerations, based on the [Azure Well-Architected Framework](ht
 
 ### Security
 
-- All the components within the Service Bus batch architecture work with Azure security components, such as Azure Active Directory, Virtual Network, and encryption.
+- All the components within the Service Bus batch architecture work with Azure security components, such as Microsoft Entra ID, Virtual Network, and encryption.
 
 ### Cost optimization
 
@@ -99,7 +99,7 @@ The autoscale features of AKS clusters—and other Azure Platform as a Service (
 
 Here are pricing considerations for specific components:
 
-- Most enterprises already have a Microsoft Active Directory implementation. If not, [Azure Active Directory Premium](https://azure.microsoft.com/services/active-directory/) is low cost.
+- Most enterprises already have a Microsoft Active Directory implementation. If not, [Microsoft Entra ID P1 or P2](https://azure.microsoft.com/services/active-directory/) is low cost.
 - [Windows VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) depend on your compute capacity.
 - For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - There are no upfront costs for [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/); you pay for resources as used.

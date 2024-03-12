@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy CP2K on an Azure virtual machine
+  description: Find out how CP2K quantum chemistry and solid-state physics software performs on an Azure virtual machine.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 11/02/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy CP2K on a virtual machine
+summary: Find out how CP2K software performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/cp2k-thumb.png
+content: |
+  [!include[](cp2k-content.md)] 

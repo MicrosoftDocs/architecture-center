@@ -15,13 +15,12 @@ metadata:
     - devops
     - example-scenario
     - devx-track-jenkins
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-jenkins.png
 name: Run a Jenkins server on Azure
 azureCategories:
   - devops
 summary: This scenario explains the architecture and considerations to take into account when installing and configuring Jenkins.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-blob-storage
   - azure-key-vault
   - azure-monitor

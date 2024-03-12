@@ -10,7 +10,6 @@ ms.subservice: azure-guide
 products:
   - azure-stack
   - azure-stack-edge
-  - azure-stack-hci
   - azure-arc
   - azure-kubernetes-service
 categories:
@@ -42,11 +41,7 @@ Microsoft offers a different approach to help operators take advantage of the  o
 
 Private multiaccess edge compute can be deployed across multiple platforms powered by [Azure Stack](https://azure.microsoft.com/products/azure-stack) solutions. Azure Stack solutions extend Azure services and capabilities to various environments, from the datacenter to edge locations and remote offices. Enterprises can use Azure Stack to build, deploy, and run hybrid and edge computing apps consistently across IT ecosystems.
 
-:::image type="content" source="media/edge-platforms.png" alt-text="Figure that shows cloud-managed edge platforms for private 5G networks.":::
-
 [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is an Azure-managed edge appliance that brings the compute, storage, and intelligence of Azure into the enterprise environment. As part of the private multiaccess edge compute solution, Azure Stack Edge provides a single point for processing mobile network data at the edge. It enables local, intelligent breakout of data processing for faster processing and lower bandwidth consumption.
-
-[Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) operating system delivered as an Azure service. It provides the latest security, performance, and hybrid capabilities, which include [Azure Arc](https://azure.microsoft.com/products/azure-arc) enablement and management via the Azure portal. 
 
 ## Azure Private 5G Core
 
@@ -70,7 +65,7 @@ Azure provides several tools for onboarding edge applications and network functi
 
 Azure Arc can simplify complex infrastructures that are distributed across on-premises, edge, and multicloud environments and extend Azure management to these environments.  
 
-For network function workloads, Network Function Manager is a cloud-native orchestration service that customers can use to deploy and provision network functions on Azure Stack platforms. Supported platforms include Azure Stack Edge Pro, which has a built-in GPU, and Azure Stack HCI. When used with Azure Stack Edge, Network Function Manager provides deployment, provisioning, and cloud-based management of network functions or apps running at the private edge, directly from the Azure portal. It's a  managed service, so an Azure-managed service provider handles updates, lifecycle management, and support for network functions and applications on the edge device. The platform supports virtual machines and containerized workloads, and one or two GPUs for acceleration.
+For network function workloads, Network Function Manager is a cloud-native orchestration service that customers can use to deploy and provision network functions on Azure Stack platforms. The Azure Stack Edge Pro platform supports Network Function Manager and has a built-in GPU. When used with Azure Stack Edge, Network Function Manager provides deployment, provisioning, and cloud-based management of network functions or apps running at the private edge, directly from the Azure portal. It's a  managed service, so an Azure-managed service provider handles updates, lifecycle management, and support for network functions and applications on the edge device. The platform supports virtual machines and containerized workloads, and one or two GPUs for acceleration.
 
 ## Azure solution characteristics 
 
@@ -109,7 +104,7 @@ This solution enables an ecosystem of applications for operators and enterprise 
 
 ### MEC for networking and applications
 
-An operator needs to provide both the local radio infrastructure and the managed compute for a private 5G network service. A cloud edge computing component is also required for processing cloud services and applications. One solution is a shared edge where both the mobile network functions and local edge applications run side-by-side. They run in a common zero-trust security framework provided by Azure Stack Edge or Azure Stack HCI. This approach provides seamless integration between the 5G network, edge computing, and the cloud, and significantly reduces CapEx and OpEx.
+An operator needs to provide both the local radio infrastructure and the managed compute for a private 5G network service. A cloud edge computing component is also required for processing cloud services and applications. One solution is a shared edge where both the mobile network functions and local edge applications run side-by-side. They run in a common zero-trust security framework provided by Azure Stack Edge. This approach provides seamless integration between the 5G network, edge computing, and the cloud, and significantly reduces CapEx and OpEx.
 
 Alternative solutions involve splitting the compute functions into two sets: one managed by the operator and the other by the enterprise or another managed service provider. In this approach, solution architecture splits up the management, but enterprises benefit from using Azure as the common management layer for both networking and applications. 
 

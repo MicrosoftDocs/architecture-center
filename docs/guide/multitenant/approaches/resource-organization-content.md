@@ -23,7 +23,7 @@ It's also important to avoid making assumptions in your code and configuration, 
 
 ### Tenant isolation
 
-Azure resources are deployed and managed through a hierarchy. Most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers are associated with an [*Azure Active Directory (Azure AD) tenant*](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).
+Azure resources are deployed and managed through a hierarchy. Most *resources* are deployed into [*resource groups*](/azure/azure-resource-manager/management/manage-resource-groups-portal), which are contained in *subscriptions*. [*Management groups*](/azure/governance/management-groups/overview) logically group subscriptions together. All of these hierarchical layers are associated with a [*Microsoft Entra tenant*](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).
 
 When you determine how to deploy resources for each tenant, you might isolate at different levels in the hierarchy. Each option is valid for certain types of multitenant solutions, and comes with benefits and tradeoffs. It's also common to combine approaches, using different isolation models for different components of a solution.
 
@@ -83,24 +83,26 @@ Each subscription contains a resource group, with the complete set of resources 
 
 They use a management group to simplify the management of their subscriptions. By including *Production* in the management group's name, they can clearly distinguish any production tenants from non-production or test tenants. Non-production tenants would have different Azure access control rules and policies applied.
 
-All of their subscriptions are associated with a single Azure Active Directory tenant. Using a single Azure AD tenant means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
+All of their subscriptions are associated with a single Microsoft Entra tenant. Using a single Microsoft Entra tenant means that the Contoso team's identities, including users and service principals, can be used throughout their entire Azure estate.
 
-#### Separate subscriptions in separate Azure AD tenants
+<a name='separate-subscriptions-in-separate-azure-ad-tenants'></a>
 
-It's also possible to manually create individual Azure Active Directory (Azure AD) tenants for each of your tenants, or to deploy your resources into subscriptions within your customers' Azure AD tenants. However, working with multiple Azure AD tenants makes it more difficult to authenticate, to manage role assignments, to apply global policies, and to perform many other management operations.
+#### Separate subscriptions in separate Microsoft Entra tenants
+
+It's also possible to manually create individual Microsoft Entra tenants for each of your tenants, or to deploy your resources into subscriptions within your customers' Microsoft Entra tenants. However, working with multiple Microsoft Entra tenants makes it more difficult to authenticate, to manage role assignments, to apply global policies, and to perform many other management operations.
 
 > [!WARNING]
-> **We advise against creating multiple Azure Active Directory tenants for most multitenant solutions.** Working across Azure AD tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs), who operate Azure environments on behalf of their customers.
+> **We advise against creating multiple Microsoft Entra tenants for most multitenant solutions.** Working across Microsoft Entra tenants introduces extra complexity and reduces your ability to scale and manage your resources. Typically, this approach is only used by managed service providers (MSPs), who operate Azure environments on behalf of their customers.
 >
-> A single Azure AD tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Azure AD tenants, [consider whether there are other approaches that could achieve your purposes](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory).
+> A single Microsoft Entra tenant can be used by multiple separate subscriptions and Azure resources. Before you make an effort to deploy multiple Microsoft Entra tenants, [consider whether there are other approaches that could achieve your purposes](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory).
 
-In situations where you need to manage Azure resources in subscriptions that are tied to multiple Azure AD tenants, consider using [Azure Lighthouse](/azure/lighthouse/overview) to help manage your resources across your Azure AD tenants.
+In situations where you need to manage Azure resources in subscriptions that are tied to multiple Microsoft Entra tenants, consider using [Azure Lighthouse](/azure/lighthouse/overview) to help manage your resources across your Microsoft Entra tenants.
 
-For example, Contoso could create separate Azure AD tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
+For example, Contoso could create separate Microsoft Entra tenants and separate Azure subscriptions for each of their customers, as shown in the following diagram.
 
-![Diagram showing an Azure A D tenant for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Azure A D tenant.](media/resource-organization/isolation-tenant.png)
+![Diagram showing a Microsoft Entra tenant for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Microsoft Entra tenant.](media/resource-organization/isolation-tenant.png)
 
-An Azure AD tenant is configured for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Azure AD tenant.
+A Microsoft Entra tenant is configured for each of Contoso's tenants, which contains a subscription and the resources required. Azure Lighthouse is connected to each Microsoft Entra tenant.
 
 ### Bin packing
 
@@ -166,7 +168,7 @@ Resource tags enable you to add custom metadata to your Azure resources, which c
 - **Not planning to bin pack.** Even if you don't need to grow immediately, plan to scale your Azure resources across multiple resources, resource groups, and subscriptions over time. Avoid making assumptions in your application code, like there being a single resource when you might need to scale to multiple resources in the future.
 - **Scaling many individual resources.** If you have a complex resource topology, it can become difficult to scale individual components, one by one. It's often simpler to scale your solution as a unit, by following the [Deployment Stamps pattern](overview.yml#deployment-stamps-pattern).
 - **Deploying isolated resources for each tenant, when not required.** In many solutions, it's more cost effective and efficient to deploy shared resources for multiple tenants.
-- **Using separate Azure AD tenants.** In general, it's inadvisable to provision multiple Azure AD tenants. Managing resources across Azure AD tenants is complex. It's simpler to scale across subscriptions linked to a single Azure AD tenant.
+- **Using separate Microsoft Entra tenants.** In general, it's inadvisable to provision multiple Microsoft Entra tenants. Managing resources across Microsoft Entra tenants is complex. It's simpler to scale across subscriptions linked to a single Microsoft Entra tenant.
 - **Overarchitecting when you don't need to scale.** In some solutions, you know with certainty that you'll never grow beyond a certain level of scale. In these scenarios, there's no need to build complex scaling logic. However, if your organization plans to grow, then you will need to be prepared to scale&mdash;potentially at short notice.
 
 ## Contributors

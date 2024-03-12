@@ -2,7 +2,9 @@ This example shows how to establish a development and test environment for SAP N
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for S A P workloads.](./media/architecture-sap-dev-test-architecture.png)
+[ ![Architecture diagram for dev/test environments for SAP workloads.](./media/architecture-sap-dev-test-architecture.svg)](./media/architecture-sap-dev-test-architecture.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-sap-dev-test-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -141,4 +143,4 @@ Explore related architectures:
 [sap-netweaver]: /azure/architecture/guide/sap/sap-netweaver
 [sap-hana]: /azure/architecture/guide/sap/sap-s4hana
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.yml
-[hub-spoke]: ../../reference-architectures/hybrid-networking/hub-spoke.yml
+[hub-spoke]: ../../networking/architecture/hub-spoke.yml

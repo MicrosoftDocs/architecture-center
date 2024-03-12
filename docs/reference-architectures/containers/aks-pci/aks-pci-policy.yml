@@ -15,8 +15,8 @@ azureCategories:
 summary: Guidance for documenting security policies for a PCI-DSS 3.2.1 infrastructure.
 products:
   - azure-kubernetes-service
-  - azure-active-directory
-  - azure-security-center
+  - entra-id
+  - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
 content: |
    [!include[](aks-pci-policy-content.md)]

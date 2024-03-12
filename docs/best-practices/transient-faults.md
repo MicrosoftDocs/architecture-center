@@ -3,7 +3,7 @@ title: Transient fault handling
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults caused by loss of network connectivity, temporary unavailability, or timeouts.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -118,7 +118,7 @@ The following guidelines can help you design suitable transient fault handling m
 
   - For custom services that you create and deploy, force transient errors to occur by temporarily disabling or overloading the service. (Don't attempt to overload any shared resources or shared services in Azure.)
 
-  - For HTTP-based APIs, consider using the FiddlerCore library in your automated tests to change the outcome of HTTP requests, either by adding extra roundtrip times or by changing the response (like the HTTP status code, headers, body, or other factors). Doing so enables deterministic testing of a subset of the failure conditions, for transient faults and other types of failures. For more information, see [FiddlerCore](https://www.telerik.com/fiddler/fiddlercore). For examples of how to use the library, particularly the **HttpMangler** class, examine the [source code for the Azure Storage SDK](https://github.com/Azure/azure-storage-net/tree/master/Test).
+  - For HTTP-based APIs, consider using a library in your automated tests to change the outcome of HTTP requests, either by adding extra roundtrip times or by changing the response (like the HTTP status code, headers, body, or other factors). Doing so enables deterministic testing of a subset of the failure conditions, for transient faults and other types of failures.
 
   - Perform high load factor and concurrent tests to ensure that the retry mechanism and strategy works correctly under these conditions. These tests will also help ensure that the retry doesn't have an adverse effect on the operation of the client or cause cross-contamination between requests.
 

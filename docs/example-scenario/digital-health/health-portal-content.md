@@ -29,7 +29,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, multi-model, NoSQL database offering that offers single-digit response times, and guarantees performance at any scale. Each user in the consumer health system will have only data related to themselves, which justifies the use of a NoSQL data structure. Azure Cosmos DB has nearly limitless scale, as well as multi-region read and write. With the drastic growth of the amount of data collected by these types of consumer health systems, Azure Cosmos DB can provide appropriate security, speed, and scale, regardless of whether there are 100 or 1,000,000 active users.
 
-- [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Azure Active Directory integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
+- [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Microsoft Entra integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users might want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This method provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
 
@@ -41,14 +41,12 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal, which uses a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
 
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
-  - [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction)
-  - [Microsoft Defender for Storage](/azure/security-center/defender-for-storage-introduction)
-  - [Microsoft Defender for KeyVault](/azure/security-center/defender-for-key-vault-introduction)
-  - [Microsoft Defender for Resource Manager (Preview)](/azure/security-center/defender-for-resource-manager-introduction)
-  - [Microsoft Defender for DNS](/azure/security-center/defender-for-dns-introduction)
-  - [Threat Protections for Azure WAF](/azure/security-center/other-threat-protections#threat-protection-for-other-microsoft-services-)
-  - [Threat Protections for Azure Cosmos DB (Preview)](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud/)) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
+  - [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
+  - [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)
+  - [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction)
+  - [Microsoft Defender for Resource Manager](/azure/defender-for-cloud/defender-for-resource-manager-introduction)
+  - [Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/concept-defender-for-cosmos)
 
 ### Alternatives
 
@@ -81,7 +79,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You might also apply the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
 
-- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for further guidance.
+- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml) for further guidance.
 
 - Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](/azure/storage/common/storage-redundancy) article.
 
@@ -103,7 +101,7 @@ All traffic to APIM should be authenticated, either by using [Azure AD B2C APIM 
 
 #### Azure App Service
 
-All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
+All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
 
 #### Azure Functions
 
@@ -111,9 +109,9 @@ All requests to the Azure Functions in this solution should [require HTTPS](/azu
 
 #### Azure Blob Storage
 
-Where possible, restrict access to blob storage by using [Azure Active Directory](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types might not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
+Where possible, restrict access to blob storage by using [Microsoft Entra ID](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types might not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
 
-Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/security-center/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
+Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
 
 #### Azure Cosmos DB
 
@@ -121,7 +119,7 @@ Make sure to also use a [role-based access control](/azure/storage/common/storag
 
 #### Azure Key Vault
 
-Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/security-center/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
+Requests made to the Azure Key Vault should [be authenticated using Microsoft Entra ID or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
 
 #### Azure AD B2C
 
@@ -165,6 +163,6 @@ Principal author:
 
 - [HIPAA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
-- [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
-- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
+- [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Baseline zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)

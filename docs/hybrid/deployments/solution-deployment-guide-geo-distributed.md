@@ -39,7 +39,7 @@ With the geo-distributed pattern, your app spans regions. You can default to the
 
 #### Scalability considerations
 
-The solution you'll build with this article isn't to accommodate scalability. However, if used in combination with other Azure and on-premises solutions, you can accommodate scalability requirements. For information on creating a hybrid solution with autoscaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](solution-deployment-guide-cross-cloud-scaling.md).
+The solution you'll build with this article isn't to accommodate scalability. However, if used in combination with other Azure and on-premises solutions, you can accommodate scalability requirements.
 
 #### Availability considerations
 
@@ -91,13 +91,13 @@ An Azure subscription and Azure Stack Hub installation are required.
 
 ### Obtain a custom domain and configure DNS
 
-Update the DNS zone file for the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
+Update the DNS zone file for the domain. Microsoft Entra ID can then verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
 
 1. Register a custom domain with a public registrar.
 
 2. Sign in to the domain name registrar for the domain. An approved admin may be required to make the DNS updates.
 
-3. Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD. The DNS entry doesn't change behaviors such as mail routing or web hosting.
+3. Update the DNS zone file for the domain by adding the DNS entry provided by Microsoft Entra ID. The DNS entry doesn't change behaviors such as mail routing or web hosting.
 
 ### Create web apps and publish
 
@@ -262,13 +262,13 @@ To complete this solution:
 
 - Purchase a domain name and ensure access to the DNS registry for the domain provider.
 
-Update the DNS zone file for the domain. Azure AD will verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
+Update the DNS zone file for the domain. Microsoft Entra ID will verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
 
 - Register a custom domain with a public registrar.
 
 - Sign in to the domain name registrar for the domain. (An approved admin may be required to make DNS updates.)
 
-- Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD.
+- Update the DNS zone file for the domain by adding the DNS entry provided by Microsoft Entra ID.
 
 For example, to add DNS entries for northwindcloud.com and www\.northwindcloud.com, configure DNS settings for the northwindcloud.com root domain.
 

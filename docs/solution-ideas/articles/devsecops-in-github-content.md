@@ -2,15 +2,15 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 ## Architecture
 
-:::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
-   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure Active Directory (Azure AD) authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
+:::image type="complex" source="../media/devsecops-in-github-data-flow.svg" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Microsoft Entra authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 
 *Download a [Visio file][visio-download] of all diagrams in this architecture.*
 
 ### Dataflow
 
-1. When developers access GitHub resources, GitHub redirects them to Azure AD for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
+1. When developers access GitHub resources, GitHub redirects them to Microsoft Entra ID for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
 1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
@@ -21,7 +21,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 When GitHub Security identifies a vulnerability, it takes the steps illustrated in the following diagram:
 
-   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
+   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.svg" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
 Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
    :::image-end:::
   
@@ -39,7 +39,7 @@ Architecture diagram illustrating a chain of events in a GitHub DevSecOps implem
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Azure AD as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
+- [Microsoft Entra ID][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Microsoft Entra ID as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages, and ensure dependencies are up-to-date with secure versions. See the GitHub security subsection of Considerations for more details.
@@ -203,12 +203,12 @@ Principal author:
 [About billing for GitHub actions]: https://docs.github.com/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/actions/hosting-your-own-runners/about-self-hosted-runners
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise
-[GitHub Enterprise highly available failover configuration]: https://docs.github.com/enterprise-server@3.5/admin/enterprise-management/configuring-high-availability
+[GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise-server@3.5/
 [GitHub Advanced Security]: https://docs.github.com/enterprise-server@3.5/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
 [Configure Dependabot security updates]: https://docs.github.com/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
-[GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
+[GitHub DevSecOps getting started tips]: https://resources.github.com/devops/tools/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
 [DevSecOps for Infrastructure as Code (IaC)]: ./devsecops-infrastructure-as-code.yml

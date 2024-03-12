@@ -24,7 +24,7 @@ azureCategories:
   - ai-machine-learning
 summary: Use Azure sentiment analysis and face recognition services with open-source solutions like Apache NiFi and Azure HDInsight to gauge public opinion in tweets.
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-cosmos-db
   - azure-cosmos-db
   - azure-hdinsight

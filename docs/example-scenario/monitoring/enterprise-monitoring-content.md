@@ -2,9 +2,9 @@ Large enterprises need to consider many factors when modernizing their existing 
 
 ## Architecture
 
-:::image type="content" source="media/enterprise-monitoring.png" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.png":::
+:::image type="content" source="media/enterprise-monitoring.svg" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/enterprise-monitoring.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -53,7 +53,7 @@ This architecture includes the following components:
 - [Azure Workbooks for Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) provides a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
-  - [Azure Active Directory Monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Azure Active Directory (Azure AD) activity logs to a Log Analytics workspace.
+  - [Microsoft Entra monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Microsoft Entra activity logs to a Log Analytics workspace.
   - [Log Analytics gateway](/azure/azure-monitor/agents/gateway) sends data to Azure Automation and Log Analytics workspaces for computers that can't directly connect to the internet.
   - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems, and map the communication between services.
   - [Alert Management](/azure/azure-monitor/insights/alert-management-solution) helps you analyze all the alerts in your Log Analytics workspaces.
@@ -64,7 +64,7 @@ This architecture includes the following components:
 
 In this solution, Monitor supports or integrates with the following Azure and Microsoft services:
 
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multicloud and on-premises management platform.
 - [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues. Change Tracking forwards the data to Monitor Logs and stores the data in a Log Analytics workspace.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute uses private connections with the help of connectivity providers.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides secure, scalable, cost-effective cloud storage for big data analytics.
@@ -213,7 +213,7 @@ Monitor is a constellation of different interconnected services that work togeth
 
 #### Logic Apps integration service environment (ISE)
 
-An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-tenant Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment).
+An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-tenant Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview).
 
 #### Log Analytics gateway
 
@@ -271,4 +271,4 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 - [Monitoring for DevOps](/azure/architecture/framework/devops/checklist)
 - [Alerting](/azure/architecture/framework/devops/monitor-alerts)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
-- [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
+- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)

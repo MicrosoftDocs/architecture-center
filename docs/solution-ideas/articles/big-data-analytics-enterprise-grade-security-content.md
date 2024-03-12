@@ -4,7 +4,7 @@ The solution described in this article demonstrates how to use Azure Synapse Ana
 
 ## Architecture
 
-[ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.svg) ](../media/big-data-analytics-enterprise-grade-security.png#lightbox)
+:::image type="content" source="../media/big-data-analytics-enterprise-grade-security.svg" alt-text="Diagram showing the data flow in this solution. For a detailed explanation, see the following article text." lightbox="../media/big-data-analytics-enterprise-grade-security.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/big-data-analytics-enterprise-grade-security.vsdx) of this architecture.*
 
@@ -40,7 +40,7 @@ This example solution makes use of several Azure services and features:
 
 -   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is the core service used in this example solution to provide data ingestion, processing, and analytics.
 
--   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction)  is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
+-   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction) is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
 
 -   [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) copies data from original sources into the data lake storage locations.
 
@@ -84,7 +84,7 @@ The solution described in this article demonstrates how to combine these technol
 
 -   **Securing data sources.** Data sources inside the on-premises corporate network or on the virtual network are secured behind a firewall. These resources can be securely accessed by installing a self-hosted integration runtime on a resource hosted on-premises or on the virtual networks.
 
--   **Authentication and authorization using managed identities.** Communication between Azure services can be secured using managed identities, which provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. In this example, Azure Synapse uses the managed identity to integrate pipelines.
+-   **Authentication and authorization using managed identities.** Communication between Azure services can be secured using managed identities, which provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. In this example, Azure Synapse uses the managed identity to integrate pipelines.
 
 -   **Private endpoints establishing a private link to Azure resources.** Azure Synapse provides fully managed private endpoint functionality for services within the Synapse workspace (such as Azure Storage or Azure Cosmos DB). Other Azure resources such as Azure applications, Microsoft Power BI, and Azure Synapse service are secured using Private Endpoints integrated into the example solution's virtual network. Network traffic between your private network and the Synapse pools uses Private Link to move traffic over the Microsoft backbone network, eliminating exposure to the public internet.
 
@@ -96,13 +96,13 @@ The solution described in this article demonstrates how to combine these technol
 
 You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The Azure Resource Manager templates, which you'll need to deploy the components described in this architecture, are available in the [GitHub](https://github.com/vsuopys/SecureSynapse/tree/master/SecureSynapseARM) repository. These templates will deploy all the services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
+The Azure Resource Manager templates, which you'll need to deploy the components described in this architecture, are available in the [GitHub](https://github.com/Azure/SynapseAnalyticsSecured/tree/main/SecureSynapseARM) repository. These templates will deploy all the services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
 
 It's up to the user to create the data lake folder structure and the Azure Synapse Analytics integration pipelines that are necessary to connect to the data sources.
 
 Deploy the ARM template directly by clicking this button:
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FSynapseAnalyticsSecured%2Fmain%2FSecureSynapseARM%2Fazuredeploy.json)
 
 ## Contributors
 
@@ -144,7 +144,7 @@ Refer to these articles when planning and deploying solutions using Azure Synaps
 
 -   [Connect to a secure Azure storage account from your Synapse workspace](/azure/synapse-analytics/security/connect-to-a-secure-storage-account)
 
--   [Use Azure Active Directory Authentication for authentication with Synapse SQL](/azure/synapse-analytics/sql/active-directory-authentication)
+-   [Use Microsoft Entra authentication for authentication with Synapse SQL](/azure/synapse-analytics/sql/active-directory-authentication)
 
 ### Related architecture guidance
 

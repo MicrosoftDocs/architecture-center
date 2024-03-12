@@ -122,7 +122,7 @@ You can use Power Automate to build a low-code workflow to parse a user's input,
 
 :::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the dashboard workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
 
-To deploy this end-to-end example, follow the [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
+To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure ML + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
 
 ## Contributors
 
@@ -155,7 +155,6 @@ Other contributors:
 
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
 - [Artificial intelligence (AI) architecture design](/azure/architecture/data-guide/big-data/ai-overview)
-- [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../mlops/mlops-technical-paper.yml)

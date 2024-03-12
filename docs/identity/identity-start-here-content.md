@@ -2,9 +2,9 @@ Identity and access management (IAM) architectures provide frameworks for protec
 
 An identity solution controls access to an organization's apps and data. Users, devices, and applications have identities. IAM components support the authentication and authorization of these and other identities. The process of authentication controls who or what uses an account. Authorization controls what that user can do in applications.
 
-Whether you're just starting to evaluate identity solutions or looking to expand your current implementation, Azure offers many options. One example is Azure Active Directory (Azure AD), a cloud service that provides identity management and access control capabilities. To decide on a solution, start by learning about this service and other Azure components, tools, and reference architectures.
+Whether you're just starting to evaluate identity solutions or looking to expand your current implementation, Azure offers many options. One example is Microsoft Entra ID, a cloud service that provides identity management and access control capabilities. To decide on a solution, start by learning about this service and other Azure components, tools, and reference architectures.
 
-:::image type="content" source="./media/identity-basic-architecture.png" alt-text="Architecture diagram that shows Azure A D in a cloud environment. Connections to apps, devices, and other components are also visible." border="false":::
+:::image type="content" source="./media/identity-basic-architecture.png" alt-text="Architecture diagram that shows Microsoft Entra ID in a cloud environment. Connections to apps, devices, and other components are also visible." border="false":::
 
 ## Introduction to identity on Azure
 
@@ -32,23 +32,23 @@ After you've covered the fundamentals of identity management, the next step is t
 
 To explore options for identity solutions, consult these resources:
 
-- For a comparison of three services that provide access to a central identity, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services][Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services].
+- For a comparison of three services that provide access to a central identity, see [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services][Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services].
 
-- To learn how to make IAM resilient, see [Resilient identity and access management with Azure AD][Resilient identity and access management with Azure AD].
+- To learn how to make IAM resilient, see [Resilient identity and access management with Microsoft Entra ID][Resilient identity and access management with Azure AD].
 
 - To compare options for reducing latency when integrating with an Azure network, see [Integrate on-premises AD with Azure][Integrate on-premises AD with Azure].
 
-- For information on associating billing offers with an Azure AD tenant, see [Azure billing offers and Active Directory tenants][Azure billing offers and Active Directory tenants].
+- For information on associating billing offers with a Microsoft Entra tenant, see [Azure billing offers and Active Directory tenants][Azure billing offers and Active Directory tenants].
 
 - To evaluate options for an identity and access foundation, see [Azure identity and access management design area][Azure identity and access management design area].
 
 - To explore ways to organize resources that you deploy to the cloud, see [Resource organization][Resource organization].
 
-- For a comparison of various authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution][Choose the right authentication method for your Azure Active Directory hybrid identity solution].
+- For a comparison of various authentication options, see [Choose the right authentication method for your Microsoft Entra hybrid identity solution][Choose the right authentication method for your Azure Active Directory hybrid identity solution].
 
-- For a comprehensive hybrid identity solution, see [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads][How Azure AD Delivers Cloud Governed Management for On-Premises Workloads].
+- For a comprehensive hybrid identity solution, see [How Microsoft Entra ID delivers cloud-governed management for on-premises workloads][How Azure AD Delivers Cloud Governed Management for On-Premises Workloads].
 
-- To learn how Azure AD Connect integrates on-premises directories with Azure AD, see [What is Azure AD Connect?][What is Azure AD Connect?].
+- To learn how Microsoft Entra Connect integrates on-premises directories with Microsoft Entra ID, see [What is Microsoft Entra Connect?][What is Azure AD Connect?].
 
 ### Implementation
 
@@ -56,34 +56,34 @@ When you've decided on an approach, implementation comes next. For deployment re
 
 - For a series of articles and code samples for a multitenant solution, see [Identity management in multitenant applications][Identity management in multitenant applications].
 
-- For information on deploying Azure AD, see these resources:
+- For information on deploying Microsoft Entra ID, see these resources:
 
-  - [Azure Active Directory feature deployment guide][Azure Active Directory feature deployment guide]
-  - [Azure Active Directory deployment plans][Azure Active Directory deployment plans]
+  - [Microsoft Entra feature deployment guide][Azure Active Directory feature deployment guide]
+  - [Microsoft Entra deployment plans][Azure Active Directory deployment plans]
   - [Azure Active Directory B2C deployment plans][Azure Active Directory B2C deployment plans]
 
-- To learn how to use Azure AD and OAuth 2.0 to secure a single-page application, see [Secure development with single-page applications (SPAs)][Secure development with single-page applications (SPAs)].
+- To learn how to use Microsoft Entra ID to secure a single-page application, see the tutorials at [Register a Single-page application with the Microsoft identity platform][Register a Single-page application with the Microsoft identity platform].
 
 ## Best practices
 
-- With capabilities like automation, self-service, and single sign-on, Azure AD can boost productivity. For general information on benefitting from this service, see [Four steps to a strong identity foundation with Azure Active Directory][Four steps to a strong identity foundation with Azure Active Directory].
+- With capabilities like automation, self-service, and single sign-on, Microsoft Entra ID can boost productivity. For general information on benefitting from this service, see [Four steps to a strong identity foundation with Microsoft Entra ID][Four steps to a strong identity foundation with Azure Active Directory].
 
-- To check whether your Azure AD implementation aligns with the Azure Security Benchmark version 2.0, see [Azure security baseline for Azure Active Directory][Azure security baseline for Azure Active Directory].
+- To check whether your Microsoft Entra implementation aligns with the Azure Security Benchmark version 2.0, see [Azure security baseline for Microsoft Entra ID][Azure security baseline for Azure Active Directory].
 
 - Some solutions use private endpoints in tenants to connect to Azure services. To see guidelines for security issues regarding private endpoints, see [Limit cross-tenant private endpoint connections in Azure][Limit cross-tenant private endpoint connections in Azure].
 
-- For recommendations for the following scenarios, see [Integrate on-premises AD domains with Azure AD][Integrate on-premises AD domains with Azure AD]:
+- For recommendations for the following scenarios, see [Integrate on-premises AD domains with Microsoft Entra ID][Integrate on-premises AD domains with Azure AD]:
 
   - Giving your organization's remote users access to your Azure web apps
   - Implementing self-service capabilities for end users
   - Using an on-premises network and a virtual network that aren't connected by a virtual private network (VPN) tunnel or ExpressRoute circuit
 
-- For general information and guidelines on migrating applications to Azure AD, see these articles:
+- For general information and guidelines on migrating applications to Microsoft Entra ID, see these articles:
 
-  - [Move application authentication to Azure Active Directory][Move application authentication to Azure Active Directory]
-  - [Migrate application authentication to Azure Active Directory][Migrate application authentication to Azure Active Directory]
+  - [Move application authentication to Microsoft Entra ID][Move application authentication to Azure Active Directory]
+  - [Migrate application authentication to Microsoft Entra ID][Migrate application authentication to Azure Active Directory]
   - [Review the application activity report][Review the application activity report]
-  - [Resources for migrating applications to Azure Active Directory][Resources for migrating applications to Azure Active Directory]
+  - [Resources for migrating applications to Microsoft Entra ID][Resources for migrating applications to Azure Active Directory]
 
 ## Suite of baseline implementations
 
@@ -95,18 +95,20 @@ These reference architectures provide baseline implementations for various scena
 
 ## Stay current with identity
 
-Azure AD receives improvements on an ongoing basis.
+Microsoft Entra ID receives improvements on an ongoing basis.
 
-- To stay on top of recent developments, see [What's new in Azure Active Directory?][What's new in Azure Active Directory?].
+- To stay on top of recent developments, see [What's new in Microsoft Entra ID?][What's new in Azure Active Directory?].
 - For a roadmap showing new key features and services, see [Azure updates][Azure updates].
 
 ## Additional resources
 
 The following resources provide practical recommendations and information for specific scenarios.
 
-### Azure AD in educational environments
+<a name='azure-ad-in-educational-environments'></a>
 
-- [Introduction to Azure Active Directory Tenants][Introduction to Azure Active Directory Tenants]
+### Microsoft Entra ID in educational environments
+
+- [Introduction to Microsoft Entra tenants][Introduction to Azure Active Directory Tenants]
 - [Design a multi-tenant architecture for large institutions][Design a multi-tenant architecture for large institutions]
 - [Design Tenant Configuration][Design Tenant Configuration]
 - [Design authentication and credential strategies][Design authentication and credential strategies]
@@ -117,7 +119,7 @@ The following resources provide practical recommendations and information for sp
 ### Information for Amazon Web Services (AWS) and Google Cloud professionals
 
 - [Multi-cloud security and identity with Azure and Amazon Web Services (AWS)][Multi-cloud security and identity with Azure and Amazon Web Services (AWS)]
-- [Azure Active Directory identity management and access management for AWS][Azure Active Directory identity management and access management for AWS]
+- [Microsoft Entra identity management and access management for AWS][Azure Active Directory identity management and access management for AWS]
 - [Google Cloud to Azure services comparison—Security and identity][Google Cloud to Azure services comparison—Security and identity]
 
 [Azure Active Directory B2C deployment plans]: /azure/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
@@ -159,7 +161,7 @@ The following resources provide practical recommendations and information for sp
 [Resources for migrating applications to Azure Active Directory]: /azure/active-directory/manage-apps/migration-resources?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Review the application activity report]: /azure/active-directory/manage-apps/migrate-adfs-application-activity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [SC-300: Implement an identity management solution]: /training/paths/implement-identity-management-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Secure development with single-page applications (SPAs)]: ../guide/resilience/azure-ad-secure-single-page-application.yml
+[Register a Single-page application with the Microsoft identity platform]: /entra/identity-platform/tutorial-single-page-app-react-register-app
 [Updated Guidance for M365 EDU Deployment during COVID-19]: /microsoft-365/education/deploy/guidance-for-m365-edu-deployment-during-covid19?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [What is Azure AD Connect?]: /azure/active-directory/hybrid/whatis-azure-ad-connect?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [What's new in Azure Active Directory?]: /azure/active-directory/fundamentals/whats-new?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json

@@ -1,6 +1,6 @@
 Many organizations want to take advantage of Azure Virtual Desktop to create environments that have multiple on-premises Active Directory forests. 
 
-This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article. It's intended to help you understand how to integrate multiple domains and Azure Virtual Desktop by using [Azure Active Directory (Azure AD) Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis).
+This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article. It's intended to help you understand how to integrate multiple domains and Azure Virtual Desktop by using [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This article expands on the architecture that's described in the [Azure Virtual 
 
 In this architecture, the identity flow works as follows: 
 
-1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to an Azure AD tenant (NewCompanyAB.onmicrosoft.com).
+1. Microsoft Entra Connect syncs users from both CompanyA.com and CompanyB.com to a Microsoft Entra tenant (NewCompanyAB.onmicrosoft.com).
 1. Host pools, workspaces, and app groups are created in separate subscriptions and spoke virtual networks.
 1. Users are assigned to the app groups.
 1. Azure Virtual Desktop session hosts in the host pools join the domains CompanyA.com and CompanyB.com by using the domain controllers in Azure.
@@ -27,7 +27,7 @@ This architecture uses the same [components](./windows-virtual-desktop.yml#compo
 
 Additionally, this architecture uses the following components:
 
-- **Azure AD Connect in staging mode**: The [Staging server for Azure AD Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server) provides additional redundancy for the Azure AD Connect instance.
+- **Microsoft Entra Connect in staging mode**: The [Staging server for Microsoft Entra Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server) provides additional redundancy for the Microsoft Entra Connect instance.
 
 - **Azure subscriptions, Azure Virtual Desktop workspaces, and host pools**: You can use multiple subscriptions, Azure Virtual Desktop workspaces, and host pools for administration boundaries and business requirements.
 
@@ -35,10 +35,10 @@ Additionally, this architecture uses the following components:
 
 This architecture diagram represents a typical scenario that contains the following elements:
 
-- The Azure AD tenant is available for a new company named *NewCompanyAB.onmicrosoft.com*.
-- [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure AD.
+- The Microsoft Entra tenant is available for a new company named *NewCompanyAB.onmicrosoft.com*.
+- [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Microsoft Entra ID.
 - Company A and Company B have separate Azure subscriptions. They also have a [shared services subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription), referred to as the *Subscription 1* in the diagram.
-- [An Azure hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml) is implemented with a shared services hub virtual network.
+- [An Azure hub-spoke architecture](../../networking/architecture/hub-spoke.yml) is implemented with a shared services hub virtual network.
 - Complex hybrid on-premises Active Directory environments are present with two or more Active Directory forests. Domains live in separate forests, each with a different [UPN suffix](/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *CompanyA.local* with the UPN suffix *CompanyA.com*, *CompanyB.local* with the UPN suffix *CompanyB.com*, and an additional UPN suffix, *NewCompanyAB.com*.
 - Domain controllers for both forests are located on-premises and in Azure.
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
@@ -49,9 +49,9 @@ This architecture diagram represents a typical scenario that contains the follow
 - Azure storage accounts can use [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, CompanyA.local and CompanyB.local), and the account is joined to the corresponding domain.
 
 > [!NOTE]
-> Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Azure AD, and managed Azure AD DS](/azure/active-directory-domain-services/compare-identity-solutions). </br>
+> Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Microsoft Entra Domain Services (Microsoft Entra Domain Services) provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
 > 
-> The solution idea [Multiple Azure Virtual Desktop forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses architecture that uses cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
+> The solution idea [Multiple Azure Virtual Desktop forests using Microsoft Entra Domain Services](./multi-forest-azure-managed.yml) discusses architecture that uses cloud-managed [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview).
 
 ### Potential use cases
 
@@ -73,7 +73,7 @@ When you're designing your workload based on this architecture, keep the followi
 
 ### Network and connectivity
 
-- The domain controllers are shared components, so they need to be deployed in a shared services hub virtual network in this [hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml).
+- The domain controllers are shared components, so they need to be deployed in a shared services hub virtual network in this [hub-spoke architecture](../../networking/architecture/hub-spoke.yml).
 
 - Azure Virtual Desktop session hosts join the domain controller in Azure over their respective hub-spoke virtual network peering.
 
@@ -85,9 +85,11 @@ The following design considerations apply to user profile containers, cloud cach
 
 - Both Azure storage accounts and Azure NetApp Files are limited to joining to one single AD DS at a time. In these cases, multiple Azure storage accounts or Azure NetApp Files instances are required.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-In scenarios with users in multiple on-premises Active Directory forests, only one Azure AD Connect sync server is connected to the Azure AD tenant. An exception to this is an Azure AD Connect server that's used in staging mode.
+### Microsoft Entra ID
+
+In scenarios with users in multiple on-premises Active Directory forests, only one Microsoft Entra Connect Sync server is connected to the Microsoft Entra tenant. An exception to this is a Microsoft Entra Connect server that's used in staging mode.
 
 ![Diagram that shows design variations for multiple Active Directory forests for Azure Virtual Desktop.](images/multiple-forests.png)
 
@@ -97,7 +99,7 @@ The following identity topologies are supported:
 - One or more resource forests trust all account forests.
 - A full mesh topology allows users and resources to be in any forest. Commonly, there are two-way trusts between the forests.
 
-For more details, see the [Staging server section of Azure AD Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
+For more details, see the [Staging server section of Microsoft Entra Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
 
 ## Contributors
 
@@ -111,11 +113,11 @@ Principal author:
 
 For more information, see the following articles:
 
-- [Azure AD Connect topology](/azure/active-directory/hybrid/plan-connect-topologies)
-- [Compare different identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Microsoft Entra Connect topology](/azure/active-directory/hybrid/plan-connect-topologies)
+- [Compare different identity options: Self-managed Active Directory Domain Services (AD DS), Microsoft Entra ID, and Microsoft Entra Domain Services (Microsoft Entra Domain Services)](/azure/active-directory-domain-services/compare-identity-solutions)
 - [Azure Virtual Desktop documentation](/azure/virtual-desktop)
 
 ## Related resources
 
 - [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop.yml)
-- [Solution idea: Multiple forests with Azure AD DS](./multi-forest-azure-managed.yml)
+- [Solution idea: Multiple forests with Microsoft Entra Domain Services](./multi-forest-azure-managed.yml)

@@ -76,12 +76,11 @@ See the following product documentation:
 Learn more:
 
 * [Set up AutoML to train a time-series forecasting model with Python](/azure/machine-learning/how-to-auto-train-forecast)
-* Try the Machine Learning Notebook for [Forecasting using the Energy Demand Dataset](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+* Try the Machine Learning Notebook for [Forecasting using the Energy Demand Dataset](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb).
 * Try the Microsoft Learn module, [Use automated machine learning in Azure Machine Learning](/training/modules/use-automated-machine-learning).
 
 ## Related resources
 
 * [Solutions for the energy and environment industries](/azure/architecture/industries/energy-environment)
-* [Batch scoring with R models to forecast sales](/azure/architecture/reference-architectures/ai/batch-scoring-r-models)
 * [Oil and gas tank level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)
 * [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)

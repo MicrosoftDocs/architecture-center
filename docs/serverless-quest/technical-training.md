@@ -3,6 +3,7 @@ title: Technical workshops and training
 titleSuffix: Azure Example Scenarios
 description: Use these workshops and training resources to help understand and adopt serverless technologies with Azure Functions.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -25,36 +26,10 @@ The [Microsoft Cloud Workshop (MCW)](https://microsoftcloudworkshop.com/) progra
 Workshops related to application development workloads include:
 
 - [Serverless APIs in Azure](https://github.com/Azure-Samples/Serverless-APIs). Set of entry-level exercises, which cover the basics of building and managing serverless APIs in Microsoft Azure - with Azure Functions, Azure API Management, and Azure Application Insights.
-- [Serverless architecture](https://github.com/Microsoft/MCW-Serverless-Architecture). Implement a series of Azure Functions that independently scale and break down business logic to discrete components, allowing customers to pay only for the services they use.
-- [App modernization](https://github.com/Microsoft/MCW-App-Modernization). Design a modernization plan to move services from on-premises to the cloud by using cloud, web, and mobile services, secured by Azure Active Directory.
-- [Modern cloud apps](https://github.com/Microsoft/MCW-Modern-Cloud-Apps). Deploy, configure, and implement an end-to-end secure and Payment Card Industry (PCI) compliant solution for e-commerce, based on Azure App Services, Azure Active Directory, and Azure DevOps.
-- [Cloud-native applications](https://github.com/microsoft/MCW-Cloud-native-applications). Using DevOps best practices, build a proof of concept (PoC) to transform a platform-as-a-service (PaaS) application to a container-based application with multi-tenant web app hosting.
-- [Continuous delivery in Azure DevOps](https://github.com/Microsoft/MCW-Continuous-Delivery-in-Azure-DevOps). Set up and configure continuous delivery (CD) in Azure to reduce manual errors, using Azure Resource Manager templates, Azure DevOps, and Git repositories for source control.
 
 ## Instructor-led training
 
 [Course AZ-204: Developing solutions for Microsoft Azure](/certifications/courses/az-204t00) teaches developers how to create end-to-end solutions in Microsoft Azure. Students learn how to implement Azure compute solutions, create Azure Functions, implement and manage web apps, develop solutions utilizing Azure Storage, implement authentication and authorization, and secure their solutions by using Azure Key Vault and managed identities. Students also learn to connect to and consume Azure and third-party services, and include event- and message-based models in their solutions. The course also covers monitoring, troubleshooting, and optimizing Azure solutions.
-
-## Serverless OpenHack
-
-The Serverless [OpenHack](https://openhack.microsoft.com) simulates a real-world scenario where a company wants to utilize serverless services to build and release an API to integrate into their distributor's application. This OpenHack lets attendees quickly build and deploy Azure serverless solutions with cutting-edge compute services like Azure Functions, Logic Apps, Event Grid, Service Bus, Event Hubs, and Azure Cosmos DB. The OpenHack also covers related technologies like API Management, Azure DevOps or GitHub, Application Insights, Dynamics 365/Microsoft 365, and Cognitive APIs.
-
-OpenHack attendees build serverless functions, web APIs, and a CI/CD pipeline to support them. They implement further serverless technologies to integrate line of business (LOB) app workflows, process user and data telemetry, and create key progress indicator (KPI)-aligned reports. By the end of the OpenHack, attendees have built out a full serverless technical solution that can create workflows between systems and handle events, files, and data ingestion.
-
-Microsoft customer projects inspired these OpenHack challenges:
-
-- Configure the developer environment.
-- Create your first serverless function and workflow.
-- Build APIs to support business needs.
-- Deploy a management layer for APIs and monitoring usage.
-- Build a LOB workflow process.
-- Process large amounts of unstructured file data.
-- Process large amounts of incoming event data.
-- Implement a publisher/subscriber messaging pattern and virtual network integration.
-- Conduct sentiment analysis.
-- Perform data aggregation, analysis, and reporting.
-
-To attend an OpenHack, register at [https://openhack.microsoft.com](https://openhack.microsoft.com). For enterprises with many engineers, Microsoft can request and organize a dedicated Serverless OpenHack.
 
 ## Microsoft Learn
 
