@@ -1,17 +1,19 @@
-This article briefly describes the steps for running the [Autodesk VRED Core](https://www.autodesk.in/products/vred/overview?term=1-YEAR&tab=subscription&plc=VRDSRV) application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Autodesk VRED Core on Azure.
+This article briefly describes the steps for running the [Autodesk VRED Core](https://www.autodesk.in/products/vred/overview?term=1-YEAR&tab=subscription&plc=VRDSRV) application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Autodesk VRED Core on Azure.
 
-VRED Core targets new workflows and connects you with your data anytime, anywhere, through the Cloud and streaming. VRED Core:
+VRED Core targets new workflows and connects you with your data anytime, anywhere, through the cloud and while streaming. VRED Core:
 
-- Provides scalable ray tracing capabilities that allow full flexibility to scale GPU and CPU rendering needs, according to hardware setup.
-- Enables streaming of high-quality VRED real-time renderings on any device, for management reviews and for internal or customer-facing visualization systems.
-- Integrates with existing rendering systems. You can also customize it for your specific needs and extend where additional functionality is needed.
+- Provides scalable, ray tracing capabilities that allow full flexibility to scale GPU and CPU rendering needs, according to hardware setup.
+- Enables streaming of high quality, VRED real-time renderings on any device, for management reviews and for internal or customer-facing visualization systems.
+- Integrates with existing rendering systems. You can also customize it for your specific needs and extend where more functionality is needed.
 
 VRED Core is primarily used by automotive designers and digital artists, technical surfacing specialists, visualization specialists, lighting engineers, perceived quality specialists, virtual reality specialists, digital marketing professionals, and CGI artists.
 
 ## Why deploy Autodesk VRED Core on Azure?
 
+VRED Core provides:
+
 - Modern and diverse compute options to align to your workload's needs.
-- Running in the cloud reduces capital expenditure (CapEx) and lead time associated with acquiring on-premises infrastructure.
+- The ability to run in the cloud, which reduces capital expenditure (CapEx) and lead time associated with acquiring on-premises infrastructure.
 - Rapid provisioning.
 - Strong GPU acceleration, with increased performance as GPUs are added.
 
@@ -37,13 +39,15 @@ VRED Core is primarily used by automotive designers and digital artists, technic
 
 ## Deploy infrastructure and install VRED Core
 
-**Deploy Azure VMs.** Before you install VRED Core, deploy your Azure VMs. Use a [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VM and [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM to run VRED Core. You should make sure VM meets the [system requirements](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/System-requirements-for-Autodesk-VRED-2024-products.html) to install the application.
+**Deploy Azure VMs.** Before you install VRED Core, deploy your Azure VMs. Use a [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VM and a [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM to run VRED Core. Make sure the VMs meet the [system requirements](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/System-requirements-for-Autodesk-VRED-2024-products.html) to install the application.
 
 **Create and configure the supporting infrastructure.** Configure a public IP address for inbound connectivity. Use network security groups to provide security for the subnet.
 
 **Install NVIDIA drivers.** To take advantage of the GPU capabilities of NVadsA10_v5-series VMs and NCasT4_v3 series VMs, install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html). For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm) and [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm).
 
 ## Compute sizing and drivers
+
+Performance tests of VRED Core on Azure used NVadsA10_v5-series and NCasT4_v3 series VMs. The following table provides the configuration details.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU partition | GPU memory: GiB | Max data disks |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -59,13 +63,13 @@ VRED Core is primarily used by automotive designers and digital artists, technic
 
 ## Autodesk VRED Core installation
 
-Before you install Autodesk VRED Core, you need to deploy and connect a VM and install the required NVIDIA drivers.
+Before you install Autodesk VRED Core, deploy and connect a VM and install the required NVIDIA drivers.
 
-You can install VRED Core from the [Autodesk VRED Core portal](https://www.autodesk.in/products/vred/overview?term=1-YEAR&tab=subscription&plc=VRDSRV). For the detailed installation procedure, click [Autodesk VRED Core Help](https://help.autodesk.com/view/VREDPRODUCTS/2024/ENU/?guid=VRED_Reference_Material_VRED_Core)
+You can install VRED Core from the [Autodesk VRED Core portal](https://www.autodesk.in/products/vred/overview?term=1-YEAR&tab=subscription&plc=VRDSRV). For the detailed installation procedure, see [Autodesk VRED Core Help](https://help.autodesk.com/view/VREDPRODUCTS/2024/ENU/?guid=VRED_Reference_Material_VRED_Core).
 
 ## Autodesk VRED Core performance results
 
-This performance analysis uses the Autodesk VRED Core 2024 version on Linux, [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) series VMs and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series VMs.
+This performance analysis uses the Autodesk VRED Core 2024 version on Linux [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) series VMs and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series VMs.
 
 The following table provides the details about the testing operating system.
 
@@ -84,9 +88,9 @@ The following Automotive Genesis model is used for testing:
 
 ### Results on NVadsA10_v5
 
-The following table shows the render time in seconds for various number of nodes of NVadsA10_v5 series VM instances. NCasT4_v3 series 8 vCPUs (cores) VM result serves as the baseline for determining relative speed increase.
+The following table shows the render time in seconds for various number of nodes of NVadsA10_v5 series VM instances. The results for a NCasT4_v3 series VM with 8 vCPUs (cores) serves as the baseline for determining relative speed increase.
 
-| VM Name | No. of nodes | No. of vCPUs | No. of GPUs | Render time (sec) | Relative speed increase |
+| VM Name | Number of nodes | Number of vCPUs | Number of GPUs | Render time (sec) | Relative speed increase |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NC8as_T4_v3 | 1 | 8 | - | 17011.12 | 1.00 |
 | Standard_NV12adsA10_v5 | 1 | 12 | 1/3 | 5971.23 | 2.85 |
@@ -99,20 +103,20 @@ The following table shows the render time in seconds for various number of nodes
 |   | 2 | 72 | 2 | 927.448 | 18.34 |
 |   | 4 | 144 | 4 | 485.853 | 35.01 |
 
-The following graph shows the relative speed increases as the number of nodes increases:
+The following graph shows the relative speed increase as the number of nodes increases:
 
 :::image type="content" source="media/autodesk-vred-core/vred-core-performance-nvadsa10v5.png" alt-text="Image of a white car that represents the Automotive Genesis model used for testing." lightbox="media/autodesk-vred-core/vred-core-performance-nvadsa10v5.png" border="false":::
 
-#### Additional notes about tests on NVadsA10_v5
+#### More notes about tests on NVadsA10_v5
 
 - The results are assessed based on relative performance, where higher values indicate better performance.
-- An error occurs while running the model in the NCasT4_v3 series VM with a minimum configuration of only 4 vCPUs (cores) VM. So, next configuration, 8 vCPUs VM results considered for baseline.
+- An error occurs while running the model in the NCasT4_v3 series VM with a minimum configuration of only 4 vCPUs (cores). So, the results of a VM with 8 vCPUs were considered for the baseline.
 
 ### Results on NCasT4_v3
 
-The following table shows the render time in seconds for various available NCasT4_v3 series VM instances. NCasT4_v3 8 vCPUs (cores) VM’s results is used as the baseline for computing the relative speed increase of rest of the instances.
+The following table shows the render time in seconds for various available NCasT4_v3 series VM instances. The results for a NCasT4_v3 series VM with 8 vCPUs (cores) serves as the baseline for computing the relative speed increase of the rest of the instances.
 
-| VM Name | No. of nodes | No. of vCPUs | No. of GPUs | Render time (sec) | Relative speed increase |
+| VM Name | Number of nodes | Number of vCPUs | Number of GPUs | Render time (sec) | Relative speed increase |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NC8as_T4_v3 | 1 | 8 | 0 | 17011.12 | 1.00 |
 | Standard_NC4as_T4_v3 | 1 | 4 | 1 | 3704.536 | 4.59 |
@@ -123,47 +127,47 @@ The following graph shows the relative speed increases as the number of GPU incr
 
 :::image type="content" source="media/autodesk-vred-core/vred-core-performance-ncast4v3.png" alt-text="Image of a white car that represents the Automotive Genesis model used for testing." lightbox="media/autodesk-vred-core/vred-core-performance-ncast4v3.png" border="false":::
 
-#### Additional notes about tests on NCasT4_v3
+#### More notes about tests on NCasT4_v3
 
 - The results are assessed based on relative performance, where higher values indicate better performance.
-- An error occurs while running the model in the NCasT4_v3 series VM with a minimum configuration of only 4 vCPUs (cores) VM. So, next configuration, 8 vCPUs VM results considered for baseline.
+- An error occurs while running the model in the NCasT4_v3 series VM with a minimum configuration of only 4 vCPUs (cores). So, the results of a VM with 8 vCPUs were considered for the baseline.
 
 ## Azure cost
 
-For these cost calculations, only model rendering time is considered. Application installation time is not considered. The calculations are indicative of your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
+For these cost calculations, only model rendering time is considered. Application installation time isn't considered. The calculations are indicative of your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-Below summary details on cost consumption on various SKUs considered for validation.
+For details about the cost consumption on various SKUs considered for validation, see [Summary](#summary).
 
 ### NVadsA10_v5 series (NVIDIA A10 GPU)
 
-- Standard_NV12ads_A10_v5 VM instance is the baseline to evaluate the cost performance of other instances considered in the NVadsA10_v5 series.
-- Linear scalability is observed for both performance and Azure cost for every change in size increment for NVadsA10_v5 series (Single node and multi-node runs).
-- The cost increase ~1.25 times as the configuration of the VM scales from single node to multi node of Standard_NV12ads_A10_v5 (1/3 GPU) to Standard_NV36ads_A10_v5 (1GPU) VMs size. The associated performance increment of ~13 times is observed.
-- Considering cost as primary criteria of evaluation, NVadsA10_v5 series (1/3 GPU) VM is a preferred choice.
+- A standard_NV12ads_A10_v5 VM instance is the baseline to evaluate the cost performance of other instances considered in the NVadsA10_v5 series.
+- Linear scalability is observed for both performance and Azure cost for every change in size increment for NVadsA10_v5 series (single-node and multi-node runs).
+- The cost increase is about 1.25 times as the configuration of the VM scales from single node to multi node of Standard_NV12ads_A10_v5 (1/3 GPU) to Standard_NV36ads_A10_v5 (one GPU) VMs size. The associated performance increment of about 13 times is observed.
+- NVadsA10_v5 series (1/3 GPU) VM is a preferred choice when you consider cost as the primary criteria of evaluation.
 
 ### NCasT4_v3 series (NVIDIA Tesla T4 GPU)
 
-- Standard_NC4as_T4_v3 VM instance is considered as a baseline to evaluate the cost performance of other instances considered in the NCasT4_v3 series.
-- Standard_NC4as_T4_v3 is considered for 1GPU runs and Standard_NC64as_T4_v3 is considered for 4GPUs (1node) and 8GPUs (2nodes) runs.
-- Increase in cost ~2.2 times is observed as we increase the size of the VM from Standard_NC4as_T4_v3 to Standard_NC64as_T4_v3 (4GPUs & 8GPUs). The associated performance increment of ~7.5 times is observed.
-- Considering cost as primary criteria of evaluation, Standard_NC4as_T4_v3 (1GPU) VM is a preferred choice.
+- A standard_NC4as_T4_v3 VM instance is considered as a baseline to evaluate the cost performance of other instances considered in the NCasT4_v3 series.
+- Standard_NC4as_T4_v3 is considered for one GPU runs and Standard_NC64as_T4_v3 is considered for four GPUs (one node) and eight GPUs (two nodes) runs.
+- A cost increase of about 2.2 times is observed as we increase the size of the VM from Standard_NC4as_T4_v3 to Standard_NC64as_T4_v3 (four GPUs & eight GPUs). The associated performance increment of about 7.5 times is observed.
+- Standard_NC4as_T4_v3 (one GPU) VM is a preferred choice when you consider cost as the primary criteria of evaluation.
 
 For latest pricing details in each region, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Summary
 
-- When prioritizing performance, the NVadsA10_v5 series is the preferred choice. For cost-effectiveness, the NCasT4_v3 series offers the best value.
+- When you prioritize performance, the NVadsA10_v5 series is the preferred choice. For cost-effectiveness, the NCasT4_v3 series offers the best value.
 - Autodesk VRED Core demonstrates strong scalability on Azure HPC VMs, particularly on NVadsA10_v5 and NCasT4_v3 series, which utilize NVIDIA A10 and NVIDIA Tesla T4 graphics cards, respectively.
 - A notable performance increase of approximately 35 times is achieved in both the NVadsA10_v5 and NCasT4_v3 series VMs as the configuration scales from a single node to multiple nodes.
 - For the NVadsA10v5 series, performance improvements are as follows:
   - About 2.5 times increase from a single node to four nodes using VMs with one-third of a GPU.
-  - Approximately 4 times increase from a single node to four nodes with VMs using half a GPU.
-  - Nearly 9 times increase from a single node to four nodes with VMs utilizing a full GPU.
+  - Approximately four times increase from a single node to four nodes with VMs using half a GPU.
+  - Nearly nine times increase from a single node to four nodes with VMs utilizing a full GPU.
 - The Standard_NV36ads_A10_v5 VM shows superior performance over other NVadsA10_v5 series VMs that use partial GPU configurations.
 - The NCasT4_v3 series shows:
-  - About 4 times performance increase when expanding from 1 GPU to 4 GPUs.
-  - Approximately 2 times increase when going from 4 GPUs on a single node to 8 GPUs across two nodes.
-- Overall, VMs equipped with the latest NVIDIA graphics cards deliver enhanced performance, offering a balance of cost efficiency and computing power.
+  - About four times performance increase when expanding from one GPU to four GPUs.
+  - Approximately two times increase when going from four GPUs on a single node to eight GPUs across two nodes.
+- Overall, VMs that have the latest NVIDIA graphics cards deliver enhanced performance, offering a balance of cost efficiency and computing power.
 
 ## Contributors
 
