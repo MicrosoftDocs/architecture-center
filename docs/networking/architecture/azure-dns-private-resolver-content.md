@@ -10,7 +10,7 @@ Before DNS Private Resolver was available, a DNS forwarder VM was deployed so th
   
 In this solution, you can't use the Azure public DNS service to resolve on-premises domain names.
 
-:::image type="content" source="./media/dns-forwarder-architecture.svg" alt-text="Architecture diagram that shows a solution without DNS Private Resolver. Traffic from an on-premises server to an Azure database is visible." border="false" lightbox="./media/dns-forwarder-architecture.svg":::
+:::image type="content" source="./_images/dns-forwarder-architecture.svg" alt-text="Architecture diagram that shows a solution without DNS Private Resolver. Traffic from an on-premises server to an Azure database is visible." border="false" lightbox="./_images/dns-forwarder-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
@@ -42,7 +42,7 @@ When you use DNS Private Resolver, you don't need a DNS forwarder VM, and Azure 
 
 The following solution uses DNS Private Resolver in a [hub-spoke network topology](../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli). As a best practice, the Azure landing zone design pattern recommends using this type of topology. A hybrid network connection is established by using [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) and [Azure Firewall](/azure/firewall). This setup provides a [secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal). DNS Private Resolver is deployed in to one of the hub networks.
 
-:::image type="content" source="./media/azure-dns-private-resolver-architecture.svg" alt-text="Architecture diagram that shows an on-premises network connected to an Azure hub-and-spoke network. DNS Private Resolver is in the hub network." border="false" lightbox="./media/azure-dns-private-resolver-architecture.svg":::
+:::image type="content" source="./_images/azure-dns-private-resolver-architecture.svg" alt-text="Architecture diagram that shows an on-premises network connected to an Azure hub-and-spoke network. DNS Private Resolver is in the hub network." border="false" lightbox="./_images/azure-dns-private-resolver-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
@@ -89,7 +89,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
 The following diagram shows the traffic flow that results when an on-premises server issues a DNS request.
 
-:::image type="content" source="./media/azure-dns-private-resolver-on-premises-query-traffic.svg" alt-text="Architecture diagram that shows DNS Private Resolver name resolution traffic when an on-premises server queries an Azure private DNS service record." border="false" lightbox="./media/azure-dns-private-resolver-on-premises-query-traffic.svg":::
+:::image type="content" source="./_images/azure-dns-private-resolver-on-premises-query-traffic.svg" alt-text="Architecture diagram that shows DNS Private Resolver name resolution traffic when an on-premises server queries an Azure private DNS service record." border="false" lightbox="./_images/azure-dns-private-resolver-on-premises-query-traffic.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
@@ -105,7 +105,7 @@ The following diagram shows the traffic flow that results when an on-premises se
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request. In this case, the Spoke 1 spoke virtual network attempts to resolve the request.
 
-:::image type="content" source="./media/azure-dns-private-resolver-spoke-query-traffic.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./media/azure-dns-private-resolver-spoke-query-traffic.svg":::
+:::image type="content" source="./_images/azure-dns-private-resolver-spoke-query-traffic.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
@@ -125,7 +125,7 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request via a DNS Private Resolver inbound endpoint. In this case, the Spoke 1 spoke virtual network attempts to resolve the request.
 
-:::image type="content" source="./media/azure-dns-private-resolver-spoke-query-traffic-uc2.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./media/azure-dns-private-resolver-spoke-query-traffic-uc2.svg":::
+:::image type="content" source="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg" alt-text="Architecture diagram that shows traffic with DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-uc2.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
@@ -145,7 +145,7 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request via an on-premises DNS server. In this case, the Spoke 1 spoke virtual network attempts to resolve the request.
 
-:::image type="content" source="./media/azure-dns-private-resolver-spoke-query-traffic-uc3.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./media/azure-dns-private-resolver-spoke-query-traffic-uc3.svg":::
+:::image type="content" source="./_images/azure-dns-private-resolver-spoke-query-traffic-uc3.svg" alt-text="Architecture diagram that shows name resolution traffic with DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./_images/azure-dns-private-resolver-spoke-query-traffic-uc3.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
