@@ -4293,6 +4293,26 @@
       "source_path": "docs/web-apps/hosting-applications/wordpress.yml",
       "redirect_url": "/azure/architecture/guide/infrastructure/wordpress-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/windows-virtual-desktop.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/multi-forest-azure-managed.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest-azure-managed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/multi-forest.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest",
+      "redirect_document_id": false
     }
   ]
 }

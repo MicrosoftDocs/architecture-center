@@ -10,20 +10,20 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
-    - windows-virtual-desktop
+    - azure-virtual-desktop
   ms.custom:
     - fcp
     - example-scenario
     - internal-intro
 name: Azure Virtual Desktop for the enterprise
 azureCategories:
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 summary: Explore Azure Virtual Desktop and learn how to build virtual desktop infrastructure solutions at enterprise scale.
 products:
   - entra-id
   - entra
   - azure-virtual-network
   - azure-virtual-desktop
-thumbnailUrl: /azure/architecture/browse/thumbs/windows-virtual-desktop.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-virtual-desktop.png
 content: |
-   [!include[](windows-virtual-desktop-content.md)]
+   [!include[](azure-virtual-desktop-content.md)]

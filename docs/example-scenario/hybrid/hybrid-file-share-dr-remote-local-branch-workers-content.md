@@ -27,7 +27,7 @@ This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop t
 
 ### Alternatives
 
-- For more details on Active Directory and network integration with Virtual Desktop, see [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml).
+- For more details on Active Directory and network integration with Virtual Desktop, see [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml).
 - To see an example of direct access to file shares in a hybrid environment see [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services).
 
 ## Scenario details
@@ -109,7 +109,7 @@ the amount of storage for a file share, and the number of input/output operation
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 - [Hybrid file services](../../hybrid/hybrid-file-services.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)
