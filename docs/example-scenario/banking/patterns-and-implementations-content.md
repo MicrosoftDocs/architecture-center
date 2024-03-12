@@ -70,8 +70,8 @@ The solution uses Azure Load Testing with JMeter (JMX) scripts. Azure Load Testi
 
 Azure Load Testing provides the capability to manually create load tests using the Azure Portal or Azure CLI. Alternatively, you can configure a CI/CD pipeline to integrate with Azure Load Testing. Doing so allows you automate a load test to continuously validate your application performance and stability as part of your CI/CD workflow.
 
-1. Understand how Azure Load Testing works by [creating and running a load test](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test?tabs=portal)
-1. Use new or existing JMeter scripts and [configure your CI/CD workflow for running load tests](https://learn.microsoft.com/en-us/azure/load-testing/how-to-configure-load-test-cicd?tabs=pipelines).
+1. Understand how Azure Load Testing works by [creating and running a load test](/azure/load-testing/quickstart-create-and-run-load-test).
+1. Use new or existing JMeter scripts and [configure your CI/CD workflow for running load tests](/azure/load-testing/how-to-configure-load-test-cicd).
 
 ## Scenario details
 
