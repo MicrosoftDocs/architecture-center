@@ -60,8 +60,6 @@ For more information on KEDA scalers, see the following KEDA documents:
 
 ### Load testing architecture
 
-![Load Testing Pipeline with JMeter, ACI and Terraform](./images/load-testing-pipeline-jmeter.png)
-
 *Download a [Visio file](https://arch-center.azureedge.net/load-testing-pipeline-jmeter.vsdx) of this architecture.*
 
 The solution provisions JMeter agents as [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances) instances. It uses the remote testing approach. In the approach, a JMeter controller configures all workers using its own protocol and combines all load testing results. Finally, it generates the resulting artifacts like dashboard and logs.
