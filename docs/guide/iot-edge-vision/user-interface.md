@@ -144,7 +144,6 @@ This series of articles described how to build a vision AI workload with Azure I
 - [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
 - [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.yml)
 - [Image storage and management for Azure IoT Edge vision AI](./image-storage.md)
-- [Alert persistence in Azure IoT Edge vision AI](./alerts.md)
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 

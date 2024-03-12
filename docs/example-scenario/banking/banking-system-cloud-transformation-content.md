@@ -311,5 +311,3 @@ At the end of the project, the CSE team shared the following insights:
 For more detail about the processes and technologies used to create this solution, see the following articles:
 
 * [Patterns and implementations](patterns-and-implementations.yml)
-
-* [JMeter implementation reference for load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml)
