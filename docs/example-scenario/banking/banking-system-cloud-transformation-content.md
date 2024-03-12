@@ -292,7 +292,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * A product's end-of-life might require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * At the creation of this article, the CSE team created a load testing solution integrating ACI and JMeter in an Azure DevOps Pipeline. [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) has since been made available as a fully managed load-testing service without the need of deploying additional compute resources. As a result, the ACI and JMeter load testing solution has been deprecated and it is recommended to use Azure Load Testing.
+  * At the creation of this article, the CSE team created a load testing solution integrating ACI and JMeter in an Azure DevOps Pipeline. [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) has since been made available as a fully managed load-testing service without the need of deploying additional compute resources.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
