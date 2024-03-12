@@ -69,7 +69,7 @@ IoT architecture patterns are reusable building blocks that address key IoT solu
 
 IoT architectural guides provide insights into IoT concepts, architectures, and workstreams.
 
-- [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
+- [IoT solution architecture](../../example-scenario/iot/devices-platform-application.yml). This series provides an overview of the functional interactions between events, insights, and actions in Azure IoT solutions.
 
 - [Computer vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md). This series describes an end-to-end computer vision workload. Azure IoT Edge, Azure Machine Learning, Azure Storage, Azure App Services, and Power BI combine to deliver quality assurance and safety solutions.
 

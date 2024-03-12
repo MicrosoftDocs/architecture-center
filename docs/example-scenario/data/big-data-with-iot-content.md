@@ -94,13 +94,11 @@ Additional IoT architectures:
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
-- [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)
 
 IoT architecture guides:
 
-- [IoT concepts](../iot/introduction-to-solutions.yml)
 - [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
 - [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [IoT patterns](../iot/measure-control-loop.yml)

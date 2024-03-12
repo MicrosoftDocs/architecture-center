@@ -7,11 +7,13 @@ Devito is a functional language that you can implement as a Python package. With
 The following diagram shows a single-node architecture:
 
 :::image type="content" source="./media/hpc-devito-single-node.svg" alt-text="Diagram that shows the single-node architecture." lightbox="./media/hpc-devito-single-node.svg" border="false":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-devito-single.vsdx) of this architecture.*
 
 The following diagram shows a multi-node architecture:
 
 :::image type="content" source="./media/hpc-devito-multi-node.svg" alt-text="Diagram that shows the multi-node architecture." lightbox="./media/hpc-devito-multi-node.svg" border="false":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-devito-multi-node.vsdx) of this architecture.*
 
 ### Components
@@ -121,6 +123,8 @@ The following table shows the results for the CentOS-based 8.1 HPC image:
 | 96 | 132.86 | 293.25 | 1.39 |
 | 120 | 149.99 | 259.78 | 1.23 |
 
+:::image type="content" source="./media/speed-increase-graph-hbv3.png" alt-text="Graph that shows the relative speed increase for a HBv3-series VM.":::
+
 Note that for the single-node tests, the Devito operator is run on all HBv3-series VM configurations. The Standard_HB120-16rs_v3 VM runtime is used as the baseline to calculate the relative speed increase.
 
 #### Devito performance on a cluster (multi-node)
@@ -136,6 +140,8 @@ The following table shows the results for a cluster with 64 vCPUs per node:
 | 4 | 256 | 60.77 | 641.30 | 2.00 |
 | 8 | 512 | 51.94 | 750.40 | 2.34 |
 
+:::image type="content" source="./media/speed-increase-graph-64.png" alt-text="Graph that shows the relative speed increase for a 64-vCPU node.":::
+
 The following table shows the results for a cluster with 96 vCPUs per node:
 
 | VM configuration | Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative speed increase |
@@ -144,6 +150,8 @@ The following table shows the results for a cluster with 96 vCPUs per node:
 | Standard_HB120-96rs_v3 | 2 | 192 | 88.72 | 439.27 | 1.55 |
 | Standard_HB120-96rs_v3 | 4 | 384 | 75.11 | 518.93 | 1.83 |
 | Standard_HB120-96rs_v3 | 8 | 768 | 69.38 | 561 | 1.98 |
+
+:::image type="content" source="./media/speed-increase-graph-96.png" alt-text="Graph that shows the relative speed increase for a 96-vCPU node.":::
 
 ## Azure cost
 
@@ -197,4 +205,3 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

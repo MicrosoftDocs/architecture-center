@@ -129,5 +129,4 @@ Principal author:
 
 - [Hybrid file services](../../hybrid/hybrid-file-services.yml)
 - [Move archive data from mainframe systems to Azure](../../example-scenario/mainframe/move-archive-data-mainframes.yml)
-- [Tiered data for analytics](../../example-scenario/hybrid/hybrid-tiered-data-analytics.yml)
 - [Use Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)

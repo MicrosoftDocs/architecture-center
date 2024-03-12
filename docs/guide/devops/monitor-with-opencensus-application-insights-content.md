@@ -262,7 +262,6 @@ Other contributors:
 
 ## Next steps
 
-- An example of a system that uses the presented approach: [Synchronization framework for metadata ingestion from external catalogs in Microsoft Purview](https://microsoft.sharepoint.com/:w:/t/CSEFTEFY19/ET9i4_ecx3tOnUSXR5P0NfMBSBFZxYq2iC67Lc-tYg2TtQ?e=BdG7pO)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Observability in microservices](https://microsoft.github.io/code-with-engineering-playbook/observability/microservices/)
 - [Distributed tracing and telemetry correlation](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)

@@ -222,8 +222,8 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Install IBM DB2 pureScale on Azure (Azure Docs)](/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json)
 - [Set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-micro-focus-enterprise-server-4-0-and-enterprise/ba-p/306502)
 - [Set up IBM Z Development and Test Environment 12.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-ibm-z-development-and-test-environment-12-0-in-azure/ba-p/306506)
-- [Move mainframe compute and storage to Azure](https://learn.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
-- [E-Book: Install TmaxSoft OpenFrame on Azure](https://learn.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure)
+- [Move mainframe compute and storage to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
+- [E-Book: Install TmaxSoft OpenFrame on Azure](/azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure)
 
 ### Webinars
 

@@ -127,8 +127,6 @@ The following articles provide additional support for implementing Oracle on Azu
 
 ### Example solutions
 
-Following are some additional solution ideas that might be helpful:
+This additional solution idea might be helpful:
 
 - [Run Oracle databases on Azure](./reference-architecture-for-oracle-database-on-azure.yml). This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure by using Azure Load Balancers or Application Gateways.
-
-- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml). If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs).

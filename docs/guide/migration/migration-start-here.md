@@ -87,7 +87,6 @@ The following sections provide links to reference architectures in a few high-le
 - [Oracle database migration to Azure](../../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)
 - [Overview of Oracle database migration](../../example-scenario/oracle-migrate/oracle-migration-overview.yml)
 - [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml)
-- [Oracle database migration: Lift and shift](../../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml)
 - [Oracle database migration: Refactor](../../example-scenario/oracle-migrate/oracle-migration-refactor.yml)
 - [Oracle database migration: Rearchitect](../../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml)
 
@@ -109,7 +108,6 @@ Following are some additional migration architectures to consider:
 - [Modernize .NET applications](../../solution-ideas/articles/net-app-modernization.yml)
 - [Migrate an e-commerce solution to Azure](../../industries/retail/migrate-ecommerce-solution.md)
 - [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
-- [Migrate an Azure Cloud Services application to Azure Service Fabric](../../service-fabric/migrate-from-cloud-services.yml)
 - [Migrate a monolithic application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
 - [Support matrix for migration of physical servers, AWS VMs, and GCP VMs](/azure/migrate/migrate-support-matrix-physical-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Migrate a web app using Azure API Management](../../example-scenario/apps/apim-api-scenario.yml)

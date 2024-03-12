@@ -1,6 +1,6 @@
 ---
-title: Tasks for an individual contributor in the Team Data Science Process
-description: A detailed walkthrough of the tasks for an individual contributor on a data science team project.
+title: Individual contributor tasks in the Team Data Science Process
+description: Learn about the tasks that an individual contributor performs on a Team Data Science Process team, including how they can incorporate language models and copilots.
 author: marktab
 manager: marktab
 editor: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -19,84 +19,90 @@ categories:
   - ai-machine-learning
 ---
 
-# Tasks for an individual contributor in the Team Data Science Process
+# Individual contributor tasks in the Team Data Science Process
 
-This topic outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.yml) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.yml) (TDSP). The individual contributor works in a collaborative team environment that standardizes on the TDSP. The TDSP helps improve collaboration and team learning. For more information, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-The following diagram shows the tasks that project individual contributors (data scientists) complete to set up their team environment. For instructions on how to execute a data science project under the TDSP, see [Execution of data science projects](./agile-development.md).
+## Major roles of the individual contributor
 
-![Individual contributor tasks](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
+-  **Technical management**:
+    -   Manage the technical aspects of the project, including data collection, processing, analysis, modeling, and deployment.
+    -   Use specialized skills in areas like machine learning, statistics, programming, and data engineering.
 
-- **ProjectRepository** is the repository your project team maintains to share project templates and assets.
-- **TeamUtilities** is the utilities repository your team maintains specifically for your team.
-- **GroupUtilities** is the repository your group maintains to share useful utilities across the entire group.
+-  **Collaboration and communication**:
+    -   Collaborate with other team members, sharing insights and knowledge.
+    -   Communicate technical details and progress to the project lead and the rest of the team.
+-  **Problem solving**:
+    -   Address and solve technical challenges within their area of expertise.
+    -   Continuously adapt and apply innovative solutions to complex data problems.
+-  **Quality assurance**:
+    -   Ensure the quality and integrity of work, from data handling to model development.
+    -   Adhere to best practices and standards in data science and programming.
+-  **Learning and development**:
+    -   Continuously learn and stay updated with the latest trends and techniques in data science.
+    -   Contribute to the team's knowledge base by sharing new findings and insights.
+-  **Documentation**:
+    -   Document work thoroughly, including data preparation, analysis steps, model development, and results.
 
-> [!NOTE]
-> This article uses Azure Repos and a Data Science Virtual Machine (DSVM) to set up a TDSP environment, because that is how to implement TDSP at Microsoft. If your team uses other code hosting or development platforms, the individual contributor tasks are the same, but the way to complete them may be different.
+## Key tasks for the individual contributor
 
-## Prerequisites
+-   **Process and analyze data**: Perform data cleaning, preprocessing, and exploratory data analysis.
 
-This tutorial assumes that the following resources and permissions have been set up by your [group manager](group-manager-tasks.md), [team lead](team-lead-tasks.md), and [project lead](project-lead-tasks.md):
+-   **Develop models**: Build, train, and evaluate predictive models or algorithms.
+-   **Code and develop**: Write and maintain the code necessary for data analysis and model development.
+-   **Experiment and test**: Conduct experiments and tests to validate models and analyses.
+-   **Create reports and visualizations**: Create reports and visualizations to communicate findings and results.
+-   **Collaborate and review with others**: Participate in peer reviews and collaborative sessions to improve project quality.
+-   **Provide feedback**: Provide feedback on project processes and adapt to changes in project requirements or direction.
+-   **Comply with ethical standards**: Ensure compliance with ethical guidelines and data privacy standards.
 
-- The Azure DevOps **organization** for your data science unit
-- A **project repository** set up by your project lead to share project templates and assets
-- **GroupUtilities** and **TeamUtilities** repositories set up by the group manager and team lead, if applicable
-- Azure **file storage** set up for shared assets for your team or project, if applicable
-- **Permissions** for you to clone from and push back to your project repository
+## Use language models and copilots
 
-To clone repositories and modify content on your local machine or DSVM, or mount Azure file storage to your DSVM, you need to consider this checklist:
+In the context of the TDSP, the project individual contributor, such as a data scientist, analyst, or engineer, plays a hands-on role in managing various aspects of data science projects. Language models and copilots can enhance the individual contributor's productivity, improve the quality of their work, and foster continuous learning and innovation in data science projects. The individual contributor can integrate language models and copilots to align with the TDSP framework in the following areas:
 
-- An Azure subscription.
-- Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-- If you want to use a DSVM, the Windows or Linux DSVM created and configured in Azure. For more information and instructions, see the [Data Science Virtual Machine Documentation](/azure/machine-learning/data-science-virtual-machine/).
-- For a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it.
-- For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-- The Azure file storage information for any Azure file storage you need to mount to your DSVM.
+- **Develop and manage technical tasks**
 
-## Clone repositories
+   -   *Coding assistance*: Use copilots for coding support, including writing, reviewing, and optimizing code for data processing, analysis, and model development.
 
-To work with repositories locally and push your changes up to the shared team and project repositories, you first copy or *clone* the repositories to your local machine.
+   -   *Algorithm selection and optimization*: Use language models to explore and select appropriate algorithms, and get suggestions for optimizing model performance.
 
-1. In Azure DevOps, go to your team's project Summary page at *https:\//\<server name>/\<organization name>/\<team name>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
+- **Analyze and manage data**
 
-1. Select **Repos** in the left navigation, and at the top of the page, select the repository you want to clone.
+  -   *Data exploration and visualization*: Use language models to get insights on effective data exploration techniques and creating meaningful visualizations.
 
-1. On the repo page, select **Clone** at upper right.
+  -   *Data cleaning and preprocessing*: Employ copilots to automate routine data cleaning and preprocessing tasks, ensuring data quality and consistency.
 
-1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
+- **Build and evaluate models**
 
-   ![Clone repo](./media/project-ic-tasks/clone.png)
+  -   *Model development guidance*: Use language models for guidance on building and refining predictive models, including feature engineering and hyperparameter tuning.
 
-1. On your local machine or DSVM, create the following directories:
+  -   *Model evaluation and interpretation*: Use language models to understand and apply appropriate model evaluation metrics, and interpret the results.
 
-   - For Windows: **C:\GitRepos**
-   - For Linux: **$home/GitRepos**
+- **Problem solve and innovate**
 
-1. Change to the directory you created.
+  -   *Technical problem solving*: Use language models to brainstorm solutions for technical challenges that are encountered during the project.
 
-1. In Git Bash, run the command `git clone <clone URL>` for each repository you want to clone.
+  -   *Innovative approaches*: Use language models to stay updated on the latest data science techniques and tools, applying innovative approaches to the project.
 
-   For example, the following command clones the **TeamUtilities** repository to the *MyTeam* directory on your local machine.
+- **Document and report**
 
-   **HTTPS connection:**
+  -   *Documentation automation*: Employ copilots to help generate and maintain thorough documentation of work, including data dictionaries, model descriptions, and analysis summaries.
 
-   ```bash
-   git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
-   ```
+  -   *Insights and findings*: Use language models to create clear and comprehensive reports or presentations of analytical findings for both technical and nontechnical audiences.
 
-   **SSH connection:**
+- **Collaborate and learn**
 
-   ```bash
-   git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
-   ```
+  -   *Collaborative workflows*: Use copilots to streamline collaboration with other team members, including sharing code, results, and insights.
 
-1. Confirm that you can see the folders for the cloned repositories in your local project directory.
+  -   *Continuous learning*: Use language models to access the latest research, tutorials, and resources for continuous skill development and to stay current in the field.
 
-   ![Three local repository folders](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
+- **Comply with ethical standards**
 
-## Mount Azure file storage to your DSVM
+  -   *Compliance checks*: Employ language models to ensure adherence to data privacy, ethical standards, and organizational policies in data handling and analysis.
 
-If your team or project has shared assets in Azure file storage, mount the file storage to your local machine or DSVM. Follow the instructions at [Mount Azure file storage on your local machine or DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
+## Summary
+
+In the TDSP, the project individual contributor is responsible for specific tasks and deliverables within a data science project. They provide technical expertise to the team and play a crucial role in tasks related to data, analysis, modeling, and results. Their contribution is vital to the project's success. It requires a blend of technical skills, collaboration, and continuous learning.
 
 ## Contributors
 
@@ -104,14 +110,14 @@ If your team or project has shared assets in Azure file storage, mount the file 
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next steps
+## Related resources
 
-Here are links to detailed descriptions of the other roles and tasks defined by the Team Data Science Process:
+These resources describe other roles and tasks in the TDSP:
 
-- [Group Manager tasks for a data science team](group-manager-tasks.md)
-- [Team Lead tasks for a data science team](team-lead-tasks.md)
-- [Project Lead tasks for a data science team](project-lead-tasks.md)
+- [Group manager tasks for a data science team](group-manager-tasks.md)
+- [Team lead tasks for a data science team](team-lead-tasks.md)
+- [Project lead tasks for a data science team](project-lead-tasks.md)

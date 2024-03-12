@@ -3,6 +3,7 @@ title: Azure service retry guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: martinekuan
+ms.author: martinek
 ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -478,7 +479,7 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
 
 ### Next steps
 
-- [Remote exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
+- [Remoting exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
 
 ## SQL Database using ADO.NET
 
@@ -559,8 +560,6 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync())
 ### Next steps
 
 - [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
-
-For general guidance on getting the most from SQL Database, see [Azure SQL Database performance and elasticity guide](https://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx).
 
 ## SQL Database using Entity Framework 6
 
@@ -716,10 +715,6 @@ namespace RetryCodeSamples
 ```
 
 More examples of using the Entity Framework retry mechanism can be found in [Connection resiliency / retry logic](/ef/ef6/fundamentals/connection-resiliency/retry-logic).
-
-### Next steps
-
-- [Azure SQL Database performance and elasticity guide](https://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
 ## SQL Database using Entity Framework Core
 

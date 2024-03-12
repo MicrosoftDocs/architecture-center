@@ -13,7 +13,7 @@ azureCategories:
   - storage 
   - web
   - compute 
-  - devops 
+  - devops
 products:
   - azure-sql-database
   - azure-app-service
@@ -22,7 +22,6 @@ products:
   - azure-table-storage
 ms.custom:
   - article
-  - seo-aac-fy21q3
 keywords:
   - anti-pattern
   - antipattern

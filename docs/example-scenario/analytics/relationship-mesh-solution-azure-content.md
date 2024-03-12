@@ -114,4 +114,3 @@ For more information, see these articles:
 
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
 - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
-- [High throughput stream ingestion to Azure Synapse](../data/stream-ingestion-synapse.yml)
