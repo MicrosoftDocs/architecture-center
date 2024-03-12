@@ -225,5 +225,3 @@ Other contributors:
 ## Related resources
 
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
-

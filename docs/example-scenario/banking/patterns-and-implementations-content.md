@@ -48,9 +48,9 @@ For more information on KEDA scalers, see the following KEDA documents:
 
 #### Workflow
 
-1. The CSE team deployed the application on the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. The solution needed to scale out the application automatically based on the incoming message count. The CSE team used a Kafka scaler to detect if the solution should activate or deactivate application deployment. The Kafka scaler also feeds custom metrics for a specific event source. The event source in this example is an Azure Event Hub.
+1. The CSE team deployed the application on the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. The solution needed to scale out the application automatically based on the incoming message count. The CSE team used a Kafka scaler to detect if the solution should activate or deactivate application deployment. The Kafka scaler also feeds custom metrics for a specific event source. The event source in this example is an Azure event hub.
 
-1. When the number of messages in the Azure Event Hub exceeds a threshold, KEDA triggers the pods to scale out, increasing the number of messages processed by the application. Automatic scale down of the pods occurs when the number of messages in the event source falls below the threshold value.
+1. When the number of messages in the Azure event hub exceeds a threshold, KEDA triggers the pods to scale out, increasing the number of messages processed by the application. Automatic scale down of the pods occurs when the number of messages in the event source falls below the threshold value.
 
 1. The CSE team used the Apache Kafka topic trigger. It gives the solution the ability to scale the EFT Processor service if the process exceeded the maximum number of messages consumed under an interval.
 
@@ -75,8 +75,6 @@ The CSE team structured the load testing framework into two Azure Pipelines:
 1. A pipeline that builds a custom JMeter Docker container and pushes the image to [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry). This structure brings flexibility for adding any JMeter plugin.
 
 1. A pipeline that validates the JMeter test definition (.jmx file), dynamically provisions the load testing infrastructure, runs the load test, publishes the test results and artifacts to Azure Pipelines, and destroys the infrastructure.
-
-For more information about the load testing pipeline solution, see [Implementation reference for JMeter load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml).
 
 #### Load testing framework
 

@@ -244,4 +244,3 @@ Other contributors:
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [Deploy ADS CFD Code Leo for HPC on a virtual machine](hpc-ads-cfd.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

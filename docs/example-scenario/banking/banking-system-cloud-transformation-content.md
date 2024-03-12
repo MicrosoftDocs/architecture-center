@@ -308,4 +308,8 @@ At the end of the project, the CSE team shared the following insights:
 
 For more detail about the processes and technologies used to create this solution, see the following articles:
 
+<<<<<<< HEAD
 * [Patterns and implementations](patterns-and-implementations.yml)
+=======
+* [Patterns and implementations](patterns-and-implementations.yml)
+>>>>>>> upstream/main
