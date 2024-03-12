@@ -2786,8 +2786,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
     - name: Solution ideas
       items:
-      - name: JMeter implementation reference
-        href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
       - name: Lift and shift to containers with App Service
         href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
       - name: Migrate .NET applications
