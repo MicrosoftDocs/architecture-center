@@ -1250,7 +1250,7 @@ items:
       - name: Digital image modeling
         href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
-        href: example-scenario/batch/fsi-workloads-using-batch.yml        
+        href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.yml
       - name: Manage virtual machine compliance
