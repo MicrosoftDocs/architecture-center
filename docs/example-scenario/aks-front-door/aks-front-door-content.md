@@ -72,7 +72,7 @@ The architecture consists of the following components:
   - `ApiServerSubnet`: [API Server VNET Integration](/azure/aks/api-server-vnet-integration) projects the API server endpoint directly into this delegated subnet in the virtual network where the AKS cluster is deployed.
   - `AzureBastionSubnet`: a subnet for the [Azure Bastion Host](/azure/bastion/bastion-overview).
   - `VmSubnet`: a subnet for a jump-box virtual machine used to connect to the (private) AKS cluster and for the private endpoints.
-- [User-assigned Managed Identity](h/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) is used by the AKS cluster to create additional resources like load balancers and managed disks in Azure.
+- [User-assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) is used by the AKS cluster to create additional resources like load balancers and managed disks in Azure.
 - [Azure Virtual Machine](/azure/virtual-machines/overview) is used to  manage a private AKS cluster. The creation of this virtual machine is optional.
 - [Azure Bastion Host](/azure/bastion/bastion-overview) is deployed in the AKS cluster virtual network to provide SSH connectivity to the AKS agent nodes and virtual machines, if any.
 - [Azure Storage Account](/azure/storage/common/storage-account-overview) is used to store the boot diagnostics logs of both the service provider and service consumer virtual machines. Boot Diagnostics is a debugging feature that allows you to view console output and screenshots to diagnose virtual machine status.
