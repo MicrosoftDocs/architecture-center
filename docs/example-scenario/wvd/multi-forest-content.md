@@ -38,7 +38,7 @@ This architecture diagram represents a typical scenario that contains the follow
 - The Microsoft Entra tenant is available for a new company named *NewCompanyAB.onmicrosoft.com*.
 - [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Microsoft Entra ID.
 - Company A and Company B have separate Azure subscriptions. They also have a [shared services subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription), referred to as the *Subscription 1* in the diagram.
-- [An Azure hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml) is implemented with a shared services hub virtual network.
+- [An Azure hub-spoke architecture](../../networking/architecture/hub-spoke.yml) is implemented with a shared services hub virtual network.
 - Complex hybrid on-premises Active Directory environments are present with two or more Active Directory forests. Domains live in separate forests, each with a different [UPN suffix](/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *CompanyA.local* with the UPN suffix *CompanyA.com*, *CompanyB.local* with the UPN suffix *CompanyB.com*, and an additional UPN suffix, *NewCompanyAB.com*.
 - Domain controllers for both forests are located on-premises and in Azure.
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
@@ -73,7 +73,7 @@ When you're designing your workload based on this architecture, keep the followi
 
 ### Network and connectivity
 
-- The domain controllers are shared components, so they need to be deployed in a shared services hub virtual network in this [hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml).
+- The domain controllers are shared components, so they need to be deployed in a shared services hub virtual network in this [hub-spoke architecture](../../networking/architecture/hub-spoke.yml).
 
 - Azure Virtual Desktop session hosts join the domain controller in Azure over their respective hub-spoke virtual network peering.
 

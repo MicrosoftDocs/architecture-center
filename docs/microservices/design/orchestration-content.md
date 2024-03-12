@@ -87,7 +87,6 @@ Principal author:
 - [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)
 - [Use API gateways in microservices](gateway.yml)
 - [Monitor a microservices architecture in AKS](../logging-monitoring.yml)
-- [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
 
 ## Related resources

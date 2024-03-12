@@ -84,4 +84,4 @@ Principal author:
 - [Azure Network Virtual Appliances Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
