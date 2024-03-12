@@ -62,8 +62,6 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 - [Video capture and analytics for retail](../../networking/idea/video-analytics.yml). Retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. On-premises IoT Edge devices analyze video data in real time to detect and address issues like empty shelf space or long customer queues.
 
-- [Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml). Azure IoT and cloud components combine to implement a curbside pickup, or buy online and pick up in store (BOPIS), system for retail.
-
 ## Next steps
 
 - [What is Azure IIoT?](/azure/industrial-iot/overview-what-is-industrial-iot)

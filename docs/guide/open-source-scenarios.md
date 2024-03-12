@@ -135,7 +135,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-[Automated Jupyter notebooks for diagnostics](../example-scenario/data/automating-diagnostic-jupyter-notebook.yml)|Learn how to automate diagnostic or routine notebooks by using an Azure serverless architecture.|DevOps|
 [Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Jupyter Notebook is used to connect to Azure Data Explorer. |Analytics|
 [Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)|Evaluate big-data analytics technology options for Azure, including Jupyter Notebook.|Databases|
 [Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to use Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and production version. Azure Machine Learning provides a hosted Jupyter Notebook environment. |AI|
@@ -280,7 +279,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like PyTorch.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Azure Databricks uses pre-installed, optimized machine learning frameworks, including PyTorch. |AI|
-|[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about PyTorch.|IoT|
 
 ## RabbitMQ
 
@@ -340,7 +338,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like TensorFlow.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models. Azure Databricks uses pre-installed, optimized machine learning frameworks, including TensorFlow.|AI|
-|[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about TensorFlow.|IoT|
 |[Vision classifier model with Azure Cognitive Services Custom Vision](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)|Create an image classifier with a solution architecture that includes Microsoft AirSim Drones simulator, Azure Cognitive Services Custom Vision, and TensorFlow.|AI|
 
 ## Terraform

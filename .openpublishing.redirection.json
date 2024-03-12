@@ -3457,7 +3457,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/hybrid-continuous-integration.yml",
-      "redirect_url": "/devops",
+      "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
       "redirect_document_id": false
     },
     {
@@ -4202,6 +4202,91 @@
     {
       "source_path": "docs/example-scenario/infrastructure/service-fabric-microservices.yml",
       "redirect_url": "/azure/service-fabric/service-fabric-overview-microservices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/deployments/solution-deployment-guide-mongodb-ha.md",
+      "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/deployments/solution-deployment-guide-sql-ha.md",
+      "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md",
+      "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "docs/example-scenario/hybrid/hybrid-tiered-data-analytics.yml",
+      "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/iot/vertical-buy-online-pickup-in-store.yml",
+      "redirect_url": "/azure/architecture/browse/?terms=retail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/stream-ingestion-synapse.yml",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/stream-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/manufacturing/compute-manufacturing-overview.yml",
+      "redirect_url": "/azure/architecture/industries/manufacturing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/hybrid/stock-detection-edge.yml",
+      "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iiot-patterns/iiot-connectivity-patterns.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iiot-patterns/iiot-patterns-overview.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iiot-patterns/iiot-transparency-patterns.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iiot-patterns/iiot-prediction-patterns.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/industry-iot-hub-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/risk-grid-banking-overview.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/automating-diagnostic-jupyter-notebook.yml",
+      "redirect_url": "/azure-data-studio/notebooks/notebooks-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot-edge-vision/alerts.md",
+      "redirect_url": "/azure/architecture/guide/iot-edge-vision/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot-edge-vision/machine-learning.yml",
+      "redirect_url": "/azure/architecture/guide/iot-edge-vision/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hpc-cluster.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch",
       "redirect_document_id": false
     },
     {

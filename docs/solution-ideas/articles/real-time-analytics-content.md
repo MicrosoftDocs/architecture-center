@@ -70,5 +70,4 @@ You can use the [Azure pricing calculator](https://azure.com/e/f8f5bc2de0b64aa0a
 * [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
 * [Geospatial analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
 * [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
-* [High throughput stream ingestion to Azure Synapse](/azure/architecture/example-scenario/data/stream-ingestion-synapse)
 * [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)

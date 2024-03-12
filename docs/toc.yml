@@ -901,8 +901,6 @@ items:
         href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: Helm-based deployments for Apache NiFi
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: High throughput stream ingestion
-        href: example-scenario/data/stream-ingestion-synapse.yml
       - name: Ingest FAA content to analyze flight data
         href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
       - name: Ingestion and analysis of news feeds
@@ -1173,10 +1171,6 @@ items:
           href: guide/hpc/weather-research-forecasting.yml
       - name: Industry guidance
         items:
-        - name: HPC for manufacturing
-          href: industries/manufacturing/compute-manufacturing-overview.yml
-        - name: Risk grid computing in banking
-          href: industries/finance/risk-grid-banking-overview.yml
         - name: Risk grid computing solution
           href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: VM security baselines
@@ -1259,8 +1253,6 @@ items:
         href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
-      - name: HPC cluster deployed in the cloud
-        href: solution-ideas/articles/hpc-cluster.yml
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.yml
       - name: Manage virtual machine compliance
@@ -1788,8 +1780,6 @@ items:
         href: example-scenario/devops/automate-azure-pipelines.yml
       - name: Automate API deployments with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
-      - name: Automate Jupyter Notebooks
-        href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
       - name: Automate Sentinel integration
         href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Azure DevTest Labs for enterprises
@@ -1881,16 +1871,10 @@ items:
           href: hybrid/deployments/solution-deployment-guide-identity.md
         - name: Deploy AI-based footfall detection
           href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
-        - name: Deploy an app that scales cross-cloud
-          href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
         - name: Deploy Kubernetes on Azure Stack Hub
           href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
-        - name: Deploy highly available MongoDB
-          href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
         - name: Deploy hybrid with on-premises data
           href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
-        - name: Deploy a SQL Server 2016 AG
-          href: hybrid/deployments/solution-deployment-guide-sql-ha.md
         - name: Direct traffic with a geo-distributed app
           href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
       - name: Azure VMware Solution guidance
@@ -2004,8 +1988,6 @@ items:
           href: example-scenario/hybrid/hybrid-geo-distributed.yml
         - name: Hybrid relay connection
           href: solution-ideas/articles/hybrid-relay-connection.yml
-        - name: Tiered data for analytics
-          href: example-scenario/hybrid/hybrid-tiered-data-analytics.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
         maintainContext: true
@@ -2039,8 +2021,6 @@ items:
         href: hybrid/hybrid-server-os-mgmt.yml
       - name: On-premises data gateway for Logic Apps
         href: hybrid/gateway-logic-apps.yml
-      - name: Out-of-stock detection at the edge
-        href: example-scenario/hybrid/stock-detection-edge.yml
       - name: Public MEC compute deployment
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
@@ -2288,10 +2268,6 @@ items:
           href: guide/iot-edge-vision/camera.md
         - name: Hardware acceleration
           href: guide/iot-edge-vision/hardware.md
-        - name: Machine learning
-          href: guide/iot-edge-vision/machine-learning.yml
-        - name: Alerting
-          href: guide/iot-edge-vision/alerts.md
         - name: Image storage
           href: guide/iot-edge-vision/image-storage.md
         - name: User interface and scenarios
@@ -2308,16 +2284,8 @@ items:
           href: guide/iiot-guidance/iiot-considerations.md
       - name: Industrial IoT patterns
         items:
-        - name: Overview
-          href: guide/iiot-patterns/iiot-patterns-overview.yml
-        - name: Connectivity patterns
-          href: guide/iiot-patterns/iiot-connectivity-patterns.yml
         - name: Visibility patterns
           href: guide/iiot-patterns/iiot-visibility-patterns.yml
-        - name: Transparency patterns
-          href: guide/iiot-patterns/iiot-transparency-patterns.yml
-        - name: Prediction patterns
-          href: guide/iiot-patterns/iiot-prediction-patterns.yml
       - name: IoT patterns
         items:
         - name: Analyze and optimize loop
@@ -2374,8 +2342,6 @@ items:
         href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: Buy online, pick up in store
-        href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Condition monitoring
         href: solution-ideas/articles/condition-monitoring.yml
       - name: COVID-19 solutions
@@ -3644,8 +3610,6 @@ items:
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Build a real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.yml
-      - name: Buy online, pick up in store (retail)
-        href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Content-based recommendation
         href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
       - name: E-commerce front end
@@ -3779,8 +3743,6 @@ items:
         maintainContext: true
       - name: Financial services risk lifecycle
         href: industries/finance/financial-risk-model.md
-      - name: Risk grid computing in banking
-        href: industries/finance/risk-grid-banking-overview.yml
       - name: Risk grid computing solution
         href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling
@@ -4295,8 +4257,6 @@ items:
       href: industries/manufacturing.md
     - name: Guides
       items:
-      - name: HPC for manufacturing
-        href: industries/manufacturing/compute-manufacturing-overview.yml
       - name: AI and ML scenarios
         items:
         - name: Machine teaching for manufacturing
@@ -4398,8 +4358,6 @@ items:
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
       - name: Supply chain track and trace
         href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Tiered data for manufacturing
-        href: example-scenario/hybrid/hybrid-tiered-data-analytics.yml
         maintainContext: true
     - name: Compliance solutions
       items:
