@@ -98,8 +98,6 @@ Principal author:
 
 ## Related resources
 
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components.
-
 See the following related architectures:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)

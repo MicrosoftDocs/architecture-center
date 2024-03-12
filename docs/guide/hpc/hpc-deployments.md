@@ -70,4 +70,3 @@ The articles listed here describe the steps for running various HPC applications
 - [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
 - [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 - [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)
