@@ -15,7 +15,7 @@ azureCategories:
 products:
   - azure-virtual-machines
   - azure-virtual-network
-name: Deploy Autodesk Autodesk VRED Core on a virtual machine
+name: Deploy Autodesk VRED Core on a virtual machine
 summary: See how Autodesk Maya performs on an Azure virtual machine. VRED Core enables streaming of high-quality VRED real-time renderings on any device.
 thumbnailUrl: ../../browse/thumbs/autodesk-vred-core-thumbnail.png
 content: |
