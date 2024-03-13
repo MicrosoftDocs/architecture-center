@@ -2,18 +2,6 @@
 
 The Project 15 Open Platform was developed in partnership with the GEF Small Grants Programme implemented by the United Nations Development Program. More info [here](http://aka.ms/project15story).
 
-## About Project 15 Open Platform
-
-The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building sustainability and conservation solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
-
-The core goals of the Project 15 (P15) Open Platform are:
-
-* Close the skills gap, boost innovation, and accelerate solutioning with a ready-made platform, allowing the scientific developer to expand into specific use cases.
-* Increasing the speed to deployment; The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
-* Lowers the development cost; The P15 Open Platform lowers the cost of overall development and reduces complexity in building connected device based solutions on Azure. Additionally, the Open Platform opens up opportunities for partnering with the Open Source developer community and universities.
-
-Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
-
 ## Architecture
 
 The following sections provide insight into Project 15 Open Platform functionality and architecture.
@@ -25,6 +13,16 @@ Diagram showing components and functionality of the Project 15 Open Platform. Ba
 *Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
 
 ### Solution Overview
+
+The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building sustainability and conservation solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
+
+The core goals of the Project 15 (P15) Open Platform are:
+
+* Close the skills gap, boost innovation, and accelerate solutioning with a ready-made platform, allowing the scientific developer to expand into specific use cases.
+* Increasing the speed to deployment; The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
+* Lowers the development cost; The P15 Open Platform lowers the cost of overall development and reduces complexity in building connected device based solutions on Azure. Additionally, the Open Platform opens up opportunities for partnering with the Open Source developer community and universities.
+
+Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
 
 The solution has three main categories:
 
