@@ -115,6 +115,15 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Microsoft Power Platform][Microsoft Power Platform] provides a low-code development platform for analyzing data, automating processes, and building apps, websites, and virtual agents.
 
+### Potential use cases
+
+Project 15 contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
+
+- Species tracking and observation
+- Poaching prevention
+- Ecosystem monitoring
+- Pollution detection
+
 ## Deploy this scenario
 
 - Deployment to Azure happens with the push of a button. The main components of the infrastructure for a standard IoT solution are then up and running.
