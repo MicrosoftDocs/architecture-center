@@ -22,7 +22,7 @@ In the architecture, the production virtual machines (VMs) are part of a spoke [
 
 The system and organization controls (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and a dedicated [key vault](/azure/key-vault/general/overview) keeps the snapshots' hash values and copies of the VMs' BEKs.
 
-In response to a request to capture a VM's digital evidence, a SOC team member signs in to the Azure SOC subscription and uses an [Azure Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM in [Automation](/azure/automation/automation-intro) to implement the Copy-VmDigitalEvidence runbook. The [Automation Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) provides control of all mechanisms involved in the capture.
+In response to a request to capture a VM's digital evidence, a SOC team member signs in to the Azure SOC subscription and uses an [Azure hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM in [Automation](/azure/automation/automation-intro) to implement the Copy-VmDigitalEvidence runbook. The [Automation hybrid runbook worker](/azure/automation/automation-hybrid-runbook-worker) provides control of all mechanisms involved in the capture.
 
 The Copy-VmDigitalEvidence runbook implements these macro steps:
 
@@ -48,19 +48,19 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 #### Automation
 
-The SOC team uses an [Automation](https://azure.microsoft.com/products/automation) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses [Automation](/azure/automation/automation-intro) to create the Hybrid Runbook Workers that operate the runbook.
+The SOC team uses an [Automation](https://azure.microsoft.com/products/automation) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses [Automation](/azure/automation/automation-intro) to create the hybrid runbook workers that operate the runbook.
 
-#### Hybrid Runbook Worker
+#### Hybrid runbook worker
 
-The [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM is part of the Automation account. The SOC team uses this VM exclusively to implement the Copy-VmDigitalEvidence runbook.
+The [hybrid runbook worker](/azure/automation/extension-based-hybrid-runbook-worker-install) VM is part of the Automation account. The SOC team uses this VM exclusively to implement the Copy-VmDigitalEvidence runbook.
 
-You must place the Hybrid Runbook Worker VM in a subnet that can access the Storage account. Configure access to the Storage account by adding the Hybrid Runbook Worker VM subnet to the Storage account's firewall allowlist rules.
+You must place the hybrid runbook worker VM in a subnet that can access the Storage account. Configure access to the Storage account by adding the hybrid runbook worker VM subnet to the Storage account's firewall allowlist rules.
 
 You must grant access to this VM only to the SOC team members for maintenance activities.
 
 To isolate the virtual network in use by the VM, don't connect that virtual network to the hub.
 
-The Hybrid Runbook Worker uses the [Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target VM's resources and the other Azure services required by the solution.
+The hybrid runbook worker uses the [Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target VM's resources and the other Azure services required by the solution.
 
 The minimal role-based access control (RBAC) permissions that must be assigned to system-assigned managed identity are classified in two categories:
 
@@ -75,11 +75,11 @@ Access to the SOC Azure architecture includes the following roles:
 Access to the target architecture includes the following roles:
 
 - **Contributor** on the target VM's resource group, which provides snapshot rights on VM disks
-- **Key Vault Secrets Officer** on the target VM's key vault used to store BEK, only if RBAC is used for the key vault
-- Access policy to **Get Secret** on the target VM's key vault used to store BEK, only if you use an access policy for Key Vault
+- **Key Vault Secrets Officer** on the target VM's key vault used to store the BEK, only if RBAC is used for the key vault
+- Access policy to **Get Secret** on the target VM's key vault used to store the BEK, only if you use an access policy for Key Vault
 
 > [!NOTE]
-> To read the BEK, the target VM's key vault must be accessible from the Hybrid Runbook Worker VM. If the key vault has the firewall enabled, ensure that the public IP address of the Hybrid Runbook Worker VM is allowed through the firewall.
+> To read the BEK, the target VM's key vault must be accessible from the hybrid runbook worker VM. If the key vault has the firewall enabled, ensure that the public IP address of the hybrid runbook worker VM is allowed through the firewall.
 
 #### Azure Storage account
 
@@ -93,13 +93,13 @@ The storage account also hosts an [Azure file share](/azure/storage/files/storag
 
 The SOC subscription has its own instance of [Key Vault](/azure/key-vault/general/basic-concepts), which hosts a copy of the BEK that Azure Disk Encryption uses to protect the target VM. The primary copy is kept in the key vault that is used by the target VM, so that the target VM can continue normal operation.
 
-The SOC key vault also contains the hash values of disk snapshots calculated by the Hybrid Runbook Worker during the capture operations.
+The SOC key vault also contains the hash values of disk snapshots calculated by the hybrid runbook worker during the capture operations.
 
 Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It grants access only from the SOC virtual network.
 
 #### Log Analytics
 
-A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Azure Monitor](https://azure.microsoft.com/products/monitor/).
+A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](https://azure.microsoft.com/products/monitor/).
 
 ## Scenario details
 
@@ -141,7 +141,7 @@ Cohasset's [Azure Storage: SEC 17a-4(f) and CFTC 1.31(c)-(d) Compliance Assessme
 - Financial Industry Regulatory Authority (FINRA) Rule 4511(c), which defers to the format and media requirements of SEC Rule 17a-4(f).
 - Commodity Futures Trading Commission (CFTC) in regulation 17 CFR § 1.31(c)-(d), which regulates commodity futures trading.
 
-It's Cohasset's opinion that storage, with the immutable storage feature of Azure Blob Storage and policy lock option, retains *time-based* blobs (records) in a nonerasable and nonrewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
+It's Cohasset's opinion that storage, with the immutable storage feature of Blob Storage and policy lock option, retains *time-based* blobs (records) in a nonerasable and nonrewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
 ### Least privilege
 
@@ -200,7 +200,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 ## Deploy this scenario
 
-Follow the [CoC LAB Deployment](/samples/azure/forensics/forensics/) instructions to build and deploy this scenario in a laboratory environment.
+Follow the [CoC lab deployment](/samples/azure/forensics/forensics/) instructions to build and deploy this scenario in a laboratory environment.
 
 The laboratory environment represents a simplified version of the architecture described in the article. You deploy two resource groups within the same subscription. The first resource group simulates the production environment, housing digital evidence, while the second resource group holds the SOC environment.
 
@@ -211,14 +211,14 @@ Use the following button to deploy only the SOC resource group in a production e
 > [!NOTE]
 > If you deploy the solution in a production environment, make sure that the system-assigned managed identity of the automation account has the following permissions:
 >
->- Contributor: in the production resource group of the VM to be processed. It creates the snapshots.
->- Key Vault secrets user: in the production key vault holding the BEK keys. It reads the BEK keys.
+>- A Contributor in the production resource group of the VM to be processed. This role creates the snapshots.
+>- A Key Vault Secrets User in the production key vault that holds the BEKs. This role reads the BEKs.
 >
->Also, if the key vault has the firewall enabled, be sure the public IP address of the Hybrid Runbook Worker VM is allowed through the firewall.
+>Also, if the key vault has the firewall enabled, be sure the public IP address of the hybrid runbook worker VM is allowed through the firewall.
 
 ### Extended configuration
 
-You can deploy a Hybrid Runbook Worker on-premises or in different cloud environments.
+You can deploy a hybrid runbook worker on-premises or in different cloud environments.
 
 In this scenario, you can customize the Copy‑VmDigitalEvidence runbook to enable the capture of evidence in different target environments and archive them in storage.
 
@@ -229,7 +229,7 @@ In this scenario, you can customize the Copy‑VmDigitalEvidence runbook to enab
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Fabio Masciotra](https://www.linkedin.com/in/fabiomasciotra/) | Principal Consultant
 - [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
@@ -250,7 +250,7 @@ For more information about Azure logging and auditing features, see:
 - [Azure Storage analytics logging](/azure/storage/common/storage-analytics-logging)
 - [Azure resource logs](/azure/azure-monitor/essentials/resource-logs)
 
-For more information about Microsoft Azure Compliance, see:
+For more information about Microsoft Azure compliance, see:
 
 - [Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
 - [Microsoft Azure compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/en-us)

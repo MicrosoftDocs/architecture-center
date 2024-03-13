@@ -20,7 +20,7 @@ By using Key Vault and its automated renewal process, it updates certificates co
 
 Here's a brief overview of the underlying architecture that powers this solution.
 
-![Diagram of the certificate lifecycle management architecture](./media/certlc-arch.svg)
+![Diagram of the certificate lifecycle management architecture.](./media/certlc-arch.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/certlc-arch.vsdx) of this architecture.*
 
@@ -42,9 +42,9 @@ This image shows the automated workflow for certificate renewal within the Azure
   
   While not mandatory, you can set up custom email notifications by tagging the certificate with the recipient's email address. Tagging the certificate helps ensure timely notifications when the renewal process completes. If multiple recipients are necessary, separate their email addresses by a comma or a semicolon. The tag name for this purpose is _Recipient_, and its value is one or more email addresses of the designated administrators.
 
-  When you use tags, as opposed to [built-in certificate notifications](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#get-notified-about-certificate-expiration), you can apply notifications to a specific certificate with a designated recipient. Built-in certificate notification apply indiscriminately to all certificates within the key vault, using the same recipient for all.
+  When you use tags, as opposed to [built-in certificate notifications](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#get-notified-about-certificate-expiration), you can apply notifications to a specific certificate with a designated recipient. Built-in certificate notifications apply indiscriminately to all certificates within the key vault, using the same recipient for all.
   
-  You can integrate built-in notifications with the solution but use a different approach. While built-in notifications can only notify about an upcoming certificate expiration, the tags can send notifications when the certificate renews on the internal CA and it's then availabile in Key Vault.
+  You can integrate built-in notifications with the solution but use a different approach. While built-in notifications can only notify about an upcoming certificate expiration, the tags can send notifications when the certificate renews on the internal CA and when it's available in Key Vault.
 
 - **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the key vault extension, a versatile tool compatible with [Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the key vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
 
@@ -52,7 +52,7 @@ This image shows the automated workflow for certificate renewal within the Azure
 
 - **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, for example, if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process helps make the solution robust.
   
-   To enhance the solution's resiliency, set up a [dead-letter location](/azure/event-grid/manage-event-delivery#set-dead-letter-location) mechanism to manage potential errors that might occur during the messages transit from Event Grid to the subscription targets, the storage queue, and the webhook.
+   To enhance the solution's resiliency, set up a [dead-letter location](/azure/event-grid/manage-event-delivery#set-dead-letter-location) mechanism. It manages potential errors that might occur during the messages transit from Event Grid to the subscription targets, the storage queue, and the webhook.
 
 - **Storage account queue:** The runbook launches within the CA server configured as an Automation hybrid runbook worker. It receives all messages in the storage account queue that contain the name of the expiring certificate and the key vault that hosts the runbook. The following steps occur for each message in the queue.
 
@@ -66,7 +66,7 @@ This image shows the automated workflow for certificate renewal within the Azure
 
 1. **Certificate merging and Key Vault update:** The script merges the renewed certificate back into the key vault, finalizing the update process and removing the message from the queue. Throughout the entire process, the private key of the certificate is never extracted from the key vault.
 
-1. **Monitoring and email notification:** All operations that are run by various Azure components, such as an Automation account, Key Vault, a storage account queue, and Event Grid, are logged within the Azure Monitor Logs workspace to enable monitoring. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
+1. **Monitoring and email notification:** All operations that various Azure components run, such as an Automation account, Key Vault, a storage account queue, and Event Grid, are logged within the Azure Monitor Logs workspace to enable monitoring. After the certificate merges into the key vault, the script sends an email message to administrators to notify them of the outcome.
 
 1. **Certificate retrieval:** The key vault extension on the server plays an important role during this phase. It automatically downloads the latest version of the certificate from the key vault into the local store of the server that's using the certificate. You can configure multiple servers with the key vault extension to retrieve the same certificate (wildcard or with multiple Subject Alternative Name certificates) from the key vault.
 
@@ -191,7 +191,7 @@ In scenarios where the key vault extension deploys on an Azure VM, the authentic
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-This solution uses Azure Paas solutions that operate under a pay-as-you-go framework, which optimizes cost. Primarily, expenses are contingent upon the quantity of certificates requiring renewal and the quantity of servers equipped with the key vault extension, resulting in low overhead.
+This solution uses Azure PaaS solutions that operate under a pay-as-you-go framework, which optimizes cost. Expenses depend on the number of certificates that need renewal and the number of servers equipped with the key vault extension, resulting in low overhead.
 
 Expenses that result from the key vault extension and the hybrid runbook worker depend on your installation choices and polling intervals. The cost of Event Grid corresponds to the volume of events generated by Key Vault. At the same time, the cost of the Automation account correlates with the number of runbooks you use.
 
@@ -240,8 +240,6 @@ Principal authors:
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
-
-Explore related resources:
 
 [Azure Key Vault](/azure/key-vault/general/overview)</BR>
 [Azure Key Vault Extension for Windows](/azure/virtual-machines/extensions/key-vault-windows?tabs=version3)</BR>
