@@ -12,7 +12,7 @@ Diagram showing components and functionality of the Project 15 Open Platform. Ba
 
 *Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
 
-### Solution Overview
+### Solution Details
 
 The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building sustainability and conservation solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
 
@@ -38,7 +38,7 @@ The solution has three main categories:
 
   This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
 
-### Solution details
+### Workflow
 
 :::image type="complex" source="../media/project-15-ref-arch-2023.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
 Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
