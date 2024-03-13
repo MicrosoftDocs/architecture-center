@@ -38,6 +38,7 @@ The considerations in this article are divided into four categories:
 - Protocol coverage
 - Load balancing
 - Service discovery
+- Custom domains and managed TLS
 - Mutual TLS
 - Networking concepts for specific Azure services 
 
@@ -216,31 +217,30 @@ In contrast AKS uses a shared responsibility model in which Azure manages the un
 
 In cloud architectures, runtimes can be removed and re-created at any time to rebalance resources, so instance IP addresses regularly change. These architectures use fully qualified domain names (FQDNs) for reliable and consistent communication.
 
-#### Azure Managed FQDNs
-
-To help developers quickly test their deployed applications, customers can leverage Azure managed domains that are accessible both over http and https.
-
-Both [Azure Container Apps](/azure/container-apps/connect-apps) and [Web App for Containers](/azure/app-service/tutorial-secure-domain-certificate) provide default FQDNs including variations for container app [revisions](/azure/container-apps/revisions) and web app [slots](/azure/app-service/deploy-staging-slots).
-
-| | Container Apps | AKS | Web App for Containers |
+| | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Default FQDNs** | `<my-app>.<env-id>.<region>.azurecontainerapps.io` | via [AGC](/azure/application-gateway/for-containers/overview)* | `<my-app>.azurewebsites.net` |
+| **Service discovery** | Azure-managed FQDN | Kubernetes configurable | Azure-managed FQDN |
 
-For AKS users the quickest way to expose an AKS application for external access is via a Kubernetes service of type `LoadBalancer`, which makes application reachable via an IP address. To connect securely to an application via https with Azure managed FQDN and TLS, with an Azure managed solution, AKS customers can use [Application Gateway for Containers (AGC)](/azure/application-gateway/for-containers/overview).
+Web Apps for Containers provides public ingress (north-south communication) FQDNs out of the box. No additional DNS configuration is required. However, there's no built-in mechanism to facilitate or restrict traffic between other apps (east-west communication).
 
-While default FQDNs are helpful for quick tests, most customers use custom domains and custom certificates, especially in production.
+Container Apps also provides public ingress FQDNs. However, Container Apps goes further by allowing the app FQDN to be exposed and [restricting traffic only within the environment](/azure/container-apps/networking). This functionality makes it easier to manage east-west communication and enable components like Dapr.
+
+Kubernetes deployments are not initially discoverable within or from outside the cluster. You must create Kubernetes services as defined by the Kubernetes API, which then expose applications to the network in an addressable way.
+
+> [!important]
+> Only Container Apps and AKS provide service discovery through internal DNS schemes within their respective environments. This functionality can simplify DNS configurations across dev/test and production environments. For example, you can create these environments with arbitrary service names that have to be unique only within the environment or cluster, so they can be the same across dev/test and production. With Web App for Containers, service names must be unique across different environments to avoid conflicts with Azure DNS. 
 
 ### Custom domains and managed TLS
 
-Both Container Apps and Web App for Containers provide out-of-the-box solutions for custom domains and certificate management, including the issuing of certificates.
+Both Container Apps and Web App for Containers provide out-of-the-box solutions for custom domains and certificate management.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
 | **Configure custom domains** | Out of the box | BYO | Out of the box |
 | **Managed TLS for Azure FQDNs** | Out of the box | N/A | Out of the box |
-| **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | [Supported](/azure/app-service/configure-ssl-certificate) or BYO |
+| **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | Out of the box or BYO |
 
-AKS users are responsible for managing and configuring custom domains, DNS and ingress, for which there are many established patterns depending on the chosen ingress solution. For TLS certificate management, e.g. issuance and rotation, it is common to leverage [cert-manager]( https://www.cncf.io/projects/cert-manager/) from the Kubernetes ecosystem or use [Azure Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios).
+AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS does not offer managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
 
 ### Mutual TLS
 
