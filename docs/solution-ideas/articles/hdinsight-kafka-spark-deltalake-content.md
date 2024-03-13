@@ -2,7 +2,7 @@
 
 This article outlines a solution for ingesting and processing millions of streaming events per second and writing them to a Delta Lake table. Core components include Azure HDInsight Spark and Kafka clusters.
 
-*Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Spark](https://spark.apache.org), [Delta Lake](/azure/databricks/delta/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Spark](https://spark.apache.org), and [Delta Lake](/azure/databricks/delta/) logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -30,7 +30,9 @@ This article outlines a solution for ingesting and processing millions of stream
 
 ## Scenario details
 
-There are multiple Apache components (Apache Spark, [Apache Flink](https://flink.apache.org/), [Apache Beam](https://beam.apache.org/), etc.), they are a good fit for the streaming need for a large volume of data. Event streaming is a continuous unbounded sequence of immutable events; where events flow from event publisher to subscribers. Business use case(s) may require storing these events in raw format and cleaning, transformation, and aggregation for various analytics needs.
+Event streaming is a continuous unbounded sequence of immutable events; where events flow from event publisher to subscribers. Business use case(s) may require storing these events in raw format and cleaning, transformation, and aggregation for various analytics needs.
+
+There are multiple Apache components [Apache Spark](https://spark.apache.org/), [Apache Flink](https://flink.apache.org/), [Apache Beam](https://beam.apache.org/), etc.), they are a good fit for the streaming need for a large volume of data. The comparision of streaming framework is out of scope from this article. The proposed solution architecture is based on [Apache Spark](https://spark.apache.org/).
 
 - Apache Kafka provides a high-performance, durable, distributed event-streaming platform. It multiplex streams of events from producers to consumers using Topics, Partitions, and Consumer Groups.
 - Apache Spark Structured Streaming is a scalable, exactly-once fault-tolerance stream processing engine built on the Spark SQL Engine. Structured Streaming queries are near real-time and have low latency. It provides a large set of connectors for data sources and sinks. In addition, Spark Structured streaming allows joining multiple streams from similar or different source types.

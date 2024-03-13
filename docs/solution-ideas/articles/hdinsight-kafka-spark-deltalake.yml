@@ -28,6 +28,6 @@ azureCategories:
 summary: Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Streaming and Delta Lake.
 products:
   - azure-hdinsight
-thumbnailUrl: /azure/architecture/browse/thumbs/hdinsight-kafka-spark-deltalake-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hdinsight-kafka-spark-deltalake-thumb.png
 content: |
    [!include[](hdinsight-kafka-spark-deltalake-content.md)]
