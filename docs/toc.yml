@@ -215,6 +215,8 @@ items:
         href: data-guide/scenarios/advanced-analytics.md
       - name: Batch processing
         href: data-guide/technology-choices/batch-processing.md
+      - name: Microsoft Fabric deployment patterns
+        href: analytics/architecture/fabric-deployment-patterns.yml
       - name: Stream processing
         href: data-guide/technology-choices/stream-processing.md
       - name: Streaming analytics
