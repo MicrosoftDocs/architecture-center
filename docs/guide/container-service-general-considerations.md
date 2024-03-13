@@ -266,6 +266,33 @@ The preceding sections focus on network design. Continue to the next section to 
 
 Failure to address security risks can lead to unauthorized access, data breaches, or leaks of sensitive information. Containers offer an encapsulated environment for your application. The hosting systems and underlying network overlays, however, require additional guardrails. Your choice of Azure container service needs to support your specific requirements for securing each application individually and provide proper security measures to prevent unauthorized access and mitigate the risk of attacks.
 
+### Security comparison overview
+
+Most Azure services, including Container Apps, AKS, and Web App for Containers, integrate with key security offerings, including Key Vault and managed identities.
+
+Of the services in this guide, AKS offers the most configurability and extensibility in part by surfacing underlying components, which often can be secured via configuration options. For example, customers can disable local accounts to the Kubernetes API server or turn on automatic updates to underlying nodes via configuration options. 
+
+For a detailed comparison, carefully review the following considerations to ensure that your workload security requirements can be met.
+
+### Kubernetes control plane security
+
+AKS offers the most flexibility of the three options considered in this article, providing full access to the Kubernetes API so that you can customize container orchestration. This access to the Kubernetes API, however, also represents a significant attack surface, and you need to secure it. 
+
+> [!Important] 
+> Note that this section isn't relevant for Web App for Containers, which uses the  Azure Resource Manager API as its control plane.
+
+#### Identity-based security
+
+Customers are responsible for securing identity-based access to the API. Out of the box, Kubernetes provides its own authentication and authorization management system, which also needs to be secured with access controls. 
+
+To take advantage of a single plane of glass for identity and access management on Azure, it's a best practice to [disable Kubernetes-specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) together with [Azure RBAC for Kubernetes](/azure/aks/manage-azure-rbac). If you implement this best practice, administrators don't need to perform identity and access management on multiple platforms.
+
+| | Container Apps | AKS|
+|---|--|--|
+| **Kubernetes API access controls** | No access | Full access |
+
+Customers who use Container Apps don't have access to the Kubernetes API. Microsoft provides security for this API. 
+
 #### Network-based security
 
 If you want to restrict network access to the Kubernetes control plane, you need to use AKS, which provides two options. The first option is to use [private AKS clusters](/azure/aks/private-clusters#create-a-private-aks-cluster), which use Azure Private Link between the API server's private network and the AKS cluster's private network. The second option is [API Server VNet integration (preview)](/azure/aks/api-server-vnet-integration), where the API server is integrated into a delegated subnet. See the documentation to learn more.
