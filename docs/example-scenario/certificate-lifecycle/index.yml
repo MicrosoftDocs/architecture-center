@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Certificate Lifecycle Management on Azure
-  titleSuffix: Azure Example Scenarios
+  title: Certificate lifecycle management on Azure
+  titleSuffix: Azure Architecture Center
   description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
   author: angelo-mazzucchi
   ms.author: angelom
-  ms.date: 01/03/2024
+  ms.date: 03/12/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -15,7 +15,7 @@ products:
   - azure-automation
   - azure-event-grid
   - azure-key-vault
-name: Certificate Lifecycle Management on Azure
+name: Certificate lifecycle management on Azure
 summary: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
 thumbnailUrl: media/certlc-thumb.png
 content: |
