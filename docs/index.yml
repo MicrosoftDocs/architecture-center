@@ -215,7 +215,7 @@ conceptualContent:
           url: ./solution-ideas/articles/monitor-mining-equipment.yml
         - text: Predict the length of stay in hospitals
           itemType: architecture
-          url: ./example-scenario/digital-health/predict-length-of-stay.yml
+          url: ./example-scenario/digital-health/predict-patient-length-of-stay.yml
           
     - title: Databases
       links:
