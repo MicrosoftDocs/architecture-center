@@ -4298,6 +4298,11 @@
       "source_path": "docs/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml",
       "redirect_url": "/azure/architecture/guide/testing/mission-critical-deployment-testing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/jboss-deployment-red-hat.yml",
+      "redirect_url": "/azure/architecture",
+      "redirect_document_id": false
     }
   ]
 }
