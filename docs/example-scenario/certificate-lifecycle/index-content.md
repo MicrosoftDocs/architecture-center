@@ -36,7 +36,7 @@ The following sections provide details of the automated renewal process.
 
 This image shows the automated workflow for certificate renewal within the Azure ecosystem.
 
-![detailed workflow](./media/workflow.png)
+![Diagram of the automated workflow for certificate renewal within the Azure ecosystem.](./media/workflow.png)
 
 - **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated Certificates section of the key vault.
   
@@ -80,6 +80,7 @@ The key vault extension plays a vital role in automating certificate renewal and
 
 > [!NOTE]
 > The following are sample scripts that you can run from Azure Cloud Shell for configuring the key vault extension:
+>
 > - [Key Vault extension for Windows servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionWin.ps1)
 > - [Key Vault extension for Linux servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionLinux.ps1)
 > - [Key Vault extension for Azure Arc-enabled Windows servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionARCWin.ps1)
@@ -237,7 +238,7 @@ Principal authors:
 - [Fabio Masciotra](https://www.linkedin.com/in/fabiomasciotra/) | Principal Consultant
 - [Angelo Mazzucchi](https://www.linkedin.com/in/angelo-mazzucchi-a5a94270) | Delivery Architect
 
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 

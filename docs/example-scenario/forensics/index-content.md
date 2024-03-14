@@ -234,7 +234,7 @@ Principal authors:
 - [Fabio Masciotra](https://www.linkedin.com/in/fabiomasciotra/) | Principal Consultant
 - [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
 
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
