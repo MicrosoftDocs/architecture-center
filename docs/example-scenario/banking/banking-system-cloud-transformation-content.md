@@ -40,11 +40,9 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
     The CSE team used [KEDA](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
 
-    KEDA is only supported on AKS.
+    KEDA is supported on AKS and Azure Container Apps
 
-1. Next is load testing. It contains a custom solution based on JMeter, Azure Container Instances (ACI), and Terraform.
-
-    The team used the Load Testing block of the solution to provision the necessary integration with Azure Pipelines. This solution generated enough load on the backend services to validate that the autoscaling mechanisms were in place, creating thousands of EFT transactions per second.
+1. Next is load testing. Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications without the needing of deploying additional resources. Azure Load Testing also comes with the capability to take an existing Apache JMeter script and use it to run a load test.
 
 1. Finally, monitoring was responsible for integrating load testing results, infrastructure, and application metrics.
 
@@ -294,7 +292,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * A product's end-of-life might require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
+  * At the creation of this article, the CSE team created a load testing solution integrating ACI and JMeter in an Azure DevOps Pipeline. [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) has since been made available as a fully managed load-testing service without the need of deploying additional compute resources.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
@@ -311,5 +309,3 @@ At the end of the project, the CSE team shared the following insights:
 For more detail about the processes and technologies used to create this solution, see the following articles:
 
 * [Patterns and implementations](patterns-and-implementations.yml)
-
-* [JMeter implementation reference for load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml)

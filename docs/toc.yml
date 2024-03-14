@@ -1107,6 +1107,8 @@ items:
             href: guide/hpc/hpc-autodesk-revit.yml
           - name: Autodesk VRED
             href: guide/hpc/hpc-autodesk-vred.md
+          - name: Autodesk VRED Core
+            href: guide/hpc/autodesk-vred-core.yml
         - name: AVL FIRE M
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
@@ -2786,8 +2788,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
     - name: Solution ideas
       items:
-      - name: JMeter implementation reference
-        href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
       - name: Lift and shift to containers with App Service
         href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
       - name: Migrate .NET applications
