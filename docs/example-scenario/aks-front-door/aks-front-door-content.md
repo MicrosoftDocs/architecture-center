@@ -4,7 +4,7 @@ This article describes how to set up end-to-end TLS encryption with [Azure Front
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/aks-front-door.png" alt-text="Diagram displays an architecture diagram of the solution based on AZure Front Door and Azure Kubernetes Service." lightbox="./media/aks-front-door.png":::
+:::image type="content" border="false" source="./media/aks-front-door.png" alt-text="Diagram displays an architecture diagram of the solution basezure Front Door and Azure Kubernetes Service." lightbox="./media/aks-front-door.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
 
