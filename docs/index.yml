@@ -38,10 +38,6 @@ highlightedContent:
     - title: Cloud Adoption Framework
       url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
       itemType: how-to-guide
-    # Card
-    - title: Find partner training resources
-      url: https://partner.microsoft.com/training
-      itemType: learn 
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
@@ -106,7 +102,7 @@ productDirectory:
         - url: ./solutions/microsoft-365-scenarios.md
           text: Azure and Microsoft 365 solutions
         - url: ./aws-professional/services.md
-          text: Amazon Web Services to Azure services comparison
+          text: AWS to Azure services comparison
         - url: ./gcp-professional/services.md
           text: Google Cloud services comparison
 
@@ -118,6 +114,12 @@ conceptualContent:
   items:
     - title: Popular articles
       links:
+      - text: Baseline OpenAI end-to-end chat architecture
+        url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
+        itemType: architecture
+      - text: AWS to Azure services comparison
+        url: ./aws-professional/services.md
+        itemType: reference
       - text: AKS production baseline
         url: ./reference-architectures/containers/aks/baseline-aks.yml
         itemType: reference
@@ -127,7 +129,7 @@ conceptualContent:
       - text: Cloud design patterns
         url: ./patterns/index.md
         itemType: concept
-      - text: Command and Query Responsibility Segregation design pattern
+      - text: CQRS design pattern
         url: ./patterns/cqrs.yml
         itemType: concept
       - text: Best practices in cloud applications
@@ -136,9 +138,6 @@ conceptualContent:
       - text: Web API design
         url: ./best-practices/api-design.md
         itemType: reference
-      - text: Performance antipatterns for cloud applications
-        url: ./antipatterns/index.md
-        itemType: concept
       - text: Choose your Azure compute service
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
@@ -151,8 +150,11 @@ conceptualContent:
       - text: Architect multitenant solutions on Azure
         url: ./guide/multitenant/overview.md
         itemType: concept        
-    - title: AI & machine learning
+    - title: AI & Machine Learning
       links:
+      - text: Baseline OpenAI end-to-end chat architecture
+        url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
+        itemType: architecture
       - text: AI architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
@@ -377,12 +379,9 @@ conceptualContent:
         - text: Hub-spoke topology
           itemType: architecture
           url: networking/architecture/hub-spoke.yml
-        - text: Perimeter network between Azure and on-premises
+        - text: Implement a secure hybrid network
           itemType: architecture
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml
-        - text: Perimeter network between Azure and the internet
-          itemType: architecture
-          url: reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: architecture
           url: networking/guide/nva-ha.yml
@@ -497,9 +496,9 @@ additionalContent:
           url: /training/paths/azure-well-architected-framework/
         - title: Introduction to the Well-Architected Framework
           url: /training/modules/azure-well-architected-introduction/
-        - title: Describe cloud concepts
+        - title: Azure fundamentals- Cloud concepts
           url: /training/paths/microsoft-azure-fundamentals-describe-cloud-concepts
-        - title: Describe Azure architecture and services
+        - title: Azure fundamentals- Azure architecture and services
           url: /training/paths/azure-fundamentals-describe-azure-architecture-services
         - title: Architect infrastructure operations in Azure
           url: /training/paths/architect-infrastructure-operations/
