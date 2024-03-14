@@ -327,7 +327,7 @@ In all scenarios, you can regulate networking communication within the wider vir
 |---|--|--|--|
 | **Network security groups** | Consumption plan: ✅<br>Dedicated plan: ✅ | ✅ | ✅ VNet-integrated apps: egress only |
 
-#### Built-in IP restrictions for ingress
+#### IP restrictions for ingress
 
 Typically network traffic restrictions are applied via Layer 4 rules described above. However, in PaaS scenarios of applications *without* virtual network integration, it can be useful to restrict traffic on the application layer.
 
@@ -335,9 +335,10 @@ Container Apps and Web App for Containers provide built-in source IP restriction
 
 | | Container Apps| AKS | Web App for Containers|
 |---|--|--|--|
-| **Built-in ingress IP restrictions** | ✅ | Shared or self-managed | ✅ |
+| **Ingress IP restrictions on application layer** | Out of the box | Self-managed or via managed add-on | Out of the box |
+| **Resource consumption** | - | Consumes cluster resources | - |
 
-For AKS workloads, implementation depends on the chosen ingress controller. This is configurable on the managed [application routing add-on](/azure/aks/app-routing). Keep in mind, however that this scenario is less relevant for AKS and it is recommended to control network traffic via network security groups on the virtual network.
+For AKS workloads, implementation depends on the chosen ingress controller. Both self-managed and the Azure managed [application routing add-on](/azure/aks/app-routing) consume cluster resources.
 
 ## Application-level security
 
