@@ -67,7 +67,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
   - VPN Gateway or an ExpressRoute connection netowrk is used for the hybrid connection to Azure.
   - Azure Firewall provides a managed firewall as a service. The firewall instance resides in its own subnet.
-  - The DNS Private Resolver is deployed on its own network (seperated from the Expressroute Gateway network). The following table lists the parameters that are configured for DNS Private Resolver. For App1 and App2 DNS names, the DNS forwarding rule set is configured.
+  - The DNS Private Resolver is deployed on its own network (separated from the ExpressRoute Gateway network). The following table lists the parameters that are configured for DNS Private Resolver. For App1 and App2 DNS names, the DNS forwarding rule set is configured.
   
   | Parameter | IP address |
   | ----- | ----- |
