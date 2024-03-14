@@ -4301,7 +4301,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/jboss-deployment-red-hat.yml",
-      "redirect_url": "/azure/architecture",
+      "redirect_url": "/azure/developer/java/ee/jboss-eap-on-aro",
       "redirect_document_id": false
     }
   ]
