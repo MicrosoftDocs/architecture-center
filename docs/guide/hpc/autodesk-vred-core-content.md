@@ -80,7 +80,7 @@ The following table provides the details about the testing operating system.
 
 The following Automotive Genesis model is used for testing:
 
-:::image type="content" source="media/autodesk-vred-core/automotive-genesis.png" alt-text="Image of a white car that represents the Automotive Genesis model used for testing." lightbox="media/autodesk-vred-core/automotive-genesis.png" border="false":::
+:::image type="content" source="media/autodesk-vred-core/automotive-genesis.png" alt-text="Screenshot of a white car that represents the automotive model used for testing." lightbox="media/autodesk-vred-core/automotive-genesis.png" border="false":::
 
 | Model Name | Sample size | Render size |
 | --- | --- | --- |
@@ -105,7 +105,7 @@ The following table shows the render time in seconds for various number of nodes
 
 The following graph shows the relative speed increase as the number of nodes increases:
 
-:::image type="content" source="media/autodesk-vred-core/vred-core-performance-nvadsa10v5.png" alt-text="Image of a white car that represents the Automotive Genesis model used for testing." lightbox="media/autodesk-vred-core/vred-core-performance-nvadsa10v5.png" border="false":::
+:::image type="content" source="media/autodesk-vred-core/vred-core-performance-nvadsa10v5.png" alt-text="Graph that shows the relative speed increases for NVadsA10_v5." lightbox="media/autodesk-vred-core/vred-core-performance-nvadsa10v5.png" border="false":::
 
 #### More notes about tests on NVadsA10_v5
 
@@ -125,7 +125,7 @@ The following table shows the render time in seconds for various available NCasT
 
 The following graph shows the relative speed increases as the number of GPU increases:
 
-:::image type="content" source="media/autodesk-vred-core/vred-core-performance-ncast4v3.png" alt-text="Image of a white car that represents the Automotive Genesis model used for testing." lightbox="media/autodesk-vred-core/vred-core-performance-ncast4v3.png" border="false":::
+:::image type="content" source="media/autodesk-vred-core/vred-core-performance-ncast4v3.png" alt-text="Graph that shows the relative speed increases for NCasT4_v3." lightbox="media/autodesk-vred-core/vred-core-performance-ncast4v3.png" border="false":::
 
 #### More notes about tests on NCasT4_v3
 
