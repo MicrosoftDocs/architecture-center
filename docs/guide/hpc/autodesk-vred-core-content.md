@@ -78,11 +78,11 @@ The following table provides the details about the testing operating system.
 | Standard_NVads_A10_v5 | Linux CentOS-HPC 8.1 Gen2 | x64 | AMD EPYC 74F3V (Milan) |
 | Standard_NCas_T4_v3 | Linux CentOS-HPC 8.1 Gen2 | x64 | AMD EPYC 7V12 (Rome) |
 
-The following Automotive Genesis model is used for testing:
+The following Automotive_Genesis model is used for testing:
 
 | Model Name | Sample size | Render size |
 | --- | --- | --- |
-| Automotive Genesis | 2048 | 5100x3300 @ 300 dpi (11x17 inch) |
+| Automotive_Genesis | 2048 | 5100x3300 @ 300 dpi (11x17 inch) |
 
 ### Results on NVadsA10_v5
 
