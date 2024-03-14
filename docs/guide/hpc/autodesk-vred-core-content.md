@@ -80,8 +80,6 @@ The following table provides the details about the testing operating system.
 
 The following Automotive Genesis model is used for testing:
 
-:::image type="content" source="media/autodesk-vred-core/automotive-genesis.png" alt-text="Screenshot of a white car that represents the automotive model used for testing." lightbox="media/autodesk-vred-core/automotive-genesis.png" border="false":::
-
 | Model Name | Sample size | Render size |
 | --- | --- | --- |
 | Automotive Genesis | 2048 | 5100x3300 @ 300 dpi (11x17 inch) |
