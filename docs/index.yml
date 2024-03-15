@@ -496,9 +496,9 @@ additionalContent:
           url: /training/paths/azure-well-architected-framework/
         - title: Introduction to the Well-Architected Framework
           url: /training/modules/azure-well-architected-introduction/
-        - title: Azure fundamentals- Cloud concepts
+        - title: Azure fundamentals - Cloud concepts
           url: /training/paths/microsoft-azure-fundamentals-describe-cloud-concepts
-        - title: Azure fundamentals- Azure architecture and services
+        - title: Azure fundamentals - Azure architecture and services
           url: /training/paths/azure-fundamentals-describe-azure-architecture-services
         - title: Architect infrastructure operations in Azure
           url: /training/paths/architect-infrastructure-operations/
