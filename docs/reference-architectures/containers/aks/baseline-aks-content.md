@@ -635,6 +635,8 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 
 ### AKS cluster updates
 
+Defining an update strategy that is consistent with the business requirements is paramount. Understanding the level of predictability for the date and time when the AKS cluster version or its nodes are updated, and the desired degree of control over what specific image or binary is installed are foundamental aspects that will delineate your AKS cluster update blueprint. Predictability is tied to two main AKS cluster update properties that are the update cadence and maintenance window. Control is whether updates are manually or automatically installed. Organizations with AKS clusters that are not under a strict security regulation might consider weekly or even monthly updates, while the rest must update security-labeled patches as soon as available (daily). Organizations that operate AKS clusters as inmutable infrastructure are not updating them. It means, neither automatic or manual updates are conducted. Instead when a desired update becomes avaible a replica stamp gets deployed and only when the new infrasture instance is ready the old one is drained giving them the highest level of control.
+
 Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
