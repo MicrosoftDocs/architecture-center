@@ -43,6 +43,7 @@ The articles listed here describe the steps for running various HPC applications
 |[Autodesk Civil 3D](civil-3d.yml)|Learn how civil engineers use Civil 3D, for design automation and production, enabling multidisciplinary team coordination.|
 |[Autodesk Inventor](autodesk-inventor.yml)|Learn how Autodesk Inventor provides professional-grade mechanical design, documentation, and product simulation tools.|
 |[Autodesk VRED for HPC on Azure](hpc-autodesk-vred.md)|See how automotive designers and engineers can use Autodesk VRED to create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing.|
+|[Autodesk VRED Core](autodesk-vred-core.yml)|Learn how automotive designers and engineers can use Autodesk VRED Core to create their product presentations, design reviews, and virtual prototypes, particularly for cloud and server-based applications.|
 |[AVL FIRE M](hpc-avl-fire-m.yml)| Learn how the AVL FIRE M computational fluid dynamics (CFD) simulation application performs on an Azure virtual machine.|
 |[Barracuda Virtual Reactor](barracuda-virtual-reactor.yml)|Simulate the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions.|
 |[Engys ELEMENTS](engys-elements.yml)|Solve flow-related problems encountered in automotive design by running Engys ELEMENTS on an Azure Virtual Machine. You can also use ELEMENTS is to analyze the aerodynamics of other vehicles, like high-speed trains, motorcycles, and competition bicycles.|
