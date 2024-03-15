@@ -31,11 +31,11 @@ highlightedContent:
       url: ./changelog.md
       itemType: whats-new
     # Card
-    - title: Well-Architected Framework
+    - title: Well-Architected Framework (WAF)
       url: /azure/architecture/framework
       itemType: how-to-guide
     # Card
-    - title: Cloud Adoption Framework
+    - title: Cloud Adoption Framework (CAF)
       url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
       itemType: how-to-guide
 # productDirectory section (optional)
@@ -224,7 +224,7 @@ conceptualContent:
           text: Databases architecture design
         - url: ./databases/guide/big-data-architectures.yml
           itemType: concept
-          text: Big data architectures
+          text: Big Data architectures
         - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
           itemType: concept
           text: Build a scalable system for massive data
