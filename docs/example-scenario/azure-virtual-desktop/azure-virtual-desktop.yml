@@ -24,6 +24,6 @@ products:
   - entra
   - azure-virtual-network
   - azure-virtual-desktop
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-virtual-desktop.png
+thumbnailUrl: ../../browse/thumbs/azure-virtual-desktop.png
 content: |
    [!include[](azure-virtual-desktop-content.md)]
