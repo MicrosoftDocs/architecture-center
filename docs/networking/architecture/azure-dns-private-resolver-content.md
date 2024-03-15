@@ -71,7 +71,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
 - A shared service network.
    
-  - The DNS Private Resolver is deployed on its own network (separated from the ExpressRoute Gateway network). The following table lists the parameters that are configured for DNS Private Resolver. For App1 and App2 DNS names, the DNS forwarding rule set is configured.
+  - The DNS Private Resolver is deployed in its own virtual network (separated from the hub network where the ExpressRoute Gateway is deployed). The following table lists the parameters that are configured for DNS Private Resolver. For App1 and App2 DNS names, the DNS forwarding rule set is configured.
   
   | Parameter | IP address |
   | ----- | ----- |
@@ -225,6 +225,8 @@ We do suggest not to deploy DNS Private resolver into a virtual network that con
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
+The Azure DNS Private Resolver is a cloud-native service that is highly available and DevOps-friendly. It delivers a reliable and secure DNS solution while maintaining simplicity and zero-maintenance for users.
 
 #### Regional availability
 
