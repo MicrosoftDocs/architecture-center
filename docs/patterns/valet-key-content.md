@@ -100,7 +100,7 @@ Consider a workload that has hundreds of mobile or desktop clients frequently up
 - Added expense for running a compute service that has sufficient resources to deal with currently receiving large files.
 - Potentially slowing up client interactions by adding an extra layer of compute and network hop to the upload process.
 
-Using the valet key pattern addresses the security, cost optimization, and performance concerns.
+Using the Valet Key pattern addresses the security, cost optimization, and performance concerns.
 
 ![Diagram showing a client accessing a storage account after first obtaining an access token from an API.](./_images/valet-key-example.png)
 
