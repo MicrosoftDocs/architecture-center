@@ -97,7 +97,7 @@ Various file transfer, integration, and storage scenarios use different componen
 
 Principal author:
 
- * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwas-839a851a3) | Principal Engineering Architecture Manager
+ * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
  * [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
 ## Next steps
