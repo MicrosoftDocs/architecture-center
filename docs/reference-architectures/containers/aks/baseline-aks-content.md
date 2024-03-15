@@ -633,7 +633,7 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 > [!NOTE]
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
-### Security updates
+### AKS cluster updates
 
 Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 
