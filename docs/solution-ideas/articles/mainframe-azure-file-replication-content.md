@@ -100,7 +100,7 @@ Principal author:
  * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwas-839a851a3) | Principal Engineering Architecture Manager
  * [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
-## Next steps
+## Next Steps
 
 - For more information, contact Azure Data Engineering On-premises Modernization at [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
 - Read the [Azure Database Migration Guides](https://datamigration.microsoft.com).
