@@ -14,7 +14,7 @@ metadata:
     - example-scenario
 name: Multiple forests with AD DS and Microsoft Entra ID 
 azureCategories:
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 summary: This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.
 products:
   - azure-virtual-desktop

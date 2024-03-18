@@ -14,13 +14,13 @@ metadata:
     - example-scenario
 name: Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services
 azureCategories:
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 summary: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Microsoft Entra Domain Services.
 products:
   - entra-id
   - entra
   - azure-files
   - azure-virtual-desktop
-thumbnailUrl: /azure/architecture/browse/thumbs/wvd-multi-forest-aadds-thumb.png
+thumbnailUrl: ../../browse/thumbs/azure-virtual-desktop-multi-forest-aadds-thumb.png
 content: |
    [!include[](multi-forest-azure-managed-content.md)]
