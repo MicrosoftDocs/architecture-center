@@ -477,7 +477,7 @@ To enable updates over previously cached data, the HTTP protocol supports an opt
 
 - If the resource to be updated no longer exists then the web API should return an HTTP response with the status code of 404 (Not Found).
 
-- The client uses the status code and response headers to maintain the cache. If the data has been updated (status code 204) then the object can remain cached (as long as the Cache-Control header does not specify no-store) but the ETag should be updated. If the data was changed by another user changed (status code 412) or not found (status code 404) then the cached object should be discarded.
+- The client uses the status code and response headers to maintain the cache. If the data has been updated (status code 204) then the object can remain cached (as long as the Cache-Control header does not specify no-store) but the ETag should be updated. If the data was changed by another user (status code 412) or not found (status code 404) then the cached object should be discarded.
 
 The next code example shows an implementation of the PUT operation for the Orders controller:
 
