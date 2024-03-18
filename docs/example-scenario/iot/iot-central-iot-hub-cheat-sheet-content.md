@@ -122,4 +122,4 @@ The following table shows the level of support for various capabilities in IoT C
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Project 15 sustainability open platform](../../solution-ideas/articles/project-15-iot-sustainability.yml)
 - [IoT connected light, power, and internet](../../solution-ideas/articles/iot-power-management.yml)
-- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)

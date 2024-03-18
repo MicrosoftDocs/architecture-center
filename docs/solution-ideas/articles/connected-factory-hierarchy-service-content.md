@@ -171,8 +171,8 @@ Principal author:
 
 ## Related resources
 
-- [Predictive maintenance for Industrial IoT](iot-predictive-maintenance.yml)
-- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.yml)
+- [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)
