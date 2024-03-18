@@ -2342,8 +2342,6 @@ items:
         href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: Condition monitoring
-        href: solution-ideas/articles/condition-monitoring.yml
       - name: COVID-19 solutions
         items:
         - name: Cognizant Safe Buildings with IoT
@@ -2362,8 +2360,6 @@ items:
         href: solution-ideas/articles/data-storage-edge.yml
       - name: Light and power for emerging markets
         href: solution-ideas/articles/iot-power-management.yml
-      - name: Predictive maintenance
-        href: solution-ideas/articles/iot-predictive-maintenance.yml
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
@@ -4338,8 +4334,6 @@ items:
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Condition monitoring
-        href: solution-ideas/articles/condition-monitoring.yml
       - name: Connected factory hierarchy service
         href: solution-ideas/articles/connected-factory-hierarchy-service.yml
       - name: Connected factory signal pipeline
