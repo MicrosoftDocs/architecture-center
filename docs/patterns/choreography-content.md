@@ -59,9 +59,9 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the choreography pattern with the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation). When a client requests a pickup, the app assigns a drone and notifies the client.
+This example shows the choreography pattern based on the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation). When a client requests a pickup, the app assigns a drone and notifies the client. The microservices reference implementation is implementing the Orchestrator pattern and in this example the app is re-designed to implement the Choreography pattern instead.
 
-![GitHub logo](../_images/github.png) An example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
+![GitHub logo](../_images/github.png) The code example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
 
 ![A close up of a map Description automatically generated](./_images/choreography-example.png)
 
