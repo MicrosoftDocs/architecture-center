@@ -4065,6 +4065,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/service-fabric/modernize-app-azure-service-fabric.yml",
+      "redirect_url": "/previous-versions/azure/architecture/service-fabric/modernize-app-azure-service-fabric",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/networking/prefixes/add-ip-space-peered-vnet.yml",
       "redirect_url": "/azure/virtual-network/update-virtual-network-peering-address-space",
       "redirect_document_id": false

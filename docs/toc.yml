@@ -1636,8 +1636,6 @@ items:
           items:
           - name: Migrate monolith to microservices
             href: microservices/migrate-monolith.yml
-          - name: Modernize apps with Service Fabric
-            href: service-fabric/modernize-app-azure-service-fabric.yml
         - name: .NET microservices
           items:
           - name: Design a microservice-oriented app
