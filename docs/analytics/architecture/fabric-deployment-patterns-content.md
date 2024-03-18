@@ -62,9 +62,9 @@ When you provision a single Fabric capacity and attach a single workspace to it,
 - [Workspace limitations](/fabric/get-started/workspaces#considerations-and-limitations) associated with a single workspace apply.
 - [Capacity limitations](/fabric/enterprise/licenses#capacity-license) associated with a given SKU apply.
 
-You might choose to implement this deployment pattern for one (or more) of the following reasons.
+You might choose to implement this deployment pattern for one or more of the following reasons:
 
-- Your organization doesn't have complex engineering requirements, or it has a small user base, or semantic models are small.
+- Your organization doesn't have complex engineering requirements, it has a small user base, or its semantic models are small.
 - Your organization operates in a single region.
 - Organizational separation between business units isn't a primary concern.
 - The workspace-scoped features aren't a challenge, like sharing code repositories with Git.
@@ -75,7 +75,7 @@ You might choose to implement this deployment pattern for one (or more) of the f
 
 The following table presents considerations that could influence your decision to adopt this deployment pattern.
 
-| **Aspect** | **Consideration** |
+| Aspect | Consideration |
 |---|---|
 | **Governance** | &bull;&nbsp;Lower governance mandates and restrictions on the platform. <br/>&bull;&nbsp;Suited to smaller organizations that prefer faster time to market. <br/>&bull;&nbsp;Might present challenges should governance requirements evolve to become more complex. |
 | **Security - Data plane** | &bull;&nbsp;Data can be shared across teams, so there's no need to have restrictions on data between different teams. <br/>&bull;&nbsp;Teams have ownership rights on the semantic models, and they can read, edit, and modify data in OneLake. |
