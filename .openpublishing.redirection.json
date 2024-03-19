@@ -4408,21 +4408,6 @@
       "source_path": "docs/solution-ideas/articles/iot-predictive-maintenance.yml",
       "redirect_url": "/azure/architecture/industries/manufacturing/predictive-maintenance-overview",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/jboss-deployment-red-hat.yml",
-      "redirect_url": "/azure/developer/java/ee/jboss-eap-on-aro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/condition-monitoring.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/iot-predictive-maintenance.yml",
-      "redirect_url": "/azure/architecture/industries/manufacturing/predictive-maintenance-overview",
-      "redirect_document_id": false
     }
   ]
 }
