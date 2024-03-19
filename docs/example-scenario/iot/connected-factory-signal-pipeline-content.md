@@ -170,8 +170,8 @@ Microsoft learning paths:
 ## Related resources
 
 - [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
-- [Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
-- [Condition monitoring for industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
+- [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
 - [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)

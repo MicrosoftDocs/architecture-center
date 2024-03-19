@@ -4,7 +4,7 @@
 
 A typical architectural setup for Azure Virtual Desktop is illustrated in the following diagram:
 
-![Diagram of an Azure Virtual Desktop service architecture.](images/windows-virtual-desktop.png)
+![Diagram of an Azure Virtual Desktop service architecture.](images/azure-virtual-desktop.png)
 
 _Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of this architecture._
 

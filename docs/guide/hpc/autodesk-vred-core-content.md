@@ -80,6 +80,8 @@ The following table provides the details about the testing operating system.
 
 The following Automotive_Genesis model is used for testing:
 
+:::image type="content" source="media/autodesk-vred-core/automotive-genesis.png" alt-text="Screenshot of a white car that represents the automotive model used for testing." lightbox="media/autodesk-vred-core/automotive-genesis.png" border="false":::
+
 | Model Name | Sample size | Render size |
 | --- | --- | --- |
 | Automotive_Genesis | 2048 | 5100x3300 @ 300 dpi (11x17 inch) |
@@ -134,7 +136,7 @@ The following graph shows the relative speed increases as the number of GPU incr
 
 For these cost calculations, only model rendering time is considered. Application installation time isn't considered. The calculations are indicative of your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-For details about the cost consumption on various SKUs considered for validation, see [Summary](#summary).
+The following paragraph provides details about the cost consumption on various SKUs:
 
 ### NVadsA10_v5 series (NVIDIA A10 GPU)
 

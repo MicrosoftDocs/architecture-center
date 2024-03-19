@@ -49,7 +49,7 @@ For the remainder of this article, you're going to learn about solutions for the
 Cost implications are discussed, but the primary goal is providing an effective geo disaster recovery deployment with minimal data loss.
 For more BCDR details, see the following resources:
 
-- [BCDR considerations for Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
+- [BCDR considerations for Virtual Desktop](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery)
 - [Virtual Desktop disaster recovery](/azure/virtual-desktop/disaster-recovery)
 
 ## Prerequisites
@@ -393,13 +393,13 @@ Other contributors:
 ## Next steps
 
 - [Azure Virtual Desktop disaster recovery plan](/azure/virtual-desktop/disaster-recovery)
-- [BCDR for Azure Virtual Desktop - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
+- [BCDR for Azure Virtual Desktop - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery)
 - [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt)
 
 ## Related resources
 
 - [Design reliable Azure applications](/azure/well-architected/resiliency/app-design)
 - [Azure files accessed on-premises and secured by AD DS](../hybrid/azure-files-on-premises-authentication.yml)
-- [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](azure-virtual-desktop.yml)
 - [Enterprise file shares with disaster recovery](../file-storage/enterprise-file-shares-disaster-recovery.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)

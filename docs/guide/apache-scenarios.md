@@ -69,7 +69,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Master data management with Azure and CluedIn](../databases/architecture/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations. CluedIn can take input data from Hadoop.| Databases|
 |[Materialized View pattern](../patterns/materialized-view.yml)|Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for your required query operations. Use Hadoop for a big data storage mechanism that supports indexing.| Databases|
 |[Predict loan charge-offs with HDInsight Spark](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)|Use HDInsight and machine learning to predict the likelihood of loans getting charged off. HDInsight supports Hadoop.| Databases|
-|[Predictive maintenance for industrial IoT](../solution-ideas/articles/iot-predictive-maintenance.yml)|Connect devices that use the Open Platform Communications Unified Architecture standard to the cloud, and use predictive maintenance to optimize production. Use HDInsight with Hadoop to visually transform data.| IoT|
 
 ## Apache HBase
 

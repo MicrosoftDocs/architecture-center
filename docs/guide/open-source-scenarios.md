@@ -32,7 +32,7 @@ categories:
   - mobile
   - security
   - networking
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 ms.custom:
   - fcp
   - devx-track-terraform

@@ -34,12 +34,12 @@ If you're new to virtual desktops on Azure, the best way to learn more is [Micro
 
 ## Path to production
 
-Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/wvd), and check out the other articles below that one in the table of contents.
+Cloud Adoption Framework for Azure provides an end-to-end scenario to guide you through your virtual desktop migration or deployment. Start with [Migrate or deploy Azure Virtual Desktop instances to Azure](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop), and check out the other articles below that one in the table of contents.
 
 These are two more key Cloud Adoption Framework articles:
 
-- [Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/wvd/plan)
-- [Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/wvd/ready)
+- [Azure Virtual Desktop planning](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/plan)
+- [Azure Virtual Desktop Azure landing zone review](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready)
 
 See [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) for a high-level overview of the network connections used by Azure Virtual Desktop.
 
@@ -59,12 +59,12 @@ The following sections, organized by category, provide links to example scenario
 
 - [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Multiple forests with AD DS and Microsoft Entra ID](../../example-scenario/wvd/multi-forest.yml)
-- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Multiple forests with AD DS and Microsoft Entra ID](../../example-scenario/azure-virtual-desktop/multi-forest.yml)
+- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
 
-- [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
 ### FSLogix
 
@@ -85,7 +85,7 @@ Get the [latest updates on Azure Virtual Desktop technologies](https://azure.mic
 These are some additional articles about Azure Virtual Desktop:
 
 - [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml)
+- [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)
 - [Deploy Esri ArcGIS Pro in Azure Virtual Desktop](../../example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)
 
 ### AWS professionals
