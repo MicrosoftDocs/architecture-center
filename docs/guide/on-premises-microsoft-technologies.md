@@ -17,7 +17,7 @@ categories:
   - mobile
   - hybrid
   - identity
-  - windows-virtual-desktop
+  - azure-virtual-desktop
   - web
   - networking
   - management-and-governance
@@ -54,8 +54,8 @@ For information about solutions in which Azure services integrate with the other
 |[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization on Azure.|Identity|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server. Windows Server hosts Active Directory services for service and machine accounts.| Hybrid|
 |[Integrate on-premises Active Directory with Azure](../reference-architectures/identity/index.yml) |Compare options for integrating your on-premises Active Directory environment with an Azure network.|Identity|
-|[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/wvd/multi-forest.yml)|Create multiple Active Directory forests by using Azure Virtual Desktop.|Virtual Desktop|
-|[Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/wvd/multi-forest-azure-managed.yml) |Create multiple Active Directory forests by using Azure Virtual Desktop and AD DS.|Virtual Desktop|
+|[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)|Create multiple Active Directory forests by using Azure Virtual Desktop.|Virtual Desktop|
+|[Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml) |Create multiple Active Directory forests by using Azure Virtual Desktop and AD DS.|Virtual Desktop|
 |[On-premises Active Directory domains with Microsoft Entra ID](../reference-architectures/identity/azure-ad.yml) |Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.|Identity|
 |[Use Azure file shares in a hybrid environment](../hybrid/azure-file-share.yml) |Use identity-based authentication to control access to Azure file shares via AD DS users and groups.|Hybrid|
 
