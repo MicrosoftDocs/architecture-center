@@ -96,11 +96,12 @@ Most containerized applications run in Linux containers, which are supported by 
 
 ## Networking considerations
 
-It's important to understand networking design early in your planning processes due to security and compliance constraints and imposed guidelines. In general, the major differences among the Azure services covered in this guide depend on preference, such as extensibility or operational paradigms.
+It's important to understand networking design early in your planning processes due to security and compliance constraints and imposed guidelines. In general, the major differences among the Azure services covered in this guide depend on preference:
 
 - [Container Apps](https://azure.microsoft.com/products/container-apps) is a PaaS offering that provides many Azure-managed networking features, like service discovery and internal managed domains. Workload teams that need a bit more configurability can use workload/dedicated profiles before considering alternatives to maximize their networking options.
-- [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. Workload teams can take advantage of network add-ons provided by Microsoft or can opt to install, manage, and operate network capabilities from the broad Kubernetes ecosystem.
-- [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) is feature of App Service, so the networking concepts, especially private networking integration, are very specific to App Service. This service will be familiar to workload teams that already use App Service. Teams that don't have experience with App Service and that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
+- [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. Workload teams can take advantage of various Azure managed [networking add-ons](/azure/aks/integrations), as well as install and operate any add-ons from the broader Kubernetes ecosystem.
+
+- [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/) is feature of App Service. Thus, the networking concepts, especially private networking integration, are very specific to App Service. This service will be familiar to workload teams that already use App Service. Teams that don't have experience with App Service and that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
 
 Keep in mind that networking is a foundational infrastructure layer. It's often difficult to make changes in design without re-deploying the workload, which can lead to downtime. Therefore, if your workload has specific networking requirements, review this section carefully before you narrow down your Azure container service selection.
 
@@ -205,7 +206,7 @@ Both Container Apps and Web App for Containers support TLS 1.2 for their built-i
 
 With Container Apps and Web App for Containers, Azure fully abstracts away the Layer 4 and Layer 7 load balancers.
 
-AKS uses a shared responsibility model in which Azure manages the underlying Azure infrastructure that the workload team configures by interfacing with the Kubernetes API. For Layer 7 load balancing in AKS, you can choose an Azure-managed options, for example the [AKS managed application routing add-on](/azure/aks/app-routing) or the [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), or deploy and self-manage an ingress controller of your choice.
+In contrast AKS uses a shared responsibility model in which Azure manages the underlying Azure infrastructure that the workload team configures by interfacing with the Kubernetes API. For Layer 7 load balancing in AKS, you can choose an Azure-managed options, for example the [AKS managed application routing add-on](/azure/aks/app-routing) or the [Application Gateway for Containers](/azure/application-gateway/for-containers/overview), or deploy and self-manage an ingress controller of your choice.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
@@ -239,7 +240,7 @@ Both Container Apps and Web App for Containers provide out-of-the-box solutions 
 | **Managed TLS for Azure FQDNs** | Out of the box | N/A | Out of the box |
 | **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | Out of the box or BYO |
 
-AKS requires workload teams to configure their own ingress controllers, configure custom domain names on the cluster and DNS, and manage their own certificates. Although AKS can use the CNCF [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates, and Nginx or Traefik for ingress.
+AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS does not offer managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
 
 ### Mutual TLS
 
@@ -249,7 +250,7 @@ Web App for Containers has built-in mTLS support for incoming client connections
 
 Container Apps also has built-in support for mTLS. It forwards the client certificate to the application in the HTTP header [X-Forwarded-Client-Cert](/azure/container-apps/client-certificate-authorization). You can also easily enable [automatic mTLS for internal communication between apps](/azure/container-apps/networking#mtls) in a single environment.
 
-mTLS in AKS can be implemented through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about), which includes mTLS capabilities for incoming client connections and intra cluster communication between services. Workload teams could also choose to install and manage another service mesh offering from the Kubernetes ecosystem. These options make mTLS implementation in Kubernetes the most flexible.
+Mutual TLS in AKS can be implemented through the [Istio-based service mesh as a managed add-on](/azure/aks/istio-about), which includes mTLS capabilities for incoming client connections and intra cluster communication between services. Workload teams could also choose to install and manage another service mesh offering from the Kubernetes ecosystem. These options make mTLS implementation in Kubernetes the most flexible.
 
 ### Service-specific networking concepts
 
@@ -269,7 +270,7 @@ Failure to address security risks can lead to unauthorized access, data breaches
 
 Most Azure services, including Container Apps, AKS, and Web App for Containers, integrate with key security offerings, including Key Vault and managed identities.
 
-AKS provides more configurability, at the expense of the additional overhead of running a Kubernetes cluster. Although AKS provides unique features like network policies, part of the reason it offers more security features is because its attack surface is larger. For example, AKS surfaces the Kubernetes control plane and virtual machine nodes, which in turn require additional security protection.
+Of the services in this guide, AKS offers the most configurability and extensibility in part by surfacing underlying components, which often can be secured via configuration options. For example, customers can disable local accounts to the Kubernetes API server or turn on automatic updates to underlying nodes via configuration options. 
 
 For a detailed comparison, carefully review the following considerations to ensure that your workload security requirements can be met.
 
@@ -326,13 +327,18 @@ In all scenarios, you can regulate networking communication within the wider vir
 |---|--|--|--|
 | **Network security groups** | Consumption plan: ✅<br>Dedicated plan: ✅ | ✅ | ✅ VNet-integrated apps: egress only |
 
-#### Built-in IP restrictions for ingress
+#### IP restrictions for ingress
 
-Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic on individual applications. If you use AKS, you can leverage the [Kubernetes Service api-resource](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#service-v1-core) to achieve traffic filtering on a per-app basis.  
+Typically network traffic restrictions are applied via Layer 4 rules described above. However, in PaaS scenarios of applications *without* virtual network integration, it can be useful to restrict traffic on the application layer.
 
-| | Container Apps| AKS| Web App for Containers|
+Container Apps and Web App for Containers provide built-in source IP restrictions for ingress traffic on individual applications.
+
+| | Container Apps| AKS | Web App for Containers|
 |---|--|--|--|
-| **Built-in ingress IP restrictions** | ✅ | ❌ | ✅ |
+| **Ingress IP restrictions on application layer** | Out of the box | Self-managed or via managed add-on | Out of the box |
+| **Resource consumption** | - | Consumes cluster resources | - |
+
+For AKS workloads, implementation depends on the chosen ingress controller. Both self-managed and the Azure managed [application routing add-on](/azure/aks/app-routing) consume cluster resources.
 
 ## Application-level security
 
@@ -356,15 +362,11 @@ For more information, see:
 
 ### Managed identity support
 
-It's a best practice to use managed identities to access Azure resources without using secrets. For example, you can pull images from Azure Container Registry without using a user name and password.
-
-Azure container services provide managed identity support for the purpose of authenticating to Azure resources. For Container Apps and Web App for Containers, managed identity can be used for both control plane access to Azure resources, such as Azure Container Registry, and workload code access to Microsoft identity platform protected resources. AKS provides integrated managed identity support for the Kubernetes control plane to perform Azure resource control (such as managing the associated virtual machine scale sets), accessing container registry images, and cluster add-ons. Managed identity for workload code is configured by workload teams through the [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) feature.
+Applications with assigned managed identities can access Azure resources without passwords. All container services mentioned in this guide support managed identities.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Infrastructure managed identity support** | N/A | ✅ | N/A |
-| **Container-pull managed identity support** | ✅ | ✅ | ✅ |
-| **Application managed identity support** | ✅ | ✅ | ✅ |
+| **Managed identity support** | ✅ | ✅ | ✅ |
 
 For more information, see:
 
@@ -376,7 +378,7 @@ For more information, see:
 
 Threat protection against vulnerabilities is also important. It's a best practice to use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction). Vulnerability assessments are supported in Azure container registries, so they can be used by any Azure container service, not just the ones described in this article. Defender for Containers runtime protection, however, is available only for AKS.
 
-As AKS exposes the native Kubernetes API, it also supports security tooling from the Kubernetes ecosystem. Container Apps and Web App for Containers only supports built-in features and Microsoft Defender offerings.
+As AKS exposes the native Kubernetes API, cluster security also can be evaluated with Kubernetes specific security tooling from the Kubernetes ecosystem.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
@@ -388,7 +390,7 @@ Note that container image vulnerability assessments aren't real-time scans. The 
 
 ## Security baselines
 
-In general, most Azure container services integrate Azure security offerings. AKS has more extensive guidelines, in part because its attack surface is larger. Overall, keep in mind that a security feature set is just a small part of implementing cloud security. For more information about implementing security for container services, see the following service-specific security baselines:
+In general, most Azure container services integrate Azure security offerings.  Overall, keep in mind that a security feature set is just a small part of implementing cloud security. For more information about implementing security for container services, see the following service-specific security baselines:
 
 - [Azure security baseline for Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline)
 - [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline)
@@ -406,13 +408,11 @@ For more complete security guidance about AKS, see [Well-Architected Framework r
 
 To successfully run a workload in production, teams need to implement operational excellence practices, including centralized logging, monitoring, scalability, regular updates and patching, and image management.
 
-In general, AKS provides the most configurability and therefore the most diversity and complexity for operational tasks. Azure assumes many operational responsibilities, such as updates, for offerings like Container Apps and Web App for Containers.
-
 ### Updates and patches
 
-You need to ensure that your application's underlying OS is updated and regularly patched. Keep in mind, however, that with every update there's a risk of failure. This section and the next one describe the main considerations for the three container services with regard to the shared responsibility between the customer and the platform.
+It is important that an application's underlying OS is updated and regularly patched. Keep in mind, however, that with every update there's a risk of failure. This section and the next one describe the main considerations for the three container services with regard to the shared responsibility between the customer and the platform.
 
-As a managed Kubernetes service, AKS will provide the updated images for the node OS and control plane components. But cluster operators are responsible for applying updates to their clusters. You can manually trigger updates or use the [cluster auto-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure clusters are up to date. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
+As a managed Kubernetes service, AKS will provide the updated images for the node OS and control plane components. But workload teams are responsible for applying updates to their clusters. You can manually trigger updates or leverage the [cluster auto-upgrade channels](/azure/aks/auto-upgrade-cluster) feature to ensure your clusters are up to date. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
 Container Apps and Web App for Containers are PaaS solutions. Azure is responsible for managing updates and patches, so customers can avoid the complexity of AKS upgrade management.
 
@@ -585,7 +585,7 @@ Health checks are easiest to [implement in Web App for Containers](/azure/app-se
 - It sends the health check at one-minute intervals. You can't change the interval.
 - The minimum threshold that you can set for an unhealthy instance to be removed from the internal load balancing mechanism is two minutes. The unhealthy instance gets traffic for at least two minutes after it fails a health check. The default value for this setting is 10 minutes.
 
-Container Apps and AKS, on the other hand, are much more flexible and offer similar options. In terms of some specific differences, AKS provides the following non-exhaustive options for performing health checks, which are not available in Container Apps:
+Container Apps and AKS, on the other hand, are much more flexible and offer similar options. In terms of specific differences, AKS provides the following options for performing health checks, which are not available in Container Apps:
 
 - [gRPC support](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-grpc-liveness-probe)
 - [Named ports](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#use-a-named-port)
@@ -604,11 +604,9 @@ The ability to deploy and replace applications without causing any downtime for 
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Zero-downtime strategy** | Rolling update | Rolling update and all other Kubernetes strategies | Slots |
+| **Zero-downtime strategy** | [Rolling update](/azure/container-apps/revisions#zero-downtime-deployment) | [Rolling update, plus all other Kubernetes strategies](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) | [Deployment slots](/azure/app-service/deploy-staging-slots) |
 
-- **Web App for Containers**: Web App for Containers implements [slots](/azure/app-service/deploy-staging-slots), which are placeholders in which you can deploy new versions of your containers and test them before sending them to the production slot. Each slot has its own host name, configuration, and binaries. However, this feature needs to be implemented and isn't configured out-of-the-box.
-- **AKS**: The default deployment strategy in Kubernetes is called [rolling update](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/). The process starts a new instance of your container in parallel with the existing one. The old one is removed only after the new one starts, so there's no downtime. You can also choose [other deployment strategies that are available in Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy).
-- **Container Apps**: By default, any container that's deployed to Container Apps has [zero downtime](/azure/container-apps/revisions#zero-downtime-deployment). The implementation works like a Kubernetes rolling update. You also have the option to validate and test containers before you send them to production by using [direct revision access](/azure/container-apps/revisions#direct-revision-access).
+Please note that the application architectures must also support zero-downtime deployment. See [Azure Well-Architected Framework](/azure/well-architected/) for guidance.
 
 ### Resource limits
 
@@ -636,7 +634,7 @@ Well-architected solutions set the foundations for successful workloads. Althoug
 
 In general, when you compare Azure container services, a theme emerges: AKS surfaces the most underlying infrastructure, thus offering the greatest configurability and extensibility. The amount of operational overhead and complexity is highly variable for AKS workloads. Some teams can greatly reduce the operational overhead by using Microsoft managed add-ons and extensions, as well as auto-upgrade features. Other customers may prefer full control of the cluster in order to leverage full extensibility of Kubernetes and the CNCF ecosystem. For example, although Microsoft offers Flux as a managed GitOps extension, many teams choose instead to setup and operate ArgoCD on their own.
 
-Workload teams, for example, that have less operations experience, prefer to focus on application features, or do not have a need for open-source software and fully portable systems might benefit from starting with a pure PaaS offering. We recommend that they first consider Container Apps.
+Workload teams that, for example, do not require CNCF applications, have less operations experience or prefer to focus on application features might prefer a PaaS offering. We recommend that they first consider Container Apps.
 
 Although Container Apps and Web App for Containers are both PaaS offerings that provide similar levels of Microsoft-managed infrastructure, a key difference is that Container Apps is closer to Kubernetes and provides additional cloud-native capabilities for service discovery, event-driven autoscaling, [Dapr](https://dapr.io/) integration, and more. However, teams that don't need these capabilities and are familiar with App Service networking and deployment models might prefer Web App for Containers. 
 
