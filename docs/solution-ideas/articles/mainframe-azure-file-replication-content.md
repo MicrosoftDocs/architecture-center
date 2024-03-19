@@ -10,7 +10,7 @@ The following diagram shows some of the options for replicating and syncing on-p
 
 :::image type="content" border="false" source="../media/mainframe-azure-file-replication.svg" alt-text="Diagram showing the three steps of migrating on-premises files to Azure: transferring, conversion and transformation, and storing in persistent storage." lightbox="../media/mainframe-azure-file-replication.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication-updated.vsdx) of this architecture.*
 
 ### Dataflow
 
