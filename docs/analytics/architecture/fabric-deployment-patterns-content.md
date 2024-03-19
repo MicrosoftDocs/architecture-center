@@ -1,5 +1,3 @@
-## Deployment patterns for Microsoft Fabric
-
 This article describes four deployment patterns that you can choose from when you deploy Microsoft Fabric. Learn about considerations, recommendations, and potential nonreversible decisions for each deployment pattern.
 
 The following design areas are outlined for each Fabric deployment pattern:
@@ -12,7 +10,7 @@ The following design areas are outlined for each Fabric deployment pattern:
 - Performance and scale
 - Billing and cost management
 
-### Levels in a Fabric deployment
+## Levels in a Fabric deployment
 
 A Fabric deployment has four levels: [tenant](/fabric/enterprise/licenses#tenant), [capacity](/fabric/get-started/workspaces), [workspace](/fabric/get-started/workspaces), and [item](/fabric/get-started/fabric-home). At the top level is the Fabric tenant. Each tenant can have one or more capacities, each capacity can contain one or more workspaces, and each workspace can contain zero or more Fabric items.
 
@@ -24,7 +22,7 @@ In Fabric, a large organization that has business units in separate geographical
 
 For more information about Fabric levels and their role in choosing a deployment pattern, see [Microsoft Fabric concepts and licenses](/fabric/enterprise/licenses).
 
-### How Fabric deployment patterns align
+## How Fabric deployment patterns align
 
 All Fabric deployment patterns:
 
