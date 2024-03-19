@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - reference-architecture
     - internal-intro
+    - linux-related-content
 name: Run a Linux VM on Azure
 azureCategories:
   - compute

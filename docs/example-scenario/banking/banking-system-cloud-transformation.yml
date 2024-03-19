@@ -15,6 +15,7 @@ metadata:
     - cse
     - example-scenario
     - internal-intro
+    - linux-related-content
 name: Banking system cloud transformation on Azure
 azureCategories:
   - devops
