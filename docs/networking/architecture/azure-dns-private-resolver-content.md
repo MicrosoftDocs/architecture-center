@@ -66,7 +66,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
 - A hub network.
 
-  - VPN Gateway or an ExpressRoute connection netowrk is used for the hybrid connection to Azure.
+  - VPN Gateway or an ExpressRoute connection is used for the hybrid connection to Azure.
   - Azure Firewall provides a managed firewall as a service. The firewall instance resides in its own subnet.
 
 - A shared service network.
