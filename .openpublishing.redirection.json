@@ -4394,7 +4394,7 @@
       "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-cicd-gitops-disciplines",
       "redirect_document_id": false
     },
-    }
+    {
       "source_path": "docs/solution-ideas/articles/jboss-deployment-red-hat.yml",
       "redirect_url": "/azure/developer/java/ee/jboss-eap-on-aro",
       "redirect_document_id": false
