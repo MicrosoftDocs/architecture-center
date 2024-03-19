@@ -126,7 +126,6 @@ Learn modules:
 
 - [Architect scalable e-commerce web apps](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
-- [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
 
 <!-- links -->
 

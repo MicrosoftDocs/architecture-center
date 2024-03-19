@@ -50,7 +50,6 @@ The following articles provide detailed analysis of architectures created and re
 |[Governance of Teams guest users](../example-scenario/governance/governance-teams-guest-users.yml)|Learn how to use Microsoft Teams and Microsoft Entra entitlement management to collaborate, while maintaining control over resource use.|Identity|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy the Moodle learning platform with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.| Storage|
 |[Secure research environment for regulated data](../ai-ml/architecture/secure-compute-for-research.yml)|Learn about an architecture created for higher education research institutions. It enables researchers to access sensitive data while providing a high level of control and data protection.| Security|
-|[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Use Azure Lab Services to set up identical virtual labs from templates. Virtual labs are ideal for training and other scenarios.| DevOps|
  
 ## Solution ideas for education
 The following are other ideas that you can use as a starting point for your education solution.

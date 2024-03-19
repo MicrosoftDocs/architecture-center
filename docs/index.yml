@@ -263,9 +263,6 @@ conceptualContent:
         - text: DevOps with containers
           itemType: get-started
           url:  guide/aks/aks-cicd-github-actions-and-gitops.yml
-        - text: Jenkins server
-          itemType: get-started
-          url:  example-scenario/apps/jenkins.yml
 
     - title: Enterprise integration
       links:
