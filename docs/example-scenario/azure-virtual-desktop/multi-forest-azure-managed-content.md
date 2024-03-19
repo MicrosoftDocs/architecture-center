@@ -8,7 +8,7 @@ This solution idea also applies to mergers and acquisitions, organization rebran
 
 ## Architecture
 
-:::image type="content" source="images/wvd-multi-forest-aadds-edited.svg" alt-text="Diagram of Azure Virtual Desktop with Microsoft Entra Domain Services." lightbox="images/wvd-multi-forest-aadds-edited.svg":::
+:::image type="content" source="images/azure-virtual-desktop-multi-forest-aadds-edited.svg" alt-text="Diagram of Azure Virtual Desktop with Microsoft Entra Domain Services." lightbox="images/azure-virtual-desktop-multi-forest-aadds-edited.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/wvd-multi-forest-aadds.vsdx) of this architecture.*
 
@@ -53,7 +53,7 @@ Principal author:
 ## Next steps
 
 - [Multiple Active Directory forests architecture with Azure Virtual Desktop](./multi-forest.yml)
-- [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for enterprises](./azure-virtual-desktop.yml)
 - [Microsoft Entra Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies)
 - [Compare different identity options](/azure/active-directory-domain-services/compare-identity-solutions)
 - [Azure Virtual Desktop documentation](/azure/virtual-desktop)

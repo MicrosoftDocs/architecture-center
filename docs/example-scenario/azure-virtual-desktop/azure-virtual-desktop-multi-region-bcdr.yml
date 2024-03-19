@@ -12,7 +12,7 @@ metadata:
 azureCategories:
   - compute
   - hybrid
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 products:
   - azure-virtual-desktop
 name: Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop

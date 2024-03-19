@@ -133,7 +133,7 @@ Use this pattern when a data store is likely to need to scale beyond the resourc
 
 ## Workload design
 
-An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Sharding pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
