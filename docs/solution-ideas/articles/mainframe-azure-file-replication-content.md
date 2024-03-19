@@ -63,7 +63,7 @@ An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) 
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service you can use to create, schedule, and orchestrate ETL and ELT workflows.
 
-- [Azure Databricks](/products/databricks/) is an Apache Spark-based analytics platform optimized for Azure. You can use Databricks to correlate incoming data, and enrich it with other data stored in Databricks.
+- [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. You can use Databricks to correlate incoming data, and enrich it with other data stored in Databricks.
   
 - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics/) is a fast and flexible cloud data warehouse with a massively parallel processing (MPP) architecture that you can use to scale, compute, and store data elastically and independently.
 
@@ -75,7 +75,7 @@ An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) 
 
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/en-in/services/virtual-machines/sql-server) lifts and shifts your SQL Server workloads to the cloud to combine the flexibility and hybrid connectivity of Azure with SQL Server performance, security, and analytics. You can access the latest SQL Server updates and releases with 100% code compatibility.
 
-- [Azure Database for PostgreSQL]([https://azure.microsoft.com/services/postgresql](https://azure.microsoft.com/en-us/products/mysql/)) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
 
 - [Azure Database for MySQL](https://azure.microsoft.com/en-us/products/mysql/) is a fully managed relational database service based on the community edition of the open-source MySQL database engine.
 
