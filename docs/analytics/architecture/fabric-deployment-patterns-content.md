@@ -56,7 +56,7 @@ When you provision a single Fabric capacity and attach a single workspace to it,
 - All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
 - Features that rely on multiple workspaces, like [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and [lifecycle management](/fabric/cicd/cicd-overview), aren't available.
 - [Limitations](/fabric/get-started/workspaces#considerations-and-limitations) that are associated with a single workspace apply.
-- [Capacity imitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply.
+- [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply.
 
 You might choose to implement this deployment pattern for one or more of the following reasons:
 
@@ -97,7 +97,7 @@ When you provision a single Fabric capacity and attach multiple workspaces to it
 - All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
 - You can use DevOps features that require separate workspaces, like for deployment pipelines and lifecycle management.
 - [Limitations](/fabric/get-started/workspaces#considerations-and-limitations) that are associated with a single workspace apply.
-- [Capacity imitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply.
+- [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply.
 
 You might choose to implement this deployment pattern for one or more of the following reasons:
 
