@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Data Factory baseline architecture
+  titleSuffix: Azure Architecture Center
+  description: Learn how to deploy a reference architecture for Azure Data Factory on Azure Landing Zones.
+  author: claytonsiemens77
+  ms.author: csiemens
+  ms.date: 12/31/2023
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - data-services
+  - storage
+  - networking
+  - security
+products:
+  - azure-data-factory
+  - azure-key-vault
+  - azure-databricks
+  - azure-sql-server
+name: Medallion Lakehouse with Data Factory baseline architecture
+summary: Learn how to deploy a reference architecture for Azure Data Factory on Azure Landing Zones.
+thumbnailUrl:
+content: |
+  [!include[](azure-data-factory-on-azure-landing-zones-baseline-content.md)]

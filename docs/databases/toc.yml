@@ -30,6 +30,8 @@ items:
         items:
         - name: DataOps for modern data warehouse
           href: architecture/dataops-mdw.yml
+        - name: Azure Data Factory on Azure Landing Zones
+          href: architecture/azure-data-factory-on-azure-landing-zones.yml
       - name: Master data management
         items:
         - name: Migrate master data services with CluedIn
