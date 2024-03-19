@@ -38,7 +38,7 @@ This image shows the automated workflow for certificate renewal within the Azure
 
 ![Diagram of the automated workflow for certificate renewal within the Azure ecosystem.](./media/workflow.png)
 
-- **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated Certificates section of the key vault.
+1. **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated Certificates section of the key vault.
   
   While not mandatory, you can set up custom email notifications by tagging the certificate with the recipient's email address. Tagging the certificate helps ensure timely notifications when the renewal process completes. If multiple recipients are necessary, separate their email addresses by a comma or a semicolon. The tag name for this purpose is _Recipient_, and its value is one or more email addresses of the designated administrators.
 
@@ -46,15 +46,15 @@ This image shows the automated workflow for certificate renewal within the Azure
   
   You can integrate built-in notifications with the solution but use a different approach. While built-in notifications can only notify about an upcoming certificate expiration, the tags can send notifications when the certificate renews on the internal CA and when it's available in Key Vault.
 
-- **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the key vault extension, a versatile tool compatible with [Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the key vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
+1. **Key Vault extension configuration:** You must equip the servers that need to use the certificates with the key vault extension, a versatile tool compatible with [Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) and [Linux](/azure/virtual-machines/extensions/key-vault-linux) systems. Azure infrastructure as a service (IaaS) servers and on-premises or other cloud servers that integrate through [Azure Arc](/azure/azure-arc/overview) are supported. Configure the key vault extension to periodically poll Key Vault for any updated certificates. The polling interval is customizable and flexible so it can align with specific operational requirements.
 
-- **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
+1. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
 
-- **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, for example, if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process helps make the solution robust.
+1. **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, for example, if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process helps make the solution robust.
   
    To enhance the solution's resiliency, set up a [dead-letter location](/azure/event-grid/manage-event-delivery#set-dead-letter-location) mechanism. It manages potential errors that might occur during the messages transit from Event Grid to the subscription targets, the storage queue, and the webhook.
 
-- **Storage account queue:** The runbook launches within the CA server configured as an Automation hybrid runbook worker. It receives all messages in the storage account queue that contain the name of the expiring certificate and the key vault that hosts the runbook. The following steps occur for each message in the queue.
+1. **Storage account queue:** The runbook launches within the CA server configured as an Automation hybrid runbook worker. It receives all messages in the storage account queue that contain the name of the expiring certificate and the key vault that hosts the runbook. The following steps occur for each message in the queue.
 
 1. **Certificate renewal:** The script in the runbook connects to Azure to retrieve the certificate's template name that you set up during generation. The template is the configuration component of the certification authority that defines the attributes and purpose of the certificates to be generated.
 
