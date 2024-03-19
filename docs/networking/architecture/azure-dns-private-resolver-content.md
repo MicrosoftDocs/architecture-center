@@ -220,7 +220,7 @@ This solution simplifies private DNS resolution in hybrid networks. It applies t
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-We do suggest not to deploy DNS Private resolver into a virtual network that contains ExpressRoute Gateway – You can read more at [About ExpressRoute virtual network gateways](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub). 
+Microsoft recommends against deploying a DNS Private resolver into a virtual network that contains an ExpressRoute Gateway – You can read more at [About ExpressRoute virtual network gateways](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways#gwsub). 
 
 ### Reliability
 
