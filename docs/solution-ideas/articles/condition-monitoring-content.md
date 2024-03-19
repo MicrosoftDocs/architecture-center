@@ -63,7 +63,7 @@ Manufacturers can monitor their equipment's key parameters to discover anomalies
 
 ## Related resources
 
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
+- [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
 - [IoT and data analytics](../..//example-scenario/data/big-data-with-iot.yml)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
