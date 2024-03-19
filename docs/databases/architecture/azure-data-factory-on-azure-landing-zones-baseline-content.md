@@ -166,15 +166,15 @@ This architecture addresses security via configuration of the infrastructure sel
 This architecture addresses cost optimization with:
 - Strongly linking component SKU selection to the requirements, avoiding the "built it and they will come" anti-pattern. Scheduling in regular reviews of metrics to enable ["right-sizing"](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Microsoft Copilot for Azure](/azure/copilot/analyze-cost-management) for further guidance.
 - As part of a broader [FinOps framework](/azure/cost-management-billing/finops/overview-finops), implementing the various OPEX saving benefits, such as:
-  - [Azure Reservations](azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, for the maximum term across the solution.
+  - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, for the maximum term across the solution.
   - ADF [Reserved capacity](/azure/data-factory/data-flow-reserved-capacity-overview) for data flows.
   - Log Analytics [Commitment tiers](/azure/azure-monitor/logs/cost-logs).
 - Component configuration, accepting the trade-off between cost savings and instantaneous response:
   - Databricks [Serverless compute](/azure/databricks/serverless-compute/).
   - Storage Account - [Access Tiers](/azure/storage/blobs/access-tiers-overview), automated via [Lifecycle Policies](/azure/storage/blobs/lifecycle-management-overview) configuration. Noting that the [Archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier) cannot be used within the Delta Lake.   
-  - Log Analytics Workspaces for [data retention and archiving](azure/azure-monitor/best-practices-logs#:~:text=different%20pricing%20tiers.-,Configure%20data%20retention%20and%20archiving.,-There%20is%20a) and [Azure Monitor](/azure/azure-monitor/best-practices-cost). 
-- Using [Azure Hybrid Benefit](azure/azure-sql/virtual-machines/windows/pricing-guidance?view=azuresql) for SQL Server lower licensing costs.
-- Implementing cost and budget alerting via [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending), along with [spending guardrails](azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
+  - Log Analytics Workspaces for [data retention and archiving](/azure/azure-monitor/best-practices-logs#:~:text=different%20pricing%20tiers.-,Configure%20data%20retention%20and%20archiving.,-There%20is%20a) and [Azure Monitor](/azure/azure-monitor/best-practices-cost). 
+- Using [Azure Hybrid Benefit](/azure/azure-sql/virtual-machines/windows/pricing-guidance?view=azuresql) for SQL Server lower licensing costs.
+- Implementing cost and budget alerting via [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending), along with [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
 
 ### Operational Efficiency
 

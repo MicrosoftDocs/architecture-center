@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - data-services
+  - databases
   - storage
   - networking
   - security
@@ -18,9 +18,9 @@ products:
   - azure-data-factory
   - azure-key-vault
   - azure-databricks
-  - azure-sql-server
+  - azure-sql-database
 name: Medallion Lakehouse with Data Factory baseline architecture
 summary: Learn how to deploy a reference architecture for Azure Data Factory on Azure Landing Zones.
-thumbnailUrl:
+thumbnailUrl: /azure/architecture/browse/thumbs/ADF-ALZ-Medallion-Initial.png
 content: |
   [!include[](azure-data-factory-on-azure-landing-zones-baseline-content.md)]

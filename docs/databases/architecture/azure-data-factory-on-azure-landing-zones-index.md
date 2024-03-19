@@ -44,8 +44,8 @@ This free online resource provides interactive training that includes knowledge 
 For product documentation; 
 
 - [Azure Data Factory](/azure/data-factory/) 
-- [Azure Databricks](azure/databricks/) 
-- [Azure SQL Server](/azure/azure-sql/?view=azuresql) 
+- [Azure Databricks](/azure/databricks/) 
+- [Azure SQL Server](/azure/azure-sql/) 
 - [Power BI](https://learn.microsoft.com/power-bi/)
 
 ## Initial Implementation
@@ -55,28 +55,28 @@ Now that you have a solid understanding of deploying Azure Data Factory for data
 Refer to this baseline architecture that deploys Azure Data Factory instances for data ingestion, Azure Databricks for data processing, and Azure SQL for storing the processed data, all within a single region with zone redundancy.  
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Medallion Lakehouse with Data Factory Initial Implementation](./architectures/azure-data-factory-on-azure-landing-zones-baseline.yml)
+> [Reference architecture: Medallion Lakehouse with Data Factory Initial Implementation](./architecture/azure-data-factory-on-azure-landing-zones-baseline.yml)
 
 ## Enterprise Adoption and Hardening 
 
 Following a typical enterprise adoption and hardening pattern, the deployment of the solution will become part of an enterprise setup. The architecture will be uplifted for the various non-functional requirements (NFRs) and there will be a shift in responsibilities. For example, the solution may use federated resources managed by central teams. Effective communication of your requirements with those teams is crucial to avoid disruptions. 
 
-Refer to this architecture that deploys the baseline in an enterprise deployment, extending the [“Hub and spoke”](/azure-best-practices/hub-spoke-network-topology) topology according to the principles of [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/).  
+Refer to this architecture that deploys the baseline in an enterprise deployment, extending the [“Hub and spoke”](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) topology according to the principles of [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/).  
 
 Some sample requirements that should be communicated with central teams are annotated with "Platform team" notes. 
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Enterprise Hardened Lakehouse with Data Factory](./architectures/adf-alz-enterprise-hardening.yml)
+> [Reference architecture: Enterprise Hardened Lakehouse with Data Factory](./architecture/adf-alz-enterprise-hardening.yml)
 
 
 ## Mission Critical Uplift
 
 The last step in this path, is uplifting an individual solution’s infrastructure and processes to support a mission-critical SLA. Mission-critical is used to describe solutions that either business-critical or safety-critical impacts when unavailable or underperform.  
 
-The Solution must be highly-available, responsive to operational issues, have a consistent level of performance and be highly secure. The key callout out here is to balance performance and resilency with cost optimsation.  
+The Solution must be highly-available, responsive to operational issues, have a consistent level of performance and be highly secure. The key callout out here is to balance performance and resiliency with cost optimization.  
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Mission Critical with Data Factory](./architectures/adf-alz-mission-critical.yml)
+> [Reference architecture: Mission Critical with Data Factory](./architecture/adf-alz-mission-critical.yml)
 
 ## Contributors
 *Microsoft maintains this article. The following contributors originally wrote it.*
