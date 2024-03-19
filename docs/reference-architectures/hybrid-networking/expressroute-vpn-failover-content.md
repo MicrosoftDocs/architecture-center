@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-azurepowershell
----
 This reference architecture shows how to connect an on-premises network to an Azure virtual network by using Azure ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection.
 
 ## Architecture
