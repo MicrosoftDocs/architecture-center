@@ -105,7 +105,9 @@ Principal authors:
 
  * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
  * [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
+ 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.* 
+
 ## Next steps
 
 - For more information, contact [Microsoft SQL Data Engineering team](mailto:datasqlninja@microsoft.com).
