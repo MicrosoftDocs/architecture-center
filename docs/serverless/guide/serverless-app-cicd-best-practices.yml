@@ -10,7 +10,6 @@ metadata:
   ms.subservice: azure-guide
   ms.custom:
     - devx-track-azurecli
-    - linux-related-content
 azureCategories:
   - devops
   - developer-tools
