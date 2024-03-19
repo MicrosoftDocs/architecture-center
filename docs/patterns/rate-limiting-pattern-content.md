@@ -83,7 +83,7 @@ Use this pattern to:
 
 ## Workload design
 
-An architect should evaluate how the Geodes pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Rate Limiting pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |

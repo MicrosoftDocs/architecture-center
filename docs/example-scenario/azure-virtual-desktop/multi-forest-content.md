@@ -1,6 +1,6 @@
 Many organizations want to take advantage of Azure Virtual Desktop to create environments that have multiple on-premises Active Directory forests. 
 
-This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article. It's intended to help you understand how to integrate multiple domains and Azure Virtual Desktop by using [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis).
+This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./azure-virtual-desktop.yml) article. It's intended to help you understand how to integrate multiple domains and Azure Virtual Desktop by using [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## Architecture
 
@@ -23,7 +23,7 @@ In this architecture, the identity flow works as follows:
 
 ### Components
 
-This architecture uses the same [components](./windows-virtual-desktop.yml#components-that-you-manage) as those listed in [Azure Virtual Desktop at enterprise scale architecture](./windows-virtual-desktop.yml).
+This architecture uses the same [components](./azure-virtual-desktop.yml#components-that-you-manage) as those listed in [Azure Virtual Desktop at enterprise scale architecture](./azure-virtual-desktop.yml).
 
 Additionally, this architecture uses the following components:
 
@@ -119,5 +119,5 @@ For more information, see the following articles:
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](./azure-virtual-desktop.yml)
 - [Solution idea: Multiple forests with Microsoft Entra Domain Services](./multi-forest-azure-managed.yml)

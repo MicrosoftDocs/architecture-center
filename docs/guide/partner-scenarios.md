@@ -29,7 +29,7 @@ categories:
   - mobile
   - security
   - networking
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 ms.custom: fcp
 ---
 
@@ -150,7 +150,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[FSLogix configuration examples](/fslogix/concepts-configuration-examples)|Learn how to build virtual desktop infrastructure solutions at enterprise scale by using FSLogix. Azure NetApp Files is recommended for storing profiles.  |Hybrid|
 |[General mainframe refactor to Azure](../example-scenario/mainframe/general-mainframe-refactor.yml)|Learn how to refactor mainframe applications to run more cost-effectively and efficiently on Azure. Azure NetApp Files is recommended for file storage. |Mainframe|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.|Storage|
-|[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/wvd/multi-forest.yml)|Learn how to create multiple Active Directory forests with Azure Virtual Desktop. Azure NetApp Files is one recommended storage solution for the scenario.|Virtual Desktop|
+|[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)|Learn how to create multiple Active Directory forests with Azure Virtual Desktop. Azure NetApp Files is one recommended storage solution for the scenario.|Virtual Desktop|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 |[Refactor mainframe computer systems that run Adabas & Natural](../example-scenario/mainframe/refactor-adabas-aks.yml)|Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud. Azure NetApp Files is used to store persistent data.|Mainframe|
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high-availability, small-scale production environment of SAP BW/4HANA on Azure. Azure NetApp Files is used by a high-availability cluster for shared file storage. |SAP|
