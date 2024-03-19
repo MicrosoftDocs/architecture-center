@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-sap
+    - linux-related-content
 name: Run SAP BW/4HANA with Linux virtual machines on Azure
 azureCategories:
   - databases

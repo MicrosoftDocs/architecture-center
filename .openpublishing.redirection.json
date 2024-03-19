@@ -4065,6 +4065,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/service-fabric/modernize-app-azure-service-fabric.yml",
+      "redirect_url": "/previous-versions/azure/architecture/service-fabric/modernize-app-azure-service-fabric",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/networking/prefixes/add-ip-space-peered-vnet.yml",
       "redirect_url": "/azure/virtual-network/update-virtual-network-peering-address-space",
       "redirect_document_id": false
@@ -4295,6 +4300,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/wvd/windows-virtual-desktop.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/multi-forest-azure-managed.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest-azure-managed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/wvd/multi-forest.yml",
+      "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/multi-forest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml",
       "redirect_url": "/azure/architecture/guide/testing/mission-critical-deployment-testing",
       "redirect_document_id": false
@@ -4337,6 +4362,15 @@
     {
       "source_path": "docs/example-scenario/iot/connected-factory-signal-pipeline.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    }
+    "source_path": "docs/solution-ideas/articles/condition-monitoring.yml",
+    "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/iot-predictive-maintenance.yml",
+      "redirect_url": "/azure/architecture/industries/manufacturing/predictive-maintenance-overview",
       "redirect_document_id": false
     }
   ]

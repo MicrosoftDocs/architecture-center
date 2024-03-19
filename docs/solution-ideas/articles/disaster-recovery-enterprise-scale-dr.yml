@@ -16,7 +16,8 @@ metadata:
     - acom-architecture
     - bcdr
     - e2e-hybrid
-    - "https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr"
+    - 'https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr'
+    - linux-related-content
 name: Enterprise-scale disaster recovery
 azureCategories:
   - management-and-governance

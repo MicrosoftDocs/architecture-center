@@ -17,6 +17,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-sap
+    - linux-related-content
 name: SAP S/4HANA in Linux on Azure
 azureCategories:
   - databases
