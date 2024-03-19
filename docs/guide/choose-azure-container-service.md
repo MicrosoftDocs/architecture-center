@@ -29,7 +29,7 @@ This guide includes two articles: this introduction article and another article 
 > [!note]
 > If you aren't yet committed to containerization, see [Choose an Azure compute service](technology-choices/compute-decision-tree.yml) for information about other compute options that you can use to host your workload.
 
-This introduction article describes the Azure container services that are in scope for this guide and how the service models compare in terms of tradeoffs between control and ease of use, such as customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to evaluate the options against your workload requirements by reviewing the article on [shared considerations](container-service-general-considerations.md) for networking, security, operations, and reliability.
+This introduction article describes the Azure container services that are in scope for this guide and how the service models compare in terms of tradeoffs between configurability and opinionated solutions, such as customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to evaluate the options against your workload requirements by reviewing the article on [shared considerations](container-service-general-considerations.md) for networking, security, operations, and reliability.
 
 This guide takes into consideration tradeoffs that you might need to make, based on the technical requirements, size, and complexity of your workload and the expertise of your workload's team.
 
@@ -42,7 +42,7 @@ This guide focuses on a subset of the container services that Azure currently of
     ![Container Apps logo](media/images/container-apps.png) 
     :::column-end:::
     :::column span="3":::
-    [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy HTTP and non-HTTP apps from code or containers without orchestrating complex infrastructure. For more information, see [Azure Container Apps documentation](/azure/container-apps).
+    [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy HTTP and non-HTTP apps from code or containers without orchestrating infrastructure. For more information, see [Azure Container Apps documentation](/azure/container-apps).
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -50,7 +50,7 @@ This guide focuses on a subset of the container services that Azure currently of
     ![AKS logo](media/images/aks.png)
     :::column-end:::
     :::column span="3":::
-    [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. With AKS, you can take advantage of managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For more information, see [AKS documentation](/azure/aks/). 
+    [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. With AKS, you can take advantage of managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of configurability. For more information, see [AKS documentation](/azure/aks/). 
     :::column-end:::
 :::row-end:::
 :::row:::
