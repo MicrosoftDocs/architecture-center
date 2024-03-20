@@ -5,7 +5,7 @@ metadata:
   description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
   author: angelo-mazzucchi
   ms.author: angelom
-  ms.date: 03/14/2024
+  ms.date: 03/20/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
