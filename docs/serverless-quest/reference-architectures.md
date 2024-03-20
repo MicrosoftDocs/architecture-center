@@ -162,7 +162,6 @@ The following sections list other serverless and Azure Functions-related referen
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Uploading and CDN-preloading static content with Azure Functions](/samples/azure-samples/functions-java-push-static-contents-to-cdn/functions-java-push-static-contents-to-cdn/)
 - [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 
 ### AI + Machine Learning
 

@@ -43,5 +43,3 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Scalable web and mobile applications using Azure Database for PostgreSQL](./scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
-- [Social app for mobile and web with authentication](./social-mobile-and-web-app-with-authentication.yml)
-- [Task-based consumer mobile app](./task-based-consumer-mobile-app.yml)
