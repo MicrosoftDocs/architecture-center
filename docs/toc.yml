@@ -4316,10 +4316,6 @@ items:
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Condition monitoring
-        href: solution-ideas/articles/condition-monitoring.yml
-      - name: Connected factory signal pipeline
-        href: example-scenario/iot/connected-factory-signal-pipeline.yml
       - name: IoT and data analytics in manufacturing
         href: example-scenario/data/big-data-with-iot.yml
       - name: IoT Edge safety and maintenance system
