@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "docs/solution-ideas/articles/custom-mobile-workforce-app.yml",
+      "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml",
+      "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/task-based-consumer-mobile-app.yml",
+      "redirect_url": "/azure/architecture/guide/mobile/mobile-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml",
       "redirect_url": "/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-and-default-modeling",
       "redirect_document_id": false

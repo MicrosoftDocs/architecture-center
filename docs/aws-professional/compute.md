@@ -58,4 +58,3 @@ Principal author:
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Active-passive multi-region App Service web application](../web-apps/app-service/architectures/multi-region.yml)
-- [Social app for mobile and web with authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
