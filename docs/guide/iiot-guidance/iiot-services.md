@@ -51,7 +51,7 @@ Azure Functions helps you:
 - Deploy and operate at scale in the cloud.
 - Integrate Azure services by using triggers and bindings.
 
-For container-based microservices, consider using [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) or [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). For more information, see [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications).
+For container-based microservices, consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). For more information, see [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications).
 
 Regardless of platform choice, you can use [Azure API Management](https://azure.microsoft.com/services/api-management) to create consistent and modern API gateways for microservices. API Management helps you abstract, publish, secure, and version your APIs.
 
@@ -60,7 +60,7 @@ The following sections describe common microservices in Azure IIoT analytics sol
 ### HTTP REST APIs for web applications
 
 - You can create HTTP-triggered Azure Functions to implement your APIs.
-- You can develop and host your REST APIs with Azure Service Fabric or AKS.
+- You can develop and host your REST APIs with Azure Web Apps or AKS.
 
 ### REST API interfaces to factory floor OPC UA servers
 

@@ -1,55 +1,57 @@
 This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 
-![Diagram that contrasts relational database management system and big data solutions.](_images/architecture-design-types.svg)
+![Diagram that contrasts relational database management system and big data solutions.](_images/data-service-classifications.png)
 
-Azure Database solutions include both traditional relational database management system (RDBMS) and big data solutions.
+*Apache®, Apache Cassandra®, and the Hadoop logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+Azure Database solutions include traditional relational database management systems (RDBMS and OLTP), big data and analytics workloads (including OLAP), and NoSQL workloads.
 
 RDBMS workloads include online transaction processing (OLTP) and online analytical processing (OLAP).
 Data from multiple sources in the organization can be consolidated into a data warehouse.
-You can use an extract, transform, and load (ETL) process to move and transform the source data.
+You can use an extract, transform, and load (ETL) or extract, load, and transform (ELT) process to move and transform the source data. For more information on RDBMS Databases, see [Explore Relational Databases in Azure](/training/modules/explore-provision-deploy-relational-database-offerings-azure/).
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of large or complex data.
-Big data solutions typically involve a large amount of non-relational data, which traditional RDBMS systems aren't well suited to store.
-This type of database is referred to as *NoSQL* (not only SQL).
+Big data solutions typically involve a large amount of relational and nonrelational data, which traditional RDBMS systems aren't well suited to store. These typically involve solutions such as Data Lakes, Delta Lakes, and lakehouses. See more information in [Analytics Architecture Design](/azure/architecture/solution-ideas/articles/analytics-start-here).
 
-This article provides resources to learn about Azure databases. It outlines paths to implement the architectures that meet your needs, and best practices to keep in mind as you design your solutions.
+NoSQL databases are interchangeably referred to as *nonrelational*, *NoSQL DBs*, or *non-SQL* to highlight the fact that they can handle huge volumes of rapidly changing, unstructured data. They don't store data in tables, rows, and columns, like (SQL) databases. For more information on No SQL DBs Databases, see [NoSQL Data](/azure/architecture/data-guide/big-data/non-relational-data) and [What are NoSQL Databases?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-nosql-database/).
+
+This article provides resources to learn about Azure databases. It outlines paths to implement the architectures that meet your needs and best practices to keep in mind as you design your solutions.
 
 There are many architectures for you to draw from to address your database needs.
 We also provide solution ideas for you to build on, which include links to all the components you need.
 
 ## Learn about databases on Azure
 
-If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online platform provides videos and tutorials for hands-on learning. Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
+As you start thinking about possible architectures for your solution, it's vital that you choose the correct data store. If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online platform provides videos and tutorials for hands-on learning. Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
 
-[You can browse Azure data modules](/training/browse/?products=azure&terms=database) or use this learning path to understand [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals).
+You can start with a general description of the [different databases](https://azure.microsoft.com/products/category/databases) in Azure and their use. You can also browse [Azure data modules](/training/browse/?products=azure&terms=database) and [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure). These articles help you understand your choices in Azure data solutions and learn why some solutions are recommended in specific scenarios.  
 
 Here are some Learn modules you might find useful:
 
-- [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure)
 - [Design your migration to Azure](/training/modules/design-your-migration-to-azure)
 - [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
 - [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
 - [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database)
+- [Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
+- [Azure Database for MySQL](/azure/mysql/flexible-server/overview-single)
+- [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 ## Path to production
 
 To find options helpful for dealing with relational data, consider these resources:
 
-- To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipeline, see [Extract, transform, and load (ETL)](../data-guide/relational-data/etl.yml).
-- To learn about Online analytical processing (OLAP), which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
-- Online transaction processing systems record business interactions as they occur. For more information, see [Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md).
+- To learn about resources for gathering data from multiple sources and how to and apply data transformations within the data pipelines, see [Analytics in Azure](/azure/architecture/solution-ideas/articles/analytics-start-here).
+- To learn about OLAP, which organizes large business databases and supports complex analysis, see [Online analytical processing](../data-guide/relational-data/online-analytical-processing.yml).
+- To learn about OLTP systems record business interactions as they occur, see [Online transaction processing](../data-guide/relational-data/online-transaction-processing.md).
 
-A *non-relational database* doesn't use the tabular schema of rows and columns. For more information, see [Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
+A *nonrelational database* doesn't use the tabular schema of rows and columns. For more information, see [Nonrelational data and NoSQL](../data-guide/big-data/non-relational-data.yml).
 
 To learn about data lakes, which hold a large amount of data in its native, raw format, see [Data lakes](../data-guide/scenarios/data-lake.md).
 
-A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems.
+A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems. For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml) and [Analytics](/azure/architecture/solution-ideas/articles/analytics-start-here).
 
-- For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml).
-- To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.md).
-- To learn more about Azure Databricks, an Apache Spark–based analytics service for big data analytics and AI solutions, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
-
-A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md).
+A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md) or consider [Azure Arc](/azure/azure-arc/overview) combined with Azure databases.
 
 Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items).
 
@@ -69,18 +71,12 @@ Review these best practices when designing your solutions.
 | [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
-## Azure SQL Database security baselines
-
-Security is a vital part of any database solution.
-
-- [Azure security baseline for Azure SQL Database](/security/benchmark/azure/baselines/sql-database-security-baseline)
-- [Azure security baseline for Azure Database Migration Service](/security/benchmark/azure/baselines/database-migration-security-baseline)
-
 ## Technology choices
 
 There are many options for technologies to use with Azure Databases.
 These articles help you choose the best technologies for your needs.
 
+- [Choose a Data Store](/azure/architecture/guide/technology-choices/data-store-overview)
 - [Choose an analytical data store in Azure](../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)

@@ -43,7 +43,6 @@ Because this solution uses a highly scalable microservices-based architecture, c
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services
 - [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) for Java-based microservices
-- [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) for stateful and stateless microservices
 
 ## Appropriate reliability
 

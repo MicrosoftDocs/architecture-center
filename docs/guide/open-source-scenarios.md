@@ -32,7 +32,7 @@ categories:
   - mobile
   - security
   - networking
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 ms.custom:
   - fcp
   - devx-track-terraform
@@ -102,7 +102,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)|View an architecture pattern that demonstrates low-latency high-throughput ingestion for large volumes of Azure Content Delivery Network logs for building near real-time analytics dashboards. Grafana can be used to build the dashboards.|Analytics|
 |[Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)|See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources. Grafana can be used to build a dashboard for exploring and sharing the data.|DevOps|
 |[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices. Use Grafana to build analytics dashboards.|Analytics|
-|[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation supports use of Grafana for observability on solution components.|Migration|
 |[Long-term security log retention with Azure Data Explorer](../example-scenario/security/security-log-retention-azure-data-explorer.yml)|Store security logs in Azure Data Explorer on a long-term basis. Minimize costs and easily access the data. Use Grafana to build near real-time analytics dashboards.|Analytics|
 |[Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml)|Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments. Use Grafana dashboards for monitoring.|Databases|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Grafana provides monitoring.|SAP|
@@ -135,7 +134,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-[Automated Jupyter notebooks for diagnostics](../example-scenario/data/automating-diagnostic-jupyter-notebook.yml)|Learn how to automate diagnostic or routine notebooks by using an Azure serverless architecture.|DevOps|
 [Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Jupyter Notebook is used to connect to Azure Data Explorer. |Analytics|
 [Choose a data analytics and reporting technology](../data-guide/technology-choices/analysis-visualizations-reporting.md)|Evaluate big-data analytics technology options for Azure, including Jupyter Notebook.|Databases|
 [Citizen AI with Power Platform](../example-scenario/ai/citizen-ai-power-platform.yml)|Learn how to use Azure Machine Learning and Power Platform to quickly create a machine learning proof of concept and production version. Azure Machine Learning provides a hosted Jupyter Notebook environment. |AI|
@@ -200,7 +198,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. Store data in Azure Database for MariaDB.|Mainframe|
 |[Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)|Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure. Azure Database for MariaDB is one recommended relational database.|Mainframe|
 |[Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)|Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization. Azure Database for MariaDB is one recommended relational database.|Mainframe|
-|[Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)|Learn how to use Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress. In this scenario, MariaDB is used as a data store.|Web|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for MariaDB is one example of a relational database.|Databases|
 
 ## MLflow
@@ -270,7 +267,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Prometheus is a core component for monitoring test results.|Migration|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. Azure Monitor, the recommended monitoring tool, can be used to visualize Prometheus metrics.|Containers|
 |[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF. Prometheus captures application metrics. |Containers|
-|[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation supports use of Prometheus for observability on solution components. |Migration|
 |[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)|Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on AKS. Prometheus can be used for cluster monitoring.|Containers|
 |[Monitor a microservices app in AKS](../microservices/logging-monitoring.yml)|Learn best practices for monitoring a microservices application that runs on AKS. Includes information about using Prometheus for metrics when data rates trigger throttling.|Containers|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Prometheus provides monitoring. |SAP|
@@ -281,7 +277,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like PyTorch.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Azure Databricks uses pre-installed, optimized machine learning frameworks, including PyTorch. |AI|
-|[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about PyTorch.|IoT|
 
 ## RabbitMQ
 
@@ -297,7 +292,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[AIX UNIX on-premises to Azure Linux migration](../example-scenario/unix-migration/migrate-aix-azure-linux.yml)|Migrate an on-premises IBM AIX system and web application to a highly available, highly secure Red Hat Enterprise Linux solution in Azure.|Mainframe|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Azure Red Hat OpenShift is used for autoscaling tests. |Containers|
 |[Container orchestration for microservices](../microservices/design/orchestration.yml)|Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health. Review options for microservices container orchestration, including Azure Red Hat OpenShift.|Microservices|
-|[JBoss deployment with Red Hat on Azure](../solution-ideas/articles/jboss-deployment-red-hat.yml)|Learn how the Red Hat JBoss Enterprise Application Platform (JBoss EAP) streamlines and simplifies the development and deployment of a range of applications.|Containers|
 |[Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)|Learn best practices for running a Linux virtual machine on Azure. Azure supports many popular Linux distributions, including Red Hat Enterprise.|Compute|
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery. Use Red Hat Enterprise Linux in multi-node configurations. For high availability, use a Pacemaker cluster on Red Hat Enterprise Linux. |SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability. Red Hat Enterprise Linux is used for a high availability SAP Central Services cluster.|SAP|
@@ -341,7 +335,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like TensorFlow.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models. Azure Databricks uses pre-installed, optimized machine learning frameworks, including TensorFlow.|AI|
-|[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about TensorFlow.|IoT|
 |[Vision classifier model with Azure Cognitive Services Custom Vision](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)|Create an image classifier with a solution architecture that includes Microsoft AirSim Drones simulator, Azure Cognitive Services Custom Vision, and TensorFlow.|AI|
 
 ## Terraform
@@ -359,7 +352,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Gridwich cloud media system](../reference-architectures/media-services/gridwich-architecture.yml)|Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.|Media|
 |[Gridwich CI/CD pipeline](../reference-architectures/media-services/gridwich-cicd.yml)|Learn about the guiding principles and considerations for the Gridwich continuous CD/CD pipeline, including information about Terraform.|Media|
 |[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)|When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.|DevOps|
-|[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation uses JMeter and Terraform to provision and remove the required infrastructure.|Migration|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Terraform is used to deploy the SAP infrastructure into Azure.|SAP|
 |[Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.|Containers|
 |[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. Terraform automates all code and infrastructure deployments.|Security|
@@ -369,12 +361,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)|Run an Umbraco content management system on the Web Apps feature of App Service. Use Azure managed services for a high availability environment.|Web|
-
-## WordPress
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)|Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress.|Web|
 
 ## Related resources
 

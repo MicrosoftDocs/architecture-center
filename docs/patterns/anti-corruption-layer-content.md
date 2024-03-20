@@ -41,7 +41,7 @@ This pattern may not be suitable if there are no significant semantic difference
 
 ## Workload design
 
-An architect should evaluate how the Anti-corruption Layer pattern can be used in their workloads's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+An architect should evaluate how the Anti-corruption Layer pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |

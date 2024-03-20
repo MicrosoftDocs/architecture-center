@@ -32,7 +32,7 @@ Consider the following points when deciding how to implement this pattern:
 
 **Control the level of access the key will provide**. Typically, the key should allow the user to only perform the actions necessary to complete the operation, such as read-only access if the client shouldn't be able to upload data to the data store. For file uploads, it's common to specify a key that provides write-only permission, as well as the location and the validity period. It's critical to accurately specify the resource or the set of resources to which the key applies.
 
-**Consider how to control users' behavior**. Implementing this pattern means some loss of control over the resources users are granted access to. The level of control that can be exerted is limited by the capabilities of the policies and permissions available for the service or the target data store. For example, it's usually not possible to create a key that limits the size of the data to be written to storage, or the number of times the key can be used to access a file. This can result in huge unexpected costs for data transfer, even when used by the intended client, and might be caused by an error in the code that causes repeated upload or download. To limit the number of times a file can be uploaded, where possible, force the client to notify the application when one operation has completed. For example, some data stores raise events the application code can use to monitor operations and control user behavior. However, it's hard to enforce quotas for individual users in a multi-tenant scenario where the same key is used by all the users from one tenant.
+**Consider how to control users' behavior**. Implementing this pattern means some loss of control over the resources users are granted access to. The level of control that can be exerted is limited by the capabilities of the policies and permissions available for the service or the target data store. For example, it's usually not possible to create a key that limits the size of the data to be written to storage, or the number of times the key can be used to access a file. This can result in huge unexpected costs for data transfer, even when used by the intended client, and might be caused by an error in the code that causes repeated upload or download. To limit the number of times a file can be uploaded, where possible, force the client to notify the application when one operation has completed. For example, some data stores raise events the application code can use to monitor operations and control user behavior. However, it's hard to enforce quotas for individual users in a multitenant scenario where the same key is used by all the users from one tenant.
 
 **Validate, and optionally sanitize, all uploaded data**. A malicious user that gains access to the key could upload data designed to compromise the system. Alternatively, authorized users might upload data that's invalid and, when processed, could result in an error or system failure. To protect against this, ensure that all uploaded data is validated and checked for malicious content before use.
 
@@ -78,72 +78,136 @@ This pattern might not be useful in the following situations:
 
 - If it's necessary to limit the size of the data, especially during upload operations. The only solution to this is for the application to check the data size after the operation is complete, or check the size of uploads after a specified period or on a scheduled basis.
 
+## Workload design
+
+An architect should evaluate how the Valet Key pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern enables a client to directly access a resource without needing long-lasting or standing credentials. All access requests start with an auditable transaction. The granted access is then limited in both scope and duration. This pattern also makes it easier to revoke the granted access.<br/><br/> - [SE:05 Identity and access management](/azure/well-architected/security/identity-access) |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This design offloads processing as an exclusive relationship between the client and the resource without adding a component to directly handle all client requests. The benefit is most dramatic when client requests are frequent or large enough to require significant proxy resources.<br/><br/> - [CO:09 Flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Not using an intermediary resource to proxy the access offloads processing as an exclusive relationship between the client and the resource without requiring an ambassador component that needs to handle all client requests in a performant way. The benefit of using this pattern is most significant when the proxy doesn't add value to the transaction.<br/><br/> - [PE:07 Code and infrastructure](/azure/well-architected/performance-efficiency/optimize-code-infrastructure) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
-Azure supports shared access signatures on Azure Storage for granular access control to data in blobs, tables, and queues, and for Service Bus queues and topics. A shared access signature token can be configured to provide specific access rights such as read, write, update, and delete to a specific table; a key range within a table; a queue; a blob; or a blob container. The validity can be a specified time period or with no time limit.
+Azure supports shared access signatures on Azure Storage for granular access control to data in blobs, tables, and queues, and for Service Bus queues and topics. A shared access signature token can be configured to provide specific access rights such as read, write, update, and delete to a specific table; a key range within a table; a queue; a blob; or a blob container. The validity can be a specified time period. This functionality is well suited for using a valet key for access.
 
-Azure shared access signatures also support server-stored access policies that can be associated with a specific resource such as a table or blob. This feature provides additional control and flexibility compared to application-generated shared access signature tokens, and should be used whenever possible. Settings defined in a server-stored policy can be changed and are reflected in the token without requiring a new token to be issued, but settings defined in the token can't be changed without issuing a new token. This approach also makes it possible to revoke a valid shared access signature token before it's expired.
+Consider a workload that has hundreds of mobile or desktop clients frequently uploading large binaries. Without this pattern, the workload has essentially two options. The first is to provide standing access and configuration to all the clients to perform uploads directly to a storage account. The other is to implement the [Gateway Routing pattern](./gateway-routing.yml) to set up an endpoint where clients use proxied access to storage, but this might not be adding additional value to the transaction. Both approaches suffer problems addressed in the pattern context:
 
-Finally, creating shared access signatures can be done with a _user delegation key_ instead of using the Storage account key. This method uses Microsoft Entra ID and supports Blob Storage only. It is the preferred solution when Blob Storage is the only service being accessed.
+- Long lived, preshared secrets. Potentially without much way to provide different keys to different clients.
+- Added expense for running a compute service that has sufficient resources to deal with currently receiving large files.
+- Potentially slowing up client interactions by adding an extra layer of compute and network hop to the upload process.
 
-> For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview).
+Using the Valet Key pattern addresses the security, cost optimization, and performance concerns.
 
-The following code shows how to create a shared access signature token that's valid for five minutes. The `GetSharedAccessReferenceForUpload` method returns a shared access signatures token that can be used to upload a file to Azure Blob Storage.
+![Diagram showing a client accessing a storage account after first obtaining an access token from an API.](./_images/valet-key-example.png)
+
+1. Clients, at the last responsible moment, authenticate to a light weight, scale-to-zero Azure Function hosted API to request access.
+1. The API validates the request and then obtains and returns a time & scope limited SaS token.
+
+   The token generated by the API restricts the client to the following limitations:
+
+   - Which storage account to use. Meaning, the client doesn't need to know this information ahead of time.
+   - A specific container and filename to use; ensuring that the token can be used with, at most, one file.
+   - A short, window of operation, such as three minutes. This short time period ensures that tokens have a TTL that doesn't extend past its utility.
+   - Permissions to only _create_ a blob; not download, update, or delete.
+
+1. That token is then used by the client, within the narrow time window, to upload the file directly to the storage account.
+
+The API generates these tokens to authorized clients using a _user delegation key_ based on the API's own Microsoft Entra ID managed identity. Logging is enabled on both the storage account(s) and the token generation API allow correlation between token requests and token usage. The API can use client authentication information or other data available to it to decide which storage account or container to use, such as in a multitenant situation.
+
+A complete sample is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key). The following code snippets are adapted from that example. This first one shows how the Azure Function (found in **ValetKey.Web**) generates a user delegated shared access signature token using the Azure Function's own managed identity.
 
 ```csharp
-[ApiController]
-public class SasController : ControllerBase
+[Function("FileServices")]
+public async Task<StorageEntitySas> GenerateTokenAsync([HttpTrigger(...)] HttpRequestData req, ..., 
+                                                        CancellationToken cancellationToken)
 {
-  private readonly string blobContainer = "valetkeysample";
-  private readonly string blobEndpoint = "https://<StorageAccountName>.blob.core.windows.net";
+  // Authorize the caller, select a blob storage account, container, and file name.
+  // Authenticate to the storage account with the Azure Function's managed identity.
   ...
-  /// <summary>
-  /// Return a limited access key that allows the caller to upload a file
-  /// to this specific destination for about the next five minutes.
-  /// </summary>
-  private async Task<StorageEntitySas> GetSharedAccessReferenceForUpload(string blobName)
+
+  return await GetSharedAccessReferenceForUploadAsync(blobContainerClient, blobName, cancellationToken);
+}
+
+/// <summary>
+/// Return an access key that allows the caller to upload a blob to this
+/// specific destination for about three minutes.
+/// </summary>
+private async Task<StorageEntitySas> GetSharedAccessReferenceForUploadAsync(BlobContainerClient blobContainerClient, 
+                                                                            string blobName,
+                                                                            CancellationToken cancellationToken)
+{
+  var blobServiceClient = blobContainerClient.GetParentBlobServiceClient();
+  var blobClient = blobContainerClient.GetBlockBlobClient(blobName);
+
+  // Allows generating a SaS token that is evaluated as the union of the RBAC permissions on the managed identity
+  // (for example, Blob Data Contributor) and then narrowed further by the specific permissions in the SaS token.
+  var userDelegationKey = await blobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow.AddMinutes(-3),
+                                                                            DateTimeOffset.UtcNow.AddMinutes(3),
+                                                                            cancellationToken);
+
+  // Limit the scope of this SaS token to the following:
+  var blobSasBuilder = new BlobSasBuilder
   {
-    var blobServiceClient = new BlobServiceClient(new Uri(blobEndpoint), new DefaultAzureCredential());
+      BlobContainerName = blobContainerClient.Name,     // - Specific container
+      BlobName = blobClient.Name,                       // - Specific filename
+      Resource = "b",                                   // - Blob only
+      StartsOn = DateTimeOffset.UtcNow.AddMinutes(-3),  // - For about three minutes (+/- for clock drift)
+      ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(3),  // - For about three minutes (+/- for clock drift)
+      Protocol = SasProtocol.Https                      // - Over HTTPS
+  };
+  blobSasBuilder.SetPermissions(BlobSasPermissions.Create);
 
-    var blobContainerClient = blobServiceClient.GetBlobContainerClient(this.blobContainer);
-    var blobClient = blobContainerClient.GetBlobClient(blobName);
-
-    UserDelegationKey key = await blobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(1));
-
-    var blobSasBuilder = new BlobSasBuilder
-    {
-      BlobContainerName = blobClient.BlobContainerName,
-      BlobName = blobClient.Name,
-      Resource = "b",
-      StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
-      ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
-    };
-    blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
-
-    var storageSharedKeySignature = blobSasBuilder.ToSasQueryParameters(key, blobServiceClient.AccountName).ToString();
-
-    return new StorageEntitySas
-    {
+  return new StorageEntitySas
+  {
       BlobUri = blobClient.Uri,
-      Signature = storageSharedKeySignature
-    };
-  }
-
-  public class StorageEntitySas
-  {
-    public string? Signature { get; internal set; }
-    public Uri? BlobUri { get; internal set; }
-  }
+      Signature = blobSasBuilder.ToSasQueryParameters(userDelegationKey, blobServiceClient.AccountName).ToString();
+  };
 }
 ```
 
-> The complete sample is available in the ValetKey solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key). The ValetKey.Web project in this solution contains a web application that includes the `SasController` class shown above. A sample client application that uses this web application to retrieve a shared access signatures key and upload a file to blob storage is available in the ValetKey.Client project.
+The following snippet is the data transfer object (DTO) used by both the API and the client.
+
+```csharp
+public class StorageEntitySas
+{
+  public Uri? BlobUri { get; internal set; }
+  public string? Signature { get; internal set; }
+}
+```
+
+The client (found in **ValetKey.Client**) then uses the URI and token returned from the API to perform the upload without requiring additional resources and at full client-to-storage performance.
+
+```csharp
+...
+
+// Get the SaS token (valet key)
+var blobSas = await httpClient.GetFromJsonAsync<StorageEntitySas>(tokenServiceEndpoint);
+var sasUri = new UriBuilder(blobSas.BlobUri)
+{
+    Query = blobSas.Signature
+};
+
+// Create a blob client using the SaS token as credentials
+var blob = new BlobClient(sasUri.Uri);
+
+// Upload the file directly to blob storage
+using (var stream = await GetFileToUploadAsync(cancellationToken))
+{
+    await blob.UploadAsync(stream, cancellationToken);
+}
+
+...
+```
 
 ## Next steps
 
 The following guidance might be relevant when implementing this pattern:
 
-- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key).
+- The implementation of the example is available on GitHub at [Valet Key pattern example](https://github.com/mspnp/cloud-design-patterns/tree/main/valet-key).
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
 

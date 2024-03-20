@@ -70,6 +70,16 @@ This pattern might not be useful when:
 
 - The amount of context or state information that's required by a step makes this approach inefficient. You might be able to persist state information to a database, but don't use this strategy if the extra load on the database causes excessive contention.
 
+## Workload design
+
+An architect should evaluate how the Pipes and Filters pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | The single responsibility of each stage enables focused attention and avoids the distraction of commingled data processing.<br/><br/> - [RE:01 Simplicity](/azure/well-architected/reliability/simplify)<br/> - [RE:07 Background jobs](/azure/well-architected/reliability/background-jobs) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 You can use a sequence of message queues to provide the infrastructure that's required to implement a pipeline. An initial message queue receives unprocessed messages that become the start of the pipes and filters pattern implementation. A component that's implemented as a filter task listens for a message on this queue, performs its work, and then posts a new or transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and so on, until the final step that ends the pipes and filters process. This diagram illustrates a pipeline that uses message queues:
@@ -88,7 +98,7 @@ An image processing pipeline could be implemented using this pattern. If your wo
 In this example, the filters could be implemented as individually deployed Azure Functions or even a single Azure Function app that contains each filter as an isolated deployment. The use of Azure Function triggers, input bindings, and output bindings can simplify the filter code and work automatically with a queue-based pipe using a [claim check](./claim-check.yml) to the image to process.
 
 :::image type="complex" source="./_images/pipes-and-filters-image-processing-example.svg" alt-text="Diagram showing an image processing pipeline that uses Azure Queue Storage between a series of Azure Functions." lightbox="./_images/pipes-and-filters-image-processing-example.svg":::
-   This diagram shows three unprocessed images on the left of various file types. To the right of those is an Azure Queue Storage pipe with claim check messages for each image; followed by an Azure Function that performs content moderation on the image as a filter. All the images are stored in an Azure Blob Storage account. There is another queue (pipe) and function (filter) that follows the first to handle image resizing. Then there is an ellipses (…) which represents unshown pipes and filters. The last pipe and filter are responsible for publishing the final, fully processed image to its destination.
+   This diagram shows three unprocessed images on the left of various file types. To the right of those is an Azure Queue Storage pipe with claim check messages for each image; followed by an Azure Function that performs content moderation on the image as a filter. All the images are stored in an Azure Blob Storage account. There is another queue (pipe) and function (filter) that follows the first to handle image resizing. Then there is an ellipsis (…) which represents unshown pipes and filters. The last pipe and filter are responsible for publishing the final, fully processed image to its destination.
 :::image-end:::
 
 Here's an example of what one filter, implemented as an Azure Function, triggered from a Queue Storage pipe with a claim Check to the image, and writing a new claim check to another Queue Storage pipe might look like. The implementation has been replaced with pseudocode in comments for brevity. More code like this can be found in the [demonstration of the Pipes and Filters pattern](https://github.com/mspnp/cloud-design-patterns/tree/main/pipes-and-filters#readme) available on GitHub.

@@ -16,6 +16,7 @@ metadata:
     - reference-architecture
     - e2e-hybrid
     - devx-track-arm-template
+    - linux-related-content
 name: Manage configurations for Azure Arc-enabled servers
 azureCategories:
   - hybrid

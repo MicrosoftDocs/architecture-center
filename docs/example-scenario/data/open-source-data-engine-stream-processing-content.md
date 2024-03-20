@@ -127,7 +127,7 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 
 - An [AKS][Azure Kubernetes Service (AKS) pricing] cluster consists of a set of nodes, or virtual machines (VMs), that run in Azure. The cost of the compute, storage, and networking components make up a cluster's primary costs.
 
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server and Flexible Server tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity. For new workloads, consider choosing the Flexible Server tier since it has a wider range of [supported capabilities][Comparison between Single Server and Flexible Server] over the Single Server tier. 
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server and Flexible Server tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity. For new workloads, consider choosing the Flexible Server tier since it has a wider range of [supported capabilities][Comparison between Single Server and Flexible Server] over the Single Server tier. Also note that Single Server is on the [path to deprecation][Azure Database for PostgreSQL single server deprecation].
 
 - [Azure Cache for Redis][Azure Cache for Redis pricing] is available in multiple tiers. These tiers accommodate caches that range from 250 megabytes to several terabytes. Besides size, other requirements also affect the choice of tier:
 
@@ -202,6 +202,7 @@ To learn about related solutions, see the following information:
 [Azure Cosmos DB pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [Azure Database for PostgreSQL marketing page]: https://azure.microsoft.com/services/postgresql
 [Azure Database for PostgreSQL pricing]: https://azure.microsoft.com/pricing/details/postgresql/server
+[Azure Database for PostgreSQL single server deprecation]: https://azure.microsoft.com/en-us/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Kubernetes in event stream processing]: ../../solution-ideas/articles/serverless-event-processing-aks.yml
 [Azure Kubernetes Service]: /azure/aks/intro-kubernetes
