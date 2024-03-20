@@ -22,9 +22,9 @@ products:
 
 # Medallion Lakehouse with Data Factory
 
-The [Medallion Lakehouse](/azure/databricks/lakehouse/medallion) architecture is a popular enterprise data design pattern. It logically organises raw data in its native form, within a large, centralized repository. Data is then incrementally enriched as it flows through each layer of the architecture, improving the structure, quality and insight that can be derived from it. 
+The [Medallion Lakehouse](/azure/databricks/lakehouse/medallion) architecture is a popular enterprise data design pattern. It logically organizes raw data in its native form, within a large, centralized repository. Data is then incrementally enriched as it flows through each layer of the architecture, improving the structure, quality and insight that can be derived from it. 
 
-[Azure Data Factory](/azure/data-factory) is Azure's cloud ETL service for scale-out serverless data integration and data transformation. Within the Medallion Lakehouse it performs the extraction, transformation and loading processes required across the various components to generate value from the raw data source.  
+[Azure Data Factory](/azure/data-factory) is Azure's cloud ETL (extract, transform, and load) service for scale-out serverless data integration and data transformation. Within the Medallion Lakehouse it performs the extraction, transformation and loading processes required across the various components to generate value from the raw data source.  
 
 This series of designs follows a typical path for an enterprise implementation from an initial implementation, followed by enterprise-wide adoption and finally mission critical uplift for specific solutions. This is intended to guide and support customers starting a similar journey. 
 
@@ -37,7 +37,7 @@ If you are embarking on your journey with the Medallion Lakehouse architecture, 
 - [Azure SQL Server](https://learn.microsoft.com/training/paths/azure-sql-fundamentals) for data modelling  
 - [Power BI](https://learn.microsoft.com/credentials/certifications/power-bi-data-analyst-associate) for serving and reporting 
 
-Learn how to  design and build secure, scalable, high-performing solutions in Azure using the pillars of the Microsoft Azure [Well-Architected Framework](https://learn.microsoft.com/training/paths/azure-well-architected-framework).  
+Learn how to design and build secure, scalable, high-performing solutions in Azure using the pillars of the Microsoft Azure [Well-Architected Framework](https://learn.microsoft.com/training/paths/azure-well-architected-framework).  
 
 This free online resource provides interactive training that includes knowledge checks to evaluate your learning. 
 
