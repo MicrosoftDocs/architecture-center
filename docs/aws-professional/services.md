@@ -246,33 +246,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [!INCLUDE [Messaging Components](../../includes/aws/messaging.md)]
 
-## Mobile services
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [Mobile Hub](https://aws.amazon.com/blogs/aws/aws-mobile-hub-build-test-and-monitor-mobile-applications) | [App Center](https://azure.microsoft.com/services/app-center) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
-| [Mobile SDK](https://www.redfoundry.com/what-is-a-mobile-sdk) | [App Center](https://azure.microsoft.com/services/app-center) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
-| [Device Farm](https://aws.amazon.com/device-farm) | [App Center](https://azure.microsoft.com/services/app-center) | Provides services to support testing mobile applications. |
-| [Mobile Analytics](https://aws.amazon.com/mobileanalytics) | [App Center](https://azure.microsoft.com/services/app-center) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
-
-### Device Farm
-
-The AWS Device Farm provides cross-device testing services. In Azure, [Visual Studio App Center](https://appcenter.ms) provides similar cross-device front-end testing for mobile devices.
-
-In addition to front-end testing, the [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) provides back-end testing resources for Linux and Windows environments.
-
-### Mobile architectures
-
-<ul class="grid">
-
-[!INCLUDE [Scalable web and mobile applications using Azure Database for PostgreSQL](../../includes/cards/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.md)]
-[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
-[!INCLUDE [Task-Based Consumer Mobile App](../../includes/cards/task-based-consumer-mobile-app.md)]
-
-</ul>
-
-[view all](../browse/index.yml?azure_categories=mobile)
-
 ## Networking
 
 [!INCLUDE [Networking Services](../../includes/aws/networking.md)]

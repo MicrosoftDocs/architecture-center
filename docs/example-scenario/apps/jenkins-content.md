@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-jenkins
----
 This scenario explains the architecture and considerations to take into account when [installing and configuring Jenkins][install-jenkins-section].
 
 ## Architecture
