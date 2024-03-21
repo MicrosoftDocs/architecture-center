@@ -25,7 +25,7 @@ Securing multi-tenanted communications in Azure can be challenging due to limita
 
 Introducing short-lived access tokens introduces a need to securely distribute and rotate secrets across tenant boundaries. One option that avoids this overhead is to create a multi-tenant application to represent your workload's identity. Through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
 
-This article covers one such example implementation of this pattern and is accompanied by [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
+This article covers an example implementation of this pattern and is accompanied by [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
 
 This pattern can be reused for any multi-tenanted scenario with a variety of services that need to communicate across Entra tenant boundaries.
 
