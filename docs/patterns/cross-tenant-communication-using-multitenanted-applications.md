@@ -21,7 +21,7 @@ categories:
 
 The following guide provides a solution to achieve bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants.
 
-Securing multi-tenanted communications in Azure poses challenges with our current cloud service offerings. Azure managed identities obtain tokens from Azure AD, eliminating the need to manage credentials directly. However, when managing identities across tenant boundaries, it's important to note that temporary, short-lived access tokens are typically used as an alternative to combat this issue.
+Securing multi-tenanted communications in Azure can be challenging due to limitations inherent to many services. Azure managed identities obtain tokens from Microsoft Entra ID, eliminating the need to manage credentials directly. However, when managing identities across tenant boundaries, it's important to note that temporary, short-lived access tokens are typically used as an alternative to combat this issue.
 
 Introducing short-lived access tokens introduces a need to securely distribute and rotate secrets across tenant boundaries. One option that avoids this overhead is to create a multi-tenant application to represent your workload's identity. Through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
 
