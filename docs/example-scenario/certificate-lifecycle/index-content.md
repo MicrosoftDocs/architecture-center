@@ -8,21 +8,21 @@ In cybersecurity, setting up automatic certificate renewal is important to maint
 
 Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal) issued by an integrated Certification Authority (CA) such as *DigiCert* or *GlobalSign*. For a nonintegrated CA, a [manual](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#renew-a-nonintegrated-ca-certificate) approach is required.
 
-This article bridges the gap by providing an automated renewal process tailored to certificates from nonintegrated CAs. This process seamlessly stores the new certificates in Key Vault, improves efficiency, enhances security, and simplifies deployment by integrating with various Azure resources.
+This article bridges the gap by providing an automatic renewal process tailored to certificates from nonintegrated CAs. This process seamlessly stores the new certificates in Key Vault, improves efficiency, enhances security, and simplifies deployment by integrating with various Azure resources.
 
-An automated renewal process reduces human error and minimizes service interruptions. When you automate certificate renewal, it not only accelerates the process but decreases the likelihood of errors that might occur during manual handling. When you utilize the capabilities of Key Vault and its extensions, you can build an efficient automated process to optimize operations and reliability.
+An automatic renewal process reduces human error and minimizes service interruptions. When you automate certificate renewal, it not only accelerates the renewal process but decreases the likelihood of errors that might occur during manual handling. When you utilize the capabilities of Key Vault and its extensions, you can build an efficient automatic process to optimize operations and reliability.
 
 While automatic certificate renewal is the initial focus, a broader objective is to enhance security across all areas of the process. This effort includes guiding users on how to implement the principle of least privilege (PoLP) or similar access controls by using Key Vault. It also emphasizes the importance of robust logging and monitoring practices for Key Vault. This article highlights the importance of using Key Vault to fortify your entire certificate management lifecycle and demonstrates that the security benefits aren't limited to storing certificates.
 
-You can use Key Vault and its automated renewal process to continuously update certificates. The renewal process helps all Azure services that integrate with Key Vault benefit from up-to-date certificates and forms an important part of the deployment process. This article provides insight into how continuous renewal and accessibility contribute to the overall deployment efficiency and reliability of Azure services.
+You can use Key Vault and its automatic renewal process to continuously update certificates. Automatic renewal plays an important role in the deployment process and helps Azure services that integrate with Key Vault benefit from up-to-date certificates. This article provides insight into how continuous renewal and accessibility contribute to the overall deployment efficiency and reliability of Azure services.
 
 ## Architecture
 
 Here's a brief overview of the underlying architecture that powers this solution.
 
-![Diagram of the certificate lifecycle management architecture.](./media/certlc-arch.svg)
+![Diagram of the certificate lifecycle management architecture.](./media/certlc-arch-latest.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/certlc-arch.vsdx) of this architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/certlc-arch-latest.vsdx) of this architecture.*
 
 The Azure environment comprises the following platform as a service (PaaS) resources: a key vault dedicated to storing certificates only issued by the same nonintegrated CA, an Azure Event Grid system topic, a storage account queue, and an Azure Automation account that exposes a webhook targeted by Event Grid.
 
@@ -30,13 +30,13 @@ This scenario assumes that an existing public key infrastructure (PKI) is alread
 
 The virtual machines (VMs) with certificates to monitor renewal don't need to be joined to Active Directory or Microsoft Entra ID. The sole requirement is for the CA and the Hybrid worker, if located on a different VM from the CA, to be joined to Active Directory.
 
-The following sections provide details of the automated renewal process.
+The following sections provide details of the automatic renewal process.
 
 ### Workflow
 
-This image shows the automated workflow for certificate renewal within the Azure ecosystem.
+This image shows the automatic workflow for certificate renewal within the Azure ecosystem.
 
-![Diagram of the automated workflow for certificate renewal within the Azure ecosystem.](./media/workflow.png)
+![Diagram of the automatic workflow for certificate renewal within the Azure ecosystem.](./media/workflow.png)
 
 1. **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated Certificates section of the key vault.
   
@@ -104,7 +104,7 @@ The Automation account handles the certificate renewal process. You need to conf
 
 You also need to create a Hybrid Worker Group. Associate the Hybrid Worker Group with a Windows Server member of the same Active Directory domain of the CA, ideally the CA itself, for launching runbooks.
 
-The runbook must have a [webhook](/azure/automation/automation-webhooks) associated with it, initiated from the hybrid runbook worker. Configure the webhook URL in the event subscription of the Event Grid system topic.
+The runbook must have an associated [webhook](/azure/automation/automation-webhooks) initiated from the hybrid runbook worker. Configure the webhook URL in the event subscription of the Event Grid system topic.
 
 #### Storage account queue
 
@@ -142,7 +142,7 @@ An alternative approach is to use Logic Apps. The main difference between the tw
 
 The main advantage of Logic Apps is that it's a fully managed service. You don't need to worry about the underlying infrastructure. Also, Logic Apps can easily integrate with external connectors, expanding the range of notification possibilities, such as engaging with Microsoft Teams or Microsoft 365.
 
-Logic Apps doesn't have a feature similar to hybrid runbook worker, which results in less flexible integration with the CA. So, an Automation account is the preferred approach.
+Logic Apps doesn't have a feature similar to hybrid runbook worker, which results in less flexible integration with the CA, so an Automation account is the preferred approach.
 
 ## Scenario details
 
@@ -206,11 +206,11 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-The automated certificate renewal procedure securely stores certificates by way of standardized processes applicable across all certificates within the key vault.
+The automatic certificate renewal procedure securely stores certificates by way of standardized processes applicable across all certificates within the key vault.
 
 Integrating with Event Grid triggers supplementary actions, such as notifying Microsoft Teams or Microsoft 365 and streamlining the renewal process. This integration significantly reduces certificate renewal time and mitigates the potential for errors that could lead to business disruptions and violations of SLAs.
 
-Also, seamless integration with Azure Monitor, Microsoft Sentinel, Microsoft Copilot for Security, and Azure Security Center facilitates continual monitoring of the certificate renewal process. It supports anomaly detection and ensures that robust security measures are maintained.
+Also, seamless integration with Azure Monitor, Microsoft Sentinel, Microsoft Copilot for Security, and Azure Security Center facilitates continuous monitoring of the certificate renewal process. It supports anomaly detection and ensures that robust security measures are maintained.
 
 ## Deploy this scenario
 
@@ -221,11 +221,11 @@ Select the following button to deploy the environment described in this article.
 Detailed information about the parameters needed for the deployment can be found in the [code sample](/samples/azure/certlc/certlc/) portal.
 
 > [!IMPORTANT]
-> > You can deploy a full lab environment to demonstrate the entire automatic certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
+> > You can deploy a full lab environment to demonstrate the entire automated certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
 > > - **Active Directory Domain Services** (AD DS) within a domain controller VM.
 > > - **Active Directory Certificate Services** (AD CS) within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
 > > - A **Windows SMTP Server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
-> > - The **KeyVault Extension** installed on the VM of the domain controller for retrieving the renewed certificates from the key vault extension.
+> > - The **Key Vault Extension** installed on the VM of the domain controller for retrieving the renewed certificates from the key vault extension.
 > >
 > > [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)
 
