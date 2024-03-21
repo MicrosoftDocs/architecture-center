@@ -19,7 +19,7 @@ categories:
 
 # Cross-Tenant Communication using Multi-Tenant Applications
 
-We need to address the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants.
+The following guide provides a solution to achieve bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants.
 
 Securing multi-tenanted communications in Azure poses challenges with our current cloud service offerings. Azure managed identities obtain tokens from Azure AD, eliminating the need to manage credentials directly. However, when managing identities across tenant boundaries, it's important to note that temporary, short-lived access tokens are typically used as an alternative to combat this issue.
 
