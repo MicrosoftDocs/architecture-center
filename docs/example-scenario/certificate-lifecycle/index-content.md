@@ -131,7 +131,7 @@ Event Grid handles event-driven communication within Azure. Configure Event Grid
   - **Endpoint:** The URL of the webhook associated with the Automation account runbook. For more information, see the [Automation account](#automation-account) section.
 - **Subscription for StorageQueue:**
   - **Subscription Name:** The name of the event subscription.
-  - **Endpoint Type:** The type of endpoint to use. For example, the endpoint type for this solution is `StorageQueue`.
+  - **Endpoint Type:** The type of endpoint to be used. For example, the endpoint type for this solution is `StorageQueue`.
   - **Endpoint:** The storage account queue.
 
 ### Alternatives
