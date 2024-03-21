@@ -18,11 +18,17 @@ This initial use case involves the following scenarios:
 
 - The Solution is an analytical and reporting system, primarily used by the Finance department and other corporate functions.
 - The on-premises source system is:
+  - Currently estimated to be 1TB with a 5% forecasted growth.
+  - Has batch update process which is scheduled each night, typically finishing before 3am (unless end of financial year updates are required).
+  - The solution MUST minimize its impact on the source system.
+- Financial users SHOULD have the ability to view data as “it was” at a point in time.
   - Currently estimated to be 1 terabyte (TB) with a 5% forecasted growth.
   - Has a batch update process, which is scheduled to run each night, typically finishing before 3am (unless end of financial year updates are required).
   - The solution MUST minimize it's impact on the source system.
 - Financial users SHOULD have the ability to view data as "it was" at a point in time.
 - The initial use case targets analytical and management reporting, with the ability to self-serve. This SHOULD also create the data foundation to enable an enterprise data science capability.
+- The data is classified “Company Confidential”, so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
+- Contoso has an enterprise data model of which this finance data is a subset of. The key data elements MUST be cleansed, modelled and conformed to the various reporting hierarchies before being served for reporting.  
 - The data is classified "Company Confidential", so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
 - Contoso have an enterprise data model of which this finance data is a subset of. The key data elements MUST be cleansed, modeled and conformed to the various reporting hierarchies before being served for reporting.  
 - Source data ingested which isn’t currently mapped to the enterprise model MUST be retained and made available for future analysis and use cases. 
@@ -42,6 +48,10 @@ This initial use case involves the following scenarios:
 - The Solution SHOULD strongly prefer:
   - Reuse of existing skills/capabilities over new, reducing complexity, risk and cost.
   - Modern cloud service tiers: For example, it should use PaaS services whenever practical to reduce management burden, risk and below the line cost.
+  - Use of components which are mature in the market, easy to find and upskill resources across the SDLC.
+- The Solution SHOULD be optimized for the NFR’s (in order):
+  - Minimize the cost to build and run.
+  - Solution Performance.
   - Use of components that are mature in the market and easy to find. Contoso will up-skill resources across the software development lifecycle (SDLC).
 - The Solution SHOULD be optimized for the nonfunctional requirements (NFRs) (in order):
   - Minimize the cost to build and run.
@@ -84,11 +94,12 @@ The typical workflow of accessing and landing data through the architecture:
 - ADF also provides process orchestration for [Azure Databricks](https://azure.microsoft.com/products/databricks/) notebooks to transform and load the data into Delta Lake tables stored on ADLS Gen2, along with [Azure SQL Server](/azure/azure-sql/?view=azuresql) ETL processes.
   
 2.	[Delta Lake](/azure/databricks/delta/) provides an open format layer that enables data versioning, schema enforcement, time travel and provides ACID guarantees. Data is organized into the following layers:
+2.	[Delta Lake](/azure/databricks/delta/) provides an open format layer that enables data versioning, schema enforcement, time travel and provides ACID guarantees. Data is organized into the following layers:
 
 - Bronze: Holds all raw data.
 - Silver: Contains cleaned, filtered data.
 - Gold: Stores aggregated data that is useful for business analytics.
-- Data Lake Storage Gen2 underpins the Delta Lake due to its ability to efficiently store all types of data, supporting any speed of workflow at low cost.
+- Azure Data Lake Storage Gen2 underpins the Delta Lake due to its ability to efficiently store all types of data, supporting any speed of workflow at low cost.
   
 3.	Azure SQL Server is used to support the Enterprise data modeling requirements, including hierarchical conformance.
 
@@ -111,7 +122,7 @@ The typical workflow of accessing and landing data through the architecture:
 ![Diagram showing Medallion architecture Network design.](_images/ADF-ALZ-Medallion-Initial-Network.png)
 
 - Azure Firewalls can be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
-- Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the later being the recommendation. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
+- Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
 - Leverage PrivateLink and Private Endpoints which allows you to bring the service into your virtual network.
 - ML-assisted data labeling doesn't support default storage accounts that are secured behind a virtual network [1]. You must use a non-default storage account for ML-assisted data labeling. The non-default storage account can be secured behind the virtual network
   
@@ -162,8 +173,10 @@ Given the solution requirements for a BI analytical/reporting system:
 
 This architecture addresses security via configuration of the infrastructure selected, control and data plane controls implemented, based upon [zero-trust model](/azure/security/fundamentals/zero-trust) and [less privilege required](/entra/identity-platform/secure-least-privileged-access) principles. These include:
 
+- Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, enabling consistent RBAC control.
 - Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorisation, enabling consistent role-based access control (RBAC).
 - Azure [Key Vault](/azure/key-vault/) stores application secrets and certificates securely.
+- The use of component specific [in-built roles](/azure/role-based-access-control/built-in-roles), enabling a finer grain control for authorization at the control plane level. 
 - The use of component specific [in-built roles](/azure/role-based-access-control/built-in-roles), enabling a finer grain control for authorization at the control plane level. 
   - Due to scope, these are preferred over the [general roles]( https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
   - [Custom Roles](/azure/role-based-access-control/tutorial-custom-role-powershell) are explicitly excluded due ongoing lifecycle management requirements.
@@ -228,7 +241,7 @@ This architecture addresses performance efficiency with:
 
 - Based upon the requirements, the standard service tiers of the various component SKUs will be acceptable, acknowledging these can be scaled-up, on-demand with no interruption in service levels.
   - This should be [rigorously tested](/azure/well-architected/performance-efficiency/performance-test) before production release.
-- Selecting a baseline of compute SKU, utilising the cloud native features to support increased demand, such as:
+- Selecting a baseline of compute SKU, utilizing the cloud native features to support increased demand, such as:
   - Databricks [autoscaling](/azure/databricks/delta-live-tables/auto-scaling).
   - SQL Server [Scale up/down](/azure/azure-sql/database/scale-resources?view=azuresql).
   - Configuring ADF jobs for [performance and scalability](/azure/data-factory/copy-activity-performance). 
