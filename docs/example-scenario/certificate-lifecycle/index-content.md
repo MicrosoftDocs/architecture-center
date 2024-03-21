@@ -1,20 +1,20 @@
 In cybersecurity, setting up automatic certificate renewal is important to maintaining a secure and reliable environment. Failure to update or renew certificates in a timely manner exposes systems to vulnerabilities. Potentially vulnerable areas include:
 
-- SSL/TLS certificates that are expired
-- Networks that are subject to potential breaches
-- Sensitive data that's unsecured
-- Services that go down for business-to-business processes
-- Brand reputation loss that compromises the integrity and confidentiality of digital transactions
+- SSL/TLS certificates that are expired.
+- Networks that are subject to potential breaches.
+- Sensitive data that's unsecured.
+- Services that go down for business-to-business processes.
+- Brand reputation loss that compromises the integrity and confidentiality of digital transactions.
 
 Azure Key Vault supports [automatic certificate renewal](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal) issued by an integrated Certification Authority (CA) such as *DigiCert* or *GlobalSign*. For a nonintegrated CA, a [manual](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#renew-a-nonintegrated-ca-certificate) approach is required.
 
-This article bridges the gap by providing an automated renewal process tailored for certificates from nonintegrated CAs. This process seamlessly stores the new certificates in Key Vault, improves efficiency, enhances security, and simplifies deployment by integrating with various Azure resources.
+This article bridges the gap by providing an automated renewal process tailored to certificates from nonintegrated CAs. This process seamlessly stores the new certificates in Key Vault, improves efficiency, enhances security, and simplifies deployment by integrating with various Azure resources.
 
 An automated renewal process reduces human error and minimizes service interruptions. When you automate certificate renewal, it not only accelerates the process but decreases the likelihood of errors that might occur during manual handling. When you utilize the capabilities of Key Vault and its extensions, you can build an efficient automated process to optimize operations and reliability.
 
-While automating certificate renewal is the initial focus, a broader objective is to enhance security across all areas of the process. This effort includes guiding users on how to implement the principle of least privilege (PoLP) or similar access controls by using Key Vault. It also emphasizes the importance of robust logging and monitoring practices for Key Vault. This article demonstrates that the security benefits extend beyond merely storing certificates. It also highlights the importance of using Key Vault to fortify your entire certificate management lifecycle.
+While automatic certificate renewal is the initial focus, a broader objective is to enhance security across all areas of the process. This effort includes guiding users on how to implement the principle of least privilege (PoLP) or similar access controls by using Key Vault. It also emphasizes the importance of robust logging and monitoring practices for Key Vault. This article highlights the importance of using Key Vault to fortify your entire certificate management lifecycle and demonstrates that the security benefits aren't limited to storing certificates.
 
-Key Vault and its automated renewal process continually updates certificates. The renewal process helps all Azure services that integrate with Key Vault benefit from up-to-date certificates. It forms an important part of the deployment process. This article provides insight into how continuous renewal and accessibility contribute to the overall deployment efficiency and reliability of Azure services.
+Key Vault and its automated renewal process continuously update certificates. The renewal process helps all Azure services that integrate with Key Vault benefit from up-to-date certificates. It forms an important part of the deployment process. This article provides insight into how continuous renewal and accessibility contribute to the overall deployment efficiency and reliability of Azure services.
 
 ## Architecture
 
@@ -24,9 +24,9 @@ Here's a brief overview of the underlying architecture that powers this solution
 
 *Download a [Visio file](https://arch-center.azureedge.net/certlc-arch.vsdx) of this architecture.*
 
-The Azure environment comprises the following platform as a service (PaaS) resources: a key vault dedicated for storing certificates only issued by the same nonintegrated CA, an Azure Event Grid system topic, a storage account queue, and an Azure Automation account that exposes a webhook targeted by Event Grid.
+The Azure environment comprises the following platform as a service (PaaS) resources: a key vault dedicated to storing certificates only issued by the same nonintegrated CA, an Azure Event Grid system topic, a storage account queue, and an Azure Automation account that exposes a webhook targeted by Event Grid.
 
-This scenario assumes that an existing public key infrastructure (PKI) is already in place, consisting of a Microsoft Enterprise CA joined to a domain in Microsoft Entra ID. Both the PKI and the Active Directory domain can reside on Azure or on-premises, and the servers that must be configured for certificate renewal.
+This scenario assumes that an existing public key infrastructure (PKI) is already in place and consists of a Microsoft Enterprise CA joined to a domain in Microsoft Entra ID. Both the PKI and the Active Directory domain can reside on Azure or on-premises, and the servers that must be configured for certificate renewal.
 
 The virtual machines (VMs) with certificates to monitor renewal don't need to be joined to Active Directory or Microsoft Entra ID. The sole requirement is for the CA and the Hybrid worker, if located on a different VM from the CA, to be joined to Active Directory.
 
@@ -50,7 +50,7 @@ This image shows the automated workflow for certificate renewal within the Azure
 
 1. **Event Grid integration:** As a certificate approaches expiration, two Event Grid subscriptions intercept this important lifetime event from the key vault.
 
-1. **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, for example, if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process makes the solution robust.
+1. **Event Grid triggers:** One Event Grid subscription sends certificate renewal information to a storage account queue. The other subscription triggers the launch of a runbook through the configured webhook in the Automation account. If the runbook fails to renew the certificate, for example, or if the CA is unavailable, a scheduled process retries renewing the runbook from that point until the queue clears. This process makes the solution robust.
   
    To enhance the solution's resiliency, set up a [dead-letter location](/azure/event-grid/manage-event-delivery#set-dead-letter-location) mechanism. It manages potential errors that might occur during the messages transit from Event Grid to the subscription targets, the storage queue, and the webhook.
 
@@ -58,7 +58,7 @@ This image shows the automated workflow for certificate renewal within the Azure
 
 1. **Certificate renewal:** The script in the runbook connects to Azure to retrieve the certificate's template name that you set up during generation. The template is the configuration component of the certification authority that defines the attributes and purpose of the certificates to be generated.
 
-   After the script interfaces with Key Vault, it initiates a certificate renewal request. This request triggers Key Vault to generate a certificate signing request (CSR), applying the same template that generated the original certificate. This process ensures that the renewed certificate aligns with the predefined security policies. For more information about security in the authentication and authorization process, see the [Security](#security) section.
+   After the script interfaces with Key Vault, it initiates a certificate renewal request. This request triggers Key Vault to generate a certificate signing request (CSR) and applies the same template that generated the original certificate. This process ensures that the renewed certificate aligns with the predefined security policies. For more information about security in the authentication and authorization process, see the [Security](#security) section.
 
    The script downloads the CSR and submits it to the CA.
 
