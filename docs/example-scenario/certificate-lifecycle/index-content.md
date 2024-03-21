@@ -20,7 +20,7 @@ You can use Key Vault and its automatic renewal process to continuously update c
 
 Here's a brief overview of the underlying architecture that powers this solution.
 
-![Diagram of the certificate lifecycle management architecture.](../media/certlc-arch-latest.png)
+![Diagram of the certificate lifecycle management architecture.](./media/certlc-arch-latest.png)
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/certlc-arch-latest.vsdx) of this architecture.*
 
