@@ -10,7 +10,7 @@ VRED Core is primarily used by automotive designers and digital artists, technic
 
 ## Why deploy Autodesk VRED Core on Azure?
 
-VRED Core provides:
+Azure provides:
 
 - Modern and diverse compute options to align to your workload's needs.
 - The ability to run in the cloud, which reduces capital expenditure (CapEx) and lead time associated with acquiring on-premises infrastructure.

@@ -18,7 +18,7 @@ An organization's structure or objectives in the areas of security, scale, gover
 
 For example, an organization can use [domains](/fabric/governance/domains) to group workspaces in Fabric. Similarly, if an organization must have a centralized option that it can use to collaborate and to find content, a [OneLake data hub](/fabric/get-started/onelake-data-hub) in Fabric offers a centralized access point and is integrated with other familiar products, like Microsoft Teams and Excel.
 
-In Fabric, a large organization that has business units in separate geographical locations can use capacities to control where its data resides. It can manage a business unit that operates from a different geographical location as a single unit by using Fabric domains because domains can span workspaces that are different regions.
+In Fabric, a large organization that has business units in separate geographical locations can use capacities to control where its data resides. It can manage a business unit that operates from a different geographical location as a single unit by using Fabric domains because domains can span workspaces that are in different regions.
 
 For more information about Fabric levels and their role in choosing a deployment pattern, see [Microsoft Fabric concepts and licenses](/fabric/enterprise/licenses).
 
