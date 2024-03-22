@@ -1,4 +1,4 @@
-This reference architecture describes how to implement the [Medallion Lakehouse](/azure/databricks/lakehouse/medallion) for an solution focused use case. 
+This reference architecture describes how to implement a [medallion lakehouse](/azure/databricks/lakehouse/medallion) for a solution focused use case. 
 
 The solution uses a hub and spoke network topology with landing zones following the Cloud Adoption Framework (CAF) best practices. 
 
@@ -6,7 +6,7 @@ The solution uses a hub and spoke network topology with landing zones following 
 
 This design covers an illustrative customer, Contoso, a mid-large organization on the journey to Azure cloud, enabled by automation.
 
-Contoso have established their Azure cloud foundation with an [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) and are now looking to take their first data workloads to the cloud, guided by Microsoft’s [Well-Architected Framework](/azure/well-architected/). 
+Contoso has established their Azure cloud foundation with an [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) and leadership is now looking to take their first data workloads to the cloud, guided by Microsoft’s [Well-Architected Framework](/azure/well-architected/). 
 
 This initial use case involves the following scenarios:
 
@@ -17,17 +17,13 @@ This initial use case involves the following scenarios:
 ### Key Requirements
 
 - The Solution is an analytical and reporting system, primarily used by the Finance department and other corporate functions.
-- The on-premises source system is:
-  - Currently estimated to be 1TB with a 5% forecasted growth.
-  - Has batch update process which is scheduled each night, typically finishing before 3am (unless end of financial year updates are required).
-  - The solution MUST minimize its impact on the source system.
-- Financial users SHOULD have the ability to view data as “it was” at a point in time.
+- The on-premises source system has the following properties:
   - Currently estimated to be 1 terabyte (TB) with a 5% forecasted growth.
-  - Has a batch update process, which is scheduled to run each night, typically finishing before 3am (unless end of financial year updates are required).
-  - The solution MUST minimize it's impact on the source system.
+  - Has a batch update process which is scheduled each night, typically finishing before 3am (unless end of financial year updates are required).
+  - The solution MUST minimize its impact on the source system.
 - Financial users SHOULD have the ability to view data as "it was" at a point in time.
 - The initial use case targets analytical and management reporting, with the ability to self-serve. This SHOULD also create the data foundation to enable an enterprise data science capability.
-- The data is classified “Company Confidential”, so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
+- The data is classified "Company Confidential", so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
 - Contoso has an enterprise data model of which this finance data is a subset of. The key data elements MUST be cleansed, modelled and conformed to the various reporting hierarchies before being served for reporting.  
 - The data is classified "Company Confidential", so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
 - Contoso have an enterprise data model of which this finance data is a subset of. The key data elements MUST be cleansed, modeled and conformed to the various reporting hierarchies before being served for reporting.  
@@ -46,12 +42,8 @@ This initial use case involves the following scenarios:
   - End-to-End monitoring and audit trails.
   - Configurable alerting across functions, SLAs and cost.
 - The Solution SHOULD strongly prefer:
-  - Reuse of existing skills/capabilities over new, reducing complexity, risk and cost.
+  - Reuse of existing skills and capabilities over new, reducing complexity, risk and cost.
   - Modern cloud service tiers: For example, it should use PaaS services whenever practical to reduce management burden, risk and below the line cost.
-  - Use of components which are mature in the market, easy to find and upskill resources across the SDLC.
-- The Solution SHOULD be optimized for the NFR’s (in order):
-  - Minimize the cost to build and run.
-  - Solution Performance.
   - Use of components that are mature in the market and easy to find. Contoso will up-skill resources across the software development lifecycle (SDLC).
 - The Solution SHOULD be optimized for the nonfunctional requirements (NFRs) (in order):
   - Minimize the cost to build and run.
@@ -80,7 +72,7 @@ This initial use case involves the following scenarios:
 
 ## Architecture
 
-![Diagram showing Medallion architecture and data flow.](_images/ADF-ALZ-Medallion-Initial.png)
+![Diagram showing medallion architecture and data flow.](_images/ADF-ALZ-Medallion-Initial.png)
 
 ### Dataflow
 
@@ -119,20 +111,19 @@ The typical workflow of accessing and landing data through the architecture:
 
 ### Network Design
 
-![Diagram showing Medallion architecture Network design.](_images/ADF-ALZ-Medallion-Initial-Network.png)
+![Diagram showing medallion architecture Network design.](_images/ADF-ALZ-Medallion-Initial-Network.png)
 
 - Azure Firewalls can be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 - Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
-- Leverage PrivateLink and Private Endpoints which allows you to bring the service into your virtual network.
+- Implement PrivateLink and Private Endpoints, which allows you to bring the service into your virtual network.
 - ML-assisted data labeling doesn't support default storage accounts that are secured behind a virtual network [1]. You must use a non-default storage account for ML-assisted data labeling. The non-default storage account can be secured behind the virtual network
   
 
 ## Callouts
 
-- The use of Databricks Delta Lake means that Storage Accounts - Archive tier cannot be used, as this is effectivity off-line storage. This is a trade-off between functionality and cost.
+- The use of Databricks Delta Lake means that Storage Accounts - Archive tier cannot be used, as that tier is effectivity off-line storage. This design choice is a trade-off between functionality and cost.
 - When creating a new Azure Databricks workspace, the default redundancy for the managed storage account (Databricks filesystem or DBFS root) is set as Geo-redundant storage (GRS). You can change the redundancy to Locally-redundant storage (LRS).
-- As a general rule, data warehouses of less than 1TB will perform better on Azure SQL DB than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5TB.  This is the main factor for selecting [Azure SQL over Synapse](https://learn.microsoft.com/en-us/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
-
+- As a general rule, data warehouses of less than 1TB perform better on Azure SQL Database than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5TB.  This performance difference is the main factor for selecting [Azure SQL over Synapse](https://learn.microsoft.com/en-us/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
 
 ## Alternatives
 
@@ -155,36 +146,35 @@ The following considerations provide guidance for implementing the pillars of th
 
 [Reliability](/azure/well-architected/reliability/) ensures that solution is resilient to malfunction and to ensure that it returns to a fully functioning state after a failure occurs. 
 
-Given the solution requirements for a BI analytical/reporting system:
+Given the reliability targets for a BI analytical/reporting system:
 
 - The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution meet the requirements, so no high-availability or multi-regional uplift is required.
-- Given the low service critically of solution and the use of PaaS services, a [Wait for Microsoft](https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations#dr-strategy-impacts) disaster recovery strategy has been selected.
-- Data backups have been addressed via:
+- Given the low service criticality of the solution and the use of PaaS services, a [Wait for Microsoft](https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations#dr-strategy-impacts) disaster recovery strategy is the preferred design choice.
+- Data backups are addressed with the following native functionality:
   - Databricks [Delta Lake table history](/azure/databricks/delta/history).
   - SQL Server [default backups](https://learn.microsoft.com/azure/azure-sql/database/automated-backups-overview?view=azuresql#backup-frequency).
-  - All source data ingested will be stored in the Delta Lake – Bronze layer, in an append only format. This will enable a full replay of the solution without, re-ingestion from the source system.
+  - All source data ingested is stored in the Delta Lake – Bronze layer, in an append-only format. This enables a full replay of the solution without re-ingestion from the source system.
 
 > [!IMPORTANT] 
-> Multiple SHIR need to be deployed across different zones or across regions, where available, to meet your resilience goals. 
+> Multiple SHIR instances need to be deployed across different zones or across regions, where available, to meet your resilience goals. 
 
 ### Security
 
 [Security](/azure/well-architected/security/) provides guidance to your architecture to help ensure the confidentiality, integrity, and availability of your data and systems.
 
-This architecture addresses security via configuration of the infrastructure selected, control and data plane controls implemented, based upon [zero-trust model](/azure/security/fundamentals/zero-trust) and [less privilege required](/entra/identity-platform/secure-least-privileged-access) principles. These include:
+This architecture addresses security via configuration of the infrastructure selected, control and data plane controls implemented, based upon [zero-trust model](/azure/security/fundamentals/zero-trust) and [less privilege required](/entra/identity-platform/secure-least-privileged-access) principles. The security controls natively supported include:
 
 - Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, enabling consistent RBAC control.
 - Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorisation, enabling consistent role-based access control (RBAC).
 - Azure [Key Vault](/azure/key-vault/) stores application secrets and certificates securely.
-- The use of component specific [in-built roles](/azure/role-based-access-control/built-in-roles), enabling a finer grain control for authorization at the control plane level. 
-- The use of component specific [in-built roles](/azure/role-based-access-control/built-in-roles), enabling a finer grain control for authorization at the control plane level. 
-  - Due to scope, these are preferred over the [general roles]( https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
+- The use of component specific [built-in roles](/azure/role-based-access-control/built-in-roles), enabling a finer grain control for authorization at the control plane level. 
+  - Due to scope, these specific roles are preferred over the [general roles]( https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
   - [Custom Roles](/azure/role-based-access-control/tutorial-custom-role-powershell) are explicitly excluded due ongoing lifecycle management requirements.
-- Access to data across the solution will be controlled via a set of domain specific Microsoft Entra ID groups, reflecting Contoso’s data classification framework. Individual solution components will then use these groups to apply data level controls. i.e. SQL Server [dynamic data masking](https://learn.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16), Power BI [RLS](https://learn.microsoft.com/power-bi/enterprise/service-admin-rls).
-  - It will be possible to have access to a component, yet not be able to view the data within. To get access to data, the user must also have component access.
-  - Creating the groups at the domain level i.e. Finance, will enable reuse. Representing the data classification framework will limit the spray of solution-specific groups.
+- Access to data across the solution is controlled via a set of domain-specific Microsoft Entra ID groups, reflecting Contoso’s data classification framework. Individual solution components use these groups to apply data level controls. For example, SQL Server [dynamic data masking](https://learn.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16) and Power BI [RLS](https://learn.microsoft.com/power-bi/enterprise/service-admin-rls) both support this design.
+  - This design makes it possible to grant access to a component, while disallowing the ability to view the data within. To get access to data, the user must also have component access.
+  - Creating the groups at the domain level, like Finance, enables reuse. Representing the data classification framework limits the sprawl of solution-specific groups.
 
-### Cost Optimization
+### Cost optimization
 
 [Cost optimization](/azure/well-architected/cost-optimization/) provides guidance in your architecture to sustain and improve your return on investment (ROI).
 
@@ -199,25 +189,25 @@ This architecture addresses cost optimization with:
   - Databricks [Serverless compute](/azure/databricks/serverless-compute/).
   - Storage Account - [Access Tiers](/azure/storage/blobs/access-tiers-overview), automated via [Lifecycle Policies](/azure/storage/blobs/lifecycle-management-overview) configuration. Noting that the [Archive tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier) cannot be used within the Delta Lake.
   - Log Analytics Workspaces for [data retention and archiving](/azure/azure-monitor/best-practices-logs#:~:text=different%20pricing%20tiers.-,Configure%20data%20retention%20and%20archiving.,-There%20is%20a) and [Azure Monitor](/azure/azure-monitor/best-practices-cost). 
-- Using [Azure Hybrid Benefit](/azure/azure-sql/virtual-machines/windows/pricing-guidance?view=azuresql) for SQL Server lower licensing costs.
+- Using [Azure Hybrid Benefit](/azure/azure-sql/virtual-machines/windows/pricing-guidance?view=azuresql) to lower the costs for SQL Server licensing.
 - Implementing cost and budget alerting via [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending), along with [spending guardrails](/azure/well-architected/cost-optimization/set-spending-guardrails#use-governance-policies).
 
-### Operational Efficiency
+### Operational excellence
 
 [Operational excellence](/azure/well-architected/operational-excellence/) ensures workload quality through standardized processes and team cohesion. 
 
-The enablers for operational efficiency are automation, monitoring, and auditing across the SDLC. The callout's for this solution include:
+Operational excellence is enabled through automation, monitoring, and auditing across the SDLC. The callouts for this solution include:
 
 - [Azure Monitor](/azure/azure-monitor/overview) and [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-workspace-overview) are the core monitoring components. 
 - Implement a [Tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) that enables transparency across the solution components.
 - For development:
-  - Lock down all production deployments to using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&view=azure-devops) using configuration-as-code, all stored within a Source control repository, such as [Azure Repos](https://azure.microsoft.com/products/devops/repos/) or [GitHub](https://docs.github.com). Providing a full audit trail of deployment and enabling modern deployment methodologies, rollbacks and recovery.  
+  - Lock down all production deployments to using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&view=azure-devops) using configuration-as-code, all stored within a source control repository, such as [Azure Repos](https://azure.microsoft.com/products/devops/repos/) or [GitHub](https://docs.github.com). Providing a full audit trail of deployment and enabling modern deployment methodologies, rollbacks and recovery.  
   - Utilize testing frameworks like [PSRule](https://azure.github.io/PSRule.Rules.Azure/) to ensure deployments align with Well-Architected Framework guidance.
   - Utilize [Azure Policy](/azure/governance/policy/overview) to enforce organizational standards and to assess compliance at-scale, supported by [Azure Governance Visualizer](https://github.com/Azure/Azure-Governance-Visualizer) for configurable, granular insights on the technical implementation.
 
 #### Monitoring
 
-Monitoring is a critical part of any production-level solution. It is strongly recommended that any Azure solution is supported by a [Monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability).
+Monitoring is a critical part of any production-level solution. It is strongly recommended that any Azure solution is supported by a [monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) as part of the end-to-end [observability](/azure/cloud-adoption-framework/manage/monitor/observability) strategy.
 
 Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query events, and application log messages. Azure Databricks can send this monitoring data to different logging services. You can use Azure Monitor to monitor Azure Data Factory (ADF) pipelines and write diagnostic logs in Azure Monitor. Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. For more information, see [Monitoring Azure Databricks](/azure/architecture/databricks-monitoring/).
 
@@ -233,30 +223,30 @@ Suggested alerting baseline:
 > [!IMPORTANT] 
 > Ensure that Alert [Action Groups](/azure/azure-monitor/alerts/action-groups#:~:text=be%20set%20as-,%22Global%22.,-Expand%20table) are created as a global resource to ensure continuity in the event of regional service issue.
  
-### Performance Efficiency
+### Performance efficiency
 
 [Performance efficiency](/azure/well-architected/performance-efficiency/) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. 
 
 This architecture addresses performance efficiency with:
 
-- Based upon the requirements, the standard service tiers of the various component SKUs will be acceptable, acknowledging these can be scaled-up, on-demand with no interruption in service levels.
+- Based upon the requirements, the standard service tiers of the various component SKUs will be acceptable, understanding that these types of resources can be scaled up, on-demand with no interruption in service levels.
   - This should be [rigorously tested](/azure/well-architected/performance-efficiency/performance-test) before production release.
 - Selecting a baseline of compute SKU, utilizing the cloud native features to support increased demand, such as:
   - Databricks [autoscaling](/azure/databricks/delta-live-tables/auto-scaling).
   - SQL Server [Scale up/down](/azure/azure-sql/database/scale-resources?view=azuresql).
   - Configuring ADF jobs for [performance and scalability](/azure/data-factory/copy-activity-performance). 
-- Apply various [optimization guides](/azure/well-architected/performance-efficiency/optimize-data-performance) across the solution, such as:
+- Apply guidance available in the following [optimization guides](/azure/well-architected/performance-efficiency/optimize-data-performance) across the solution, such as:
   - [Databricks](/azure/databricks/optimizations/).
   - ADF [Data flows](/azure/data-factory/concepts-data-flow-performance) and [SHIR](/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide?tabs=data-factory).
   - [SQL Server](https://learn.microsoft.com/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?view=sql-server-ver16).
   - [Power BI](https://learn.microsoft.com/power-bi/guidance/power-bi-optimization).
-- Acknowledging that the performance of data solutions generally degrade overtime, establish the capacity for [continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize), along with proactive technical reviews of the solution, ensuring it remains ["fit for purpose"](/azure/well-architected/performance-efficiency/principles).
+- Understanding that the performance of data solutions generally degrade over time, establish the capacity for [continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize), along with proactive technical reviews of the solution, ensuring it remains ["fit for purpose"](/azure/well-architected/performance-efficiency/principles).
 
 ## Anti-Patterns
 
-- **The On-prem mindset** - Cloud services address the traditional constraints of procurement time, functionality and capacity, while introducing the critical requirement of cost management across the SDLC. Failure to account for this factor across people, process and technology often leads to bill shock and stakeholder friction. 
+- **The on-premises mindset** - Cloud services address the traditional constraints of procurement time, functionality and capacity, while introducing the critical requirement of cost management across the SDLC. Failure to account for this factor across people, process and technology often leads to bill shock and stakeholder friction. 
 - **Boundary controls are the answer** - Cloud services and PaaS in particular have introduced Identity as the key control that must be implemented and well-governed. Networking and boundaries controls are _**part**_ of the answer, not _**the**_ answer. 
-- **Set and Forget** - Any Cloud solution must have regular reviews which account for the current usage and performance, along with the functional and pricing changes in Azure. Failure to do so will often result in the erosion of value and effectiveness. 
+- **Set and forget** - Any cloud solution must have regular reviews which account for the current usage and performance, along with the functional and pricing changes in Azure. Failure to do so will often result in the erosion of value and effectiveness. 
 
 ## Next steps
 
@@ -267,4 +257,4 @@ This architecture addresses performance efficiency with:
 
 - [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
-- [Decide between a savings plan and a reservation](azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation#choose-a-reservation)
+- [Decide between a savings plan and a reservation](/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation#choose-a-reservation)
