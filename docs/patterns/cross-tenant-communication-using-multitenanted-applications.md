@@ -21,9 +21,9 @@ categories:
 
 The following guide provides a solution to achieve bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants.
 
-Securing multi-tenanted communications in Azure can be challenging due to limitations inherent to many services. Azure managed identities obtain tokens from Microsoft Entra ID, eliminating the need to manage credentials directly. However, when managing identities across tenant boundaries, it's important to note that temporary, short-lived access tokens are typically used as an alternative to combat this issue.
+Securing multi-tenanted communications in Azure can be challenging due to limitations inherent to many services. Azure managed identities obtain tokens from Microsoft Entra ID, eliminating the need to manage credentials directly. However, Azure managed identities don't work across tenant boundaries, and the typical alternative is to use shared secrets (like SAS URLs).
 
-Introducing short-lived access tokens introduces a need to securely distribute and rotate secrets across tenant boundaries. One option that avoids this overhead is to create a multi-tenant application to represent your workload's identity. Through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
+The issue with shared secrets is they introduce a need to securely distribute and rotate secrets across Entra tenant boundaries. One option that avoids this overhead is to create a multi-tenant application to represent your workload's identity. Through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
 
 This article covers an example implementation of this pattern and is accompanied by [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
 
