@@ -86,5 +86,4 @@ The following scenarios and industries could use this solution:
 ## Related resources
 
 - [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [Task-based consumer mobile app](task-based-consumer-mobile-app.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](ingest-etl-stream-with-adb.yml)

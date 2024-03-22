@@ -210,9 +210,6 @@ conceptualContent:
         - text: Real-time fraud detection
           itemType: architecture
           url: example-scenario/data/fraud-detection.yml
-        - text: Mining equipment monitoring
-          itemType: architecture
-          url: ./solution-ideas/articles/monitor-mining-equipment.yml
         - text: Predict the length of stay in hospitals
           itemType: architecture
           url: ./example-scenario/digital-health/predict-patient-length-of-stay.yml
