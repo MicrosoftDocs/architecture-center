@@ -24,27 +24,25 @@ This initial use case involves the following scenarios:
 - Financial users SHOULD have the ability to view data as "it was" at a point in time.
 - The initial use case targets analytical and management reporting, with the ability to self-serve. This SHOULD also create the data foundation to enable an enterprise data science capability.
 - The data is classified "Company Confidential", so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
-- Contoso has an enterprise data model of which this finance data is a subset of. The key data elements MUST be cleansed, modelled and conformed to the various reporting hierarchies before being served for reporting.  
-- The data is classified "Company Confidential", so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
-- Contoso have an enterprise data model of which this finance data is a subset of. The key data elements MUST be cleansed, modeled and conformed to the various reporting hierarchies before being served for reporting.  
-- Source data ingested which isn’t currently mapped to the enterprise model MUST be retained and made available for future analysis and use cases. 
-- The Solution MUST be updated daily, based on source feeds availability with elastic compute optionality targeting <90mins for an end-to-end solution update. 
-- The Solution MUST support the target Service Level Agreement (SLAs) of:
+- Contoso has an enterprise data model that the finance data is a subset of. The key data elements MUST be cleansed, modeled and conformed to the various reporting hierarchies before being served for reporting.  
+- Ingested source data that isn’t currently mapped to the enterprise model MUST be retained and made available for future analysis and use cases. 
+- The Solution MUST be updated daily, based on source feeds availability with elastic compute optionality targeting sub-90 minutes for an end-to-end solution update. 
+- The Solution MUST support the target Service Level Agreements (SLAs) of:
   - 99.5% target uptime (or ~1 day, 20 hours downtime within a year).
   - Recovery Point Objective (RPO) of 3 days.
   - Recovery Time Objective (RTO) of 1 day.
 - The Solution SHOULD be designed for the future, accommodating future growth and capability extension without fundamental redesign.
-- The Solution MUST support the forecast usage of:
+- The Solution MUST support the forecasted usage of:
    - 200 Managers, Financial Controllers and Analysts attached to the Finance department with an estimated growth of <5% annually.
    - 100 Analysts attached to other corporate functions with an estimated growth of <5% annually.
    - Only Contoso employees can access the solution. This control explicitly excludes any direct access by 3rd parties or externals. 
 - The Solution MUST have:
-  - End-to-End monitoring and audit trails.
+  - End-to-end monitoring and audit trails.
   - Configurable alerting across functions, SLAs and cost.
 - The Solution SHOULD strongly prefer:
   - Reuse of existing skills and capabilities over new, reducing complexity, risk and cost.
   - Modern cloud service tiers: For example, it should use PaaS services whenever practical to reduce management burden, risk and below the line cost.
-  - Use of components that are mature in the market and easy to find. Contoso will up-skill resources across the software development lifecycle (SDLC).
+  - Use of components that are mature in the market and easy to find. Contoso will up-skill engineers across the software development lifecycle (SDLC).
 - The Solution SHOULD be optimized for the nonfunctional requirements (NFRs) (in order):
   - Minimize the cost to build and run.
   - Solution performance.
@@ -61,7 +59,7 @@ This initial use case involves the following scenarios:
   - Efficient medium-sized data storage and processing with Azure Data Lake Storage Gen2 and Azure Databricks.
   - Easily support the requirements for performance, reliability and service resiliency.
 - The selection of PaaS services offloading much of the operational burden to Microsoft, accepting the trade-off of less control.
-- Given the initial solution release, Power BI [Pro licensing](https://learn.microsoft.com/power-bi/fundamentals/service-features-license-type#pro-license) is selected. This choice has an explicit trade-off of OPEX cost vs Power BI [Premium performance](https://learn.microsoft.com/power-bi/enterprise/service-premium-what-is). 
+- Given the initial solution release, Power BI [Pro licensing](https://learn.microsoft.com/power-bi/fundamentals/service-features-license-type#pro-license) has been selected. This choice has an explicit trade-off of OPEX cost vs Power BI [Premium performance](https://learn.microsoft.com/power-bi/enterprise/service-premium-what-is). 
 - The key changes for this solution:
   - Azure SQL has been selected for the data modeling capability due to expected data volumes, reduction in new components introduced and reuse of existing skills. 
   - As the solution is batch-based, Azure Data Factory (ADF) has been selected based upon functional match, cost and simplicity.
@@ -86,7 +84,6 @@ The typical workflow of accessing and landing data through the architecture:
 - ADF also provides process orchestration for [Azure Databricks](https://azure.microsoft.com/products/databricks/) notebooks to transform and load the data into Delta Lake tables stored on ADLS Gen2, along with [Azure SQL Server](/azure/azure-sql/?view=azuresql) ETL processes.
   
 2.	[Delta Lake](/azure/databricks/delta/) provides an open format layer that enables data versioning, schema enforcement, time travel and provides ACID guarantees. Data is organized into the following layers:
-2.	[Delta Lake](/azure/databricks/delta/) provides an open format layer that enables data versioning, schema enforcement, time travel and provides ACID guarantees. Data is organized into the following layers:
 
 - Bronze: Holds all raw data.
 - Silver: Contains cleaned, filtered data.
@@ -101,7 +98,7 @@ The typical workflow of accessing and landing data through the architecture:
 
 - [Microsoft Purview Data Governance](https://learn.microsoft.com/purview/governance-home) is added to provide data discovery services, a data catalogue, and governance insights across the platform.
 
-- [Azure Site Recovery](/azure/site-recovery/) is added to support the backup/recovery of the VM’s which provide the compute to the ADF – SHIR, required to ingest data from on-premises.
+- [Azure Site Recovery](/azure/site-recovery/) is added to support the backup and recovery of the VMs, which provide the compute to the ADF – SHIR, required to ingest data from on-premises.
 - The following foundation services require extension to support this solution:
   - [Azure DevOps](/azure/devops/?view=azure-devops) offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
   - [Azure Key Vault](/azure/key-vault/general/) securely manages secrets, keys, and certificates.
@@ -118,12 +115,11 @@ The typical workflow of accessing and landing data through the architecture:
 - Implement PrivateLink and Private Endpoints, which allows you to bring the service into your virtual network.
 - ML-assisted data labeling doesn't support default storage accounts that are secured behind a virtual network [1]. You must use a non-default storage account for ML-assisted data labeling. The non-default storage account can be secured behind the virtual network
   
-
 ## Callouts
 
-- The use of Databricks Delta Lake means that Storage Accounts - Archive tier cannot be used, as that tier is effectivity off-line storage. This design choice is a trade-off between functionality and cost.
+- The use of Databricks Delta Lake means that Archive tier Storage Accounts cannot be used, as that tier is effectivity off-line storage. This design choice is a trade-off between functionality and cost.
 - When creating a new Azure Databricks workspace, the default redundancy for the managed storage account (Databricks filesystem or DBFS root) is set as Geo-redundant storage (GRS). You can change the redundancy to Locally-redundant storage (LRS).
-- As a general rule, data warehouses of less than 1TB perform better on Azure SQL Database than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5TB.  This performance difference is the main factor for selecting [Azure SQL over Synapse](https://learn.microsoft.com/en-us/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
+- As a general rule, data warehouses of less than 1 TB perform better on Azure SQL Database than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5 TB.  This performance difference is the main factor for selecting [Azure SQL over Synapse](https://learn.microsoft.com/en-us/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
 
 ## Alternatives
 
@@ -156,18 +152,17 @@ Given the reliability targets for a BI analytical/reporting system:
   - All source data ingested is stored in the Delta Lake – Bronze layer, in an append-only format. This enables a full replay of the solution without re-ingestion from the source system.
 
 > [!IMPORTANT] 
-> Multiple SHIR instances need to be deployed across different zones or across regions, where available, to meet your resilience goals. 
+> Multiple SHIR instances should be deployed across different Availability Zones or across regions, where available, to meet your resilience goals. 
 
 ### Security
 
 [Security](/azure/well-architected/security/) provides guidance to your architecture to help ensure the confidentiality, integrity, and availability of your data and systems.
 
-This architecture addresses security via configuration of the infrastructure selected, control and data plane controls implemented, based upon [zero-trust model](/azure/security/fundamentals/zero-trust) and [less privilege required](/entra/identity-platform/secure-least-privileged-access) principles. The security controls natively supported include:
+This architecture addresses security via configuration of the infrastructure selected and the control and data plane controls implemented. These design choices are based upon the [zero-trust model](/azure/security/fundamentals/zero-trust) and [least privilege access](/entra/identity-platform/secure-least-privileged-access) principles. The security controls natively supported include:
 
 - Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, enabling consistent RBAC control.
-- Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorisation, enabling consistent role-based access control (RBAC).
 - Azure [Key Vault](/azure/key-vault/) stores application secrets and certificates securely.
-- The use of component specific [built-in roles](/azure/role-based-access-control/built-in-roles), enabling a finer grain control for authorization at the control plane level. 
+- The use of component-specific [built-in roles](/azure/role-based-access-control/built-in-roles), enabling a granular control for authorization at the control plane level.
   - Due to scope, these specific roles are preferred over the [general roles]( https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
   - [Custom Roles](/azure/role-based-access-control/tutorial-custom-role-powershell) are explicitly excluded due ongoing lifecycle management requirements.
 - Access to data across the solution is controlled via a set of domain-specific Microsoft Entra ID groups, reflecting Contoso’s data classification framework. Individual solution components use these groups to apply data level controls. For example, SQL Server [dynamic data masking](https://learn.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16) and Power BI [RLS](https://learn.microsoft.com/power-bi/enterprise/service-admin-rls) both support this design.
@@ -180,8 +175,8 @@ This architecture addresses security via configuration of the infrastructure sel
 
 This architecture addresses cost optimization with:
 
-- Strongly linking component SKU selection to the requirements, avoiding the "built it and they will come" anti-pattern. Scheduling in regular reviews of metrics to enable ["right-sizing"](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Microsoft Copilot for Azure](/azure/copilot/analyze-cost-management) for further guidance.
-- As part of a broader [FinOps framework](/azure/cost-management-billing/finops/overview-finops), implementing the various OPEX saving benefits, such as:
+- Strongly linking component SKU selection to the requirements, avoiding the "build it and they will come" anti-pattern. Scheduling in regular reviews of metrics to enable ["right-sizing"](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/) and use of [Microsoft Copilot for Azure](/azure/copilot/analyze-cost-management) for further guidance.
+- As part of a broader [FinOps framework](/azure/cost-management-billing/finops/overview-finops), implementing practical OPEX saving benefits, such as:
   - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, for the maximum term across the solution.
   - ADF [Reserved capacity](/azure/data-factory/data-flow-reserved-capacity-overview) for data flows.
   - Log Analytics [Commitment tiers](/azure/azure-monitor/logs/cost-logs).
