@@ -11,11 +11,11 @@ For more information, see the [Code of Conduct FAQ](https://opensource.microsoft
 
 ## How can I contribute?
 
-There are a variety of ways to contribute to the documentation, review the sections below to find out which one is right for you.
+There are a variety of ways to contribute to the documentation, review the following sections to find out which one is right for you.
 
 ### Reporting Bugs and Suggesting Enhancements
 
-Please use the Feedback tool at the bottom of any article to submit bugs and suggestions.
+Use the Feedback tool at the bottom of any article to submit bugs and suggestions.
 
 ![Feedback Tool](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/media/feedback-tool.png)
 
