@@ -106,5 +106,5 @@ Azure Cosmos DB has a [20-GB limit](/azure/cosmos-db/partitioning-overview) for 
 ## Related resources
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
 - [IoT analytics with Azure Data Explorer](iot-azure-data-explorer.yml)

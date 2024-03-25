@@ -143,6 +143,5 @@ Other contributor:
 
 ## Related resources
 
-- [IoT and data analytics](../data/big-data-with-iot.yml)
 - [Monitoring Azure Databricks](../../databricks-monitoring/index.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
