@@ -1,5 +1,5 @@
 ---
-title: “Choose an Azure service for vector search”
+title: Choose an Azure service for vector search
 description: Use this information to decide which Azure service for vector search best suits your application
 author: konabuta,
 ms.author: keonabut, yongl, krmeht
@@ -82,21 +82,21 @@ The following table lists common use-scenario requirements and the recommended d
 
 Understand the basic features of each Azure service from the following table.
 
-| Capability                | Azure Cosmos DB for PostgreSQL          | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-| ------------------------- | --------------------------------------- | ----------------------------------- | ------------------------------------ | --------------- | ------------------ |
-| Built-In Vector Search    | Yes [(1)]()                             | Yes [(2)]()                         | Yes [(1)]()                          | Yes [(3)]()     | No [(4)]()         |
-| Data Type for Vectors     | Yes                                     | Yes                                 | Yes                                  | Yes             | No [(5)]()         |
-| Dimensions Limits [(6)]() | 16,000 [(7)]() or 2000 (HNSW & IVFflat) | 2,000                               | 16,000 (7) or 2000 (HNSW & IVFflat)  | 2,048           | Unlimited          |
-| Multiple Vector Fields    | Yes                                     | No                                  | Yes                                  | Yes             | N/A                |
-| Multiple Vector Indexes   | Yes                                     | No                                  | Yes                                  | Yes             | N/A                |
+| Capability                                       | Azure Cosmos DB for PostgreSQL                                 | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)                           | Azure AI Search                    | Azure SQL Database                |
+| ------------------------------------------------ | -------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------------- | ---------------------------------- | --------------------------------- |
+| Built-In Vector Search                           | Yes <a href="#a1"><sup>1</sup></a>                             | Yes <a href="#a2"><sup>2</sup></a>  | Yes <a href="#a1"><sup>1</sup></a>                             | Yes <a href="#a3"><sup>3</sup></a> | No <a href="#a4"><sup>4</sup></a> |
+| Data Type for Vectors                            | Yes                                                            | Yes                                 | Yes                                                            | Yes                                | No <a href="#a5"><sup>5</sup></a> |
+| Dimensions Limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 (HNSW & IVFflat) | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 (HNSW & IVFflat) | 2,048                              | Unlimited                         |
+| Multiple Vector Fields                           | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
+| Multiple Vector Indexes                          | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
 
-- (1) Vector search is supported by pgvector which is the extension of PostgreSQL.
-- (2) Use vector search on embeddings in Azure Cosmos DB for MongoDB vCore
-- (3) Vectors in Azure AI Search
-- (4) Vector search is not provided as a first-class feature, but it can be implemented (using columnstore indexes and functions for cosine similarity)
-- (5) Need to unpivot dimension(array) to table row. Vectors are stored with columnstore index.
-- (6) For embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For Azure AI Vision multimodal embedding models, 1024 for both image and text.
-- (7) Vectors can have up to 16,000. But index using IVFFlat and HNSW supports vectors with up to 2,000 dimensions.
+1. <span id="a1">Vector search is supported by pgvector which is the extension of PostgreSQL.</span>
+1. <span id="a2">Use vector search on embeddings in Azure Cosmos DB for MongoDB vCore</span>
+1. <span id="a3">Vectors in Azure AI Search</span>
+1. <span id="a4">Vector search is not provided as a first-class feature, but it can be implemented (using columnstore indexes and functions for cosine similarity)</span>
+1. <span id="a5">Need to unpivot dimension(array) to table row. Vectors are stored with columnstore index.</span>
+1. <span id="a6">or embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For Azure AI Vision multimodal embedding models, 1024 for both image and text.</span>
+1. <span id="a7">Vectors can have up to 16,000. But index using IVFFlat and HNSW supports vectors with up to 2,000 dimensions.</span>
 
 ### Search methods
 
