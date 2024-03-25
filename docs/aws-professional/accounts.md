@@ -8,8 +8,8 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - management and governance
   - security
   - storage
@@ -41,7 +41,7 @@ An Azure account represents a billing relationship and Azure subscriptions help 
 
 - **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they cannot change the service administrator.
 
-Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through a Microsoft Entra ID).
+Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to Identity and Access Management (IAM) users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through a Microsoft Entra ID).
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 

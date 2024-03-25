@@ -8,8 +8,8 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - database
   - storage
   - web

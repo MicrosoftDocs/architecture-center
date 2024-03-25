@@ -985,8 +985,6 @@ items:
         href: solution-ideas/articles/logical-data-warehouse.yml
       - name: Manage data across the Azure SQL estate
         href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Oil and Gas tank level forecasting
@@ -1584,8 +1582,6 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Tier applications for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
@@ -2272,16 +2268,6 @@ items:
           href: guide/iot-edge-vision/image-storage.md
         - name: User interface and scenarios
           href: guide/iot-edge-vision/user-interface.md
-      - name: Industrial IoT analytics
-        items:
-        - name: Architecture
-          href: guide/iiot-guidance/iiot-architecture.yml
-        - name: Recommended services
-          href: guide/iiot-guidance/iiot-services.md
-        - name: Data visualization
-          href: guide/iiot-guidance/iiot-data.yml
-        - name: Considerations
-          href: guide/iiot-guidance/iiot-considerations.md
       - name: Industrial IoT patterns
         items:
         - name: Visibility patterns
@@ -2320,10 +2306,6 @@ items:
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: Computer vision at the edge
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Connected factory hierarchy service
-        href: solution-ideas/articles/connected-factory-hierarchy-service.yml
-      - name: Connected factory signal pipeline
-        href: example-scenario/iot/connected-factory-signal-pipeline.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
       - name: IoT and data analytics
@@ -4299,8 +4281,6 @@ items:
           - name: Overview
             href: /azure/industrial-iot/overview-what-is-industrial-iot
             maintainContext: true
-          - name: Industrial IoT analytics
-            href: guide/iiot-guidance/iiot-architecture.yml
           - name: Deploy the IIoT platform
             href: /azure/industrial-iot/tutorial-deploy-industrial-iot-platform
             maintainContext: true
@@ -4332,10 +4312,6 @@ items:
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Connected factory hierarchy service
-        href: solution-ideas/articles/connected-factory-hierarchy-service.yml
-      - name: Connected factory signal pipeline
-        href: example-scenario/iot/connected-factory-signal-pipeline.yml
       - name: IoT and data analytics in manufacturing
         href: example-scenario/data/big-data-with-iot.yml
       - name: IoT Edge safety and maintenance system
@@ -4410,8 +4386,6 @@ items:
         href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: IoT Edge data processing - Monitor oil rigs
         href: solution-ideas/articles/data-storage-edge.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Oil and gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
       - name: Project 15 sustainability
