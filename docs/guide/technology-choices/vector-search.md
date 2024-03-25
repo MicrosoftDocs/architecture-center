@@ -104,19 +104,19 @@ Not only vector search, but also full-text search and hybrid search (full text s
 
 Understand what kind of search methods are provided from the following table.
 
-| Capability             | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-| ---------------------- | ------------------------------ | ----------------------------------- | ------------------------------------ | --------------- | ------------------ |
-| Full Text Search       | Yes [(1)]()                    | Yes [(2)]()                         | Yes [(1)]()                          | Yes [(3)]()     | Yes [(4)]()        |
-| Built-In Hybrid Search | No [(5)]()                     | No                                  | No [(5)]()                           | Yes [(6)]()     | No                 |
-| Reranking              | No                             | No                                  | No                                   | Yes [(7)]()     | No                 |
+| Capability             | Azure Cosmos DB for PostgreSQL     | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search                    | Azure SQL Database                 |
+| ---------------------- | ---------------------------------- | ----------------------------------- | ------------------------------------ | ---------------------------------- | ---------------------------------- |
+| Full Text Search       | Yes <a href="#b1"><sup>1</sup></a> | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
+| Built-In Hybrid Search | No <a href="#b5"><sup>5</sup></a>  | No                                  | No <a href="#b5"><sup>5</sup></a>    | Yes <a href="#b6"><sup>6</sup></a> | No                                 |
+| Reranking              | No                                 | No                                  | No                                   | Yes <a href="#b7"><sup>7</sup></a> | No                                 |
 
-- (1) PostgreSQL Full Text Search
-- (2) Search and query with text indexes in Azure Cosmos DB for MongoDB vCore
-- (3) Get Started with Full-Text Search
-- (4) Vector Data on SQL Server
-- (5) Not provided as a first-class feature but sample codes are provided (reciprocal rank fusion, cross-encoder)
-- (6) Hybrid search (Semantic search + Re-ranker, Etc.) is provided as a first-class feature.
-- (7) Semantic Ranking is a first-class feature for reranking the result of full text search and/or vector search.
+1. <span id="b1">PostgreSQL Full Text Search</span>
+1. <span id="b2">Search and query with text indexes in Azure Cosmos DB for MongoDB vCore</span>
+1. <span id="b3">Get Started with Full-Text Search</span>
+1. <span id="b4">Vector Data on SQL Server</span>
+1. <span id="b5">Not provided as a first-class feature but sample codes are provided (reciprocal rank fusion, cross-encoder)</span>
+1. <span id="b6">Hybrid search (Semantic search + Re-ranker, Etc.) is provided as a first-class feature.</span>
+1. <span id="b7">Semantic Ranking is a first-class feature for reranking the result of full text search and/or vector search.</span>
 
 ### Data Management
 
@@ -146,13 +146,13 @@ Understand what kinds of vector data indexing are provided from the following ta
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
 | Exhaustive KNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
-| HNSW | Yes| Yes (preview)[(1)]() | Yes | Yes | No |
+| HNSW | Yes| Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
 | IVFflat | Yes | Yes | Yes | No | No |
-| Others (limitations, tips etc.) | - |[(2)]()| - | - |[(3)]()|
+| Others (limitations, tips etc.) | - |<a href="#e2"><sup>2</sup></a>| - | - |<a href="#e3"><sup>3</sup></a>|
 
-- (1) Document Link
-- (2) Only one index can be created per container.
-- (3) Azure SQL Database doesn't have vector data type. But you can store vectors into a column. Each row holds each element of vectors. Then you can use columnstore index to efficiently store and search for vectors.
+1. <span id="e1">Document Link</span>
+1. <span id="e2">Only one index can be created per container.</span>
+1. <span id="e3">Azure SQL Database doesn't have vector data type. But you can store vectors into a column. Each row holds each element of vectors. Then you can use columnstore index to efficiently store and search for vectors.</span>
 
 ### Similarity and distance calculation capabilities
 
@@ -171,20 +171,12 @@ Some technologies from Microsoft will be useful to build systems using vector se
 Understand the useful services/tools from Microsoft which can be integrated into each Azure service.
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
-| Azure Open AI Service - add your own data | No | Yes | No | Yes | No |
-| Vector Embedding with Azure OpenAI | No | No | Yes | Yes | Yes |
-| Integration with Prompt flow | No | No | No | Yes | No |
-| Integration with Semantic Kernel | Yes | Yes | Yes | Yes | No |
+| Azure Open AI Service - add your own data | No | Yes <a href="#g1"><sup>1</sup></a> | No | Yes <a href="#g2"><sup>2</sup></a>| No |
+| Vector Embedding with Azure OpenAI | No | No | Yes <a href="#g3"><sup>3</sup></a>| Yes <a href="#g4"><sup>4</sup></a>| Yes <a href="#g5"><sup>5</sup></a> |
+| Integration with Prompt flow | No | No | No | Yes <a href="#g6"><sup>6</sup></a>| No |
+| Integration with Semantic Kernel | Yes <a href="#g7"><sup>7</sup></a> | Yes <a href="#g8"><sup>8</sup></a>| Yes <a href="#g7"><sup>7</sup></a>| Yes <a href="#g9"><sup>9</sup></a> | No |
 
-- (1) Azure Cosmos DB for MongoDB (vCore) is supported as a DataSource for Azure OpenAI on your data.
-- (2) Azure AI Search is supported as a DataSource for Azure OpenAI on your data.
-- (3) Azure AI Extension (preview) is available.
-- (4) Azure AI Search provides a skill to vectorize the chunked text.
-- (5) Stored Procedure
-- (6) Supported as a vector database in "Index Lookup" tool.
-- (7) Supported as a vector database connector (C#).
-- (8) Supported as a vector database connector (Python).
-- (9) Supported as a memory connector, and a vector database connector.
+1.<span id="g1">Azure Cosmos DB for MongoDB (vCore) is supported as a DataSource for Azure OpenAI on your data.</span> 2.<span id="g2">Azure AI Search is supported as a DataSource for Azure OpenAI on your data.</span> 3.<span id="g3">Azure AI Extension (preview) is available.</span> 4.<span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span> 5.<span id="g5">Stored Procedure</span> 6.<span id="g6">Supported as a vector database in "Index Lookup" tool.</span> 7.<span id="g7">Supported as a vector database connector (C#).</span> 8.<span id="g8">Supported as a vector database connector (Python).</span> 9.<span id="g9">Supported as a memory connector, and a vector database connector.</span>
 
 ## Contributors
 
