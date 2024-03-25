@@ -39,7 +39,7 @@ The following tables describe and compare the core compute services on Amazon We
 
 Principal author:
 
-* [Kobi Levi](https://www.linkedin.com/in/kobi-levi) | Cloud Solution Architect
+- [Kobi Levi](https://www.linkedin.com/in/kobi-levi) | Cloud Solution Architect
 
 ## Next steps
 
@@ -57,4 +57,4 @@ Principal author:
 - [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
 - [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
-- [Active-passive multi-region App Service web application](../web-apps/app-service/architectures/multi-region.yml)
+- [Active-passive multiregion App Service web application](../web-apps/app-service/architectures/multi-region.yml)

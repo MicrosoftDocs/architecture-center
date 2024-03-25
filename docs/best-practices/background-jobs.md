@@ -8,7 +8,7 @@ categories: azure
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
-azureCategories: 
+azureCategories:
   - compute
   - security
 products:
@@ -91,7 +91,7 @@ You can host background tasks by using a range of different Azure platform servi
 - [**Azure Kubernetes Service**](#azure-kubernetes-service) (AKS). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure.
 - [**Azure Container Apps**](#azure-container-apps). Azure Container Apps enables you to build serverless microservices based on containers.
 
-The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
+The following sections describe these options in more detail, and include considerations to help you choose the appropriate option.
 
 ### Azure Web Apps and WebJobs
 
@@ -103,12 +103,12 @@ When you configure a WebJob:
 - If you want the job to respond to a schedule-driven trigger, you should configure it as **Run on a schedule**. The script or program is stored in the folder named site/wwwroot/app_data/jobs/triggered.
 - If you choose the **Run on demand** option when you configure a job, it will execute the same code as the **Run on a schedule** option when you start it.
 
-Azure WebJobs run within the sandbox of the web app. This means that they can access environment variables and share information, such as connection strings, with the web app. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure storage queues, blobs, and tables for application data, and access to Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
+Azure WebJobs run within the sandbox of the web app. This means that they can access environment variables and share information, such as connection strings, with the web app. The job has access to the unique identifier of the machine that is running the job. The connection string named **AzureWebJobsStorage** provides access to Azure Storage queues, blobs, and tables for application data, and access to Service Bus for messaging and communication. The connection string named **AzureWebJobsDashboard** provides access to the job action log files.
 
 Azure WebJobs have the following characteristics:
 
 - **Security**: WebJobs are protected by the deployment credentials of the web app.
-- **Supported file types**: You can define WebJobs by using command scripts (`.cmd`), batch files (`.bat`), PowerShell scripts (`.ps1`), bash shell scripts (`.sh`), PHP scripts (`.php`), Python scripts (`.py`), JavaScript code (`.js`), and executable programs (`.exe`, `.jar`, and more).
+- **Supported file types**: You can define WebJobs by using command scripts (`.cmd`), batch files (`.bat`), PowerShell scripts (`.ps1`), Bash shell scripts (`.sh`), PHP scripts (`.php`), Python scripts (`.py`), JavaScript code (`.js`), and executable programs (`.exe`, `.jar`, and more).
 - **Deployment**: You can deploy scripts and executables by using the [Azure portal](/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
   - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
@@ -166,7 +166,7 @@ See the earlier section [Triggers](#triggers) for more information about how you
 Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
 
 - Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-- There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](/powershell/module/?view=azps-1.0.0&preserve-view=true). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
+- There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the [Azure Resource Manager Cmdlets](/powershell/module/?view=azps-1.0.0&preserve-view=true). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
 - You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see the [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 For more information, see:
@@ -176,7 +176,7 @@ For more information, see:
 
 ### Azure Batch
 
-Consider [Azure Batch](/azure/batch) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
+Consider [Azure Batch](/azure/batch) if you need to run large, parallel high performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
 
 The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
 
@@ -225,11 +225,11 @@ For more information, see:
 
 Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
 
-* Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
-* Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
-* Supports Kubernetes-style apps and microservices with features like [service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
-* Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
-* Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
+- Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
+- Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
+- Supports Kubernetes-style apps and microservices with features like [service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
+- Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
+- Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
 
 #### Considerations
 
@@ -298,7 +298,7 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages. For more information on the challenges with at-least-once message delivery, see [the guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
-  - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns).
+  - Some messaging systems, such as Azure Queue Storage and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns).
 
 ## Scaling and performance considerations
 
