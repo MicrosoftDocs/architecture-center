@@ -78,16 +78,11 @@ The following table lists common use-scenario requirements and the recommended d
 
 | If you want to | Use this database service|
 |---|---|
-| Build apps that scale with a managed and intelligent SQL database in the cloud. | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
-| Modernize SQL Server applications with a managed, always-up-to-date SQL instance in the cloud. | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql&preserve-view=true) |
-| Migrate your SQL workloads to Azure while maintaining complete SQL Server compatibility and operating system-level access. | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?view=azuresql&preserve-view=true) |
-| Build scalable, secure, and fully managed enterprise-ready apps on open-source PostgreSQL, scale out single-node PostgreSQL with high performance, or migrate PostgreSQL and Oracle workloads to the cloud. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
-| Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud. | [Azure Database for MySQL](/azure/mysql/overview) |
-| Deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MariaDB database service. | [Azure Database for MariaDB](/azure/mariadb/overview) |
-| Build applications with guaranteed low latency and high availability anywhere, at any scale, or migrate Cassandra, MongoDB, Gremlin, and other NoSQL workloads to the cloud. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
-| Modernize existing Cassandra data clusters and apps, and enjoy flexibility and freedom with managed instance service. | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/introduction) |
-| Build a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
-| Power fast, scalable applications with an open-source-compatible in-memory data store. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search]() |
+| Integrate vector search with Azure OpenAI Service for vectorization out-of-the-box. | [Azure AI Search, Azure Cosmos DB for MongoDB]() |
+| Store operational data and vector data in a same schema. | [Azure Cosmos DB for MongoDB]() |
+| Insert/update/delete vector field very frequently and perform vector search for this data.| [Azure Cosmos DB for MongoDB, Azure Cosmos DB for PostgreSQL, Azure Database for PostgreSQL]() |
+| Build generative application while maintaining existing SQL database for vector search. | [Azure SQL Database]() |
 
 
 ### Capability Matrix
