@@ -42,6 +42,7 @@ Answer the following questions about your workloads to help you make decisions b
   - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
   - JSON(BSON) format is more flexible than RDBMS to keep other relavant data along with vector fields.
   - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as HNSW and IVFflat.
+  - **_Only one vector field and index is available_** per container.
 - **You have PostgreSQL already or you prefer OSS technology:**
   - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud.
   - Azure Database for PostgreSQL supports ANN vector index such as HNSW and IVFflat.
