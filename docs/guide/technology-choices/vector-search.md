@@ -44,19 +44,15 @@ Answer the following questions about your workloads to help you make decisions b
   - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as HNSW and IVFflat.
   - **_Only one vector field and index is available_** per container.
 - **You have PostgreSQL already or you prefer OSS technology:**
-  - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud.
+  - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) and [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/introduction) deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud.
   - Azure Database for PostgreSQL supports ANN vector index such as HNSW and IVFflat.
   - You can define multiple vector fields in single table.
   - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
   - If you are using Azure Open AI Service, embedding feature is integrated and ready to use.
-- **You have PostgreSQL already or you prefer OSS technology:**
-  - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) deliver high availability and elastic scaling to open-source mobile and web apps with a managed community MySQL database service, or migrate MySQL workloads to the cloud.
-  - Azure Database for PostgreSQL supports ANN vector index such as HNSW and IVFflat.
-  - You can define multiple vector fields in single table.
-  - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
-  - If you are using Azure Open AI Service, embedding feature is already integrated and ready to use.
 - **You have SQL Database already or you prefer SQL Server technology:**
   - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+  - SQL Server **_doesn't support vector data type and vector index_**. You need to [unpivot vector data into a table with column store index](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#vectors-1).
+  - Vector search **_performance is slower and not recommended for large dataset_**.
 - **Your application requires advanced search features with high quality:**
   - In Azure, [Azure AI Search](/azure/postgresql/overview) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
   - If you need to index **_unstructured data(e.g. images, docx, PDF and etc.)_**, Azure AI search has **_skill set which can help collect insightfull metadata_** from them.
