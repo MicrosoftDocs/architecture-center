@@ -11,9 +11,9 @@ ms.date: 03/18/2024
 
 # Choose an Azure service for vector search
 
-Vector search is a method of finding information in the shape of vectors (vectors are groups of numbers that show features or characteristics of things like text or images). It’s a significant advancement over traditional keyword-based search methods, offering faster and more accurate results by understanding the semantic relationships within the data.
+Vector search is a method of finding information in the shape of vectors. Vectors are groups of numbers that show features or characteristics of things like text or images. It’s a significant advancement over traditional keyword-based search methods, offering faster and more accurate results by understanding the semantic relationships within the data.
 
-Azure offers many ways to search vectors. This guide is written for developers who want to understand and choose an Azure service for vector search for your application.
+Azure offers many ways to perform vector search. This guide is written for developers who want to understand and choose an Azure service for vector search for your application.
 
 This article compares the following services:
 
@@ -21,7 +21,7 @@ This article compares the following services:
 - [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/)
 - [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/)
 - [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)
-- [Azure SQL Database](http://Azure%20SQL%20documentation%20-%20Azure%20SQL%20|%20Microsoft%20Learn)
+- [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)
 
 ## Choose a candidate service
 
@@ -59,7 +59,7 @@ Answer the following questions about your workloads to help you make decisions b
   - Azure AI Search supports ANN vector index such as HNSW and Exhaustive KNN.
   - You can define multiple vector fields in single index.
   - You can create multiple vector indexes in search index.
-  - If you are using Azure **_Open AI Service, embedding feature is integrated and ready to use_**.
+  - If you are using Azure **_OpenAI Service, embedding feature is integrated and ready to use_**.
   - **_Operational Cost can be higher_** than keeping vectore data in database systems
     > [!NOTE]
     > Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
@@ -68,13 +68,14 @@ Answer the following questions about your workloads to help you make decisions b
 
 The following table lists common use-scenario requirements and the recommended database services for handling them.
 
-| If you want to                                                                                                  | Use this database service                                                                      |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search]()                                                                            |
-| Integrate vector search with Azure OpenAI Service for vectorization out-of-the-box.                             | [Azure AI Search]()                                                                            |
-| Store operational data and vector data in a same schema.                                                        | [Azure Cosmos DB for MongoDB]()                                                                |
-| Insert/update/delete vector field very frequently and perform vector search for this data.                      | [Azure Cosmos DB for MongoDB, Azure Cosmos DB for PostgreSQL, Azure Database for PostgreSQL]() |
-| Build generative application while maintaining existing SQL database for vector search.                         | [Azure SQL Database]()                                                                         |
+| If you want to                                                                                                  | Use this Azure service for vector search                                                                                                                                              |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                    |
+| Perform vector search for integrated data which is comprised with multiple data sources.                        | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                    |
+| Integrate vector search with Azure OpenAI Service for vectorization out-of-the-box.                             | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/), [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/)           |
+| Store operational data and vector data in a same schema.                                                        | [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/)                                                                               |
+| Insert/update/delete vector field very frequently in RDBMS and perform vector search for this data.             | [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/) |
+| Build generative application while maintaining existing SQL database for vector search.                         | [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                                                                                |
 
 ## Capability Matrix
 
@@ -90,12 +91,12 @@ Understand the basic features of each Azure service from the following table.
 | Multiple Vector Fields                           | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
 | Multiple Vector Indexes                          | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
 
-1. <span id="a1">Vector search is supported by pgvector which is the extension of PostgreSQL.</span>
-1. <span id="a2">Use vector search on embeddings in Azure Cosmos DB for MongoDB vCore</span>
+1. <span id="a1">Vector search is supported by pgvector which is the [extension of PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
+1. <span id="a2">[Use vector search on embeddings](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search) in Azure Cosmos DB for MongoDB vCore</span>
 1. <span id="a3">Vectors in Azure AI Search</span>
-1. <span id="a4">Vector search is not provided as a first-class feature, but it can be implemented (using columnstore indexes and functions for cosine similarity)</span>
-1. <span id="a5">Need to unpivot dimension(array) to table row. Vectors are stored with columnstore index.</span>
-1. <span id="a6">or embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For Azure AI Vision multimodal embedding models, 1024 for both image and text.</span>
+1. <span id="a4">Vector search is not provided as a first-class feature, but it can be implemented by [using columnstore indexes and functions for cosine similarity](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/)</span>
+1. <span id="a5">Need to unpivot dimension(array) to table row. [Vectors are stored with columnstore index](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/).</span>
+1. <span id="a6">or embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For [Azure AI Vision multimodal embedding models](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/concept-image-retrieval), 1024 for both image and text.</span>
 1. <span id="a7">Vectors can have up to 16,000. But index using IVFFlat and HNSW supports vectors with up to 2,000 dimensions.</span>
 
 ### Search methods
@@ -148,9 +149,9 @@ Understand what kinds of vector data indexing are provided from the following ta
 | Exhaustive KNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
 | HNSW | Yes| Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
 | IVFflat | Yes | Yes | Yes | No | No |
-| Others (limitations, tips etc.) | - |<a href="#e2"><sup>2</sup></a>| - | - |<a href="#e3"><sup>3</sup></a>|
+| Others (limitations, tips etc.) | - |num of index limitation <a href="#e2"><sup>2</sup></a>| - | - |No native vector search support<a href="#e3"><sup>3</sup></a>|
 
-1. <span id="e1">Document Link</span>
+1. <span id="e1">[Azure Cosmos DB for MongoDB - Vector search overview](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search)</span>
 1. <span id="e2">Only one index can be created per container.</span>
 1. <span id="e3">Azure SQL Database doesn't have vector data type. But you can store vectors into a column. Each row holds each element of vectors. Then you can use columnstore index to efficiently store and search for vectors.</span>
 
@@ -176,7 +177,15 @@ Understand the useful services/tools from Microsoft which can be integrated into
 | Integration with Prompt flow | No | No | No | Yes <a href="#g6"><sup>6</sup></a>| No |
 | Integration with Semantic Kernel | Yes <a href="#g7"><sup>7</sup></a> | Yes <a href="#g8"><sup>8</sup></a>| Yes <a href="#g7"><sup>7</sup></a>| Yes <a href="#g9"><sup>9</sup></a> | No |
 
-1.<span id="g1">Azure Cosmos DB for MongoDB (vCore) is supported as a DataSource for Azure OpenAI on your data.</span> 2.<span id="g2">Azure AI Search is supported as a DataSource for Azure OpenAI on your data.</span> 3.<span id="g3">Azure AI Extension (preview) is available.</span> 4.<span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span> 5.<span id="g5">Stored Procedure</span> 6.<span id="g6">Supported as a vector database in "Index Lookup" tool.</span> 7.<span id="g7">Supported as a vector database connector (C#).</span> 8.<span id="g8">Supported as a vector database connector (Python).</span> 9.<span id="g9">Supported as a memory connector, and a vector database connector.</span>
+1. <span id="g1">Azure Cosmos DB for MongoDB (vCore) is supported as a DataSource for Azure OpenAI on your data.</span>
+2. <span id="g2">Azure AI Search is supported as a DataSource for Azure OpenAI on your data.</span>
+3. <span id="g3">Azure AI Extension (preview) is available.</span>
+4. <span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span>
+5. <span id="g5">Stored Procedure</span>
+6. <span id="g6">Supported as a vector database in "Index Lookup" tool.</span>
+7. <span id="g7">Supported as a vector database connector (C#).</span>
+8. <span id="g8">Supported as a vector database connector (Python).</span>
+9. <span id="g9">Supported as a memory connector, and a vector database connector.</span>
 
 ## Contributors
 
