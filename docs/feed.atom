@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-03-18T22:41:00.723Z</updated>
+    <updated>2024-03-25T17:27:30.219Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -14,6 +14,14 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture"/>
         <updated>2024-03-05T18:08:11.000Z</updated>
         <summary type="html"><![CDATA[This guide provides an overview of the architectural content for SaaS, startups, and multitenancy and guidance about architecting multitenant solutions on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment patterns for Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/analytics/architecture/fabric-deployment-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/analytics/architecture/fabric-deployment-patterns"/>
+        <updated>2024-03-20T17:18:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn about common deployment scenarios for Microsoft Fabric.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -55,6 +63,14 @@
         <updated>2024-03-01T18:50:25.000Z</updated>
         <summary type="html"><![CDATA[Find out how Ansys Speos optical-system simulation software performs on an Azure virtual machine (VM).]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mainframe file replication and sync on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication"/>
+        <updated>2024-03-20T19:20:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Virtual desktop architecture design]]></title>
@@ -105,19 +121,51 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
-        <updated>2024-03-18T17:27:44.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/services"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Compare Microsoft Azure services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web API design best practices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/api-design</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-design"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn best practices for designing web APIs that support platform independence and service evolution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Web API implementation]]></title>
         <id>https://learn.microsoft.com/azure/architecture/best-practices/api-implementation</id>
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-implementation"/>
-        <updated>2024-03-18T17:18:46.000Z</updated>
+        <updated>2024-03-22T20:51:35.000Z</updated>
         <summary type="html"><![CDATA[Learn about best practices for implementing a web API and publishing it to make it available to client applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Background jobs guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/background-jobs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/background-jobs"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[General considerations for choosing an Azure container service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
+        <updated>2024-03-19T16:00:12.000Z</updated>
+        <summary type="html"><![CDATA[Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2024-03-18T17:27:44.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -961,6 +1009,14 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[AKS Backup and Recovery]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-backup-and-recovery</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-backup-and-recovery"/>
+        <updated>2023-12-01T22:39:15.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to back up and recover your AKS clusters and their workloads.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Augment security, observability, and analytics by using Microsoft Sentinel, Azure Monitor, and Azure Data Explorer]]></title>
         <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer</id>
         <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer"/>
@@ -1357,7 +1413,7 @@
         <id>https://learn.microsoft.com/azure/architecture/best-practices/api-design</id>
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-design"/>
         <updated>2023-12-07T18:33:54.000Z</updated>
-        <summary type="html"><![CDATA[Learn the best practices for designing web APIs that support platform independence and service evolution.]]></summary>
+        <summary type="html"><![CDATA[Learn best practices for designing web APIs that support platform independence and service evolution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
