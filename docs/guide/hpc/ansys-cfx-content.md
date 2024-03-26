@@ -130,7 +130,6 @@ The following models were tested. For more information about the current Ansys m
 
 ### 3. Airfoil 50M
 
-:::image type="content" source="media/cfx/airfoil.png" alt-text="Figure that shows the airfoil model." border="false":::
 
 - Case Details:
  
@@ -154,7 +153,6 @@ The following models were tested. For more information about the current Ansys m
 
 ### 4. Airfoil 100M
 
-:::image type="content" source="media/cfx/airfoil.png" alt-text="Figure that shows the airfoil model." border="false":::
 
 - Case Details:
  
@@ -323,14 +321,6 @@ Ansys CFX Application 2021 R2 and 2022 R2 both are successfully deployed and tes
 2.	In case of multi-node runs, with sufficiently large models, Ansys CFX is scaling up linearly with increase in number of nodes.
 3.	A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a very good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
 4.	The Performance comparison between the CFX versions 2021 R2 and 2022 R2 is shown in this report.
-
-## Running Ansys CFX on Azure Virtual Machines
-
-Users can use [Ansys Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ansys.ansys_cloud?tab=Overview) or alternatively they can reach out to any one of the following contact for the further support. 
-
-1.	Contact through Ansys		:  cloud-sales@ansys.com
-2.	Contact through Microsoft		:  [Microsoft global black belt team](https://azure.microsoft.com/en-us/contact/#contact-sales)
-3.	Contact through Capgemini		:  [AzureHPC-Certification@capgemini.com](mailto:AzureHPC-Certification@capgemini.com) 
 
 
 
