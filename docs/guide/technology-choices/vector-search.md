@@ -141,11 +141,12 @@ Understand what kinds of vector data indexing are provided from the following ta
 | Exhaustive KNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
 | HNSW | Yes| Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
 | IVFflat | Yes | Yes | Yes | No | No |
-| Others (limitations, tips etc.) | - |num of index limitation <a href="#e2"><sup>2</sup></a>| - | - |No native vector search support<a href="#e3"><sup>3</sup></a>|
+| Others (limitations, tips etc.) | - | Vector field limitation <a href="#e2"><sup>2</sup></a> </br> Vector index limitation <a href="#e3"><sup>2</sup></a> | - | - |No native vector search support<a href="#e4"><sup>3</sup></a>|
 
 1. <span id="e1">[Azure Cosmos DB for MongoDB - Vector search overview](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search)</span>
-1. <span id="e2">Only one index can be created per container.</span>
-1. <span id="e3">Azure SQL Database doesn't have vector data type. But you can store vectors into a column. Each row holds each element of vectors. Then you can use columnstore index to efficiently store and search for vectors.</span>
+1. <span id="e2">Only one vector field is available per container.</span>
+1. <span id="e3">Only one vector index is available per container.</span>
+1. <span id="e4">Azure SQL Database doesn't have vector data type. But you can store vectors into a column. Each row holds each element of vectors. Then you can use columnstore index to efficiently store and search for vectors.</span>
 
 ### Similarity and distance calculation capabilities
 
