@@ -22,7 +22,7 @@ Here's a brief overview of the underlying architecture that powers this solution
 
 :::image type="content" source="./media/certlc-arch.svg" alt-text="Diagram of the certificate lifecycle management architecture." border="false":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/certlc-arch-latest.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/certlc-arch.vsdx) of this architecture.*
 
 The Azure environment comprises the following platform as a service (PaaS) resources: a Key Vault dedicated to storing certificates only issued by the same nonintegrated CA, an Azure Event Grid system topic, a storage account queue, and an Azure Automation account that exposes a webhook targeted by Event Grid.
 
