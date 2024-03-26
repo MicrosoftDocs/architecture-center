@@ -153,13 +153,13 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 Principal author:
 
-- [Gail Zhou](http://linkedin.com/in/gailzhou) | Sr. Architect
+- [Gail Zhou](https://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
 
-- [Nalini Chandhi](http://linkedin.com/in/nalinichandhi) | Principal Technical Specialist
-- [Steve DeMarco](http://linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
-- [Travis Hilbert](http://linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
+- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Principal Technical Specialist
+- [Steve DeMarco](https://www.linkedin.com/in/steve-dem) | Sr. Cloud Solution Architect
+- [Travis Hilbert](https://www.linkedin.com/in/travis-hilbert-a3999980) | Technical Specialist Global Black Belt
 - [DB Lee](https://www.linkedin.com/in/dongbum) | Sr. Technical Specialist
 - [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | Technical Specialist Global Black Belt
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk) | Sr. Cloud Solution Architect

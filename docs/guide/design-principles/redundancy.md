@@ -12,7 +12,6 @@ products:
   - azure-load-balancer
   - azure-sql-database
 ms.custom:
-  - seojan19
   - guide
 ---
 

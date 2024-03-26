@@ -16,7 +16,7 @@ This reference architecture provides strategies for the [partitioning model][Par
 
 - Partitions reside within named streams of events. Event Hubs calls these streams *event hubs*. In Kafka, they're *topics*.
 
-- *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, the pipeline can assign each partition to only one consumer at a time.
+- *Consumers* are processes or applications that subscribe to topics. Each consumer reads a specific subset of the event stream. That subset can include more than one partition. However, the pipeline can assign each partition to only one consumer per consumer group at a time.
 
 - Multiple consumers can make up *consumer groups*. When a group subscribes to a topic, each consumer in the group has a separate view of the event stream. The applications work independently from each other, at their own pace. The pipeline can also use consumer groups for load sharing.
 

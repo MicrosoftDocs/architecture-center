@@ -12,6 +12,7 @@ metadata:
     - devops
   ms.custom:
     - example-scenario
+    - linux-related-content
 name: Azure Automation State Configuration
 azureCategories:
   - devops

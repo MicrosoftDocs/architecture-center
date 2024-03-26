@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-azurepowershell
----
 This reference architecture shows how to connect an on-premises network to an Azure virtual network by using Azure ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection.
 
 ## Architecture
@@ -153,7 +149,7 @@ Principal author:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Azure hybrid options](../../guide/technology-choices/hybrid-considerations.yml)
-- [Hub-spoke network topology in Azure](hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Connect an on-premises network to Azure](index.yml)
 - [Extend an on-premises network using ExpressRoute](expressroute.yml)

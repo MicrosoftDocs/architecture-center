@@ -2,7 +2,7 @@
 metadata:
   title: Databases architecture design
   titleSuffix: Azure Reference Architectures
-  description: This article provides an overview of the Azure database solutions described in Azure Architecture Center.
+  description: Learn about the different Azure database solutions described in Azure Architecture Center.
   author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
@@ -17,7 +17,7 @@ products:
   - azure-database-mysql
   - azure-database-postgresql
 name: Databases architecture design
-summary: This article provides an overview of the Azure database solutions described in Azure Architecture Center.
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-design-types.png
+summary: Learn about the different Azure database solutions described in Azure Architecture Center.
+thumbnailUrl: /azure/architecture/browse/thumbs/data-service-classifications.png
 content: |
   [!include[](index-content.md)]

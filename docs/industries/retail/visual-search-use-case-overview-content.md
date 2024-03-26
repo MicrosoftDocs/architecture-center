@@ -148,7 +148,7 @@ Implementing visual search need not be complex. You can use Bing or build your o
 
 - To begin creating a customized service, see [Bing Visual Search API Overview](/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
 - To create your first request, see the quickstarts: [C#](/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](/azure/cognitive-services/bing-visual-search/quickstarts/java) | [node.js](/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](/azure/cognitive-services/bing-visual-search/quickstarts/python)
-- Familiarize yourself with the [Visual Search API Reference](/rest/api/cognitiveservices/bingvisualsearch/images/visual-search).
+- Familiarize yourself with the [Visual Search API Reference](/bing/search-apis/bing-visual-search/overview).
 
 ### Background
 

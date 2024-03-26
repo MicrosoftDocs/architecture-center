@@ -50,7 +50,7 @@ The following articles provide architectural guidelines for Azure solutions in t
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml) | Build an architecture for an Industrial IoT (IIoT) analytics solution on Azure using PaaS (Platform as a service) components. | IoT |
+| [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview) | Learn about basic internet of things (IoT) concepts and how to get started with Azure IoT | IoT |
 | [Upscale machine learning lifecycle with MLOps framework](../ai-ml/guide/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
 | [On-demand, scalable, high-power compute](/previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | In this article, we walk through some well-known areas in engineering and manufacturing that need large computing power and explore how the Microsoft Azure platform can help. | Compute |
 | [Predictive maintenance in manufacturing](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | After introducing some background to predictive maintenance, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. | AI/ML |
@@ -67,7 +67,6 @@ The following articles provide detailed analysis of architectures developed and 
 | [Automated guided vehicles fleet control](/azure/architecture/example-scenario/iot/automated-guided-vehicles-fleet-control) | This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.  | IoT |
 | [Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
 | [Citizen AI with the Power Platform](/azure/architecture/example-scenario/ai/citizen-ai-power-platform) | The architecture extends on the Analytics end-to-end with Azure Synapse scenario. It allows for a custom ML model to be trained in Azure Machine Learning, and implemented with a custom application built using Microsoft Power Platform. | AI/ML |
-| [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service) | A hierarchy service allows your business stakeholders to centrally define how production assets like machines are organized within factories, from both an operational and maintenance point of view.  | IoT |
 | [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory) | This example architecture shows an end-to-end approach to computer vision from the edge to the cloud and back. | AI/ML |
 | [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance) | The Internet-of-things (IoT) Edge brings data processing and storage close to the data source, enabling fast, consistent responses with reduced dependency on cloud connectivity and resources. | IoT |
 | [Quality assurance](/azure/architecture/solution-ideas/articles/quality-assurance) | This solution shows how to predict failures using the example of manufacturing pipelines (assembly lines).  | AI/ML |
@@ -76,7 +75,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 The following are other ideas that you can use as a starting point for your manufacturing solution.
 
-- [Condition monitoring for industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
 - [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
 - [Create personalized marketing solutions in near real time](../ai-ml/idea/personalized-marketing.yml)
 - [Demand forecasting](../solution-ideas/articles/demand-forecasting.yml)

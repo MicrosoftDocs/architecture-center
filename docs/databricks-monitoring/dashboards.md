@@ -2,7 +2,7 @@
 title: Dashboards to visualize Azure Databricks metrics
 description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual

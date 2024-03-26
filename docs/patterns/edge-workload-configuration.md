@@ -82,8 +82,6 @@ This variation has a configuration controller that's external to the workload. T
 
 With IoT Edge, the edge configuration controller can be implemented as a module, and the configurations can be applied with [module twins](/azure/iot-hub/iot-hub-devguide-module-twins). The module twin has a size limit; if the configuration exceeds the limit, the solution can be [extended with Azure Blob Storage](https://github.com/Azure-Samples/azure-iot-hub-large-twin-example) or by chunking larger payloads over [direct methods](/azure/iot-edge/how-to-edgeagent-direct-method).
 
-For an end-to-end example of the external configuration controller variation, see the [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline).
-
 The benefits of this variation are:
 
 - The workload itself doesn’t have to be aware of the configuration system. This capability is a requirement if the source code of the workload is not editable—for example, when using a module from the [Azure IoT Edge Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
