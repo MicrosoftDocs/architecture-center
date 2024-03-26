@@ -40,7 +40,7 @@ Azure provides similar site-to-site dedicated connections through its
 
 ## Route tables
 
-AWS provides route tables that contain routes to direct traffic, from a subnet/gateway subnet to the destination. In Azure, this feature is called user-defined routes.
+AWS provides route tables that contain routes to direct traffic, from a subnet/gateway subnet to the destination. In Azure, this feature is called user-defined routes (UDRs).
 
 With [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview), you can create custom or user-defined (static) routes in Azure, to override Azure's default system routes, or to add more routes to a subnet's route table.
 
@@ -56,9 +56,9 @@ In AWS, a VPC peering connection is a networking connection between two VPCs, wh
 
 ## Content delivery networks - CloudFront and Azure Front Door
 
-In AWS, CloudFront provides CDN services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Front Door.
+In AWS, CloudFront provides content delivery network (CDN) services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Front Door.
 
-[Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. For a full list of Azure Front Door product offerings, see [Overview of Azure Front Door tiers](/azure/frontdoor/standard-premium/tier-comparison).
+[Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a modern cloud content delivery network service that delivers high performance, scalability, and secure user experiences for your content and applications. For a full list of Azure Front Door product offerings, see [Overview of Azure Front Door tiers](/azure/frontdoor/standard-premium/tier-comparison).
 
 ## Network service comparison
 

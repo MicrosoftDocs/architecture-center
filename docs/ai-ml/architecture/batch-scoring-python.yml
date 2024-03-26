@@ -31,4 +31,4 @@ name: Batch scoring of Python models on Azure
 summary: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-python-thumbnail.png
 content: |
-  [!include[](batch-scoring-python-content.md)]
+  [!INCLUDE[](batch-scoring-python-content.md)]

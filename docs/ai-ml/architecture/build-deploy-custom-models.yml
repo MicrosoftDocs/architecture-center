@@ -21,4 +21,4 @@ name: Custom document processing models on Azure
 summary: See Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
 thumbnailUrl: /azure/architecture/browse/thumbs/build-deploy-custom-models-thumb.png
 content: |
-  [!include[](build-deploy-custom-models-content.md)]
+  [!INCLUDE[](build-deploy-custom-models-content.md)]

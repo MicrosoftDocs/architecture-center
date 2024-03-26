@@ -8,8 +8,8 @@ ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - compute
   - developer-tools
   - devops
@@ -58,5 +58,5 @@ Many Azure and AWS core components have similar functionality. The following art
 - [Networking on Azure and AWS](./networking.md)
 - [Regions and zones on Azure and AWS](./regions-zones.md)
 - [Resource management on Azure and AWS](./resources.md)
-- [Multi-cloud security and identity with Azure and AWS](./security-identity.md)
+- [Multicloud security and identity with Azure and AWS](./security-identity.md)
 - [Compare storage on Azure and AWS](./storage.md)
