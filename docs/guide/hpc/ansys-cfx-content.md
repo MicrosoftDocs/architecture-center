@@ -228,7 +228,7 @@ The following table and graph show elapsed wall-clock times and relative speed i
 
 ### Ansys CFX 2021 R2 and 2022 R2 Performance on Multi-Nodes
 
-Based on the single node results, we decided the configuration for cluster. The single node tests we carried out using AMD Milan Processors. For cluster runs, we used Milan-X AMD processors which are the latest updated version of AMD EPYC Series Processors. 
+Based on the single node results, we decided the configuration for cluster. The single node tests were carried out using AMD Milan Processors. For cluster runs, we used Milan-X AMD processors which are the latest updated version of AMD EPYC Series Processors. 
 
 As the single-node results show, scalability improves as the number of cores increases. Because memory bandwidth is fixed on a single node, performance saturates after a certain number of cores is reached. A multi-node configuration surpasses this limitation to fully take advantage of the CFX solver capabilities.
 
