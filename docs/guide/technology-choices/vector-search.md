@@ -33,7 +33,7 @@ Answer the following questions about your workloads to help you make decisions b
 
 ![images/vector-search-decision-tree.png](./images/vector-search-decision-tree.png)
 
-- **You need to do Inert/Update/Delete the vector fields frequently and the vector search result must be always up to dated:**
+- **You need to do Insert/Update/Delete the vector fields frequently and the vector search result must be always up to dated:**
   - If your scenarios require CRUD the vector data and if the vector search result must be always up-to-date, you can **_keep vector fields in database systems_**.
   - In these scenarios, you can deploy **_RDBMS database or NoSQL database_** for vector store which based on your preference.
   - You need to **_develope advanced search features and need to optimize search quality by yourself_**.
