@@ -1,0 +1,953 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 16,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "description": "",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        },
+        "id": 16,
+        "maxDataPoints": 1,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "<div style=\"font-style: italic; text-align: center;\" markdown=\"1\">\r\n\r\n# Contoso Factory\r\n\r\n</div>",
+          "mode": "markdown"
+        },
+        "pluginVersion": "9.4.8",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let ADTInstance = \"${adtURL}\"; \nlet ADTQuery = \"SELECT T.equipmentID FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:isa95:Area;1')\";\nevaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)\n| extend factory = substring(equipmentID, 10, 15)\n| project factory",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "table"
+          }
+        ],
+        "title": "Company",
+        "transparent": true,
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "decimals": 0,
+            "mappings": [],
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 6,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": true
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.4.8",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let ADTInstance = \"${adtURL}\"; \nlet ADTQuery = \"SELECT T FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:isa95:Area;1')\";\nevaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)\n| count\n",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "table"
+          }
+        ],
+        "title": "Number of plants",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 3,
+          "x": 9,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.4.8",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let ADTInstance = \"${adtURL}\"; \nlet ADTQuery = \"SELECT T FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:opcua:nodeset;1')\";\nevaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)\n| count\n",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "table"
+          }
+        ],
+        "title": "Number of machines",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "percentage",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 70
+                },
+                {
+                  "color": "red",
+                  "value": 85
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 5,
+          "x": 4,
+          "y": 4
+        },
+        "id": 10,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.4.8",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let oee = CalculateOEEForLine(\"${location}\", 6,6);\nprint round(oee * 100, 2)",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "table"
+          }
+        ],
+        "title": "OEE",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "percentage",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 70
+                },
+                {
+                  "color": "red",
+                  "value": 85
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 5,
+          "x": 9,
+          "y": 4
+        },
+        "id": 12,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.4.8",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "print round(CalculateOEEForLine(\"${location}\", 6, 6) * 100, 2)\n\n",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "table"
+          }
+        ],
+        "title": "OEE stations",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "id": 32,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.3.6",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "columns": {
+                "columns": [
+                  "TimeStamp",
+                  "Id",
+                  "Value",
+                  "Key"
+                ],
+                "type": "property"
+              },
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [
+                  {
+                    "expressions": [
+                      {
+                        "operator": {
+                          "name": "==",
+                          "value": "OPCUANodeValue"
+                        },
+                        "property": {
+                          "name": "Key",
+                          "type": "string"
+                        },
+                        "type": "operator"
+                      }
+                    ],
+                    "type": "or"
+                  }
+                ],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let horizon = ($__timeTo - $__timeFrom) / 2;\nlet dt = 5m;\nlet intermediateTable = AdtPropertyEvents\n| where $__timeFilter(TimeStamp)\n| where Id == toscalar(GetDigitalTwinIdForUANode(\"assembly\", \"${location}\", \"NumberOfDiscardedProducts\"));\nintermediateTable\n| where isnotnull(SourceTimeStamp)\n| join intermediateTable on $left.TimeStamp == $right.TimeStamp\n| where Key1 == \"OPCUADisplayName\"\n| order by TimeStamp asc \n| make-series actual=avg(toint(Value)) on TimeStamp from $__timeFrom to $__timeTo + horizon step dt\n| extend forecast = series_decompose_forecast(actual, toint(horizon/dt))\n| project-rename Timestamp=TimeStamp",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "time_series_adx_series"
+          }
+        ],
+        "title": "Discarded products",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "id": 31,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.3.6",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "columns": {
+                "columns": [
+                  "TimeStamp",
+                  "Id",
+                  "Value",
+                  "Key"
+                ],
+                "type": "property"
+              },
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [
+                  {
+                    "expressions": [
+                      {
+                        "operator": {
+                          "name": "==",
+                          "value": "OPCUANodeValue"
+                        },
+                        "property": {
+                          "name": "Key",
+                          "type": "string"
+                        },
+                        "type": "operator"
+                      }
+                    ],
+                    "type": "or"
+                  }
+                ],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let horizon = ($__timeTo - $__timeFrom) / 2;\nlet dt = 5m;\nlet intermediateTable = AdtPropertyEvents\n| where $__timeFilter(TimeStamp)\n| where Id == toscalar(GetDigitalTwinIdForUANode(\"assembly\", \"${location}\", \"NumberOfManufacturedProducts\"));\nintermediateTable\n| where isnotnull(SourceTimeStamp)\n| join intermediateTable on $left.TimeStamp == $right.TimeStamp\n| where Key1 == \"OPCUADisplayName\"\n| order by TimeStamp asc \n| make-series actual=avg(toint(Value)) on TimeStamp from $__timeFrom to $__timeTo + horizon step dt\n| extend forecast = series_decompose_forecast(actual, toint(horizon/dt))\n| project-rename Timestamp=TimeStamp",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "time_series_adx_series"
+          }
+        ],
+        "title": "Manufactured products",
+        "type": "timeseries"
+      },
+      {
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 14
+        },
+        "id": 28,
+        "libraryPanel": {
+          "name": "Assembly ${location} Energy Consumption",
+          "uid": "aVQ7wKy4k"
+        },
+        "title": "Assembly ${Location} Energy Consumption"
+      },
+      {
+        "datasource": {
+          "type": "grafana-azure-data-explorer-datasource",
+          "uid": "LPShYeEVz"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 14
+        },
+        "id": 29,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.3.6",
+        "targets": [
+          {
+            "database": "expmanufont-DB",
+            "datasource": {
+              "type": "grafana-azure-data-explorer-datasource",
+              "uid": "LPShYeEVz"
+            },
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let intermediateTable = AdtPropertyEvents\n| where $__timeFilter(TimeStamp)\n| where Id == toscalar(GetDigitalTwinIdForUANode(\"assembly\", \"${location}\", \"pressure\"));\nintermediateTable\n| where isnotnull(SourceTimeStamp)\n| join intermediateTable on $left.TimeStamp == $right.TimeStamp\n| where Key1 == \"OPCUADisplayName\"\n| order by TimeStamp desc\n| make-series num=avg(todouble(Value)) on TimeStamp from $__timeFrom to $__timeTo step 1s\n| extend (anomalies, score, baseline) = series_decompose_anomalies(num, 0.5, -1, 'linefit')\n| project-rename Timestamp=TimeStamp\n// | project Timestamp, anomalies, num, baseline",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "refId": "A",
+            "resultFormat": "time_series_adx_series"
+          }
+        ],
+        "title": "Pressure",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "",
+    "revision": 1,
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "seattle",
+            "value": "seattle"
+          },
+          "datasource": {
+            "type": "grafana-azure-data-explorer-datasource",
+            "uid": "LPShYeEVz"
+          },
+          "definition": "let ADTInstance = \"FILLINADTURL\"; \nlet ADTQuery = \"SELECT T.equipmentID FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:isa95:Area;1')\";\nevaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)\n| extend factory = substring(equipmentID, 10, 15)\n| project factory",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Factory location",
+          "multi": false,
+          "name": "location",
+          "options": [],
+          "query": {
+            "database": "expmanufont-DB",
+            "expression": {
+              "from": {
+                "property": {
+                  "name": "AdtPropertyEvents",
+                  "type": "string"
+                },
+                "type": "property"
+              },
+              "groupBy": {
+                "expressions": [],
+                "type": "and"
+              },
+              "reduce": {
+                "expressions": [],
+                "type": "and"
+              },
+              "where": {
+                "expressions": [],
+                "type": "and"
+              }
+            },
+            "pluginVersion": "4.3.0",
+            "query": "let ADTInstance = \"FILLINADTURL\"; \nlet ADTQuery = \"SELECT T.equipmentID FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:isa95:Area;1')\";\nevaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)\n| extend factory = substring(equipmentID, 10, 15)\n| project factory",
+            "querySource": "raw",
+            "queryType": "KQL",
+            "rawMode": true,
+            "resultFormat": "table"
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "hide": 2,
+          "label": "URL of Azure Digital Twins",
+          "name": "adtURL",
+          "query": "FILLINADTURL",
+          "skipUrlSync": false,
+          "type": "constant"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Manufacturing Ontology dashboard",
+    "uid": "qB9Uacy4k",
+    "version": 3,
+    "weekStart": ""
+  }

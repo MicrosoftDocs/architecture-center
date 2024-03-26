@@ -1,0 +1,1524 @@
+{
+  "$schema": "https://dataexplorer.azure.com/static/d/schema/48/dashboard.json",
+  "id": "ee653da6-2830-4e03-bac2-19d08e70a7e0",
+  "eTag": "bb89180d-1374-4c70-bf59-ff254b4c6b55",
+  "schema_version": "48",
+  "title": "ontologies4",
+  "autoRefresh": {
+    "defaultInterval": "30s",
+    "enabled": true,
+    "minInterval": "30s"
+  },
+  "baseQueries": [
+  ],
+  "tiles": [
+    {
+      "id": "fa7b9b0d-a5d7-48b6-9626-4387d08d9fa1",
+      "title": "Assembly Munich Status 0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 48,
+        "width": 24,
+        "height": 7
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Status\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "b1fb5a2b-2d91-4d81-ab04-b541ebae8b87",
+      "title": "Assembly Munich Energy Consumption Anomalies",
+      "visualType": "anomalychart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 114,
+        "width": 24,
+        "height": 8
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| order by Timestamp1 desc\n| make-series num=avg(todouble(Value)) on Timestamp1 from _startTime to _endTime step 1s \n| extend (anomalies, score, baseline) = series_decompose_anomalies(num, 0.5, -1, 'linefit')"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "009fe348-8126-4ac0-aedb-721e5b02c104",
+      "title": "Munich Production Actual & Forecast",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 91,
+        "width": 24,
+        "height": 8
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let horizon = (_endTime - _startTime) / 2;\nlet dt = 1m;\nopcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"NumberOfManufacturedProducts\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| order by Timestamp1 desc\n| make-series actual=avg(toint(Value)) on Timestamp1 from _startTime to _endTime + horizon step dt\n| extend forecast = series_decompose_forecast(actual, toint(horizon/dt))"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "3c7c802e-10dd-43d8-9f8b-7a6ce89248ea",
+      "title": "Assembly Munich OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "\nlet oee = CalculateOEEForStation(\"assembly\", \"munich\", 6000, _startTime, _endTime);\nprint round(oee * 100, 2)\n"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorStyle": "light",
+        "colorRules": [
+        ]
+      }
+    },
+    {
+      "id": "cecbff7d-419b-4f7e-b428-1bfc5d3fa9d4",
+      "title": "Test Munich OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 6,
+        "y": 0,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let oee = CalculateOEEForStation(\"test\", \"munich\", 6000, _startTime, _endTime);\nprint round(oee * 100, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorStyle": "light",
+        "colorRules": [
+        ]
+      }
+    },
+    {
+      "id": "53e9878c-4a51-400f-8b98-fc1ca5773db2",
+      "title": "Packaging Munich OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 12,
+        "y": 0,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let oee = CalculateOEEForStation(\"packaging\", \"munich\", 6000, _startTime, _endTime);\nprint round(oee * 100, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorStyle": "light",
+        "colorRules": [
+        ]
+      }
+    },
+    {
+      "id": "cd7418a2-2cdb-40c2-9a3f-ebd5d4cfc8c1",
+      "title": "Assembly Munich Average Energy Consumption (Watts)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 6,
+        "width": 8,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let averageEnergyConsumption = toscalar(\nopcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend energy = todouble(Value)\n| summarize avg(energy));\nprint round(toscalar(averageEnergyConsumption) * 1000, 2)\n\n"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorStyle": "light",
+        "colorRules": [
+        ]
+      }
+    },
+    {
+      "id": "bd5bd97d-e761-416b-a13a-198b394d60bd",
+      "title": "Munich OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 18,
+        "y": 0,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "print round(CalculateOEEForLine(\"munich\", 6000, _startTime, _endTime) * 100, 2)\n"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorStyle": "light",
+        "colorRules": [
+        ]
+      }
+    },
+    {
+      "id": "1bccbda7-4250-4e72-9bb0-5ea48fba7a7c",
+      "title": "UA Cloud Publisher Munich Diagnostics",
+      "visualType": "table",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 122,
+        "width": 12,
+        "height": 10
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"publisher\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp, Name1, NodeValue\n| summarize arg_max(Timestamp, *) by Name1"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRules": [
+        ],
+        "colorRulesDisabled": true,
+        "colorStyle": "light",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ],
+        "table__renderLinks": [
+        ]
+      }
+    },
+    {
+      "id": "c2fa5519-6184-4dcd-bfc1-251a12347927",
+      "title": "UA Cloud Publisher Seattle Diagnostics",
+      "visualType": "table",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 12,
+        "y": 122,
+        "width": 12,
+        "height": 10
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"publisher\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp, Name1, NodeValue\n| summarize arg_max(Timestamp, *) by Name1\n"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRules": [
+        ],
+        "colorRulesDisabled": true,
+        "colorStyle": "light",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ],
+        "table__renderLinks": [
+        ]
+      }
+    },
+    {
+      "id": "f40a3620-253c-4bfa-8117-55f92c786a5a",
+      "title": "Assembly Seattle Pressure",
+      "visualType": "line",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 107,
+        "width": 24,
+        "height": 7
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Pressure\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue\n\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "a75e2537-5027-4539-b871-85ba4980c17f",
+                "value": 4000
+              },
+              {
+                "id": "86274a8e-35be-4381-a18d-10438f4eaf73",
+                "value": null
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "0007dcbf-baae-4344-9118-a8eb4f012476",
+      "title": "Assembly Munich Actual Cycle Time (ms)",
+      "visualType": "line",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 12,
+        "width": 24,
+        "height": 6
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"ActualCycleTime\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = todouble(Value)\n| project Timestamp1, NodeValue"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "fde873eb-f724-4b10-b30f-e5660ca4ada2",
+                "value": null
+              },
+              {
+                "id": "87291fde-a48c-4da4-9818-223460913fd2",
+                "value": 6000
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "f5864b0d-7493-488c-b3b1-d3763fab8acf",
+      "title": "Assembly Seattle OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 3,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let oee = CalculateOEEForStation(\"assembly\", \"seattle\", 10000, _startTime, _endTime);\nprint round(oee * 100, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": true,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "89028ee1-76b6-429d-9122-8297351aa2b8",
+      "title": "Test Seattle OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 6,
+        "y": 3,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let oee = CalculateOEEForStation(\"test\", \"seattle\", 10000, _startTime, _endTime);\nprint round(oee * 100, 2)\n"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "8d80c1c7-dc09-42ac-abfe-23fa3c5d4f8a",
+      "title": "Packaging Seattle OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 12,
+        "y": 3,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let oee = CalculateOEEForStation(\"packaging\", \"seattle\", 10000, _startTime, _endTime);\nprint round(oee * 100, 2)\n"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": true,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "1ae90508-8ef1-4cc0-a4cb-d8eef4034b2c",
+      "title": "Seattle OEE (%)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 18,
+        "y": 3,
+        "width": 6,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "print round(CalculateOEEForLine(\"seattle\", 10000, _startTime, _endTime) * 100, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "94186523-706a-40f1-bbab-e6b8ae2e925a",
+      "title": "Test Munich Average Energy Consumption (Watts)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 8,
+        "y": 6,
+        "width": 8,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let averageEnergyConsumption = toscalar(\nopcua_metadata_lkv\n| where Name contains \"test\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend energy = todouble(Value)\n| summarize avg(energy));\nprint round(toscalar(averageEnergyConsumption) * 1000, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "0e722889-2393-437b-b84c-4f90b8a1cbd6",
+      "title": "Packaging Munich Average Energy Consumption (Watts)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 16,
+        "y": 6,
+        "width": 8,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let averageEnergyConsumption = toscalar(\nopcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend energy = todouble(Value)\n| summarize avg(energy));\nprint round(toscalar(averageEnergyConsumption) * 1000, 2)\n"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "b4a6f47b-33e7-4839-a3ca-9efce7ff600e",
+      "title": "Assembly Seattle Average Energy Consumption (Watts)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 9,
+        "width": 8,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let averageEnergyConsumption = toscalar(\nopcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend energy = todouble(Value)\n| summarize avg(energy));\nprint round(toscalar(averageEnergyConsumption) * 1000, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "bfa168b2-18e2-43f7-9355-6d3d2cd4d781",
+      "title": "Test Seattle Average Energy Consumption (Watts)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 8,
+        "y": 9,
+        "width": 8,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let averageEnergyConsumption = toscalar(\nopcua_metadata_lkv\n| where Name contains \"test\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend energy = todouble(Value)\n| summarize avg(energy));\nprint round(toscalar(averageEnergyConsumption) * 1000, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "f72e20cf-db74-4e45-bf3d-f53b1a86a857",
+      "title": "Packaging Munich Average Energy Consumption (Watts)",
+      "visualType": "card",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 16,
+        "y": 9,
+        "width": 8,
+        "height": 3
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let averageEnergyConsumption = toscalar(\nopcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"EnergyConsumption\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend energy = todouble(Value)\n| summarize avg(energy));\nprint round(toscalar(averageEnergyConsumption) * 1000, 2)"
+      },
+      "visualOptions": {
+        "multiStat__textSize": "auto",
+        "multiStat__valueColumn": null,
+        "colorRulesDisabled": false,
+        "colorRules": [
+        ],
+        "colorStyle": "light"
+      }
+    },
+    {
+      "id": "b50a0981-b174-404c-b118-3a52060ffb2b",
+      "title": "Test Munich Actual Cycle Time (ms)",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 18,
+        "width": 24,
+        "height": 6
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"test\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"ActualCycleTime\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = todouble(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "750982f1-05d0-4a1d-afa8-4a9a7ef9367c",
+                "value": 6000
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "db906ad8-29b5-4142-9973-e7e8de8bb186",
+      "title": "Packaging Munich Actual Cycle Time (ms)",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 24,
+        "width": 24,
+        "height": 6
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"ActualCycleTime\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = todouble(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "8e8f5423-9f7c-4526-9e19-c919e72179c2",
+                "value": 6000
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "123d8af7-4260-4a34-8a58-405bfc3c251b",
+      "title": "Assembly Seattle Actual Cycle Time (ms)",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 30,
+        "width": 24,
+        "height": 6
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"ActualCycleTime\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = todouble(Value)\n| project Timestamp1, NodeValue"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "219704d4-2801-453c-b937-57d9bcda4832",
+                "value": 10000
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "73879112-6c97-47c5-9948-8edf7ea8e42b",
+      "title": "Test Seattle Actual Cycle Time (ms)",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 36,
+        "width": 24,
+        "height": 6
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"test\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"ActualCycleTime\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = todouble(Value)\n| project Timestamp1, NodeValue"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "7cbb0ee1-c26e-462b-919d-ec5805137946",
+                "value": 10000
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "b50f23f6-ba5d-456a-b0e9-0414f4a2377f",
+      "title": "Packaging Seattle Actual Cycle Time (ms)",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 42,
+        "width": 24,
+        "height": 6
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"ActualCycleTime\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = todouble(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+              {
+                "id": "e7a7edc4-eed8-4ca2-b57c-95f2eb529ac1",
+                "value": 10000
+              }
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "473b5ac9-c866-4be3-889a-a481e877e28c",
+      "title": "Test Munich Status 0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 55,
+        "width": 24,
+        "height": 7
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"test\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Status\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "9e1dc2bc-8cdd-477c-9e24-64d2f911df28",
+      "title": "Packaging Munich Status 0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 62,
+        "width": 24,
+        "height": 7
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"munich\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Status\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "5c290abe-a886-48ff-a312-1e4b132c2a22",
+      "title": "Assembly Seattle Status 0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 69,
+        "width": 24,
+        "height": 7
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"assembly\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Status\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "71e42b4e-d294-497e-a11a-5660c45026eb",
+      "title": "Test Seattle Status 0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 83,
+        "width": 24,
+        "height": 8
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"test\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Status\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "3cacce85-9d5d-4c90-8cff-cbd2ca1b8048",
+      "title": "Packaging Seattle Status 0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 76,
+        "width": 24,
+        "height": 7
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "opcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"Status\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| extend NodeValue = toint(Value)\n| project Timestamp1, NodeValue\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": true,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    },
+    {
+      "id": "cf83460c-387c-43fd-82e6-1d0af9c8a096",
+      "title": "Seattle Production Actual & Forecast",
+      "visualType": "timechart",
+      "pageId": "1604d4fc-a7b5-4e47-82c6-640286103fde",
+      "layout": {
+        "x": 0,
+        "y": 99,
+        "width": 24,
+        "height": 8
+      },
+      "description": "",
+      "query": {
+        "kind": "inline",
+        "dataSource": {
+          "kind": "inline",
+          "dataSourceId": "09ab8651-b041-4b8e-ba7b-347796f7911c"
+        },
+        "usedVariables": [
+          "_endTime",
+          "_startTime"
+        ],
+        "text": "let horizon = (_endTime - _startTime) / 2;\nlet dt = 1m;\nopcua_metadata_lkv\n| where Name contains \"packaging\"\n| where Name contains \"seattle\"\n| join kind=inner (opcua_telemetry\n    | where Name == \"NumberOfManufacturedProducts\"\n    | where Timestamp > _startTime and Timestamp < _endTime\n) on DataSetWriterID\n| order by Timestamp1 desc\n| make-series actual=avg(toint(Value)) on Timestamp1 from _startTime to _endTime + horizon step dt\n| extend forecast = series_decompose_forecast(actual, toint(horizon/dt))\n"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [
+            ],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": [
+            ]
+          },
+          "additional": [
+          ],
+          "showMultiplePanels": false
+        },
+        "hideLegend": false,
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+        ],
+        "drillthrough": [
+        ]
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "a39aa2bf-5ca5-4387-8d75-6c927c7f6c5c",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "09ab8651-b041-4b8e-ba7b-347796f7911c",
+      "name": "ontologies",
+      "clusterUri": "https://testadx.westeurope.kusto.windows.net/",
+      "database": "ontologies",
+      "kind": "manual-kusto",
+      "scopeId": "kusto"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "1604d4fc-a7b5-4e47-82c6-640286103fde"
+    }
+  ]
+}

@@ -48,7 +48,7 @@ The following Azure IoT solutions and example scenarios address unique business 
 
 ## Manufacturing
 
-- [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml). Condition monitoring helps manufacturers discover anomalies before they become critical. In this solution, IoT devices connect to the cloud through OPC UA and Azure industrial IoT components.
+- [Condition monitoring, OEE calculation, forecasting and anomaly detection for Industrial IoT](../../solution-ideas/articles/condition-monitoring-and-more.md). Condition monitoring, OEE calculation and forecasting help manufacturers discover anomalies before they become critical. In this solution, industrial assets connect to the cloud through OPC UA and Azure IoT Operations.
 
 - [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml). Predictive maintenance diagnoses and predicts malfunctions and maintenance needs in OPC UA connected equipment. This solution uses mixed reality and digital twins technologies to optimize production in real time.
 

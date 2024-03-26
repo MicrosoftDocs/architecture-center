@@ -83,4 +83,4 @@ Azure IoT documentation:
 - [Azure IoT Hub](/azure/iot-hub)
 - [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
 - [Azure IoT Edge](/azure/iot-edge)
-- [Azure Industrial IoT](/azure/industrial-iot)
+- [Azure IoT Operations](/azure/iot-operations/)

@@ -50,12 +50,11 @@ The following articles provide architectural guidelines for Azure solutions in t
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview) | Learn about basic internet of things (IoT) concepts and how to get started with Azure IoT | IoT |
+| [Industrial Internet of Things (IIoT) architecture design](../solution-ideas/articles/condition-monitoring-and-more.md) | Learn about Industrial Internet of Things (IIoT) concepts and how to get started with Azure IoT | IoT |
+| [Connecting on-premises SAP systems to Azure](../solution-ideas/articles/connecting-to-sap.md) | Learn how to connect your on-premises SAP ERP systems to Azure | ERP |
 | [Upscale machine learning lifecycle with MLOps framework](../ai-ml/guide/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
 | [On-demand, scalable, high-power compute](/previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | In this article, we walk through some well-known areas in engineering and manufacturing that need large computing power and explore how the Microsoft Azure platform can help. | Compute |
 | [Predictive maintenance in manufacturing](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | After introducing some background to predictive maintenance, we discuss how to implement the various pieces of a PdM solution using a combination of on-premises data, Azure machine learning, and usage of the machine learning models. | AI/ML |
-| [Predictive maintenance solution](/previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This article presents options for building a predictive maintenance solution. It presents different perspectives and reference existing materials to get you started. | AI/ML |
-| [Extract actionable insights from IoT data](/previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics. | IoT |
 
 ## Architectures for manufacturing
 
