@@ -909,8 +909,6 @@ items:
         href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.yml
-      - name: IoT and data analytics
-        href: example-scenario/data/big-data-with-iot.yml
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Near real-time lakehouse processing
@@ -2308,8 +2306,6 @@ items:
         href: reference-architectures/ai/end-to-end-smart-factory.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT and data analytics
-        href: example-scenario/data/big-data-with-iot.yml
       - name: IoT Edge safety and maintenance system
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
@@ -4312,8 +4308,6 @@ items:
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: IoT and data analytics in manufacturing
-        href: example-scenario/data/big-data-with-iot.yml
       - name: IoT Edge safety and maintenance system
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: Low-latency network for manufacturing
@@ -4988,8 +4982,6 @@ items:
           href: example-scenario/analytics/synapse-customer-insights.yml
         - name: Facilities management with MR
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
-        - name: IoT and data analytics for construction
-          href: example-scenario/data/big-data-with-iot.yml
         - name: IoT connected light, power, and internet
           href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities
