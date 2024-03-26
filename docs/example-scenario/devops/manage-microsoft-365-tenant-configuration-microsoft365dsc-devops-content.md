@@ -107,5 +107,4 @@ Principal author:
 ## Related resources
 
 - [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
-- [CI/CD for Windows desktop apps](/azure/architecture/solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps)
 - [DevOps Checklist](/azure/architecture/checklist/dev-ops)
