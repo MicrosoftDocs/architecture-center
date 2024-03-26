@@ -72,9 +72,9 @@ The following table lists common use-scenario requirements and the recommended d
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                    |
 | Perform vector search for integrated data which is comprised with multiple data sources.                        | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                    |
-| Integrate vector search with Azure OpenAI Service for vectorization out-of-the-box.                             | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/), [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/)           |
-| Store operational data and vector data in a same schema.                                                        | [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/)                                                                               |
-| Insert/update/delete vector field very frequently in RDBMS and perform vector search for this data.             | [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/) |
+| Built-In vectorization feature with Azure Open AI embedding model deployment.                                   | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)           |
+| Store operational data and vector data in a same data store.                                                    | [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/), [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                   |
+| Insert/update/delete vector field very frequently and search results must up to dated.                          | [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/) |
 | Build generative application while maintaining existing SQL database for vector search.                         | [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                                                                                |
 
 ## Capability Matrix
@@ -87,7 +87,7 @@ Understand the basic features of each Azure service from the following table.
 | ------------------------------------------------ | -------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------------- | ---------------------------------- | --------------------------------- |
 | Built-In Vector Search                           | Yes <a href="#a1"><sup>1</sup></a>                             | Yes <a href="#a2"><sup>2</sup></a>  | Yes <a href="#a1"><sup>1</sup></a>                             | Yes <a href="#a3"><sup>3</sup></a> | No <a href="#a4"><sup>4</sup></a> |
 | Data Type for Vectors                            | Yes                                                            | Yes                                 | Yes                                                            | Yes                                | No <a href="#a5"><sup>5</sup></a> |
-| Dimensions Limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 (HNSW & IVFflat) | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 (HNSW & IVFflat) | 2,048                              | Unlimited                         |
+| Dimensions Limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,048                              | Unlimited                         |
 | Multiple Vector Fields                           | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
 | Multiple Vector Indexes                          | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
 
@@ -125,19 +125,11 @@ Understand suitable data characteristics, data modeling, and how to vectorize da
 
 | Capability                    | Azure Cosmos DB for PostgreSQL                                       | Azure Cosmos DB for MongoDB (vCore)                         | Azure Database for PostgreSQL (Flex)                                 | Azure AI Search                                              | Azure SQL Database                                                   |
 | ----------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- |
-| Suitable data characteristics | sturctured/semi-structured data                                      | sturctured/semi-structured data                             | sturctured/semi-structured data                                      | sturctured/un-structured data                                | structured data                                                      |
-| Data modeling                 | RDBMS – vector data in one or more tables (depends on schema design) | NoSQL – vector data and operational data in a single schema | RDBMS – vector data in one or more tables (depends on schema design) | Search engine – import vector data from multiple data source | RDBMS – vector data in one or more tables (depends on schema design) |
-
-### Data vectorization
-
-Before performing vector search, operation data is needed to vectorize by AI models. For text data, GPT-4 is used to generate vector data for example.
-Understand which data sources are vectorized in each Azure service, and what are the major AI models that can be used for vectorization.
-
-| Capability                                                    | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)                                      | Azure AI Search                            | Azure SQL Database |
-| ------------------------------------------------------------- | ------------------------------ | ----------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------ | ------------------ |
-| Data source for vectorization                                 | internal data                  | internal data                       | internal data                                                             | external data                              | internal data      |
-| Vectorization with embedding models from Azure OpenAI Service | Manually                       | Manually                            | Azure AI Extension (preview) helps you to vectorize data in the database. | Integrated vectorization feature (preview) | Manually           |
-| Vectorization with embedding models from Azure OpenAI Service | Manually                       | Manually                            | Manually                                                                  | Built-in image analysis cognitive skill    | Manually           |
+| Suitable data structure | sturctured data                                      | semi-structured data                             | sturctured data                                      | sturctured/un-structured data                                | structured data                                                      |
+| Data modeling                 | RDBMS | NoSQL | RDBMS | Search engine | RDBMS |
+1. <span id="b1">Vector data in one or more tables (depends on schema design)</span>
+1. <span id="b2">Vector data and operational data in a single document</span>
+1. <span id="b2">Import vector data from multiple data source</span>
 
 ### Vector data indexing algorithms
 
@@ -163,8 +155,8 @@ Understand what kind of similarity and distance calculation methods are provided
 | Capability        | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 | ----------------- | ------------------------------ | ----------------------------------- | ------------------------------------ | --------------- | ------------------ |
 | Cosine similiarty | Yes                            | Yes                                 | Yes                                  | Yes             | Yes                |
-| Cosine similiarty | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
-| Cosine similiarty | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
+| Inner Product     | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
+| L2 Distance       | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
 
 ### Integration with Microsoft technology
 
