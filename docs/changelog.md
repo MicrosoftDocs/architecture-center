@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 03/18/2024
+ms.date: 03/25/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -28,6 +28,7 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [SaaS and multitenant solution architecture](./guide/saas-multitenant-solution-architecture/index.md)
+- [Deployment patterns for Microsoft Fabric](./analytics/architecture/fabric-deployment-patterns.yml)
 - [Certificate lifecycle management on Azure](./example-scenario/certificate-lifecycle/index.yml)
 - [Deploy Autodesk VRED Core on an Azure virtual machine](./guide/hpc/autodesk-vred-core.yml)
 - [Azure Governance Visualizer Accelerator guidance](./landing-zones/azure-governance-visualizer-accelerator.yml)
@@ -36,14 +37,19 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Mainframe file replication and sync on Azure](./solution-ideas/articles/mainframe-azure-file-replication.yml)  ([#fd5382616c](https://github.com/MicrosoftDocs/architecture-center/commit/fd5382616c))
 - [Virtual desktop architecture design](./guide/virtual-desktop/start-here.md)  ([#1f503526df](https://github.com/MicrosoftDocs/architecture-center/commit/1f503526df))
 - [Azure landing zones - Azure Virtual Desktop landing zone design considerations](./landing-zones/azure-virtual-desktop/design-guide.md)  ([#1f503526df](https://github.com/MicrosoftDocs/architecture-center/commit/1f503526df))
 - [Databases architecture design](./databases/index.yml)  ([#48b8f2e522](https://github.com/MicrosoftDocs/architecture-center/commit/48b8f2e522))
 - [Valet Key pattern](./patterns/valet-key.yml)  ([#ea584f3338](https://github.com/MicrosoftDocs/architecture-center/commit/ea584f3338))
 - [Computer forensics chain of custody in Azure](./example-scenario/forensics/index.yml)  ([#8450c5fe34](https://github.com/MicrosoftDocs/architecture-center/commit/8450c5fe34))
 - [Patterns and implementations for a banking cloud transformation](./example-scenario/banking/patterns-and-implementations.yml)  ([#f6f9920d52](https://github.com/MicrosoftDocs/architecture-center/commit/f6f9920d52))
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#88d40e307f](https://github.com/MicrosoftDocs/architecture-center/commit/88d40e307f))
+- [Web API design best practices](./best-practices/api-design.md)  ([#88d40e307f](https://github.com/MicrosoftDocs/architecture-center/commit/88d40e307f))
+- [Web API implementation](./best-practices/api-implementation.md)  ([#88d40e307f](https://github.com/MicrosoftDocs/architecture-center/commit/88d40e307f))
+- [Background jobs guidance](./best-practices/background-jobs.md)  ([#88d40e307f](https://github.com/MicrosoftDocs/architecture-center/commit/88d40e307f))
+- [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#759e0e1733](https://github.com/MicrosoftDocs/architecture-center/commit/759e0e1733))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#b5595d9697](https://github.com/MicrosoftDocs/architecture-center/commit/b5595d9697))
-- [Web API implementation](./best-practices/api-implementation.md)  ([#a10226bcdb](https://github.com/MicrosoftDocs/architecture-center/commit/a10226bcdb))
 - [Troubleshoot network problems in AKS clusters](./operator-guides/aks/troubleshoot-network-aks.md)  ([#cf8b9215de](https://github.com/MicrosoftDocs/architecture-center/commit/cf8b9215de))
 - [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.yml)  ([#fb6207130d](https://github.com/MicrosoftDocs/architecture-center/commit/fb6207130d))
 - [Health Endpoint Monitoring pattern](./patterns/health-endpoint-monitoring.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
@@ -167,6 +173,10 @@ The following new and updated articles have recently been published in the Azure
 - [Application data protection for AKS workloads on Azure NetApp Files](./example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)  ([#91110f90f9](https://github.com/MicrosoftDocs/architecture-center/commit/91110f90f9))
 
 ## December 2023
+
+### New articles
+
+- [AKS Backup and Recovery](./operator-guides/aks/aks-backup-and-recovery.md)
 
 ### Updated articles
 
