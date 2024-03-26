@@ -13,7 +13,7 @@ ms.date: 03/18/2024
 
 Vector search is a method of finding information in the shape of vectors. Vectors are groups of numbers that show features or characteristics of things like text or images. It’s a significant advancement over traditional keyword-based search methods, offering faster and more accurate results by understanding the semantic relationships within the data.
 
-Azure offers many ways to perform vector search. This guide is written for developers who want to understand and choose an Azure service for vector search for your application.
+Azure offers many ways to perform vector search. This guide is written for developers who want to understand and choose the right Azure service for vector search for your application.
 
 This article compares the following services:
 
