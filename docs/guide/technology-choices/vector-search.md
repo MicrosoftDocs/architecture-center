@@ -68,14 +68,16 @@ Answer the following questions about your workloads to help you make decisions b
 
 The following table lists common use-scenario requirements and the recommended database services for handling them.
 
-| If you want to                                                                                                  | Use this Azure service for vector search                                                                                                                                              |
-| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                    |
-| Perform vector search for integrated data which is comprised with multiple data sources.                        | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                    |
-| Built-In vectorization feature with Azure Open AI embedding model deployment.                                   | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)           |
-| Store operational data and vector data in a same data store.                                                    | [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/), [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                   |
-| Insert/update/delete vector field very frequently and search results must up to dated.                          | [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/) |
-| Build generative application while maintaining existing SQL database for vector search.                         | [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                                                                                |
+| If you want to                                                                                                  | Use this Azure service for vector search                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                                                                                                                                                                                                                     |
+| Perform vector search for integrated data which is comprised with multiple data sources.                        | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)                                                                                                                                                                                                                                                                                                                     |
+| Build a RAG chat application with Azure OpenAI Servivce.                                                        | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/), [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/)                                                                                                                                                                                                            |
+| Insert/update/delete vector field very frequently in RDBMS and perform vector search for this data.             | [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                                                                                          |
+| Built-In vectorization feature with Azure Open AI embedding model deployment.                                   | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                                                                                                                       |
+| Store operational data and vector data in a same data store.                                                    | [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/), [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/), [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql) |
+| Insert/update/delete vector field very frequently and search results must up to dated.                          | [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/)                                                                                                                                                                                                  |
+| Build a generative application while maintaining existing SQL database for vector search.                       | [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql)                                                                                                                                                                                                                                                                                                 |
 
 ## Capability Matrix
 
@@ -83,13 +85,13 @@ The following table lists common use-scenario requirements and the recommended d
 
 Understand the basic features of each Azure service from the following table.
 
-| Capability                                       | Azure Cosmos DB for PostgreSQL                                 | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)                           | Azure AI Search                    | Azure SQL Database                |
-| ------------------------------------------------ | -------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------------- | ---------------------------------- | --------------------------------- |
-| Built-In Vector Search                           | Yes <a href="#a1"><sup>1</sup></a>                             | Yes <a href="#a2"><sup>2</sup></a>  | Yes <a href="#a1"><sup>1</sup></a>                             | Yes <a href="#a3"><sup>3</sup></a> | No <a href="#a4"><sup>4</sup></a> |
-| Data Type for Vectors                            | Yes                                                            | Yes                                 | Yes                                                            | Yes                                | No <a href="#a5"><sup>5</sup></a> |
+| Capability                                       | Azure Cosmos DB for PostgreSQL                | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)          | Azure AI Search                    | Azure SQL Database                |
+| ------------------------------------------------ | --------------------------------------------- | ----------------------------------- | --------------------------------------------- | ---------------------------------- | --------------------------------- |
+| Built-In Vector Search                           | Yes <a href="#a1"><sup>1</sup></a>            | Yes <a href="#a2"><sup>2</sup></a>  | Yes <a href="#a1"><sup>1</sup></a>            | Yes <a href="#a3"><sup>3</sup></a> | No <a href="#a4"><sup>4</sup></a> |
+| Data Type for Vectors                            | Yes                                           | Yes                                 | Yes                                           | Yes                                | No <a href="#a5"><sup>5</sup></a> |
 | Dimensions Limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,048                              | Unlimited                         |
-| Multiple Vector Fields                           | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
-| Multiple Vector Indexes                          | Yes                                                            | No                                  | Yes                                                            | Yes                                | N/A                               |
+| Multiple Vector Fields | Yes | No | Yes | Yes | N/A |
+| Multiple Vector Indexes | Yes | No | Yes | Yes | N/A |
 
 1. <span id="a1">Vector search is supported by pgvector which is the [extension of PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
 1. <span id="a2">[Use vector search on embeddings](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search) in Azure Cosmos DB for MongoDB vCore</span>
@@ -107,26 +109,27 @@ Understand what kind of search methods are provided from the following table.
 
 | Capability             | Azure Cosmos DB for PostgreSQL     | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search                    | Azure SQL Database                 |
 | ---------------------- | ---------------------------------- | ----------------------------------- | ------------------------------------ | ---------------------------------- | ---------------------------------- |
-| Full Text Search       | Yes <a href="#b1"><sup>1</sup></a> | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
-| Built-In Hybrid Search | No <a href="#b5"><sup>5</sup></a>  | No                                  | No <a href="#b5"><sup>5</sup></a>    | Yes <a href="#b6"><sup>6</sup></a> | No                                 |
+| Full Text search       | Yes <a href="#b1"><sup>1</sup></a> | Yes <a href="#b2"><sup>2</sup></a>  | Yes <a href="#b1"><sup>1</sup></a>   | Yes <a href="#b3"><sup>3</sup></a> | Yes <a href="#b4"><sup>4</sup></a> |
+| Built-In Hybrid search | No <a href="#b5"><sup>5</sup></a>  | No                                  | No <a href="#b5"><sup>5</sup></a>    | Yes <a href="#b6"><sup>6</sup></a> | No                                 |
 | Reranking              | No                                 | No                                  | No                                   | Yes <a href="#b7"><sup>7</sup></a> | No                                 |
 
-1. <span id="b1">PostgreSQL Full Text Search</span>
-1. <span id="b2">Search and query with text indexes in Azure Cosmos DB for MongoDB vCore</span>
-1. <span id="b3">Get Started with Full-Text Search</span>
-1. <span id="b4">Vector Data on SQL Server</span>
-1. <span id="b5">Not provided as a first-class feature but sample codes are provided (reciprocal rank fusion, cross-encoder)</span>
-1. <span id="b6">Hybrid search (Semantic search + Re-ranker, Etc.) is provided as a first-class feature.</span>
-1. <span id="b7">Semantic Ranking is a first-class feature for reranking the result of full text search and/or vector search.</span>
+1. <span id="b1">PostgreSQL [Full Text Search](https://www.postgresql.org/docs/current/textsearch-intro.html)</span>
+1. <span id="b2">[Search and query with text indexes](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/how-to-create-text-index) in Azure Cosmos DB for MongoDB vCore</span>
+1. <span id="b3">Get Started with [Full-Text Search](https://learn.microsoft.com/en-us/sql/relational-databases/search/get-started-with-full-text-search?view=sql-server-ver16)</span>
+1. <span id="b4">[Vector Data](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#vectors-1) on SQL Server</span>
+1. <span id="b5">Not provided as a first-class feature but [sample codes](https://github.com/pgvector/pgvector-python/blob/master/examples/hybrid_search_rrf.py) are provided .</span>
+1. <span id="b6">[Hybrid search (combination of Full Text search, Vector search, and Semantic Ranking)](https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
+1. <span id="b7">Reranking called Semantic Ranking is a first-class feature for reranking the result of full text search and/or vector search.</span>
 
 ### Data Management
 
 Understand suitable data characteristics, data modeling, and how to vectorize data to store in each Azure services.
 
-| Capability                    | Azure Cosmos DB for PostgreSQL                                       | Azure Cosmos DB for MongoDB (vCore)                         | Azure Database for PostgreSQL (Flex)                                 | Azure AI Search                                              | Azure SQL Database                                                   |
-| ----------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- |
-| Suitable data structure | sturctured data                                      | semi-structured data                             | sturctured data                                      | sturctured/un-structured data                                | structured data                                                      |
-| Data modeling                 | RDBMS <a href="#c1"><sup>1</sup></a> | NoSQL <a href="#c2"><sup>2</sup></a> | RDBMS <a href="#c1"><sup>1</sup></a> | Search engine <a href="#c3"><sup>3</sup></a> | RDBMS <a href="#c1"><sup>1</sup></a> |
+| Capability              | Azure Cosmos DB for PostgreSQL       | Azure Cosmos DB for MongoDB (vCore)  | Azure Database for PostgreSQL (Flex) | Azure AI Search                              | Azure SQL Database                   |
+| ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | -------------------------------------------- | ------------------------------------ |
+| Suitable data structure | sturctured data                      | semi-structured data                 | sturctured data                      | sturctured/un-structured data                | structured data                      |
+| Data modeling           | RDBMS <a href="#c1"><sup>1</sup></a> | NoSQL <a href="#c2"><sup>2</sup></a> | RDBMS <a href="#c1"><sup>1</sup></a> | Search engine <a href="#c3"><sup>3</sup></a> | RDBMS <a href="#c1"><sup>1</sup></a> |
+
 1. <span id="c1">Vector data in one or more tables (depends on schema design)</span>
 1. <span id="c2">Vector data and operational data in a single document</span>
 1. <span id="c3">Import vector data from multiple data source</span>
@@ -153,11 +156,11 @@ Understand what kinds of vector data indexing are provided from the following ta
 There are several ways to calculate the similarity between vectors.
 Understand what kind of similarity and distance calculation methods are provided from the following table and check if the calculation way you use is offered as a first-class feature.
 
-| Capability        | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
-| ----------------- | ------------------------------ | ----------------------------------- | ------------------------------------ | --------------- | ------------------ |
-| Cosine similiarty | Yes                            | Yes                                 | Yes                                  | Yes             | Yes                |
-| Inner Product     | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
-| L2 Distance       | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
+| Capability                                     | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
+| ---------------------------------------------- | ------------------------------ | ----------------------------------- | ------------------------------------ | --------------- | ------------------ |
+| Cosine similiarty                              | Yes                            | Yes                                 | Yes                                  | Yes             | Yes                |
+| L2 distance (also known as Euclidean distance) | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
+| Dot product                                    | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
 
 ### Integration with Microsoft technology
 
