@@ -176,7 +176,7 @@ The following models were tested. For more information about the current Ansys m
   d)    Solver memory requirement (total) ~140 GB
 
 
-### Ansys CFX 2021 R2 Performance Results on single-node configuration
+### Ansys CFX 2021 R2 Performance results on single-node configuration
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the pump model.
 
