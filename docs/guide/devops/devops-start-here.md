@@ -81,21 +81,18 @@ Plan your path to production by reviewing:
 
 ### Example DevOps architectures
 
-The DevOps architectures are found in two sections:
+The DevOps architectures are found here:
 
 | Section | First article in the section |
 |---------|------------------------------|
-| Architectures | [Automate multistage DevOps pipelines with Azure Pipelines](../../example-scenario/devops/automate-azure-pipelines.yml) |
 | Solution ideas | [CI/CD for Azure VMs](../../solution-ideas/articles/cicd-for-azure-vms.yml) |
 
 Here are some example architectures. For each one there's a list of the key Azure services used in the architecture.
 
 | Architecture | Description | Azure services used |
 |--------------|-------------|----------------|
-| [Automate multistage DevOps pipelines with Azure Pipelines](../../example-scenario/devops/automate-azure-pipelines.yml) | Use Azure DevOps REST APIs to build CI/CD pipelines. | Azure DevOps, Logic Apps, Azure Pipelines |
 | [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml) | Apply GitOps and DevOps techniques to ensure quality APIs. | Azure Repos, API Management, Azure DevOps, Azure Pipelines, Azure Repos |
 | [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml) | Build a CI/CD pipeline by using Azure DevOps and other services. | Azure Repos, Azure Test Plans, Azure Pipelines |
-| [Teacher-provisioned virtual labs in Azure](../../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml) | Teachers can easily set up virtual machines for students to work on class exercises. | Lab Services |
 | [Enterprise monitoring with Azure Monitor](../../example-scenario/monitoring/enterprise-monitoring.yml) | Use Azure Monitor to achieve enterprise-level monitoring and centralized monitoring management. | Azure Monitor |
 
 ## Best practices
@@ -148,7 +145,6 @@ Stay current with Azure DevOps by monitoring these articles:
 
 - [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 
 ### AWS or Google Cloud professionals
 

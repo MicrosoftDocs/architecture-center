@@ -3471,6 +3471,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/cicd-for-containers.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/hybrid-continuous-integration.yml",
       "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
       "redirect_document_id": false
@@ -4337,6 +4347,66 @@
     {
       "source_path": "docs/example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml",
       "redirect_url": "/azure/architecture/guide/testing/mission-critical-deployment-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml",
+      "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml",
+      "redirect_url": "/azure/developer/jenkins/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/configuration-driven-data-pipeline.yml",
+      "redirect_url": "/azure/databricks/getting-started/data-pipeline-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/devsecops-rolling-branch.yml",
+      "redirect_url": "/devops/operate/security-in-devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/dev-test-paas.yml",
+      "redirect_url": "/azure/devtest-labs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/dev-test-microservice.yml",
+      "redirect_url": "/azure/devtest-labs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/devops/automate-azure-pipelines.yml",
+      "redirect_url": "/azure/devops/pipelines/process/create-multistage-pipeline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml",
+      "redirect_url": "/azure/devtest-labs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/jenkins.yml",
+      "redirect_url": "/azure/developer/jenkins/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/devsecops-in-github.yml",
+      "redirect_url": "/devops/devsecops/enable-devsecops-azure-github",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-containers.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-cicd-gitops-disciplines",
       "redirect_document_id": false
     },
     {
