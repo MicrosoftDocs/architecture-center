@@ -96,8 +96,8 @@ Understand the basic features of each Azure service from the following table.
 1. <span id="a3">Vectors in Azure AI Search</span>
 1. <span id="a4">Vector search is not provided as a first-class feature, but it can be implemented by [using columnstore indexes and functions for cosine similarity](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/)</span>
 1. <span id="a5">Need to unpivot dimension(array) to table row. [Vectors are stored with columnstore index](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/).</span>
-1. <span id="a6">or embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For [Azure AI Vision multimodal embedding models](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/concept-image-retrieval), 1024 for both image and text.</span>
-1. <span id="a7">Vectors can have up to 16,000. But index using IVFFlat and HNSW supports vectors with up to 2,000 dimensions.</span>
+1. <span id="a6">Embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For [Azure AI Vision multimodal embedding models](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/concept-image-retrieval), 1024 for both image and text.</span>
+1. <span id="a7">Vectors can have up to [16,000 dimensions](https://github.com/pgvector/pgvector?tab=readme-ov-file#vector-type). But index using IVFFlat and HNSW supports vectors with up to 2,000 dimensions.</span>
 
 ### Search methods
 
@@ -117,7 +117,7 @@ Understand what kind of search methods are provided from the following table.
 1. <span id="b4">[Vector Data](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#vectors-1) on SQL Server</span>
 1. <span id="b5">Not provided as a first-class feature but [sample codes](https://github.com/pgvector/pgvector-python/blob/master/examples/hybrid_search_rrf.py) are provided .</span>
 1. <span id="b6">[Hybrid search (combination of Full Text search, Vector search, and Semantic Ranking)](https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
-1. <span id="b7">Reranking called Semantic Ranking is a first-class feature for reranking the result of full text search and/or vector search.</span>
+1. <span id="b7">Reranking called [Semantic Ranking](https://learn.microsoft.com/en-us/azure/search/semantic-search-overview) is a first-class feature for reranking the result of full text search and/or vector search.</span>
 
 ### Data Management
 
