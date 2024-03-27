@@ -169,17 +169,18 @@ Understand the useful services/tools from Microsoft which can be integrated into
 | Azure Open AI Service - add your own data | No | Yes <a href="#g1"><sup>1</sup></a> | No | Yes <a href="#g2"><sup>2</sup></a>| No |
 | Vector Embedding with Azure OpenAI | No | No | Yes <a href="#g3"><sup>3</sup></a>| Yes <a href="#g4"><sup>4</sup></a>| Yes <a href="#g5"><sup>5</sup></a> |
 | Integration with Prompt flow | No | No | No | Yes <a href="#g6"><sup>6</sup></a>| No |
-| Integration with Semantic Kernel | Yes <a href="#g7"><sup>7</sup></a> | Yes <a href="#g8"><sup>8</sup></a>| Yes <a href="#g7"><sup>7</sup></a>| Yes <a href="#g9"><sup>9</sup></a> | No |
+| Integration with Semantic Kernel | Yes <a href="#g7"><sup>7</sup></a> | Yes <a href="#g8"><sup>8</sup></a>| Yes <a href="#g7"><sup>7</sup></a>| Yes <a href="#g9"><sup>9</sup></a> | Yes <a href="#g10"><sup>10</sup></a> |
 
 1. <span id="g1">Azure Cosmos DB for MongoDB (vCore) is supported as a DataSource for Azure OpenAI on your data.</span>
 2. <span id="g2">Azure AI Search is supported as a DataSource for Azure OpenAI on your data.</span>
-3. <span id="g3">Azure AI Extension (preview) is available.</span>
+3. <span id="g3">[Azure AI Extension (preview)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-openai) is available.</span>
 4. <span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span>
-5. <span id="g5">Stored Procedure</span>
+5. <span id="g5">You can create [stored procedure for your embedding model deployment](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#azure-openai)</span>
 6. <span id="g6">Supported as a vector database in "Index Lookup" tool.</span>
 7. <span id="g7">Supported as a vector database connector (C#).</span>
 8. <span id="g8">Supported as a vector database connector (Python).</span>
 9. <span id="g9">Supported as a memory connector, and a vector database connector.</span>
+9. <span id="g10">Supported [Semantic Kernel & Kernel Memory SQL Connector](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#semantic-kernel-integration).</span>
 
 ## Contributors
 
