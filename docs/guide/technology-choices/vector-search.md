@@ -87,7 +87,7 @@ Understand the basic features of each Azure service from the following table.
 | ------------------------------------------------ | --------------------------------------------- | ----------------------------------- | --------------------------------------------- | ---------------------------------- | --------------------------------- |
 | Built-In Vector Search                           | Yes <a href="#a1"><sup>1</sup></a>            | Yes <a href="#a2"><sup>2</sup></a>  | Yes <a href="#a1"><sup>1</sup></a>            | Yes <a href="#a3"><sup>3</sup></a> | No <a href="#a4"><sup>4</sup></a> |
 | Data Type for Vectors                            | Yes                                           | Yes                                 | Yes                                           | Yes                                | No <a href="#a5"><sup>5</sup></a> |
-| Dimensions Limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,048                              | Unlimited                         |
+| Dimensions Limits <a href="#a6"><sup>6</sup></a> | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 2,000                               | 16,000 <a href="#a7"><sup>7</sup></a> or 2000 | 3,072                             | Unlimited                         |
 | Multiple Vector Fields | Yes | No | Yes | Yes | N/A |
 | Multiple Vector Indexes | Yes | No | Yes | Yes | N/A |
 
