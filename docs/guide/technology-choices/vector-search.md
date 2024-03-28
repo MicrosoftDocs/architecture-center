@@ -37,7 +37,7 @@ Answer the following questions about your workloads to help you make decisions b
   - If your scenarios require CRUD the vector data and if the vector search result must be always up-to-date, you can **_keep vector fields in database systems_**.
   - In these scenarios, you can deploy **_RDBMS database or NoSQL database_** for vector store which based on your preference.
   - You need to **_develop advanced search features and need to optimize search quality by yourself_**.
-  - Choosing database for vector store has advantage in **_Cost Optimization_** perspective than choosing search engine.
+  - Choosing database for vector store has more advantage in **_Cost Optimization_** perspective than choosing search engine.
 - **You have MongoDB already or you are familiar with MongoDB:**
   - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
   - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
