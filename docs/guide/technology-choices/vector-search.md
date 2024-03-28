@@ -1,7 +1,7 @@
 ---
 title: Choose an Azure service for vector search
 description: Use this information to decide which Azure service for vector search best suits your application
-author: konabuta,
+author: konabuta, Gary3207Lee
 ms.author: keonabut, yongl, krmeht
 ms.service: azure database for postgresql, azure sql database, azure cosmos db for postgresql, azure cosmos db for mongodb, azure ai search
 ms.topic: product-comparison
