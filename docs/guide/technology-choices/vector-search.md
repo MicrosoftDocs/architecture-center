@@ -21,7 +21,7 @@ This article compares the following services:
 - [Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 - [Azure AI Search](/azure/search/)
-- [Azure SQL Database](/azure/azure-sql/?view=azuresql)
+- [Azure SQL Database](/azure/azure-sql/)
 
 ## Choose a candidate service
 
@@ -51,7 +51,7 @@ Answer the following questions about your workloads to help you make decisions b
   - If you're using Azure Open AI Service, embedding feature is integrated and ready to use.
 - **You have SQL Database already or you prefer SQL Server technology:**
   - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
-  - SQL Server **_doesn't support vector data type and vector index_**. You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#vectors-1).
+  - SQL Server **_doesn't support vector data type and vector index_**. You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql).
   - Vector search **_performance is slower and not recommended for large dataset_**.
 - **Your application requires advanced search features with high quality:**
   - In Azure, [Azure AI Search](/azure/postgresql/overview) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
@@ -114,7 +114,7 @@ Understand what kind of search methods are provided from the following table.
 1. <span id="b1">PostgreSQL [Full Text Search](https://www.postgresql.org/docs/current/textsearch-intro.html)</span>
 1. <span id="b2">[Search and query with text indexes](/azure/cosmos-db/mongodb/vcore/how-to-create-text-index) in Azure Cosmos DB for MongoDB vCore</span>
 1. <span id="b3">Get Started with [Full-Text Search](/sql/relational-databases/search/get-started-with-full-text-search)</span>
-1. <span id="b4">[Vector Data](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#vectors-1) on SQL Server</span>
+1. <span id="b4">[Vector Data](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql) on SQL Server</span>
 1. <span id="b5">Not provided as a first-class feature but [sample codes](https://github.com/pgvector/pgvector-python/blob/master/examples/hybrid_search_rrf.py) are provided.</span>
 1. <span id="b6">[Hybrid search (combination of Full Text search, Vector search, and Semantic Ranking)](/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
 1. <span id="b7">Reranking called [Semantic Ranking](/azure/search/semantic-search-overview) is a first-class feature for reranking the result of full text search and/or vector search.</span>
@@ -137,6 +137,7 @@ Understand suitable data characteristics, data modeling, and how to vectorize da
 Vector data indexing is the ability to efficiently store and retrieve vectors. This capability is important because indexing helps us perform fast and accurate similarity searches and nearest neighbor queries on data sources.
 
 Understand what kinds of vector data indexing are provided from the following table.
+
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
 | Exhaustive KNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
@@ -164,6 +165,7 @@ Understand what kind of similarity and distance calculation methods are provided
 
 Some technologies from Microsoft are useful to build systems using vector search. For example, Azure OpenAI Service helps you to create vectors for your data and input queries for vector similarity search.  
 Understand the useful services/tools from Microsoft, which can be integrated into each Azure service.
+
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
 | Azure Open AI Service - add your own data | No | Yes <a href="#g1"><sup>1</sup></a> | No | Yes <a href="#g2"><sup>2</sup></a>| No |
@@ -175,12 +177,12 @@ Understand the useful services/tools from Microsoft, which can be integrated int
 2. <span id="g2">Azure AI Search is [supported as a data source](/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
 3. <span id="g3">[Azure AI Extension (preview)](/azure/postgresql/flexible-server/generative-ai-azure-openai) is available.</span>
 4. <span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span>
-5. <span id="g5">You can create [stored procedure for your embedding model deployment](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#azure-openai)</span>
+5. <span id="g5">You can create [stored procedure for your embedding model deployment](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications)</span>
 6. <span id="g6">Supported as a vector database in [Vector DB Lookup](https://microsoft.github.io/promptflow/reference/tools-reference/vector_db_lookup_tool.html#vector-db-lookup) tool.</span>
 7. <span id="g7">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.Postgres)).</span>
 8. <span id="g8">Supported as a vector database connector ([Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).</span>
 9. <span id="g9">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureAISearch), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cognitive_search)).</span>
-10. <span id="g10">Supported as a [memory connector](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#semantic-kernel-integration).
+10. <span id="g10">Supported as a [memory connector](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).
 
 ## Contributors
 
@@ -198,9 +200,9 @@ If you're interested in trying vector search in Azure, you can find the referenc
 
 ### Next step
 
-[Implement knowledge mining with Azure AI Search - Training | Microsoft Learn](https://learn.microsoft.com/training/paths/implement-knowledge-mining-azure-cognitive-search/). This learning path explores how to use Azure AI Search.
+[Implement knowledge mining with Azure AI Search - Training | Microsoft Learn](/training/paths/implement-knowledge-mining-azure-cognitive-search/). This learning path explores how to use Azure AI Search.
 
 ### Related resources
 
-- [Understand data store models - Azure Application Architecture Guide | Microsoft Learn](https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview)
-- [Technology choices for Azure solutions - Azure Architecture Center | Microsoft Learn](https://learn.microsoft.com/azure/architecture/guide/technology-choices/technology-choices-overview)
+- [Understand data store models - Azure Application Architecture Guide | Microsoft Learn](/azure/architecture/guide/technology-choices/data-store-overview)
+- [Technology choices for Azure solutions - Azure Architecture Center | Microsoft Learn](/azure/architecture/guide/technology-choices/technology-choices-overview)
