@@ -17,11 +17,11 @@ Azure offers many ways to perform vector search. This guide is written for devel
 
 This article compares the following services:
 
-- [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/azure/cosmos-db/postgresql/)
-- [Azure Cosmos DB for MongoDB (vCore)](https://learn.microsoft.com/azure/cosmos-db/mongodb/vcore/)
-- [Azure Database for PostgreSQL](https://learn.microsoft.com/azure/postgresql/)
-- [Azure AI Search](https://learn.microsoft.com/azure/search/)
-- [Azure SQL Database](https://learn.microsoft.com/azure/azure-sql/?view=azuresql)
+- [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/)
+- [Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
+- [Azure AI Search](/azure/search/)
+- [Azure SQL Database](/azure/azure-sql/?view=azuresql)
 
 ## Choose a candidate service
 
