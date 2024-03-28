@@ -37,7 +37,7 @@ Answer the following questions about your workloads to help you make decisions b
   - If your scenarios require CRUD the vector data and if the vector search result must be always up-to-date, you can **_keep vector fields in database systems_**.
   - In these scenarios, you can deploy **_RDBMS database or NoSQL database_** for vector store which based on your preference.
   - You need to **_develop advanced search features and need to optimize search quality by yourself_**.
-  - Choosing database for vector store has advantage in **_Cost Optimization_** perspective then choosing search engine.
+  - Choosing database for vector store has advantage in **_Cost Optimization_** perspective than choosing search engine.
 - **You have MongoDB already or you are familiar with MongoDB:**
   - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
   - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
@@ -91,7 +91,7 @@ Understand the basic features of each Azure service from the following table.
 | Multiple Vector Fields | Yes | No | Yes | Yes | N/A |
 | Multiple Vector Indexes | Yes | No | Yes | Yes | N/A |
 
-1. <span id="a1">'pgvector' supports vector search which is the [extension of PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
+1. <span id="a1">'pgvector' supports vector search, which is the [extension of PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
 1. <span id="a2">[Use vector search on embeddings](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search) in Azure Cosmos DB for MongoDB vCore</span>
 1. <span id="a3">Vectors in Azure AI Search</span>
 1. <span id="a4">Vector search isn't provided as a first-class feature, but it can be implemented by [using columnstore indexes and functions for cosine similarity](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/)</span>
@@ -184,14 +184,12 @@ Understand the useful services/tools from Microsoft, which can be integrated int
 
 ## Contributors
 
-Microsoft maintaines this article. It was originally written by the following contributors.
+Microsoft maintain this article. Below contributors write this article.
 Principal authors:
-
 - Keita Onabuta | Senior Customer Engineer
 - Gary Lee | Senior Customer Engineer
 
 Other contributors:
-
 - Kruti Mehta | Customer Engineer
 
 ## Reference
