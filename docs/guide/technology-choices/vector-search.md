@@ -171,8 +171,8 @@ Understand the useful services/tools from Microsoft which can be integrated into
 | Integration with Prompt flow | No | No | No | Yes <a href="#g6"><sup>6</sup></a>| No |
 | Integration with Semantic Kernel | Yes <a href="#g7"><sup>7</sup></a> | Yes <a href="#g8"><sup>8</sup></a>| Yes <a href="#g7"><sup>7</sup></a>| Yes <a href="#g9"><sup>9</sup></a> | Yes <a href="#g10"><sup>10</sup></a> |
 
-1. <span id="g1">Azure Cosmos DB for MongoDB (vCore) is supported as a DataSource for Azure OpenAI on your data.</span>
-2. <span id="g2">Azure AI Search is supported as a DataSource for Azure OpenAI on your data.</span>
+1. <span id="g1">Azure Cosmos DB for MongoDB (vCore) is [supported as a data source](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
+2. <span id="g2">Azure AI Search is [supported as a data source](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=mongo-db#supported-data-sources) for Azure OpenAI on Your Data.</span>
 3. <span id="g3">[Azure AI Extension (preview)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-azure-openai) is available.</span>
 4. <span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span>
 5. <span id="g5">You can create [stored procedure for your embedding model deployment](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#azure-openai)</span>
