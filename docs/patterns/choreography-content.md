@@ -59,9 +59,11 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the choreography pattern by refactoring the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation) to create an event driven, cloud native app running functions along with microservices, When a client requests a package to be shipped, the app assigns a drone and notifies the client about the in-transit status until delivered. The microservices reference implementation is implementing the Orchestrator pattern and in this example the app is re-designed to implement the Choreography pattern instead.
+This example shows the choreography pattern by creating an event driven, cloud native app running functions along with microservices, When a client requests a package to be shipped, the app assigns a drone, and once both get available the delivery process is started. While in-transit the app handles the delivery until it gains the shipped status.
 
 ![GitHub logo](../_images/github.png) The code example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
+
+The following architecture is refactoring the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation) that is being deployed on [AKS](/azure/aks/) and implementing the the Orchestrator pattern. This example redesigns the app to implement the Choreography pattern instead.
 
 ![A close up of a map Description automatically generated](./_images/choreography-example.png)
 
