@@ -65,7 +65,7 @@ This example shows the choreography pattern by creating an event driven, cloud n
 
 The following architecture is refactoring the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation) that is being deployed on [AKS](/azure/aks/) and implementing the the Orchestrator pattern. This example redesigns the app to implement the Choreography pattern instead.
 
-![A close up of a map Description automatically generated](./_images/choreography-example.png)
+![An event driven cloud native example app implementing choreography pattern](./_images/choreography-example.png)
 
 Business transactions are initiated after a client request is acknowledged by the Ingestion service which produces new messages with the delivery details.
 
