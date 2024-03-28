@@ -169,6 +169,7 @@ Each subdirectory contains a stubbed version of the local.settings.json files, w
 ## Next steps
 
 - [Cross Tenant Communication using an Azure Service Bus Sample Code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
+- [Cross-Tenant Service Communication in Microsoft Azure (YouTube, 18m)](https://www.youtube.com/watch?v=uHbuMqSFpVI)
 - [Identity Based Functions Tutorial](https://learn.microsoft.com/azure/azure-functions/functions-identity-based-connections-tutorial-2)
   
 ## Related resources
