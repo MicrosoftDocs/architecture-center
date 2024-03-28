@@ -177,7 +177,7 @@ Understand the useful services/tools from Microsoft which can be integrated into
 4. <span id="g4">Azure AI Search provides a skill to vectorize the chunked text.</span>
 5. <span id="g5">You can create [stored procedure for your embedding model deployment](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#azure-openai)</span>
 6. <span id="g6">Supported as a vector database in [Vector DB Lookup](https://microsoft.github.io/promptflow/reference/tools-reference/vector_db_lookup_tool.html#vector-db-lookup) tool.</span>
-7. <span id="g7">Supported as a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.Postgres)).</span>
+7. <span id="g7">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.Postgres)).</span>
 8. <span id="g8">Supported as a vector database connector ([Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb)).</span>
 9. <span id="g9">Supported as a memory connector, and a vector database connector ([C#](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureAISearch), [Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cognitive_search)).</span>
 10. <span id="g10">Supported [Semantic Kernel & Kernel Memory SQL Connector](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql#semantic-kernel-integration).</span>
