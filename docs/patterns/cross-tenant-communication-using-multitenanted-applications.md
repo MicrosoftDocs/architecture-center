@@ -1,6 +1,6 @@
 ---
 title: Cross Tenant Communication using Multi-Tenanted Applications
-description: This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants. It includes a compelling identity story that avoids introducing unnecessary credentials and rotation infrastructure. This pattern can be reused for any Azure multitenant scenario with various services that need to communicate across Azure AD tenant boundaries.
+description: This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants. It includes a compelling identity story that avoids introducing unnecessary credentials and rotation infrastructure. This pattern can be reused for any Azure multi-tenant scenario with various services that need to communicate across Entra ID tenant boundaries.
 author: aulong-msft, ashtmMSFT, John-Garland
 ms.author: aulong, ashtm, johngarland
 ms.date: 2/23/2024
@@ -34,7 +34,7 @@ This pattern can be reused for any multi-tenanted scenario with a variety of ser
 
 ## The Problem Statement
 
-A Provider has multiple Customers. The Provider and each Customer need a secure, bidirectional method of communication. Messages must be exchanged through Azure Service Bus queues from Provider to Customer and vice versa. The solution should have a compelling identity story that avoids introducing unnecessary credentials or secrets.
+A Provider has multiple Customers. The provider and each customer have their own individual Entra ID tenant and Azure resources. The Provider and each Customer need a secure, bidirectional method of communication. Messages must be exchanged through Azure Service Bus queues from Provider to Customer and vice versa. The solution should have a compelling identity story that avoids introducing unnecessary credentials or secrets.
 
 ## How does the Provider message the Customer?
 
@@ -49,7 +49,7 @@ So, the Provider needs to authenticate using an identity the Customer recognizes
   - To access resources that are secured by a Microsoft Entra tenant, the entity (app or any other) that requires access must be represented by a security principal.
   - When an application is given permission to access resources in a tenant (upon registration or consent), a service principal object is created. This architecture is implemented with the consent flow.
 
-1. The Customer creates a service principal for the Provider in its tenant, and then communicates the resulting credentials (clientId and clientSecret) to the Provider. The Provider can then authenticate to the Customer tenant and the Customer-hosted APIs using this Service Principal. Unfortunately, if the credentials need to be regenerated/renewed, those fresh credentials must also be communicated from Customer to Provider.
+1. The Customer registers a single-tenant application in their Entra tenant for the Provider, and then communicates the resulting credentials (clientId and clientSecret) to the Provider. The Provider can then authenticate to the Customer tenant and the Customer-hosted APIs using the associated service principal. Unfortunately, if the credentials need to be regenerated/renewed, those fresh credentials must also be communicated from Customer to Provider.
 
 
 ## How does the Customer message the Provider?
@@ -63,10 +63,6 @@ So, the Provider needs to authenticate using an identity the Customer recognizes
 1. Provider creates/hosts a queue for each of its Customers, generates a SAS token (per-Customer), and communicates that SAS token to the Customer. The Customer then uses that SAS token to send messages to a Customer-specific queue on the Provider side. Credential management/rotation is a pain point because secrets have to be communicated from one tenant to the other. One upside to this approach is that neither tenant is required to register any extra apps/service principals.
 
 1. Provider creates/hosts a queue for each of its Customers. Each Customer provisions their own multitenant app and requests that the Provider provision it in its tenant. The Customer then uses this service principal to send messages to a Customer-specific queue on the Provider side. Credential management remains the sole responsibility of the Customer. One significant downside is that the Provider must provision service principals associated with Customer applications into its tenant. By nature this is a manual process, and Providers likely don't want manual steps to be part of the flow for onboarding a new customer.
-
-### Nonviable Solutions
-
-1. Provider deploys (per-Customer) an Azure Function with a Service Bus trigger using its multitenanted service principal to bind to a response queue in the Customer's Service Bus to listen for messages. This solution would be ideal, and is an optimization over the first viable solution, but it isn't currently possible: [Service Bus Managed Identity Limitation](https://learn.microsoft.com/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.ServiceBus-readme#managed-identity-authentication)
 
 ## Sample Code Setup
 
@@ -167,8 +163,8 @@ Each subdirectory contains a stubbed version of the local.settings.json files, w
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
  * [Audrey Long](https://www.linkedin.com/in/aulong/) | "Senior Security Software Engineer"
- * [Ashton Mickey](https://www.linkedin.com/in/ashtonmickey/) |  "Principal Software Engineer"
- * [John Garland](https://www.linkedin.com/in/avidgator/) |  "Principal Software Engineer"
+ * [Ashton Mickey](https://www.linkedin.com/in/ashtonmickey/) | "Principal Software Engineer"
+ * [John Garland](https://www.linkedin.com/in/avidgator/) | "Principal Software Engineer"
 
 
 ## Next steps
