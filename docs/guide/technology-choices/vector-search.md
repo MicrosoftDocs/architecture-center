@@ -41,11 +41,11 @@ Answer the following questions about your workloads to help you make decisions b
 - **You have MongoDB already or you are familiar with MongoDB:**
   - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
   - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
-  - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as 'HNSW' and 'IVFflat'.
+  - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as "HNSW" and "VFflat".
   - **_Only one vector field and index is available_** per container.
 - **You have PostgreSQL already or you prefer OSS technology:**
   - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) and [Azure Cosmos DB for PostgreSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/introduction) deliver high availability with a managed community PostgreSQL database service.
-  - Azure Database for PostgreSQL supports ANN vector index such as HNSW and IVFflat.
+  - Azure Database for PostgreSQL supports ANN vector index such as "HNSW" and "IVFflat".
   - You can define multiple vector fields in single table.
   - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
   - If you're using Azure Open AI Service, embedding feature is integrated and ready to use.
@@ -56,7 +56,7 @@ Answer the following questions about your workloads to help you make decisions b
 - **Your application requires advanced search features with high quality:**
   - In Azure, [Azure AI Search](/azure/postgresql/overview) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
   - If you need to index **_unstructured data(e.g. images, docx, PDF and etc.)_**, Azure AI search has **_skill set which can help collect insightful metadata_** from them.
-  - Azure AI Search supports ANN vector index such as HNSW and Exhaustive KNN.
+  - Azure AI Search supports ANN vector index such as "HNSW" and "Exhaustive KNN".
   - You can define multiple vector fields in single index.
   - You can create multiple vector indexes in search index.
   - If you're using Azure **_OpenAI Service, embedding feature is integrated and ready to use_**.
@@ -91,13 +91,13 @@ Understand the basic features of each Azure service from the following table.
 | Multiple Vector Fields | Yes | No | Yes | Yes | N/A |
 | Multiple Vector Indexes | Yes | No | Yes | Yes | N/A |
 
-1. <span id="a1">'pgvector' supports vector search, which is the [extension of PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
+1. <span id="a1">"pgvector" supports vector search, which is the [extension of PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector).</span>
 1. <span id="a2">[Use vector search on embeddings](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search) in Azure Cosmos DB for MongoDB vCore</span>
 1. <span id="a3">Vectors in Azure AI Search</span>
 1. <span id="a4">Vector search isn't provided as a first-class feature, but it can be implemented by [using columnstore indexes and functions for cosine similarity](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/)</span>
 1. <span id="a5">Need to unpivot dimension(array) to table row. [Vectors are stored with columnstore index](https://devblogs.microsoft.com/azure-sql/vector-similarity-search-with-azure-sql-database-and-openai/).</span>
 1. <span id="a6">Embedding models from OpenAI, 1536 for both text-embedding-ada-002 and text-embedding-3-small, and 3072 for text-embedding-3-large. For [Azure AI Vision multimodal embedding models](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/concept-image-retrieval), 1024 for both image and text.</span>
-1. <span id="a7">Vectors can have up to [16,000 dimensions](https://github.com/pgvector/pgvector?tab=readme-ov-file#vector-type). But index using IVFFlat and HNSW supports vectors with up to 2,000 dimensions.</span>
+1. <span id="a7">Vectors can have up to [16,000 dimensions](https://github.com/pgvector/pgvector?tab=readme-ov-file#vector-type). But index using "IVFFlat" and "HNSW" supports vectors with up to 2,000 dimensions.</span>
 
 ### Search methods
 
@@ -140,8 +140,8 @@ Understand what kinds of vector data indexing are provided from the following ta
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
 | Exhaustive KNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
-| HNSW | Yes| Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
-| IVFflat | Yes | Yes | Yes | No | No |
+| "HNSW" | Yes| Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
+| "IVFflat" | Yes | Yes | Yes | No | No |
 | Others (limitations, tips etc.) | - | Vector field limitation <a href="#e2"><sup>2</sup></a> </br> Vector index limitation <a href="#e3"><sup>2</sup></a> | - | - |No native vector search support<a href="#e4"><sup>3</sup></a>|
 
 1. <span id="e1">[Azure Cosmos DB for MongoDB - Vector search overview](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search)</span>
@@ -184,7 +184,7 @@ Understand the useful services/tools from Microsoft, which can be integrated int
 
 ## Contributors
 
-Microsoft maintain this article. Below contributors write this article.
+Microsoft maintains this article. Below contributors write this article.
 Principal authors:
 - Keita Onabuta | Senior Customer Engineer
 - Gary Lee | Senior Customer Engineer
