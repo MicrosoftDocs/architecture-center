@@ -65,7 +65,9 @@ This example shows the choreography pattern by refactoring the [Drone Delivery a
 
 ![A close up of a map Description automatically generated](./_images/choreography-example.png)
 
-A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and checking the delivery status. Those operations are performed by three microservices: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to collaborate and coordinate the request among themselves.
+Business transactions are initiated after a client request is acknowledged by the Ingestion service which produces new messages with the delivery details.
+
+A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and the proper handling of the delivery that consists of checking and eventually raising awareness when shipped. The business processing is performed by three microservices: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to communicate among themselves. Each service would be responsible to implement a protocol stablished in advance that coordinates in a decentralized way the business workflow.
 
 ### Design
 
