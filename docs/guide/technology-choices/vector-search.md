@@ -31,7 +31,7 @@ In the following, we will compare from the perspective of System Requirements in
 
 ## Choose a candidate service
 
-This section helps you select the most likely services for your needs. To narrow the choices, start by considering these system requirements and scenarios.
+This section helps you select the most likely services for your needs. To narrow the choices, start by considering these system requirements.
 
 ### Key Requirements
 
