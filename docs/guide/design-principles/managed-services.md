@@ -29,7 +29,7 @@ In contrast, PaaS provides a framework for developing and running apps. As with 
 
 When your workload doesn't require the control granted by IaaS, use PaaS instead. IaaS is like having a box of parts. You can build anything, but you have to assemble it yourself. PaaS options are easier to configure and administer. You don't need to set up virtual machines (VMs). You also don't have to handle all of the component's maintenance tasks, such as installing patches and updates.
 
-Many PaaS solutions offer a native scaling option that allow you to configure how the service will scale in and out or up and down. While scaling is passible in IaaS, it often comes with added complexity, such as dealing with attached storage.
+Many PaaS solutions offer a native scaling option that allow you to configure how the service will scale in and out or up and down. While scaling is possible in IaaS, it often comes with added complexity, such as dealing with attached storage.
 
 For example, suppose your application needs a message queue. You can set up your own messaging service on a virtual machine by using something like RabbitMQ. But Azure Service Bus provides a reliable messaging service, that is simpler to maintain. You can create a Service Bus namespace as part of a deployment script. Then you can use a client SDK to call Service Bus.
 
