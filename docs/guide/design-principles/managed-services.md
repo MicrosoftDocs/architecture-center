@@ -43,7 +43,7 @@ Your application might have specific requirements that make IaaS a more suitable
 | Elasticsearch | [Azure AI Search](/azure/search/search-what-is-azure-search) |
 | Hadoop | [Azure HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [Azure App Service](/azure/app-service/overview) |
-| MongoDB | [Azure Cosmos DB fir MongoDB](/azure/cosmos-db/mongodb/introduction) |
+| MongoDB | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) |
 | Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 | SQL Server | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
 | File share | [Azure Files](/azure/storage/files/storage-files-introduction) |
