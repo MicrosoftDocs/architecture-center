@@ -217,6 +217,8 @@ items:
         href: data-guide/scenarios/advanced-analytics.md
       - name: Batch processing
         href: data-guide/technology-choices/batch-processing.md
+      - name: Microsoft Fabric deployment patterns
+        href: analytics/architecture/fabric-deployment-patterns.yml
       - name: Stream processing
         href: data-guide/technology-choices/stream-processing.md
       - name: Streaming analytics
@@ -901,16 +903,12 @@ items:
         href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: Helm-based deployments for Apache NiFi
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: High throughput stream ingestion
-        href: example-scenario/data/stream-ingestion-synapse.yml
       - name: Ingest FAA content to analyze flight data
         href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml
       - name: Ingestion and analysis of news feeds
         href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.yml
-      - name: IoT and data analytics
-        href: example-scenario/data/big-data-with-iot.yml
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Near real-time lakehouse processing
@@ -985,8 +983,6 @@ items:
         href: solution-ideas/articles/logical-data-warehouse.yml
       - name: Manage data across the Azure SQL estate
         href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Oil and Gas tank level forecasting
@@ -1109,6 +1105,8 @@ items:
             href: guide/hpc/hpc-autodesk-revit.yml
           - name: Autodesk VRED
             href: guide/hpc/hpc-autodesk-vred.md
+          - name: Autodesk VRED Core
+            href: guide/hpc/autodesk-vred-core.yml
         - name: AVL FIRE M
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
@@ -1173,10 +1171,6 @@ items:
           href: guide/hpc/weather-research-forecasting.yml
       - name: Industry guidance
         items:
-        - name: HPC for manufacturing
-          href: industries/manufacturing/compute-manufacturing-overview.yml
-        - name: Risk grid computing in banking
-          href: industries/finance/risk-grid-banking-overview.yml
         - name: Risk grid computing solution
           href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: VM security baselines
@@ -1259,8 +1253,6 @@ items:
         href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
-      - name: HPC cluster deployed in the cloud
-        href: solution-ideas/articles/hpc-cluster.yml
       - name: Linux virtual desktops with Citrix
         href: example-scenario/infrastructure/linux-vdi-citrix.yml
       - name: Manage virtual machine compliance
@@ -1415,8 +1407,6 @@ items:
           href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
-        - name: JBoss deployment with Red Hat on Azure
-          href: solution-ideas/articles/jboss-deployment-red-hat.yml
         - name: AKS in event stream processing
           href: solution-ideas/articles/serverless-event-processing-aks.yml
     - name: PaaS container hosting
@@ -1590,8 +1580,6 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
       - name: Ingestion, ETL, and stream processing
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Tier applications for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
@@ -1644,8 +1632,6 @@ items:
           items:
           - name: Migrate monolith to microservices
             href: microservices/migrate-monolith.yml
-          - name: Modernize apps with Service Fabric
-            href: service-fabric/modernize-app-azure-service-fabric.yml
         - name: .NET microservices
           items:
           - name: Design a microservice-oriented app
@@ -1784,56 +1770,24 @@ items:
         href: guide/devops/deployment-scripts-property-check.yml
     - name: Architectures
       items:
-      - name: Automate multistage pipeline setup
-        href: example-scenario/devops/automate-azure-pipelines.yml
       - name: Automate API deployments with APIOps
         href: example-scenario/devops/automated-api-deployments-apiops.yml
-      - name: Automate Jupyter Notebooks
-        href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
       - name: Automate Sentinel integration
         href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Azure DevTest Labs for enterprises
         href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
-      - name: DevSecOps in GitHub
-        href: solution-ideas/articles/devsecops-in-github.yml
       - name: Enterprise monitoring with Azure Monitor
         href: example-scenario/monitoring/enterprise-monitoring.yml
       - name: High-availability blue/green deployment
         href: web-apps/spring-apps/guides/blue-green-spring.yml
-      - name: Jenkins on Azure
-        href: example-scenario/apps/jenkins.yml
-      - name: Run containers in a hybrid environment
-        href: hybrid/hybrid-containers.yml
-      - name: Teacher-provisioned virtual labs in Azure
-        href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
     - name: Solution ideas
       items:
-      - name: CI/CD for Containers
-        href: solution-ideas/articles/cicd-for-containers.yml
       - name: CI/CD for Microsoft Power Platform
         href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
-      - name: CI/CD for quantum computing jobs
-        href: /azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps
-      - name: CI/CD for Windows desktop apps
-        href: solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml
-      - name: CI/CD using Jenkins and AKS
-        href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
-      - name: CI/CD using Jenkins and Terraform
-        href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
-      - name: Configuration-driven data pipeline
-        href: solution-ideas/articles/configuration-driven-data-pipeline.yml
       - name: DevSecOps for infrastructure as code
         href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
-      - name: DevSecOps with a rolling main branch
-        href: solution-ideas/articles/devsecops-rolling-branch.yml
-      - name: DevTest and DevOps for PaaS
-        href: solution-ideas/articles/dev-test-paas.yml
-      - name: DevTest and DevOps with microservices
-        href: solution-ideas/articles/dev-test-microservice.yml
-      - name: Java CI/CD using Jenkins and Web Apps
-        href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml
   - name: Hybrid + Multicloud
     items:
     - name: Get started
@@ -1881,16 +1835,10 @@ items:
           href: hybrid/deployments/solution-deployment-guide-identity.md
         - name: Deploy AI-based footfall detection
           href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
-        - name: Deploy an app that scales cross-cloud
-          href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
         - name: Deploy Kubernetes on Azure Stack Hub
           href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
-        - name: Deploy highly available MongoDB
-          href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
         - name: Deploy hybrid with on-premises data
           href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
-        - name: Deploy a SQL Server 2016 AG
-          href: hybrid/deployments/solution-deployment-guide-sql-ha.md
         - name: Direct traffic with a geo-distributed app
           href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
       - name: Azure VMware Solution guidance
@@ -1956,8 +1904,6 @@ items:
           href: hybrid/azure-arc-hybrid-config.yml
         - name: Optimize SQL Server with Azure Arc
           href: hybrid/azure-arc-sql-server.yml
-        - name: Run containers in a hybrid environment
-          href: hybrid/hybrid-containers.yml
       - name: AKS on Azure Stack HCI (AKS hybrid)
         items:
         - name: AKS on Azure Stack HCI baseline architecture
@@ -2004,8 +1950,6 @@ items:
           href: example-scenario/hybrid/hybrid-geo-distributed.yml
         - name: Hybrid relay connection
           href: solution-ideas/articles/hybrid-relay-connection.yml
-        - name: Tiered data for analytics
-          href: example-scenario/hybrid/hybrid-tiered-data-analytics.yml
       - name: Azure VMware Solution in hub-and-spoke
         href: /azure/azure-vmware/concepts-hub-and-spoke
         maintainContext: true
@@ -2039,14 +1983,10 @@ items:
         href: hybrid/hybrid-server-os-mgmt.yml
       - name: On-premises data gateway for Logic Apps
         href: hybrid/gateway-logic-apps.yml
-      - name: Out-of-stock detection at the edge
-        href: example-scenario/hybrid/stock-detection-edge.yml
       - name: Public MEC compute deployment
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
         href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
-      - name: Run containers in a hybrid environment
-        href: hybrid/hybrid-containers.yml
       - name: Train machine learning at the edge
         href: example-scenario/hybrid/train-machine-learning-models-on-premises-data.yml
       - name: Use file shares in a hybrid environment
@@ -2288,36 +2228,14 @@ items:
           href: guide/iot-edge-vision/camera.md
         - name: Hardware acceleration
           href: guide/iot-edge-vision/hardware.md
-        - name: Machine learning
-          href: guide/iot-edge-vision/machine-learning.yml
-        - name: Alerting
-          href: guide/iot-edge-vision/alerts.md
         - name: Image storage
           href: guide/iot-edge-vision/image-storage.md
         - name: User interface and scenarios
           href: guide/iot-edge-vision/user-interface.md
-      - name: Industrial IoT analytics
-        items:
-        - name: Architecture
-          href: guide/iiot-guidance/iiot-architecture.yml
-        - name: Recommended services
-          href: guide/iiot-guidance/iiot-services.md
-        - name: Data visualization
-          href: guide/iiot-guidance/iiot-data.yml
-        - name: Considerations
-          href: guide/iiot-guidance/iiot-considerations.md
       - name: Industrial IoT patterns
         items:
-        - name: Overview
-          href: guide/iiot-patterns/iiot-patterns-overview.yml
-        - name: Connectivity patterns
-          href: guide/iiot-patterns/iiot-connectivity-patterns.yml
         - name: Visibility patterns
           href: guide/iiot-patterns/iiot-visibility-patterns.yml
-        - name: Transparency patterns
-          href: guide/iiot-patterns/iiot-transparency-patterns.yml
-        - name: Prediction patterns
-          href: guide/iiot-patterns/iiot-prediction-patterns.yml
       - name: IoT patterns
         items:
         - name: Analyze and optimize loop
@@ -2352,14 +2270,8 @@ items:
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: Computer vision at the edge
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Connected factory hierarchy service
-        href: solution-ideas/articles/connected-factory-hierarchy-service.yml
-      - name: Connected factory signal pipeline
-        href: example-scenario/iot/connected-factory-signal-pipeline.yml
       - name: Efficient Docker image deployment
         href: example-scenario/iot/efficient-docker-image-deployment.yml
-      - name: IoT and data analytics
-        href: example-scenario/data/big-data-with-iot.yml
       - name: IoT Edge safety and maintenance system
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
@@ -2374,10 +2286,6 @@ items:
         href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
-      - name: Buy online, pick up in store
-        href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
-      - name: Condition monitoring
-        href: solution-ideas/articles/condition-monitoring.yml
       - name: COVID-19 solutions
         items:
         - name: Cognizant Safe Buildings with IoT
@@ -2396,8 +2304,6 @@ items:
         href: solution-ideas/articles/data-storage-edge.yml
       - name: Light and power for emerging markets
         href: solution-ideas/articles/iot-power-management.yml
-      - name: Predictive maintenance
-        href: solution-ideas/articles/iot-predictive-maintenance.yml
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
@@ -2820,8 +2726,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
     - name: Solution ideas
       items:
-      - name: JMeter implementation reference
-        href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
       - name: Lift and shift to containers with App Service
         href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
       - name: Migrate .NET applications
@@ -2974,16 +2878,10 @@ items:
       items:
       - name: Adding mobile front-ends to legacy apps
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
-      - name: Custom mobile workforce app
-        href: solution-ideas/articles/custom-mobile-workforce-app.yml
       - name: Scalable apps with Azure MySQL
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml
       - name: Scalable apps using Azure PostgreSQL
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml
-      - name: Social app for with authentication
-        href: solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml
-      - name: Task-based consumer mobile app
-        href: solution-ideas/articles/task-based-consumer-mobile-app.yml
   - name: Networking
     href: networking/index.md        
   - name: Oracle
@@ -3473,7 +3371,7 @@ items:
           href: /azure/virtual-desktop/connection-latency
           maintainContext: true
       - name: Multiregion BCDR for AVD
-        href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
+        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml
       - name: AVD for Azure Stack HCI
         href: /azure/virtual-desktop/azure-stack-hci-overview
         maintainContext: true
@@ -3490,13 +3388,13 @@ items:
     - name: Architectures
       items:
       - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/wvd/windows-virtual-desktop.yml
+        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Esri ArcGIS on Azure Virtual Desktop
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
       - name: Multiple Active Directory forests
-        href: example-scenario/wvd/multi-forest.yml
+        href: example-scenario/azure-virtual-desktop/multi-forest.yml
       - name: Multiple forests with Microsoft Entra Domain Services
-        href: example-scenario/wvd/multi-forest-azure-managed.yml
+        href: example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Industry solutions with Azure
@@ -3644,8 +3542,6 @@ items:
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Build a real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.yml
-      - name: Buy online, pick up in store (retail)
-        href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Content-based recommendation
         href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
       - name: E-commerce front end
@@ -3779,8 +3675,6 @@ items:
         maintainContext: true
       - name: Financial services risk lifecycle
         href: industries/finance/financial-risk-model.md
-      - name: Risk grid computing in banking
-        href: industries/finance/risk-grid-banking-overview.yml
       - name: Risk grid computing solution
         href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling
@@ -3801,14 +3695,18 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
       - name: Finance management using PostgreSQL
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
-      - name: Host a Murex MX.3 workload on Azure using Oracle
-        href: example-scenario/finance/murex-mx3-azure.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
         href: example-scenario/financial/location-based-access.yml
       - name: Modernize mainframe & midrange data
         href: example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
+      - name: Murex MX.3 on Azure
+        items:
+        - name: Host a Murex MX.3 workload on Azure using Oracle
+          href: example-scenario/finance/murex-mx3-azure.yml
+        - name: Host a Murex MX.3 workload on Azure using SQL
+          href: example-scenario/finance/murex-mx3-sql.yml
       - name: Patterns and implementations in banking
         href: example-scenario/banking/patterns-and-implementations.yml
       - name: Real-time fraud detection
@@ -4135,7 +4033,7 @@ items:
       - name: Azure Automation update management
         href: hybrid/azure-update-mgmt.yml
       - name: Azure Virtual Desktop for the enterprise
-        href: example-scenario/wvd/windows-virtual-desktop.yml
+        href: example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml
       - name: Computer forensics chain of custody
         href: example-scenario/forensics/index.yml
       - name: Hybrid security monitoring in Azure
@@ -4295,8 +4193,6 @@ items:
       href: industries/manufacturing.md
     - name: Guides
       items:
-      - name: HPC for manufacturing
-        href: industries/manufacturing/compute-manufacturing-overview.yml
       - name: AI and ML scenarios
         items:
         - name: Machine teaching for manufacturing
@@ -4347,8 +4243,6 @@ items:
           - name: Overview
             href: /azure/industrial-iot/overview-what-is-industrial-iot
             maintainContext: true
-          - name: Industrial IoT analytics
-            href: guide/iiot-guidance/iiot-architecture.yml
           - name: Deploy the IIoT platform
             href: /azure/industrial-iot/tutorial-deploy-industrial-iot-platform
             maintainContext: true
@@ -4380,14 +4274,6 @@ items:
         href: example-scenario/hpc/hpc-run-cae-simulations.yml
       - name: Computer vision for manufacturing
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Condition monitoring
-        href: solution-ideas/articles/condition-monitoring.yml
-      - name: Connected factory hierarchy service
-        href: solution-ideas/articles/connected-factory-hierarchy-service.yml
-      - name: Connected factory signal pipeline
-        href: example-scenario/iot/connected-factory-signal-pipeline.yml
-      - name: IoT and data analytics in manufacturing
-        href: example-scenario/data/big-data-with-iot.yml
       - name: IoT Edge safety and maintenance system
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: Low-latency network for manufacturing
@@ -4398,8 +4284,6 @@ items:
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
       - name: Supply chain track and trace
         href: solution-ideas/articles/supply-chain-track-and-trace.yml
-      - name: Tiered data for manufacturing
-        href: example-scenario/hybrid/hybrid-tiered-data-analytics.yml
         maintainContext: true
     - name: Compliance solutions
       items:
@@ -4462,8 +4346,6 @@ items:
         href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: IoT Edge data processing - Monitor oil rigs
         href: solution-ideas/articles/data-storage-edge.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Oil and gas tank level forecasting
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
       - name: Project 15 sustainability
@@ -4696,8 +4578,6 @@ items:
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Scalable secure open source Capture the Flag (CTF)
         href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
-      - name: Teacher-provisioned virtual labs in Azure
-        href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
       - name: Training and guidance with mixed reality
         href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
     - name: Compliance solutions
@@ -5066,8 +4946,6 @@ items:
           href: example-scenario/analytics/synapse-customer-insights.yml
         - name: Facilities management with MR
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
-        - name: IoT and data analytics for construction
-          href: example-scenario/data/big-data-with-iot.yml
         - name: IoT connected light, power, and internet
           href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities

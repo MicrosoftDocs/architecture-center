@@ -109,7 +109,6 @@ These solution ideas are some of the example approaches that you can adapt to yo
 - [Data cache](../databases/idea/data-cache-with-redis-cache.yml)
 - [Enterprise data warehouse](../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Messaging](../databases/idea/messaging.yml)
-- [Mining equipment monitoring](../solution-ideas/articles/monitor-mining-equipment.yml)
 - [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products

@@ -58,10 +58,4 @@ The following articles provide detailed analysis of architectures developed and 
 | [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../hybrid/hybrid-security-monitoring.yml) | Monitor the security configuration and telemetry of on-premises and Azure operating system workloads. | Hybrid/Multicloud |
 | [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml) | Combine AI and Internet of Things (IoT) by using Azure Custom Vision to classify images taken by a simulated drone. | AI/ML |
 | [Web app private connectivity to Azure SQL database](../example-scenario/private-web-app/private-web-app.yml) | Set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services. | Security |
-| [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml) | Use Azure Virtual Desktop to build virtualized desktop infrastructure (VDI) solutions at enterprise scale, covering 1,000 virtual desktops and above. | Hybrid/Multicloud |
-
-## Solution ideas for government
-
-The following article provides an idea that you can use as a starting point for your government solution.
-
-- [DevSecOps in GitHub](../solution-ideas/articles/devsecops-in-github.yml)
+| [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml) | Use Azure Virtual Desktop to build virtualized desktop infrastructure (VDI) solutions at enterprise scale, covering 1,000 virtual desktops and above. | Hybrid/Multicloud |

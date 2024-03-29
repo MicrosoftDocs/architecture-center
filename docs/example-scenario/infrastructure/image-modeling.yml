@@ -16,6 +16,7 @@ metadata:
     - Linux
     - HPC
     - example-scenario
+    - linux-related-content
 name: Digital image-based modeling on Azure
 azureCategories:
   - compute

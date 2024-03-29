@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-azurecli
----
 <!-- cSpell:ignore PageWriter-MSFT cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
 Serverless computing abstracts the servers, infrastructure, and operating systems, allowing developers to focus on application development. A robust *CI/CD* or *Continuous Integration*/*Continuous Delivery* of such applications allows companies to ship fully tested and integrated software versions within minutes of development. It provides a backbone of modern DevOps environment.
 

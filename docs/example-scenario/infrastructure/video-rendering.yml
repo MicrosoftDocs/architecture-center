@@ -16,6 +16,7 @@ metadata:
     - hpc
     - media
     - example-scenario
+    - linux-related-content
 name: 3D video rendering
 azureCategories:
   - compute

@@ -14,6 +14,7 @@ metadata:
     - management-and-governance
   ms.custom:
     - reference-architecture
+    - linux-related-content
 name: N-tier application with Apache Cassandra
 azureCategories:
   - databases
