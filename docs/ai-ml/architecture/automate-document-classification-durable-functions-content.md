@@ -20,7 +20,7 @@ This article describes an architecture for processing document files that contai
    > Azure doesn’t offer a service that can classify multiple document types in a single file. This solution uses a non-Azure service that's hosted in AKS.
 
 1. The Metadata Store activity function saves the document type and page range information in an Azure Cosmos DB store.
-1. The Indexing activity function creates a new search document in the Cognitive Search service for each identified document type and uses the [Azure Cognitive Search libraries for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet) to include in the search document the full OCR results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
+1. The Indexing activity function creates a new search document in the Cognitive Search service for each identified document type and uses the [Azure AI Search libraries for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet) to include in the search document the full OCR results and document information. A correlation ID is also added to the search document so that the search results can be matched with the corresponding document metadata from Azure Cosmos DB.
 1. End users can search for documents by contents and metadata. Correlation IDs in the search result set can be used to look up document records that are in Azure Cosmos DB. The records include links to the original document file in Blob Storage.
 
 ### Components
@@ -30,7 +30,7 @@ This article describes an architecture for processing document files that contai
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a set of massively scalable and secure cloud services for data, apps, and workloads. It includes [Blob Storage](https://azure.microsoft.com/products/storage/blobs), [Azure Files](https://azure.microsoft.com/products/storage/files), [Azure Table Storage](https://azure.microsoft.com/products/storage/tables), and [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues).
 - [Azure App Service](https://azure.microsoft.com/products/app-service) provides a framework for building, deploying, and scaling web apps. The Web Apps feature is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications easily run and scale in Windows and Linux-based environments.
 - [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services) provides intelligent algorithms to see, hear, speak, understand, and interpret your user needs by using natural methods of communication.
-- [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
+- [Azure AI Search](https://azure.microsoft.com/products/search) provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 - [AKS](https://azure.microsoft.com/products/kubernetes-service) is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
 
 ### Alternatives
@@ -72,7 +72,7 @@ A reliable workload is one that's both resilient and available. Resiliency is th
 
 For reliability information about solution components, see the following resources:
 
-- [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0)
+- [SLA for Azure AI Search](https://azure.microsoft.com/support/legal/sla/search/v1_0)
 - [SLA for Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0)
 - [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2)
 - [SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_5)
@@ -84,9 +84,9 @@ For reliability information about solution components, see the following resourc
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The most significant costs for this architecture will potentially come from the storage of image files in the storage account, Cognitive Services image processing, and index capacity requirements in the Azure Cognitive Search service.
+The most significant costs for this architecture will potentially come from the storage of image files in the storage account, Cognitive Services image processing, and index capacity requirements in the Azure AI Search service.
 
-Costs can be optimized by [right sizing](/azure/architecture/framework/services/storage/storage-accounts/cost-optimization) the storage account by using reserved capacity and lifecycle policies, proper [Azure Cognitive Search planning](/azure/search/search-sku-manage-costs) for regional deployments and operational scale up scheduling, and using [commitment tier pricing](/azure/cognitive-services/commitment-tier) that's available for the Computer Vision – OCR service to manage [predictable costs](/azure/cognitive-services/plan-manage-costs).
+Costs can be optimized by [right sizing](/azure/architecture/framework/services/storage/storage-accounts/cost-optimization) the storage account by using reserved capacity and lifecycle policies, proper [Azure AI Search planning](/azure/search/search-sku-manage-costs) for regional deployments and operational scale up scheduling, and using [commitment tier pricing](/azure/cognitive-services/commitment-tier) that's available for the Computer Vision – OCR service to manage [predictable costs](/azure/cognitive-services/plan-manage-costs).
 
 Here are some guidelines for optimizing costs:
 
@@ -118,7 +118,7 @@ Introductory articles:
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What are Durable Functions?](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-- [What’s Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
+- [What’s Azure AI Search?](/azure/search/search-what-is-azure-search)
 - [App Service overview](/azure/app-service/overview)
 - [Introduction to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
@@ -129,7 +129,7 @@ Product documentation:
 - [Azure documentation (all products)](/azure?product=all)
 - [Durable Functions documentation](/azure/azure-functions/durable)
 - [Azure Cognitive Services documentation](/azure/cognitive-services)
-- [Azure Cognitive Search documentation](/azure/search)
+- [Azure AI Search documentation](/azure/search)
 
 ## Related resources
 
