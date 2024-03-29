@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Replatform AIX workloads on Azure
+  description: Learn how to replatform AIX workloads on Azure.
+  author: richard.berry, vatseyb
+  ms.author: richard.berry
+  ms.date: 04/01/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+name: Replatform AIX workloads on Azure
+azureCategories:
+  - migration
+summary: Learn how to replatform AIX workloads on Azure.
+products:
+  - azure-application-gateway
+  - azure-files
+  - azure-virtual-machines
+  - azure-communication-services
+  - azure-app-service
+thumbnailUrl: /azure/architecture/browse/thumbs/.png
+content: |
+   [!include[](replatform-aix-workloads-content.md)]
