@@ -31,7 +31,7 @@ Kaleido is available as both a Marketplace and private offering on Azure. You ca
 - Sign-up directly on the [Kaleido Blockchain & Digital Assets](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kaleidoinc1626787540168.kaleido?tab=Overview) marketplace page.
 - Inquire about the private offering for the Kaleido Asset Platform directly with [Kaleido](https://www.kaleido.io/contact-us).
 
-The elements of the architectural diagram are explained below:
+Explanation of the elements of the architectural diagram:
 
 - **Input/intake**
 
@@ -41,7 +41,7 @@ OpenAPI (Swagger) definitions are generated for the Solidity Smart Contracts you
 
 - **Core ledger**
 
-Input that is destined to be persisted in the underlying ledger for the solution is handled by blockchain, using Kaleido Blockchain as a Service. A set of nodes are created as part of blockchain deployment, and the input application can interact with the blockchain either directly via those nodes or through the Kaleido REST API Gateway. Nodes can either be validators or transaction-only. The Kaleido Blockchain as a Service scales within its Azure footprint based on the user selection of node size which is based on [transaction throughput requirements](https://docs.kaleido.io/using-kaleido/resource-limits/).
+Kaleido Blockchain as a Service handles the input that is destined to be persisted in the underlying ledger for the solution. A set of nodes are created as part of blockchain deployment, and the input application can interact with the blockchain either directly via those nodes or through the Kaleido REST API Gateway. Nodes can either be validators or transaction-only. The Kaleido Blockchain as a Service scales within its Azure footprint based on the user selection of node size, which is based on [transaction throughput requirements](https://docs.kaleido.io/using-kaleido/resource-limits/).
 
 - **Output/Analytics**
 
@@ -53,7 +53,7 @@ As data continues to exist in the ledger in Kaleido, the need for both analytics
 
 The above diagram represents a simplified version of the stages in supply chain for chip manufacturing. The stages involved are mining, manufacturing, distribution, and retail, where material change hands many times in progression. For a company that values sustainability and ethical responsibility, it becomes important to track and trace the source of truth and quality details of the materials. In the past, each participant used to put the data in their own data technology stack and synchronize data to other parties.
 
-The data flow mapping of the above diagram is described below:
+Describing the data flow mapping:
 
 - **Mine/manufacturer**
 
@@ -61,7 +61,7 @@ Input is created when the manufacturer receives the raw material. Then, the cert
 
 - **Distribution**
 
-Once the components are manufactured, they are bundled for distribution. The bundle is used in the ledger with Kaleido to establish provenance, such as a palette. This is done using a combination of on-chain data in the ledger and off-chain data in traditional storage.
+Once the components are manufactured, they're bundled for distribution. The bundle is used in the ledger with Kaleido to establish provenance, such as a palette. This is done using a combination of on-chain data in the ledger and off-chain data in traditional storage.
 
 - **Retail**
 
@@ -83,7 +83,7 @@ The ledger system of the Kaleido helps organizations get the history of low-leve
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario, Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by analytics solutions or simple reporting. Additionally, by utilizing the [ledger](/azure/azure-sql/database/ledger-landing) feature of Azure SQL Database, the integrity of output of events from the blockchain replicated to the SQL database can be maintained.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario, Azure Monitor provides availability and performance data of the architecture components.
 
 ## Scenario details
 
@@ -93,14 +93,14 @@ The need for blockchain technology started with organizations trying to understa
 - How was the product built?
 - What were the processes followed to build a product?
 
-Building and maintaining the electronic data interface (EDI) across suppliers to track and trace parts of a product is not worthwhile for some organizations. By using Kaleido Blockchain Service with App Services, Azure Key Vault, Service Bus, and Azure Cosmos DB, organizations can track and trace a tokenized version of the product's physical assets and relevant metadata to meet requirements.
+Building and maintaining the electronic data interface (EDI) across suppliers to track and trace parts of a product isn't worthwhile for some organizations. By using Kaleido Blockchain Service with App Services, Azure Key Vault, Service Bus, and Azure Cosmos DB organizations can track and trace a tokenized version of the product's physical assets and relevant metadata to meet requirements.
 
 ### Potential use cases
 
-With the Kaleido Platform, supported by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata, such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled components used.
+With the Kaleido Platform, supported by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata, such as quality certificates. Through a shared ledger, these certificates cover carbon footprint and percentage of recycled components used.
 
 Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
-While this could be built using traditional centralized components, this is not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
+While this could be built using traditional centralized components, this isn't the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
 
 This solution is ideal for sustainability, manufacturing, and energy/environment industries.
 
