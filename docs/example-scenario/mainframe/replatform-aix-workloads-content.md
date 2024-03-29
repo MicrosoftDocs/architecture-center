@@ -1,66 +1,73 @@
-Replatform AIX workloads to Azure
+This article describes a replatform migration approach. You can use Azure Functions for a serverless architecture or use Azure Virtual Machines to retain a serverful model. 
 
-This article provides a general replatform migration approach that can use either serverless architecture patterns with Azure Functions, or retain a serverful model with Azure Virtual Machines (VMs). 
+Consider a replatform migration strategy for AIX workloads as your first option to maximize the return on investment (ROI) in legacy application migrations to Azure.
 
-Companies should consider a replatform migration strategy for AIX workloads as a first option to maximize the Return on Investment (ROI) in legacy application migrations to Azure.
+Replatform migrations require minimal changes to move workloads into Azure-native architectures but deliver cloud-native benefits that are similar to a refactor migration.
 
-Replatform migrations require minimal changes to move workloads into Azure-native architectures, while delivering similar cloud-native benefits to a Refactor migration. The benefits to the business include lower TCO, greater business agility, and increased operational resiliency from automated scalability.  
+The benefits include:
+
+- A reduced total cost of ownership (TCO).
+- Improved business agility.
+- Improved operational resiliency due to automated scalability.  
 
 # Architecture - replatformed
 
-![A diagram of a software company  Description automatically generated](media/image4.png)
+![Diagram of the replatformed architecture.](media/image4.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
-This architecture illustrates a general replatform migration approach that can use either serverless architecture patterns or retain a serverful model.  The selection between these two depends on the existing applications' portability  _and_ the team's workflow preference and technology roadmap. 
+This architecture shows a general replatform migration approach that can use either serverless architecture patterns or retain a serverful model. The model that you choose depends on the portability of your existing applications and your team's workflow preference and technology roadmap. 
 
-The company retains the Oracle Database in this phase but it is now replatformed to RHEL (Redhat Enterprise Linux) operating system on Azure Virtual Machines, but switched from WebSphere to JBoss EAP on the fully managed Azure App Service.
-
+Like the [original architecture](#architecture---original), the replatformed architecture has an Oracle database but it's replatformed to a Red Hat Enterprise Linux (RHEL) operating system on Azure Virtual Machines. For the fully managed Azure App Service in the replatformed architecture, Red Hat JBoss Enterprise Application Platform (EAP) replaces the WebSphere Java application.
+inadvertently
 ## Workflow
 
-Mapping the original workflow to the components in this replatformed architecture, we now see:
+This workflow corresponds to the preceding architecture.
 
-User requests and inbound API integrations hit the Azure Application Gateway on TCP/443 (HTTPS), which now also provides Web Application Firweall (WAF) functionality before reverse proxying requests to various services hosted on RedHat JBoss EAP (1)
+1. User requests and inbound API integrations go to Azure Application Gateway on TCP/443 (HTTPS), which provides a web application firewall (WAF) functionality. Application Gateway sends the requests, as reverse proxy requests, to various services that are hosted on Red Hat JBoss Enterprise Application Platform (EAP).
 
-Java Web Services then interrogate the Oracle Database (TCP/1521), with synchronous web requests now being responded to in < 50 ms.
+1. Java Web Services interrogates the Oracle database (TCP/1521). The synchronous web request response time is less than 50 milliseconds (ms).
 
-Asynchronous requests – such as a batch task – still place a record in the database table which continues to act as a queue within the application layer. <br>_Note: The team plans to move this to Azure Storage Queue in a future release and unlock 24/7 access to running analysis jobs._ 
+1. Asynchronous requests, such as batch tasks, place a record in the database table which acts as a queue within the application layer. 
 
-Batch processing at night is no longer required to limit the impact on system performance during business hours.  The cron job previously written in KSH was ported to bash, running on a separate RHEL server in an Azure Virtual Machine Scale Set (VMSS). The cron job runs every 15 minutes, including on system boot, to query the queue in the Oracle database. Jobs are run one at a time per-host, with VMSS used to parallelize long-running analysis jobs.
+   > [!NOTE]
+   > In a future release, Azure Queue Storage will replace the database  table, so you can always have access to running analysis jobs.
 
-Email alerts were switched to use Azure Communication Service via the az CLI tool (docs), with authentication of the Virtual Machine leveraging Azure system-assigned Managed Identities (e.g. az login --identity).
+1. The cron job, written in Korn shell (ksh) script, is ported to bash and runs on a separate RHEL server in Azure Virtual Machine Scale Sets. The cron job runs every 15 minutes, including on system boot, to query the queue in the Oracle database. Jobs run one at a time per host. Virtual Machine Scale Sets parallelizes long-running analysis jobs. You no longer have to do batch processing during off-peak hours to limit the effect on system performance during business hours.
 
-Completed analysis jobs have their results posted to an Azure Files share via secure SMBv3 (TCP/445), also leveraging system-assigned Managed Identities.
+1. Azure Communication Service sends email alerts via the Azure CLI tool (docs). Azure system-assigned managed identities, such as `az login --identity`, authenticate the virtual machine (VM).
+
+1. The analysis job results are posted to an Azure Files share via secure SMBv3 (TCP/445), which also uses system-assigned managed identities.
 
 ## Components
 
-**Azure Entra ID**: Improves security by removing network-based trust, and leveraging system-assigned Managed Identities.  
+**Microsoft Entra ID** eliminates network-based trust and provides system-assigned managed identities, which improves security.
 
-**Azure App Service**: removes the need to administer an operating system and server, increasing operational efficiency and business agility.
+**Azure App Service** eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
 
-**Azure App Gateway**: scalable, managed, web application firewall and reverse proxy.
+**Application Gateway** scalable, managed, web application firewall and reverse proxy.
 
-**Azure Files**: data reports published via a managed service.
+**Azure Files** provides data reports  that are published via a managed service.
 
-<kbd>Azure F</kbd>unction<kbd>i</kbd>le<kbd>s</kbd>:  <kbd>Azure</kbd> Functions is an event-driven, serverless <kbd>compute</kbd> platform that helps you develop more efficiently using the programming language of your choice. 
+**Azure Functions** is an event-driven, serverless compute platform that you can use to efficiently develop code in the programming language of your choice. 
 
-**Azure Virtual Machine**: The Oracle database and SAS analysis nodes require a VM.
+An **Azure VM** is used by the Oracle database and SAS analysis nodes.
 
-**Azure Compute Gallery**: Images for the Oracle database and SAS analysis nodes are pre-built and stored in two Azure Compute Galleries, one in our primary region (Canada Central), and one in our DR region (Canada East) 
+**Azure Compute Gallery** builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region (Canada Central) and one in the disaster recovery region (Canada East).
 
-**Azure Communication Service**: Simple email delivery, with a CLI utility it was a direct replacement for the mailx command on AIX
+**Communication Services** sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
 
 ## Alternatives
 
-An alternative that is often considered is a complete serverful architecture, retaining all middleware components as-is.  
+A potential alternative is a complete serverful architecture that retains all middleware components as is.  
 
-While this would be closer to a “like for like” mandate under which many IT organizations operate, it would cost a similar amount to execute the migration but would not provide the same business benefit as the prior method.  Specifically, the customer would not achieve the following benefits:<br>
+This solution is similar to the original architecture, which fulfills a *like for like* mandate under which many IT organizations operate. This alternative solution also costs about the same as the original architecture but doesn't provide the benefits that the replatformed architecture provides. For example:
 
-**licensing savings** - would retain WebSphere, and add more RHEL nodes
+- Licensing savings: The alternative solution retains WebSphere and adds more RHEL nodes.
 
-**operational efficiencies** - would retain same number of servers to maintain
+- Operational efficiencies: The alternative solution retains the same number of servers to maintain.
 
-**business agility** - reporting remains limited to nights only and there would be no auto-scaling powered 24/7 analysis
+- Business agility: With the alternative solution, reporting remains limited to nights only and there's no autoscaling-powered 24/7 analysis.
 
 # Architecture - original
 
@@ -72,19 +79,19 @@ The original workload running on AIX is a key input to determine if a replatform
 
 ## Workflow
 
-User requests and inbound API integrations hit the on-premises F5 load balancer on TCP/443 (HTTPS) and then reverse proxy to various Java Web Services hosted on IBM WebSphere.
+1. User requests and inbound API integrations hit the on-premises F5 load balancer on TCP/443 (HTTPS) and then reverse proxy to various Java Web Services hosted on IBM WebSphere.
 
-Java Web Services then interrogate the Oracle Database via TCP/1521, with synchronous web requests being responded to in < 1sec, but > 300ms in most cases according to testing and [weblog analysis](https://guides.tidal.cloud/analyze-logs.html).
+1. Java Web Services then interrogate the Oracle Database via TCP/1521, with synchronous web requests being responded to in < 1sec, but > 300ms in most cases according to testing and [weblog analysis](https://guides.tidal.cloud/analyze-logs.html).
 
-Asynchronous requests, (e.g. to schedule a batch task) place a record in an Oracle table which acts as a queue within the application layer. 
+1. Asynchronous requests, (e.g. to schedule a batch task) place a record in an Oracle table which acts as a queue within the application layer. 
 
-Nightly batch processing is required to limit the impact on system performance during business hours.  A cron job written in KSH queries the queue in the Oracle database to pick up SAS analysis jobs that need to be run.
+1. Nightly batch processing is required to limit the impact on system performance during business hours.  A cron job written in KSH queries the queue in the Oracle database to pick up SAS analysis jobs that need to be run.
 
-Email alerts are sent to users and administrators via SMTP (TCP/25) to inform them of job start and completion time, as well as success or failure.
+1. Email alerts are sent to users and administrators via SMTP (TCP/25) to inform them of job start and completion time, as well as success or failure.
 
-Completed analysis jobs have their results posted to a shared drive via NFS (TCP+UDP/111,2049) for collection via SMBv3 (TCP/445)
+1. Completed analysis jobs have their results posted to a shared drive via NFS (TCP+UDP/111,2049) for collection via SMBv3 (TCP/445)
 
-# Scenario Details
+# Scenario details
 
 Working backward from a customer's desired outcomes leads to a transformative, application-centric, migration path to the cloud. A replatform migration is possible when the majority of the application code is written in a language that can be supported by cloud-native services, such as serverless architectures and container orchestrators.
 
@@ -96,7 +103,7 @@ The decision to retain the Oracle database in this phase was driven primarily by
 
 Application Owner Interview player in Tidal Accelerator
 
-## Potential Use Cases
+## Potential use cases
 
 The architecture presented in this document has been used for AIX to Azure migrations that cover data analytics, CRM, and mainframe integration layers in a hybrid cloud configuration, as well as other custom software solutions in inventory and warehouse management scenarios.
 
@@ -132,13 +139,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 By removing as many serverful components as possible, this solution was able to reduce operating costs by over 70%.  These savings were found via reduced compute and software licensing costs. 
 
-## Operational Excellence
+## Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 By empowering the product team to self-support themselves in Azure, the client was able to reduce the time to resolution of reported incident tickets.  Additionally, the bounce-count of tickets (the count of tickets being assigned from one group to another) was reduced to zero as one product team could now support the entire application stack in Azure.
 
-## Performance Efficiency
+## Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
@@ -146,27 +153,24 @@ Adopting Azure App Service where possible allowed the client to automatically [S
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-[Richard Berry ](https://www.linkedin.com/in/richardberryjr/)| Sr. Program Manager
+[Richard Berry](https://www.linkedin.com/in/richardberryjr/)| Sr. Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-For more information about using Tidal Accelerator solution,  
-
-      contact [microsoft@tidalcloud.com. ](mailto:microsoft@tidalcloud.com?subject=Tidal%20Accelerator%20Inquiry)
+For more information about using Tidal Accelerator solution, contact [microsoft@tidalcloud.com](mailto:microsoft@tidalcloud.com?subject=Tidal%20Accelerator%20Inquiry).
 
 For more information about migrating to Azure,  contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
 ## Related resources
 
-[High availability and disaster recovery scenarios for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
-
-[Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
-
-[Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
-
-[Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [High availability and disaster recovery scenarios for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
+- [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
