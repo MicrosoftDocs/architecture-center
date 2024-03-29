@@ -69,6 +69,7 @@ This section helps you select the most likely services for your needs. To narrow
   - **_Operational Cost can be higher_** than keeping vector data in database systems.
 
 ## Capability Matrix
+The following tables summarize the key differences in capabilities.
 
 ### Basic features
 
