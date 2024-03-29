@@ -39,29 +39,26 @@ A Provider has multiple Customers. The Provider and each Customer have their own
 ## How does the Provider Message the Customer?
 
 Ideally, a Provider would be able to assign a managed identity to the Azure compute resource responsible for sending messages to a Customer's queue. The Customer's tenant would be configured to trust managed identities from the Provider tenant. However, a true federation (which would essentially allow the "sharing" of identities from one tenant to another) like this between two Entra tenants isn't currently possible. 
-So, the Provider needs to authenticate using an identity the Customer recognizes. That is, the Provider needs to authenticate to the Customer's Entra as a service principal the Customer knows about. There are two ways this service principal can be created:
+So, the Provider needs to authenticate using an identity the Customer recognizes. That is, the Provider needs to authenticate to the Customer's Entra as a service principal the Customer knows about.
 
-1. (Chosen approach) The Provider can register a multitenant application in its own tenant, then have each Customer follow a process to provision an associated service principal into their tenant. The Provider can then authenticate to the Customer tenant and the Customer-hosted APIs using this service principal. No clientSecret need to be communicated in this approach: the Provider never shares it. Credential management is the sole responsibility of the Provider.
-  - when an application is registered in Entra, an application object (globally unique instance of the app) and a service principal object are automatically created in the tenant.
+We recommend the Provider can register a multitenant application in its own tenant, then have each Customer follow a process to provision an associated service principal into their tenant. The Provider can then authenticate to the Customer tenant and the Customer-hosted APIs using this service principal. No clientSecret need to be communicated in this approach: the Provider never shares it. Credential management is the sole responsibility of the Provider.
+
+### Some Context on Multitenant Applications
+
+  - When an application is registered in Entra, an application object (globally unique instance of the app) and a service principal object are automatically created in the tenant.
   - A service principal is created in every tenant where the application is used and references the globally unique app object. An application object has a one-to-many relationship with its corresponding service principal object.
   - The application object is the global representation of your application for use across all tenants, and the service principal is the local representation for use in a specific tenant.
   - A service principal must be created in each tenant where the application is used, enabling it to establish an identity for sign-in and/or access to resources being secured by the tenant. A single-tenant application has only one service principal (in its home tenant), created and consented for use during application registration. A multitenant application also has a service principal created in each tenant where a user from that tenant has consented to its use.
   - To access resources that are secured by a Microsoft Entra tenant, the entity (app or any other) that requires access must be represented by a security principal.
   - When an application is given permission to access resources in a tenant (upon registration or consent), a service principal object is created. This architecture is implemented with the consent flow.
 
-1. The Customer registers a single-tenant application in their Entra tenant for the Provider, and then communicates the resulting credentials (clientId and clientSecret) to the Provider. The Provider can then authenticate to the Customer tenant and the Customer-hosted APIs using the associated service principal. Unfortunately, if the credentials need to be regenerated/renewed, those fresh credentials must also be communicated from Customer to Provider.
-
 ## How does the Customer Message the Provider?
 
-### Viable Solutions
+We recommend the Customer creates/hosts a queue from which the Provider can read. Customer writes a message into the queue. Using a service principal, the Provider implements some process for repeatedly polling each Customer queue for messages. This has the downside of introducing polling latency when receiving a message. This also means code needs to run more often in the Provider, as it must wake up and perform polling logic vs. being triggered by an event. However, credential management remains the sole responsibility of the Provider, greatly bolstering security.
 
-1. (Chosen approach) Customer creates/hosts a queue from which the Provider can read. Customer writes a message into the queue. Using a service principal, the Provider implements some process for repeatedly polling each Customer queue for messages. This has the downside of introducing polling latency when receiving a message. This also means code needs to run more often in the Provider, as it must wake up and perform polling logic vs. being triggered by an event. However, credential management remains the sole responsibility of the Provider, greatly bolstering security.
+### Alternative Solution
 
-1. Provider creates/hosts a queue for each of its Customers. Provider provisions a single-tenant service principal for each Customer and communicates those credentials to the Customer. The Customer then uses those credentials to send messages to their Customer-specific queue on the Provider side. Credential management/rotation is a pain point because secrets have to be communicated from one tenant to the other. One upside to this approach is that the Customer tenant isn't required to register any apps/service principals in its own tenant.
-
-1. Provider creates/hosts a queue for each of its Customers, generates a SAS token (per-Customer), and communicates that SAS token to the Customer. The Customer then uses that SAS token to send messages to a Customer-specific queue on the Provider side. Credential management/rotation is a pain point because secrets have to be communicated from one tenant to the other. One upside to this approach is that neither tenant is required to register any extra apps/service principals.
-
-1. Provider creates/hosts a queue for each of its Customers. Each Customer creates their own multitenant app and requests the Provider provision it in its tenant as a service principal. The Customer then uses this service principal to send messages to a Customer-specific queue on the Provider side. Credential management remains the sole responsibility of the Customer. One significant downside is that the Provider must provision service principals associated with Customer applications into its tenant. By nature this is a manual process, and Providers likely don't want manual steps to be part of the flow for onboarding a new customer.
+Another possible solution is for the Provider to create/host a queue for each of its Customers. Each Customer creates their own multitenant app and requests the Provider provision it in its tenant as a service principal. The Customer then uses this service principal to send messages to a Customer-specific queue on the Provider side. Credential management remains the sole responsibility of the Customer. One significant downside is that the Provider must provision service principals associated with Customer applications into its tenant. By nature this is a manual process, and Providers likely don't want manual steps to be part of the flow for onboarding a new customer.
 
 ## Sample Code Setup
 
