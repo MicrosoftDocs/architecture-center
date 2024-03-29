@@ -10,7 +10,7 @@ metadata:
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
-summary: Guidance for architecting solutions on Azure using established patterns and practices. # < 160 chars
+summary: Guidance for architecting solutions on Azure using established patterns and practices # < 160 chars
 brand: azure
 
 # highlightedContent section (optional)
@@ -31,17 +31,13 @@ highlightedContent:
       url: ./changelog.md
       itemType: whats-new
     # Card
-    - title: Well Architected Framework (WAF)
+    - title: Well-Architected Framework (WAF)
       url: /azure/architecture/framework
       itemType: how-to-guide
     # Card
     - title: Cloud Adoption Framework (CAF)
       url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
       itemType: how-to-guide
-    # Card
-    - title: Find partner-led workshops
-      url: https://www.microsoft.com/azure/partners/ammp-w/events/?utm_source=email&utm_medium=email&utm_id=email2
-      itemType: learn 
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
@@ -106,28 +102,31 @@ productDirectory:
         - url: ./solutions/microsoft-365-scenarios.md
           text: Azure and Microsoft 365 solutions
         - url: ./aws-professional/services.md
-          text: AWS services comparison
+          text: AWS to Azure services comparison
         - url: ./gcp-professional/services.md
           text: Google Cloud services comparison
 
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-  title: Technology Areas # < 60 chars (optional)
+  title: Technology areas # < 60 chars (optional)
   summary: Explore architectures and guides for different technologies. # < 160 chars (optional)
   items:
-    - title: Popular Articles
+    - title: Popular articles
       links:
-      - text: AKS Production Baseline
-        url: /azure/architecture/reference-architectures/containers/aks/baseline-aks
-        itemType: reference
+      - text: Baseline OpenAI end-to-end chat architecture
+        url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
+        itemType: architecture
       - text: AWS to Azure services comparison
         url: ./aws-professional/services.md
+        itemType: reference
+      - text: AKS production baseline
+        url: ./reference-architectures/containers/aks/baseline-aks.yml
         itemType: reference
       - text: Google Cloud to Azure services comparison
         url: ./gcp-professional/services.md
         itemType: reference
-      - text: Cloud Design Patterns
+      - text: Cloud design patterns
         url: ./patterns/index.md
         itemType: concept
       - text: CQRS design pattern
@@ -139,9 +138,6 @@ conceptualContent:
       - text: Web API design
         url: ./best-practices/api-design.md
         itemType: reference
-      - text: Performance antipatterns for cloud applications
-        url: ./antipatterns/index.md
-        itemType: concept
       - text: Choose your Azure compute service
         url: ./guide/technology-choices/compute-decision-tree.yml
         itemType: reference
@@ -156,7 +152,10 @@ conceptualContent:
         itemType: concept        
     - title: AI & Machine Learning
       links:
-      - text: Artificial intelligence (AI) architecture design
+      - text: Baseline OpenAI end-to-end chat architecture
+        url: ./ai-ml/architecture/baseline-openai-e2e-chat.yml
+        itemType: architecture
+      - text: AI architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
       - text: Batch scoring of Python models
@@ -171,7 +170,7 @@ conceptualContent:
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
-      - text: Cognitive services options
+      - text: Azure AI services options
         itemType: concept
         url: ./data-guide/technology-choices/cognitive-services.md
       - text: Team Data Science Process
@@ -201,22 +200,16 @@ conceptualContent:
           url: reference-architectures/data/stream-processing-databricks.yml
         - url: ./databricks-monitoring/index.md
           itemType: deploy
-          text: Databricks Monitoring
+          text: Databricks monitoring
         - text: Advanced analytics architecture
           itemType: architecture
           url: ./solution-ideas/articles/advanced-analytics-on-big-data.yml
-        - text: IoT analytics for construction
-          itemType: get-started
-          url: example-scenario/data/big-data-with-iot.yml
         - text: Real-time fraud detection
           itemType: architecture
           url: example-scenario/data/fraud-detection.yml
-        - text: Mining equipment monitoring
-          itemType: architecture
-          url: ./solution-ideas/articles/monitor-mining-equipment.yml
         - text: Predict the length of stay in hospitals
           itemType: architecture
-          url: /azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay
+          url: ./example-scenario/digital-health/predict-patient-length-of-stay.yml
           
     - title: Databases
       links:
@@ -254,18 +247,12 @@ conceptualContent:
         - text: Checklist
           url: checklist/dev-ops.md
           itemType: concept
-        - text: Advanced Azure Resource Manager Templates
+        - text: Advanced ARM templates
           url: guide/azure-resource-manager/advanced-templates/index.md
           itemType: how-to-guide
-        - text: DevOps with Azure DevOps
-          itemType: get-started
-          url:  example-scenario/apps/devops-dotnet-baseline.yml
         - text: DevOps with containers
           itemType: get-started
           url:  guide/aks/aks-cicd-github-actions-and-gitops.yml
-        - text: Jenkins server
-          itemType: get-started
-          url:  example-scenario/apps/jenkins.yml
 
     - title: Enterprise integration
       links:
@@ -274,12 +261,12 @@ conceptualContent:
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
         - text: Enterprise BI with SQL Data Warehouse
           itemType: architecture
-          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
+          url: ./example-scenario/analytics/enterprise-bi-synapse.yml
         - text: Enterprise integration with queues and events
           itemType: architecture
           url: example-scenario/integration/queues-events.yml
 
-    - title: High performance computing (HPC)
+    - title: High-performance computing (HPC)
       links:
         - text: Computational fluid dynamics (CFD)
           itemType: get-started
@@ -290,7 +277,7 @@ conceptualContent:
         - text: HPC video rendering
           itemType: get-started
           url:  example-scenario/infrastructure/video-rendering.yml
-        - text: Image Modeling
+        - text: Image modeling
           itemType: get-started
           url:  example-scenario/infrastructure/image-modeling.yml
         - text: Linux virtual desktops
@@ -323,13 +310,13 @@ conceptualContent:
 
     - title: Internet of Things (IoT)
       links:
-        - text: Internet of Things (IoT) architecture
+        - text: IoT architecture
           itemType: architecture
           url: reference-architectures/iot.yml
         - text: Automotive IoT data
           itemType: get-started
           url:  example-scenario/data/realtime-analytics-vehicle-iot.yml
-        - text: Telehealth System
+        - text: Telehealth system
           itemType: get-started
           url:  example-scenario/apps/telehealth-system.yml
 
@@ -383,16 +370,13 @@ conceptualContent:
         - text: Hub-spoke topology
           itemType: architecture
           url: networking/architecture/hub-spoke.yml
-        - text: DMZ between Azure and on-premises
+        - text: Implement a secure hybrid network
           itemType: architecture
           url: ./reference-architectures/dmz/secure-vnet-dmz.yml
-        - text: DMZ between Azure and the Internet
-          itemType: architecture
-          url: reference-architectures/dmz/secure-vnet-dmz.yml
         - text: Highly available network virtual appliances
           itemType: architecture
           url: networking/guide/nva-ha.yml
-        - text : Segmenting Virtual Networks
+        - text : Segment virtual networks
           itemType: architecture
           url: networking/guide/network-level-segmentation.yml
 
@@ -408,10 +392,10 @@ conceptualContent:
           itemType: architecture
           url: web-apps/serverless/architectures/web-app.yml
       footerLink:
-        text: Introduction to Serverless Applications on Azure
+        text: Introduction to serverless applications on Azure
         url: web-apps/serverless/architectures/code.yml
 
-    - title: VM workloads
+    - title: Virtual machine (VM) workloads
       links:
         - text: Linux VM deployment
           itemType: architecture
@@ -437,22 +421,22 @@ conceptualContent:
         - text: SAP HANA on Azure (Large Instances)
           itemType: architecture
           url: reference-architectures/sap/hana-large-instances.yml
-        - text: SAP HANA Scale-up on Linux
+        - text: SAP HANA scale-up on Linux
           itemType: architecture
           url: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
-        - text: SAP NetWeaver on Windows on Azure
+        - text: SAP NetWeaver in Windows on Azure
           itemType: architecture
-          url: /azure/architecture/guide/sap/sap-netweaver
+          url: ./guide/sap/sap-netweaver.yml
         - text: SAP S/4HANA in Linux on Azure
           itemType: architecture
-          url: /azure/architecture/guide/sap/sap-s4hana
+          url: ./guide/sap/sap-s4hana.yml
         - text: SAP BW/4HANA in Linux on Azure
           itemType: architecture
           url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
         - text: SAP NetWeaver on SQL Server
           itemType: architecture
           url: solution-ideas/articles/sap-netweaver-on-sql-server.yml
-        - text: SAP deployment using an Oracle DB
+        - text: SAP deployment using an Oracle database
           itemType: architecture
           url: example-scenario/apps/sap-production.yml
         - text: Dev/test for SAP
@@ -476,13 +460,13 @@ conceptualContent:
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml
-        - text: E-commerce front-end
+        - text: E-commerce front end
           itemType: get-started
           url:  example-scenario/apps/ecommerce-scenario.yml
         - text: E-commerce product search
           itemType: get-started
           url:  example-scenario/apps/ecommerce-search.yml
-        - text: Publishing internal APIs externally
+        - text: Publish internal APIs externally
           itemType: get-started
           url:  example-scenario/apps/publish-internal-apis-externally.yml
         - text: Securely managed web application
@@ -501,12 +485,12 @@ additionalContent:
       items:
         - title: Build great solutions with the Microsoft Azure Well-Architected Framework
           url: /training/paths/azure-well-architected-framework/
-        - title: Introduction to the Well Architected Framework
+        - title: Introduction to the Well-Architected Framework
           url: /training/modules/azure-well-architected-introduction/
-        - title: Azure Fundamentals
-          url: /training/paths/azure-fundamentals/
-        - title: Security, responsibility, and trust in Azure
-          url: /training/modules/intro-to-security-in-azure/
+        - title: Azure fundamentals - Cloud concepts
+          url: /training/paths/microsoft-azure-fundamentals-describe-cloud-concepts
+        - title: Azure fundamentals - Azure architecture and services
+          url: /training/paths/azure-fundamentals-describe-azure-architecture-services
         - title: Architect infrastructure operations in Azure
           url: /training/paths/architect-infrastructure-operations/
         - title: Tour the N-tier architecture style

@@ -63,7 +63,7 @@ The previous diagram shows Azure network connection and Microsoft-hosted network
 
 Virtual Desktop is an Azure-based virtual desktop infrastructure (VDI) solution. Microsoft manages Virtual Desktop. It provides a platform-as-a-service (PaaS) style solution. Windows 365 uses the network management components required for you to connect to their Cloud PCs. Components include the Virtual Desktop gateway service, a connection broker service, and a web client service. These services allow for seamless connection to Windows 365 Cloud PCs.
 
-For more information, see [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+For more information, see [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml).
 
 :::image type="content" source="./images/windows-365-placement-diagrams-updated-5.svg" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="./images/windows-365-placement-diagrams-updated-5.svg" border="false":::
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/w365-azure-network-connection-5.vsdx) of this architecture.*

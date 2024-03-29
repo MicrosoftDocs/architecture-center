@@ -72,12 +72,6 @@ The following sections provide links to reference architectures in some key cate
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for PostgreSQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
 
-### Scenario-specific apps
-
-- [Custom mobile workforce app](../../solution-ideas/articles/custom-mobile-workforce-app.yml)
-- [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
-- [Task-based consumer mobile app](../../solution-ideas/articles/task-based-consumer-mobile-app.yml)
-
 ## Stay current with mobile development on Azure
 
 Get the latest updates on [Azure mobile development services and features](https://azure.microsoft.com/updates/?category=mobile).
@@ -91,7 +85,3 @@ Following are a few more architectures to consider:
 - [Add a mobile front end to a legacy app](../../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)
 - [Azure Communication Services architecture design](../../guide/mobile/azure-communication-services-architecture.yml)
 - [Analyze and understand mobile application use](/azure/developer/mobile-apps/analytics?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-
-#### AWS professionals
-
-- [AWS to Azure services comparison - Mobile services](../../aws-professional/services.md#mobile-services)

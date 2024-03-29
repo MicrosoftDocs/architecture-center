@@ -27,9 +27,11 @@ In contrast, PaaS provides a framework for developing and running apps. As with 
 
 ## Advantages of PaaS over IaaS
 
-When it's possible, use PaaS instead of IaaS. IaaS is like having a box of parts. You can build anything, but you have to assemble it yourself. PaaS options are easier to configure and administer. You don't need to set up virtual machines (VMs) or virtual networks. You also don't have to handle maintenance tasks, such as installing patches and updates.
+When your workload doesn't require the control granted by IaaS, use PaaS instead. IaaS is like having a box of parts. You can build anything, but you have to assemble it yourself. PaaS options are easier to configure and administer. You don't need to set up virtual machines (VMs). You also don't have to handle all of the component's maintenance tasks, such as installing patches and updates.
 
-For example, suppose your application needs a message queue. You can set up your own messaging service on a VM by using something like RabbitMQ. But Azure Service Bus provides a reliable messaging service, and it's simpler to set up. You can create a Service Bus namespace as part of a deployment script. Then you can use a client SDK to call Service Bus.
+Many PaaS solutions offer a native scaling option that allow you to configure how the service will scale in and out or up and down. While scaling is possible in IaaS, it often comes with added complexity, such as dealing with attached storage.
+
+For example, suppose your application needs a message queue. You can set up your own messaging service on a virtual machine by using something like RabbitMQ. But Azure Service Bus provides a reliable messaging service, that is simpler to maintain. You can create a Service Bus namespace as part of a deployment script. Then you can use a client SDK to call Service Bus.
 
 ## PaaS alternatives to IaaS solutions
 
@@ -37,13 +39,13 @@ Your application might have specific requirements that make IaaS a more suitable
 
 | Instead of running ... | Consider using ... |
 |-----------------------|-------------|
-| Active Directory | [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) |
-| Elasticsearch | [Azure Cognitive Search](/azure/search/search-what-is-azure-search) |
+| Active Directory | [Microsoft Entra ID](/entra/fundamentals/whatis) |
+| Elasticsearch | [Azure AI Search](/azure/search/search-what-is-azure-search) |
 | Hadoop | [Azure HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [Azure App Service](/azure/app-service/overview) |
-| MongoDB | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
+| MongoDB | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) |
 | Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
-| SQL Server | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
-| File share | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) |
+| SQL Server | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) |
+| File share | [Azure Files](/azure/storage/files/storage-files-introduction) |
 
-This list isn't exhaustive. There are many ways that you can exchange IaaS technologies for related PaaS solutions.
+This list isn't exhaustive. There are many ways that you can exchange self-managed, IaaS technologies for related PaaS solutions.

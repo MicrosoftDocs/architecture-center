@@ -213,4 +213,3 @@ Relevant architectures:
 
 - [Machine teaching with the Microsoft Autonomous Systems platform](/azure/architecture/solution-ideas/articles/autonomous-systems)
 
-- [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)

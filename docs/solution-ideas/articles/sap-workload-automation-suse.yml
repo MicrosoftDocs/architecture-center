@@ -9,6 +9,8 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom:
+    - linux-related-content
 azureCategories:
   - developer-tools
   - migration

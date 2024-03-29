@@ -154,9 +154,9 @@ Explore related architectures:
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
 - [Back up files and applications on Azure Stack Hub](./azure-stack-backup.yml)
-- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/wvd/multi-forest.yml)
-- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/wvd/multi-forest-azure-managed.yml)
-- [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
+- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)
+- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/azure-virtual-desktop/multi-forest-azure-managed.yml)
+- [Azure Virtual Desktop for the enterprise](../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
