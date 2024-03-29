@@ -41,7 +41,7 @@ Also, don't just consider big events like regional outages, which are generally 
 
 **Perform load leveling**. Applications may experience sudden spikes in traffic that can overwhelm services on the backend. To avoid this, use the [Queue-Based Load Leveling pattern][load-level] to queue work items to run asynchronously. The queue acts as a buffer that smooths out peaks in the load.
 
-**Fail over**. If an instance can't be reached, failover to another instance. For things that are stateless, like a web server, put several instances behind a load balancer or traffic manager. For things that store state, like a database, use replicas and fail over. Depending on the data store and how it replicates, the application may have to deal with eventual consistency.
+**Fail over**. If an instance can't be reached, fail over to another instance. For things that are stateless, like a web server, put several instances behind a load balancer or traffic manager. For things that store state, like a database, use replicas and fail over. Depending on the data store and how it replicates, the application might have to deal with eventual consistency.
 
 **Compensate failed transactions**. In general, avoid distributed transactions, as they require coordination across services and resources. Instead, compose an operation from smaller individual transactions. If the operation fails midway through, use [Compensating Transactions][compensating-transactions] to undo any step that already completed.
 
