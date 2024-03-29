@@ -29,34 +29,34 @@ This article compares the following services:
 
 ## Choose a candidate service
 
-This section helps you select the most likely services for your needs. To narrow the choices, start by answering these questions and scenarios.
+This section helps you select the most likely services for your needs. To narrow the choices, start by considering these system requirements and scenarios.
 
-Answer the following questions about your workloads to help you make decisions based on the Azure database services decision tree:
-
-### Key Questions
+### Key Requirements
 
 ![images/vector-search-decision-tree.png](./images/vector-search-decision-tree.png)
 
-- **You need to do Insert/Update/Delete the vector fields frequently and the vector search result must be always up to dated:**
-  - If your scenarios require CRUD the vector data and if the vector search result must be always up-to-date, you can **_keep vector fields in database systems_**.
+- **You need to do Insert/Update/Delete the vector fields frequently and the search result must always up to date:**
+  - If your scenarios require keep vector data with operational data, you can **_keep vector fields in database systems_**.
   - In these scenarios, you can deploy **_RDBMS database or NoSQL database_** for vector store which based on your preference.
   - You need to **_develop advanced search features and need to optimize search quality by yourself_**.
   - Choosing database for vector store has more advantage in **_Cost Optimization_** perspective than choosing search engine.
-- **You have MongoDB already or you are familiar with MongoDB:**
-  - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
-  - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
-  - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as "HNSW" and "VFflat".
-  - **_Only one vector field and index is available_** per container.
-- **You have PostgreSQL already or you prefer OSS technology:**
-  - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) and [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction) deliver high availability with a managed community PostgreSQL database service.
-  - Azure Database for PostgreSQL supports ANN vector index such as "HNSW" and "IVFflat".
-  - You can define multiple vector fields in single table.
-  - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
-  - If you're using Azure Open AI Service, embedding feature is integrated and ready to use.
-- **You have SQL Database already or you prefer SQL Server technology:**
-  - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
-  - SQL Server **_doesn't support vector data type and vector index_**. You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).
-  - Vector search **_performance is slower and not recommended for large dataset_**.
+  - **You have MongoDB already or you are familiar with MongoDB:**
+    - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
+    - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
+    - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as "HNSW" and "VFflat".
+    - **_Only one vector field and index is available_** per container.
+  - **You have PostgreSQL already or you prefer OSS technology:**
+    - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) and [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction) deliver high availability with a managed community PostgreSQL database service.
+    - Azure Database for PostgreSQL supports ANN vector index such as "HNSW" and "IVFflat".
+    - You can define multiple vector fields in single table.
+    - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
+    - If you're using Azure Open AI Service, embedding feature is integrated and ready to use.
+  - **You have SQL Database already or you prefer SQL Server technology:**
+    - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+    - SQL Server **_doesn't support vector data type and vector index_**. You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).
+    - Vector search **_performance is slower and not recommended for large dataset_**.
+    > [!NOTE]
+    > Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
 - **Your application requires advanced search features with high quality:**
   - In Azure, [Azure AI Search](/azure/postgresql/overview) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
   - If you need to index **_unstructured data(e.g. images, docx, PDF and etc.)_**, Azure AI search has **_skill set which can help collect insightful metadata_** from them.
@@ -64,22 +64,7 @@ Answer the following questions about your workloads to help you make decisions b
   - You can define multiple vector fields in single index.
   - You can create multiple vector indexes in search index.
   - If you're using Azure **_OpenAI Service, embedding feature is integrated and ready to use_**.
-  - **_Operational Cost can be higher_** than keeping vector data in database systems
-    > [!NOTE]
-    > Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
-
-### Common Vector Search Scenarios
-
-The following table lists common use-scenario requirements and the recommended database services for handling them.
-
-| If you want to                                                                                                  | Use this Azure service for vector search                                                                                                                                                                                                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Perform advanced search operations (such as vector search, reranking) on text, images, and other content types. | [Azure AI Search](/azure/search/)                                                                                                                                                                                                                                                                                                                     |
-| Perform vector search for integrated data, which is comprised with multiple data sources.                        | [Azure AI Search](/azure/search/)                                                                                                                                                                                                                                                                                                                     |
-| Build a RAG chat application with Azure OpenAI Service.                                                        | [Azure AI Search](/azure/search/), [Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/)     |
-| Built-In vectorization feature with Azure Open AI embedding model deployment.                                   | [Azure AI Search](/azure/search/), [Azure Database for PostgreSQL](/azure/postgresql/), [Azure SQL Database](/azure/azure-sql/)                                                                                                                                       |
-| Insert/update/delete vector field frequently and search results must up to date.                          | [Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/), [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/), [Azure Database for PostgreSQL](/azure/postgresql/), [Azure SQL Database](/azure/azure-sql/)                                                                                                                                                                                                  |
-| Build a generative application while maintaining existing SQL database for vector search.                       | [Azure SQL Database](/azure/azure-sql/)                                                                                                                                                                                                                                                                                                 |
+  - **_Operational Cost can be higher_** than keeping vector data in database systems.
 
 ## Capability Matrix
 
