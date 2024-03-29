@@ -27,6 +27,8 @@ This article compares the following services:
 - [Azure AI Search](/azure/search/)
 - [Azure SQL Database](/azure/azure-sql/)
 
+In the following, we will compare from the perspective of System Requirements in [Choose a candidate service](#choose-a-candidate-service) section, and in the next [Capability Matrix](#capability-matrix) section, we will compare product features based on various criteria.
+
 ## Choose a candidate service
 
 This section helps you select the most likely services for your needs. To narrow the choices, start by considering these system requirements and scenarios.
