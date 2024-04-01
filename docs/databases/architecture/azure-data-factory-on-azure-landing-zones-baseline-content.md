@@ -243,6 +243,11 @@ This architecture addresses performance efficiency with:
 - **Boundary controls are the answer** - Cloud services and PaaS in particular have introduced Identity as the key control that must be implemented and well-governed. Networking and boundaries controls are _**part**_ of the answer, not _**the**_ answer. 
 - **Set and forget** - Any cloud solution must have regular reviews that account for the current usage and performance, along with the functional and pricing changes in Azure. Failure to do so often results in the erosion of value and effectiveness. 
 
+## Deploy this scenario
+
+To deploy this architecture, follow the step-by-step instructions in
+To deploy a self-hosted runtime integraion on an Azure VM, use the [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime)
+
 ## Next steps
 
 - [Azure Data Factory Enterprise Hardening](TO_BE_ADDED) 
