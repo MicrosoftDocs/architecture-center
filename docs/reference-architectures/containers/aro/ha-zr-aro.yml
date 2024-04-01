@@ -16,6 +16,7 @@ metadata:
   ms.custom:
     - reference-architecture
     - internal-intro
+    - linux-related-content
 azureCategories:
   - containers
   - web

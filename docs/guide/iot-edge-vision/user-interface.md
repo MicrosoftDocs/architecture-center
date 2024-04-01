@@ -144,7 +144,6 @@ This series of articles described how to build a vision AI workload with Azure I
 - [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)
 - [Machine learning and data science in Azure IoT Edge vision AI](./machine-learning.yml)
 - [Image storage and management for Azure IoT Edge vision AI](./image-storage.md)
-- [Alert persistence in Azure IoT Edge vision AI](./alerts.md)
 
 To learn more about CNNs, vision AI, Azure Machine Learning, and Azure IoT Edge, see the following documentation:
 
@@ -162,7 +161,5 @@ For more computer vision architectures, examples, and ideas that use Azure IoT, 
 
 - [Getting started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
 - [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 - [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

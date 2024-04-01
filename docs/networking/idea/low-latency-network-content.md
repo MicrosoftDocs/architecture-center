@@ -55,4 +55,4 @@ Principal author:
 ## Related resources
 
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
-- [Condition monitoring for Industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)

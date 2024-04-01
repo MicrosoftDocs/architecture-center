@@ -24,7 +24,7 @@ categories:
 
 # Performance testing and antipatterns for cloud applications
 
-*Performance antipatterns*, much like design patterns, are common defective processes and implementations within organizations. These are common practices that are likely to cause scalability problems when an application is under pressure. Awareness of these practices can help simplify communication of high-level concepts amongst software practitioners, and knowledge of antipatterns can be helpful when reviewing code or diagnosing performance issues.
+*Performance antipatterns*, much like design patterns, are common defective processes and implementations within organizations. These are common practices that are likely to cause scalability problems when an application is under pressure. Awareness of these practices can help simplify communication of high-level concepts among software practitioners, and knowledge of antipatterns can be helpful when reviewing code or diagnosing performance issues.
 
 Here's a common scenario: An application behaves well during performance testing. It's released to production, and begins to handle real workloads. At that point, it starts to perform poorly&mdash;rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
 

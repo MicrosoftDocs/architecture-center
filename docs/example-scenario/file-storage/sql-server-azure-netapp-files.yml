@@ -3,9 +3,9 @@ metadata:
   title: SQL Server on Azure Virtual Machines with Azure NetApp Files
   titleSuffix: Azure Example Scenarios
   description: Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
-  author: martinekuan
-  ms.author: deannag
-  ms.date: 06/09/2022
+  author: gvanteylingen
+  ms.author: b-gevant
+  ms.date: 03/04/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

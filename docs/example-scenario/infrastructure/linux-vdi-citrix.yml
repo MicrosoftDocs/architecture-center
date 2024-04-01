@@ -16,6 +16,7 @@ metadata:
     - Linux
     - hpc
     - example-scenario
+    - linux-related-content
 name: Linux virtual desktops with Citrix
 azureCategories:
   - compute
