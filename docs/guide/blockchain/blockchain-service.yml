@@ -20,4 +20,3 @@ summary: Use azure and blockchain services to track and trace physical assets, a
 thumbnailUrl: /azure/architecture/browse/thumbs/blockchain-service.png
 content: |
   [!include[](blockchain-service-content.md)]
----
