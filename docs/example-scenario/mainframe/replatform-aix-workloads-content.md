@@ -1,39 +1,36 @@
-This article describes a replatform migration approach. You can use Azure Functions for a serverless architecture or use Azure Virtual Machines to retain a serverful model. 
+This article describes a migration approach to replatform your AIX workloads to the cloud. You can use Azure Functions for a serverless architecture or use Azure Virtual Machines to retain a serverful model. 
 
 Consider a replatform migration strategy for AIX workloads as your first option to maximize the return on investment (ROI) in legacy application migrations to Azure.
 
 Replatform migrations require minimal changes to move workloads into Azure-native architectures but deliver cloud-native benefits that are similar to a refactor migration.
 
-The benefits include:
+The benefits of a replatform migration include:
 
 - A reduced total cost of ownership (TCO).
 - Improved business agility.
-- Improved operational resiliency due to automated scalability.  
+- Improved operational resiliency due to automated scalability.
 
-# Architecture - replatformed
 
-![Diagram of the replatformed architecture.](media/image4.png)
+# Architecture (replatformed)
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+:::image type="content" source="media/aix-azure-replatform.svg" alt-text="Diagram of the replatformed architecture." lightbox="media/aix-azure-replatform.svg" border="false":::
 
-This architecture shows a general replatform migration approach that can use either serverless architecture patterns or retain a serverful model. The model that you choose depends on the portability of your existing applications and your team's workflow preference and technology roadmap. 
+*Download a [Visio file](https://arch-center.azureedge.net/aix-azure-replatform.vsdx) of this architecture.*
 
-Like the [original architecture](#architecture---original), the replatformed architecture has an Oracle database but it's replatformed to a Red Hat Enterprise Linux (RHEL) operating system on Azure Virtual Machines. For the fully managed Azure App Service in the replatformed architecture, Red Hat JBoss Enterprise Application Platform (EAP) replaces the WebSphere Java application.
-inadvertently
 ## Workflow
 
 This workflow corresponds to the preceding architecture.
 
-1. User requests and inbound API integrations go to Azure Application Gateway on TCP/443 (HTTPS), which provides a web application firewall (WAF) functionality. Application Gateway sends the requests, as reverse proxy requests, to various services that are hosted on Red Hat JBoss Enterprise Application Platform (EAP).
+1. User requests and inbound API integrations transfer to Azure Application Gateway on TCP/443 (HTTPS), which provides a web application firewall (WAF) functionality. Application Gateway sends the requests, as reverse proxy requests, to various services that are hosted on Red Hat JBoss Enterprise Application Platform (EAP).
 
 1. Java Web Services interrogates the Oracle database (TCP/1521). The synchronous web request response time is less than 50 milliseconds (ms).
 
 1. An asynchronous request, such as scheduling a batch task, places a record in a database table that acts as a queue within the application layer. 
 
    > [!NOTE]
-   > In a future release, Azure Queue Storage will replace the database table, so you can always have access to running analysis jobs.
+   > In the future, Azure Queue Storage will replace the database table, so you can always have access to running analysis jobs.
 
-1. The cron job, written in Korn shell (ksh) script, is ported to bash and runs on a separate RHEL server in Azure Virtual Machine Scale Sets. The cron job runs every 15 minutes, including on system boot, to query the queue in the Oracle database. Jobs run one at a time per host. Virtual Machine Scale Sets parallelizes long-running analysis jobs. You no longer have to do batch processing during off-peak hours to limit the effect on system performance during business hours.
+1. The cron job, written in Korn shell (ksh) script, is ported to bash and runs on a separate Red Hat Enterprise Linux (RHEL) server in Azure Virtual Machine Scale Sets. The cron job runs every 15 minutes, including on system boot, to query the queue in the Oracle database. Jobs run one at a time per host. Virtual Machine Scale Sets parallelizes long-running analysis jobs. This solution doesn't require batch processing during off-peak hours to limit the effect on system performance during business hours.
 
 1. Azure Communication Service sends email alerts via the Azure CLI tool (docs). Azure system-assigned managed identities, such as `az login --identity`, authenticate the virtual machine (VM).
 
@@ -45,11 +42,11 @@ This workflow corresponds to the preceding architecture.
 
 - [Azure App Service](https://azure.microsoft.com/products/app-service) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
 
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) scalable, managed, web application firewall and reverse proxy.
+- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides data reports  that are published via a managed service.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) provides data reports that are published via a managed service.
 
-- [Azure Functions](https://azure.microsoft.com/products/functions) is an event-driven, serverless compute platform that you can use to efficiently develop code in the programming language of your choice. 
+- [Azure Functions](https://azure.microsoft.com/products/functions) is an event-driven, serverless compute platform that is used to efficiently develop code in the specified programming language. 
 
 - An [Azure VM](https://azure.microsoft.com/products/virtual-machines) is used by the Oracle database and SAS analysis nodes.
 
@@ -65,21 +62,27 @@ This solution is similar to the original architecture, which fulfills a *like fo
 
 - Licensing savings: The alternative solution retains WebSphere and adds more RHEL nodes.
 
-- Operational efficiencies: The alternative solution retains the same number of servers to maintain.
+- Operational efficiency: The alternative solution retains the same number of servers to maintain.
 
 - Business agility: With the alternative solution, reporting remains limited to nights only and there's no autoscaling-powered 24/7 analysis.
 
-# Architecture - original
+## Scenario details
 
-![](media/image3.png)
+Choose a serverless or serverful model depending on the portability of your existing applications and your team's workflow preference and technology roadmap. 
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+Like the [original architecture](#architecture-original), the [replatformed architecture](#architecture-replatformed) has an Oracle database but it's replatformed to a RHEL operating system on Azure Virtual Machines. For the fully managed Azure App Service in the replatformed architecture, Red Hat JBoss EAP replaces the WebSphere Java application.
 
-Consider your original workload that runs on AIX to determine if a replatform migration strategy suits your migration budget. This example evaluates a monolith Java application that runs on IBM WebSphere (1) and evaluates batch processing from SAS that ksh scripts orchestrate (2). An Oracle database that runs on a separate AIX host supports both application workloads (3).
+# Architecture (original)
+
+:::image type="content" source="media/aix-azure-original.svg" alt-text="Diagram of the original architecture." lightbox="media/aix-azure-original.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aix-azure-original.vsdx) of this architecture.*
 
 ## Workflow
 
-1. User requests and inbound API integrations go to the on-premises F5 load balancer on TCP/443 (HTTPS) and then reverse proxy to various IBM WebSphere-hosted Java Web Services.
+This workflow corresponds to the preceding architecture.
+
+1. User requests and inbound API integrations transfer to the on-premises F5 load balancer on TCP/443 (HTTPS) and then reverse proxy to various IBM WebSphere-hosted Java Web Services.
 
 1. Java Web Services interrogates the Oracle database via TCP/1521. In most cases, the synchronous web request response time is less than 1 second (sec) but more than 300 milliseconds (ms) according to testing and [weblog analysis](https://guides.tidal.cloud/analyze-logs.html).
 
@@ -93,9 +96,11 @@ Consider your original workload that runs on AIX to determine if a replatform mi
 
 # Scenario details
 
-Work backwards from your desired outcomes to determine a transformative, application-centric migration path to the cloud. Ensure that the majority of your application code is written in a language that cloud-native services, such as serverless architectures and container orchestrators, support.
+This original architecture evaluates a monolith Java application that runs on IBM WebSphere and evaluates batch processing from SAS that ksh scripts orchestrate. An Oracle database that runs on a separate AIX host supports both application workloads.
 
-In this scenario, [Tidal Accelerator](https://tidalcloud.com/accelerator/) analyzed the Java application code and determined its compatibility with JBoss EAP. Rebuilding the application via Azure DevOps Pipelines (or GitHub Actions) early in the project as a pilot allowed the customer to establish continuous integration and continuous delivery (CI/CD) powered agility directly into a managed service (Azure App Service). This capability isn't possible in the customer's on-premises WebSphere environment.
+Consider your original workload that runs on AIX to determine if a replatform migration strategy suits your migration budget. Work backwards from your desired outcomes to determine a transformative, application-centric migration path to the cloud. Ensure that the majority of your application code is written in a language that cloud-native services, such as serverless architectures and container orchestrators, support.
+
+In this scenario, [Tidal Accelerator](https://tidalcloud.com/accelerator/) analyzed the Java application code and determined its compatibility with JBoss EAP. Early in the project, Azure DevOps Pipelines or GitHub Actions is used to rebuild the application as a pilot. The customer can then establish continuous integration and continuous delivery (CI/CD) powered agility directly into a managed service, such as Azure App Service. The customer can't perform this function in the on-premises WebSphere environment.
 
 This example retains the Oracle database in this phase because of the amount of PL/SQL that Tidal Accelerator discovered during the analysis phase. The customer's future endeavors include migrating from the Oracle database on RHEL to a fully managed Azure PostgreSQL database, adopting Azure Queue Storage, and running fully on-demand SAS jobs. These efforts align with the customer’s technology roadmap, development cycles, and the business direction that was determined in the Application Owner interview.
 
@@ -122,13 +127,13 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This architecture uses Azure Site Recovery to mirror the database Azure VMs to a secondary Azure region for quick failover and disaster recovery if an entire Azure region fails. Similarly, Azure Files uses georedundant storage.
 
-Data processing nodes use zone-redundant (RA-ZRS) managed disks to provide resiliency for zone outages. In an entire region outage, you can reprovision data processing nodes in a different region from their virtual machine image within the redundant Azure Compute Gallery.
+Data processing nodes use zone-redundant (RA-ZRS) managed disks to provide resiliency during zone outages. During an entire region outage, you can reprovision data processing nodes in a different region from their virtual machine image within the redundant Azure Compute Gallery.
 
 ## Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Adopt an immutable infrastructure approach to application deployments and proactively scan code in Azure DevOps pipelines to help secure sensitive data in production. Incorporate a *shift left* approach to security scanning, and frequently run CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
+Adopt an immutable infrastructure approach to application deployments and proactively scan code in Azure DevOps pipelines to help secure sensitive data in production. Incorporate a *shift left* approach for security scanning, and frequently run CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
 
 ## Cost optimization
 
@@ -140,7 +145,7 @@ This solution removes as many serverful components as possible, which reduces op
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The product team supports themselves in Azure, and they reduce the time to resolution of reported incident tickets. Additionally, the bounce count, or ticket count that's assigned from one group to another, is reduced to zero because one product team supports the entire application stack in Azure.
+The product team supports themselves in Azure, which reduces the resolution time for reported incident tickets. Additionally, the bounce count for tickets, or the amount of tickets that are assigned from one group to another, is zero because one product team supports the entire application stack in Azure.
 
 ## Performance efficiency
 
