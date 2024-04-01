@@ -5,8 +5,6 @@ This article outlines a solution for ingesting and processing millions of stream
 *Apache®, [Apache Kafka](https://kafka.apache.org), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 
-*Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Spark](https://spark.apache.org), and [Delta Lake](/azure/databricks/delta/) logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
 *[Delta Lake](https://delta.io/) Project is the registered trademark of The Linux Foundation in the U.S. and/or other countries.*
 
 ## Architecture
