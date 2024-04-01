@@ -28,38 +28,38 @@ This workflow corresponds to the preceding architecture.
 
 1. Java Web Services interrogates the Oracle database (TCP/1521). The synchronous web request response time is less than 50 milliseconds (ms).
 
-1. Asynchronous requests, such as batch tasks, place a record in the database table which acts as a queue within the application layer. 
+1. An asynchronous request, such as scheduling a batch task, places a record in a database table that acts as a queue within the application layer. 
 
    > [!NOTE]
-   > In a future release, Azure Queue Storage will replace the database  table, so you can always have access to running analysis jobs.
+   > In a future release, Azure Queue Storage will replace the database table, so you can always have access to running analysis jobs.
 
 1. The cron job, written in Korn shell (ksh) script, is ported to bash and runs on a separate RHEL server in Azure Virtual Machine Scale Sets. The cron job runs every 15 minutes, including on system boot, to query the queue in the Oracle database. Jobs run one at a time per host. Virtual Machine Scale Sets parallelizes long-running analysis jobs. You no longer have to do batch processing during off-peak hours to limit the effect on system performance during business hours.
 
 1. Azure Communication Service sends email alerts via the Azure CLI tool (docs). Azure system-assigned managed identities, such as `az login --identity`, authenticate the virtual machine (VM).
 
-1. The analysis job results are posted to an Azure Files share via secure SMBv3 (TCP/445), which also uses system-assigned managed identities.
+1. The analysis job results go to an Azure Files share via secure SMBv3 (TCP/445), which also uses system-assigned managed identities.
 
 ## Components
 
-**Microsoft Entra ID** eliminates network-based trust and provides system-assigned managed identities, which improves security.
+- [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) eliminates network-based trust and provides system-assigned managed identities, which improves security.
 
-**Azure App Service** eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
+- [Azure App Service](https://azure.microsoft.com/products/app-service) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
 
-**Application Gateway** scalable, managed, web application firewall and reverse proxy.
+- [Application Gateway](https://azure.microsoft.com/products/application-gateway) scalable, managed, web application firewall and reverse proxy.
 
-**Azure Files** provides data reports  that are published via a managed service.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) provides data reports  that are published via a managed service.
 
-**Azure Functions** is an event-driven, serverless compute platform that you can use to efficiently develop code in the programming language of your choice. 
+- [Azure Functions](https://azure.microsoft.com/products/functions) is an event-driven, serverless compute platform that you can use to efficiently develop code in the programming language of your choice. 
 
-An **Azure VM** is used by the Oracle database and SAS analysis nodes.
+- An [Azure VM](https://azure.microsoft.com/products/virtual-machines) is used by the Oracle database and SAS analysis nodes.
 
-**Azure Compute Gallery** builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region (Canada Central) and one in the disaster recovery region (Canada East).
+- [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) builds and stores images for the Oracle database and SAS analysis nodes. There are two galleries: one in the primary region (Canada Central) and one in the disaster recovery region (Canada East).
 
-**Communication Services** sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
+- [Communication Services](https://azure.microsoft.com/products/communication-services) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
 
 ## Alternatives
 
-A potential alternative is a complete serverful architecture that retains all middleware components as is.  
+An alternative is a complete serverful architecture that retains all middleware components as is.  
 
 This solution is similar to the original architecture, which fulfills a *like for like* mandate under which many IT organizations operate. This alternative solution also costs about the same as the original architecture but doesn't provide the benefits that the replatformed architecture provides. For example:
 
@@ -75,47 +75,42 @@ This solution is similar to the original architecture, which fulfills a *like fo
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
-The original workload running on AIX is a key input to determine if a replatform migration strategy is feasible for a given migration budget. In this example, we’ll evaluate a monolith Java application running on IBM WebSphere (1) as well as batch processing from SAS that is orchestrated by a series of KSH (Korn Shell) scripts (2).  Both application workloads are supported by an Oracle Database running on a separate AIX host (3).
+Consider your original workload that runs on AIX to determine if a replatform migration strategy suits your migration budget. This example evaluates a monolith Java application that runs on IBM WebSphere (1) and evaluates batch processing from SAS that ksh scripts orchestrate (2). An Oracle database that runs on a separate AIX host supports both application workloads (3).
 
 ## Workflow
 
-1. User requests and inbound API integrations hit the on-premises F5 load balancer on TCP/443 (HTTPS) and then reverse proxy to various Java Web Services hosted on IBM WebSphere.
+1. User requests and inbound API integrations go to the on-premises F5 load balancer on TCP/443 (HTTPS) and then reverse proxy to various IBM WebSphere-hosted Java Web Services.
 
-1. Java Web Services then interrogate the Oracle Database via TCP/1521, with synchronous web requests being responded to in < 1sec, but > 300ms in most cases according to testing and [weblog analysis](https://guides.tidal.cloud/analyze-logs.html).
+1. Java Web Services interrogates the Oracle database via TCP/1521. In most cases, the synchronous web request response time is less than 1 second (sec) but more than 300 milliseconds (ms) according to testing and [weblog analysis](https://guides.tidal.cloud/analyze-logs.html).
 
-1. Asynchronous requests, (e.g. to schedule a batch task) place a record in an Oracle table which acts as a queue within the application layer. 
+1. An asynchronous request, such as scheduling a batch task, places a record in an Oracle database table that acts as a queue within the application layer. 
 
-1. Nightly batch processing is required to limit the impact on system performance during business hours.  A cron job written in KSH queries the queue in the Oracle database to pick up SAS analysis jobs that need to be run.
+1. A cron job, written in ksh, queries the queue in the Oracle database and picks up SAS analysis jobs that you need to run. You must do batch processing at night to limit the effect on system performance during business hours.  
 
-1. Email alerts are sent to users and administrators via SMTP (TCP/25) to inform them of job start and completion time, as well as success or failure.
+1. Email alerts notify users and administrators via SMTP (TCP/25) of the job start and completion time and success or failure results.
 
-1. Completed analysis jobs have their results posted to a shared drive via NFS (TCP+UDP/111,2049) for collection via SMBv3 (TCP/445)
+1. The analysis job results go to a shared drive via NFS (TCP+UDP/111,2049) for collection via SMBv3 (TCP/445).
 
 # Scenario details
 
-Working backward from a customer's desired outcomes leads to a transformative, application-centric, migration path to the cloud. A replatform migration is possible when the majority of the application code is written in a language that can be supported by cloud-native services, such as serverless architectures and container orchestrators.
+Work backwards from your desired outcomes to determine a transformative, application-centric migration path to the cloud. Ensure that the majority of your application code is written in a language that cloud-native services, such as serverless architectures and container orchestrators, support.
 
-In this scenario, the Java application code was analyzed by [Tidal Accelerator](https://tidalcloud.com/accelerator/) and found to be compatible with JBoss EAP. Rebuilding the application via Azure DevOps Pipelines (or GitHub Actions) early in the project as a pilot allowed the customer to establish continuous integration and delivery (CI/CD) powered agility directly into a managed service (Azure App Service). This would not have been possible in their on-premises WebSphere environment.
+In this scenario, [Tidal Accelerator](https://tidalcloud.com/accelerator/) analyzed the Java application code and determined its compatibility with JBoss EAP. Rebuilding the application via Azure DevOps Pipelines (or GitHub Actions) early in the project as a pilot allowed the customer to establish continuous integration and continuous delivery (CI/CD) powered agility directly into a managed service (Azure App Service). This capability isn't possible in the customer's on-premises WebSphere environment.
 
-The decision to retain the Oracle database in this phase was driven primarily by the amount of PL/SQL discovered by Tidal Accelerator during the analysis phase.  In line with the customer’s technology roadmap, development cycles and the business direction that is captured in the Application Owner interview, future efforts will include migration from Oracle DB on RHEL to a fully managed Azure PostgreSQL database, adoption of Azure Storage Queues, and fully on-demand SAS job execution.
+This example retains the Oracle database in this phase because of the amount of PL/SQL that Tidal Accelerator discovered during the analysis phase. The customer's future endeavors include migrating from the Oracle database on RHEL to a fully managed Azure PostgreSQL database, adopting Azure Queue Storage, and running fully on-demand SAS jobs. These efforts align with the customer’s technology roadmap, development cycles, and the business direction that was determined in the Application Owner interview.
 
 ![](media/image1.png)
 
-Application Owner Interview player in Tidal Accelerator
-
 ## Potential use cases
 
-The architecture presented in this document has been used for AIX to Azure migrations that cover data analytics, CRM, and mainframe integration layers in a hybrid cloud configuration, as well as other custom software solutions in inventory and warehouse management scenarios.
+You can use this architecture for AIX to Azure migrations that cover data analytics, customer relationship management (CRM), and mainframe integration layers in a hybrid cloud configuration, and other custom software solutions in inventory and warehouse management scenarios.
 
-Specific technologies in traditional application workloads where this is applicable, include:
+You can use this architecture in traditional application workloads with technologies like:
 
-Oracle Siebel
-
-Oracle eBusiness Suite
-
-SAS
-
-IBM BPM
+- Oracle Siebel
+- Oracle eBusiness Suite
+- SAS
+- IBM BPM
 
 # Considerations
 
@@ -125,31 +120,33 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This architecture uses Azure Site Recovery to mirror the database Azure VMs to a secondary Azure region for quick failover and DR if an entire Azure region fails.  Similarly, Georedundant storage is used for all Azure Files. <br><br>For data processing nodes, zone redundant (RA-ZRS) managed disks are used to provide resiliency in the face of a zone outage.  In the case of an entire region outage, data processing nodes can be reprovisioned in another region from their Virtual Machine Image within our redundant Azure Compute Gallery.
+This architecture uses Azure Site Recovery to mirror the database Azure VMs to a secondary Azure region for quick failover and disaster recovery if an entire Azure region fails. Similarly, Azure Files uses georedundant storage.
+
+Data processing nodes use zone-redundant (RA-ZRS) managed disks to provide resiliency for zone outages. In an entire region outage, you can reprovision data processing nodes in a different region from their virtual machine image within the redundant Azure Compute Gallery.
 
 ## Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Adopting an immutable infrastructure approach to application deployments together with proactive code scanning in Azure DevOps pipelines improved the security posture of sensitive customer data in production.  This “shift left” of security scanning and the more frequent deployments that were enabled by CI/CD pipelines resulted in greater software currency adherence and less technical debt.
+Adopt an immutable infrastructure approach to application deployments and proactively scan code in Azure DevOps pipelines to help secure sensitive data in production. Incorporate a *shift left* approach to security scanning, and frequently run CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
 
 ## Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-By removing as many serverful components as possible, this solution was able to reduce operating costs by over 70%.  These savings were found via reduced compute and software licensing costs. 
+This solution removes as many serverful components as possible, which reduces operating costs by over 70%. This architecture reduces compute and software licensing costs. 
 
 ## Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-By empowering the product team to self-support themselves in Azure, the client was able to reduce the time to resolution of reported incident tickets.  Additionally, the bounce-count of tickets (the count of tickets being assigned from one group to another) was reduced to zero as one product team could now support the entire application stack in Azure.
+The product team supports themselves in Azure, and they reduce the time to resolution of reported incident tickets. Additionally, the bounce count, or ticket count that's assigned from one group to another, is reduced to zero because one product team supports the entire application stack in Azure.
 
 ## Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-Adopting Azure App Service where possible allowed the client to automatically [Scale up, and Scale out](/azure/app-service/manage-scale-up) their compute requirements in line with the user demand for these application components.  This elasticity ensured that the performance of the application was consistent in peak times, while also being cost efficient. 
+The customer adopts Azure App Service where possible so they can automatically [scale up and scale out](/azure/app-service/manage-scale-up) their compute requirements to align with application demand. This elasticity ensures consistent application performance during peak times. This approach is also cost efficient. 
 
 ## Contributors
 
@@ -163,14 +160,14 @@ Principal author:
 
 ## Next steps
 
-For more information about using Tidal Accelerator solution, contact [microsoft@tidalcloud.com](mailto:microsoft@tidalcloud.com?subject=Tidal%20Accelerator%20Inquiry).
+For more information about using a Tidal Accelerator solution, [contact the Microsoft Tidal Cloud team](mailto:microsoft@tidalcloud.com?subject=Tidal%20Accelerator%20Inquiry).
 
-For more information about migrating to Azure,  contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+For more information about migrating to Azure, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 
 ## Related resources
 
-- [High availability and disaster recovery scenarios for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
-- [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
-- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [High availability and disaster recovery scenarios for infrastructure as a service (IaaS) apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
+- [Multi-tier web application built for high availability and disaster recovery](../infrastructure/multi-tier-app-disaster-recovery.yml)
+- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 
