@@ -2,7 +2,12 @@
 
 This article outlines a solution for ingesting and processing millions of streaming events per second and writing them to a Delta Lake table. Core components include Azure HDInsight Spark and Kafka clusters.
 
+*Apache®, [Apache Kafka](https://kafka.apache.org), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+
 *Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Spark](https://spark.apache.org), and [Delta Lake](/azure/databricks/delta/) logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+*[Delta Lake](https://delta.io/) Project is the registered trademark of The Linux Foundation in the U.S. and/or other countries.*
 
 ## Architecture
 
@@ -13,7 +18,7 @@ This article outlines a solution for ingesting and processing millions of stream
 
 1. Real time event data (like IoT, etc.) ingested to Kafka using [Kafka Producer](https://kafka.apache.org/documentation/#producerapi).
 1. [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) to process the data in near real time.
-1. Apache Spark provides multiple sinks for writing transformed, and calculated analytics. Store Processed data into [Azure Data Lake Storage account](https://azure.microsoft.com/services/storage/data-lake-storage) in [Delta Lake Table Format](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/delta-lake-on-hdinsight/ba-p/3678186).
+1. Apache Spark provides multiple sinks for writing transformed, and calculated analytics. Store Processed data into [Azure Data Lake Storage account](https://azure.microsoft.com/services/storage/data-lake-storage) in [Delta Lake Table Format](https://delta.io/).
 1. You can also continuously ingest processed data into Apache Kafka. 
 1. The following interfaces get insights from data stored in Azure Data Lake Storage account:
    1. Near real-timedashboards using Power BI
@@ -24,7 +29,7 @@ This article outlines a solution for ingesting and processing millions of stream
 
 - [HDInsight Apache Kafka](https://learn.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction) is a managed open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications.
 - [HDInsight Apache Spark](https://learn.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview) is a managed Microsoft implementation of Apache Spark in the cloud, and is one of several Spark offerings in Azure.
-- [Delta Lake Format](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/delta-lake-on-hdinsight/ba-p/3678186) is an open-source storage layer that brings reliability to data lakes by adding a transactional storage layer on top of data stored in cloud storage (Azure Storage).
+- [Delta Lake Format](https://delta.io/) storage layer that brings reliability to data lakes by adding a transactional storage layer on top of data stored in cloud storage (Azure Storage).
 - [Power BI](https://powerbi.microsoft.com)
 - [Machine Learning](/azure/hdinsight/hadoop/apache-hadoop-deep-dive-advanced-analytics#machine-learning-and-apache-spark)
 
