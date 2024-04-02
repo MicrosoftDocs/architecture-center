@@ -2,7 +2,7 @@ This article describes how [Avanade's Automated Migration Technology (AMT)](http
 
 The AMT framework converts proprietary Unisys mainframe application source code and emulated MCP applications based on the following chart:
 
-| Primary Source Code | Target Operating System | Target Runtime |
+| **Primary source code** | **Target operating system** | **Target runtime** |
 |:--------------:|:-----------:|:------------:|
 | COBOL | Windows or Linux| .NET C# or Java|
 | XGEN | Windows or Linux| .NET C# or Java |
