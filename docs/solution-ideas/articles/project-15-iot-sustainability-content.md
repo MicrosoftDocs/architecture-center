@@ -12,32 +12,6 @@ Diagram showing components and functionality of the Project 15 Open Platform. Ba
 
 *Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
 
-### Solution Details
-
-The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building sustainability and conservation solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
-
-The core goals of the Project 15 (P15) Open Platform are:
-
-* Close the skills gap, boost innovation, and accelerate solutioning with a ready-made platform, allowing the scientific developer to expand into specific use cases.
-* Increasing the speed to deployment; The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
-* Lowers the development cost; The P15 Open Platform lowers the cost of overall development and reduces complexity in building connected device based solutions on Azure. Additionally, the Open Platform opens up opportunities for partnering with the Open Source developer community and universities.
-
-Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
-
-The solution has three main categories:
-
-* **Components that are fully included**
-
-  These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins   and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path][Internet of Things Learning Path]. Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT][Introduction to Azure IoT] has all you need. All our learning resources here, are free to you.
-
-* **Included Components but needs customization**
-
-  Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide]. The high level architecture of what services are involved, see below.
-
-* **Not Included, requires full customization**
-
-  This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
-
 ### Workflow
 
 :::image type="complex" source="../media/project-15-ref-arch-2023.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
@@ -114,6 +88,32 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 - [Azure Maps][Azure Maps] offers geospatial APIs for adding maps, spatial analytics, and mobility solutions to apps.
 
 - [Microsoft Power Platform][Microsoft Power Platform] provides a low-code development platform for analyzing data, automating processes, and building apps, websites, and virtual agents.
+
+### Scenario Details
+
+The goal of [Project 15 Open Platform][Project 15 from Microsoft] is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building sustainability and conservation solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
+
+The core goals of the Project 15 (P15) Open Platform are:
+
+* Close the skills gap, boost innovation, and accelerate solutioning with a ready-made platform, allowing the scientific developer to expand into specific use cases.
+* Increasing the speed to deployment; The P15 Open Platform gets teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
+* Lowers the development cost; The P15 Open Platform lowers the cost of overall development and reduces complexity in building connected device based solutions on Azure. Additionally, the Open Platform opens up opportunities for partnering with the Open Source developer community and universities.
+
+Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
+
+The solution has three main categories:
+
+* **Components that are fully included**
+
+  These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins   and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path][Internet of Things Learning Path]. Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT][Introduction to Azure IoT] has all you need. All our learning resources here, are free to you.
+
+* **Included Components but needs customization**
+
+  Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide]. The high level architecture of what services are involved, see below.
+
+* **Not Included, requires full customization**
+
+  This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
 
 ### Potential use cases
 
