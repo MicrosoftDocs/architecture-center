@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Use a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 06/16/2021
   ms.topic: example-scenario
   ms.service: architecture-center
