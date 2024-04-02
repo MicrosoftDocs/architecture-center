@@ -81,6 +81,16 @@ Use this pattern to:
 - Reduce traffic compared to a naive retry on error approach.
 - Reduce memory consumption by dequeuing records only when there is capacity to process them.
 
+## Workload design
+
+An architect should evaluate how the Rate Limiting pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This tactic protects the client by acknowledging and honoring the limitations and costs of communicating with a service when the service desires to avoid excessive usage.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 The following example application allows users to submit records of various types to an API. There is a unique job processor for each record type that performs the following steps:
@@ -122,7 +132,7 @@ This diagram incorporates the following workflow:
 
 After 15 seconds, one or both jobs still will not be completed. As the leases expire, a processor should also reduce the number of requests it dequeues and writes.
 
-![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages: 
+![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages:
 
 - **Go** implementation is available on [GitHub](https://github.com/mspnp/go-batcher).
 - **Java** implementation is available on [GitHub](https://github.com/Azure-Samples/java-rate-limiting-pattern-sample).

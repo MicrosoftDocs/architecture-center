@@ -39,9 +39,11 @@ The articles listed here describe the steps for running various HPC applications
 |[Ansys Fluent](ansys-fluent.yml)|Use Ansys Fluent to model fluid flow, heat and mass transfer, chemical reactions, and more.|
 |[Ansys LS-DYNA](ls-dyna.yml)|Learn how Ansys LS-DYNA simulates the response of materials to short periods of severe loading for applications like drop tests, impact and penetration, smashes and crashes, and occupant safety.|
 |[Ansys Rocky](ansys-rocky.yml)|Simulate the flow behavior of bulk materials with complex particle shapes and size distributions. Typical applications include conveyor chutes, mills, mixers, and other material-handling equipment.|
+|[Ansys Speos](ansys-speos.yml)|Simulate the real-life individual user experience of optical systems for even more precise optimization of product design. Ansys Speos offers a wide range of advanced innovative tools for Aerospace, Automotive, Healthcare, Energy, and Defense engineering disciplines.|
 |[Autodesk Civil 3D](civil-3d.yml)|Learn how civil engineers use Civil 3D, for design automation and production, enabling multidisciplinary team coordination.|
 |[Autodesk Inventor](autodesk-inventor.yml)|Learn how Autodesk Inventor provides professional-grade mechanical design, documentation, and product simulation tools.|
 |[Autodesk VRED for HPC on Azure](hpc-autodesk-vred.md)|See how automotive designers and engineers can use Autodesk VRED to create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing.|
+|[Autodesk VRED Core](autodesk-vred-core.yml)|Learn how automotive designers and engineers can use Autodesk VRED Core to create their product presentations, design reviews, and virtual prototypes, particularly for cloud and server-based applications.|
 |[AVL FIRE M](hpc-avl-fire-m.yml)| Learn how the AVL FIRE M computational fluid dynamics (CFD) simulation application performs on an Azure virtual machine.|
 |[Barracuda Virtual Reactor](barracuda-virtual-reactor.yml)|Simulate the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions.|
 |[Engys ELEMENTS](engys-elements.yml)|Solve flow-related problems encountered in automotive design by running Engys ELEMENTS on an Azure Virtual Machine. You can also use ELEMENTS is to analyze the aerodynamics of other vehicles, like high-speed trains, motorcycles, and competition bicycles.|
@@ -60,6 +62,7 @@ The articles listed here describe the steps for running various HPC applications
 |[Siemens NX](siemens-nx.yml)|Use NX for design, simulation, and manufacturing solutions that enable digital twin technology. NX is used in the automotive sector and for projects ranging from supersonic cars to drones for the medical industry.|
 |[Siemens Tecnomatix](siemens-tecnomatix.yml)|Learn how Siemens Tecnomatix is a comprehensive portfolio of digital manufacturing solutions that includes part manufacturing, assembly planning, resource planning, plant simulation, human performance, quality, production management, and manufacturing data management.|
 |[Turbostream](turbostream.yml)|Enable high-fidelity methods, like unsteady full-annulus simulations, to be used as part of the routine design process.|
+|[TUFLOW HPC](tuflow-hpc.yml)|Use TUFLOW HPC as an explicit solver for the 2D shallow-water equations (SWEs), including the sub-grid scale eddy viscosity model. TUFLOW HPC is used in the environment and natural resource industries, specifically in flood, urban stormwater, and coastal simulation labs.|
 |[Visiopharm](visiopharm.yml)|Learn all about how Visiopharm is an AI-based image analysis and tissue mining tool that supports drug development research and other research.|
 |[WRF](weather-research-forecasting.yml)|See how Weather Research & Forecasting (WRF) is a mesoscale numerical weather-prediction system that's designed for atmospheric research and operational forecasting applications. WRF serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers.|
 
@@ -68,4 +71,3 @@ The articles listed here describe the steps for running various HPC applications
 - [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
 - [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 - [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](/azure/architecture/solution-ideas/articles/hpc-cluster)

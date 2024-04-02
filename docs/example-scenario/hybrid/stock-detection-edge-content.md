@@ -78,4 +78,4 @@ This architecture handles potentially sensitive data. Make sure that access keys
 - [AI-based footfall detection](../../solution-ideas/articles/hybrid-footfall-detection.yml)
 - [Buy online, pick up in store](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
 - [Optimize inventory and forecast demand with Power Platform and Azure](../../example-scenario/analytics/optimize-inventory-forecast-demand.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)

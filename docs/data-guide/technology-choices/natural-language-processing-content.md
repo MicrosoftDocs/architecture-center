@@ -164,7 +164,7 @@ MLflow is integrated in Azure Databricks. You can install MLflow in any other Sp
 
 Principal authors:
 
-- Moritz Steller | Senior Cloud Solution Architect
+- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) |  CEO and Architect
 
 ## Next steps

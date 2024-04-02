@@ -140,4 +140,3 @@ Other contributors:
 
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

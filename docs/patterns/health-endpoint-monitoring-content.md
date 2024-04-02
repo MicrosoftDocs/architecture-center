@@ -89,6 +89,18 @@ This pattern is useful for:
 - Monitoring middle-tier or shared services to detect and isolate failures that can disrupt other applications.
 - Complementing existing instrumentation in the application, such as performance counters and error handlers. Health verification checking doesn't replace application requirements for logging and auditing. Instrumentation can provide valuable information for an existing framework that monitors counters and error logs to detect failures or other issues. But instrumentation can't provide information if an application is unavailable.
 
+## Workload design
+
+An architect should evaluate how the Health Endpoint Monitoring pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | These endpoints support a workload's reliability alerting and dashboarding efforts. They can also be used it as a signal for self-healing remediation.<br/><br/> - [RE:07 Self-healing and self-preservation](/azure/well-architected/reliability/self-preservation)<br/> - [RE:10 Monitoring and alerting strategy](/azure/well-architected/reliability/monitoring-alerting-strategy) |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | Standardizing which health endpoints to expose, and the level of detail in the results, across your workload will help you triage issues.<br/><br/> - [OE:07 Monitoring system](/azure/well-architected/operational-excellence/observability) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Health endpoints improve load balancing logic by routing traffic to only nodes that are verified as healthy. With additional configuration, you can also get metrics on available node capacity.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Example
 
 You can use the [ASP.NET health checks](/aspnet/core/host-and-deploy/health-checks) middleware and libraries to report the health of app infrastructure components. This framework provides a way to report health checks in a consistent way. It implements many of the practices that this article describes. For instance, the ASP.NET health checks include external checks like database connectivity and specific concepts like liveness and readiness probes.

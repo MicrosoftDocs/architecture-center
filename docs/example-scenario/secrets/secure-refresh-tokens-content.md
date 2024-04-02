@@ -131,6 +131,8 @@ The following sequence diagram illustrates the process of syncing the token refr
 
 Microsoft identity platform offers the ability to revoke refresh tokens in case of compromise. See [Token revocation](/azure/active-directory/develop/access-tokens#token-revocation) and [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
+[!INCLUDE [Azure AD PowerShell deprecation note](~/../docs/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+
 To remove a user from Microsoft Entra ID, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
 To remove access for a group of users, such as all users in a target tenant, you can use Azure Pipelines to delete the group's secret based on `secretId()`.

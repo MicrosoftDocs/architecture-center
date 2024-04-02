@@ -71,4 +71,3 @@ Principal author:
 See these related architectures:
 
 - [Environment monitoring and supply chain optimization with IoT](./environment-monitoring-and-supply-chain-optimization.yml)
-- [Retail - Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)

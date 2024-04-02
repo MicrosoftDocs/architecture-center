@@ -105,7 +105,7 @@ To estimate Azure resource costs, use the [Azure pricing calculator](https://azu
    - [Connect an existing Kubernetes cluster to Azure Arc](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s).
    - [Deploy EKS cluster and connect it to Azure Arc](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform).
    - [Deploy GKE cluster and connect it to Azure Arc](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform).
-1. Follow steps for installing and configuring [BAF prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html).
+1. Follow steps for installing and configuring [BAF prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/getting-started/prerequisites/).
 1. (Optional) [Create an Azure DevOps organization and project](/azure/devops/organizations/accounts/create-organization), and clone the BAF repo into the new Azure DevOps project.
 1. (Optional) Create an [Ansible Controller VM](https://azuredevopslabs.com/labs/vstsextend/ansible) in Azure as the custom build agent to deploy BAF components.
 

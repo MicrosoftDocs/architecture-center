@@ -2,12 +2,756 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-02-06T18:36:42.536Z</updated>
+    <updated>2024-03-25T17:27:30.219Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[SaaS and multitenant solution architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas-multitenant-solution-architecture"/>
+        <updated>2024-03-05T18:08:11.000Z</updated>
+        <summary type="html"><![CDATA[This guide provides an overview of the architectural content for SaaS, startups, and multitenancy and guidance about architecting multitenant solutions on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment patterns for Microsoft Fabric]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/analytics/architecture/fabric-deployment-patterns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/analytics/architecture/fabric-deployment-patterns"/>
+        <updated>2024-03-20T17:18:57.000Z</updated>
+        <summary type="html"><![CDATA[Learn about common deployment scenarios for Microsoft Fabric.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Certificate lifecycle management on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/certificate-lifecycle/index"/>
+        <updated>2024-03-15T14:46:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Autodesk VRED Core on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-vred-core</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-vred-core"/>
+        <updated>2024-03-14T18:18:37.000Z</updated>
+        <summary type="html"><![CDATA[See how Autodesk VRED Core performs on an Azure virtual machine. VRED Core enables streaming of high-quality VRED real-time renderings on any device.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Governance Visualizer Accelerator guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator"/>
+        <updated>2024-03-07T18:00:45.000Z</updated>
+        <summary type="html"><![CDATA[Azure Governance Visualizer Accelerator guidance to streamline the process of deploying and maintaining the Azure Governance Visualizer tool.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway"/>
+        <updated>2024-03-01T18:56:49.000Z</updated>
+        <summary type="html"><![CDATA[Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure. Migrate or establish new SWIFT connectivity in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Ansys Speos on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos"/>
+        <updated>2024-03-01T18:50:25.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Ansys Speos optical-system simulation software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mainframe file replication and sync on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication"/>
+        <updated>2024-03-20T19:20:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Virtual desktop architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/virtual-desktop/start-here</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/virtual-desktop/start-here"/>
+        <updated>2024-03-18T21:05:10.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview of Azure virtual desktop technologies, guidance offerings, solution ideas, and reference architectures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure landing zones - Azure Virtual Desktop landing zone design considerations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-virtual-desktop/design-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-virtual-desktop/design-guide"/>
+        <updated>2024-03-18T21:05:10.000Z</updated>
+        <summary type="html"><![CDATA[Design considerations for using the enterprise-scale Azure Virtual Desktop landing zone, which is part of the Cloud Adoption Framework for Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Databases architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
+        <updated>2024-03-05T17:10:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the different Azure database solutions described in Azure Architecture Center.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Valet Key pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/valet-key</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/valet-key"/>
+        <updated>2024-03-18T19:43:41.000Z</updated>
+        <summary type="html"><![CDATA[Use a token or key that provides clients with restricted direct access to a specific resource or service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer forensics chain of custody in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/forensics/index"/>
+        <updated>2024-03-15T14:46:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an infrastructure and workflow to ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Patterns and implementations for a banking cloud transformation]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/banking/patterns-and-implementations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/banking/patterns-and-implementations"/>
+        <updated>2024-03-12T21:59:54.000Z</updated>
+        <summary type="html"><![CDATA[Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/services"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Compare Microsoft Azure services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web API design best practices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/api-design</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-design"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn best practices for designing web APIs that support platform independence and service evolution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web API implementation]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/api-implementation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-implementation"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn about best practices for implementing a web API and publishing it to make it available to client applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Background jobs guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/background-jobs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/background-jobs"/>
+        <updated>2024-03-22T20:51:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[General considerations for choosing an Azure container service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
+        <updated>2024-03-19T16:00:12.000Z</updated>
+        <summary type="html"><![CDATA[Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2024-03-18T17:27:44.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Troubleshoot network problems in AKS clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/troubleshoot-network-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/troubleshoot-network-aks"/>
+        <updated>2024-03-12T13:03:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn about steps to take to troubleshoot network problems in Azure Kubernetes Service (AKS) clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IPv6 hub-spoke network topology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture"/>
+        <updated>2024-03-11T20:37:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Health Endpoint Monitoring pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Implement the functional checks of the Health Endpoint Monitoring pattern. Use external tools to check apps at regular intervals through exposed endpoints.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Index Table pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/index-table</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/index-table"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Leader Election pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/leader-election</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/leader-election"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Materialized View pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/materialized-view</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/materialized-view"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging Bridge pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/messaging-bridge</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/messaging-bridge"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Messaging Bridge pattern to integrate disparate systems built on top of different messaging infrastructures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pipes and Filters pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Priority Queue pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/priority-queue</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/priority-queue"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Publisher-Subscriber pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Quarantine pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/quarantine</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/quarantine"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Queue-Based Load Leveling pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rate Limiting pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[You can use a rate limiting pattern to help you avoid or minimize throttling errors.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retry pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/retry</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/retry"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when the app tries to connect to a service or network resource.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scheduler Agent Supervisor pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sequential Convoy pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sequential-convoy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sequential-convoy"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[The sequential convoy cloud design pattern allows for first-in-first-out processing of data in a serverless environment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sharding pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sharding</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sharding"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sidecar pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/sidecar</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/sidecar"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Deploy components of an application into a separate process or container to provide isolation and encapsulation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Static Content Hosting pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/static-content-hosting</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/static-content-hosting"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Deploy static content to a cloud-based storage service that can deliver them directly to the client.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Strangler Fig pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/strangler-fig</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/strangler-fig"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Throttling pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/throttling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/throttling"/>
+        <updated>2024-03-06T16:48:22.000Z</updated>
+        <summary type="html"><![CDATA[Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Intelligent e-commerce product search engine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-search"/>
+        <updated>2024-03-05T18:43:48.000Z</updated>
+        <summary type="html"><![CDATA[This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate-eks-to-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/migrate-eks-to-aks"/>
+        <updated>2024-02-23T17:04:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options for migrating from Amazon EKS to Azure Kubernetes Service (AKS).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Host a Murex MX.3 workload on Azure using SQL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/murex-mx3-sql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/murex-mx3-sql"/>
+        <updated>2024-02-13T20:47:32.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement an Azure architecture for Murex workloads using SQL Server as the database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IPv6 hub-spoke network topology]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6-architecture"/>
+        <updated>2024-02-12T21:22:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to transition a hub-and-spoke network topology in Azure so it supports IPv6, which creates a dual-stack network.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Quarantine pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/quarantine</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/quarantine"/>
+        <updated>2024-02-09T19:17:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the quarantine pattern, which stops software from getting deployed to production until marked as trusted by an intermediary process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy TUFLOW HPC on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc"/>
+        <updated>2024-02-06T21:43:31.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Databases architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
+        <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
+        <updated>2024-02-29T17:51:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the different Azure database solutions described in Azure Architecture Center.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Group manager tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/group-manager-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/group-manager-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a group manager performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer acceptance stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Business understanding stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data science projects in the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data acquisition and understanding stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the deployment stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modeling stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Team Data Science Process lifecycle]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data science projects.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move Blob Storage data with SSIS connectors]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to move data to or from Azure Blob Storage using SQL Server Integration Services Feature Pack for Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is the Team Data Science Process?]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/overview"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the Team Data Science Process provides a data science methodology to deliver predictive analytics solutions and intelligent applications.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Prepare data for Machine Learning Studio (classic)]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/prepare-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/prepare-data"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Preprocess and clean data to prepare it to be used effectively for machine learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Individual contributor tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/project-ic-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/project-ic-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that an individual contributor performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project lead tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/project-lead-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/project-lead-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a project lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Roles and tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/roles-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/roles-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the outline of key components, personnel roles, and associated tasks for a data science group that uses the Team Data Science Process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process for data scientists]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies using the Team Data Science Process and Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team lead tasks in the Team Data Science Process]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-science-process/team-lead-tasks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-science-process/team-lead-tasks"/>
+        <updated>2024-02-26T21:56:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the tasks that a team lead performs on a Team Data Science Process team, including how they can incorporate language models and copilots.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pipes and Filters pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
+        <updated>2024-02-09T22:19:14.000Z</updated>
+        <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Devito on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine"/>
+        <updated>2024-02-05T18:12:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure icons]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//icons</id>
+        <link href="https://learn.microsoft.com/azure/architecture//icons"/>
+        <updated>2024-02-29T20:47:14.000Z</updated>
+        <summary type="html"><![CDATA[Icons for use in building architecture diagrams for Azure]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service"/>
+        <updated>2024-02-29T18:21:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure OpenAI and Azure AI Search to search documents in your enterprise data and retrieve results.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[General considerations for choosing an Azure container service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
+        <updated>2024-02-21T18:35:24.000Z</updated>
+        <summary type="html"><![CDATA[Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Zero-trust network for web applications with Azure Firewall and Application Gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall"/>
+        <updated>2024-02-21T09:59:10.000Z</updated>
+        <summary type="html"><![CDATA[Protect web apps by implementing zero-trust security in virtual networks. Use Azure Firewall and Azure Application Gateway in networks to maximize protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Firewall, App Gateway for virtual networks]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gateway/firewall-application-gateway"/>
+        <updated>2024-02-21T09:42:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options and best practices for using Azure Firewall and Azure Application Gateway security in virtual networks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ambassador pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/ambassador</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/ambassador"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Anti-corruption Layer pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/anti-corruption-layer</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/anti-corruption-layer"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Examine the Anti-corruption Layer pattern. Implement a façade or adapter layer between a modern application and a legacy system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous Request-Reply pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/async-request-reply</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/async-request-reply"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Backends for Frontends pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bulkhead pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/bulkhead</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/bulkhead"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Isolate elements of an application into pools so that if one fails, the others will continue to function.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cache-Aside pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/cache-aside</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/cache-aside"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choreography pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/choreography</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/choreography"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Circuit Breaker pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Claim-Check pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/claim-check</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/claim-check"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compensating Transaction pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/compensating-transaction"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Compensating Transaction pattern to undo work when a step of an eventually consistent operation fails.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Competing Consumers pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/competing-consumers</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/competing-consumers"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Explore the Competing Consumers pattern. This pattern enables many concurrent consumers to process messages that are received on the same messaging channel.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compute Resource Consolidation pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/compute-resource-consolidation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/compute-resource-consolidation"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CQRS pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/cqrs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/cqrs"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment Stamps pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Event Sourcing pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/event-sourcing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/event-sourcing"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use an append-only store to record the full series of events that describe actions taken on data in a domain.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[External Configuration Store pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/external-configuration-store</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/external-configuration-store"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Federated Identity pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/federated-identity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/federated-identity"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Federated Identity design pattern to delegate authentication to an external identity provider.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gatekeeper pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gatekeeper</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gatekeeper"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Aggregation pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-aggregation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-aggregation"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Offloading pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-offloading</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-offloading"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Gateway Offloading design pattern to offload shared or specialized service functionality to a gateway proxy.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gateway Routing pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/gateway-routing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/gateway-routing"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Geode pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/geodes</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/geodes"/>
+        <updated>2024-02-13T23:26:34.000Z</updated>
+        <summary type="html"><![CDATA[Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure Event Hubs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/event-hubs"/>
+        <updated>2024-02-13T16:59:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
         <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
@@ -22,14 +766,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks"/>
         <updated>2024-02-05T19:39:03.000Z</updated>
         <summary type="html"><![CDATA[Conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Devito on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine"/>
-        <updated>2024-02-05T18:12:11.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -94,14 +830,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-hfss"/>
         <updated>2024-01-09T18:49:40.000Z</updated>
         <summary type="html"><![CDATA[Learn how Ansys HFSS 3D electromagnetic simulation software performs on an Azure virtual machine (VM), and learn how to run HFSS on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Conceptual planning for IPv6 networking]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/networking/guide/ipv6/ipv6-ip-planning</id>
-        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/ipv6/ipv6-ip-planning"/>
-        <updated>2024-01-05T17:49:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -201,11 +929,27 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Deploy Barracuda Virtual Reactor on a virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor"/>
+        <updated>2024-01-25T22:15:55.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on a virtual machine.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
         <updated>2024-01-18T04:38:46.000Z</updated>
         <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Altair Radioss on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss"/>
+        <updated>2024-01-04T20:20:36.000Z</updated>
+        <summary type="html"><![CDATA[Find out how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -217,14 +961,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Barracuda Virtual Reactor on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor"/>
-        <updated>2024-01-25T22:15:55.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on a virtual machine.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Sandbox]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox"/>
@@ -233,11 +969,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Index file content and metadata by using Azure Cognitive Search]]></title>
+        <title type="html"><![CDATA[Index file content and metadata by using Azure AI Search]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/search-blob-metadata</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/search-blob-metadata"/>
         <updated>2024-01-19T21:27:03.000Z</updated>
-        <summary type="html"><![CDATA[Build an Azure Cognitive Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.]]></summary>
+        <summary type="html"><![CDATA[Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -265,14 +1001,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Altair Radioss on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss"/>
-        <updated>2024-01-04T20:20:36.000Z</updated>
-        <summary type="html"><![CDATA[Find out how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Application data protection for AKS workloads on Azure NetApp Files]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files"/>
@@ -287,6 +1015,14 @@
         <updated>2023-12-01T22:39:15.000Z</updated>
         <summary type="html"><![CDATA[Learn how to back up and recover your AKS clusters and their workloads.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Augment security, observability, and analytics by using Microsoft Sentinel, Azure Monitor, and Azure Data Explorer]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer"/>
+        <updated>2023-12-19T18:15:59.000Z</updated>
+        <summary type="html"><![CDATA[Consolidate your data estate across Microsoft Sentinel, Azure Monitor, and Azure Data Explorer to augment your security, observability, and analytics capabilities.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Map requests to tenants in a multitenant solution]]></title>
@@ -310,14 +1046,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/sql-database"/>
         <updated>2023-12-19T19:59:09.000Z</updated>
         <summary type="html"><![CDATA[This article describes the features of Azure SQL Database that are useful when you design a multitenant system, and links to guidance and examples for how to use Azure SQL in a multitenant solution.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Augment security, observability, and analytics by using Microsoft Sentinel, Azure Monitor, and Azure Data Explorer]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer"/>
-        <updated>2023-12-19T18:15:59.000Z</updated>
-        <summary type="html"><![CDATA[Consolidate your data estate across Microsoft Sentinel, Azure Monitor, and Azure Data Explorer to augment your security, observability, and analytics capabilities.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -461,7 +1189,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle"/>
         <updated>2023-12-08T22:32:39.000Z</updated>
-        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data-science projects.]]></summary>
+        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data science projects.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -478,30 +1206,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/security/apps-zero-trust-identity"/>
         <updated>2023-12-08T22:32:39.000Z</updated>
         <summary type="html"><![CDATA[Use a Zero Trust approach to help ensure that your applications, and the data they contain, are protected.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Industrial IoT connectivity patterns]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-connectivity-patterns</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-connectivity-patterns"/>
-        <updated>2023-12-08T22:32:39.000Z</updated>
-        <summary type="html"><![CDATA[Learn about several common connectivity patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Industrial IoT prediction patterns]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-prediction-patterns</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-prediction-patterns"/>
-        <updated>2023-12-08T22:32:39.000Z</updated>
-        <summary type="html"><![CDATA[Learn about several common prediction patterns to build, deploy and manage Industrial IoT (IIoT) solutions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Industrial IoT transparency patterns]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-transparency-patterns</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iiot-patterns/iiot-transparency-patterns"/>
-        <updated>2023-12-08T22:32:39.000Z</updated>
-        <summary type="html"><![CDATA[Learn about a common transparency pattern to build, deploy, and manage Industrial IoT (IIoT) solutions.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -525,23 +1229,23 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Business understanding in Team Data Science Process]]></title>
+        <title type="html"><![CDATA[Business understanding stage of the Team Data Science Process lifecycle]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.]]></summary>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data science projects in the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Data acquisition and understanding of Team Data Science Process]]></title>
+        <title type="html"><![CDATA[Data acquisition and understanding stage of the Team Data Science Process lifecycle]]></title>
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-data"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the data acquisition and understanding stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the data acquisition and understanding stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -549,7 +1253,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the deployment stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the deployment stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -557,7 +1261,7 @@
         <id>https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling</id>
         <link href="https://learn.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling"/>
         <updated>2023-12-08T22:19:08.000Z</updated>
-        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the modeling stage of your data-science projects]]></summary>
+        <summary type="html"><![CDATA[Learn about the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -630,14 +1334,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/luxion-keyshot"/>
         <updated>2023-12-07T21:47:02.000Z</updated>
         <summary type="html"><![CDATA[Find out how Luxion KeyShot real-time 3D rendering software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Virtual WAN architecture optimized for department-specific requirements]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan"/>
-        <updated>2023-12-07T20:31:42.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to design a single network that has varying security and performance requirements.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -717,7 +1413,7 @@
         <id>https://learn.microsoft.com/azure/architecture/best-practices/api-design</id>
         <link href="https://learn.microsoft.com/azure/architecture/best-practices/api-design"/>
         <updated>2023-12-07T18:33:54.000Z</updated>
-        <summary type="html"><![CDATA[Learn the best practices for designing web APIs that support platform independence and service evolution.]]></summary>
+        <summary type="html"><![CDATA[Learn best practices for designing web APIs that support platform independence and service evolution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -806,206 +1502,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/engys-helyx"/>
         <updated>2023-12-02T05:14:02.000Z</updated>
         <summary type="html"><![CDATA[Learn how Engys HELYX computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Batch to run Financial Service Industry (FSI) workloads]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/batch/fsi-workloads-using-batch</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/batch/fsi-workloads-using-batch"/>
-        <updated>2023-11-17T20:05:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to run FSI workloads on Azure using Azure Batch.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Quantum ESPRESSO on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/quantum-espresso</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/quantum-espresso"/>
-        <updated>2023-11-16T20:44:18.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Quantum ESPRESSO materials modeling software performs on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mainframe workload migration proof of concept]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/mainframe/mainframe-proof-of-concept</id>
-        <link href="https://learn.microsoft.com/azure/architecture/mainframe/mainframe-proof-of-concept"/>
-        <updated>2023-11-16T17:19:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn about guidance for creating a proof of concept, which helps you migrate a workload from a mainframe to the cloud.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics"/>
-        <updated>2023-11-15T22:06:12.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy M-Star on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/m-star</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/m-star"/>
-        <updated>2023-11-07T19:21:49.000Z</updated>
-        <summary type="html"><![CDATA[Learn how M-Star computational fluid dynamics software performs on an Azure virtual machine (VM). Learn the steps for running M-Star on an Azure VM.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Software-defined vehicle DevOps toolchain]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture"/>
-        <updated>2023-11-07T15:40:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn about an architecture for transitioning to SDVs in which the in-vehicle software stack undergoes simulation and testing in cloud-based environments.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Architectural approaches for control planes in multitenant solutions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/control-planes</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/control-planes"/>
-        <updated>2023-11-06T23:21:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy CP2K on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/cp2k</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/cp2k"/>
-        <updated>2023-11-03T22:36:22.000Z</updated>
-        <summary type="html"><![CDATA[Find out how CP2K quantum chemistry and solid-state physics software performs on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy NAMD on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-namd</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-namd"/>
-        <updated>2023-11-01T20:54:53.000Z</updated>
-        <summary type="html"><![CDATA[Learn how NAMD, a parallel molecular dynamics application designed for high-performance simulation of large biomolecular systems, performs on an Azure VM.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy WRF on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/weather-research-forecasting</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/weather-research-forecasting"/>
-        <updated>2023-11-29T22:22:39.000Z</updated>
-        <summary type="html"><![CDATA[Find out how WRF performs on an Azure virtual machine and get a brief description of the steps for running the software on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Continuous validation with Azure Load Testing and Azure Chaos Studio]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing"/>
-        <updated>2023-11-28T20:20:52.000Z</updated>
-        <summary type="html"><![CDATA[Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy GROMACS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/gromacs</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/gromacs"/>
-        <updated>2023-11-22T20:54:25.000Z</updated>
-        <summary type="html"><![CDATA[Find out how GROMACS molecular dynamics simulation software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Cluster health]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Container registry connectivity]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Admission controllers]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Workload deployments]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage—Node health]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) operations triage]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices"/>
-        <updated>2023-11-22T18:48:56.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Autodesk Maya on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya"/>
-        <updated>2023-11-21T21:22:50.000Z</updated>
-        <summary type="html"><![CDATA[See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Arc-enabled SQL Managed Instance disaster recovery]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/arc-sql-managed-instance-disaster-recovery</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/arc-sql-managed-instance-disaster-recovery"/>
-        <updated>2023-11-20T21:29:08.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Arc to deploy an Azure Arc-enabled SQL managed instance across two sites that are outside of Azure in a highly available architecture.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Arc-enabled server configurations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config"/>
-        <updated>2023-11-20T21:29:08.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The journey to SaaS: Dynamics 365]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/dynamics-365-journey-saas</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/dynamics-365-journey-saas"/>
-        <updated>2023-11-14T18:49:18.000Z</updated>
-        <summary type="html"><![CDATA[Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure landing zones - Bicep modules design considerations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/landing-zones/bicep/landing-zone-bicep</id>
-        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/bicep/landing-zone-bicep"/>
-        <updated>2023-11-07T18:14:10.000Z</updated>
-        <summary type="html"><![CDATA[Design considerations for the Azure landing zones Bicep modules.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure landing zones - Terraform module design considerations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/landing-zones/terraform/landing-zone-terraform</id>
-        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/terraform/landing-zone-terraform"/>
-        <updated>2023-11-07T18:14:10.000Z</updated>
-        <summary type="html"><![CDATA[Design considerations for the Azure landing zones Terraform module.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Architectural considerations for identity in a multitenant solution]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/identity"/>
-        <updated>2023-11-07T15:51:55.000Z</updated>
-        <summary type="html"><![CDATA[This article describes the considerations for managing identities in a multitenant solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>

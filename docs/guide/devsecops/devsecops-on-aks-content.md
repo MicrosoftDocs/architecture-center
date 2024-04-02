@@ -287,7 +287,5 @@ Other contributors:
 
 ## Related resources
 
-- [DevSecOps in GitHub](../../solution-ideas/articles/devsecops-in-github.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
-- [DevSecOps with a rolling main branching strategy](../../solution-ideas/articles/devsecops-rolling-branch.yml)
 - [Shift left](https://devops.com/devops-shift-left-avoid-failure)

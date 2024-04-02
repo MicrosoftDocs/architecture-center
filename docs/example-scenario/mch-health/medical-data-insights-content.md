@@ -149,7 +149,7 @@ Principal authors:
 - [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
-- [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)
+- [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)
 - [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
 - [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml)

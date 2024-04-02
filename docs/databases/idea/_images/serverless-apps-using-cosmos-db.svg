@@ -278,9 +278,9 @@
 			<text x="35.49" y="372.98" class="st17">Azure Functions  <tspan x="7.4" dy="1.2em" class="st18">(E</tspan>-commerce checkout API)</text>		</g>
 		<g id="shape1051-85" transform="translate(317.411,-166.5)">
 			<title>Sheet.1051</title>
-			<desc>Azure Cosmos DB (Order event sotre)</desc>
+			<desc>Azure Cosmos DB (Order event store)</desc>
 			<rect x="0" y="361.05" width="112.179" height="30.45" class="st16"/>
-			<text x="12.88" y="372.98" class="st17">Azure Cosmos DB <tspan x="10.1" dy="1.2em" class="st18">(Order event sotre)</tspan></text>		</g>
+			<text x="12.88" y="372.98" class="st17">Azure Cosmos DB <tspan x="10.1" dy="1.2em" class="st18">(Order event store)</tspan></text>		</g>
 		<g id="shape1052-89" transform="translate(259.071,-225)">
 			<title>Directed line 1.1052</title>
 			<path d="M0 391.5 L69.1 391.5" class="st2"/>

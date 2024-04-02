@@ -115,5 +115,4 @@ Principal author:
 ## Related resources
 
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
-- [Data analysis and visualization in an Azure industrial IoT analytics solution](../../guide/iiot-guidance/iiot-data.yml)
 - [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
