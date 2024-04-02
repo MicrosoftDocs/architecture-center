@@ -1,4 +1,3 @@
-
 This article briefly describes the steps for running the Power Systems Computer Aided Design ([PSCAD](https://www.pscad.com/)) application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running PSCAD..
 
 PSCAD is a powerful and flexible graphical user interface to the Electromagnetic Transients including Direct Current (EMTDC) electromagnetic transient simulation engine. It enables the user to schematically construct a circuit, run a simulation, analyze the results, and manage the data in a completely integrated, graphical environment. PSCAD provides the following benefits:
