@@ -185,7 +185,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 - Use the [AppArmor](https://kubernetes.io/docs/tutorials/clusters/apparmor) Linux kernel security module to limit the actions that containers can do.
 - Regularly upgrade your AKS clusters to the latest Kubernetes version to take advantage of new features and bug fixes.
 - AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/kubereboot/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
-- Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io), [Consul](https://www.consul.io), or by using [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview).
+- Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io), or [Consul](https://www.consul.io) or by using [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview).
 
 #### Azure Container Registry
 
@@ -269,7 +269,7 @@ Although some of the scheduler considerations are not fully pertaining to multit
 
 Although the service mesh considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
 
-- Consider using an open-source service mesh (like [Istio](https://istio.io), [Linkerd](https://linkerd.io) or [Consul](https://www.consul.io)) in your AKS cluster, in order to improve the observability, reliability, and security for your microservices, via mutual TLS. You can also implement traffic-splitting strategies (such blue/green deployments and canary deployments). In short, a service mesh is a dedicated infrastructure layer for making service-to-service communication safe, fast, and reliable. To see AKS-integrated Istio add-on, see: [Istio service mesh AKS add-on](/azure/aks/istio-about)
+- Consider using an open-source service mesh (like [Istio](https://istio.io), [Linkerd](https://linkerd.io), or [Consul](https://www.consul.io)) in your AKS cluster, in order to improve the observability, reliability, and security for your microservices, via mutual TLS. You can also implement traffic-splitting strategies (such blue/green deployments and canary deployments). In short, a service mesh is a dedicated infrastructure layer for making service-to-service communication safe, fast, and reliable. To see AKS-integrated Istio add-on, see: [Istio service mesh AKS add-on](/azure/aks/istio-about)
 
 - Consider adopting [Dapr](https://dapr.io) to build resilient, microservice stateless and stateful applications. You can use any programming language and developer framework.
 
@@ -279,7 +279,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 - Introduce A/B testing and canary deployments in your application lifecycle management, to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use the traffic-management capabilities that are provided by a service mesh implementation. For more information, see:</p>
 
-  - [Istio / Traffic Management](https://istio.io/latest/docs/concepts/traffic-management/)
+  - [Istio traffic management](https://istio.io/latest/docs/concepts/traffic-management/)
   
 - Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry, by using its Microsoft Entra identity.
 
