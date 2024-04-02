@@ -9,13 +9,13 @@ The benefits of a replatform migration include:
 - Improved operational resiliency.
 
 
-# Architecture (replatformed)
+## Architecture (replatformed)
 
 :::image type="content" source="media/aix-azure-replatform.svg" alt-text="Diagram of the replatformed architecture." lightbox="media/aix-azure-replatform.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aix-azure-replatform.vsdx) of this architecture.*
 
-## Workflow
+### Workflow
 
 This workflow corresponds to the preceding architecture.
 
@@ -28,13 +28,13 @@ This workflow corresponds to the preceding architecture.
    > [!NOTE]
    > In the future, Azure Queue Storage will replace the database table, so you can always have access to running analysis jobs.
 
-1. The cron job, written in Korn shell (ksh) script, is ported to bash and runs on a separate Red Hat Enterprise Linux (RHEL) server in Azure Virtual Machine Scale Sets. The cron job runs every 15 minutes, including on system boot, to query the queue in the Oracle database. Jobs run one at a time per host. Virtual Machine Scale Sets parallelizes long-running analysis jobs. This solution doesn't require off-peak batch processing to limit the effect on system performance during business hours.
+1. The cron job, written in KornShell (ksh) script, is ported to Bash and runs on a separate Red Hat Enterprise Linux (RHEL) server in Azure Virtual Machine Scale Sets. The cron job runs every 15 minutes, including on system startup, to query the queue in the Oracle database. Jobs run one at a time per host. Virtual Machine Scale Sets parallelizes long-running analysis jobs. This solution doesn't require off-peak batch processing to limit the effect on system performance during business hours.
 
-1. Azure Communication Service sends email alerts via the Azure CLI tool (docs). Azure system-assigned managed identities, such as `az login --identity`, authenticate the virtual machine (VM).
+1. Azure Communication Services sends email alerts via the Azure CLI tool (docs). Azure system-assigned managed identities, such as `az login --identity`, authenticate the virtual machine (VM).
 
 1. The analysis job results go to an Azure Files share via secure SMBv3 (TCP/445), which also uses system-assigned managed identities.
 
-## Components
+### Components
 
 - [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) eliminates network-based trust and provides system-assigned managed identities, which improves security.
 
@@ -52,7 +52,7 @@ This workflow corresponds to the preceding architecture.
 
 - [Communication Services](https://azure.microsoft.com/products/communication-services) sends emails with a CLI utility. This service replaces the `mailx` command on AIX.
 
-## Alternatives
+### Alternatives
 
 An alternative is a complete serverful architecture that retains all middleware components as is.  
 
@@ -62,21 +62,21 @@ This solution is similar to the original architecture, which fulfills a *like fo
 
 - Operational efficiency: The alternative solution retains the same number of servers to maintain.
 
-- Business agility: With the alternative solution, reporting remains limited to nights only with no autoscaling-powered 24/7 analysis.
+- Business agility: With the alternative solution, reporting remains limited to nights only with no autoscaling-powered, all-day analysis.
 
 ## Scenario details
 
 Choose a serverless or serverful model depending on the portability of your existing applications and your team's workflow preference and technology roadmap. 
 
-Like the [original architecture](#architecture-original), the [replatformed architecture](#architecture-replatformed) has an Oracle database but it's replatformed to a RHEL operating system on Azure Virtual Machines. For the fully managed Azure App Service in the replatformed architecture, Red Hat JBoss EAP replaces the WebSphere Java application.
+Like the [original architecture](#architecture-original), the [replatformed architecture](#architecture-replatformed) has an Oracle database, but it's replatformed to a RHEL operating system on Azure Virtual Machines. For the fully managed Azure App Service in the replatformed architecture, Red Hat JBoss EAP replaces the WebSphere Java application.
 
-# Architecture (original)
+## Architecture (original)
 
 :::image type="content" source="media/aix-azure-original.svg" alt-text="Diagram of the original architecture." lightbox="media/aix-azure-original.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aix-azure-original.vsdx) of this architecture.*
 
-## Workflow
+### Workflow
 
 This workflow corresponds to the preceding architecture.
 
@@ -88,11 +88,11 @@ This workflow corresponds to the preceding architecture.
 
 1. A cron job, written in ksh script, queries the queue in the Oracle database and picks up SAS analysis jobs to run. The customer must do batch processing at night to limit the effect on system performance during business hours.
 
-1. Email alerts notify users and administrators via SMTP (TCP/25) of the job start and completion time and success or failure results.
+1. Email alerts notify users and administrators via SMTP (TCP/25) of the job start and completion times and success or failure results.
 
 1. The analysis job results go to a shared drive via NFS (TCP+UDP/111,2049) for collection via SMBv3 (TCP/445).
 
-# Scenario details
+## Scenario details
 
 This original architecture evaluates a monolith Java application that runs on IBM WebSphere and evaluates batch processing from SAS that ksh scripts orchestrate. An Oracle database that runs on a separate AIX host supports both application workloads.
 
@@ -100,11 +100,11 @@ Consider your original workload that runs on AIX to determine if a replatform mi
 
 In this scenario, [Tidal Accelerator](https://tidalcloud.com/accelerator/) analyzed the Java application code and determined its compatibility with JBoss EAP. Early in the project, Azure Pipelines or GitHub Actions is used to rebuild the application as a pilot. The customer can then establish agility from continuous integration and continuous delivery (CI/CD) pipelines in a managed service, such as Azure App Service. The customer can't get this capability in their on-premises WebSphere environment.
 
-This example retains the Oracle database in this phase because of the amount of PL/SQL that Tidal Accelerator discovered during the analysis phase. The customer's future endeavors include migrating from the Oracle database on RHEL to a fully managed Azure PostgreSQL database, adopting Azure Queue Storage, and running fully on-demand SAS jobs. These efforts align with the customer’s technology roadmap, development cycles, and the business direction that was determined in the Application Owner interview. The following screenshot shows an interview in Tidal Accelerator.
+This example retains the Oracle database in this phase because of the amount of PL/SQL that Tidal Accelerator discovered during the analysis phase. The customer's future endeavors include migrating from the Oracle database on RHEL to a fully managed Azure Database for PostgreSQL database, adopting Azure Queue Storage, and running fully on-demand SAS jobs. These efforts align with the customer’s technology roadmap, development cycles, and the business direction that was determined in the Application Owner interview. The following screenshot shows an interview in Tidal Accelerator.
 
 :::image type="content" source="media/aix-interview.png" alt-text="Screenshot of an interview in Tidal Accelerator." lightbox="media/aix-interview.png":::
 
-## Potential use cases
+### Potential use cases
 
 You can use this architecture for AIX to Azure migrations that cover data analytics, customer relationship management (CRM), mainframe integration layers in a hybrid cloud configuration, and other custom software solutions in inventory and warehouse management scenarios.
 
@@ -115,11 +115,11 @@ You can use this architecture for traditional application workloads with technol
 - SAS
 - IBM BPM
 
-# Considerations
+## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-## Reliability
+### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
@@ -127,25 +127,25 @@ This architecture uses Azure Site Recovery to mirror the database Azure VMs to a
 
 Data-processing nodes use zone-redundant (RA-ZRS) managed disks to provide resiliency during zone outages. During an entire region outage, you can reprovision data-processing nodes in a different region from their VM image within the redundant Azure Compute Gallery.
 
-## Security
+### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-This architecture adopts an immutable infrastructure approach to application deployments and proactively scans code in Azure pipelines to help secure sensitive data in production. It incorporates a *shift left* approach for security scanning, and frequently runs CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
+This architecture adopts an immutable infrastructure approach to application deployments and proactively scans code in Azure pipelines to help secure sensitive data in production. It incorporates a *shift left* approach for security scanning and frequently runs CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
 
-## Cost optimization
+### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This solution removes as many serverful components as possible, which reduces operating costs by more than 70%. This architecture reduces compute and software licensing costs. 
 
-## Operational excellence
+### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 The product team supports themselves in Azure, which reduces the resolution time for reported incident tickets. Additionally, the bounce count for tickets, or the number of tickets that are assigned from one group to another, is zero because one product team supports the entire application stack in Azure.
 
-## Performance efficiency
+### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
