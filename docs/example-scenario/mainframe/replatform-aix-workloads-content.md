@@ -98,13 +98,13 @@ This workflow corresponds to the preceding architecture.
 
 This original architecture evaluates a monolith Java application that runs on IBM WebSphere and evaluates batch processing from SAS that ksh scripts orchestrate. An Oracle database that runs on a separate AIX host supports both application workloads.
 
-Consider your original workload that runs on AIX to determine if a replatform migration strategy suits your migration budget. Work backwards from your desired outcomes to determine a transformative, application-centric migration path to the cloud. Ensure that the majority of your application code is written in a language that cloud-native services, such as serverless architectures and container orchestrators, support.
+Consider your original workload that runs on AIX to determine if a replatform migration strategy suits your migration budget. Work backwards from your desired outcomes to determine a transformative, application-centric migration path to the cloud. Ensure that most of your application code is written in a language that cloud-native services, such as serverless architectures and container orchestrators, support.
 
-In this scenario, [Tidal Accelerator](https://tidalcloud.com/accelerator/) analyzed the Java application code and determined its compatibility with JBoss EAP. Early in the project, Azure DevOps Pipelines or GitHub Actions is used to rebuild the application as a pilot. The customer can then establish continuous integration and continuous delivery (CI/CD) powered agility directly into a managed service, such as Azure App Service. The customer can't perform this function in the on-premises WebSphere environment.
+In this scenario, [Tidal Accelerator](https://tidalcloud.com/accelerator/) analyzed the Java application code and determined its compatibility with JBoss EAP. Early in the project, Azure Pipelines or GitHub Actions is used to rebuild the application as a pilot. The customer can then establish continuous integration and continuous delivery (CI/CD) powered agility directly into a managed service, such as Azure App Service. The customer can't perform this function in the on-premises WebSphere environment.
 
-This example retains the Oracle database in this phase because of the amount of PL/SQL that Tidal Accelerator discovered during the analysis phase. The customer's future endeavors include migrating from the Oracle database on RHEL to a fully managed Azure PostgreSQL database, adopting Azure Queue Storage, and running fully on-demand SAS jobs. These efforts align with the customer’s technology roadmap, development cycles, and the business direction that was determined in the Application Owner interview.
+This example retains the Oracle database in this phase because of the amount of PL/SQL that Tidal Accelerator discovered during the analysis phase. The customer's future endeavors include migrating from the Oracle database on RHEL to a fully managed Azure PostgreSQL database, adopting Azure Queue Storage, and running fully on-demand SAS jobs. These efforts align with the customer’s technology roadmap, development cycles, and the business direction that was determined in the Application Owner interview. The following screenshot shows an interview in Tidal Accelerator.
 
-![](media/image1.png)
+:::image type="content" source="media/aix-interview.png" alt-text="Screenshot of an interview in Tidal Accelerator." lightbox="media/aix-interview.png":::
 
 ## Potential use cases
 
@@ -113,7 +113,7 @@ You can use this architecture for AIX to Azure migrations that cover data analyt
 You can use this architecture in traditional application workloads with technologies like:
 
 - Oracle Siebel
-- Oracle eBusiness Suite
+- Oracle E-Business Suite
 - SAS
 - IBM BPM
 
@@ -125,7 +125,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-This architecture uses Azure Site Recovery to mirror the database Azure VMs to a secondary Azure region for quick failover and disaster recovery if an entire Azure region fails. Similarly, Azure Files uses georedundant storage.
+This architecture uses Azure Site Recovery to mirror the database Azure VMs to a secondary Azure region for quick failover and disaster recovery if an entire Azure region fails. Similarly, Azure Files uses geo-redundant storage.
 
 Data processing nodes use zone-redundant (RA-ZRS) managed disks to provide resiliency during zone outages. During an entire region outage, you can reprovision data processing nodes in a different region from their virtual machine image within the redundant Azure Compute Gallery.
 
@@ -133,7 +133,7 @@ Data processing nodes use zone-redundant (RA-ZRS) managed disks to provide resil
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Adopt an immutable infrastructure approach to application deployments and proactively scan code in Azure DevOps pipelines to help secure sensitive data in production. Incorporate a *shift left* approach for security scanning, and frequently run CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
+Adopt an immutable infrastructure approach to application deployments and proactively scan code in Azure pipelines to help secure sensitive data in production. Incorporate a *shift left* approach for security scanning, and frequently run CI/CD pipeline-enabled deployments to improve software current adherence and reduce technical debt.
 
 ## Cost optimization
 
@@ -145,7 +145,7 @@ This solution removes as many serverful components as possible, which reduces op
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-The product team supports themselves in Azure, which reduces the resolution time for reported incident tickets. Additionally, the bounce count for tickets, or the amount of tickets that are assigned from one group to another, is zero because one product team supports the entire application stack in Azure.
+The product team supports themselves in Azure, which reduces the resolution time for reported incident tickets. Additionally, the bounce count for tickets, or the number of tickets that are assigned from one group to another, is zero because one product team supports the entire application stack in Azure.
 
 ## Performance efficiency
 
