@@ -1,8 +1,9 @@
-This article briefly describes the steps for running [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Ansys CFX on Azure.
+This article describes the steps for how to run [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Ansys CFX on Azure.
 
 Ansys CFX is computational fluid dynamics (CFD) software for turbomachinery applications. It uses an equilibrium phase change model and relies on material properties to reliably predict cavitation without the need for empirical model parameters. CFX:
 
 - Uses transient blade row methods to reduce geometry from a full wheel to a single passage.
+
 - Integrates with Geolus Shape Search to rapidly find parts that are identical to a specified part, based on geometry.
 
 CFX is used in the aerospace, defense, steam turbine, energy, automotive, construction, facilities, manufacturing, and materials/chemical processing industries.
@@ -32,19 +33,17 @@ architecture.*
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a Linux VM. 
-  - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
-    used to create a private network infrastructure in the cloud. 
-  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
-  -  A public IP address connects the internet to the VM.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create a Linux VM.
+    - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+    -  A public IP address connects the internet to the VM.
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
 - A physical solid-state drive (SSD) is used for storage.
 
 ## Compute sizing and drivers
 
-Performance tests of Ansys CFX on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
+Performance tests of Ansys CFX on Azure that used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
 
 |VM size| vCPU| Memory (GiB) |Memory bandwidth (GBps) |Base CPU frequency (Ghz)| All-cores frequency (Ghz, peak)| Single-core frequency (Ghz, peak)| RDMA performance (Gbps) |Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
@@ -54,18 +53,17 @@ Performance tests of Ansys CFX on Azure used [HBv3-series](/azure/virtual-machin
 |Standard_HB120-32rs_v3 |32 |448 |350| 2.45| 3.1| 3.675| 200 |32|
 |Standard_HB120-16rs_v3 |16| 448 |350| 2.45| 3.1| 3.675| 200 |32|
 
- 
-
 ## Install Ansys CFX on a VM or HPC Cluster
 
-The software can be downloaded from [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx#tab1-2) Official website. For more details use this [link](https://www.ansys.com/products/fluids/ansys-cfx).
+The software can be downloaded from the official [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx#tab1-2) website. For more information, see [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx).
 
 Before you install Ansys CFX, you need to deploy and connect to a VM or HPC Cluster.
-For information about deploying the VM and installing the drivers, see one of these articles:
+
+For information on how to deploy the VM and install the drivers, see the following articles:
 - [Run a Windows VM on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
 - [Run a Linux VM on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
 
-For information about deploying the Azure CycleCloud and HPC cluster, see below articles:
+For information on how to deploy the Azure CycleCloud and HPC cluster, see the following articles:
 - [Install and configure Azure CycleCloud](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
 - [Create a HPC Cluster](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
 
@@ -79,100 +77,91 @@ For information about deploying the Azure CycleCloud and HPC cluster, see below 
 |OS Architecture|X86-64|X86-64|
 |Processor|AMD EPYC 7V13|AMD EPYC 7V73X|
 
-Many factors can influence HPC scalability, including the mesh size, element type, mesh topology, and physical models. To get meaningful and case-specific benchmark results, it's best to use the standard HPC benchmark cases that are available on the [Ansys Customer Portal](https://support.ansys.com/Home/HomePage).
+Many factors can influence HPC scalability, including the mesh size, element type, mesh topology, and physical models. To get meaningful and case-specific benchmark results, it's best to use the standard HPC benchmark cases that are available on the [Ansys customer portal](https://support.ansys.com/Home/HomePage).
 
-The following models were tested. For more information about the current Ansys models, see [Ansys Engineering Simulation Solutions](https://fluidcodes.com/softwares/ansys/). 
+The following models were tested. For more information about the current Ansys models, see [Ansys Engineering Simulation Solutions](https://fluidcodes.com/softwares/ansys/).
 
 ### 1. Pump
 
 :::image type="content" source="media/cfx/pump.png" alt-text="Figure that shows the pump model." border="false":::
 
-- Case Details:
- 
-  a)	Automotive pump with rotating and stationary components
- 
+- Case details:
+
+  a. Automotive pump with rotating and stationary components
   - Turbulent k-e, incompressible, isothermal, multiple frames of reference.
-  - Advection- scheme: specified blend factor 0.75.
+  - Advection - scheme: specified blend factor 0.75.
 
-  b)	Global mesh size: 1,305,718 Nodes, 5362055 Elements Tetrahedra-4, 509, 881, Prisms-850, 617, Pyramids-1557
+  b. Global mesh size: 1,305,718 Nodes, 5362055 Elements Tetrahedra-4, 509, 881, Prisms-850, 617, Pyramids-1557
   
-- Benchmark Information:
+- Benchmark information:
 
-  a)	Suitable up to ~16 cores
+  a. Suitable up to ~16 cores
   
-  b)	Currently set to 10 iterations
+  b. Currently set to 10 iterations
   
-  c)	Solver memory requirement (total) ~3 GB
-
+  c. Solver memory requirement (total) ~3 GB
 
 ### 2. Airfoil 10M
 
-:::image type="content" source="media/cfx/airfoil.png" alt-text="Figure that shows the airfoil model." border="false":::
+:::image type="content" source="media/cfx/airfoil.png" alt-text="Diagram that shows the airfoil model." border="false":::
 
-- Case Details:
- 
-  a)	Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give   a 3D meshes of various sizes
- 
-  - Turbulent SST, ideal gas, heat transfer. 
+- Case details:
+
+  a. Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give 3D meshes of various sizes
+  - Turbulent SST, ideal gas, heat transfer
   - Default advection scheme (high resolution)
 
-  b)	Global mesh size: 9,933,000 nodes, 9,434,520 elements.
+  b. Global mesh size: 9,933,000 nodes, 9,434,520 elements
   
-- Benchmark Information:
+- Benchmark information:
 
-  a)	Suitable for up to ~50 partitions.
+  a. Suitable for up to ~50 partitions
   
-  b)	Currently set to 5 iterations
+  b. Currently set to 5 iterations
   
-  c)	Partitioning memory requirement 1.7 GB
+  c. Partitioning memory requirement 1.7 GB
 
-  d)    Solver memory requirement (total) 13 GB
+  d. Solver memory requirement (total) 13 GB
 
 ### 3. Airfoil 50M
 
+- Case details:
 
-- Case Details:
- 
-  a)	Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give   a 3D meshes of various sizes
- 
+  a. Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give   a 3D meshes of various sizes
   - Turbulent SST, ideal gas, heat transfer. 
   - Default advection scheme (high resolution)
 
-  b)	Global mesh size: 47,773,000 nodes, 47,172,600 elements
+  b. Global mesh size: 47,773,000 nodes, 47,172,600 elements
   
-- Benchmark Information:
+- Benchmark information:
 
-  a)	Suitable for up to >100 partitions.
+  a. Suitable for up to >100 partitions.
   
-  b)	Currently set to 5 iterations
+  b. Currently set to 5 iterations
   
-  c)	Partitioning memory requirement ~13 GB
+  c. Partitioning memory requirement ~13 GB
 
-  d)    Solver memory requirement (total) ~65 GB
-
+  d. Solver memory requirement (total) ~65 GB
 
 ### 4. Airfoil 100M
 
+- Case details:
 
-- Case Details:
- 
-  a)	Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give   a 3D meshes of various sizes
- 
-  - Turbulent SST, ideal gas, heat transfer. 
+  a. Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give 3D meshes of various sizes
+  - Turbulent SST, ideal gas, heat transfer
   - Default advection scheme (high resolution)
 
-  b)	Global mesh size: 104,533,000 nodes, 103,779,720 elements (all hexahedra)
+  b. Global mesh size: 104,533,000 nodes, 103,779,720 elements (all hexahedra)
   
-- Benchmark Information:
+- Benchmark information:
 
-  a)	Suitable for 100s ¬or 1000s of partitions 
+  a. Suitable for 100s ¬or 1000s of partitions
   
-  b)	Currently set to 5 iterations
+  b. Currently set to 5 iterations
   
-  c)	Partitioning memory requirement ~28 GB
+  c. Partitioning memory requirement ~28 GB
 
-  d)    Solver memory requirement (total) ~140 GB
-
+  d. Solver memory requirement (total) ~140 GB
 
 ### Ansys CFX 2021 R2 Performance results on single-node configuration
 
@@ -226,7 +215,7 @@ The following table and graph show elapsed wall-clock times and relative speed i
 
 ### Ansys CFX 2021 R2 and 2022 R2 Performance on Multi-Nodes
 
-Based on the single node results, we decided the configuration for cluster. The single node tests were carried out using AMD Milan Processors. For cluster runs, we used Milan-X AMD processors which are the latest updated version of AMD EPYC Series Processors. 
+Based on the single node results, we decided the configuration for cluster. The single node tests were carried out using AMD Milan Processors. For cluster runs, we used Milan-X AMD processors, which are the latest updated version of AMD EPYC Series Processors.
 
 As the single-node results show, scalability improves as the number of cores increases. Because memory bandwidth is fixed on a single node, performance saturates after a certain number of cores is reached. A multi-node configuration surpasses this limitation to fully take advantage of the CFX solver capabilities.
 
@@ -234,7 +223,7 @@ Based on the single-node tests, the 64-CPU configuration is optimal. It's also l
 
 To utilize the benefits of these latest processors for CFX simulations, we carried out multi-node runs on the Milan-X processors and compared the results between 2021R2 and 2022R2 versions.
 
-1.	Pump: Assembly of stator and rotor
+1. Pump: Assembly of stator and rotor
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -244,10 +233,9 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|512|	2.97|	2.585|	3.82|	4.39|	12.96%|
 |16|	1024|	2.22|	2.206|	5.12|	5.15|	0.63%|
 
-
 :::image type="content" source="media/cfx/graph-pump-cmpr-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration." border="false":::
 
-2.	Airfoil with 10M mesh size
+2. Airfoil with 10M mesh size
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -257,10 +245,9 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|	512|	15.12|	10.28|	4.63|	6.81|	31.99%|
 |16|	1024|	9.4|	9.79|	7.45|	7.16|	-4.11%|
 
-
 :::image type="content" source="media/cfx/graph-airfoil-10m-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
 
-3.	Airfoil with 50M mesh size
+3. Airfoil with 50M mesh size
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -270,10 +257,9 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|	512|	71.84|	47.90|	5.17|	7.75|	33.33%|
 |16|	1024|	37.69|	39.30|	9.85|	9.45|	-4.26%|
 
-
 :::image type="content" source="media/cfx/graph-airfoil-50m-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
 
-4.	Airfoil with 100M mesh size  
+4. Airfoil with 100M mesh size  
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -288,8 +274,8 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 ## Azure cost
 
 The following tables provide wall clock times that you can use to calculate Azure costs. To compute the cost, multiply the wall clock time by the number of nodes and the Azure VM hourly rate. For the hourly rates for Linux, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#pricing). Azure VM hourly rates are subject to change.
-Only simulation running time is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included. The time shown below in hours is the combined wall clock time for all the models.
 
+Only simulation running time is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included. The time shown below in hours is the combined wall clock time for all the models.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configuration.
 
@@ -317,12 +303,10 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 Ansys CFX Application 2021 R2 and 2022 R2 both are successfully deployed and tested on HBv3 120 AMD EPYC™ 7V73X-series (Milan-X) Azure Virtual Machines.
 
-1.	In case of single node configuration, it is observed that there is a relative speed increase up to 64 cores and there after it is saturated with further increase of cores.
-2.	In case of multi-node runs, with sufficiently large models, Ansys CFX is scaling up linearly with increase in number of nodes.
-3.	A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a very good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
-4.	The Performance comparison between the CFX versions 2021 R2 and 2022 R2 is shown in this report.
-
-
+1. In case of single node configuration, it is observed that there is a relative speed increase up to 64 cores and there after it is saturated with further increase of cores.
+2. In case of multi-node runs, with sufficiently large models, Ansys CFX is scaling up linearly with increase in number of nodes.
+3. A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a very good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
+4. The Performance comparison between the CFX versions 2021 R2 and 2022 R2 is shown in this report.
 
 ## Contributors
 
@@ -331,37 +315,32 @@ the following contributors.*
 
 Principal authors:
 
--   [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) |
     Senior Manager
--   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
     Principal Program Manager
--   [Vinod
-    Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
+- [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
     HPC Performance Engineer
 
 Other contributors:
 
--   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
     Technical Writer
--   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
     Business Strategy
--   [Sachin
-    Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
     Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
--   [GPU-optimized virtual machine
-    sizes](/azure/virtual-machines/sizes-gpu)
--   [Virtual machines on Azure](/azure/virtual-machines/overview)
--   [Virtual networks and virtual machines on
-    Azure](/azure/virtual-network/network-overview)
--   [Learning path: Run high-performance computing (HPC) applications on
-    Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
--   [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
--   [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
