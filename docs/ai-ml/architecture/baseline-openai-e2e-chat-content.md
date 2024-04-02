@@ -72,7 +72,7 @@ Two flows in this diagram are covered in [baseline app services web application]
 
 ### Ingress to Azure Machine Learning
 
-In this architecture, public access to the Azure Machine Learning workspace is disabled and access can occur through private access as it follows the [private endpoint for the Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link) configuration. In fact, private endpoints are used throughout this architecture to compliment identity-based security. For example, by allowing your chat UI hosted in App Service to connect to PaaS services not exposed to the public Internet, including Azure Machine Learning endpoints.
+In this architecture, public access to the Azure Machine Learning workspace is disabled and access can occur through private access as it follows the [private endpoint for the Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link) configuration. In fact, private endpoints are used throughout this architecture to complement identity-based security. For example, by allowing your chat UI hosted in App Service to connect to PaaS services not exposed to the public Internet, including Azure Machine Learning endpoints.
 
 Private endpoint access is also required for connecting to the Azure Machine Learning workspace for flow authoring.
 
