@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy PSCAD on an Azure virtual machine
+  description: Find out how PSCAD software performs on an Azure virtual machine.
+  author: Basha-R
+  ms.author: v-rbasha
+  ms.date: 04/04/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy PSCAD on an Azure virtual machine
+summary: Find out how PSCAD software performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/PSCAD.png
+content: |
+  [!include[](PSCAD-content.md)]
