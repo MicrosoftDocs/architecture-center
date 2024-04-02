@@ -2460,7 +2460,7 @@ items:
         - name: Rehost mainframe with NTT DATA UniKix
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
         - name: Replatform AIX workloads
-          href: example-scenario/mainframe/replatform-aix-worklods.yml
+          href: example-scenario/mainframe/replatform-aix-workloads.yml
         - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
           href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
