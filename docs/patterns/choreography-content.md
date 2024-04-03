@@ -59,7 +59,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the choreography pattern by creating an event driven, cloud native app running functions along with microservices, When a client requests a package to be shipped, the app assigns a drone, and once both get available the delivery process is started. While in-transit the app handles the delivery until it gains the shipped status.
+This example shows the choreography pattern by creating an event driven, cloud native app running functions along with microservices. When a client requests a package to be shipped, the app assigns a drone, and once both get available the delivery process is started. While in-transit the app handles the delivery until it gains the shipped status.
 
 ![GitHub logo](../_images/github.png) The code example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
 
