@@ -3,7 +3,7 @@ ms.custom: devx-track-extended-java, devx-track-javaee
 ---
 The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of principles and implementation techniques that define how you should update (replatform) your web app to be successful in the cloud.
 
-This article helps you plan the implementation of the reliable web app pattern. The companion article provides the implementation guidance to **[apply the reliable web app pattern](apply-pattern.yml)**. There's a **[reference implementation](aka.ms/eap/rwa/java)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
+This article helps you plan the implementation of the reliable web app pattern. The companion article provides the implementation guidance to **[apply the reliable web app pattern](apply-pattern.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/java)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
 
 ## Architecture
 
