@@ -26,7 +26,7 @@ You can use PSCAD in many areas of the energy sector, like utilities and wind fa
 
 ## Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../reference-architectures/n-tier/windows-vm).
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 - An Azure Premium SSD is used for OS disk and for storage.
 
@@ -62,7 +62,7 @@ The following table provides the configuration details the HBv4-series VM:
 
 ## PSCAD installation
 
-Before you install PSCAD, you need to deploy and connect a VM. For information about deploying the VM, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm).
+Before you install PSCAD, you need to deploy and connect a VM. For information about deploying the VM, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 Follow these steps to download and install PSCAD:
 
@@ -177,8 +177,8 @@ Other contributors:
 
 ## Related resources
 
-- [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm)
-- [HPC system and big-compute solutions](../solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](../solution-ideas/articles/hpc-cluster)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 
