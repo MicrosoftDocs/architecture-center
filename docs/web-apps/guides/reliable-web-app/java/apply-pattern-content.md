@@ -218,7 +218,7 @@ All inbound internet traffic to the web app must pass through a web application 
 
 The App Service platform and Java Spring can filter by header value. You should use App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code. You need to configure what traffic you want to pass through your web application firewall. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name.](/azure/architecture/best-practices/host-name-preservation)
 
-**Example:** The reference implementation uses a private endpoint in the production environment and the `X-Azure-FDID` header value in production.
+**Example:** The reference implementation uses a private endpoint in the production environment and the `X-Azure-FDID` header value in the development environment.
 
 ### Configure database security
 
