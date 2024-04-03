@@ -3,7 +3,7 @@ metadata:
   title: Map requests to tenants in a multitenant solution
   description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 12/14/2023
   ms.topic: conceptual
   ms.service: architecture-center
