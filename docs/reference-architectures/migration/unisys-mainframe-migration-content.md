@@ -14,7 +14,7 @@ Use an on-premises Unisys mainframe and emulated MCP resources to migrate to cos
 
 :::image type="content" source="./media/unisys-components.svg" alt-text="Diagram that shows Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/unisys-components.svg" border="false":::
 
-_Download a [Visio file]() of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/unisys-components.vsdx) of this architecture._
 
 ### Workflow
 
@@ -40,7 +40,7 @@ H. A printer subsystem manages on-premises printers.
 
 :::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram that shows how Unisys mainframe components can map to Azure capabilities." lightbox="./media/avanade-unisys-migration.svg" border="false":::
 
-_Download a [Visio file]() of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/avanade-unisys-migration.vsdx) of this architecture._
 
 ### Workflow
 
