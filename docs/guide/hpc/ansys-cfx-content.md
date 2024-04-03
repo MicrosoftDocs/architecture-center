@@ -17,33 +17,33 @@ CFX is used in the aerospace, defense, steam turbine, energy, automotive, constr
 
 ## Architecture
 
-Single-node configuration:
+The following architecture shows a single-node configuration:
 
-:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX on Single Node." lightbox="media/cfx/ansys-cfx.svg" border="false":::
+:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows a single-node Ansys CFX architecture." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
 
-Multi-node configuration:
+The following architecture shows a multi-node configuration:
 
-:::image type="content" source="media/cfx/hpc-ansys-cfx-multi-node.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX on Multi Node." lightbox="media/cfx/ansys-cfx.svg" border="false":::
+:::image type="content" source="media/cfx/hpc-ansys-cfx-multi-node.svg" alt-text="Diagram that shows a multi-node Ansys CFX architecture." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
 
 ### Components
 
-- Use [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to create a Linux VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
-- Use [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) to create a private network infrastructure in the cloud.
+- Use [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) to create a Linux VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- Use [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) to create a private network infrastructure in the cloud.
 - Use [network security groups](/azure/virtual-network/network-security-groups-overview) to restrict access to the VM. A public IP address connects the internet to the VM.
-- Use [Azure CycleCloud](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azurecyclecloud.azure-cyclecloud) to create the cluster in the multi-node configuration.
+- Use [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) to create the cluster in the multi-node configuration.
 - Use a physical solid-state drive (SSD) for storage.
 
 ## Compute sizing and drivers
 
-Performance tests of Ansys CFX on Azure that used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
+Performance tests of Ansys CFX on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
 
-|VM size| vCPU| Memory (GiB) |Memory bandwidth (GBps) |Base CPU frequency (Ghz)| All-cores frequency (Ghz, peak)| Single-core frequency (Ghz, peak)| RDMA performance (Gbps) |Maximum data disks|
+|VM size| vCPU| Memory (GiB) |Memory bandwidth (GBps) |Base CPU frequency (GHZ)| All-cores frequency (GHZ, peak)| Single-core frequency (GHZ, peak)| RDMA performance (Gbps) |Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
 |Standard_HB120rs_v3| 120| 448| 350| 2.45| 3.1| 3.675| 200| 32|
 |Standard_HB120-96rs_v3| 96| 448| 350| 2.45| 3.1| 3.675 |200| 32|
@@ -51,37 +51,37 @@ Performance tests of Ansys CFX on Azure that used [HBv3-series](/azure/virtual-m
 |Standard_HB120-32rs_v3 |32 |448 |350| 2.45| 3.1| 3.675| 200 |32|
 |Standard_HB120-16rs_v3 |16| 448 |350| 2.45| 3.1| 3.675| 200 |32|
 
-## Install Ansys CFX on a VM or HPC Cluster
+## Install Ansys CFX on a VM or HPC cluster
 
-You can download the software from the official [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx#tab1-2) website. For more information, see [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx).
+You can download the software from the official [Ansys CFX website](https://www.ansys.com/products/fluids/ansys-cfx#tab1-2).
 
-Before you install Ansys CFX, you need to deploy and connect to a VM or HPC Cluster.
+Before you install Ansys CFX, you need to deploy and connect to a VM or HPC cluster.
 
 For information on how to deploy the VM and install the drivers, see the following articles:
-- [Run a Windows VM on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 
-For information on how to deploy the Azure CycleCloud and HPC cluster, see the following articles:
-- [Install and configure Azure CycleCloud](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
-- [Create a HPC Cluster](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
+For information on how to deploy Azure CycleCloud and the HPC cluster, see the following articles:
+- [Install and configure Azure CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
+- [Create an HPC cluster](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
 
 ## CFX performance results
 
- CFD analysis was performed in these tests. Ansys CFX 2021 R2 and 2022 R2 were tested. The following table provides the details of the VM that was used for testing.
+The following tests analyzed the CFD software, Ansys CFX 2021 R2 and Ansys CFX 2022 R2. The following table provides the details of the VM that was used for testing.
 
-|System/Software Details |HBv3(Milan)|HBv3(Milan-X)|
+|System/software details |HBv3 (Milan)|HBv3 (Milan-X)|
 |-|-|-|
-|Operating system version|Centos based 8.1 HPC Gen_2|Centos based 8.1 HPC Gen_2|
-|OS Architecture|X86-64|X86-64|
+|Operating system (OS) version|CentOS-based 8.1 HPC Gen_2|CentOS-based 8.1 HPC Gen_2|
+|OS architecture|X86-64|X86-64|
 |Processor|AMD EPYC 7V13|AMD EPYC 7V73X|
 
-Many factors can influence HPC scalability, including the mesh size, element type, mesh topology, and physical models. To get meaningful and case-specific benchmark results, it's best to use the standard HPC benchmark cases that are available on the [Ansys customer portal](https://support.ansys.com/Home/HomePage).
+Many factors can influence HPC scalability, including the mesh size, element type, mesh topology, and physical models. To get meaningful and case-specific benchmark results, it's best to use the standard HPC benchmark cases in the [Ansys customer portal](https://support.ansys.com/Home/HomePage).
 
 The following models were tested. For more information about the current Ansys models, see [Ansys Engineering Simulation Solutions](https://fluidcodes.com/softwares/ansys/).
 
-### 1. Pump
+### 1. The pump model
 
-:::image type="content" source="media/cfx/pump.png" alt-text="Figure that shows the pump model." border="false":::
+:::image type="content" source="media/cfx/pump.png" alt-text="Figure that shows the pump model.":::
 
 - Case details:
 
@@ -101,7 +101,7 @@ The following models were tested. For more information about the current Ansys m
 
 ### 2. Airfoil 10M
 
-:::image type="content" source="media/cfx/airfoil.png" alt-text="Diagram that shows the airfoil model." border="false":::
+:::image type="content" source="media/cfx/airfoil.png" alt-text="Diagram that shows the airfoil model.":::
 
 - Case details:
 
@@ -209,7 +209,7 @@ The following table and graph show elapsed wall-clock times and relative speed i
 |perf_Airfoil_100M_R16|5|96|1451.70|1.40|
 |perf_Airfoil_100M_R16|5|120|1473.70 |1.05|
 
-:::image type="content" source="media/cfx/graph-airfoil-100m.png" alt-text="Graph that shows the relative speed increases for the 100M airfoil." border="false":::
+:::image type="content" source="media/cfx/graph-airfoil-100m.png" alt-text="Graph that shows the relative speed increases for the 100M airfoil.":::
 
 ### Ansys CFX 2021 R2 and 2022 R2 Performance on Multi-Nodes
 
@@ -231,7 +231,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|512|	2.97|	2.585|	3.82|	4.39|	12.96%|
 |16|	1024|	2.22|	2.206|	5.12|	5.15|	0.63%|
 
-:::image type="content" source="media/cfx/graph-pump-cmpr-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-pump-cmpr-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration.":::
 
 2. Airfoil with 10M mesh size
 
@@ -243,7 +243,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|	512|	15.12|	10.28|	4.63|	6.81|	31.99%|
 |16|	1024|	9.4|	9.79|	7.45|	7.16|	-4.11%|
 
-:::image type="content" source="media/cfx/graph-airfoil-10m-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-airfoil-10m-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration.":::
 
 3. Airfoil with 50M mesh size
 
@@ -267,7 +267,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|	512|	104|	106.35|	10.95|	10.71|	-2.26%|
 |16|	1024|	83.38|	84.34|	13.66|	13.50|	-1.16%|
 
-:::image type="content" source="media/cfx/graph-100m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 100M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-100m-airfoil-multi-node.png" alt-text="Graph that shows the relative speed increases for 100M airfoil, using the multi-node configuration.":::
 
 ## Azure cost
 
@@ -322,8 +322,6 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
-    Technical Writer
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
     Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
