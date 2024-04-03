@@ -4,7 +4,7 @@ ms.custom: devx-track-extended-java
 
 The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (replatform) your web app to be successful in the cloud.
 
-This article provides code and architecture guidance for the reliable web app pattern. The companion article provides [**implementation planning guidance**](plan-implementation.yml). There's a **[reference implementation](https://github.com/Azure/web-app-pattern-java/tree/main?tab=readme-ov-file#reliable-web-app-pattern-for-java)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
+This article provides code and architecture guidance for the reliable web app pattern. The companion article provides [**implementation planning guidance**](plan-implementation.yml). There's a **[reference implementation](aka.ms/eap/rwa/java)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
 
 ## Architecture
 
@@ -411,7 +411,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 ## Next steps
 
-Deploy the **[reference implementation](https://github.com/Azure/web-app-pattern-java/tree/main?tab=readme-ov-file#reliable-web-app-pattern-for-java) by following the instructions in the GitHub repository. Use the following resources to learn more about cloud best practices and migration.
+Deploy the **[reference implementation](aka.ms/eap/rwa/java) by following the instructions in the GitHub repository. Use the following resources to learn more about cloud best practices and migration.
 
 **Cloud best practices.** For Azure adoption and architectural guidance, see:
 
