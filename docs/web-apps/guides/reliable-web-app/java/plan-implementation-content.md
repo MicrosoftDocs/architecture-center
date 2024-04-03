@@ -8,7 +8,7 @@ This article helps you plan the implementation of the reliable web app pattern. 
 ## Architecture
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
-*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture.*
+*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
 ## Define business goals
 

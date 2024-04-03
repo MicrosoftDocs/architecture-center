@@ -9,7 +9,7 @@ This article provides code and architecture guidance for the reliable web app pa
 ## Architecture
 
 ![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)  
-*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture.*
+*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
 ## Reliability
 
