@@ -1,166 +1,157 @@
-This article briefly describes the steps for running the Power Systems Computer Aided Design ([PSCAD](https://www.pscad.com/)) application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running PSCAD..
+This article describes how to run the Power Systems Computer Aided Design ([PSCAD](https://www.pscad.com)) application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running PSCAD.
 
-PSCAD is a powerful and flexible graphical user interface to the Electromagnetic Transients including Direct Current (EMTDC) electromagnetic transient simulation engine. It enables the user to schematically construct a circuit, run a simulation, analyze the results, and manage the data in a completely integrated, graphical environment. PSCAD provides the following benefits:
+PSCAD is a powerful and flexible graphical user interface for the Electromagnetic Transients including Direct Current (EMTDC) electromagnetic transient simulation engine. With PSCAD, you can schematically construct a circuit, run a simulation, analyze the results, and manage the data in an integrated, graphical environment.
 
-- Bundled with a library of pre-programmed and tested simulation models, ranging from simple passive elements and control functions to more complex models, such as electric machines, full-on Flexible Alternating Current Transmission System (FACTS) devices, transmission lines and cables.
-- Provides online plotting functions, controls, and meters, enabling the user to alter system parameters during a simulation run, and view the effects while the simulation is in progress.
+PSCAD offers the following benefits:
 
-PSCAD is used in many areas of the energy sector, like utilities & wind farms. It’s also used in industries like equipment manufacturing, consulting companies, research and academic organizations, and by regulators for functions including planning, operation, design, commissioning, teaching and research.
+- A library of preprogrammed and tested simulation models. PSCAD has simple, passive elements and control functions and also more complex models, such as electric machines, full-on flexible alternating current transmission system (FACTS) devices, and transmission lines and cables.
+
+- Online plotting functions, controls, and meters, so you can alter system parameters during a simulation run and view the effects while the simulation is in progress.
+
+You can use PSCAD in many areas of the energy sector, like utilities and wind farms. You can also use it in industries like equipment manufacturing, consulting, and research and academics. Regulators can use PSCAD for functions like planning, operations, design, commissioning, teaching, and research.
 
 ## Why deploy PSCAD on Azure?
 
-The following list describes the benefits of deploying PSCAD on Azure:
+- Modern and diverse compute options to align to your workload's needs
 
-Modern and diverse compute options to align to your workload's needs.
-
-The flexibility of virtualization without the need to buy and maintain physical hardware.
-
-- Rapid provisioning.
-- Cost optimization by utilizing fewer cores for simpler simulations and adding a greater number of cores for complex simulation.
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- Cost optimization by using fewer cores for simple simulations and adding more cores for complex simulations
 
 ## Architecture
 
-:::image type="content" source="media/image1.jpg" alt-text="Diagram that shows architecture for running PSCAD on Azure" border="true":::
+:::image type="content" source="media/hpc-pscad.svg" alt-text="Diagram that shows architecture for running PSCAD on Azure." border="false" lightbox="":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-pscad.vsdx) of this architecture.*
 
 ## Components
 
-[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm).
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm).
 
-A Premium solid-state drive (SSD) is used for OS disk as well as for storage.
+- An Azure Premium SSD is used for OS disk and for storage.
 
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is used to create a private network infrastructure in the cloud. 
 
-[Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
 
 - A public IP address connects the internet to the VM. 
 
 ## Compute sizing and drivers
 
-Performance tests of PSCAD on Azure used [HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) and [HBv4-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv4-series) VMs running on Windows OS. The following table provides the configuration details of HBv3-series and HBv4-series VM:
+The performance tests of PSCAD on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) and [HBv4-series](/azure/virtual-machines/hbv4-series) VMs that run on Windows OS. 
 
-HBv3-series:
+The following table provides the configuration details of the HBv3-series VM:
 
-| **VM Size** | **vCPU** | **Memory: GiB** | **Memory bandwidth GB/s** | **Base CPU frequency (GHz)** | **All-cores frequency (GHz, peak)** | **Single-core frequency (GHz, peak)** | **RDMA performance (Gb/s)** |
+| VM size | vCPU | Memory (GiB) | Memory bandwidth (GB/s) | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | Remote direct memory access (RDMA) performance (Gb/s) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Standard_HB120-16rs_v3** | 16 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-32rs_v3** | 32 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-64rs_v3** | 64 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-96rs_v3** | 96 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-120rs_v3** | 120 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-16rs_v3 | 16 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-32rs_v3 | 32 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-64rs_v3 | 64 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-96rs_v3 | 96 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-120rs_v3 | 120 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
 
-HBv4-series:
+The following table provides the configuration details the HBv4-series VM:
 
-| **VM Size** | **vCPU** | **Memory: GiB** | **Memory bandwidth GB/s** | **Base CPU frequency (GHz)** | **Max data disks)** | **Single-core frequency (GHz, peak)** | **RDMA performance (Gb/s)** |
+| VM size | vCPU | Memory (GiB) | Memory bandwidth (GB/s) | Base CPU frequency (GHz) | Max data disks) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Standard_HB176-24rs_v4** | 24 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
-| **Standard_HB176-48rs_v4** | 48 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
-| **Standard_HB176-96rs_v4** | 96 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
-| **Standard_HB176-1444rs_v4** | 144 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
-| **Standard_HB176rs_v4** | 176 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
+| Standard_HB176-24rs_v4 | 24 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
+| Standard_HB176-48rs_v4 | 48 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
+| Standard_HB176-96rs_v4 | 96 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
+| Standard_HB176-144rs_v4 | 144 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
+| Standard_HB176rs_v4 | 176 | 704 | 780 | 2.4 | 32 | 3.7 | 400 |
 
 ## PSCAD installation
 
-Before you install PSCAD, you need to deploy and connect a VM.
+Before you install PSCAD, you need to deploy and connect a VM. For information about deploying the VM, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm).
 
-For information about deploying the VM, see:
+Follow these steps to download and install PSCAD:
 
-- [Run a Windows VM on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
+1. Register a [MyCentre user account](https://mycentre.hvdc.ca/register) if you don't already have one.
 
-You can download & install PSCAD as follows:
+1. Send an email to the [PSCAD sales desk](mailto:sales@pscad.com) requesting the PSCAD software. Use an email with your facility’s email domain. 
 
- Register a MyCentre user account if you do not already have one.
+1. Sign in to MyCentre and download the software from the Downloads tab. The software downloads and setup instructions are in your MyCentre user account. For more information, see [PSCAD Knowledge Base](https://www.pscad.com/knowledge-base/topic-669/v-).
 
- Send an email using your facility’s email domain to the PSCAD Sales Desk requesting the PSCAD software.
+# PSCAD performance results
 
-#  The software downloads and setup instructions will be provided to authorized users through their MyCentre user account. Log in to MyCentre, and download the software from your Downloads tab. For information see the Knowledge base website.
+The performance tests of PSCAD on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) and [HBv4-series](/azure/virtual-machines/hbv4-series) VMs that run on a Windows 10 OS with a 64-bit architecture.
 
-# PSCAD Performance results
+The Province-80 test case model is used to test the performance of PSCAD on Azure HBv3-series and HBv4-series VMs.
 
-Performance tests of PSCAD on Azure used [HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) and [HBv4-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv4-series) VM running on Windows OS. The following table provides the Operating system details.
+### Model details
 
-| **Operating system version** | **OS Architecture** |
-|:---:|:---:|
-| **Windows** **10** **OS** | 64-bit |
+The Province-80 test case comprises of a large network that covers a geographical area in North America. The network has seven individual zones that serve each of its populous geographical areas. The test case uses multiple EMTDC processes to distribute computational loading across multiple cores, which demonstrates task parallel processing. The model is split into 80 cases of 1D simulations. The complexity of the model is dependent on the number of splits. The following components were used:
 
-A test case model is considered for testing the performance of PSCAD on Azure HBv3-series and HBv4-series VM. The model details are shown below.
-
-### Model Details:
-
-**Model: Province-80**
-
- The province-80 case comprises of a large network covering a geographical area in North America. The network is comprised of 7 individual zones serving each of its populous geographical areas. The case demonstrates task parallel processing using multiple EMTDC processes to distribute computational loading across multiple cores. Model is split into 80 cases of 1D simulations and complexity of model is dependent on splits. Below are components used:
-
-| **Components** | **Number of components used** |
+| Components | Number of components |
 |---|---|
-| **Buses (AC system)** | 2500 |
-| **Synchronous and inverter-based generators** | 400 |
-| **Transmission Line and cables** | 2500 |
-| **Transformers** | 1500 |
+| Buses (AC systems) | 2500 |
+| Synchronous and inverter-based generators | 400 |
+| Transmission lines and cables | 2500 |
+| Transformers | 1500 |
 
-## Results on HBv3-series
+## Results on HBv3-series VMs
 
-### Model – Province-80
+The following table shows the results of the Province-80 model on HBv3-series VMs:
 
-The following table shows Elapsed time in seconds and Relative speed increase of Province-80 model:
-
-| **VM** **Size** | **No. of vCPU used** | **Total Elapsed time in Seconds** | **Relative speed increase** |
+| VM size | No. of vCPU used | Total elapsed time, in seconds | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-| **Standard_HB120-16rs_v3** | 16 | 3031 | 1.00 |
-| **Standard_HB120-32rs_v3** | 32 | 1743 | 1.74 |
-| **Standard_HB120-64rs_v3** | 64 | 897 | 3.38 |
-| **Standard_HB120-96rs_v3** | 96 | 767 | 3.95 |
-| **Standard_HB120-120rs_v3** | 120 | 774 | 3.92 |
+| Standard_HB120-16rs_v3 | 16 | 3031 | 1.00 |
+| Standard_HB120-32rs_v3 | 32 | 1743 | 1.74 |
+| Standard_HB120-64rs_v3 | 64 | 897 | 3.38 |
+| Standard_HB120-96rs_v3 | 96 | 767 | 3.95 |
+| Standard_HB120-120rs_v3 | 120 | 774 | 3.92 |
 
-The following chart shows Relative speed increase of Province-80 model:
+The following chart shows the relative speed increase:
 
-## Results on HBv4-series
+:::image type="content" source="media/hbv3-relative-speed.png" alt-text="Chart that shows the relative speed increase for HBv3-series VMs.":::
 
-### Model – Province-80
+## Results on HBv4-series VMs
 
-The following table shows Total Elapsed time in seconds and Relative speed increase of Province-80 model:
+The following table shows the results of the Province-80 model on HBv4-series VMs:
 
-| **VM** **Size** | **No. of vCPU used** | **Total Elapsed time in Seconds** | **Relative speed increase** |
+| VM size | No. of vCPU used | Total elapsed time, in seconds | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-| **Standard_HB176-24rs_v4** | 24 | 2336 | 1 |
-| **Standard_HB176-48rs_v4** | 48 | 1128 | 2.07 |
-| **Standard_HB176-96rs_v4** | 96 | 617 | 3.79 |
-| **Standard_HB176-144rs_v4** | 144 | 548 | 4.26 |
+| Standard_HB176-24rs_v4 | 24 | 2336 | 1.00 |
+| Standard_HB176-48rs_v4 | 48 | 1128 | 2.07 |
+| Standard_HB176-96rs_v4 | 96 | 617 | 3.79 |
+| Standard_HB176-144rs_v4 | 144 | 548 | 4.26 |
 
-The following chart shows Relative speed increases of Province-80 model:
+The following chart shows the relative speed increase:
 
-## Azure Cost
+:::image type="content" source="media/hbv4-relative-speed.png" alt-text="Chart that shows the relative speed increase for HBv4-series VMs.":::
 
-Only model running time is considered for the cost calculations. Application installation time isn't considered. The calculations are indicative. 
+## Azure cost
 
-Below summary details of cost consumption on HBv3-series used for the validation.
+For the cost calculations, only the model runtime is considered. Application installation time isn't considered. The calculations are indicative. 
 
-**HBv3-series**
+The following summary describes the cost consumption on HBv3-series VMs:
 
-- To evaluate the cost performance of the configurations, Standard_HB120-16rs_v3 configuration is used as a baseline.
-- It is apparent that linear decrease in azure cost is observed with every increment in HBv3 series, as we increase the size from 16vCPU to highest configuration of 120vCPU.                 
-- It is apparent that the linear scalability in terms of performance is observed, as HBv3 series cost per hour same across all VM configuration it is advisable to use the Higher vCPU size to achieve good cost to performance advantage.
+- To evaluate the cost performance of the configurations, the Standard_HB120-16rs_v3 configuration is used as a baseline.
 
-**HBv4-series**
+- Azure cost decreases for each increment as the VM size increases from 16 vCPUs to the highest configuration of 120 vCPUs.                 
+- Linear scalability occurs in terms of performance. The HBv3 series cost per hour is the same across all VM configurations, so we recommend that you use the higher vCPU size to take advantage of performance.
 
-- To evaluate the cost performance of the configurations, Standard_HB176-24rs_v4 configuration is used as a baseline.
-- It is apparent that linear decrease in azure cost is observed with every increment in HBv4 series, as we increase the size from 24vCPU to highest configuration of 144vCPU.                 
-- It is apparent that the linear scalability in terms of performance is observed, as HBv4 series cost per hour same across all VM configuration it is advisable to use the Higher vCPU size to achieve good cost to performance advantage.
-- When compared between HBv3 with 96 cores and HBv4 96cores, it is evident that there is ~24% increase in performance is observed.
+The following summary describes the cost consumption on HBv4-series VMs:
+
+- To evaluate the cost performance of the configurations, the Standard_HB176-24rs_v4 configuration is used as a baseline.
+
+- Azure cost decreases for each increment as the size increases from 24 vCPUs to the highest configuration of 144 vCPUs.                 
+- Linear scalability occurs in terms of performance. The HBv4 series cost per hour is the same across all VM configurations, so we recommend that you use the higher vCPU size to take advantage of performance.
+- The HBv4-series VM with 96 vCPUs has about a 24% performance increase compared to the HBv3-series VM with 96 vCPUs.
 
 ## Summary
 
-PSCAD, powered by Microsoft Azure platform, exhibits high scalability when deployed on HBv3-series (AMD EPYC™ 7V73X (Milan-X) CPU cores) and HBv4-series (AMD EPYC™ 9V33X ("Genoa-X") CPU cores)
+- PSCAD on Azure provides high scalability when you deploy it on HBv3-series (AMD EPYC™ 7V73X *Milan-X* CPU cores) and HBv4-series (AMD EPYC™ 9V33X *Genoa-X* CPU cores) VMs.
 
-- For evaluating both series' performance, the lowest VM configuration is considered baseline: 16 cores for HBv3, and 24 cores for HBv4. The results are assessed based on the relative performance, where higher values indicate better performance.
-- On HBv3 VMs, due to the model complexity as the number of cores doubles, we can observe an approximate 2X increase in relative speed up to 64 cores and moderate increases beyond 64 cores for this study.
-- Similarly, on HBv4 VMs, a performance increase of between approximately 2X and 4.3X can be observed between the 48 and 144 core configurations.
-- Higher scalability can be achieved based on the increased complexity of the model beyond 96 cores of HBv3 and 144 cores of HBv4.
+- For both series' performance evaluations, the lowest VM configuration is the baseline: 16 cores for HBv3-series VMs and 24 cores for HBv4-series VMs. The results are assessed based on the relative performance. Higher values indicate better performance.
 
-  
+- On HBv3-series VMs, the model gets more complex as the number of cores doubles, so there's an approximate 2X increase in the relative speed up to 64 cores and moderate increases for more than 64 cores.
+- Similarly, on HBv4-series VMs, there's a performance increase of approximately 2X to 4.3X between the 48-core and 144-core configurations.
+- You can achieve higher scalability based on the increased complexity of the model when you have more than 96 cores on HBv3-series VMs and 144 cores on HBv4-series VMs.
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -169,26 +160,25 @@ Principal authors:
 - [Saurabh Parave](https://www.linkedin.com/in/saurabh-parave-957303162/) | HPC Performance Engineer
 - [Karbasappa Umadi](https://www.linkedin.com/in/karbas-umadi-458879248/) | HPC Performance Engineer
 
-  
-
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Business Strategy Director
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [GPU optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
-- [Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)
-- [Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview)
-- [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](https://docs.microsoft.com/en-us/learn/paths/run-high-performance-computing-applications-azure)
+- [GPU-optimized VM sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows VMs in Azure](/azure/virtual-machines/windows/overview)
+- [Linux VMs in Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and VMs in Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run HPC applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
-- [Run a Windows VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [HPC system and big-compute solutions](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/hpc-cluster)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster)
 
