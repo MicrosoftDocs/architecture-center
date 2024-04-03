@@ -3,7 +3,7 @@ metadata:
   title: Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI
   description: Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 09/14/2023
   ms.topic: reference-architecture
   ms.service: architecture-center

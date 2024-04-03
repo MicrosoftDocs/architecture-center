@@ -27,4 +27,4 @@ products:
   - azure-functions
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-intelligent-apps-image-processing.png
 content: |
-  [!include[](intelligent-apps-image-processing-content.md)]
+  [!INCLUDE[](intelligent-apps-image-processing-content.md)]
