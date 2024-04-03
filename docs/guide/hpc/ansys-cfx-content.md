@@ -155,7 +155,7 @@ The following models were tested. For more information about the current Ansys m
   
 - Benchmark information:
 
-  a. Suitable for 100s ¬or 1000s of partitions
+  a. Suitable for 100s or 1000s of partitions
   
   b. Currently set to 5 iterations
   
@@ -305,7 +305,7 @@ Ansys CFX Application 2021 R2 and 2022 R2 both are successfully deployed and tes
 
 1. In case of single node configuration, it is observed that there is a relative speed increase up to 64 cores and there after it is saturated with further increase of cores.
 2. In case of multi-node runs, with sufficiently large models, Ansys CFX is scaling up linearly with increase in number of nodes.
-3. A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a very good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
+3. A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines
 4. The Performance comparison between the CFX versions 2021 R2 and 2022 R2 is shown in this report.
 
 ## Contributors
