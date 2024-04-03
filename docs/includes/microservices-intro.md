@@ -1,6 +1,6 @@
 ---
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.topic: include
 ms.service: architecture-center
 ---
