@@ -411,7 +411,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 ## Next steps
 
-Deploy the **[reference implementation](aka.ms/eap/rwa/java) by following the instructions in the GitHub repository. Use the following resources to learn more about cloud best practices and migration.
+Deploy the **[reference implementation](https://aka.ms/eap/rwa/java) by following the instructions in the GitHub repository. Use the following resources to learn more about cloud best practices and migration.
 
 **Cloud best practices.** For Azure adoption and architectural guidance, see:
 
