@@ -10,13 +10,13 @@ This article helps you plan the implementation of the reliable web app pattern. 
 ## Architecture
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
-*Figure 1. Hub and spoke architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 ## Define business goals
 
-The initial step in transitioning to cloud computing is to clearly articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and how your web application will be structured in the cloud.
+The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-*[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* Consider the example of a fictional company named Relecloud, which specializes in selling concert tickets. The primary method Relecloud uses to sell tickets is through a web application. Prior to transitioning to the cloud, Relecloud aimed to accommodate growing business needs with minimal investment in their existing local web application. The web application enabled Relecloud's call center staff to purchase concert tickets on behalf of their clients.
+*Scenario example:* The [reference implementation:](https://aka.ms/eap/rwa/dotnet) shows the end result of applying the reliable web app to a on-premises web application. The web app in the reference implementation belongs to the fictional company Relecloud, which specializes in selling concert tickets. The primary method Relecloud uses to sell tickets is through a web application. Prior to transitioning to the cloud, Relecloud aimed to accommodate growing business needs with minimal investment in their existing local web application. The web application enabled Relecloud's call center staff to purchase concert tickets on behalf of their clients.
 
 The demand for Relecloud's on-site application surged as ticket sales increased, and Relecloud anticipated further demand growth. Relecloud determined that their on-premise infrastructure was not a cost-effective solution for scaling up. Consequently, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
@@ -32,11 +32,11 @@ A service level objective (SLO) for availability defines how available you want 
 
 ## Choose the right managed services
 
-When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, keep the same database engine and application hosting platform. The following sections provide guidance for selecting the right Azure services for your web app.
+When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* Before the move to the cloud, Relecloud's ticketing web app was an on-premises, monolithic, ASP.NET app. It ran on two virtual machines and had a Microsoft SQL Server database. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
-### Application hosting platform
+### Application platform
 
 Choose the best application hosting platform for your web app. Azure has many different compute options to meet a range of web apps requirements. For help with narrowing options, see the Azure [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
@@ -57,7 +57,7 @@ Choose the best identity management solution for your web app. For more informat
 - *Authentication and authorization:* The application needs to authenticate and authorize call center employees.
 - *Scalable:* It scales to support larger scenarios.
 - *User-identity control:* Call center employees can use their existing enterprise identities.
-- *Authorization protocol support:* It supports OAuth 2.0 for managed identities and OpenID Connect for future B2C support.
+- *Authorization protocol support:* It supports OAuth 2.0 for managed identities.
 
 ### Database
 
@@ -82,7 +82,7 @@ Choose to an application performance monitoring for your web app. [Application I
 - *Anomaly detection:* It automatically detects performance anomalies.
 - *Troubleshooting:* It helps you diagnose problems in the running app.
 - *Monitoring:* It collects information about how users are using the app and allows you to easily track custom events.
-- *Visibility gap:* The on-premises solution didn't have APM. Application Insights provides easy integration with the application platform and code.
+- *Visibility gap:* The on-premises solution didn't have application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
 ### Cache
 
@@ -177,7 +177,7 @@ After you define what *available* means for your web app and select the best clo
 
 The business goals determine the level of infrastructure and data redundancy your web app needs. The web app SLO provides a good baseline for understanding your redundancy requirements. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) all the dependencies on the critical path of *availability*. Dependencies should include Azure services and non-Microsoft solutions.
 
-Assign an availability estimate for each dependency. Service level agreements (SLAs) provide a good starting point. SLAs don't account for code, deployment strategies, and architectural connectivity decisions.
+Assign an availability estimate for each dependency. Service level agreements (SLAs) provide a good starting point, but SLAs don't account for code, deployment strategies, and architectural connectivity decisions.
 
 *[Reference implementation:](https://aka.ms/eap/rwa/dotnet)* Relecloud identified the services on the critical path of availability. They used Azure SLAs for availability estimates. Based on the composite SLA calculation, Relecloud needed a multi-region architecture to meet the SLO of 99.9%.
 

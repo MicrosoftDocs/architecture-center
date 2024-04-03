@@ -9,7 +9,7 @@ This article provides code and architecture guidance for the reliable web app pa
 ## Architecture
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 ## Reliability
 
@@ -181,7 +181,7 @@ Administrator-level access to the database grants permissions to perform privile
 
 - *Avoid permanent elevated permissions.* You should only grant the developers just-in-time access to perform privileged operations. With just-in-time access, users receive temporary permissions to perform privileged tasks
 
-- *Don't give application elevated permissions.** You shouldn't grant administrator-level access to the application identity. You should configure least-privileged access for the application to the database. It limits the blast radius of bugs and security breaches.
+- *Don't give application elevated permissions.* You shouldn't grant administrator-level access to the application identity. You should configure least-privileged access for the application to the database. It limits the blast radius of bugs and security breaches.
 
 ## Cost optimization
 
