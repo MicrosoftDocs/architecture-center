@@ -26,7 +26,7 @@ You can use PSCAD in many areas of the energy sector, like utilities and wind fa
 
 ## Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm).
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../reference-architectures/n-tier/windows-vm).
 
 - An Azure Premium SSD is used for OS disk and for storage.
 
@@ -62,7 +62,7 @@ The following table provides the configuration details the HBv4-series VM:
 
 ## PSCAD installation
 
-Before you install PSCAD, you need to deploy and connect a VM. For information about deploying the VM, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm).
+Before you install PSCAD, you need to deploy and connect a VM. For information about deploying the VM, see [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm).
 
 Follow these steps to download and install PSCAD:
 
@@ -93,7 +93,7 @@ The Province-80 test case comprises of a large network that covers a geographica
 
 The following table shows the results of the Province-80 model on HBv3-series VMs:
 
-| VM size | No. of vCPU used | Total elapsed time, in seconds | Relative speed increase |
+| VM size | No. of vCPU used | Total elapsed time, in seconds (sec) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
 | Standard_HB120-16rs_v3 | 16 | 3031 | 1.00 |
 | Standard_HB120-32rs_v3 | 32 | 1743 | 1.74 |
@@ -109,7 +109,7 @@ The following chart shows the relative speed increase:
 
 The following table shows the results of the Province-80 model on HBv4-series VMs:
 
-| VM size | No. of vCPU used | Total elapsed time, in seconds | Relative speed increase |
+| VM size | No. of vCPU used | Total elapsed time (sec) | Relative speed increase |
 |:---:|:---:|:---:|:---:|
 | Standard_HB176-24rs_v4 | 24 | 2336 | 1.00 |
 | Standard_HB176-48rs_v4 | 48 | 1128 | 2.07 |
@@ -177,8 +177,8 @@ Other contributors:
 
 ## Related resources
 
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm)
-- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster)
+- [Run a Windows VM on Azure](../reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm)
+- [HPC system and big-compute solutions](../solution-ideas/articles/big-compute-with-azure-batch)
+- [HPC cluster deployed in the cloud](../solution-ideas/articles/hpc-cluster)
 
