@@ -79,7 +79,7 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ### Use the Circuit Breaker pattern
 
-Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a non-responsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
+Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a nonresponsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
 **Example:** The reference implementation adds the Circuit Breaker pattern in the `GetCircuitBreakerPolicy` method (*see the following code*).
 
@@ -109,7 +109,7 @@ Assess your application's needs to define a set of roles that cover all user act
 
 #### Assign permissions to workload identities
 
-Grant permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets, and nothing more. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities.
+Grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities.
 
 - *Prefer role-based access control (RBAC).* Always start with [Azure RBAC](/azure/role-based-access-control/overview) to assign permissions. It offers precise control, ensuring access is both auditable and granular. Use Azure RBAC to grant only the permissions necessary for the service to perform its intended functions.
 
@@ -125,7 +125,7 @@ Secure your web app by enabling user authentication through your platform's feat
 
 ### Configure service authentication and authorization
 
-Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions. WUse [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach. For more information, see [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
+Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions. Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach. For more information, see [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
 
 #### Use DefaultAzureCredential to set up code
 
@@ -268,7 +268,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ### Automate deployment
 
-Use a CI/CD pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, use GitHub actions. Azure supports ARM template (JSON), Bicep, and Terraform and has templates for every Azure resource For more information, see [Bicep, ARM, and Terraform templates](/azure/templates/) and [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
+Use a CI/CD pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, use GitHub actions. Azure supports ARM template (JSON), Bicep, and Terraform and has templates for every Azure resource For more information, see [Bicep, Azure Resource Manager, and Terraform templates](/azure/templates/) and [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
 
 **Example:** The reference implementation uses Azure Dev CLI and infrastructure as code (Bicep templates) to create Azure resources, setup configuration, and deploy the required resources.  
 
@@ -293,7 +293,7 @@ public void ConfigureServices(IServiceCollection services)
 
 #### Create custom telemetry as needed
 
-Use Application Insights to gather custom telemetry to better understand your web app users. Create an instance of the `TelemetryClient` class and use the `TelemetryClient` methods to create the right metric. It's recommended to turn the query into an Azure Dashboard widget.
+Use Application Insights to gather custom telemetry to better understand your web app users. Create an instance of the `TelemetryClient` class and use the `TelemetryClient` methods to create the right metric. Turn the query into an Azure Dashboard widget.
 
 **Example:** The reference implementation adds metrics that help the operations team identify that the web app is completing transactions successfully. It validates that the web app is online by monitoring whether customers can place orders, not by measuring the number of requests or CPU usage. The reference implementation uses `TelemetryClient` via dependency injection and the `TrackEvent` method to gather telemetry on events related to cart activity. The telemetry tracks the tickets that users add, remove, and purchase (*see the following code*).
 

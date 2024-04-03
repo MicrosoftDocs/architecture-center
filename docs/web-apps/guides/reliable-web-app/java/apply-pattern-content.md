@@ -39,9 +39,9 @@ The reference implementation configures the retry policy including maximum attem
 
 ### Use the Circuit Breaker pattern
 
-Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a non-responsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a nonresponsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
-**Example:** Circuit Breaker is implemented by decorating methods with the Circuit Breaker attribute. You can [simulate the circuit breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern) in the reference implementation.
+**Example:** The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute. You can [simulate the circuit breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern) in the reference implementation.
 
 ## Security
 
@@ -57,7 +57,7 @@ Assess your application's needs to define a set of roles that cover all user act
 
 #### Assign permissions to workload identities
 
-Grant permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets, and nothing more. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities.
+Grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities.
 
 - *Prefer role-based access control (RBAC).* Always start with [Azure RBAC](/azure/role-based-access-control/overview) to assign permissions. It offers precise control, ensuring access is both auditable and granular. Use Azure RBAC to grant only the permissions necessary for the service to perform its intended functions.
 
@@ -121,7 +121,7 @@ For more information, see [Spring Cloud Azure support for Spring Security](https
 
 Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Microsoft Entra ID. This library allows integration with Microsoft Entra ID and helps you ensure that users are authenticated securely. Configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features. These features include token caching and automatic token refreshing.
 
-**Example:** The reference implementation creates app roles reflecting the types of user roles in Contoso Fiber's account management system. Roles translate into permissions during authorization. Examples of app-specific roles in CAMS include the account manager, Level one (L1) support representative, and Field Service representative. The Account Manager role has permissions to add new new app users and customers. A Field Service representative can create support tickets. The PreAuthorize attribute restricts access to specific roles.
+**Example:** The reference implementation creates app roles reflecting the types of user roles in Contoso Fiber's account management system. Roles translate into permissions during authorization. Examples of app-specific roles in CAMS include the account manager, Level one (L1) support representative, and Field Service representative. The Account Manager role has permissions to add new app users and customers. A Field Service representative can create support tickets. The `PreAuthorize` attribute restricts access to specific roles.
 
 ```java
     @GetMapping("/new")
@@ -177,7 +177,7 @@ For more information, see:
 
 ### Configure service authentication and authorization
 
-Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions. WUse [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach. For more information, see [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
+Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions. Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach. For more information, see [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
 
 **Example:** The reference implementation keeps the on-premises authentication mechanism for the database (username and password). As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system assigned) to retrieve secrets from Key Vault.
 
@@ -199,12 +199,10 @@ When configuring a web app to access secrets in Key Vault, you have two primary 
 
 - *Direct secret reference:* Directly reference the secret within your application code. Add a specific reference in your application's properties file, such as `application.properties` for Java applications, so your app to communicate with Key Vault.
 
-It's important to choose one of these methods and stick with it for simplicity and to avoid unnecessary complexity.
+It's important to choose one of these methods and stick with it for simplicity and to avoid unnecessary complexity. For integrating Key Vault with a Spring application, the process involves:
 
-For integrating Key Vault with a Spring application, the process involves:
-
-1. Adding the Azure Spring Boot Starter for Azure Key Vault Secrets dependency in your pom.xml file.
-2. Configuring a Key Vault endpoint in your application. This can be done either through the application.properties file or as an environment variable.
+1. Add the Azure Spring Boot Starter for Azure Key Vault Secrets dependency in your pom.xml file.
+2. Configure a Key Vault endpoint in your application. This can be done either through the application.properties file or as an environment variable.
 
 **Example:** The reference implementation uses an app setting in App Service and injects secrets.
 
@@ -218,7 +216,7 @@ Use private endpoints in all production environments for all supported Azure ser
 
 All inbound internet traffic to the web app must pass through a web application firewall to protect against common web exploits. Force all inbound internet traffic to pass through the public load balancer, if you have one, and the web application firewall. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. 
 
-The App Service platform and Java Spring can filter by header value. You should use App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code. You need to configure what traffic you want to pass through your WAF. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation)
+The App Service platform and Java Spring can filter by header value. You should use App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code. You need to configure what traffic you want to pass through your web application firewall. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name.](/azure/architecture/best-practices/host-name-preservation)
 
 **Example:** The reference implementation uses a private endpoint in the production environment and the `X-Azure-FDID` header value in production.
 

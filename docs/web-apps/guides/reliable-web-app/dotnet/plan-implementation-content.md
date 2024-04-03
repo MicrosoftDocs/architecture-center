@@ -16,9 +16,9 @@ This article helps you plan the implementation of the reliable web app pattern. 
 
 The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-**Example:** The reference implementation shows the end result of applying the reliable web app to a on-premises web application. The web app in the reference implementation belongs to the fictional company Relecloud, which specializes in selling concert tickets. The primary method Relecloud uses to sell tickets is through a web application. Prior to transitioning to the cloud, Relecloud aimed to accommodate growing business needs with minimal investment in their existing local web application. The web application enabled Relecloud's call center staff to purchase concert tickets on behalf of their clients.
+**Example:** The reference implementation shows the end result of applying the reliable web app to an on-premises web application. The web app in the reference implementation belongs to the fictional company Relecloud, which specializes in selling concert tickets. The primary method Relecloud uses to sell tickets is through a web application. Before transitioning to the cloud, Relecloud aimed to accommodate growing business needs with minimal investment in their existing local web application. The web application enabled Relecloud's call center staff to purchase concert tickets on behalf of their clients.
 
-The demand for Relecloud's on-site application surged as ticket sales increased, and Relecloud anticipated further demand growth. Relecloud determined that their on-premise infrastructure was not a cost-effective solution for scaling up. Consequently, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+The demand for Relecloud's on-site application surged as ticket sales increased, and Relecloud anticipated further demand growth. Relecloud determined that their on-premises infrastructure wasn't a cost-effective solution for scaling up. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 | Immediate app goals | Future app goals |
 | --- | --- |
@@ -93,7 +93,7 @@ Choose whether to add cache to your web app architecture. [Azure Cache for Redis
 - *Reduced management overhead:* It's a fully managed service.
 - *Speed and volume:* It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - *Diverse supportability:* It's a unified cache location for all instances of the web app to use.
-- *Externalized:* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+- *External data store:* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 - *Nonsticky sessions:* Externalizing session state supports nonsticky sessions.
 
 ### Load balancer
@@ -146,7 +146,7 @@ Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to 
 
 ### Storage solution
 
-Choose the best storage solution for your web app. For help deciding, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
+Choose the best storage solution for your web app. For help choosing a storage solution, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 **Example:** On-premises, the web app had disk storage mounted to each web server, but the team wanted to use an external data storage solution. Relecloud chose [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for the following reasons:
 

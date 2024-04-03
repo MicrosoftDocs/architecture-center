@@ -14,7 +14,7 @@ This article helps you plan the implementation of the reliable web app pattern. 
 
 The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-**Example:** The web app in the reference implementation belongs to the fictional company Contoso Fiber. Contoso Fiber wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other countries. Contoso Fiber determined that their on-premises infrastructure was not a cost-effective solution for scaling the application. Consequently, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+**Example:** The web app in the reference implementation belongs to the fictional company Contoso Fiber. Contoso Fiber wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. So, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 | Immediate app goals | Future app goals |
 | --- | --- |
@@ -24,7 +24,7 @@ The initial step in transitioning to cloud computing is to articulate your busin
 
 A service level objective (SLO) for availability defines how available you want a web app to be for users. The definition of what *available* means is different for every web app. You need to define what available means for your web app. It might be a core functionality of your web app, such as when customers can purchase products. After you define *available* for your web app, you need to figure out how available you need your web app to be in percentage uptime (for example, 99.9%). This percentage is the web app SLO. The SLO plays a significant role in the services you choose and the architecture you adopt.
 
-**Example:** For Contoso Fiber, the web app is considered available when support technicians can log in and interact with the Account Management System. Contoso Fiber set a target SLO of 99.9% (about 8.7 hours of downtime per year).
+**Example:** For Contoso Fiber, the web app is considered available when support technicians can sign in and interact with the Account Management System. Contoso Fiber set a target SLO of 99.9% (about 8.7 hours of downtime per year).
 
 ## Choose the right managed services
 
@@ -38,7 +38,7 @@ Choose the best application hosting platform for your web app. Azure has many di
 
 **Example:** Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
 
-- *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, they would have used Azure Spring Apps. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
+- *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, Azure Spring Apps would be a better fit. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
 - *High SLA.* It has a high SLA that meets the requirements for the production environment.
 - *Reduced management overhead.* It's a fully managed hosting solution.
 - *Containerization capability.* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
@@ -78,7 +78,7 @@ Choose to an application performance monitoring for your web app. [Application I
 - *Anomaly detection.* It automatically detects performance anomalies.
 - *Troubleshooting.* It helps diagnose problems in the running app.
 - *Telemetry.* It collects information about how users are using the app and allows you to easily send custom events that you want to track in your app.
-- *Solving an on-premises visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
+- *On-premises visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
 ### Cache
 
@@ -88,8 +88,8 @@ Choose whether to add cache to your web app architecture. [Azure Cache for Redis
 
 - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - *Diverse supportability.* It's a unified cache location that all instances of the web app can use.
-- *Externalized.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- *Enabling non-sticky sessions.* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
+- *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+- *Nonsticky sessions.* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
 ### Load balancer
 
@@ -162,7 +162,7 @@ Ensure data reliability by distributing it across Azure's regions and availabili
 
 - *Create a failover plan.* Develop a failover (disaster recovery) plan outlining response strategies to outages, determined by downtime or functionality loss. Specify the recovery time objectives (RTO) for maximum acceptable downtime. Ensure the failover process is quicker than RTO. Decide on automated or manual failover mechanisms for consistency and control, and detail the return to normal operations process. Test the failover plan to ensure effectiveness.
 
-**Example:** For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read replica in the passive region. Contoso Fiber created a [sample failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md). The Azure Database for PostgreSQL read replica are central to Contoso Fiber's failover plan.
+**Example:** For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read-replica in the passive region. Contoso Fiber created a [sample failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md). The Azure Database for PostgreSQL read replica are central to Contoso Fiber's failover plan.
 
 ## Next step
 
