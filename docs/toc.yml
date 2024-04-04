@@ -1139,6 +1139,8 @@ items:
           href: guide/hpc/openfoam.yml
         - name: OpenRadioss
           href: guide/hpc/openradioss.yml
+        - name: PSCAD
+          href: guide/hpc/pscad.yml
         - name: Quantum ESPRESSO
           href: guide/hpc/quantum-espresso.yml
         - name: Remcom XFdtd
