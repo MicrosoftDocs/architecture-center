@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article describes how to run [Devito](https://www.devitoproject.org) on an Azure virtual machine (VM). It also presents the performance results of running Devito on Azure.
 
 Devito is a functional language that you can implement as a Python package. With Devito, you can use high-level symbolic problem definitions to create optimized stencil computation, such as finite differences, image processing, and machine learning. Devito is built on [SymPy](https://www.sympy.org) and uses automated code generation and just-in-time compilation to run optimized computational kernels on several compute platforms, including CPUs, GPUs, and clusters.

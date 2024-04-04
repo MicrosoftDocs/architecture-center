@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article briefly describes the steps for running [Ansys CFX](https://www.ansys.com/products/fluids/ansys-cfx) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Ansys CFX on Azure.
 
 Ansys CFX is computational fluid dynamics (CFD) software for turbomachinery applications. It uses an equilibrium phase change model and relies on material properties to reliably predict cavitation without the need for empirical model parameters. CFX:
@@ -6,6 +9,7 @@ Ansys CFX is computational fluid dynamics (CFD) software for turbomachinery appl
 - Integrates with Geolus Shape Search to rapidly find parts that are identical to a specified part, based on geometry.
 
 CFX is used in the aerospace, defense, steam turbine, energy, automotive, construction, facilities, manufacturing, and materials/chemical processing industries.
+
 
 ## Why deploy Ansys CFX on Azure?
 

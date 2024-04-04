@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article briefly describes the steps for installing and running [LAMMPS](https://www.lammps.org/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running LAMMPS on single-node and multi-node VM configurations.
 
 LAMMPS is a classical molecular dynamics simulator that's used for materials modeling. It can model solid-state materials, soft matter, and coarse-grained or mesoscopic systems. It can be used to model atoms or, more generically, as a parallel particle simulator at the atomic, meso, or continuum scale. 

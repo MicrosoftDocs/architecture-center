@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article briefly describes the steps for running [Altair Radioss](https://www.altair.com/radioss) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Radioss on Azure.
 
 Radioss is a multidisciplinary finite-element solver for linear and nonlinear problems.  It’s used to predict crash response and dynamic, transient-loading effects on vehicles, structures, and other products. Radioss:
@@ -7,6 +10,7 @@ Radioss is a multidisciplinary finite-element solver for linear and nonlinear pr
 - Provides a fast solution for airbag deployment that uses finite-volume method technology.
 
 Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems that combine structures, mechanisms, fluids, and thermal and electromagnetic effects. It's ideal for the automotive, aerospace, and energy industries.
+
 
 ## Why deploy Radioss on Azure?
 
