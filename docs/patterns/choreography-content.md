@@ -63,7 +63,7 @@ This example shows the choreography pattern by creating an event driven, cloud n
 
 ![GitHub logo](../_images/github.png) The code example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
 
-The following architecture is refactoring the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation) that is being deployed on [AKS](/azure/aks/) and implementing the the Orchestrator pattern. This example redesigns the app to implement the Choreography pattern instead.
+This example is a refactoring of the [Drone Delivery implementation](https://github.com/mspnp/microservices-reference-implementation). The refactor replaces the Orchestrator pattern with the Choreography pattern.
 
 ![An event driven cloud native example app implementing choreography pattern](./_images/choreography-example.png)
 
@@ -75,7 +75,7 @@ A single client business transaction requires three distinct business operations
 
 The business transaction is processed in a sequence through multiple hops. Each hop is sharing a single message bus among all the business services.
 
-When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, and converts this into a message, and then publishes it to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business service can complete the operation with success, failure, or the request can time out. If successful, the service responds to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. In case of a failure or time-out, the service reports failure by sending the BadRequest code to the message bus that sent the original POST request. The message bus retries the operation based on a retry policy. After that period expires, message bus flags the failed operation and further processing of the entire request stops.
+When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, and converts this into a message, and then publishes it to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. In case of a failure or time-out, the services report failure by sending the BadRequest code to the message bus that sent the original POST request. The message bus retries the operation based on a retry policy. After that period expires, message bus flags the failed operation and further processing of the entire request stops.
 
 This workflow continues until the entire request has been processed.
 
@@ -83,7 +83,7 @@ The design uses multiple message buses to process the entire business transactio
 
 > If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
 
-To avoid cascading retry operations that might lead to multiple efforts, only messaging services should retry an operation instead of the business service. It flags a failed request by sending a messaging to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+To avoid cascading retry operations that might lead to multiple efforts, only messaging services should retry an operation instead of the business service. All unacceptable messages should be immediately flagged with a well-known dead-letter reason code or using a defined application code when required, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 The business services are idempotent to make sure retry operations don't result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
 
@@ -101,4 +101,4 @@ Consider these patterns in your design for choreography.
 
 - For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.yml).
 
-- [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services
+- [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services)
