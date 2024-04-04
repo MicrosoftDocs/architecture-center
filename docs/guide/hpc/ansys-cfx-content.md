@@ -87,7 +87,7 @@ Case details:
 - Automotive pump with rotating and stationary components
   - Turbulent k-e, incompressible, isothermal, multiple frames of reference
   - Advection - scheme: specified blend factor 0.75
-- Global mesh size: 1,305,718 nodes, 5,362,055 elements Tetrahedra-4, 509, 881, Prisms-850, 617, Pyramids-1557
+- Global mesh size: 1,305,718 nodes, 5,362,055 elements (Tetrahedra: 4,509,881, Prisms: 850,617, Pyramids: 1557)
 
 - Benchmark information:
   - Suitable for up to about 16 cores
