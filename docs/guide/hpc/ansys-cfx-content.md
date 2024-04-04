@@ -82,7 +82,7 @@ The following models were tested. For more information about the current Ansys m
 
 :::image type="content" source="media/cfx/pump.png" alt-text="Figure that shows the pump model.":::
 
-- Case details:
+Case details:
 
 - Automotive pump with rotating and stationary components
   - Turbulent k-e, incompressible, isothermal, multiple frames of reference
@@ -98,7 +98,7 @@ The following models were tested. For more information about the current Ansys m
 
 :::image type="content" source="media/cfx/airfoil.png" alt-text="Diagram that shows the airfoil model.":::
 
-- Case details:
+Case details:
 
 - Transonic flow around an airfoil. The flow is two-dimensional. The mesh is extruded to provide three-dimensional meshes of various sizes
   - Turbulent SST, ideal gas, heat transfer
@@ -113,7 +113,7 @@ The following models were tested. For more information about the current Ansys m
 
 ### The airfoil 50M model
 
-- Case details:
+Case details:
 
 - Transonic flow around an airfoil. The flow is two-dimensional. The mesh is extruded to provide three-dimensional meshes of various sizes.
   - Turbulent SST, ideal gas, heat transfer
@@ -128,7 +128,7 @@ The following models were tested. For more information about the current Ansys m
 
 ### The airfoil 100M model
 
-- Case details:
+Case details:
 
 - Transonic flow around an Airfoil. The flow is two-dimensional. The mesh is extruded to provide three-dimensional meshes of various sizes.
   - Turbulent SST, ideal gas, heat transfer
