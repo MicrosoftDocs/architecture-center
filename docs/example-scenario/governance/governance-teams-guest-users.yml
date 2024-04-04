@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to use Microsoft Teams and Microsoft Entra entitlement management to collaborate with other organizations, while maintaining control over resource use.
   author: martinekuan
-  ms.author: martin.boam
+  ms.author: maboam
   ms.date: 02/23/2023
   ms.topic: example-scenario
   ms.service: architecture-center
