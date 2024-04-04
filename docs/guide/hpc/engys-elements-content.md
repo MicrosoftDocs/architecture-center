@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes the steps for running [Engys ELEMENTS](https://engys.com/products/elements) on a virtual machine (VM) and on an HPC cluster on Azure. It also presents the performance results of running ELEMENTS on single-node and multi-node VM configurations. 
 

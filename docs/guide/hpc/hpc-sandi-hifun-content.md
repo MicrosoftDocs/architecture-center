@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article briefly describes the steps for running [Sandi HiFUN](https://sandi.co.in)   on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HiFUN on Azure.
 

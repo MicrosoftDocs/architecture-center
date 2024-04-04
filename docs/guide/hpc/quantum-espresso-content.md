@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes the steps for running the [Quantum ESPRESSO](https://www.quantum-espresso.org/) application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Quantum ESPRESSO on single-node and multi-node VM configurations.
 
