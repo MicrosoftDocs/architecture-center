@@ -43,7 +43,7 @@ architecture.*
 
 Performance tests of Ansys CFX on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running Linux. The following table provides the configuration details.
 
-|VM size| vCPU| Memory (GiB) |Memory bandwidth (GBps) |Base CPU frequency (GHZ)| All-cores frequency (GHZ, peak)| Single-core frequency (GHZ, peak)| RDMA performance (Gbps) |Maximum data disks|
+|VM size| vCPU| Memory (GiB) |Memory bandwidth (GBps) |Base CPU frequency (GHz)| All-cores frequency (GHz, peak)| Single-core frequency (GHz, peak)| RDMA performance (Gbps) |Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
 |Standard_HB120rs_v3| 120| 448| 350| 2.45| 3.1| 3.675| 200| 32|
 |Standard_HB120-96rs_v3| 96| 448| 350| 2.45| 3.1| 3.675 |200| 32|
@@ -79,89 +79,70 @@ Many factors can influence HPC scalability, including the mesh size, element typ
 
 The following models were tested. For more information about the current Ansys models, see [Ansys Engineering Simulation Solutions](https://fluidcodes.com/softwares/ansys/).
 
-### 1. The pump model
+### The pump model
 
 :::image type="content" source="media/cfx/pump.png" alt-text="Figure that shows the pump model.":::
 
 - Case details:
 
-  a. Automotive pump with rotating and stationary components.
-  - Turbulent k-e, incompressible, isothermal, multiple frames of reference.
-  - Advection - scheme: specified blend factor 0.75.
+- Automotive pump with rotating and stationary components
+  - Turbulent k-e, incompressible, isothermal, multiple frames of reference
+  - Advection - scheme: specified blend factor 0.75
+- Global mesh size: 1,305,718 nodes, 5,362,055 elements Tetrahedra-4, 509, 881, Prisms-850, 617, Pyramids-1557
 
-  b. Global mesh size: 1,305,718 Nodes, 5362055 Elements Tetrahedra-4, 509, 881, Prisms-850, 617, Pyramids-1557.
-  
 - Benchmark information:
+  - Suitable for up to about 16 cores
+  - Currently set to 10 iterations
+  - Total solver memory requirement is about 3 GB
 
-  a. Suitable up to ~16 cores.
-  
-  b. Currently set to 10 iterations.
-  
-  c. Solver memory requirement (total) ~3 GB.
-
-### 2. Airfoil 10M
+### The airfoil 10M model
 
 :::image type="content" source="media/cfx/airfoil.png" alt-text="Diagram that shows the airfoil model.":::
 
 - Case details:
 
-  a. Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give 3D meshes of various sizes.
+- Transonic flow around an airfoil. The flow is two-dimensional. The mesh is extruded to provide three-dimensional meshes of various sizes
   - Turbulent SST, ideal gas, heat transfer
   - Default advection scheme (high resolution)
-
-  b. Global mesh size: 9,933,000 nodes, 9,434,520 elements.
+- Global mesh size: 9,933,000 nodes and 9,434,520 elements
   
 - Benchmark information:
+  - Suitable for up to about 50 partitions
+  - Currently set to 5 iterations
+  - Partitioning memory requirement is 1.7 GB
+  - Total solver memory requirement is 13 GB
 
-  a. Suitable for up to ~50 partitions.
-  
-  b. Currently set to 5 iterations.
-  
-  c. Partitioning memory requirement 1.7 GB.
-
-  d. Solver memory requirement (total) 13 GB.
-
-### 3. Airfoil 50M
+### The airfoil 50M model
 
 - Case details:
 
-  a. Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give 3D meshes of various sizes.
+- Transonic flow around an airfoil. The flow is two-dimensional. The mesh is extruded to provide three-dimensional meshes of various sizes.
   - Turbulent SST, ideal gas, heat transfer
   - Default advection scheme (high resolution)
-
-  b. Global mesh size: 47,773,000 nodes, 47,172,600 elements.
+- Global mesh size: 47,773,000 nodes and 47,172,600 elements
   
 - Benchmark information:
+  - Suitable for more than 100 partitions
+  - Currently set to 5 iterations
+  - Partitioning memory requirement is about 13 GB
+  - Total solver memory requirement is about 65 GB
 
-  a. Suitable for up to >100 partitions.
-  
-  b. Currently set to 5 iterations.
-  
-  c. Partitioning memory requirement ~13 GB.
-
-  d. Solver memory requirement (total) ~65 GB.
-
-### 4. Airfoil 100M
+### The airfoil 100M model
 
 - Case details:
 
-  a. Transonic flow around an Airfoil. Flow is 2D ¬ the mesh is extruded to give 3D meshes of various sizes.
+- Transonic flow around an Airfoil. The flow is two-dimensional. The mesh is extruded to provide three-dimensional meshes of various sizes.
   - Turbulent SST, ideal gas, heat transfer
   - Default advection scheme (high resolution)
-
-  b. Global mesh size: 104,533,000 nodes, 103,779,720 elements (all hexahedra).
+- Global mesh size: 104,533,000 nodes and 103,779,720 elements (all hexahedra)
   
 - Benchmark information:
+  - Suitable for hundreds or thousands of partitions  
+  - Currently set to 5 iterations
+  - Partitioning memory requirement is about 28 GB
+  - Total solver memory requirement is about 140 GB
 
-  a. Suitable for 100s or 1000s of partitions.
-  
-  b. Currently set to 5 iterations.
-  
-  c. Partitioning memory requirement ~28 GB.
-
-  d. Solver memory requirement (total) ~140 GB.
-
-### Ansys CFX 2021 R2 Performance results on single-node configuration
+### Ansys CFX 2021 R2 performance results on single-node configurations
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the pump model.
 
@@ -211,19 +192,19 @@ The following table and graph show elapsed wall-clock times and relative speed i
 
 :::image type="content" source="media/cfx/graph-airfoil-100m.png" alt-text="Graph that shows the relative speed increases for the 100M airfoil.":::
 
-### Ansys CFX 2021 R2 and 2022 R2 Performance on Multi-Nodes
+### Ansys CFX 2021 R2 and Ansys CFX 2022 R2 performance results on multi-node configurations
 
-Based on the single node results, we decided the configuration for cluster. The single node tests were carried out using AMD Milan Processors. For cluster runs, we used Milan-X AMD processors, which are the latest updated version of AMD EPYC Series Processors.
+The following cluster configuration is based on the single-node results. The single node tests were carried out using AMD Milan processors. The cluster runs used Milan-X AMD processors, which are the latest updated version of AMD EPYC-series processors.
 
 As the single-node results show, scalability improves as the number of cores increases. Because memory bandwidth is fixed on a single node, performance saturates after a certain number of cores is reached. A multi-node configuration surpasses this limitation to fully take advantage of the CFX solver capabilities.
 
 Based on the single-node tests, the 64-CPU configuration is optimal. It's also less expensive than 96-CPU and 120-CPU configurations. The Standard_HB120-64rs_v3 VM with 64 CPUs was used for the multi-node tests.
 
-To utilize the benefits of these latest processors for CFX simulations, we carried out multi-node runs on the Milan-X processors and compared the results between 2021R2 and 2022R2 versions.
+To take advantage of the benefits of the latest processors for CFX simulations, the multi-node tests run on the Milan-X processors. The following results compare the Ansys CFX 2021 R2 and Ansys CFX 2022 R2 versions.
 
-1. Pump: Assembly of stator and rotor
+The following table and graph show elapsed wall-clock times and relative speed increases for the pump model, with a stator and rotor assembly.
 
-|Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
+|Number of nodes|Number of vCPUs| CFD solver wall-clock time, in seconds (2021 R2)| CFD solver wall-clock time, in seconds (2022 R2)|Relative speed increase (2021 R2)|Relative speed increase (2022 R2)|Solver time improvement|
 |-|-|-|-|-|-|-|
 |1|	64|	11.36|	12.37|	1.00|	0.92|	-8.85%|
 |2|	128|	6.56|	7.256|	1.73|	1.57|	-10.61%|
@@ -233,7 +214,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 
 :::image type="content" source="media/cfx/graph-pump-cmpr-multi-node.png" alt-text="Graph that shows the relative speed increases for pump model, using the multi-node configuration.":::
 
-2. Airfoil with 10M mesh size
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 10 million.
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -245,7 +226,7 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 
 :::image type="content" source="media/cfx/graph-airfoil-10m-multi-node.png" alt-text="Graph that shows the relative speed increases for 10M airfoil, using the multi-node configuration.":::
 
-3. Airfoil with 50M mesh size
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 50 million.
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -255,9 +236,9 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 |8|	512|	71.84|	47.90|	5.17|	7.75|	33.33%|
 |16|	1024|	37.69|	39.30|	9.85|	9.45|	-4.26%|
 
-:::image type="content" source="media/cfx/graph-airfoil-50m-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration." border="false":::
+:::image type="content" source="media/cfx/graph-airfoil-50m-multi-node.png" alt-text="Graph that shows the relative speed increases for 50M airfoil, using the multi-node configuration.":::
 
-4. Airfoil with 100M mesh size  
+The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 100 million.
 
 |Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
 |-|-|-|-|-|-|-|
@@ -271,15 +252,15 @@ To utilize the benefits of these latest processors for CFX simulations, we carri
 
 ## Azure cost
 
-The following tables provide wall clock times that you can use to calculate Azure costs. To compute the cost, multiply the wall clock time by the number of nodes and the Azure VM hourly rate. For the hourly rates for Linux, see [Linux Virtual Machines pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#pricing). Azure VM hourly rates are subject to change.
+The following tables provide wall-clock times that you can use to calculate Azure costs. To compute the cost, multiply the wall-clock time by the number of nodes and the Azure VM hourly rate. For the hourly rates for Linux, see [Linux VMs pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). Azure VM hourly rates are subject to change.
 
-Only simulation running time is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included. The time shown below in hours is the combined wall clock time for all the models.
+Only the simulation runtime is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included. The time for each configuration in the following tables is the combined wall-clock time for all models.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configuration.
 
-### Cost for Ansys CFX 2021R2
+### Cost for Ansys CFX 2021 R2
 
-|Number of Nodes| Number of vCPUs|  Hours|
+|Number of Nodes| Number of vCPUs|  Time, in hours|
 |-|-|-|
 |1 |64| 0.44|
 |2 |128 | 0.18|
@@ -289,7 +270,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ### Cost for Ansys CFX 2022R2
 
-| Number of nodes| Number of vCPUs | Hours|
+| Number of nodes| Number of vCPUs | Time, in hours|
 |-|-|-|
  |1|64| 0.45|
  |2|128| 0.20|
@@ -299,12 +280,12 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ## Summary
 
-Ansys CFX Application 2021 R2 and 2022 R2 are both successfully deployed and tested on HBv3 120 AMD EPYC™ 7V73X-series (Milan-X) Virtual Machines.
+Ansys CFX 2021 R2 and Ansys CFX 2022 R2 were both successfully deployed and tested on HBv3 120 AMD EPYC™ 7V73X-series (Milan-X) VMs.
 
-1. In case of single node configuration, it's observed that there is a relative speed increase up to 64 cores and there after it's saturated with further increase of cores.
-2. In case of multi-node runs, with sufficiently large models, Ansys CFX scales up linearly with increase in number of nodes.
-3. A Relative speed increase of ~13.5 times is achieved with multi-node setup (16 nodes) for a considerably bigger model (100 million cells) which is a good performance indicator for Ansys CFX on Azure HBv3 Virtual Machines.
-4. The Performance comparison between the CFX versions 2021 R2 and 2022 R2 is shown in this report.
+- For a single-node configuration, there's a relative speed increase up to 64 cores. There's no relative speed increase for more than 64 cores.
+- For a multi-node configuration, with sufficiently large models, Ansys CFX scales up linearly with each increase in the number of nodes.
+- There's a relative speed increase of about 13.5 times with a multi-node configuration (16 nodes) for a considerably large model (100 million cells). These results indicate that Ansys CFX performs well on Azure HBv3 VMs.
+- The preceding test results show the performance of Ansys CFX 2021 R2 compared to Ansys CFX 2022 R2.
 
 ## Contributors
 
