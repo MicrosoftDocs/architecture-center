@@ -8,7 +8,7 @@ PSCAD offers the following benefits:
 
 - Online plotting functions, controls, and meters, so you can alter system parameters during a simulation run and view the effects while the simulation is in progress.
 
-You can use PSCAD in many areas of the energy sector, like utilities and wind farms. You can also use it in industries like equipment manufacturing, consulting, and research and academics. Regulators can use PSCAD for functions like planning, operations, design, commissioning, teaching, and research.
+You can use PSCAD in many areas of the energy sector, like utilities and wind farms. You can also use it in industries like equipment manufacturing, consulting, research, and academics. Regulators can use PSCAD for functions like planning, operations, design, commissioning, teaching, and research.
 
 ## Why deploy PSCAD on Azure?
 
@@ -20,7 +20,7 @@ You can use PSCAD in many areas of the energy sector, like utilities and wind fa
 
 ## Architecture
 
-:::image type="content" source="media/hpc-pscad.svg" alt-text="Diagram that shows architecture for running PSCAD on Azure." border="false" lightbox="":::
+:::image type="content" source="media/hpc-pscad.svg" alt-text="Diagram that shows architecture for running PSCAD on Azure." border="false" lightbox="media/hpc-pscad.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-pscad.vsdx) of this architecture.*
 
@@ -50,7 +50,7 @@ The following table provides the configuration details of the HBv3-series VM:
 | Standard_HB120-96rs_v3 | 96 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
 | Standard_HB120-120rs_v3 | 120 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
 
-The following table provides the configuration details the HBv4-series VM:
+The following table provides the configuration details for the HBv4-series VM:
 
 | VM size | vCPU | Memory (GiB) | Memory bandwidth (GB/s) | Base CPU frequency (GHz) | Max data disks) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -80,7 +80,7 @@ The Province-80 test case model is used to test the performance of PSCAD on Azur
 
 ### Model details
 
-The Province-80 test case comprises of a large network that covers a geographical area in North America. The network has seven individual zones that serve each of its populous geographical areas. The test case uses multiple EMTDC processes to distribute computational loading across multiple cores, which demonstrates task parallel processing. The model is split into 80 cases of 1D simulations. The complexity of the model is dependent on the number of splits. The following components were used:
+The Province-80 test case is comprised of a large network that covers a geographical area in North America. The network has seven individual zones that serve each of its populous geographical areas. The test case uses multiple EMTDC processes to distribute computational loading across multiple cores, which demonstrates task parallel processing. The model is split into 80 cases of 1D simulations. The complexity of the model is dependent on the number of splits. The following components were used:
 
 | Components | Number of components |
 |---|---|
@@ -181,4 +181,3 @@ Other contributors:
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
-
