@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes the steps for running the [AVL FIRE M](https://www.avl.com/fire-m) application on a virtual machine (VM) and a high-performance computing (HPC) cluster that's deployed on Azure. The article also shows the performance results of running AVL FIRE M on Azure CycleCloud (an Azure HPC cluster).
 

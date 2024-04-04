@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article briefly describes the steps for running the [Autodesk VRED Core](https://www.autodesk.in/products/vred/overview?term=1-YEAR&tab=subscription&plc=VRDSRV) application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Autodesk VRED Core on Azure.
 

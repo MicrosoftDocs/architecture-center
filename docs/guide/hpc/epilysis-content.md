@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article presents the performance results of running the [BETA CAE EPILYSIS](https://www.beta-cae.com/epilysis.htm) application on an Azure virtual machine (VM). EPILYSIS is a software program that's used to perform several types of finite element analysis on various structures and materials.
 
