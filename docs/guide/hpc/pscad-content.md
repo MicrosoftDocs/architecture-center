@@ -80,7 +80,7 @@ The Province-80 test case model is used to test the performance of PSCAD on Azur
 
 ### Model details
 
-The Province-80 test case is comprised of a large network that covers a geographical area in North America. The network has seven individual zones that serve each of its populous geographical areas. The test case uses multiple EMTDC processes to distribute computational loading across multiple cores, which demonstrates task parallel processing. The model is split into 80 cases of 1D simulations. The complexity of the model is dependent on the number of splits. The following components were used:
+The Province-80 test case is composed of a large network that covers a geographical area in North America. The network has seven individual zones that serve each of its populous geographical areas. The test case uses multiple EMTDC processes to distribute computational loading across multiple cores, which demonstrates task parallel processing. The model is split into 80 cases of 1D simulations. The complexity of the model is dependent on the number of splits. The following components were used:
 
 | Components | Number of components |
 |---|---|
