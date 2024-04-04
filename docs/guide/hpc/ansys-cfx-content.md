@@ -21,12 +21,11 @@ The following architecture shows a single-node configuration:
 
 :::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows a single-node Ansys CFX architecture." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
-architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this architecture.*
 
 The following architecture shows a multi-node configuration:
 
-:::image type="content" source="media/cfx/hpc-ansys-cfx-multi-node.svg" alt-text="Diagram that shows a multi-node Ansys CFX architecture." lightbox="media/cfx/ansys-cfx.svg" border="false":::
+:::image type="content" source="media/cfx/hpc-ansys-cfx-multi-node.svg" alt-text="Diagram that shows a multi-node Ansys CFX architecture." lightbox="media/cfx/hpc-ansys-cfx-multi-node.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
@@ -204,7 +203,7 @@ To take advantage of the benefits of the latest processors for CFX simulations, 
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the pump model, with a stator and rotor assembly.
 
-|Number of nodes|Number of vCPUs| CFD solver wall-clock time, in seconds (2021 R2)| CFD solver wall-clock time, in seconds (2022 R2)|Relative speed increase (2021 R2)|Relative speed increase (2022 R2)|Solver time improvement|
+|Number of nodes|Number of vCPUs| CFD solver wall-clock time, in seconds (2021 R2)| CFD solver wall-clock time, in seconds (2022 R2)|Relative speed increase (2021 R2)|Relative speed increase (2022 R2)| Solver time improvement|
 |-|-|-|-|-|-|-|
 |1|	64|	11.36|	12.37|	1.00|	0.92|	-8.85%|
 |2|	128|	6.56|	7.256|	1.73|	1.57|	-10.61%|
@@ -216,7 +215,7 @@ The following table and graph show elapsed wall-clock times and relative speed i
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 10 million.
 
-|Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
+|Number of nodes|Number of vCPUs| CFD solver wall-clock time, in seconds (2021 R2)| CFD solver wall-clock time, in seconds (2022 R2)|Relative speed increase (2021 R2)|Relative speed increase (2022 R2)| Solver time improvement|
 |-|-|-|-|-|-|-|
 |1|	64|	70.03|	72.19|	1.00|	0.97|	-3.09%|
 |2|	128|	35.54|	37.87|	1.97|	1.85|	-6.56%|
@@ -228,7 +227,7 @@ The following table and graph show elapsed wall-clock times and relative speed i
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 50 million.
 
-|Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
+|Number of nodes|Number of vCPUs| CFD solver wall-clock time, in seconds (2021 R2)| CFD solver wall-clock time, in seconds (2022 R2)|Relative speed increase (2021 R2)|Relative speed increase (2022 R2)|Solver time improvement|
 |-|-|-|-|-|-|-|
 |1|	64|	371.33|	373.15|	1.00|	1.00|	-0.49%|
 |2|	128|	184.35|	201.23|	2.01|	1.85|	-9.16%|
@@ -240,7 +239,7 @@ The following table and graph show elapsed wall-clock times and relative speed i
 
 The following table and graph show elapsed wall-clock times and relative speed increases for the airfoil model, with a mesh size of 100 million.
 
-|Number of nodes|Number of vCPUs| CFD solver wall clock Time (s) 2021R2| CFD solver wall clock Time (s) 2022R2|Speed Up  2021R2|Speed Up 2022R2|% Improvement in solver time|
+|Number of nodes|Number of vCPUs| CFD solver wall-clock time, in seconds (2021 R2)| CFD solver wall-clock time, in seconds (2022 R2)|Relative speed increase (2021 R2)|Relative speed increase (2022 R2)|Solver time improvement|
 |-|-|-|-|-|-|-|
 |1|	64|	1139|	1146.40|	1.00|	0.99|	-0.65%|
 |2|	128|	439.92|	473.65|	2.59|	2.40|	-7.67%|
