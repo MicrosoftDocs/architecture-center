@@ -59,13 +59,13 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the choreography pattern by creating an event driven, cloud native app running functions along with microservices. When a client requests a package to be shipped, the app assigns a drone. Once the package is ready to pickup by the scheduled drone, the delivery process gets started. While in-transit the app handles the delivery until it gains the shipped status.
+This example shows the choreography pattern by creating an event driven, cloud native workload running functions along with microservices. When a client requests a package to be shipped, the workload assigns a drone. Once the package is ready to pickup by the scheduled drone, the delivery process gets started. While in-transit the workload handles the delivery until it gains the shipped status.
 
 ![GitHub logo](../_images/github.png) The code example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
 
 This example is a refactoring of the [Drone Delivery implementation](https://github.com/mspnp/microservices-reference-implementation). The refactor replaces the Orchestrator pattern with the Choreography pattern.
 
-![An event driven cloud native example app implementing choreography pattern](./_images/choreography-example.png)
+![An event driven cloud native example workload implementing choreography pattern](./_images/choreography-example.png)
 
 Business transactions are initiated after a client request is acknowledged by the Ingestion service which produces new messages with the delivery details.
 
@@ -79,7 +79,7 @@ When a client sends a delivery request through an HTTP endpoint, the Ingestion s
 
 This workflow continues until the entire request has been processed.
 
-The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The app is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app?pivots=azure-cli#custom) that executes the business logic.
+The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The workload is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app?pivots=azure-cli#custom) that executes the business logic.
 
 This design uses Azure Service Bus to handle high-value messages that can't be lost or duplicated during the delivery proccess. When the package is shipped, it is also published a change of state to Azure Event Grid. In this design, the event sender has no expectation about how the change of state is handled. Downstream organization services that are not included as part of this design could be listening to this event type, and react executing specific business purpose logic (i.e. email the shipped order status to the user).
 
