@@ -40,7 +40,7 @@ If a service fails to complete a business operation, it can be difficult to reco
 
 It's simple to implement a workflow when you want to process independent business operations in parallel. You can use a single message bus. However, the workflow can become complicated when choreography needs to occur in a sequence. For instance, Service C can start its operation only after Service A and Service B have completed their operations with success. One approach is to have multiple message buses or queues that get messages in the required order. For more information, see the [Example](#example) section.
 
-The choreography pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
+T he choreography pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
 
 The orchestrator centrally manages the resiliency of the workflow and it can become a single point of failure. On the other hand, for choreography, the role is distributed between all services and resiliency becomes less robust.
 
@@ -59,35 +59,33 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the choreography pattern by creating an event driven, cloud native workload running functions along with microservices. When a client requests a package to be shipped, the workload assigns a drone. Once the package is ready to pickup by the scheduled drone, the delivery process gets started. While in-transit the workload handles the delivery until it gains the shipped status.
+This example shows the choreography pattern by creating an event driven, cloud native workload running functions along with microservices. When a client requests a package to be shipped, the workload assigns a drone. Once the package is ready to pick up by the scheduled drone, the delivery process gets started. While in-transit the workload handles the delivery until it gains the shipped status.
 
 ![GitHub logo](../_images/github.png) The code example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
 
-This example is a refactoring of the [Drone Delivery implementation](https://github.com/mspnp/microservices-reference-implementation). The refactor replaces the Orchestrator pattern with the Choreography pattern.
+This example is a refactoring of the [Drone Delivery implementation](https://github.com/mspnp/microservices-reference-implementation) that replaces the Orchestrator pattern with the Choreography pattern.
 
 ![An event driven cloud native example workload implementing choreography pattern](./_images/choreography-example.png)
 
-Business transactions are initiated after a client request is acknowledged by the Ingestion service which produces new messages with the delivery details.
+The Ingestion service handles the client requests and convert them into messages including the delivery details. Business transaction are initiated after consuming those new messages.
 
-A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and the proper handling of the delivery that consists of checking and eventually raising awareness when shipped. The business processing is performed by three microservices: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to communicate among themselves. Each service would be responsible to implement a protocol stablished in advance that coordinates in a decentralized way the business workflow.
+A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and the proper handling of the delivery that consists of checking and eventually raising awareness when shipped. Three microservices perform the business processing: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to communicate among themselves. Each service would be responsible to implement a protocol in advance that coordinates in a decentralized way the business workflow.
 
 ### Design
 
 The business transaction is processed in a sequence through multiple hops. Each hop is sharing a single message bus among all the business services.
 
-When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, and converts this into a message, and then publishes it to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. In case of a failure or time-out, the service reports failure by sending the reason code to the message bus. Additionally, the message is going to be dead lettered for later handling. Messages that couldn't be received or processed within a reasonable and appropriate amount of time are moved the DLQ as well.
-
-This workflow continues until the entire request has been processed.
+When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, converts such request into a message, and then publishes the message to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. If there is a failure or time-out, the service reports failure by sending the reason code to the message bus. Additionally, the message is going to be dead lettered for later handling. Messages that couldn't be received or processed within a reasonable and appropriate amount of time are moved the DLQ as well.
 
 The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The workload is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app?pivots=azure-cli#custom) that executes the business logic.
 
-The design ensures the choreography to occur in a sequence by using a single Azure Service Bus namespace containing a topic with two subscriptions and an session-aware queue. The Ingestion service publishes messages to the topic. The Package service and Drone Scheduler service subscribe to the topic and publish messages communicating the success to the queue. Including a common session id which a GUID associated to the delivery id, enables the ordered handling of unbounded sequences of related messages. The Delivery service awaits for two related messages per transaction in the queue, the first indicates the package is ready to be shipped, and the second signals that a drone is scheduled.
+The design ensures the choreography to occur in a sequence. A single Azure Service Bus namespace contains a topic with two subscriptions and a session-aware queue. The Ingestion service publishes messages to the topic. The Package service and Drone Scheduler service subscribe to the topic and publish messages communicating the success to the queue. Including a common session id which a GUID associated to the delivery id, enables the ordered handling of unbounded sequences of related messages. The Delivery service awaits two related messages per transaction. The first message indicates the package is ready to be shipped, and the second signals that a drone is scheduled.
 
-This design uses Azure Service Bus to handle high-value messages that can't be lost or duplicated during the entire delivery proccess. When the package is shipped, it is also published a change of state to Azure Event Grid. In this design, the event sender has no expectation about how the change of state is handled. Downstream organization services that are not included as part of this design could be listening to this event type, and react executing specific business purpose logic (i.e. email the shipped order status to the user).
+This design uses Azure Service Bus to handle high-value messages that can't be lost or duplicated during the entire delivery process. When the package is shipped, it is also published a change of state to Azure Event Grid. In this design, the event sender has no expectation about how the change of state is handled. Downstream organization services that are not included as part of this design could be listening to this event type, and react executing specific business purpose logic (that is, email the shipped order status to the user).
 
 > If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
 
-To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages using well-known dead-letter reason code or a defined application code, so it can be  moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, rety or pivot transaction.
+To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages. It is possible to enrich such messages using well-known reason codes or a defined application code, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, rety or pivot transaction.
 
 The business services are idempotent to make sure retry operations don't result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
 
@@ -101,7 +99,7 @@ Consider these patterns in your design for choreography.
 
 - Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
 
-- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operation fails.
+- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operations fail.
 
 - For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.yml).
 
