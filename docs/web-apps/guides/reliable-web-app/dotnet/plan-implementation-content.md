@@ -3,7 +3,7 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of principles and implementation techniques. They define how you should update (replatform) your web app to be successful in the cloud.
+The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how you should update your web app (replatform) when migrating to the cloud.
 
 This article helps you plan the implementation of the reliable web app pattern. The companion article provides the implementation guidance to **[apply the pattern](apply-pattern.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
 

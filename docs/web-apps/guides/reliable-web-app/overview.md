@@ -11,12 +11,9 @@ ms.subservice: azure-guide
 azureCategories:
     - web
     - developer-tools
-    - databases
     - devops
 products:
   - azure
-  - azure-app-service
-  - azure-cache-redis
 categories:
   - web
 ---
