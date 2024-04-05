@@ -104,7 +104,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- Rudnei Oliveira | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 ## Next steps
 
