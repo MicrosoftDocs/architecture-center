@@ -98,6 +98,11 @@ You're not required to use a gateway if you want to implement services such as r
 - You have many clients and don't want to duplicate logic
 - You want the client to be thin and focused on the business problem
 
+## Implementation Options
+There are several options for implementing an API gateway in Azure, depending on the requirements and preferences of the developers and the organization.
+- Native Azure refers to the option of using Azure API Management (APIM) gateway. APIM is a fully managed service that offers a comprehensive set of features and capabilities for creating, publishing, managing, and securing APIs. APIM supports both SOAP and REST APIs, as well as GraphQL and gRPC protocols. APIM also integrates with other Azure services, such as Azure Active Directory, Azure Functions, Azure Logic Apps, Azure Service Bus, and Azure Event Grid.	Easy to deploy and configure using the Azure portal, Azure CLI, or Infrastructure as Code (IaC) tools such as ARM templates, Bicep, or Terraform.
+- Third party solutions refer to the option of using an external API gateway product or service that is not provided by Azure. There are many third party solutions available in the market, each with its own features, capabilities, and pricing models. These solutions can be deployed on Azure using virtual machines, containers, or serverless functions, depending on the requirements and preferences of the developers and the organization.
+
 ## Example architecture
 
 :::image type="complex" source="_images/openai-gateway-example-architecture.svg" lightbox="_images/openai-gateway-example-architecture.svg" alt-text="Diagram that shows an example architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
@@ -113,10 +118,4 @@ The following table lists specific scenarios that injecting a gateway between an
 | --- | --- |
 | **Custom Authentication** | Provide authentication to generative AI services through an API gateway |
 | **Multiple Backend instances** | Route requests across multiple Azure OpenAI deployments using an API gateway |
-
-
-## Implementation Options
-There are several options for implementing an API gateway in Azure, depending on the requirements and preferences of the developers and the organization.
-- Native Azure refers to the option of using Azure API Management (APIM) gateway. APIM is a fully managed service that offers a comprehensive set of features and capabilities for creating, publishing, managing, and securing APIs. APIM supports both SOAP and REST APIs, as well as GraphQL and gRPC protocols. APIM also integrates with other Azure services, such as Azure Active Directory, Azure Functions, Azure Logic Apps, Azure Service Bus, and Azure Event Grid.	Easy to deploy and configure using the Azure portal, Azure CLI, or Infrastructure as Code (IaC) tools such as ARM templates, Bicep, or Terraform.
-- Third party solutions refer to the option of using an external API gateway product or service that is not provided by Azure. There are many third party solutions available in the market, each with its own features, capabilities, and pricing models. These solutions can be deployed on Azure using virtual machines, containers, or serverless functions, depending on the requirements and preferences of the developers and the organization.
 
