@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies. 
   author: EranAI
-  ms.author: ersagi
+  ms.author: pnp
   ms.date: 08/18/2022
   ms.custom: fcp
   ms.topic: example-scenario
