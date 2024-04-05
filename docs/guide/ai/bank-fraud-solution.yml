@@ -3,7 +3,7 @@ metadata:
   title: Detect mobile bank fraud
   description: Learn about a solution that uses behavioral profiles and machine learning to detect mobile bank fraud. 
   author: KBaroni
-  ms.author: kbaroni, mhlobil, celabu, frgarofa, sheppardshep
+  ms.author: kbaroni
   ms.date: 02/26/2023
   ms.topic: conceptual
   ms.service: architecture-center

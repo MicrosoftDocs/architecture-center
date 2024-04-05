@@ -145,63 +145,132 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The following example in C# uses a set of SQL Server databases acting as shards. Each database holds a subset of the data used by an application. The application retrieves data that's distributed across the shards using its own sharding logic (this is an example of a fan-out query). The details of the data that's located in each shard is returned by a method called `GetShards`. This method returns an enumerable list of `ShardInformation` objects, where the `ShardInformation` type contains an identifier for each shard and the SQL Server connection string that an application should use to connect to the shard (the connection strings aren't shown in the code example).
+Consider a website that surfaces an expansive collection of information on published books worldwide. The number of possible books cataloged in this workload and the typical query/usage patterns contra-indicate the usage of a single relational database to store the book information. The workload architect decides to shard the data across multiple database instances, using the books' static International Standard Book Number (ISBN) for the shard key. Specifically, they use the [check digit](https://wikipedia.org/wiki/ISBN#Check_digits) (0 - 10) of the ISBN as that gives 11 possible logical shards and the data will be fairly balanced across each shard. To start with, they decide to colocate the 11 logical shards into three physical shard databases. They use the _lookup_ sharding approach and store the key-to-server mapping information in a shard map database.
 
-```csharp
-private IEnumerable<ShardInformation> GetShards()
+:::image type="complex" source="_images/sharding-example.png" alt-text="Diagram that shows an Azure App Service, four Azure SQL Databases, and one Azure AI Search.":::
+   Diagram that shows an Azure App Service labeled as "Book catalog website" that is connected to multiple Azure SQL Database instances and an Azure AI Search instance. One of the databases is labeled as the ShardMap database, and it has an example table which mirrors a part of the mapping table that is also listed further in this document. There are three shard databases instances listed as well: bookdbshard0, bookdbshard1, and bookdbshard2. Each of the databases has an example listing of tables under them. All three examples are identical, listing the tables of "Books" and "LibraryOfCongressCatalog" and an indicator of more tables. The Azure AI Search icon indicates it's used for faceted navigation and site search. Managed identity is shown associated with the Azure App Service.
+:::image-end:::
+
+### Lookup shard map
+
+The shard map database contains the following shard mapping table and data.
+
+```sql
+SELECT ShardKey, DatabaseServer
+FROM BookDataShardMap
+```
+
+```output
+| ShardKey | DatabaseServer |
+|----------|----------------|
+|        0 | bookdbshard0   |
+|        1 | bookdbshard0   |
+|        2 | bookdbshard0   |
+|        3 | bookdbshard1   |
+|        4 | bookdbshard1   |
+|        5 | bookdbshard1   |
+|        6 | bookdbshard2   |
+|        7 | bookdbshard2   |
+|        8 | bookdbshard2   |
+|        9 | bookdbshard0   |
+|       10 | bookdbshard1   |
+```
+
+### Example website code - single shard access
+
+The website isn't aware of the number of physical shard databases (three in this case) nor the logic that maps a shard key to a database instance, but the website does know that the check digit of a book's ISBN should be considered the shard key. The website has read-only access to the shard map database and read-write access to all shard databases. In this example, the website is using the Azure App Service's system managed identity that is hosting the website for authorization to keep secrets out of the connection strings.
+
+The website is configured with the following connection strings, either in an `appsettings.json` file, such as in this example, or through App Service app settings.
+
+```json
 {
-  // This retrieves the connection information from a shard store
-  // (commonly a root database).
-  return new[]
-  {
-    new ShardInformation
-    {
-      Id = 1,
-      ConnectionString = ...
-    },
-    new ShardInformation
-    {
-      Id = 2,
-      ConnectionString = ...
-    }
-  };
+  ...
+  "ConnectionStrings": {
+    "ShardMapDb": "Data Source=tcp:<database-server-name>.database.windows.net,1433;Initial Catalog=ShardMap;Authentication=Active Directory Default;App=Book Site v1.5a",
+    "BookDbFragment": "Data Source=tcp:SHARD.database.windows.net,1433;Initial Catalog=Books;Authentication=Active Directory Default;App=Book Site v1.5a"
+  },
+  ...
 }
 ```
 
-The code below shows how the application uses the list of `ShardInformation` objects to perform a query that fetches data from each shard in parallel. The details of the query aren't shown, but in this example the data that's retrieved contains a string that could hold information such as the name of a customer if the shards contain the details of customers. The results are aggregated into a `ConcurrentBag` collection for processing by the application.
+With connection information to the shard map database available, an example of an update query executed by the website to the workload's database shard pool would look similar to the following code.
 
 ```csharp
-// Retrieve the shards as a ShardInformation[] instance.
-var shards = GetShards();
+...
 
-var results = new ConcurrentBag<string>();
+// All data for this book is stored in a shard based on the book's ISBN check digit,
+// which is converted to an integer 0 - 10 (special value 'X' becomes 10).
+int isbnCheckDigit = book.Isbn.CheckDigitAsInt;
 
-// Execute the query against each shard in the shard list.
-// This list would typically be retrieved from configuration
-// or from a root/primary shard store.
-Parallel.ForEach(shards, shard =>
+// Establish a pooled connection to the database shard for this specific book.
+using (SqlConnection sqlConn = await shardedDatabaseConnections.OpenShardConnectionForKeyAsync(key: isbnCheckDigit, cancellationToken))
 {
-  // NOTE: Transient fault handling isn't included,
-  // but should be incorporated when used in a real world application.
-  using (var con = new SqlConnection(shard.ConnectionString))
+  // Update the book's Library of Congress catalog information
+  SqlCommand cmd = sqlConn.CreateCommand();
+  cmd.CommandText = @"UPDATE LibraryOfCongressCatalog
+                         SET ControlNumber = @lccn,
+                             ...
+                             Classification = @lcc
+                       WHERE BookID = @bookId";
+
+  cmd.Parameters.AddWithValue("@lccn", book.LibraryOfCongress.Lccn);
+  ...
+  cmd.Parameters.AddWithValue("@lcc", book.LibraryOfCongress.Lcc);
+  cmd.Parameters.AddWithValue("@bookId", book.Id);
+
+  await cmd.ExecuteNonQueryAsync(cancellationToken);
+}
+
+...
+```
+
+In the preceding example code, if `book.Isbn` was **978-8-1130-1024-6**, then `isbnCheckDigit` should be **6**. The call to `OpenShardConnectionForKeyAsync(6)` would typically be implemented with a cache-aside approach. It queries the shard map database identified with the connection string `ShardMapDb` if it doesn't have cached shard information for shard key **6**. Either from the application's cache or from the shard database, the value **bookdbshard2** takes the place of `SHARD` in the `BookDbFragment` connection string. A pooled connection is (re-) established to **bookdbshard2.database.windows.net**, opened, and returned to the calling code. The code then updates the existing record on that database instance.
+
+### Example website code - multiple shard access
+
+In the rare case a direct, cross-shard query is required by the website, the application performs a parallel fan-out query across all shards.
+
+```csharp
+...
+
+// Retrieve all shard keys
+var shardKeys = shardedDatabaseConnections.GetAllShardKeys();
+
+// Execute the query, in a fan-out style, against each shard in the shard list.
+Parallel.ForEachAsync(shardKeys, async (shardKey, cancellationToken) =>
+{
+  using (SqlConnection sqlConn = await shardedDatabaseConnections.OpenShardConnectionForKeyAsync(key: shardKey, cancellationToken))
   {
-    con.Open();
-    var cmd = new SqlCommand("SELECT ... FROM ...", con);
+    SqlCommand cmd = sqlConn.CreateCommand();
+    cmd.CommandText = @"SELECT ...
+                          FROM ...
+                         WHERE ...";
 
-    Trace.TraceInformation("Executing command against shard: {0}", shard.Id);
+    SqlDataReader reader = await cmd.ExecuteReaderAsync(cancellationToken);
 
-    var reader = cmd.ExecuteReader();
-    // Read the results in to a thread-safe data structure.
-    while (reader.Read())
+    while (await reader.ReadAsync(cancellationToken))
     {
-      results.Add(reader.GetString(0));
+      // Read the results in to a thread-safe data structure.
     }
+
+    reader.Close();
   }
 });
 
-Trace.TraceInformation("Fanout query complete - Record Count: {0}",
-                        results.Count);
+...
 ```
+
+As an alternative to cross-shard queries in this workload might be using an externally maintained index in Azure AI Search, such as for site search or faceted navigation functionality.
+
+### Adding shard instances
+
+The workload team is aware that if the data catalog or its concurrent usage grows significantly more than three database instances might be required. The workload team doesn't expect to dynamically add database servers and will endure workload downtime if a new shard needs to come online. Bringing a new shard instance online requires moving data from existing shards into the new shard along with an update to the shard map table. This fairly static approach allows the workload to confidently cache the shard key database mapping in the website code.
+
+The shard key logic in this example has a hard upper limit of 11 maximum physical shards. If the workload team performs load estimation tests and evaluates that more than 11 databases instances are eventually going to be required, an invasive change to the shard key logic would need to be made. This change involves the careful planning of code modifications and data migration to the new key logic.
+
+### SDK functionality
+
+Instead of writing custom code for shard management and query routing to Azure SQL Database instances, evaluate the [Elastic Database client library](/azure/azure-sql/database/elastic-database-client-library). This library supports shard map management, data-dependent query routing, and cross-shard queries in both C# and Java.
 
 ## Next steps
 

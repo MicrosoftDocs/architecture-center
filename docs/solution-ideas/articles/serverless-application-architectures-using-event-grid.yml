@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use Event Grid to connect data sources and event handlers. Trigger a serverless function to run image analysis when a new photo enters a blob storage container.
   author: Herman-Wu
-  ms.author: hermanwu
+  ms.author: pnp
   ms.date: 06/13/2022
   ms.topic: solution-idea
   ms.service: architecture-center
