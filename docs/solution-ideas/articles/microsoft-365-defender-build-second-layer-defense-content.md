@@ -135,7 +135,7 @@ The example architecture in this article uses the following Azure components:
 
 Principal author: 
 
- * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+ * Rudnei Oliveira | Senior Customer Engineer
 
 Other contributors: 
 
