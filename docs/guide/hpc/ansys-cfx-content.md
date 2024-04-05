@@ -80,7 +80,7 @@ The following models were tested. For more information about the current Ansys m
 
 ### The pump model
 
-:::image type="content" source="media/cfx/pump.png" alt-text="Figure that shows the pump model.":::
+:::image type="content" source="media/cfx/pump.png" alt-text="Illustration that shows the pump model.":::
 
 Case details:
 
