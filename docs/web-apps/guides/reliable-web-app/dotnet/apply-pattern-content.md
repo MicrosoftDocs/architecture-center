@@ -1,6 +1,5 @@
 ---
-ms.custom:
-  - devx-track-dotnet
+ms.custom: devx-track-dotnet
 ---
 The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how you should update your web app (replatform) when migrating to the cloud.
 
