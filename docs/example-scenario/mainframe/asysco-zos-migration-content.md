@@ -1,4 +1,4 @@
-This article describes how [Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
+This article describes how [Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure as a service (IaaS) and platform as a service (PaaS) environments.
 
 ## Architecture
 
@@ -22,13 +22,14 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
    Presentation layer code runs in IIS and uses ASP.NET to maintain the z/OS mainframe user-interface screens. You can leave web applications' presentation layers unchanged, to minimize user retraining, or you can update the presentation layers with modern user experience frameworks.
 
-1. Mainframe batch and transaction loads convert to sufficient server farms to handle this type of work. Another Azure Load Balancer fronts the transaction servers to distribute the traffic.
+1. Server farms are built to accommodate the converted mainframe batch and transaction loads with scale set capability to handle workload peaks. An Azure Load Balancer fronts the Transaction servers to distribute the traffic in an active-active arrangement across the server farm.
 
-1. Application code converts to AMT COBOL or directly to .NET C#. AMT maintains the original code structure to use as a baseline or for future edits. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
+1.	The mainframe application code is converted to either .NET C# or Java artifacts. ; tThis migrated code runs on the Transaction servers to provide the current business logic.
 
-1. AMT automates migrating all DB2, IMS, and IDMS hierarchical, network, or relational databases to Azure SQL. AMT Transform converts DMS and RDMS schemas to SQL, and converts [Job Control Language (JCL)](https://en.wikipedia.org/wiki/Job_Control_Language) and [Rexx](https://en.wikipedia.org/wiki/Rexx) scripts to VBScript or Windows PowerShell. Azure Private Link for Azure SQL Database provides a private, direct connection from the Azure VMs to Azure SQL Database.
+1.	AMT Transform automates the migration of all DB2, IMS, Adabas, VSAM files, hierarchical, network, relational databases, and schemas to modern databases and file handling.
 
-   AMT Transform also converts all binary or indexed [Virtual Storage Access Method (VSAM)](https://en.wikipedia.org/wiki/Virtual_Storage_Access_Method), flat files, and virtual tape files to Azure Files storage.
+    AMT Transform converts Job Control Language (JCL) and Rexx scripts to PowerShell (.NET C#) or Python, or Java. Azure Private Link provides a private, direct connection from the Azure VMs to the databases.
+
 
 1. Workload automation, scheduling, reporting, and system monitoring functions that are Azure-capable can keep their current platforms. This example uses AMT Control Center for operations.
 
@@ -56,23 +57,25 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
+- Azure Load Balancer offers highly available and scalable apps in minutes with built-in application load balancing for cloud services and virtual machines.  Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Azure Load Balancer you can provide a better customer experience to automatically scale your increasing app traffic.  You won't need to reconfigure or manage the load balancer.
+
 ### Alternatives
 
 The AMT Framework supports several methodologies to move client workloads to Azure:
 
-- One migration method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This approach carries some risk because all processes, like application conversion, data migration, and testing, must align for a smooth transition.
+- Whole system converstion: One migration method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This approach carries some risk because all processes, like application conversion, data migration, and testing, must align for a smooth transition.
 
-- A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This tactic provides savings per application, and lessons learned to convert each application can help with subsequent conversions.
+- Phased application transition: A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This provides savings per application, and lessons learned to convert each application can help with subsequent conversions.
 
-Modernizing each application on its own schedule can be more relaxed than converting everything at once. If regaining time on the mainframe is a goal, the stepped method can provide more processing cycles on the mainframe as applications convert to Azure. Eventual starvation of the mainframe can highlight the need to retire the mainframe expense.
+- Resource optimization with phased transition: If releasing resources on the mainframe is a goal, the phased method can provide more processing cycles on the mainframe as the applications are converted and migrated to Azure. This method results in a more complex migration due to varying factors. These factors include temporary interfaces to the mainframe and decoupling complex code. Once all migration phases are completed, the mainframe can be retired.
 
 ## Scenario details
 
-Transforming proprietary legacy applications, infrastructures, and processes to standardized, benchmarked cloud technologies promotes agile DevOps principles and practices that are today's productivity norm. The transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
+Transforming proprietary legacy applications, infrastructures, business logic, and processes to standardized, benchmarked cloud technologies promotes agile DevOps principles and practices that are today's productivity norm. The transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
 
-[Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
+[Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS or Linux OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
 
-AMT provides an accelerated move into Azure without rewriting application code or redesigning data architecture. The migration framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can remain unchanged, minimizing the need for user retraining.
+The Avanade Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The migration framework converts legacy code to .NET C# or Java, while maintaining the source code layout in its original form. Application user interfaces and interactions can remain unchanged, minimizing the need for user retraining.
 
 ### Potential use cases
 
@@ -86,43 +89,42 @@ Many scenarios can benefit from Avanade AMT migration. Possibilities include the
 
 ## Considerations
 
-The following considerations apply to this solution:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
-### Availability
+### Reliability
 
-[Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) mirrors the Azure VMs to a secondary Azure region for quick failover and DR if there is Azure datacenter failure. [Azure auto-failover group replication](/azure/azure-sql/database/auto-failover-group-overview) provides data protection by managing the database replication and failover to the secondary region.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-### Resiliency
-
-Azure Load Balancer builds resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.
-
-### Scalability
-
-- Avanade AMT has proven single-application scalability equivalent to at least 28,000 million IBM mainframe instructions per second (MIPS).
-
-- Each set of servers can scale out to provide more throughput. For information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+- Use Azure Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's Azure datacenter failure. 
+- Use Azure autofailover group replication to manage database replication and failover to another region. 
+- Use Azure Load Balancer to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload. 
 
 ### Security
 
-- This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-- [Private Link](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
+- Use Azure network security groups (NSGs) to manage traffic between Azure resources. For more information, see Network security groups.
+- Use Private Link to provide a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure Database.
+- Use Azure Bastion to maximize admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports.
 
 ### Cost optimization
 
-Azure helps you avoid unnecessary costs by identifying resource needs, analyzing spending over time, and scaling to meet business needs without overspending. Avanade AMT in Azure runs on Windows VMs, which help you optimize costs by turning off VMs when not in use and scripting schedules for known usage patterns.
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- Azure services like Virtual Network, Load Balancer, and Azure Bastion are free with your Azure subscription. You pay for usage and traffic.
+- Optimize costs use of reserved instances by turning off VMs when they are not needed and script schedules for known usage patterns. Avanade AMT in Azure runs on Windows or Linux VMs, making cost optimization easier.
+- Ensure only one instance is involved in Site Recovery if your VMs within server sets are duplicates. With Azure Site Recovery, you pay for each protected instance.
+- To estimate and calculate costs for your implementation of this solution, use the Azure pricing calculator.
 
-- With Azure Site Recovery, you pay for each protected instance. If VMs in server sets are clones, only one instance needs to participate in Site Recovery.
+### Performance efficiency
 
-- Azure SQL Database uses [hyperscale or business critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) tiers in this solution, for high input/output operations per second (IOPS) and high uptime SLA. For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- This solution works best with Premium SSD or Ultra Managed Disks. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+•	Avanade AMT has proven single-application scalability equivalent to at least 28,000 MIPS (Million Instructions Per Second) / 3,300 MSU’s (Million Service Units).
+•	Scale out each set of servers to provide more throughput. For information, see Virtual machine scale sets.
+•	Use Azure SQL Database hyperscale or business critical tiers in this solution, for high input/output operations per second (IOPS) and high uptime SLA. For pricing information, see Azure SQL Database pricing.
+Use SSD or Ultra Managed Disks.  For pricing information, see Managed Disks pricing.
 
-To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Contributors
 
@@ -137,8 +139,9 @@ Principal author:
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
-- Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/home) for information about [Asysco AMT GO](https://azuremarketplace.microsoft.com/marketplace/apps/asyscosoftwarebv.amtvmcc_basic_2019_002?tab=Overview).
+- Visit the Avanade CIO’s guide to mainframe modernization Automated Migration Technology | Avanade.
+- Visit the Avanade website.
+
 - See the blog post [MIPS Equivalent Sizing for IBM CICS COBOL Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
 
 ## Related resources
