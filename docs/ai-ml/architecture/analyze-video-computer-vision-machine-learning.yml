@@ -2,7 +2,7 @@
 metadata:
   title: Analyze video content with Computer Vision and Azure Machine Learning
   titleSuffix: Azure Architecture Center
-  description: Find out how to automate video analysis. Use Computer Vision and Azure Machine Learning to analyze your content. 
+  description: Find out how to automate video analysis. Use Computer Vision and Azure Machine Learning to analyze your content.
   author: oscarsk91
   ms.author: oscarsh
   ms.date: 11/04/2022
@@ -19,7 +19,7 @@ products:
   - azure-synapse-analytics
   - azure-data-lake-storage
 name: Analyze video content with Computer Vision and Azure Machine Learning
-summary: Use Computer Vision and Azure Machine Learning to analyze your video content. 
+summary: Use Computer Vision and Azure Machine Learning to analyze your video content.
 thumbnailUrl: /azure/architecture/browse/thumbs/analyze-video-thumb.png
 content: |
-  [!include[](analyze-video-computer-vision-machine-learning-content.md)]
+  [!INCLUDE[](analyze-video-computer-vision-machine-learning-content.md)]

@@ -83,6 +83,4 @@ Principal authors:
 ## Next steps
 
 - [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
-- [Azure Industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
-- [Choose an Internet of Things (IoT) solution in Azure](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)

@@ -143,7 +143,7 @@ Microsoft Defender XDR security services work with licenses. For information abo
 
 Principal author: 
 
- * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 Other contributors: 
 

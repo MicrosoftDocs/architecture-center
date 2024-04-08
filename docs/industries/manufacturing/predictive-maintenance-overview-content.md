@@ -128,9 +128,7 @@ Principal author:
 ## Related resources
 
 - [Predictive maintenance solution](predictive-maintenance-solution.yml)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
-- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
+- [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
+- [Internet of things (IoT) architecture design](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)

@@ -204,7 +204,6 @@ Other contributor:
 ## Related resources
 
 - [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
 - [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
-- [IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)
+- [IoT architecture design](iot/iot-architecture-overview.md)

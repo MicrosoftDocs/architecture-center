@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article briefly describes the steps for running [OpenRadioss](https://www.openradioss.org/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running OpenRadioss on Azure.
 
 OpenRadioss is a free, open-source finite element analysis (FEA) code base that a worldwide community of researchers, software developers, and industry leaders are enhancing every day. OpenRadioss empowers users to make rapid contributions that tackle the latest challenges brought on by rapidly evolving technologies, such as:

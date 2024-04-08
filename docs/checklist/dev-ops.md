@@ -164,9 +164,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 ## Related resources
 
 - [CI/CD baseline architecture with Azure Pipelines](../example-scenario/apps/devops-dotnet-baseline.yml)
-- [Automate multistage Azure pipelines with Azure Pipelines](../example-scenario/devops/automate-azure-pipelines.yml)
 - [CI/CD for Azure VMs](../solution-ideas/articles/cicd-for-azure-vms.yml)
-- [CI/CD for containers](../solution-ideas/articles/cicd-for-containers.yml)
 
 <!-- links -->
 

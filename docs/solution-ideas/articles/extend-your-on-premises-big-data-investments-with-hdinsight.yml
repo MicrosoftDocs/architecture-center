@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Extend your on-premises big data investments to the cloud. Transform your business by using the advanced analytics capabilities of Azure HDInsight.
   author: aadimanchanda
-  ms.author: amanchanda
+  ms.author: pnp
   ms.date: 05/27/2022
   ms.topic: solution-idea
   ms.service: architecture-center
