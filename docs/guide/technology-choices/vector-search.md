@@ -35,7 +35,7 @@ This section helps you select the most likely services for your needs. To narrow
 
 ### Key Requirements
 
-![images/vector-search-decision-tree.png](./images/vector-search-decision-tree.png)
+![images/vector-search-decision-tree.png](./images/vector-search-flow-chart.png)
 
 - **You need to do Insert/Update/Delete the vector fields frequently and the search result must always up to date:**
   - If your scenarios require keep vector data with operational data, you can **_keep vector fields in database systems_**.
