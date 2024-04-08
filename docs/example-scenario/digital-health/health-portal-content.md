@@ -54,6 +54,8 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring) architecture.
 
+- [Microsoft 365 Email](/microsoft-365/enterprise/azure-integration) is an industry-leading service used for email and communications. Many organizations have already invested in this service and it can be used as an alternative to the more full-featured Azure Communication Services. In this solution, it can be used for sending out any emails related to the consumer health portal, such as appointment confirmation or reminder emails.
+
 ## Scenario details
 
 Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits.
