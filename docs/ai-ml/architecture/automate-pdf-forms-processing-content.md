@@ -169,7 +169,7 @@ Other contributors:
 
 ## Next steps
 
-- [Video: Azure PDF Form Processing Automation Software Assurance (SA)](https://www.youtube.com/watch?v=2zvoO1jc8CE).
+- [Video: Azure PDF Form Processing Automation](https://www.youtube.com/watch?v=2zvoO1jc8CE).
 - [Azure PDF Form Processing Automation Solution Accelerator](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator)
 - [Azure invoice Process Automation Solution Accelerator](https://github.com/microsoft/Azure-Invoice-Process-Automation-Solution-Accelerator)
 - [Business Process Automation Accelerator](https://github.com/Azure/business-process-automation)
