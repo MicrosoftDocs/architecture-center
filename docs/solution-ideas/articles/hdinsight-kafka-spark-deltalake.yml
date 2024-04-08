@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Streaming, and Delta Lake.
   author: arunsethia
-  ms.author: architectures
+  ms.author: arunsethia
   ms.date: 03/29/2024
   ms.topic: solution-idea
   ms.service: architecture-center
