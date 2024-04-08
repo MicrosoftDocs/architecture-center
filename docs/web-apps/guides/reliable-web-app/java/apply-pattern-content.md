@@ -2,9 +2,9 @@
 ms.custom: devx-track-extended-java
 ---
 
-The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how you should update your web app (replatform) when migrating to the cloud.
+The reliable web app pattern shows you how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how developers should update web apps (replatform) when migrating to the cloud.
 
-This article provides code and architecture guidance for the reliable web app pattern. The companion article provides [**implementation planning guidance**](plan-implementation.yml). There's a **[reference implementation](https://aka.ms/eap/rwa/java)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
+This article provides code and architecture guidance for the reliable web app pattern. The companion article provides [**implementation planning guidance**](plan-implementation.yml). To facilitate a practical understanding and application of these principles, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the reliable web app pattern that you can deploy. The guidance refers to the reference implementation throughout as an example.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) addresses temporary serv
 
 Use [Resilience4j](https://github.com/resilience4j/resilience4j) to implement the Retry pattern in Java. Resilience4j is a lightweight, fault-tolerance library. It provides higher-order functions (decorators) to enhance functional interfaces, lambda expressions, and method references with a Circuit Breaker, Rate Limiter, Retry, or Bulkhead design pattern.
 
-**Example:** The reference implementation adds the Retry pattern by decorating the Service Plan Controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails.
+*Example:* The reference implementation adds the Retry pattern by decorating the Service Plan Controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails.
 
 ```java
     @GetMapping("/list")
@@ -41,7 +41,7 @@ The reference implementation configures the retry policy including maximum attem
 
 Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a nonresponsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
-**Example:** The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute. You can [simulate the circuit breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern) in the reference implementation.
+*Example:* The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute. You can [simulate the circuit breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern) in the reference implementation.
 
 ## Security
 
@@ -77,7 +77,7 @@ Authentication and authorization are critical aspects of web application securit
 
 Secure your web app by enabling user authentication through your platform's features. [Azure App Service](/azure/app-service/overview-authentication-authorization) supports authentication with identity providers like Microsoft Entra ID, offloading the authentication workload from your code.
 
-**Example:** The reference implementation uses Microsoft Entra ID as the identity platform. Microsoft Entra ID requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. The following Terraform code the creation of an Entra ID app registration along with an app specific Account Manager role.
+*Example:* The reference implementation uses Microsoft Entra ID as the identity platform. Microsoft Entra ID requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. The following Terraform code the creation of an Entra ID app registration along with an app specific Account Manager role.
 
 ```terraform
 resource "azuread_application" "app_registration" {
@@ -102,7 +102,7 @@ Key Vault securely stores our client configuration data and the App Service plat
 
 Integrate your web application with Microsoft Entra ID for secure authentication and authorization. The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process, utilizing Spring Security and Spring Boot for easy setup. It offers varied authentication flows, automatic token management, and customizable authorization policies, along with integration capabilities with Spring Cloud components. This enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
-**Example:** The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the OAuth 2.0 authorization code grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+*Example:* The reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the OAuth 2.0 authorization code grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
 ```xml
 <dependency>
@@ -121,7 +121,7 @@ For more information, see [Spring Cloud Azure support for Spring Security](https
 
 Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Microsoft Entra ID. This library allows integration with Microsoft Entra ID and helps you ensure that users are authenticated securely. Configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features. These features include token caching and automatic token refreshing.
 
-**Example:** The reference implementation creates app roles reflecting the types of user roles in Contoso Fiber's account management system. Roles translate into permissions during authorization. Examples of app-specific roles in CAMS include the account manager, Level one (L1) support representative, and Field Service representative. The Account Manager role has permissions to add new app users and customers. A Field Service representative can create support tickets. The `PreAuthorize` attribute restricts access to specific roles.
+*Example:* The reference implementation creates app roles reflecting the types of user roles in Contoso Fiber's account management system. Roles translate into permissions during authorization. Examples of app-specific roles in CAMS include the account manager, Level one (L1) support representative, and Field Service representative. The Account Manager role has permissions to add new app users and customers. A Field Service representative can create support tickets. The `PreAuthorize` attribute restricts access to specific roles.
 
 ```java
     @GetMapping("/new")
@@ -179,13 +179,13 @@ For more information, see:
 
 Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions. Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach. For more information, see [Monitoring managed identities](/entra/identity/managed-identities-azure-resources/how-to-view-managed-identity-activity).
 
-**Example:** The reference implementation keeps the on-premises authentication mechanism for the database (username and password). As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system assigned) to retrieve secrets from Key Vault.
+*Example:* The reference implementation keeps the on-premises authentication mechanism for the database (username and password). As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system assigned) to retrieve secrets from Key Vault.
 
 ### Use a central secrets store to manage secrets
 
 When you move your application to the cloud, use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to securely store all such secrets. This centralized repository offers secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, [Azure App Configuration](/azure/azure-app-configuration/overview) is recommended.
 
-**Example:** The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the MSAL implementation.
+*Example:* The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the MSAL implementation.
 
 #### Don't put Key Vault in the HTTP-request flow
 
@@ -204,13 +204,13 @@ It's important to choose one of these methods and stick with it for simplicity a
 1. Add the Azure Spring Boot Starter for Azure Key Vault Secrets dependency in your pom.xml file.
 2. Configure a Key Vault endpoint in your application. This can be done either through the application.properties file or as an environment variable.
 
-**Example:** The reference implementation uses an app setting in App Service and injects secrets.
+*Example:* The reference implementation uses an app setting in App Service and injects secrets.
 
 ### Use private endpoints
 
 Use private endpoints in all production environments for all supported Azure services. Private endpoints provide private connections between resources in an Azure virtual network and Azure services. By default, communication to most Azure services crosses the public internet. Private endpoints don't require any code changes, app configurations, or connection strings. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
 
-**Example:** The reference implementation uses private endpoints for Key Vault, Azure Cache for Redis, and Azure Database for PostgreSQL.
+*Example:* The reference implementation uses private endpoints for Key Vault, Azure Cache for Redis, and Azure Database for PostgreSQL.
 
 ### Use a web application firewall
 
@@ -218,7 +218,7 @@ All inbound internet traffic to the web app must pass through a web application 
 
 The App Service platform and Java Spring can filter by header value. You should use App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code. You need to configure what traffic you want to pass through your web application firewall. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name.](/azure/architecture/best-practices/host-name-preservation)
 
-**Example:** The reference implementation uses a private endpoint in the production environment and the `X-Azure-FDID` header value in the development environment.
+*Example:* The reference implementation uses a private endpoint in the production environment and the `X-Azure-FDID` header value in the development environment.
 
 ### Configure database security
 
@@ -236,7 +236,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 Understand the different performance tiers of Azure services and only use the appropriate SKU for the needs of each environment. Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Nonproduction environments typically don't need the same capabilities. For extra savings, consider [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
 
-**Example:** The reference implementation doesn't use Azure Dev/Test pricing since Azure Dev/Test pricing didn't cover any of the components. Azure Database for PostgreSQL is a prime candidate for a reserved instance based on the plan to stick with this database engine for at least a year after this initial convergence on the cloud phase. The reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs. The following code shows this environment parameter.
+*Example:* The reference implementation doesn't use Azure Dev/Test pricing since Azure Dev/Test pricing didn't cover any of the components. Azure Database for PostgreSQL is a prime candidate for a reserved instance based on the plan to stick with this database engine for at least a year after this initial convergence on the cloud phase. The reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs. The following code shows this environment parameter.
 
 ```azurecli
 azd env set APP_ENVIRONMENT prod
@@ -270,7 +270,7 @@ For tracing and debugging, you should enable logging to diagnose when any reques
 
 The workload should monitor baseline metrics. Important metrics to measure include request throughput, average request duration, errors, and monitoring dependencies. We recommend that you use Application Insights to gather this telemetry.
 
-**Example:** The reference implementation uses Application Insights. Application Insights is enabled through Terraform as part of the App Service's app_settings configuration.
+*Example:* The reference implementation uses Application Insights. Application Insights is enabled through Terraform as part of the App Service's app_settings configuration.
 
 ```terraform
 app_settings = {
@@ -303,7 +303,7 @@ A diagnostic setting in Azure allows you to specify the platform logs and metric
 
 - *Send diagnostics to same destination as the application logs.* When you enable diagnostics, you pick the logs you want to collect and where to send them. You should send the platform logs to the same destination as the application logs so you can correlate the two datasets.
 
-**Example:** The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the App Service.
+*Example:* The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the App Service.
 
 ```terraform
 # Configure Diagnostic Settings for App Service
@@ -363,7 +363,7 @@ Schedule regular cache updates to sync with the latest database changes. Determi
 
 Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-**Example:** The following code adds the `spring-boot-starter-cache` package as a dependency to the `pom.xml` file to enable caching.
+*Example:* The following code adds the `spring-boot-starter-cache` package as a dependency to the `pom.xml` file to enable caching.
 
 ```xml
 <dependency>

@@ -1,9 +1,9 @@
 ---
 ms.custom: devx-track-dotnet
 ---
-The reliable web app pattern provides essential guidance on how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how you should update your web app (replatform) when migrating to the cloud.
+The reliable web app pattern shows you how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how developers should update web apps (replatform) when migrating to the cloud.
 
-This article provides code and architecture guidance for the reliable web app pattern. The companion article provides **[implementation planning guidance](plan-implementation.yml)**. There's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
+This article is the second of two articles. It shows you how to update your web app architecture and code to apply the reliable web app pattern. The companion article provides **[implementation planning guidance](plan-implementation.yml)**. To facilitate a practical understanding and application of these principles, there's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the reliable web app pattern that you can deploy. The guidance refers to the reference implementation throughout as an example.
 
 ## Architecture
 
@@ -162,7 +162,7 @@ For more information, see [Connect to SQL database from .NET App Service](/azure
 
 When you move your application to the cloud, use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to securely store all such secrets. This centralized repository offers secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, [Azure App Configuration](/azure/azure-app-configuration/overview) is recommended.
 
-*Example:* The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the MSAL implementation.
+**Example:** The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the MSAL implementation.
 
 #### Don't put Key Vault in the HTTP-request flow
 
@@ -192,7 +192,7 @@ Use private endpoints in all production environments for all supported Azure ser
 
 All inbound internet traffic to the web app must pass through a web application firewall to protect against common web exploits. Force all inbound internet traffic to pass through the public load balancer, if you have one, and the web application firewall.
 
-*Example:* The reference implementation forces all inbound internet traffic through Front Door and Azure Web Application Firewall. In production, [preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
+**Example:** The reference implementation forces all inbound internet traffic through Front Door and Azure Web Application Firewall. In production, [preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
 ### Configure database security
 
@@ -410,7 +410,7 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 
 Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-**Example:** The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
+*Example:* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
 
 ```csharp
 public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
