@@ -34,7 +34,7 @@ The following dataflow corresponds to the preceding architecture:
 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Azure Cosmos DB is used as a data store to house the output of events that are raised on the blockchain, such as state changes that analytics solutions use or simple reporting.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions, such as upgrades, patches, backups, and monitoring. In this scenario, SQL Database is used as a data store to house the output of events that are raised on the blockchain, such as state changes that that analytics solutions use or simple reporting. Organizations use the [ledger](/azure/azure-sql/database/ledger-landing) feature of SQL Database to maintain the integrity of the output of events that are replicated from the blockchain to the SQL database.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions, such as upgrades, patches, backups, and monitoring. In this scenario, SQL Database is used as a data store to house the output of events that are raised on the blockchain, such as state changes that that analytics solutions use or simple reporting. Organizations use the [ledger feature of SQL Database](/azure/azure-sql/database/ledger-landing) to maintain the integrity of the output of events that are replicated from the blockchain to the SQL database.
 
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud environments and on-premises environments. Monitor provides availability data and performance data that's related to the architecture components.
 
@@ -109,7 +109,7 @@ Other contributors:
 ## Next steps
 
 - [App Service overview](/azure/app-service/overview)
-- [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
+- [Training module: Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources
 
