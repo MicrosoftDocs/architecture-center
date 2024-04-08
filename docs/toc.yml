@@ -1043,7 +1043,7 @@ items:
         href: example-scenario/blockchain/multi-cloud-blockchain.yml
     - name: Solution ideas
       items:
-      - name: Supply chain management with Kaliedo
+      - name: Supply chain management with Kaleido
         href: guide/blockchain/blockchain-service.yml
       - name: Supply chain track and trace
         href: solution-ideas/articles/supply-chain-track-and-trace.yml

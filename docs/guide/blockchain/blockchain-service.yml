@@ -2,7 +2,7 @@
 metadata:
   title: Supply chain management - Track and trace with Kaleido Blockchain as a Service powered by Azure
   titleSuffix: Azure Architecture Center
-  description: Use azure and blockchain service to track and trace physical assets, along with their metadata.
+  description: Learn how to use Azure services and Kaleido Blockchain as a Service to track and trace physical assets, along with their metadata.
   author: AdhikariSamrat
   ms.author: sadhikari
   ms.date: 04/08/2024
@@ -16,7 +16,7 @@ products:
   - azure-monitor
   - azure-managed-applications
 name: Supply chain management with Kaleido Blockchain as a Service powered by Azure
-summary: Use azure and blockchain services to track and trace physical assets, along with their metadata.
+summary: Learn how to use Azure services and Kaleido Blockchain as a Service to track and trace physical assets, along with their metadata.
 thumbnailUrl: ../../browse/thumbs/blockchain-service.png
 content: |
   [!include[](blockchain-service-content.md)]
