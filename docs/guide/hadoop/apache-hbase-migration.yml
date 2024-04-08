@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn about Apache HBase and about ways to migrate an HBase implementation to Azure by using Azure services like HDInsight and Cosmos DB.
   author: martinekuan
-  ms.author: namratam, nraja, hitakagi, ramyerrabotu
+  ms.author: namratam
   ms.date: 11/08/2023
   ms.topic: conceptual
   ms.service: architecture-center

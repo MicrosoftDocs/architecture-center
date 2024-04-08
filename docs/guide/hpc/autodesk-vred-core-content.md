@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article briefly describes the steps for running the [Autodesk VRED Core](https://www.autodesk.in/products/vred/overview?term=1-YEAR&tab=subscription&plc=VRDSRV) application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Autodesk VRED Core on Azure.
 
 VRED Core targets new workflows and connects you with your data anytime, anywhere, through the cloud and while streaming. VRED Core:
@@ -10,7 +13,7 @@ VRED Core is primarily used by automotive designers and digital artists, technic
 
 ## Why deploy Autodesk VRED Core on Azure?
 
-VRED Core provides:
+Azure provides:
 
 - Modern and diverse compute options to align to your workload's needs.
 - The ability to run in the cloud, which reduces capital expenditure (CapEx) and lead time associated with acquiring on-premises infrastructure.

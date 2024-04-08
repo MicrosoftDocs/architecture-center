@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn about Apache HDFS and about ways to migrate an HDFS implementation to Azure by using the ABFS driver and Azure Data Lake Storage.
   author: martinekuan
-  ms.author: namratam, nraja, hitakagi, ramyerrabotu
+  ms.author: namratam
   ms.date: 09/29/2022
   ms.topic: conceptual
   ms.service: architecture-center

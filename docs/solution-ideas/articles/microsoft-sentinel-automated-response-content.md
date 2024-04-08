@@ -120,7 +120,7 @@ For more information about building logic apps, see [What is Azure Logic Apps](/
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 Other contributors:
 

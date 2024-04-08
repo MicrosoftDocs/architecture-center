@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.
   author: vyasdev
-  ms.author: vyvenugo, christinas
+  ms.author: vyvenugo
   ms.date: 05/02/2023
   ms.topic: example-scenario
   ms.service: architecture-center

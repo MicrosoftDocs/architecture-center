@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article briefly describes the steps for running [Sandi HiFUN](https://sandi.co.in)   on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HiFUN on Azure.
 
 HiFUN is a  general-purpose computational fluid dynamics (CFD) application. You can use it to simulate airflow over aircraft, automobiles, and structures like buildings and ships. 
