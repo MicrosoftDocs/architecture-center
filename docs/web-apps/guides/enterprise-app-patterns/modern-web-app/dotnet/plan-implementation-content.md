@@ -4,7 +4,11 @@ title:
 
 The modern web app pattern provides guidance for modernizing web apps in the cloud. It is a follow-up to the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation) and provides guidance for the next steps in optimizing applications for cloud environments. Whereas the reliable web app pattern focuses on moving applications from on-premises to the cloud with minimal code changes, the modern web app pattern focuses on guidance for subsequent transformations to more fully realize the value of running applications in the cloud and move towards a micro-service architecture. The modern web app pattern uses the strangler fig pattern to move separable pieces of the solution into stand-alone services that can be versioned and scaled independently. By revisiting application architecture, the modern web app pattern provides improved flexibility and value.
 
-There are two articles on the modern web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. It covers principles of the pattern and service choices that follow from those principles. The second article provides code and architecture guidance to [apply the pattern](https://todo). There is a [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) of the pattern (sample solution) that you can deploy and refer to as a demonstration of the pattern.
+[!INCLUDE [reference-implementation](../includes/reference-implementation.md)]
+
+This is the first of two articles on the modern web app pattern. This article explains important decisions to plan the implementation of the pattern. The companion article provides specific updates to [apply the modern web app pattern](https://todo). There is a [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) of the pattern (sample solution) that you can deploy and refer to as a demonstration of the pattern.
+
+[!INCLUDE [reference-implementation](../includes/reference-implementation.md)]
 
 # Architecture
 

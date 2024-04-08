@@ -4,7 +4,11 @@ title: Modern web app pattern for .NET – Apply the pattern
 
 The modern web app pattern provides guidance for modernizing web apps in the cloud. It provides principles for moving from monolithic architectures toward micro-service architectures that can more completely take advantage of cloud services and scalability. It is a follow-up to the [reliable web app pattern](../../overview.md#reliable-web-app-pattern) and provides guidance for the next steps in optimizing applications for cloud environments.
 
-This article provides code and architecture implementation guidance for the modern web app pattern. The companion article provides **[implementation planning guidance](plan-implementation-content.md)**, and there's a **[reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)** that you can deploy. Throughout the guidance, the reference implementation also serves as an example of how to follow the recommendations.
+This article is the second of two articles. It shows you how to update your web app architecture and code to apply the reliable web app pattern. The companion article provides **[implementation planning guidance](plan-implementation-content.md)**.
+
+[!INCLUDE [reference-implementation](../includes/reference-implementation.md)]
+
+To facilitate the application of this guidance, there's a **[reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)** of the reliable web app pattern that you can deploy. The guidance here refers to the reference implementation throughout as an example.
 
 # Architecture
 
