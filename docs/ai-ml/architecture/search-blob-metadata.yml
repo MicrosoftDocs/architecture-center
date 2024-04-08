@@ -21,4 +21,4 @@ name: Index file content and metadata by using Azure AI Search
 summary: Build an Azure AI Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
 thumbnailUrl: /azure/architecture/browse/thumbs/search-blob-metadata-thumb.png
 content: |
-  [!include[](search-blob-metadata-content.md)]
+  [!INCLUDE[](search-blob-metadata-content.md)]
