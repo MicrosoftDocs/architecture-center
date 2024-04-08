@@ -8,11 +8,11 @@ metadata:
   ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: design-pattern
-  ms.custom: fcp
 azureCategories:
   - integration
 products:
   - azure-event-grid
+  - azure-service-bus
 name: Choreography pattern
 summary: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
 thumbnailUrl: /azure/architecture/browse/thumbs/choreography-example.png
