@@ -4,15 +4,12 @@ title:
 
 The modern web app pattern provides guidance for modernizing web apps in the cloud. It is a follow-up to the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation) and provides guidance for the next steps in optimizing applications for cloud environments. Whereas the reliable web app pattern focuses on moving applications from on-premises to the cloud with minimal code changes, the modern web app pattern focuses on guidance for subsequent transformations to more fully realize the value of running applications in the cloud and move towards a micro-service architecture. The modern web app pattern uses the strangler fig pattern to move separable pieces of the solution into stand-alone services that can be versioned and scaled independently. By revisiting application architecture, the modern web app pattern provides improved flexibility and value.
 
-Like the reliable web app pattern, there are two articles on the modern web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. It covers principles of the pattern and service choices that follow from those principles. The second article provides code and architecture guidance to [apply the pattern](https://todo). There is a [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) of the pattern (sample solution) that you can deploy and refer to as a demonstration of the pattern.
+There are two articles on the modern web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. It covers principles of the pattern and service choices that follow from those principles. The second article provides code and architecture guidance to [apply the pattern](https://todo). There is a [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) of the pattern (sample solution) that you can deploy and refer to as a demonstration of the pattern.
 
 # Architecture
 
-The modern web app pattern is a set of principles with implementation guidance. It's not a specific architecture. Your business context, existing web app, and desired service level objective (SLO) are critical factors that shape the architecture of your solution. The following diagram (figure 1) represents the architecture of the [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) which is one example of the modern web app pattern principles applied. It's important that your web app adheres to the principles of the modern web app pattern, not necessarily this specific architecture.
 
-<img src="c:\GitHub\architecture-center-pr\docs\web-apps\guides\modern-web-app\dotnet/media/image1.png" style="width:6.5in;height:6.33611in" alt="A diagram of a diagram Description automatically generated" />
-
-**Figure 1** Modern web app pattern reference implementation architecture.
+*Figure 1 Modern web app pattern reference implementation architecture.*
 
 # Principles and implementation
 
