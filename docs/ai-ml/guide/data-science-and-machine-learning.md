@@ -1,7 +1,7 @@
 ---
 title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
-author: martinekuan
+author: RobBagby
 ms.author: robbag
 categories: azure
 ms.date: 07/25/2022

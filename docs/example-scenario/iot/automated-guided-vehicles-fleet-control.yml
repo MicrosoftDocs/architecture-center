@@ -3,7 +3,7 @@ metadata:
   title: Automated guided vehicles fleet control
   titleSuffix: Azure Example Scenarios
   description: This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.
-  author: martinekuan
+  author: willhenton-ms
   ms.author: willhenton
   ms.date: 03/29/2023
   ms.topic: solution-idea
