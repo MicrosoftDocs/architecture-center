@@ -1,17 +1,11 @@
 ---
 title: 
 ---
-[!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
+This article shows you how to plan an implementation of the reliable web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
 
-[!INCLUDE [mwa-plan-implementation](../includes/mwa-plan-implementation.md)]
+[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To plan an implementation of the reliable web app pattern, follow these recommendations:
 
-[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
-
-## Architecture
-
-*Figure 1. Modern web app pattern reference implementation architecture.*
-
-# Define business goals
+## Define business goals
 
 *Example scenario:* After applying the reliable web app pattern, the fictional company, Relecloud, wants to better handle spikes of demand for resource-intensive parts of the application such as rendering ticket images. They want to re-architect their web app to improve performance, reliability, and add the ability to scale and version portions of their application independently. This will allow them to  To achieve these goals, they are adopting a more service-oriented architecture according to the modern web app pattern.
 
