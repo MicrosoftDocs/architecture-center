@@ -3,7 +3,7 @@ metadata:
   title: Data cache
   titleSuffix: Azure Solution Ideas
   description: Store and share database query results, session states, static contents, and more, by using a common cache-aside pattern.
-  author: martinekuan
+  author: spUK2020
   ms.author: meparkes
   ms.date: 05/24/2022
   ms.topic: solution-idea

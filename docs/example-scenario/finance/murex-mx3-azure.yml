@@ -3,7 +3,7 @@ metadata:
   title: Host a Murex MX.3 workload on Azure using Oracle
   titleSuffix: Azure Architecture Center
   description: Implement an Azure architecture for Murex workloads using Oracle. Murex is a global software provider for trading, risk management, and processing operations for capital markets.
-  author: martinekuan
+  author: agansu
   ms.author: gansua
   ms.date: 02/27/2024
   ms.topic: example-scenario
