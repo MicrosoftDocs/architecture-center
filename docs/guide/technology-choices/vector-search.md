@@ -73,7 +73,9 @@ The following tables summarize the key differences in capabilities.
 
 ### Basic features
 
-Understand the basic features of each Azure service from the following table.
+Understand the basic vector features of each Azure service from the following table.
+Native support for vector data type, ANN vector index, vector dimension limit, multiple vector fields and multiple vector indexs can be different and these supportability is one of decision point for vector store. 
+
 
 | Capability                                       | Azure Cosmos DB for PostgreSQL                | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)          | Azure AI Search                    | Azure SQL Database                |
 | ------------------------------------------------ | --------------------------------------------- | ----------------------------------- | --------------------------------------------- | ---------------------------------- | --------------------------------- |
@@ -93,7 +95,8 @@ Understand the basic features of each Azure service from the following table.
 
 ### Search methods
 
-Not only vector search, but also full-text search and hybrid search (full text search + vector search) functions are important. It is because in general the combination of hybrid search and reranking achieves high accuracy.
+Not only vector search, but also full-text search and hybrid search (full text search or semantic search + vector search) functions are important. It is because in general the combination of hybrid search and reranking achieves high accuracy.
+You can manually implement hybrid search and re-ranking with your own code or you can take a benefit of built-in hybrid search and re-ranking feature.
 
 Understand what kind of search methods are provided from the following table.
 
@@ -127,6 +130,11 @@ Understand suitable data characteristics, data modeling, and how to vectorize da
 ### Vector data indexing algorithms
 
 Vector data indexing is the ability to efficiently store and retrieve vectors. This capability is important because indexing helps us perform fast and accurate similarity searches and nearest neighbor queries on data sources.
+
+Indexes are based on EKNN or ANN algorithm. 
+EKNN does exhaustive search on all data points one by one and returns the accurate K nearest neighbors. EKNN works well under milliseconds with less than 100K documents but can cause latency for large amount of documents. 
+
+HNSW and IVFflat are ANN algorithm indexes. Choosing the Right Indexing Strategy The decision between IVFFlat and HNSW hinges on multiple factors, including dataset nature, query requirements, and resource constraints. While IVFFlat shines in scenarios with limited resources or lower query volumes, HNSW is unmatched for systems demanding rapid query responses and flexibility to dataset evolution.
 
 Understand what kinds of vector data indexing are provided from the following table.
 
