@@ -7,7 +7,7 @@ This article shows you how to plan an implementation of the reliable web app pat
 
 ## Define business goals
 
-*Example scenario:* After applying the reliable web app pattern, the fictional company, Relecloud, wants to better handle spikes of demand for resource-intensive parts of the application such as rendering ticket images. They want to re-architect their web app to improve performance, reliability, and add the ability to scale and version portions of their application independently. This will allow them to  To achieve these goals, they are adopting a more service-oriented architecture according to the modern web app pattern.
+*Example:* After applying the reliable web app pattern, the fictional company, Relecloud, wanted to improve how the web app handles spikes in demand especially for resource-intensive parts of the application, such as rendering ticket images.
 
 Goals for the transformation include:
 
@@ -16,6 +16,8 @@ Goals for the transformation include:
 - Allow high traffic components of their solution to automatically scale independently
 - Optimize costs by scaling unneeded resources to zero when appropriate
 - Deploy reliably by using containerized services
+
+To achieve these goals, they needed a more service-oriented architecture according to the modern web app pattern.
 
 # Existing web app
 
