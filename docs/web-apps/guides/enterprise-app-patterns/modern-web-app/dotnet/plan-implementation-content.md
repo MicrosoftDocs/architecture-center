@@ -1,51 +1,19 @@
 ---
 title: 
 ---
+[!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
 
-The modern web app pattern provides guidance for modernizing web apps in the cloud. It is a follow-up to the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation) and provides guidance for the next steps in optimizing applications for cloud environments. Whereas the reliable web app pattern focuses on moving applications from on-premises to the cloud with minimal code changes, the modern web app pattern focuses on guidance for subsequent transformations to more fully realize the value of running applications in the cloud and move towards a micro-service architecture. The modern web app pattern uses the strangler fig pattern to move separable pieces of the solution into stand-alone services that can be versioned and scaled independently. By revisiting application architecture, the modern web app pattern provides improved flexibility and value.
+[!INCLUDE [mwa-plan-implementation](../includes/mwa-plan-implementation.md)]
 
-[!INCLUDE [reference-implementation](../includes/reference-implementation.md)]
+[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
 
-This is the first of two articles on the modern web app pattern. This article explains important decisions to plan the implementation of the pattern. The companion article provides specific updates to [apply the modern web app pattern](https://todo). There is a [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) of the pattern (sample solution) that you can deploy and refer to as a demonstration of the pattern.
+## Architecture
 
-[!INCLUDE [reference-implementation](../includes/reference-implementation.md)]
+*Figure 1. Modern web app pattern reference implementation architecture.*
 
-# Architecture
+# Define business goals
 
-
-*Figure 1 Modern web app pattern reference implementation architecture.*
-
-# Principles and implementation
-
-The overriding principles of the modern web app pattern are those articulated by the Well Architected Framework – resiliency, security, operational excellence, performance, and cost optimization. But the modern web app pattern goes beyond these original principles to derive additional subordinate principles specific to the process of transforming an existing application to be more service oriented. These principles include:
-
-- Separation of concerns with independent versioning and scaling
-
-- Asynchronous communication
-
-- Fine-grained scalability
-
-- Data autonomy
-
-These principles are implemented with the following patterns:
-
-- Strangler fig
-
-- Queue-based load leveling
-
-- Competing consumers
-
-- Automatic horizontal scaling
-
-- Health endpoint monitoring
-
-- Containerized service deployment
-
-Note that these principles and patterns are in addition to some articulated in the reliable web app pattern. Like the reliable web app pattern, the modern web app pattern adheres to principles of infrastructure as code, identity-centric security, and ingress security. Therefore, it also implements patterns familiar from the reliable web app: managed identities, private endpoints, secure secret management, and bicep deployment.
-
-# Business context
-
-For business context, this guidance follows the cloud journey of a fictional company called Relecloud. After applying the reliable web app pattern, Relecloud is now running their application in Azure and enjoying the benefits of Azure managed resources, right-sized services, and simple scalability. They now wish to begin the process of re-architecting their solution to improve performance, reliability, and add the ability to scale and version portions of their application independently. This will allow them to better handle spikes of demand for resource-intensive parts of the application such as rendering ticket images. To achieve these goals, they are adopting a more service-oriented architecture according to the modern web app pattern.
+*Example scenario:* After applying the reliable web app pattern, the fictional company, Relecloud, wants to begin the process of re-architecting their solution to improve performance, reliability, and add the ability to scale and version portions of their application independently. This will allow them to better handle spikes of demand for resource-intensive parts of the application such as rendering ticket images. To achieve these goals, they are adopting a more service-oriented architecture according to the modern web app pattern.
 
 Goals for the transformation include:
 

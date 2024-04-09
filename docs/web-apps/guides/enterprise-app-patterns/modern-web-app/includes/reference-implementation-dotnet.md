@@ -1,0 +1,1 @@
+To facilitate the application of this guidance, there's a **[reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)** of the reliable web app pattern that you can deploy. The guidance here refers to the reference implementation throughout as an example.

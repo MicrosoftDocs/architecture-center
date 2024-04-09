@@ -1,22 +1,15 @@
 ---
 title: Modern web app pattern for .NET – Apply the pattern
 ---
+[!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
 
-The modern web app pattern provides guidance for modernizing web apps in the cloud. It provides principles for moving from monolithic architectures toward micro-service architectures that can more completely take advantage of cloud services and scalability. It is a follow-up to the [reliable web app pattern](../../overview.md#reliable-web-app-pattern) and provides guidance for the next steps in optimizing applications for cloud environments.
+[!INCLUDE [mwa-apply-pattern](../includes/mwa-apply-pattern.md)]
 
-This article is the second of two articles. It shows you how to update your web app architecture and code to apply the reliable web app pattern. The companion article provides **[implementation planning guidance](plan-implementation-content.md)**.
+[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
 
-[!INCLUDE [reference-implementation](../includes/reference-implementation.md)]
+## Architecture
 
-To facilitate the application of this guidance, there's a **[reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)** of the reliable web app pattern that you can deploy. The guidance here refers to the reference implementation throughout as an example.
-
-# Architecture
-
-The modern web app pattern is a set of principles with implementation guidance. It's not a specific architecture. Your business context, existing web app, and desired service level objective (SLO) are critical factors that shape the architecture of your solution. The following diagram (figure 1) represents the architecture of the [reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet) which is one example of the modern web app pattern principles applied. It's important that your web app adheres to the principles of the modern web app pattern, not necessarily this specific architecture.
-
-<img src="c:\GitHub\architecture-center-pr\docs\web-apps\guides\modern-web-app\dotnet/media/image1.png" style="width:6.5in;height:6.33611in" alt="A diagram of a diagram Description automatically generated" />
-
-**Figure 1** Modern web app pattern reference implementation architecture.
+*Figure 1* Modern web app pattern reference implementation architecture.
 
 # Principles and implementation
 

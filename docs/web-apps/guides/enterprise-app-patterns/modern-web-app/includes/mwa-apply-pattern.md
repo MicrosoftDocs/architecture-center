@@ -1,0 +1,1 @@
+This article is the second of two articles. It shows you how to update your web app architecture and code to apply the reliable web app pattern. The companion article provides **[implementation planning guidance](plan-implementation-content.md)**.
