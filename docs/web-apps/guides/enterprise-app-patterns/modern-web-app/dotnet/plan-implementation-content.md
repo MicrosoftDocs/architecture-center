@@ -13,18 +13,14 @@ title:
 
 # Define business goals
 
-*Example scenario:* After applying the reliable web app pattern, the fictional company, Relecloud, wants to begin the process of re-architecting their solution to improve performance, reliability, and add the ability to scale and version portions of their application independently. This will allow them to better handle spikes of demand for resource-intensive parts of the application such as rendering ticket images. To achieve these goals, they are adopting a more service-oriented architecture according to the modern web app pattern.
+*Example scenario:* After applying the reliable web app pattern, the fictional company, Relecloud, wants to better handle spikes of demand for resource-intensive parts of the application such as rendering ticket images. They want to re-architect their web app to improve performance, reliability, and add the ability to scale and version portions of their application independently. This will allow them to  To achieve these goals, they are adopting a more service-oriented architecture according to the modern web app pattern.
 
 Goals for the transformation include:
 
 - Maintain a service level objective of 99.9%
-
 - Decouple solution components so that they can operate and version independently
-
 - Allow high traffic components of their solution to automatically scale independently
-
 - Optimize costs by scaling unneeded resources to zero when appropriate
-
 - Deploy reliably by using containerized services
 
 # Existing web app
