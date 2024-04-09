@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
   author: carlosasantos
-  ms.author: cfernandesdo, bleik
+  ms.author: bleik
   ms.date: 02/03/2023
   ms.topic: reference-architecture
   ms.service: architecture-center

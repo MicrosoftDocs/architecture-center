@@ -119,7 +119,7 @@ Principal author:
 
 ## Next steps
 
-To learn more about AI Search, visit the [documentation center][docs-search], check out the [samples][search-samples], or see a full-fledged [demo site][search-demo] in action.
+To learn more about AI Search, visit the [documentation center][docs-search] or check out the [samples][search-samples].
 
 To find out more about other Azure components, see these resources:
 
@@ -160,7 +160,6 @@ To find out more about other Azure components, see these resources:
 [search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
-[search-demo]: https://azjobsdemo.azurewebsites.net/
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd
 [medium-pricing]: https://azure.com/e/a5ad0706c9e74add811e83ef83766a1c
 [large-pricing]: https://azure.com/e/57f95a898daa487795bd305599973ee6
