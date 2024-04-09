@@ -2,14 +2,14 @@
 ms.custom: devx-track-extended-java
 ---
 
-The reliable web app pattern shows you how to move web apps to the cloud. The pattern is a set of [principles and implementation techniques](../overview.md) that define how developers should update web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+This article shows you how to apply the reliable web app pattern. The reliable web app pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-This article provides code and architecture guidance for the reliable web app pattern. The companion article provides [**implementation planning guidance**](plan-implementation.yml). To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the reliable web app pattern that you can deploy. The guidance here refers to the reference implementation throughout as an example.
+To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the reliable web app pattern that you can deploy.
 
-## Architecture
+[![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
+*Architecture of reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
-![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)  
-*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
+The following guidance use the reference implementation as an example throughout. To apply the reliable web app pattern, follow these recommendations:
 
 ## Reliability
 
