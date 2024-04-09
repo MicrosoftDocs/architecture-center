@@ -17,9 +17,13 @@ The initial step in transitioning to cloud computing is to articulate your busin
 
 *Example:* The fictional company Relecloud sells tickets through it's on-premises web application. Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
 
-| Immediate app goals | Future app goals |
-| --- | --- |
-| ▪ Make high-value code changes<br>▪ Service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Cost-optimize environments <br>▪ Improve reliability and security|▪ Improve availability<br> ▪ Accelerate feature delivery<br>▪ Scale based on traffic.|
+- Apply low-cost, high-value code changes
+- Reach a service level objective of 99.9%
+- Adopt DevOps practices
+- Create cost-optimized environments
+- Improve reliability and security
+
+Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 ## Choose the right managed services
 

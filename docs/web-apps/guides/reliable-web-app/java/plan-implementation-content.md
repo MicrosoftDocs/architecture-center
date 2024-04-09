@@ -16,9 +16,11 @@ The initial step in transitioning to cloud computing is to articulate your busin
 
 *Example:* The fictional company, Contoso Fiber, wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
-| Immediate app goals | Future app goals |
-| --- | --- |
-| ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Improve availability<br>▪ Expedite new feature delivery<br>▪ Scale components based on traffic.|
+- Apply low-cost, high-value code changes
+- Reach a service level objective of 99.9%
+- Adopt DevOps practices
+- Create cost-optimized environments
+- Improve reliability and security
 
 Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. So, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
