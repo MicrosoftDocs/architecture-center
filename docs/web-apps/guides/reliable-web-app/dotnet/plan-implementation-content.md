@@ -21,14 +21,6 @@ The initial step in transitioning to cloud computing is to articulate your busin
 | --- | --- |
 | ▪ Make high-value code changes<br>▪ Service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Cost-optimize environments <br>▪ Improve reliability and security|▪ Improve availability<br> ▪ Accelerate feature delivery<br>▪ Scale based on traffic.|
 
-Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
-
-## Define the service level objective
-
-A service level objective (SLO) for availability defines how available you want a web app to be for users. The definition of what *available* means is different for every web app. You need to define what available means for your web app. It might be a core functionality of your web app, such as when customers can purchase products. After you define *available* for your web app, you need to figure out how available you need your web app to be in percentage uptime (for example, 99.9%). This percentage is the web app SLO. The SLO plays a significant role in the services you choose and the architecture you adopt.
-
-*Example:* For Relecloud, the web app is *available* when call center employees can use the app to purchase tickets for customers. Relecloud set a target SLO of 99.9% for availability (about 8.7 hours of downtime per year).
-
 ## Choose the right managed services
 
 When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
