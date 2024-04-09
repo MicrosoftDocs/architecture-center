@@ -12,35 +12,35 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 1. A web browser accesses Azure resources, which replaces standard mainframe protocols like HTTPS and [TN3270 terminal emulation](https://en.wikipedia.org/wiki/3270_emulator) for demand and online users. Users access web-based applications over a private Azure ExpressRoute connection through Transport Layer Security (TLS) port 443.
 
-1. For security and performance, this solution deploys all Azure resources in an Azure virtual network, with a network security group to help manage traffic.
+1. For security and performance, this solution deploys all Azure resources in an Azure virtual network. A network security group helps manage traffic.
 
-1. For admin access to the Azure VMs, Azure Bastion provides maximize security by minimizing open ports.
+1. Azure Bastion limits the number of open ports to provide maximize security for administrators when they access Azure VMs.
 
 1. Avanade AMT converts mainframe presentation loads to VM server farms. Two sets of two VMs run the web and application layers. The VMs use Premium SSD or Ultra Disk Storage with accelerated networking for high performance.
 
-   Azure Load Balancer fronts the VMs running the web and application layers in an *active-active* arrangement to spread query traffic.
+   Azure Load Balancer fronts these VMs in an *active-active* arrangement to spread query traffic.
 
    Presentation layer code runs in IIS and uses ASP.NET to maintain the z/OS mainframe user interface screens. You can leave web applications' presentation layers unchanged, to minimize user retraining, or you can update the presentation layers with modern user experience frameworks.
 
-1. Server farms use scale set capabilities to accommodate the converted mainframe batch loads and transaction loads. The server farms handle workload peaks. A different Azure load balancer fronts the transaction servers to distribute the traffic in an active-active arrangement across the server farm.
+1. Server farms use scale set capabilities to accommodate the converted mainframe batch loads and transaction loads. The server farms handle workload peaks. An Azure load balancer fronts the transaction servers to distribute the traffic in an active-active arrangement across the server farm.
 
 1.	The mainframe application code is converted to either .NET C# or Java artifacts. This migrated code runs on the transaction servers to provide the current business logic.
 
-1.	Avanade AMT Transform automates the migration of all DB2, IMS, Adabas, VSAM files, hierarchical, network, relational databases, and schemas to modern databases and file handling.
+1.	Avanade AMT Transform automates the migration of database management systems (DB2, IMS, Adabas), databases (hierarchical, network, relational), VSAM files, and schemas to modern databases and file handling.
 
     Avanade AMT Transform converts Job Control Language (JCL) and Rexx scripts to PowerShell (.NET C#), Python, or Java. Azure Private Link provides a private, direct connection from the Azure VMs to the databases.
 
 1. Workload automation, scheduling, reporting, and system monitoring functions that are compatible with Azure can keep their current platforms. This example uses Avanade AMT Control Center for operations.
 
-   The system can support printers and other legacy system output devices if they have IP addresses connected to the Azure network.
+   The system can support printers and other legacy system output devices if they have IP addresses that are connected to the Azure network.
 
-1. Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and disaster recovery (DR) in case of an Azure datacenter failure.
+1. Azure Site Recovery mirrors the Azure VMs to a secondary Azure region for quick failover and disaster recovery (DR) if there's an Azure datacenter failure.
 
 ### Components
 
 - [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to cloud services, like Azure and Microsoft 365.
 
-- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed platform as a service (PaaS) that you provision inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and secure shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed platform as a service (PaaS) that you set up inside your virtual network. Azure Bastion provides secure and seamless Remote Desktop Protocol (RDP) and secure shell (SSH) connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
 - [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) provides on-demand, scalable computing resources. Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
@@ -52,23 +52,22 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in an Azure Storage account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently, and access files via the industry standard Server Message Block (SMB) protocol.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business-critical, domain-specific database administration and optimization.
 
 - [Site Recovery](https://azure.microsoft.com/products/site-recovery) uses replication, failover, and recovery processes to help keep your applications running during planned and unplanned outages.
 
 - [Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure) provides highly available and scalable apps in minutes with built-in application load balancing for cloud services and VMs. Load Balancer supports TCP/UDP-based protocols such as HTTP, HTTPS, and SMTP. With Load Balancer, you can automatically scale increasing app traffic to provide a better customer experience. You don't need to reconfigure or manage the load balancer.
 
-### Alternatives
-
-The Avanade AMT framework supports several methodologies to move client workloads to Azure:
-
-- *Whole system conversion*: You can convert and move the entire mainframe system to Azure at one time, which reduces interim mainframe maintenance and facility support costs. You should carefully consider and manage this approach because all processes, such as application conversion, data migration, and testing, must align for a smooth transition.
-
-- *Phased application transition*: You can move applications from the mainframe to Azure gradually until you perform a full transition. You can save money on individual applications. You can also learn about the conversion for each application and apply those lessons to subsequent conversions.
-
-- *Resource optimization with phased transition*: If your goal is to release resources on the mainframe, the phased method can provide more processing cycles on the mainframe because you convert and migrate applications to Azure. This method results in a more complex migration due to various factors, including setting up temporary interfaces to the mainframe and decoupling complex code. You can retire the mainframe after all migration phases are complete.
-
 ## Scenario details
+
+An Avanade AMT migration provides several benefits, for example you can:
+
+- Modernize infrastructure to prevent the high costs, limitations, and rigidity of mainframes.
+
+- Move mainframe workloads to the cloud to prevent the necessity of a complete redevelopment.
+- Migrate mission-critical applications to the cloud to maintain continuity with on-premises mainframe applications.
+- Provide flexible horizontal and vertical scalability.
+- Provide high-availability (HA) and DR capabilities.
 
 This solution transforms proprietary legacy applications, infrastructures, business logic, and processes to standardized, benchmarked cloud technologies to help promote agile DevOps principles and practices that are today's productivity norm. Transform legacy applications and infrastructures to provide unified business and IT alignment.
 
@@ -76,14 +75,13 @@ Use the Avanade AMT framework to quickly move resources to Azure without rewriti
 
 ### Potential use cases
 
-An Avanade AMT migration provides several benefits, for example:
+The Avanade AMT framework supports several methodologies to move your workloads to Azure:
 
-- Modernizing infrastructure prevents the high costs, limitations, and rigidity of mainframes.
+- *Whole system conversion*: You can convert and move the entire mainframe system to Azure at one time, which reduces interim mainframe maintenance and facility support costs. You should carefully consider and manage this approach because all processes, such as application conversion, data migration, and testing, must align for a smooth transition.
 
-- Moving mainframe workloads to the cloud without the side effects of a complete redevelopment.
-- Migrating mission-critical applications to the cloud maintains continuity with on-premises mainframe applications.
-- Flexible horizontal and vertical scalability.
-- High availability (HA) and DR capabilities.
+- *Phased application transition*: You can move applications from the mainframe to Azure gradually, eventually completing a full transition. You can save money on individual applications. You can also learn about the conversion for each application, and apply those lessons to subsequent conversions.
+
+- *Resource optimization with phased transition*: If your goal is to release resources on the mainframe, the phased method can provide more processing cycles on the mainframe because you convert and migrate applications to Azure. This method results in a more complex migration due to various factors, including setting up temporary interfaces to the mainframe and decoupling complex code. You can retire the mainframe after all migration phases are complete.
 
 ## Considerations
 
@@ -96,7 +94,7 @@ Reliability ensures your application can meet the commitments you make to your c
 - Use Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
  
 - Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region. 
-- Use Load Balancer to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload. 
+- Use [Load Balancer](/azure/load-balancer) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload. 
 
 ### Security
 
@@ -105,14 +103,14 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Use Azure [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to manage traffic between Azure resources.
 
 - Use [Private Link](/azure/azure-sql/database/private-endpoint-overview) to provide a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
-- Use Azure Bastion to maximize admin access security by minimizing open ports. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
+- Use [Azure Bastion](/azure/bastion/bastion-overview) to limit the number of open ports, which maximizes admin access security. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
 
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- You can optimize Azure Reserved Virtual Machine Instances by turning off VMs when they aren't needed and scripting schedules for known usage patterns. Avanade AMT in Azure runs on Windows or Linux VMs, which optimizes costs.
+- Turn off VMs when you don't need them, and script schedules for known usage patterns to optimize Azure Reserved Virtual Machine Instances. Avanade AMT in Azure runs on Windows or Linux VMs, which optimizes costs.
 
 - Ensure that you use only one VM instance with Site Recovery if your VMs within server sets are duplicates. With Site Recovery, you pay for each protected instance.
 - To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -121,10 +119,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
-- Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS) or 3,300 million service units (MSUs).
+- Take advantage of scaling capabilities. Avanade AMT has proven single-application scalability that's equivalent to at least 28,000 million instructions per second (MIPS) or 3,300 million service units (MSUs).
 
 - Use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) so each set of servers can scale out to provide more throughput.
-- Use SQL Database hyperscale or business critical tiers for high input/output operations per second (IOPS) and high-uptime service-level agreements (SLAs). For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
+- Use the SQL Database hyperscale tier or business-critical tier for high input/output operations per second (IOPS) and high-uptime service-level agreements (SLAs). For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use SSD or Ultra Disk Storage for best performance. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 
@@ -142,9 +140,9 @@ Principal author:
 
 - For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 - Visit the [Avanade website](https://www.avanade.com).
-- [The CIO’s guide to mainframe modernization](https://www.avanade.com/solutions/cloud-and-application-services/mainframe-modernization-guide)
-- [MIPS equivalent sizing for IBM CICS COBOL applications](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
+- Review [the CIO’s guide to mainframe modernization](https://www.avanade.com/solutions/cloud-and-application-services/mainframe-modernization-guide).
+- Learn about [MIPS equivalent sizing for IBM CICS COBOL applications](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
 
 ## Related resources
 
-- [Refactor IBM z/OS mainframe coupling facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
+- [Refactor IBM z/OS mainframe coupling facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
