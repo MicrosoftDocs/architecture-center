@@ -1,1 +1,0 @@
-This is the first of two articles on the modern web app pattern. This article explains important decisions to plan the implementation of the pattern. The companion article provides specific updates to [apply the modern web app pattern](mwa-apply-pattern.md).

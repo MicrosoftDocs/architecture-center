@@ -1,43 +1,9 @@
 ---
 title: Modern web app pattern for .NET – Apply the pattern
 ---
-[!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
+This article shows you how to apply the reliable web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
 
-[!INCLUDE [mwa-apply-pattern](../includes/mwa-apply-pattern.md)]
-
-[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
-
-## Architecture
-
-*Figure 1* Modern web app pattern reference implementation architecture.
-
-# Principles and implementation
-
-As discussed in the modern web app pattern [planning guidance](https://todo), the modern web app pattern is built on the principles of the Well Architected Framework: reliability, security, operational excellence, performance, and cost optimization. The modern web app pattern builds upon the principles of the reliable web app. It preserves all of those principles while also adding additional principles and patterns to more fully adhere to the Well Architected Framework. While the reliable web app pattern strove to make minimal code changes, the modern web app pattern will make code changes to targeted parts of a solution when necessary to incrementally improve the app.
-
-As described in the modern wen app pattern [planning guidance](https://todo), modern web app pattern principles include:
-
-- Separation of concerns with independent versioning and scaling
-
-- Asynchronous communication
-
-- Fine-grained scalability
-
-- Data autonomy
-
-These principles are implemented with the following patterns:
-
-- Strangler fig
-
-- Queue-based load leveling
-
-- Competing consumers
-
-- Automatic horizontal scaling
-
-- Health endpoint monitoring
-
-- Containerized service deployment
+[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To apply the reliable web app pattern, follow these recommendations:
 
 ## Reliability
 
