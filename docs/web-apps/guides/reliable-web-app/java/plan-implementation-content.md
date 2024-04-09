@@ -14,11 +14,13 @@ This article is the first of two articles. It shows you how to plan a web app mi
 
 The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-*Example:* The web app in the reference implementation belongs to the fictional company Contoso Fiber. Contoso Fiber wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. So, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+*Example:* The fictional company, Contoso Fiber, wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
 | Immediate app goals | Future app goals |
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Improve availability<br>▪ Expedite new feature delivery<br>▪ Scale components based on traffic.|
+
+Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. So, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 ## Define a service level objective
 

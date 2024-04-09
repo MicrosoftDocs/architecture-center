@@ -15,13 +15,13 @@ This article is the first of two articles. It shows you how to plan a web app mi
 
 The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-*Example:* The reference implementation shows the end result of applying the reliable web app to an on-premises web application. The web app in the reference implementation belongs to the fictional company Relecloud, which specializes in selling concert tickets. The primary method Relecloud uses to sell tickets is through a web application. Before transitioning to the cloud, Relecloud aimed to accommodate growing business needs with minimal investment in their existing local web application. The web application enabled Relecloud's call center staff to purchase concert tickets on behalf of their clients.
-
-The demand for Relecloud's on-site application surged as ticket sales increased, and Relecloud anticipated further demand growth. Relecloud determined that their on-premises infrastructure wasn't a cost-effective solution for scaling up. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+*Example:* The fictional company Relecloud sells tickets through it's on-premises web application. Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
 
 | Immediate app goals | Future app goals |
 | --- | --- |
 | ▪ Make high-value code changes<br>▪ Service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Cost-optimize environments <br>▪ Improve reliability and security|▪ Improve availability<br> ▪ Accelerate feature delivery<br>▪ Scale based on traffic.|
+
+Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 ## Define the service level objective
 
