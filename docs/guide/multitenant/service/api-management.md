@@ -34,13 +34,13 @@ Can sit inside or outside of the stamps.
 
 ## Features of API Management that support multitenancy
 
-Azure API Management enables a lot of flexibility through its use of [policies](https://learn.microsoft.com/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
+Azure API Management enables flexibility through its use of [policies](https://learn.microsoft.com/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
 
 ## Identify tenants on incoming requests
 
-Consider how you will identify tenants based on incoming requests. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
+Consider how you'll identify tenants based on incoming requests. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
 
-Azure API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you will map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
+Azure API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you'll map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
 
 Alternatively, you can identify the tenant through other methods. Each of these methods may require additional work to extract the token, and then to map the request to the tenant. Here are some example custom approaches:
 
@@ -56,9 +56,9 @@ API requests made to the Azure API Management gateway usually need to be authent
 > [!NOTE]
 > We recommend using a subscription key (API key) as well as another method of authentication. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, such as for tracking individual customers' API usage.
 
-- No credential - An API Management subscription key is used to authenticate the request. This can be used when you control the calling application and can trust the request. This method should not be used for any API that provides access to sensitive information.
-- Shared credential - All tenants share the same authentication credential such as a [client certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients). This should only be used when you control the calling application and can trust the request. This works when an API is only used by internal service-to-service communication. If the client is not able to be trusted, then it would be possible for the The *subscription key* to be modified to change the request to a different tenant, putting tenant isolation at risk.
-- Per-tenant credential - Each tenant provides a unique credential to access an API. This is best used with an OAuth2.0 method of authentication is available. It is possible to implement this method with client certificate authentication, but scalability is impacted because more complicated policies are required to uniquely identify each user.
+- No credential - An API Management subscription key is used to authenticate the request. This can be used when you control the calling application and can trust the request. This method shouldn't be used for any API that provides access to sensitive information.
+- Shared credential - All tenants share the same authentication credential such as a [client certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients). This should only be used when you control the calling application and can trust the request. This works when an API is only used by internal service-to-service communication. If the client isn't trusted, then it would be possible for the *subscription key* to be modified to change the request to a different tenant, putting tenant isolation at risk.
+- Per-tenant credential - Each tenant provides a unique credential to access an API. This is best used with an OAuth2.0 method of authentication is available. It's possible to implement this method with client certificate authentication, but it's harder to scale this approach because complicated policies are required to uniquely identify each user.
 
 ### Route to tenant-specific backends
 
