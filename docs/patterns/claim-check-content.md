@@ -1,31 +1,33 @@
-The claim-check pattern allows systems to process large messages to be processed without storing the message in the messaging system. The pattern stores the message in a data store and generates a token that serves as a claim check for the message. The messaging system sends the token (claim check) to consuming system components so they can retrieve the message from a data store. The messaging system never stores the message, only the token (claim-check).
+The claim-check pattern allows workloads to process large messages without storing them in a messaging broker. The pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to clients so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
 
 This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
 
 ## Context and problem
 
-A messaging system needs to send, receive, and process large messages. Sending such large messages to the message bus directly is not recommended, because they require more resources and bandwidth to be consumed. Large messages can also slow down the entire solution, because messaging platforms are usually fine-tuned to handle huge quantities of small messages. Also, most messaging platforms have limits on message size, so you may need to work around these limits for large messages.
+Messaging systems are designed to handle a huge volume of small messages. Most messaging systems have limits on message size they can process. Large message pose a challenge to messaging systems. They can exceed the message size or can degrade the performance of the entire workload when stored in a messaging system.
 
 ## Solution
 
-Store the entire message payload into an external service, such as a cloud storage service. Generate a unique token that can be used later to retrieve the stored data, and send just that token to the message bus. The reference token acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference token to retrieve the payload, if needed.
+Don't send large messages to the messaging system. Instead, send the message to an external data store. Generate a unique, obscure token (claim check) to retrieve the stored data and send that token to the messaging system. The messaging system sends the token to clients that need to process that specific message.
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
 1. Send message
-1. Store message on the data store
-1. Enqueue the message's reference
-1. Read the message's reference
+1. Store message in the data store
+1. Send token (claim check) to messaging system.
+1. Read the token (claim check)
 1. Retrieve the message
 1. Process the message
 
 ## Issues and considerations
 
-Consider the following points when deciding how to implement this pattern:
+Consider the following recommendations when implementing the claim-check pattern:
 
-- Consider deleting the message data after consuming it, if you don't need to archive the messages. Deleting the message can be done synchronously by the application that receives and processes the message, or asynchronously by a separate dedicated process. The asynchronous approach would minimize removes old data with no impact on the throughput and message processing performance of the receiving application.
-
-- Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This approach would result in a conditional claim-check pattern.
+- *Delete consumed messages.* If you don't need to archive the message, deleting the message data after it's consumed. Use either a synchronous or asynchronous deletion strategy:
+  - *Synchronous deletion*: The consuming application deletes the message immediately after consumption. It ties deletion to the message handling workflow and uses messaging-workflow compute capacity.
+  - *Asynchronous deletion*: A process outside the message processing workflow deletes the message. It decouples message deletion from the message handling workflow and minimizes use of messaging-workflow compute.
+  
+- *Apply conditions.* Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This approach would result in a conditional claim-check pattern.
 
 ## When to use this pattern
 
@@ -33,7 +35,7 @@ This pattern could be used whenever a message cannot fit the supported message l
 
 The pattern can also be used to protect sensitive data in the message from access by unauthorized people or services. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when the payload contains sensitive data.
 
-Another scenario where this pattern is useful is when the message needs to travel through several system components, some of which may not be authorized to access the data, and potentially returning back to the original sender. By employing this pattern, we avoid having to unnecersarily process the payload at each step, improving performanceand protecting the integrity of the payload.
+Another scenario where this pattern is useful is when the message needs to travel through several system components, some of which may not be authorized to access the data, and potentially returning back to the original sender. By employing this pattern, we avoid having to unnecessarily process the payload at each step, improving performance and protecting the integrity of the payload.
 
 ## Workload design
 
