@@ -2050,7 +2050,7 @@ items:
         - name: Networking considerations
           href: solution-ideas/articles/azure-vmware-solution-foundation-networking.yml
       - name: Cross-platform chat
-        href: solution-ideas/articles/cross-platform-chat.yml
+        href: example-scenario/signalr/cross-platform-chat.yml
   - name: Identity
     items:
     - name: Get started

@@ -4353,6 +4353,11 @@
       "source_path": "docs/solution-ideas/articles/iot-predictive-maintenance.yml",
       "redirect_url": "/azure/architecture/industries/manufacturing/predictive-maintenance-overview",
       "redirect_document_id": false
-      }
+    },
+    {
+        "source_path": "docs/solution-ideas/articles/cross-platform-chat.yml",
+        "redirect_url": "/azure/architecture/example-scenario/signalr/cross-platform-chat",
+        "redirect_document_id": false
+    }
   ]
 }
