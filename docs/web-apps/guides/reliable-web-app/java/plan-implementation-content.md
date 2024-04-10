@@ -1,168 +1,200 @@
-The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
+---
+ms.custom: devx-track-extended-java, devx-track-javaee
+---
+This article shows you how to plan an implementation of the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-There are two articles on the reliable web app pattern for Java. This article explains important decisions to plan the implementation of the pattern. The companion article provides code and architecture guidance to [apply the pattern](apply-pattern.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
+To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the Reliable Web App pattern that you can deploy.
 
-## Architecture
-
-The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. Your business context, existing web app, and desired service level objective (SLO) are critical factors that shape the architecture of your web app. The following diagram (*figure 1*) represents the architecture of the [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). It's one example that illustrates the principles of the reliable web app pattern. It's important that your web app adheres to the principles of the reliable web app pattern, not necessarily this specific architecture.
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/4e27d768a5924e3d93252eeceb4af4ad) and [nonproduction environment cost](https://azure.com/e/1721b2f3f2bd4340a00115e79057177a).*
+*Architecture of reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
-## Principles and implementation
+The following guidance uses the reference implementation as an example throughout. To plan an implementation of the Reliable Web App pattern, follow these steps:
 
-The following table lists the principles of the reliable web app pattern and how to implement those principles in your web app. For more information, see [Reliable web app pattern overview](../overview.md).
+## Define business goals
 
-*Table 1. Pattern principles and how to implement them.*
+The initial step in transitioning to cloud computing is to articulate your business objectives. The Reliable Web App pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-| Reliable web app pattern principles | How to implement the principles |
-| --- | --- |
-| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
+*Example:* The fictional company, Contoso Fiber, wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
-## Business context
+- Apply low-cost, high-value code changes
+- Reach a service level objective (SLO) of 99.9%
+- Adopt DevOps practices
+- Create cost-optimized environments
+- Improve reliability and security
 
-For business context, the guidance follows the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web app as a starting point. The long term plan is to make the web app a customer facing application. Proseware needs to update the application to handle that increase in user load.
+Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution for scaling the application. So, they decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
-To reach these long term goals, Proseware calculated that moving the web app to the cloud offered the best return on investment. The cloud offered them a way to meet the increased business demand with minimal investments in the existing web app.
+## Choose the right managed services
 
-*Table 2. Short and long-term web app goals.*
+When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
-| Short-term app goals | Long-term app goals |
-| --- | --- |
-| ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
-
-## Existing web app
-
-The existing web app is on premises. It's a monolithic Java web app that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project, but in this scenario, Proseware owns the code. Code ownership is a more common scenario than an upstream dependency. The on-premises web app is a Spring Boot app, which runs on an Apache Tomcat web server with a PostgreSQL database.  It's important to take the Java middleware and frameworks used by the web app into account when you move it to the cloud. For more on this consideration, see [Application platform](#application-platform).
-
-The web app is a line-of-business training app. It's employee-facing. Proseware employees use the application to complete required HR training. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
-
-## Service level objective
-
-A service level objective (SLO) for availability defines how available you want a web app to be for users. You need to define an SLO and what *available* means for your web app. Proseware has a target SLO of 99.9% for availability, about 8.7 hours of downtime per year. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
-
-For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point. However, SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
-
-Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list with availability goals for each dependency (*see figure 2*).
-
-[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](../../_images/java-slo-dependecies.svg)](../../_images/java-slo-dependecies.svg#lightbox)
-*Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
-
-When you have an SLA dependency map, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Proseware needed a multi-region architecture to meet the 99.9% SLO. For more information, see [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas) and [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments).
-
-## Choose the right services
-
-The Azure services you choose should support your short-term objectives. They should also prepare you to reach any long-term goals. To accomplish both, you should pick services that (1) meet your SLO, (2) require minimal re-platforming effort, and (3) support future modernization plans.
-
-When you move a web app to the cloud, you should select Azure services that mirror key on-premises features. The alignment helps minimize the re-platforming effort. For example, you should keep the same database engine (from PostgreSQL to Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLO of 99.9% for the production environment and (2) an average load of 1,000 users daily.
+*Example:* Before the move to the cloud, Contoso Fiber's CAMS web app was an on-premises, monolithic Java web app. It's a Spring Boot app with a PostgreSQL database. The web app is a line-of-business support app. It's employee-facing. Contoso Fiber employees use the application to manage support cases from their customers. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
 ### Application platform
 
-[Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web apps, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). Proseware chose Azure App Service because it meets the following requirements:
+Choose the best application hosting platform for your web app. Azure has many different compute options to meet a range of web apps requirements. For help with narrowing options, see the Azure [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-- **Natural progression.** On-premises, Proseware deployed a Spring Boot `war` file to a Tomcat server and wanted to minimize the amount of rearchitecting for that deployment model. Because App Service has great support for Tomcat, it's a natural progression for Proseware.  Azure Spring Apps is also an attractive alternative for this app. For more information on Azure Spring Apps, see [What is Azure Spring Apps?](/azure/spring-apps/overview). If the Proseware app happened to use Jakarta EE instead of Spring Boot, you might consider the options for running Jakarta EE on Azure. For more information, see [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
-- **High SLA.** It has a high SLA that meets the requirements for the production environment.
-- **Reduced management overhead.** It's a fully managed hosting solution.
-- **Containerization capability.** App Service works with private container image registries like Azure Container Registry. Proseware can use these registries to containerize the web app in the future.
-- **Autoscaling.** The web app can rapidly scale up, down, in, and out based on user traffic.
+*Example:* Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
+
+- *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, Azure Spring Apps would be a better fit. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
+
+- *High SLA.* It has a high SLA that meets the requirements for the production environment.
+
+- *Reduced management overhead.* It's a fully managed hosting solution.
+
+- *Containerization capability.* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
+
+- *Autoscaling.* The web app can rapidly scale up, down, in, and out based on user traffic.
 
 ### Identity management
 
-[Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with applications. Microsoft Entra ID provides the following features for Proseware's web app:
+Choose the best identity management solution for your web app. For more information, see [compare identity management solutions](/entra/identity/domain-services/compare-identity-solutions) and [authentication methods](/entra/identity/hybrid/connect/choose-ad-authn).
 
-- **Authentication and authorization.** It handles authentication and authorization of employees.
-- **Scalability.** It scales to support larger scenarios.
-- **User-identity control.** Employees can use their existing enterprise identities.
-- **Support for authorization protocols.** It supports OAuth 2.0 for managed identities and OpenID Connect for future B2C support.
+*Example:* Contoso Fiber chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
+
+- *Authentication and authorization.* It handles authentication and authorization of employees.
+
+- *Scalability.* It scales to support larger scenarios.
+
+- *User-identity control.* Employees can use their existing enterprise identities.
+
+- *Support for authorization protocols.* It supports OAuth 2.0 for managed identities.
 
 ### Database
 
-[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview) is a fully managed database service that provides single-server and flexible-server options. Proseware chose Azure Database for PostgreSQL and the flexible-server option to get the following benefits:
+Choose the best database for your web app. For help with narrowing the options, see the Azure [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree).
 
-- **Reliability.** The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration and maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
-- **Cross-region replication.** It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
-- **Performance.** It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
-- **Reduced management overhead.** It's a fully managed Azure service that reduces management obligations.
-- **Migration support.** It supports database migration from on-premises single-server PostgreSQL databases. You can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
-- **Consistency with on-premises configurations.** It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Proseware currently uses.
-- **Resiliency.** The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them using zone-redundant storage (ZRS) within the same region. You can restore your database to any point-in-time within the backup retention period. The backup and restoration capability creates a better RPO (acceptable amount of data loss) than Proseware could create on-premises.
+*Example:* Contoso Fiber chose Azure Database for PostgreSQL and the flexible-server option for the following reasons:
+
+- *Reliability.* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration and maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
+
+- *Cross-region replication.* It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
+
+- *Performance.* It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
+
+- *Reduced management overhead.* It's a fully managed Azure service that reduces management obligations.
+
+- *Migration support.* It supports database migration from on-premises single-server PostgreSQL databases. They can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
+
+- *Consistency with on-premises configurations.* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
+
+- *Resiliency.* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them using zone-redundant storage (ZRS) within the same region. They can restore their database to any point-in-time within the backup retention period. The backup and restoration capability creates a better RPO (acceptable amount of data loss) than Contoso Fiber could create on-premises.
 
 ### Application performance monitoring
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. Proseware added Application Insights for the following reasons:
+Choose to an application performance monitoring for your web app. [Application Insights](/azure/azure-monitor/app/app-insights-overview) is the Azure-native application performance management (APM) solution. It's a feature of Azure's monitoring solution, [Azure Monitor](/azure/azure-monitor/overview).
 
-- **Anomaly detection.** It automatically detects performance anomalies.
-- **Troubleshooting.** It helps diagnose problems in the running app.
-- **Telemetry.** It collects information about how users are using the app and allows you to easily send custom events that you want to track in your app.
-- **Solving an on-premises visibility gap.** The on-premises solution didn't have APM. Application Insights provides easy integration with the application platform and code.
+*Example:* Contoso Fiber added Application Insights for the following reasons:
 
-Azure Monitor is a comprehensive suite of monitoring tools for collecting data from various Azure services. For more information, see:
+- *Anomaly detection.* It automatically detects performance anomalies.
 
-- [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java)
-- [Smart detection in Application Insights](/azure/azure-monitor/alerts/proactive-diagnostics)
-- [Application Map: Triage distributed applications](/azure/azure-monitor/app/app-map?tabs=java)
-- [Usage analysis with Application Insights](/azure/azure-monitor/app/usage-overview)
-- [Getting started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)
-- [Application Insights Overview dashboard](/azure/azure-monitor/app/overview-dashboard)
-- [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+- *Troubleshooting.* It helps diagnose problems in the running app.
+
+- *Telemetry.* It collects information about how users are using the app and allows you to easily send custom events that you want to track in your app.
+
+- *On-premises visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
 ### Cache
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on Redis software. Proseware needed a cache that provides the following benefits:
+Choose whether to add cache to your web app architecture. [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is Azure's primary cache solution. It's a managed in-memory data store based on the Redis software.
 
-- **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
-- **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
-- **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- **Enabling non-sticky sessions:** The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Proseware has a fully managed, scalable cache service to improve scalability and performance of their applications. Proseware was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
+*Example:* Contoso Fiber needed a cache that provides the following benefits:
 
-### Global load balancer
+- *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 
-Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose an active-passive configuration to avoid the code changes needed for an active-active configuration. To route traffic across regions, they needed a global load balancer. Azure has two primary global load balancing architectures: (1) Azure Front Door and (2) Azure Traffic Manager.
+- *Diverse supportability.* It's a unified cache location that all instances of the web app can use.
 
-Front Door is a modern content delivery network and global load balancer that routes HTTP traffic. Traffic Manager is a global load balancer that uses DNS to route traffic across regions. Proseware chose Front Door as the global load balancer for following benefits:
+- *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 
-- **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
-- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
-- **Custom domains.** It supports custom domain names with flexible domain validation.
-- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
-- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
-- **DDoS protection.** It has built-in layer 3-4 DDoS protection.
+- *Nonsticky sessions.* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
+
+### Load balancer
+
+Choose the best load balancer for your web app. Azure has several load balancers. For help with narrowing the options, see [choose the best load balancer for your app](/azure/architecture/guide/technology-choices/load-balancing-overview).
+
+*Example:* Contoso Fiber chose Front Door as the global load balancer for following reasons:
+
+- *Routing flexibility.* It allows the application team to configure ingress needs to support future changes in the application.
+
+- *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+
+- *Custom domains.* It supports custom domain names with flexible domain validation.
+
+- *Health probes.* The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+
+- *Monitoring support.* It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+
+- *DDoS protection.* It has built-in layer 3-4 DDoS protection.
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web app from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Proseware chose the Web Application Firewall for the following benefits:
+Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) (WAF) is Azure's web application firewall and provides centralized protection of from common web exploits and vulnerabilities.
 
-- **Global protection.** It provides increased global web app protection without sacrificing performance.
-- **Botnet protection.** You can configure bot protection rules to monitor for botnet attacks.
-- **Parity with on-premises.** The on-premises solution was running behind a web application firewall managed by IT.
+*Example:* Contoso Fiber chose the Web Application Firewall for the following benefits:
+
+- *Global protection.* It provides increased global web app protection without sacrificing performance.
+
+- *Botnet protection.* You can configure bot protection rules to monitor for botnet attacks.
+
+- *Parity with on-premises.* The on-premises solution was running behind a web application firewall managed by IT.
 
 ### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets so that you can control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. Proseware chose Key Vault because it provides the following features:
+Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to manage in Azure.
 
-- **Encryption.** It supports encryption at rest and in transit.
-- **Supports managed identities.** The application services can use managed identities to access the secret store.
-- **Monitoring and logging.** It facilitates audit access and generates alerts when stored secrets change.
-- **Integration.** It supports two methods for the web app to access secrets. You can use app settings in the hosting platform (App Service), or you can reference the secret in your application code (app properties file).
+*Example:* Contoso Fiber has secrets to manage. They used Key Vault for the following reasons:
 
-### File storage
+- *Encryption.* It supports encryption at rest and in transit.
 
-Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Proseware needs a file system for saving uploaded training videos. Proseware chose Azure Files for the following reasons:
+- *Supports managed identities.* The application services can use managed identities to access the secret store.
 
-- **Replaces existing file server.** Azure Files is a drop-in replacement for our on-premises network attached storage (NAS) solution. Azure Files allows Proseware to replace the existing file server without needing to modify code if they wanted to add blob storage. Azure Files simplifies the process of getting the app running on the cloud.
-- **Fully managed service.** It enables Proseware to maintain compatibility without needing to manage hardware or an operating system for a file server.
-- **Resiliency:** It has a geo-zone-redundant storage (GZRS) option that supports Proseware's disaster recovery plan. In the primary region, the GZRS option copies data synchronously across three Azure availability zones. In the secondary region, GZRS copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
-- **Durability.** It has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
+- *Monitoring and logging.* It facilitates audit access and generates alerts when stored secrets change.
+
+- *Integration.* It supports two methods for the web app to access secrets. Contoso Fiber can use app settings in the hosting platform (App Service), or they can reference the secret in their application code (app properties file).
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (like Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate with Azure services without requiring application changes. Proseware chose Private Link for the following reasons:
+Choose to enable private only access to Azure services. [Azure Private Link](/azure/private-link/private-link-overview) provides access to platform-as-a-service solutions over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network.
 
-- **Enhanced security.** It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
-- **Minimal effort.** Private endpoints support the web app platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
+*Example:* Contoso Fiber chose Private Link for the following reasons:
+
+- *Enhanced security.* It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
+
+- *Minimal effort.* Private endpoints support the web app platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
+
+## Choose the right architecture
+
+After you define what *available* means for your web app and select the right cloud services, you need to determine the best architecture for your web app. Your architecture needs to support your business requirements, technical requirements, and service-level objective.
+
+### Choose architecture redundancy
+
+The business goals determine the level of infrastructure and data redundancy your web app needs. The web app SLO provides a good baseline for understanding your redundancy requirements. Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) all the dependencies on the critical path of *availability*. Dependencies should include Azure services and non-Microsoft solutions.
+
+Assign an availability estimate for each dependency. Service level agreements (SLAs) provide a good starting point, but SLAs don't account for code, deployment strategies, and architectural connectivity decisions.
+
+*Example:* The reference implementation uses two regions in an active-passive configuration. Contoso Fiber had a 99.9% SLO and needed to use two regions to meet the SLO. The active-passive configuration aligns with Contoso Fiber's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up event-based data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Contoso Fiber manually initiates its failover plan and routes all traffic to the passive region.
+
+### Choose a network topology
+
+Choose the right network topology for your web and networking requirements. A hub and spoke network topology is standard configuration in Azure. It provides cost, management, and security benefits. It also supports hybrid connectivity options to on-premises networks.
+
+*Example:* Contoso Fiber chose a hub and spoke network topology to increase the security of their multi-region deployment at reduced cost and management overhead.
+
+### Choose data redundancy
+
+Ensure data reliability by distributing it across Azure's regions and availability zones; the greater their geographical separation, the higher the reliability.
+
+- *Set a recovery point objective (RPO).* RPO defines the maximum tolerable data loss during an outage, guiding how frequently data needs replication. For instance, an RPO of one hour means accepting up to an hour's worth of recent data loss.
+
+- *Implement data replication.* Align data replication with your architecture and RPO. Azure typically supports synchronous replication within availability zones. Utilize multiple zones to enhance reliability easily. For multi-region web apps in an active-passive setup, replicate data to the passive region as per the web app's RPO, ensuring replication frequency surpasses the RPO. Active-active configurations require near real-time data synchronization across regions, which might necessitate code adjustments.
+
+- *Create a failover plan.* Develop a failover (disaster recovery) plan outlining response strategies to outages, determined by downtime or functionality loss. Specify the recovery time objectives (RTO) for maximum acceptable downtime. Ensure the failover process is quicker than RTO. Decide on automated or manual failover mechanisms for consistency and control, and detail the return to normal operations process. Test the failover plan to ensure effectiveness.
+
+*Example:* For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read-replica in the passive region. Contoso Fiber created a [sample failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md). The Azure Database for PostgreSQL read replica are central to Contoso Fiber's failover plan.
 
 ## Next step
 
-This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
+This article showed you how plan an implementation of the Reliable Web App pattern. The next step is to apply the implementation techniques of the Reliable Web App pattern.
 
 >[!div class="nextstepaction"]
->[Apply the reliable web app pattern](apply-pattern.yml)
+>[Apply the Reliable Web App pattern](apply-pattern.yml)
