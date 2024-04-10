@@ -26,7 +26,7 @@ The Reliable Web App pattern aims to streamline the process of moving web applic
 
 ## Principles and implementation techniques
 
-The Well-Architected Framework establishes the overriding principles of the Reliable Web App pattern. The Reliable Web App pattern goes beyond these original principles to derive subordinate principles specific to the process of migrating web apps to the cloud. Within these principles, the Reliable Web App Pattern focuses on making minimal code changes, applying reliability design patterns, and using managed services. It helps you create a web app that is cost optimized, observable, and ingress secure using infrastructure as code and identity-centric security.
+The [Well-Architected Framework](/azure/well-architected/pillars) establishes the overriding principles of the Reliable Web App pattern. The Reliable Web App pattern goes beyond these original principles to derive subordinate principles specific to the process of migrating web apps to the cloud. Within these principles, the Reliable Web App Pattern focuses on making minimal code changes, applying reliability design patterns, and using managed services. It helps you create a web app that is cost optimized, observable, and ingress secure using infrastructure as code and identity-centric security.
 
 | Reliable Web App pattern principles | Implementation techniques |
 | --- | --- |
