@@ -3,7 +3,7 @@ metadata:
   title: Mission-critical baseline with App Service
   description: Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service.
   author: heoelri
-  ms.author: deryaaydin, heoelri
+  ms.author: deryaaydin
   ms.date: 08/02/2023
   ms.topic: conceptual
   ms.service: architecture-center

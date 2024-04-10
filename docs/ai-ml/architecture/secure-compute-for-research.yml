@@ -22,4 +22,4 @@ products:
   - azure-data-factory
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-research-env.png
 content: |
-   [!include[](secure-compute-for-research-content.md)]
+   [!INCLUDE[](secure-compute-for-research-content.md)]

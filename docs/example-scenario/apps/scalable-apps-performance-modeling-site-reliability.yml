@@ -3,7 +3,7 @@ metadata:
   title: Scalable cloud applications and SRE
   titleSuffix: Azure Architecture Center
   description: Build scalable cloud applications by using performance modeling and other principles and practices of site reliability engineering (SRE).
-  author: martinekuan
+  author: Subhajit-Chatterjee-MS
   ms.author: subhajch
   ms.date: 01/11/2023
   ms.topic: example-scenario

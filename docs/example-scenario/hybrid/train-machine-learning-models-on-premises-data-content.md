@@ -100,4 +100,3 @@ Other contributors:
 - [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 - [Disconnected AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge-disconnected.yml)
 - [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)

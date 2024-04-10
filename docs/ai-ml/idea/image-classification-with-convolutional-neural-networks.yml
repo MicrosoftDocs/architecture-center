@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use convolutional neural networks (CNNs) to classify large volumes of images efficiently. Take advantage of CNN layers to identify elements in images.
   author: aschauhan22
-  ms.author: Ashish.Chauhan
+  ms.author: ashchauhan
   ms.date: 07/22/2022
   ms.topic: solution-idea
   ms.service: architecture-center

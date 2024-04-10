@@ -21,7 +21,7 @@ Moving an existing e-commerce solution to the cloud presents many benefits for a
 
 **At the crossroads**
 
-Although global e-commerce transactions account for only a fraction of total retail sales, the channel continues to see steady year-over-year growth. In 2017, e-commerce constituted 10.2% of total retail sales, up from 8.6% in 2016 ( [source](https://www.emarketer.com/Report/Worldwide-Retail-Ecommerce-Sales-eMarketers-Updated-Forecast-New-Mcommerce-Estimates-20162021/2002182)). As e-commerce has matured, along with the advent of cloud computing, retailers are at a crossroads.  There are choices to make. They can envision their business model with new capabilities made possible by evolving technology; and they can plan their modernization given their current capability footprint.
+Although global e-commerce transactions account for only a fraction of total retail sales, the channel continues to see steady year-over-year growth. As of 2024, e-commerce sales make up a fifth of total retail sales, up from 8.6% in 2016 ( [source](https://www.emarketer.com/content/worldwide-ecommerce-sales-break-6-trillion)). As e-commerce has matured, along with the advent of cloud computing, retailers are at a crossroads.  There are choices to make. They can envision their business model with new capabilities made possible by evolving technology; and they can plan their modernization given their current capability footprint.
 
 **Improving the customer journey**
 

@@ -94,7 +94,6 @@ The following articles provide detailed analysis of solutions that feature integ
 |--|--|--|
 |[Governance of Teams guest users](../example-scenario/governance/governance-teams-guest-users.yml)| Learn how to use Teams and Microsoft Entra entitlement management to collaborate with other organizations while maintaining control over resource use.|Identity|
 |[Provide security for your Teams channel bot and web app behind a firewall](../example-scenario/teams/securing-bot-teams-channel.yml) |Provide security for the connection to a Teams channel bot's web app by using Azure Private Link and a private endpoint.|Security|
-|[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Learn how you can use Azure Lab Services to set up identical VMs from templates for use in training, customer demos, and software development. Students and stakeholders can access the VMs via Teams integration.| DevOps|
 
 
 ## Related resources

@@ -43,7 +43,6 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
-- [Run containers](hybrid-containers.yml)
 - [Use Azure file shares](azure-file-share.yml)
 - [Back up files](azure-stack-backup.yml)
 - [Manage workloads](hybrid-server-os-mgmt.yml)

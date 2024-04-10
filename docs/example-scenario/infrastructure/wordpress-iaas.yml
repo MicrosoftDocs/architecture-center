@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Use Azure Front Door, Azure Virtual Machine Scale Sets, and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: vjirovsky
-  ms.author: vjirovsky
+  ms.author: pnp
   ms.date: 06/30/2023
   ms.topic: conceptual
   ms.service: architecture-center

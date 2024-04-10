@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: This example illustrates a migration of AIX logical partitions (LPARs) to Skytap on Azure.
   author: martinekuan
-  ms.author: Ricardo.Galvan
+  ms.author: rigalvan
   ms.date: 07/01/2022
   ms.topic: example-scenario
   ms.service: architecture-center

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.reviewer: tozimmergren
   ms.date: 08/17/2023
   ms.topic: example-scenario
