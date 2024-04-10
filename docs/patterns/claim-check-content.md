@@ -1,4 +1,4 @@
-The claim-check pattern allows systems to process large messages to be processed without storing the message in the messaging system. The pattern generates a token that serves as a claim check for a message. The token (claim check) allows a consuming system component to retrieve the message from a data store without storing the message in the messaging system.
+The claim-check pattern allows systems to process large messages to be processed without storing the message in the messaging system. The pattern stores the message in a data store and generates a token that serves as a claim check for the message. The messaging system sends the token (claim check) to consuming system components so they can retrieve the message from a data store. The messaging system never stores the message, only the token (claim-check).
 
 This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
 
