@@ -240,7 +240,7 @@ Kubernetes supports role-based access control (RBAC) through:
 
 - A set of permissions. Defined by a `Role` or `ClusterRole` object for cluster-wide permissions.
 
-- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `CluserRoleBinding` object.
+- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `ClusterRoleBinding` object.
 
 Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Microsoft Entra users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
