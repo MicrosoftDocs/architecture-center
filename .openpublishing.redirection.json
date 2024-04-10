@@ -4466,7 +4466,7 @@
     },
     {
         "source_path": "docs/solution-ideas/articles/cross-platform-chat.yml",
-        "redirect_url": "/azure/architecture/example-scenario/signalr/cross-platform-chat",
+        "redirect_url": "/azure/architecture/example-scenario/signalr/",
         "redirect_document_id": false
     }
   ]
