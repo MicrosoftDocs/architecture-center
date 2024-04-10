@@ -10,7 +10,7 @@ Sending such large messages to the message bus directly is not recommended, beca
 
 ## Solution
 
-Store the entire message payload into an external service, such as a database. Get the reference to the stored payload, and send just that reference to the message bus. The reference acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
+Store the entire message payload into an external service, such as a cloud storage service. Generate a unique token that can be used later to retrieve the stored data, and send just that token to the message bus. The reference token acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference token to retrieve the payload, if needed.
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
@@ -25,15 +25,17 @@ Store the entire message payload into an external service, such as a database. G
 
 Consider the following points when deciding how to implement this pattern:
 
-- Consider deleting the message data after consuming it, if you don't need to archive the messages. Although blob storage is relatively cheap, it costs some money in the long run, especially if there is a lot of data. Deleting the message can be done synchronously by the application that receives and processes the message, or asynchronously by a separate dedicated process. The asynchronous approach removes old data with no impact on the throughput and message processing performance of the receiving application.
+- Consider deleting the message data after consuming it, if you don't need to archive the messages. Deleting the message can be done synchronously by the application that receives and processes the message, or asynchronously by a separate dedicated process. The asynchronous approach would minimize removes old data with no impact on the throughput and message processing performance of the receiving application.
 
 - Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This approach would result in a conditional claim-check pattern.
 
 ## When to use this pattern
 
-This pattern could be used whenever a message cannot fit the supported message limit of the chosen message bus technology. For example, Service Bus currently has a limit of 100 MB (premium tier), while Event Grid supports up to 1 MB messages.
+This pattern could be used whenever a message cannot fit the supported message limit of the chosen messaging technology. For example, Service Bus currently has a limit of 100 MB (premium tier), while Event Grid supports up to 1 MB messages.
 
-The pattern can also be used if the payload should be accessed only by services that are authorized to see it. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when sensitive data is stored in the payload.
+The pattern can also be used to protect sensitive data in the message from access by unauthorized people or services. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when the payload contains sensitive data.
+
+Another scenario where this pattern is useful is when the message needs to travel through several system components, some of which may not be authorized to access the data, and potentially returning back to the original sender. By employing this pattern, we avoid having to unnecersarily process the payload at each step, improving performanceand protecting the integrity of the payload.
 
 ## Workload design
 
@@ -52,23 +54,23 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 On Azure, this pattern can be implemented in several ways and with different technologies, but there are two main categories. In both cases, the receiver has the responsibility to read the claim check and use it to retrieve the payload.
 
-- **Automatic claim-check generation**. This approach uses [Azure Event Grid](/azure/event-grid) to automatically generate the claim check and push it into the message bus.
+- **Automatic claim-check generation**. This approach uses [Azure Event Grid](/azure/event-grid) to automatically generate the claim check and push it into the messaging system.
 
-- **Manual claim-check generation**. In this approach, the sender is responsible for managing the payload. The sender stores the payload using the appropriate service, gets or generates the claim check, and sends the claim check to the message bus.
+- **Manual claim-check generation**. In this approach, the sender is responsible for managing the payload. The sender stores the payload using the appropriate service, gets or generates the claim check, and sends the claim check to the messaging system.
 
 Event Grid is an event routing service and tries to deliver events within a configurable amount of time up to 24 hours. After that, events are either discarded or dead lettered. If you need to archive the event payloads or replay the event stream, you can add an Event Grid subscription to Event Hubs or Queue Storage, where messages can be retained for longer periods and archiving messages is supported. For information about fine tuning Event Grid message delivery and retry, and dead letter configuration, see  [Dead letter and retry policies](/azure/event-grid/manage-event-delivery).
 
 ### Automatic claim-check generation with Blob Storage and Event Grid
 
-In this approach, the sender drops the message payload into a designated Azure Blob Storage container. Event Grid automatically generates a tag/reference and sends it to a supported message bus, such as Azure Storage Queues. The receiver can poll the queue, get the message, and then use the stored reference data to download the payload directly from Blob Storage.
+In this approach, the sender stores the message payload in an Azure Blob Storage container. Event Grid automatically generates a tag/reference and sends it to a supported messaging system, such as Azure Storage Queues. The receiver can poll the queue, get the message, and then use the stored reference data to download the payload directly from Blob Storage.
 
-The same Event Grid message can be directly consumed by [Azure Functions](/azure/azure-functions), without needing to go through a message bus. This approach takes full advantage of the serverless nature of both Event Grid and Functions.
+The same Event Grid message can be directly consumed by [Azure Functions](/azure/azure-functions), without needing to go through a messaging system. This approach takes full advantage of the serverless nature of both Event Grid and Functions.
 
 You can find example code for this approach [here][example-1].
 
 ### Event Grid with Event Hubs
 
-Similar to the previous example, Event Grid automatically generates a message when a payload is written to an Azure Blob container. But in this example,  the message bus is implemented using Event Hubs. A client can register itself to receive the stream of messages as they are written to the event hub. The event hub can also be configured to archive messages, making them available as an Avro file that can be queried using tools like Apache Spark, Apache Drill, or any of the available Avro libraries.
+Similar to the previous example, Event Grid automatically generates a message when a payload is written to an Azure Blob container. But in this example,  the messaging system is implemented using Event Hubs. A client can register itself to receive the stream of messages as they are written to the event hub. The event hub can also be configured to archive messages, making them available as an Avro file that can be queried using tools like Apache Spark, Apache Drill, or any of the available Avro libraries.
 
 You can find example code for this approach [here][example-2].
 
