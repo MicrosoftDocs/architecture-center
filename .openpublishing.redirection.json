@@ -4463,6 +4463,11 @@
       "source_path": "docs/example-scenario/data/big-data-with-iot.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "docs/solution-ideas/articles/cross-platform-chat.yml",
+        "redirect_url": "/azure/architecture/example-scenario/signalr/",
+        "redirect_document_id": false
     }
   ]
 }
