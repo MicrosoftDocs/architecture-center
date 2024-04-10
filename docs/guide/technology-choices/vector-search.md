@@ -117,7 +117,9 @@ Understand what kind of search methods are provided from the following table.
 
 ### Data Management
 
-Understand suitable data characteristics, data modeling, and how to vectorize data to store in each Azure services.
+Vectors are composed of various data structures and data sources. Choosing the right data structure and modeling approach for each Azure servce can greatly impact the performance and efficiency of your application.
+
+Understand suitable data characteristics, data modeling, and how to vectorize data to store in each Azure service for your workload.
 
 | Capability              | Azure Cosmos DB for PostgreSQL       | Azure Cosmos DB for MongoDB (vCore)  | Azure Database for PostgreSQL (Flex) | Azure AI Search                              | Azure SQL Database                   |
 | ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | -------------------------------------------- | ------------------------------------ |
@@ -153,7 +155,7 @@ Understand what kinds of vector data indexing are provided from the following ta
 
 ### Similarity and distance calculation capabilities
 
-There are several ways to calculate the similarity between vectors.
+There are various similarity and distance calculation methods for vector search. These methods are used to calculate the similarity between two vectors or the distance between two vectors. Choosing right similarity and distance calculation method is important because it affects the accuracy and performance of the search results.
 Understand what kind of similarity and distance calculation methods are provided from the following table and check if the calculation way you use is offered as a first-class feature.
 
 | Capability                                     | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
