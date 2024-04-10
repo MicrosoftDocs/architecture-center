@@ -25,7 +25,7 @@ Azure API Management is a comprehensive API gateway and reverse proxy for APIs. 
 > [!NOTE]
 > This article focuses on how you can use Azure API Management when you have your own multitenant applications with APIs.
 > 
-> Another form of multitenancy is to provide Azure API Management as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. For this form of multitenancy, consider using [workspaces](https://learn.microsoft.com/azure/api-management/workspaces-overview).
+> Another form of multitenancy is to provide Azure API Management as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. For this form of multitenancy, consider using [workspaces](/azure/api-management/workspaces-overview).
 
 ## Isolation models
 
@@ -34,7 +34,7 @@ Can sit inside or outside of the stamps.
 
 ## Features of API Management that support multitenancy
 
-Azure API Management enables flexibility through its use of [policies](https://learn.microsoft.com/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
+Azure API Management enables flexibility through its use of [policies](/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
 
 ## Identify tenants on incoming requests
 
@@ -46,8 +46,8 @@ Alternatively, you can identify the tenant through other methods. Each of these 
 
 - **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier, or in the URL `https://tenant1.contoso.com/products` you might extract the first part of the domain. To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 - **Use a request header.** For example, your client applications might add a custom `X-TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
-- **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in the JWTs issued by your identity provider. To use this approach, use the [`validate-jwt` policy](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
-- **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create completely custom logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](https://learn.microsoft.com/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
+- **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in the JWTs issued by your identity provider. To use this approach, use the [`validate-jwt` policy](/azure/api-management/validate-jwt-policy) and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
+- **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create completely custom logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
 
 ## Authenticate incoming requests
 
@@ -66,7 +66,7 @@ When you use Azure API Management as a shared component, you might need to route
 
 TODO example diagram
 
-To customize the routing in a policy definition, use the [`set-backend-service` policy](https://learn.microsoft.com/azure/api-management/set-backend-service-policy). You need to specify the new base URL that the request should be redirected to.
+To customize the routing in a policy definition, use the [`set-backend-service` policy](/azure/api-management/set-backend-service-policy). You need to specify the new base URL that the request should be redirected to.
 
 ### Caching
 
@@ -76,19 +76,19 @@ In a multitenant solution, it's important to ensure to carefully select your cac
 
 ### Custom domains
 
-Azure API Management enables you to use your own [custom domains](https://learn.microsoft.com/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple custom domains.
+Azure API Management enables you to use your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple custom domains.
 
-You can also use Azure API Management together with a service like [Azure Front Door](TODO). In this kind of configuration, it's common for Azure Front Door to handle custom domains and TLS certificates, and for it to communicate with Azure API Management by using a single domain name.
+You can also use Azure API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, it's common for Azure Front Door to handle custom domains and TLS certificates, and for it to communicate with Azure API Management by using a single domain name.
 
 ### Rate limiting
 
-It's common to apply quotas or rate limits in a multitenant solution. Rate limits help to mitigate the [noisy neighbor problem](TODO), and they can be used to enforce quality of service and differentiate between different pricing tiers.
+It's common to apply quotas or rate limits in a multitenant solution. Rate limits help to mitigate the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and they can be used to enforce quality of service and differentiate between different pricing tiers.
 
-Azure API Management provides capabilities to enforce tenant-specific rate limits. If you use tenant-specific subscriptions, consider using the [`quota` policy](https://learn.microsoft.com/azure/api-management/quota-policy) to enforce a quota for each subscription. Alternatively, consider using the [`quota-by-key` policy](https://learn.microsoft.com/azure/api-management/quota-by-key-policy) to enforce quotas by using any other rate limit key, such as a tenant identifier.
+Azure API Management provides capabilities to enforce tenant-specific rate limits. If you use tenant-specific subscriptions, consider using the [`quota` policy](/azure/api-management/quota-policy) to enforce a quota for each subscription. Alternatively, consider using the [`quota-by-key` policy](/azure/api-management/quota-by-key-policy) to enforce quotas by using any other rate limit key, such as a tenant identifier.
 
 ### Monetization
 
-The Azure API Management documentation [provides extensive guidance on monetizing APIs](https://learn.microsoft.com/azure/api-management/monetization-support), including a sample implementation. The monetization approaches combine many of the features of Azure API Management together to enable developers to publish an API, manage subscriptions, and charge based on different usage models.
+The Azure API Management documentation [provides extensive guidance on monetizing APIs](/azure/api-management/monetization-support), including a sample implementation. The monetization approaches combine many of the features of Azure API Management together to enable developers to publish an API, manage subscriptions, and charge based on different usage models.
 
 ## Contributors
 
