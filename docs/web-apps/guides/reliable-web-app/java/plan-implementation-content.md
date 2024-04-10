@@ -37,9 +37,13 @@ Choose the best application hosting platform for your web app. Azure has many di
 *Example:* Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
 
 - *Natural progression.* Contoso Fiber deployed a Spring Boot `jar` file on their on-premises server and wanted to minimize the amount of rearchitecting for that deployment model. App Service provides robust support for running Spring Boot apps, and it was a natural progression for Contoso Fiber to use App Service. Azure Spring Apps is also an attractive alternative for this app. If the Contoso Fiber CAMS web app used Jakarta EE instead of Spring Boot, Azure Spring Apps would be a better fit. For more information, see [What is Azure Spring Apps?](/azure/spring-apps/overview) and [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
+
 - *High SLA.* It has a high SLA that meets the requirements for the production environment.
+
 - *Reduced management overhead.* It's a fully managed hosting solution.
+
 - *Containerization capability.* App Service works with private container image registries like Azure Container Registry. Contoso Fiber can use these registries to containerize the web app in the future.
+
 - *Autoscaling.* The web app can rapidly scale up, down, in, and out based on user traffic.
 
 ### Identity management
@@ -49,8 +53,11 @@ Choose the best identity management solution for your web app. For more informat
 *Example:* Contoso Fiber chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
 
 - *Authentication and authorization.* It handles authentication and authorization of employees.
+
 - *Scalability.* It scales to support larger scenarios.
+
 - *User-identity control.* Employees can use their existing enterprise identities.
+
 - *Support for authorization protocols.* It supports OAuth 2.0 for managed identities.
 
 ### Database
@@ -60,11 +67,17 @@ Choose the best database for your web app. For help with narrowing the options, 
 *Example:* Contoso Fiber chose Azure Database for PostgreSQL and the flexible-server option for the following reasons:
 
 - *Reliability.* The flexible-server deployment model supports zone-redundant high availability across multiple availability zones. This configuration and maintains a warm standby server in a different availability zone within the same Azure region. The configuration replicates data synchronously to the standby server.
+
 - *Cross-region replication.* It has a read replica feature that allows you to asynchronously replicate data to a [read-only replica database in another region](/azure/postgresql/flexible-server/concepts-read-replicas).
+
 - *Performance.* It provides predictable performance and intelligent tuning to improve your database performance by using real usage data.
+
 - *Reduced management overhead.* It's a fully managed Azure service that reduces management obligations.
+
 - *Migration support.* It supports database migration from on-premises single-server PostgreSQL databases. They can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
+
 - *Consistency with on-premises configurations.* It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Contoso Fiber currently uses.
+
 - *Resiliency.* The flexible server deployment automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them using zone-redundant storage (ZRS) within the same region. They can restore their database to any point-in-time within the backup retention period. The backup and restoration capability creates a better RPO (acceptable amount of data loss) than Contoso Fiber could create on-premises.
 
 ### Application performance monitoring
@@ -74,8 +87,11 @@ Choose to an application performance monitoring for your web app. [Application I
 *Example:* Contoso Fiber added Application Insights for the following reasons:
 
 - *Anomaly detection.* It automatically detects performance anomalies.
+
 - *Troubleshooting.* It helps diagnose problems in the running app.
+
 - *Telemetry.* It collects information about how users are using the app and allows you to easily send custom events that you want to track in your app.
+
 - *On-premises visibility gap.* The on-premises solution didn't have an application performance monitoring solution. Application Insights provides easy integration with the application platform and code.
 
 ### Cache
@@ -85,8 +101,11 @@ Choose whether to add cache to your web app architecture. [Azure Cache for Redis
 *Example:* Contoso Fiber needed a cache that provides the following benefits:
 
 - *Speed and volume.* It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
+
 - *Diverse supportability.* It's a unified cache location that all instances of the web app can use.
+
 - *External data store.* The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+
 - *Nonsticky sessions.* The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Contoso Fiber has a fully managed, scalable cache service to improve scalability and performance of their applications. Contoso Fiber was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
 ### Load balancer
@@ -96,10 +115,15 @@ Choose the best load balancer for your web app. Azure has several load balancers
 *Example:* Contoso Fiber chose Front Door as the global load balancer for following reasons:
 
 - *Routing flexibility.* It allows the application team to configure ingress needs to support future changes in the application.
+
 - *Traffic acceleration.* It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+
 - *Custom domains.* It supports custom domain names with flexible domain validation.
+
 - *Health probes.* The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+
 - *Monitoring support.* It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+
 - *DDoS protection.* It has built-in layer 3-4 DDoS protection.
 
 ### Web application firewall
@@ -109,7 +133,9 @@ Choose a web application firewall to protect your web app from web attacks. [Azu
 *Example:* Contoso Fiber chose the Web Application Firewall for the following benefits:
 
 - *Global protection.* It provides increased global web app protection without sacrificing performance.
+
 - *Botnet protection.* You can configure bot protection rules to monitor for botnet attacks.
+
 - *Parity with on-premises.* The on-premises solution was running behind a web application firewall managed by IT.
 
 ### Secrets manager
@@ -119,8 +145,11 @@ Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to 
 *Example:* Contoso Fiber has secrets to manage. They used Key Vault for the following reasons:
 
 - *Encryption.* It supports encryption at rest and in transit.
+
 - *Supports managed identities.* The application services can use managed identities to access the secret store.
+
 - *Monitoring and logging.* It facilitates audit access and generates alerts when stored secrets change.
+
 - *Integration.* It supports two methods for the web app to access secrets. Contoso Fiber can use app settings in the hosting platform (App Service), or they can reference the secret in their application code (app properties file).
 
 ### Endpoint security
@@ -130,6 +159,7 @@ Choose to enable private only access to Azure services. [Azure Private Link](/az
 *Example:* Contoso Fiber chose Private Link for the following reasons:
 
 - *Enhanced security.* It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
+
 - *Minimal effort.* Private endpoints support the web app platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
 
 ## Choose the right architecture
