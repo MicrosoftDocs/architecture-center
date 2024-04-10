@@ -36,7 +36,7 @@ Can sit inside or outside of the stamps.
 
 Azure API Management enables flexibility through its use of [policies](/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
 
-## Identify tenants on incoming requests
+### Identify tenants on incoming requests
 
 Consider how you'll identify tenants based on incoming requests. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
 
@@ -49,7 +49,7 @@ Alternatively, you can identify the tenant through other methods. Each of these 
 - **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in the JWTs issued by your identity provider. To use this approach, use the [`validate-jwt` policy](/azure/api-management/validate-jwt-policy) and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create completely custom logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
 
-## Authenticate incoming requests
+### Authenticate incoming requests
 
 API requests made to the Azure API Management gateway usually need to be authenticated. Azure API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
 
