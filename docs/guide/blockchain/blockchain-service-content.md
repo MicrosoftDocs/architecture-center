@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to use Kaleido Blockchain as a Service to track and trace physical assets, along with their metadata. Blockchain technology helps organizations track and trace a product's life cycle and meet regulatory, financial, ethical, and sustainability requirements.
+This article describes how to use Kaleido Blockchain as a Service to track and trace physical assets and their metadata. Blockchain technology helps organizations track and trace a product's life cycle and meet regulatory, financial, ethical, and sustainability requirements.
 
 ## Architecture
 
@@ -12,13 +12,13 @@ This article describes how to use Kaleido Blockchain as a Service to track and t
 
 The following dataflow corresponds to the preceding architecture:
 
-1. **Input/intake**: Input to the app uses existing Azure services. For instance, a traditional web app that runs in [Azure App Service](/azure/app-service) serves as an input from interactive users. Kaleido offers [middleware and Web3 abstraction layers](https://www.kaleido.io/hyperledger-firefly), so full-stack developers can develop apps via RESTful APIs.
+1. **Input or intake**: Input to the app uses existing Azure services. For instance, a traditional web app that runs in [Azure App Service](/azure/app-service) serves as an input from interactive users. Kaleido offers [middleware and Web3 abstraction layers](https://www.kaleido.io/hyperledger-firefly), so full-stack developers can develop apps via RESTful APIs.
 
-   OpenAPI (Swagger) definitions are generated for the Solidity smart contracts that you enable on the Kaleido REST API Gateway. This step makes the blockchain simple to code against, similar to modern web-based systems. You don't need thick client libraries in your app or complex type-mapping. You can connect directly from your core apps, or use your existing integration tier or enterprise service bus (ESB), such as Azure Service Bus.
+   OpenAPI (Swagger) definitions are generated for the Solidity smart contracts that you enable on the Kaleido REST API Gateway. This step makes the blockchain simple to code against, similar to how you code against modern web-based systems. You don't need thick client libraries in your app or complex type-mapping. You can connect directly from your core apps, or use your existing integration tier or enterprise service bus (ESB), such as Azure Service Bus.
 
-1. **Core ledger**: Kaleido Blockchain as a Service handles the input that's persisted in the underlying ledger for the solution. A set of nodes are created as part of the blockchain deployment. The input app can interact with the blockchain directly via those nodes or via the Kaleido REST API Gateway. Nodes can be validators or transaction-only. Kaleido Blockchain as a Service scales within its Azure footprint based on which node size you select. The node size is based on [transaction throughput requirements](https://docs.kaleido.io/using-kaleido/resource-limits).
+1. **Core ledger**: Kaleido Blockchain as a Service handles the input that's persisted in the underlying ledger for the solution. A set of nodes are created as part of the blockchain deployment. The input app can interact with the blockchain directly via those nodes or via the Kaleido REST API Gateway. Nodes can be validators or transaction only. Kaleido Blockchain as a Service scales within its Azure footprint based on which node size you select. The node size is based on [transaction throughput requirements](https://docs.kaleido.io/using-kaleido/resource-limits).
 
-1. **Output/analytics**: In most cases, as data continues to exist in the ledger in Kaleido, existing non-blockchain-based systems need analytics and triggers. The Kaleido platform provides several native capabilities for reporting and analytics. The platform also supports event-driven notifications via webhooks and WebSockets, which send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL.
+1. **Output or analytics**: In most cases, as data continues to exist in the ledger in Kaleido, existing non-blockchain-based systems need analytics and triggers. The Kaleido platform provides several native capabilities for reporting and analytics. The platform also supports event-driven notifications via webhooks and WebSockets, which send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL.
 
    Kaleido also provides a native document storage solution that has folder structures in which you can organize and persist uploaded or received files in Kaleido hosted storage or Azure Blob containers. All transferred data is deterministically hashed, signed, compressed, and asymmetrically encrypted during the transfer. This action guarantees that only the intended recipient can effectively decrypt the packet.
 
@@ -34,7 +34,7 @@ The following dataflow corresponds to the preceding architecture:
 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Azure Cosmos DB is used as a data store to house the output of events that are raised on the blockchain, such as state changes that analytics solutions use or simple reporting.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions, such as upgrades, patches, backups, and monitoring. In this scenario, SQL Database is used as a data store to house the output of events that are raised on the blockchain, such as state changes that that analytics solutions use or simple reporting. Organizations use the [ledger feature of SQL Database](/azure/azure-sql/database/ledger-landing) to maintain the integrity of the output of events that are replicated from the blockchain to the SQL database.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions, such as upgrades, patches, backups, and monitoring. In this scenario, SQL Database is used as a data store to house the output of events that are raised on the blockchain, such as state changes that analytics solutions use or simple reporting. Organizations use the [ledger feature of SQL Database](/azure/azure-sql/database/ledger-landing) to maintain the integrity of the output of events that are replicated from the blockchain to the SQL database.
 
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud environments and on-premises environments. Monitor provides availability data and performance data that's related to the architecture components.
 
@@ -76,15 +76,15 @@ Your organization can combine the Kaleido platform and Azure services to build s
 
 Blockchain technology provides a logical dataflow model for each physical component that's deployed with each participant in a supply chain. This approach reduces the need for participants to trust a single partner.
 
-Your organization could build a dataflow model by using traditional centralized services and components, but this option isn't ideal for supply chain workloads. Supply chain workloads have their own systems that require isolation from other systems. This solution is ideal for sustainability, manufacturing, energy, and environment industries.
+Your organization could build a dataflow model by using traditional centralized services and components, but this option isn't ideal for supply chain workloads. Supply chain workloads have their own systems that require isolation from other systems. This solution is ideal for sustainability, manufacturing, energy, and environmental industries.
 
-The following diagram represents the stages in a supply chain for chip manufacturing. The stages are mining, manufacturing, distribution, and retail. Materials change hands many times during the progression. For a company that values sustainability and ethical responsibility, it's important to track and trace the source of truth and quality details of the materials. Before this organization incorporated Kaleido Blockchain as a Service, each participant put data in their own data technology stack and synchronized the data to other parties.
+The following diagram represents the four stages in a supply chain for chip manufacturing. The stages are mining, manufacturing, distribution, and retail. Materials change hands many times during the progression. For a company that values sustainability and ethical responsibility, it's important to track and trace the source of truth and quality details of the materials. Before this organization incorporated Kaleido Blockchain as a Service, each participant put data in their own data technology stack and synchronized the data to other parties.
 
-![Diagram that shows the dataflow of a chip manufacturing supply chain.](images/blockchain-service-data-flow.svg)
+[![Diagram that shows the dataflow of a chip manufacturing supply chain.](images/blockchain-service-data-flow.svg)](images/blockchain-service-data-flow.svg)
 
 The following dataflow corresponds to the preceding diagram:
 
-1. **Mine/manufacturer**: Input is created when the manufacturer receives the raw material. The manufacturer checks the certification of the material. They use on-chain data in the ledger and off-chain data in traditional storage to establish the component's ownership.
+1. **Mine or manufacturer**: Input is created when the manufacturer receives the raw material. The manufacturer checks the certification of the material. They use on-chain data in the ledger and off-chain data in traditional storage to establish the component's ownership.
 
 1. **Distribution**: After the components are manufactured, the distributor bundles them for distribution. They use Kaleido to add the bundle to the ledger, which establishes its place of origin, such as a pallet location. This process uses on-chain data in the ledger and off-chain data in traditional storage.
 
