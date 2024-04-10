@@ -2,23 +2,23 @@
 ms.custom: devx-track-dotnet
 ---
 
-This article shows you how to apply the reliable web app pattern. The reliable web app pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+This article shows you how to apply the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the reliable web app pattern that you can deploy.
+To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Reliable Web App pattern that you can deploy.
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
 *Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
-The following guidance use the reference implementation as an example throughout. To plan an implementation of the reliable web app pattern, follow these recommendations:
+The following guidance uses the reference implementation as an example throughout. To plan an implementation of the Reliable Web App pattern, follow these recommendations:
 
 ## Define business goals
 
-The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
+The initial step in transitioning to cloud computing is to articulate your business objectives. The Reliable Web App pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-*Example:* The fictional company Relecloud sells tickets through it's on-premises web application. Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
+*Example:* The fictional company Relecloud sells tickets through its on-premises web application. Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
 
 - Apply low-cost, high-value code changes
-- Reach a service level objective of 99.9%
+- Reach a service level objective (SLO) of 99.9%
 - Adopt DevOps practices
 - Create cost-optimized environments
 - Improve reliability and security
@@ -141,7 +141,7 @@ Use [Azure Key Vault](/azure/key-vault/general/overview) if you have secrets to 
 
 ### Storage solution
 
-Choose the best storage solution for your web app. For help choosing a storage solution, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
+Choose the best storage solution for your web app. For more information, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 *Example:* On-premises, the web app had disk storage mounted to each web server, but the team wanted to use an external data storage solution. Relecloud chose [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for the following reasons:
 
@@ -194,7 +194,7 @@ Ensure data reliability by distributing it across Azure's regions and availabili
 
 ## Next step
 
-This article showed you how plan an implementation of the reliable web app pattern. The next step is to apply the implementation techniques of the reliable web app pattern.
+This article showed you how plan an implementation of the Reliable Web App pattern. The next step is to apply the implementation techniques of the Reliable Web App pattern.
 
 >[!div class="nextstepaction"]
-> [Apply the reliable web app pattern](apply-pattern.yml)
+> [Apply the Reliable Web App pattern](apply-pattern.yml)

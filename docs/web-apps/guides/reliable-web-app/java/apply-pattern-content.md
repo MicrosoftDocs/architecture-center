@@ -2,18 +2,18 @@
 ms.custom: devx-track-extended-java
 ---
 
-This article shows you how to apply the reliable web app pattern. The reliable web app pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+This article shows you how to apply the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the reliable web app pattern that you can deploy.
+To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the Reliable Web App pattern that you can deploy.
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
 *Architecture of reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
-The following guidance use the reference implementation as an example throughout. To apply the reliable web app pattern, follow these recommendations:
+The following guidance uses the reference implementation as an example throughout. To apply the Reliable Web App pattern, follow these recommendations:
 
 ## Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The reliable web app pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
 
 ### Use the Retry pattern
 
@@ -45,7 +45,7 @@ Pairing the Retry and Circuit Breaker patterns expands an application's capabili
 
 ## Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The reliable web app pattern uses managed identities to implement identity-centric security. Private endpoints, web application firewall, and restricted access to the web app provide a secure ingress.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern uses managed identities to implement identity-centric security. Private endpoints, web application firewall, and restricted access to the web app provide a secure ingress.
 
 ### Enforce least privileges
 
@@ -230,7 +230,7 @@ Administrator-level access to the database grants permissions to perform privile
 
 ## Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The reliable web app pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
+Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
 ### Rightsize resources for each environment
 
@@ -260,7 +260,7 @@ Efficient resource usage involves the strategic management and allocation of clo
 
 ## Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The reliable web app pattern implements infrastructure as code for infrastructure deployments and monitoring for observability.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Reliable Web App pattern implements infrastructure as code for infrastructure deployments and monitoring for observability.
 
 ### Configure monitoring
 
@@ -341,7 +341,7 @@ You need to establish guidelines for deploying code to production and create an 
 
 ## Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The reliable web app pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The Reliable Web App pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
 
 ### Use the Cache-Aside pattern
 
@@ -405,7 +405,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 - *Establish a performance baseline.* You should use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
 
-- *Use Application Insights.* Application Insights provides detailed metrics on database queries and any JDBC interfaces. You should use it to ensure a ported database is meeting its SLAs or to find queries that need tuning. You should never use Dynamic SQL because it creates security and performance issues.
+- *Use Application Insights.* Application Insights provides detailed metrics on database queries and any JDBC interfaces. You should use it to ensure a ported database is meeting its SLAs or to find queries that you need to tune. You should never use Dynamic SQL because it creates security and performance issues.
 
 - *Use connection pools.* You should use JDBC connection pools and fine-tune them based on the transactions per second (TPS) metrics and SLAs. You should use database performance monitoring tools to test and evaluate database performance under load.
 

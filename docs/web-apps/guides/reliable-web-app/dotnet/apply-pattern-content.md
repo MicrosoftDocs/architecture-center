@@ -1,18 +1,18 @@
 ---
 ms.custom: devx-track-dotnet
 ---
-This article shows you how to apply the reliable web app pattern. The reliable web app pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+This article shows you how to apply the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the reliable web app pattern that you can deploy.
+To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Reliable Web App pattern that you can deploy.
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
 *Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
-The following guidance use the reference implementation as an example throughout. To apply the reliable web app pattern, follow these recommendations:
+The following guidance uses the reference implementation as an example throughout. To apply the Reliable Web App pattern, follow these recommendations:
 
 ## Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The reliable web app pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
 
 ### Use the Retry pattern
 
@@ -96,7 +96,7 @@ In the code, the policy handler for the `RelecloudApiConcertSearchService` insta
 
 ## Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The reliable web app pattern uses managed identities to implement identity-centric security. Private endpoints, web application firewall, and restricted access to the web app provide a secure ingress.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern uses managed identities to implement identity-centric security. Private endpoints, web application firewall, and restricted access to the web app provide a secure ingress.
 
 ### Enforce least privileges
 
@@ -162,7 +162,7 @@ For more information, see [Connect to SQL database from .NET App Service](/azure
 
 When you move your application to the cloud, use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to securely store all such secrets. This centralized repository offers secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, [Azure App Configuration](/azure/azure-app-configuration/overview) is recommended.
 
-*Example:* The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the MSAL implementation.
+*Example:* The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the Microsoft Authentication Library (MSAL) implementation.
 
 #### Don't put Key Vault in the HTTP-request flow
 
@@ -204,7 +204,7 @@ Administrator-level access to the database grants permissions to perform privile
 
 ## Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The reliable web app pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
+Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
 ### Rightsize resources for each environment
 
@@ -263,7 +263,7 @@ resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (a
 
 ## Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The reliable web app pattern implements infrastructure as code for infrastructure deployments and monitoring for observability.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Reliable Web App pattern implements infrastructure as code for infrastructure deployments and monitoring for observability.
 
 ### Automate deployment
 
@@ -329,7 +329,7 @@ A diagnostic setting in Azure allows you to specify the platform logs and metric
 
 ## Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The reliable web app pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The Reliable Web App pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
 
 ### Use the Cache-Aside pattern
 
@@ -453,7 +453,7 @@ For Azure adoption and architectural guidance, see:
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). Can help your organization prepare and execute a strategy to build solutions on Azure.
 - [Well-Architected Framework](/azure/architecture/framework/). A set of guiding tenets that can be used to improve the quality of a workload.
 
-For applications that require a higher SLO than the reliable web app pattern, see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
+For applications that require a higher SLO than the Reliable Web App pattern, see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 
 ### Migration guidance
 

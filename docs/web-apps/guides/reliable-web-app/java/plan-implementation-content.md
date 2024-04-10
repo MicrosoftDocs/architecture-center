@@ -1,23 +1,23 @@
 ---
 ms.custom: devx-track-extended-java, devx-track-javaee
 ---
-This article shows you how to plan an implementation of the reliable web app pattern. The reliable web app pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+This article shows you how to plan an implementation of the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the reliable web app pattern that you can deploy.
+To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/java)** of the Reliable Web App pattern that you can deploy.
 
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
 *Architecture of reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
-The following guidance use the reference implementation as an example throughout. To plan an implementation of the reliable web app pattern, follow these recommendations:
+The following guidance use the reference implementation as an example throughout. To plan an implementation of the Reliable Web App pattern, follow these recommendations:
 
 ## Define business goals
 
-The initial step in transitioning to cloud computing is to articulate your business objectives. The reliable web app pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
+The initial step in transitioning to cloud computing is to articulate your business objectives. The Reliable Web App pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
 *Example:* The fictional company, Contoso Fiber, wanted to expand their on-premises Customer Account Management System (CAMS) web app to reach other regions. To meet the increased demand on the web app, they established the following goals:
 
 - Apply low-cost, high-value code changes
-- Reach a service level objective of 99.9%
+- Reach a service level objective (SLO) of 99.9%
 - Adopt DevOps practices
 - Create cost-optimized environments
 - Improve reliability and security
@@ -134,7 +134,7 @@ Choose to enable private only access to Azure services. [Azure Private Link](/az
 
 ## Choose the right architecture
 
-After you define what *available* means for your web app and select the right cloud services, you need to determine the best architecture for your web app. Your architecture needs to support your business requirements, technical requirements, and SLO.
+After you define what *available* means for your web app and select the right cloud services, you need to determine the best architecture for your web app. Your architecture needs to support your business requirements, technical requirements, and service-level objective.
 
 ### Choose architecture redundancy
 
@@ -164,7 +164,7 @@ Ensure data reliability by distributing it across Azure's regions and availabili
 
 ## Next step
 
-This article showed you how plan an implementation of the reliable web app pattern. The next step is to apply the implementation techniques of the reliable web app pattern.
+This article showed you how plan an implementation of the Reliable Web App pattern. The next step is to apply the implementation techniques of the Reliable Web App pattern.
 
 >[!div class="nextstepaction"]
->[Apply the reliable web app pattern](apply-pattern.yml)
+>[Apply the Reliable Web App pattern](apply-pattern.yml)
