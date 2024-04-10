@@ -8,7 +8,7 @@ To facilitate the application of this guidance, there's a **[reference implement
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.svg)](../../_images/reliable-web-app-dotnet.svg)
 *Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
-The following guidance uses the reference implementation as an example throughout. To apply the Reliable Web App pattern, follow these recommendations:
+The following guidance uses the reference implementation as an example throughout. To apply the Reliable Web App pattern, follow these recommendations aligned to the pillars of the Well-Architected Framework:
 
 ## Reliability
 
