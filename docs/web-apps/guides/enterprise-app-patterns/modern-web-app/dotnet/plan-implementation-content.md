@@ -7,9 +7,7 @@ This article shows you how to plan an implementation of the reliable web app pat
 
 ## Define business goals
 
-*Example:* After applying the reliable web app pattern, the fictional company, Relecloud, wanted to improve how the web app handles spikes in demand especially for resource-intensive parts of the application, such as rendering ticket images.
-
-Goals for the transformation include:
+*Example:* After applying the reliable web app pattern, the fictional company, Relecloud, wanted to improve how the web app handles spikes in demand especially for resource-intensive parts of the application, such as rendering ticket images. They identified the following business goals:
 
 - Maintain a service level objective of 99.9%
 - Decouple solution components so that they can operate and version independently
@@ -19,17 +17,15 @@ Goals for the transformation include:
 
 To achieve these goals, they needed a more service-oriented architecture according to the modern web app pattern.
 
-# Existing web app
-
-The existing web app for the modern web app pattern is the end state of the reliable web app pattern. In the example used in the modern web app pattern reference sample, the web app is Relecloud’s ticket purchasing application. After applying the reliable web app pattern, Relecloud’s application consists of two Azure App Services (a front-end and an API) which communicate with an Azure SQL database and an Azure Cache for Redis. The Relecloud solution stores configuration values and secrets securely in Azure App Configuration and Azure Key Vault.
-
-The Relecloud app still suffers from being deployed as a monolith which performs all business functions in the API web app. Processes which periodically consume a large amount of resources (such as rendering ticket images) are performed synchronously in-process as part of handling ticket purchase requests. Making changes to any part of the API results in needing to update the entire App Service. These challenges can be addressed by applying the modern web app pattern.
-
 # Choose the right services
 
-The Azure services used when implementing the modern web app pattern should support the business needs of your solution, the principles of the modern web app pattern, and the required service level objective. Unlike the reliable web app pattern, when implementing the modern web app pattern, you should consider containerization so that logically independent portions of the application can be separated into standalone services according to the strangler fig pattern. A messaging solution can enable asynchronous communication and queue-based scaling.
+The Azure services used when implementing the modern web app pattern should support the business needs of your solution, the principles of the modern web app pattern, and the required service level objective. Unlike the reliable web app pattern, when implementing the modern web app pattern, you should consider containerization so that you can separate logical independent portions of the application can be separated into standalone services according to the strangler fig pattern. A messaging solution can enable asynchronous communication and queue-based scaling.
 
 The services used to implement the modern web app pattern will be in addition to those used for the reliable web app pattern. When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized. In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
+
+*Example:* The existing web app for the modern web app pattern is the end state of the reliable web app pattern. In the example used in the modern web app pattern reference sample, the web app is Relecloud’s ticket purchasing application. After applying the reliable web app pattern, Relecloud’s application consists of two Azure App Services (a front-end and an API) which communicate with an Azure SQL database and an Azure Cache for Redis. The Relecloud solution stores configuration values and secrets in Azure App Configuration and Azure Key Vault.
+
+The Relecloud app still suffers from being deployed as a monolith which performs all business functions in the API web app. Processes which periodically consume a large amount of resources (such as rendering ticket images) are performed synchronously in-process as part of handling ticket purchase requests. Making changes to any part of the API results in needing to update the entire App Service. These challenges can be addressed by applying the modern web app pattern.
 
 ## Application platform
 
