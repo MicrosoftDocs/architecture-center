@@ -5,9 +5,9 @@ This article shows you how to plan an implementation of the reliable web app pat
 
 [!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To plan an implementation of the reliable web app pattern, follow these recommendations:
 
-## Define business goals
+##  goals
 
-*Example:* After applying the reliable web app pattern, the fictional company, Relecloud, wanted to improve how the web app handles spikes in demand especially for resource-intensive parts of the application, such as rendering ticket images. They identified the following business goals:
+*Example:* The fictional company, Relecloud, has applied the reliable web app pattern to their web app that allows customers to purchase concert tickets. Relecloud wants to improve how their web app handles spikes in demand especially for resource-intensive parts of the application, such as rendering ticket images. They identified the following business goals:
 
 - Maintain a service level objective of 99.9%
 - Decouple solution components so that they can operate and version independently
@@ -17,11 +17,11 @@ This article shows you how to plan an implementation of the reliable web app pat
 
 To achieve these goals, they needed a more service-oriented architecture according to the modern web app pattern.
 
-# Choose the right services
+## Choose the right services
 
-The Azure services used when implementing the modern web app pattern should support the business needs of your solution, the principles of the modern web app pattern, and the required service level objective. Unlike the reliable web app pattern, when implementing the modern web app pattern, you should consider containerization so that you can separate logical independent portions of the application can be separated into standalone services according to the strangler fig pattern. A messaging solution can enable asynchronous communication and queue-based scaling.
+The Azure services used when implementing the modern web app pattern must support the web app goals and the principles of the modern web app pattern. Unlike the reliable web app pattern, the modern web app pattern uses containerization to separate logical portions of the application into standalone services. It also adds a messaging solution to enable asynchronous communication and queue-based scaling.
 
-The services used to implement the modern web app pattern will be in addition to those used for the reliable web app pattern. When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized. In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
+The services used to implement the modern web app pattern supplement the reliable web app pattern. When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized. In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
 
 *Example:* The existing web app for the modern web app pattern is the end state of the reliable web app pattern. In the example used in the modern web app pattern reference sample, the web app is Relecloud’s ticket purchasing application. After applying the reliable web app pattern, Relecloud’s application consists of two Azure App Services (a front-end and an API) which communicate with an Azure SQL database and an Azure Cache for Redis. The Relecloud solution stores configuration values and secrets in Azure App Configuration and Azure Key Vault.
 
@@ -29,7 +29,7 @@ The Relecloud app still suffers from being deployed as a monolith which performs
 
 ## Application platform
 
-[Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview) is a fully managed, serverless platform for running containerized apps in Azure. Azure Container Apps enables container orchestration and KEDA-supported scalers without needing to manage infrastructure. The ability to scale automatically based on incoming requests in a message queue makes Azure Container Apps an ideal fit for applying both the strangler fig pattern and queue-based load leveling patterns. The Relecloud modern web app reference sample uses Azure Container Apps to run its ticket rendering service because it meets the following requirements:
+[Azure Container Apps](/azure/container-apps/overview) is a fully managed, serverless platform for running containerized apps in Azure. Azure Container Apps enables container orchestration and KEDA-supported scalers without needing to manage infrastructure. The ability to scale automatically based on incoming requests in a message queue makes Azure Container Apps an ideal fit for applying both the strangler fig pattern and queue-based load leveling patterns. The Relecloud modern web app reference sample uses Azure Container Apps to run its ticket rendering service because it meets the following requirements:
 
 - **High SLA**. It has a high SLA that meets the production environment SLO.
 
