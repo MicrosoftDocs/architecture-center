@@ -10,7 +10,7 @@ Sending such large messages to the message bus directly is not recommended, beca
 
 ## Solution
 
-Store the entire message payload into an external service, such as a database. Get the reference to the stored payload, and send just that reference to the message bus. The reference acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
+Store the entire message payload into an external service, such as a cloud storage service. Generate a unique token that can be used later to retrieve the stored data, and send just that token to the message bus. The reference token acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference token to retrieve the payload, if needed.
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
@@ -25,15 +25,15 @@ Store the entire message payload into an external service, such as a database. G
 
 Consider the following points when deciding how to implement this pattern:
 
-- Consider deleting the message data after consuming it, if you don't need to archive the messages. Although blob storage is relatively cheap, it costs some money in the long run, especially if there is a lot of data. Deleting the message can be done synchronously by the application that receives and processes the message, or asynchronously by a separate dedicated process. The asynchronous approach removes old data with no impact on the throughput and message processing performance of the receiving application.
+- Consider deleting the message data after consuming it, if you don't need to archive the messages. Deleting the message can be done synchronously by the application that receives and processes the message, or asynchronously by a separate dedicated process. The asynchronous approach would minimize removes old data with no impact on the throughput and message processing performance of the receiving application.
 
 - Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This approach would result in a conditional claim-check pattern.
 
 ## When to use this pattern
 
-This pattern could be used whenever a message cannot fit the supported message limit of the chosen message bus technology. For example, Service Bus currently has a limit of 100 MB (premium tier), while Event Grid supports up to 1 MB messages.
+This pattern could be used whenever a message cannot fit the supported message limit of the chosen messaging technology. For example, Service Bus currently has a limit of 100 MB (premium tier), while Event Grid supports up to 1 MB messages.
 
-The pattern can also be used if the payload should be accessed only by services that are authorized to see it. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when sensitive data is stored in the payload.
+The pattern can also be used to protect sensitive data in the message from access by unauthorized people or services. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when the payload contains sensitive data.
 
 ## Workload design
 
