@@ -115,35 +115,20 @@ Understand what kind of search methods are provided from the following table.
 1. <span id="b6">[Hybrid search (combination of Full Text search, Vector search, and Semantic Ranking)](/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
 1. <span id="b7">Reranking called [Semantic Ranking](/azure/search/semantic-search-overview) is a first-class feature for reranking the result of full text search and/or vector search.</span>
 
-### Data Management
-
-Vectors are composed of various data structures and data sources. Choosing the right data structure and modeling approach for each Azure servce can greatly impact the performance and efficiency of your application.
-
-Understand suitable data characteristics, data modeling, and how to vectorize data to store in each Azure service for your workload.
-
-| Capability              | Azure Cosmos DB for PostgreSQL       | Azure Cosmos DB for MongoDB (vCore)  | Azure Database for PostgreSQL (Flex) | Azure AI Search                              | Azure SQL Database                   |
-| ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | -------------------------------------------- | ------------------------------------ |
-| Suitable data structure | structured data                      | semi-structured data                 | structured data                      | sturctured/un-structured data                | structured data                      |
-| Data modeling           | RDBMS <a href="#c1"><sup>1</sup></a> | NoSQL <a href="#c2"><sup>2</sup></a> | RDBMS <a href="#c1"><sup>1</sup></a> | Search engine <a href="#c3"><sup>3</sup></a> | RDBMS <a href="#c1"><sup>1</sup></a> |
-
-1. <span id="c1">Vector data in one or more tables (depends on schema design)</span>
-1. <span id="c2">Vector data and operational data in a single document</span>
-1. <span id="c3">Import vector data from multiple data source</span>
-
 ### Vector data indexing algorithms
 
 Vector data indexing is the ability to efficiently store and retrieve vectors. This capability is important because indexing helps us perform fast and accurate similarity searches and nearest neighbor queries on data sources.
 
 Indexes are based on **EKNN or ANN algorithm**. 
-EKNN does exhaustive search on all data points one by one and returns the accurate K nearest neighbors. **EKNN works well under milliseconds with less than 100K documents but can cause latency for large amount of documents**. 
+EKNN(Exhaustive K-nearest Neighbor) does exhaustive search on all data points one by one and returns the accurate K nearest neighbors. **EKNN works well under milliseconds with small number of documents but can cause latency for large amount of documents**. 
 
-**HNSW and IVFflat** are ANN algorithm indexes. Choosing the Right Indexing Strategy The decision between IVFFlat and HNSW hinges on multiple factors, including dataset nature, query requirements, and resource constraints. While IVFFlat shines in scenarios with limited resources or lower query volumes, HNSW is unmatched for systems demanding rapid query responses and flexibility to dataset evolution.
+[HNSW](https://en.wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs) and [IVFflat](https://en.wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy involves a careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. IVFFlat is particularly effective in environments where resources are limited or query volumes are not high, whereas HNSW excels in systems that require fast query responses and can adapt to changes in the dataset.
 
 Understand what kinds of vector data indexing are provided from the following table.
 
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
-| Exhaustive KNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
+| EKNN (brute-force search) | Yes | Yes | Yes | Yes | Yes |
 | "HNSW" | Yes| Yes (preview)<a href="#e1"><sup>1</sup></a> | Yes | Yes | No |
 | "IVFflat" | Yes | Yes | Yes | No | No |
 | Others (limitations, tips etc.) | - | Vector field limitation <a href="#e2"><sup>2</sup></a> </br> Vector index limitation <a href="#e3"><sup>2</sup></a> | - | - |No native vector search support<a href="#e4"><sup>3</sup></a>|
@@ -155,13 +140,17 @@ Understand what kinds of vector data indexing are provided from the following ta
 
 ### Similarity and distance calculation capabilities
 
-There are various similarity and distance calculation methods for vector search. These methods are used to calculate the similarity between two vectors or the distance between two vectors. Choosing right similarity and distance calculation method is important because it affects the accuracy and performance of the search results.
+There are [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity), [Dot Product](https://en.wikipedia.org/wiki/Dot_product) and [Euclidean Distance](https://en.wikipedia.org/wiki/Euclidean_distance) calculation methods for vector search. These methods are used to calculate the similarity between two vectors or the distance between two vectors. 
+
+Preliminary data analysis benefits from both metrics and Euclidean distances, which allow for the extraction of different insights on data structure, whereas text classification generally performs better under Euclidean distances, and retrieval of the most similar texts to a given document typically functions better with cosine similarity.
+Azure OpenAI embeddings rely on cosine similarity to compute similarity between documents and a query.
+
 Understand what kind of similarity and distance calculation methods are provided from the following table and check if the calculation way you use is offered as a first-class feature.
 
 | Capability                                     | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 | ---------------------------------------------- | ------------------------------ | ----------------------------------- | ------------------------------------ | --------------- | ------------------ |
 | Cosine similarity                              | Yes                            | Yes                                 | Yes                                  | Yes             | Yes                |
-| L2 distance (also known as Euclidean distance) | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
+| Euclidean distance (L2 distance)   | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
 | Dot product                                    | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
 
 ### Integration with Microsoft technology
