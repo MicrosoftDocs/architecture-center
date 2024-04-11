@@ -128,11 +128,11 @@ For a deployment in a single region, example pricing information is available in
 
 Principal authors:
 
-* [Jean-Yves Devant](https://www.linkedin.com/in/jydevant) | Principal Product Manager
+- [Jean-Yves Devant](https://www.linkedin.com/in/jydevant/) | Principal Product Manager
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.NET Core](/dotnet/core).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [.NET MAUI](/dotnet/maui/).
 
 Product documentation:
 
