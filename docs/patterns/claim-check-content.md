@@ -61,12 +61,12 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The following examples illustrate how Azure can facilitate the implementation of the Claim-Check Pattern. Find the code example that best meets your needs and use the link to see the code in GitHub:
 
-| Sample code | Messaging system   | Data store        | Token generator | Sender | Receiver |
-|-------------|---------------------|-------------------|-----------------|--------|----------|
-| [Code example 1][example-1]   | Azure Storage Queue   | Azure Blob Storage | Event Grid      | Function | Client   |
-| [Code example 2][example-2]   | Event Hubs (Standard API) | Azure Blob Storage | Event Grid      | Client | Function |
-| [Code example 3][example-3]   | Azure Service Bus      | Azure Blob Storage | Event Grid      | ?      | ?        |
-| [Code example 4][example-4]   | Azure Event Hubs (Kafka API) | Azure Blob Storage | Client          | Function | Function |
+| Sample code                   | Data store         | Token generator    | Sender              | Messaging system             | Receiver            |
+|-------------------------------|--------------------|--------------------|---------------------|------------------------------|---------------------|
+| [Code example 1][example-1]   | Azure Blob Storage | Azure Event Grid   | Function            | Azure Storage Queue          | Command line client |
+| [Code example 2][example-2]   | Azure Blob Storage | Azure Event Grid   | Function            | Event Hubs (Standard API)    | Command line client |
+| [Code example 3][example-3]   | Azure Blob Storage | Azure Event Grid   | Function            | Azure Service Bus            | Command line client |
+| [Code example 4][example-4]   | Azure Blob Storage | Command line client| Command line client | Azure Event Hubs (Kafka API) | Function            |
 
 
 
