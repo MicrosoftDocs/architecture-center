@@ -2,8 +2,8 @@
 metadata:
   title: Messaging Bridge pattern
   description: Learn how to use the Messaging Bridge pattern to integrate disparate systems built on top of different messaging infrastructures.
-  author: martinekuan
-  ms.author: martinek
+  ms.author: robbag
+  author: RobBagby
   ms.date: 10/04/2023
   ms.topic: conceptual
   ms.service: architecture-center
