@@ -3977,7 +3977,7 @@
     },
     {
       "source_path": "docs/data-science-process/sqldw-walkthrough.md",
-      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_url": "/azure/architecture/data-science-process/overview"
     },
     {  
       "source_path": "docs/guide/saas/overview.md",
@@ -4325,6 +4325,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/blockchain/quorum-blockchain-service.yml",
+      "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
+      "redirect_document_id": true
+    },
+    {  
       "source_path": "docs/example-scenario/wvd/windows-virtual-desktop.yml",
       "redirect_url": "/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop",
       "redirect_document_id": false
