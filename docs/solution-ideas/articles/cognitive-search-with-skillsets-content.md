@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea describes how to enrich text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. Azure Cognitive Search with AI enrichment can help identify and explore relevant content at scale. This solution uses AI enrichment to extract meaning from the original, unstructured JFK Assassination Records (JFK Files) dataset. This solution idea also builds a standalone web app in [Azure App Service](https://azure.microsoft.com/services/app-service) to test, demonstrate, search the index, and explore connections in the enriched and indexed documents.
+This solution idea describes how to enrich text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. Azure Cognitive Search with AI enrichment can help identify and explore relevant content at scale. This solution idea uses AI enrichment to extract meaning from the original, unstructured JFK Assassination Records (JFK Files) dataset. This solution idea also builds a standalone web app in [Azure App Service](https://azure.microsoft.com/services/app-service) to test, demonstrate, search the index, and explore connections in the enriched and indexed documents.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ The previous diagram illustrates the process of passing the unstructured JFK Fil
 
 ### Components
 
-- [Azure Cognitive Search](https://azure.microsoft.com/services/search) indexes the content and powers the user experience in this solution. Azure Cognitive Search can apply [prebuilt cognitive skills](/azure/search/cognitive-search-predefined-skills) to the content, and the extensibility mechanism can add [custom skills](/azure/search/cognitive-search-custom-skill-interface) for specific enrichment transformations.
+- [Azure Cognitive Search](https://azure.microsoft.com/services/search) indexes the content and powers the user experience in this solution idea. Azure Cognitive Search can apply [prebuilt cognitive skills](/azure/search/cognitive-search-predefined-skills) to the content, and the extensibility mechanism can add [custom skills](/azure/search/cognitive-search-custom-skill-interface) for specific enrichment transformations.
 
 - [Azure computer vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models and is optimized for large, text-heavy documents and noisy images.
 
@@ -33,17 +33,17 @@ The previous diagram illustrates the process of passing the unstructured JFK Fil
 
 - [Table Storage](https://azure.microsoft.com/services/storage/tables) stores highly available, scalable, structured, or semi-structured NoSQL data in the cloud.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses a Functions method to apply the CIA Cryptonyms list to the JFK Assassination Records as a custom skill.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution idea uses a Functions method to apply the CIA Cryptonyms list to the JFK Assassination Records as a custom skill.
 
 ## Scenario details
 
 Large, unstructured datasets can include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse. The [JFK Assassination Records](https://www.archives.gov/research/jfk/2017-release) contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination.
 
-The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Azure Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but is meant to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
+The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Azure Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but is meant to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution idea with non-public data.
 
 AI enrichment in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pretrained machine learning skill sets from the Azure AI Language [computer vision](/azure/cognitive-services/computer-vision/home) and [Azure AI Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. You can then use Azure Cognitive Search to index and search that context.
 
-The Azure Cognitive Search skills in this solution fall into the following categories:
+The Azure Cognitive Search skills in this solution idea fall into the following categories:
 
 - **Image processing**: Built-in [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) and [image analysis](/azure/search/cognitive-search-skill-image-analysis) skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content that are searchable by using the query capabilities of Azure Cognitive Search. Document cracking is the process of extracting or creating text content from non-text sources.
 
@@ -71,7 +71,7 @@ Principal author:
 
 ## Next steps
 
-Learn more about this solution:
+Learn more about this solution idea:
 
 - Explore the [JFK Files project](https://github.com/microsoft/AzureSearch_JFK_Files) on GitHub.
 - Watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents).
