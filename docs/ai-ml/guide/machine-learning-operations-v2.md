@@ -393,6 +393,30 @@ Cell Colour = Access Period Granted. Green = Life of Project, Orange = Temporary
 > - Data plane controls are additive to the Control plane, i.e. they build on top of them.
 > - The Data plane controls vary depending on the specific AI Service selected, its recommended to take to most restrictive scope matched with the most appropriate built-in role available for the role/task requirements.
 
+### Package management
+
+When developing machine learning models there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use.
+
+In the machine learning lifecycle this can introduce many challenges, such as:
+- Data scientists often require large numbers of highly specialized packages, libraries or binaries as “building blocks” for ML solutions.
+- Many of these packages are community developed, iterate with fast-paced development cycles, and required "Subject Matter Expert" (SME) knowledge to understand and use.
+- Traditional approaches to software management for this requirement, often result in expensive, toil-filled processes, which act as a bottleneck on the delivery of value.
+
+A suggested approach for managing these dependencies is to use a secure, self-serve, package management process. This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
+
+This involved safelisting three industry standard ML package repositories, allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
+
+:::image type="content" source="_images/secureAML_Package.png" lightbox="_images/secureAML_Package.png" alt-text="Diagram showing the secure AML Package approach." border="false":::
+
+**Process Flow**
+
+1. Data scientists working within a specific AML workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&tabs=ipaddress%2Cpublic#recommended-configuration-for-training-and-deploying-models) applied, can self-serve ML packages on-demand from the whitelisted repositories.
+<br/>&nbsp;&nbsp; - An exception process is required for everything else, using the [Private Storage](/azure/machine-learning/how-to-use-private-python-packages?view=azureml-api-1&viewFallbackFrom=azureml-api-2#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function. <br/> 
+1. AML delivers ML solutions as docker containers. As these solutions are developed, they are uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) would be used to for the vulnerability scanning process.
+2. Solution deployment occurs via a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
+3. Only if the solution container passes each of the security processes will it be deployed. Failure will result in the deployment elegantly exiting with error notifications, full audit trails and the solution container being discarded.
+<br/><br/>
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
