@@ -2,8 +2,8 @@
 metadata:
   title: Claim-Check pattern
   description: Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.
-  author: yorek
-  ms.author: damauri
+  ms.author: robbag
+  author: RobBagby
   ms.date: 07/01/2019
   ms.topic: conceptual
   ms.service: architecture-center
