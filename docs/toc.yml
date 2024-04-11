@@ -2366,7 +2366,7 @@ items:
         - name: IBM System i to Azure using Infinite i
           href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
         - name: IBM z/OS migration with Avanade AMT
-          href: example-scenario/mainframe/asysco-zos-migration.yml
+          href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: IBM z/OS online transaction processing
           href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
         - name: Implement Azure DevOps for IBM Z mainframe applications
