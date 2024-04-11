@@ -1,4 +1,4 @@
-The claim-check pattern allows workloads to process large messages without storing them in a messaging broker. The pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to clients so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
+The Claim-Check pattern allows workloads to process large messages without storing them in a messaging broker. The pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to clients so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
 
 This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
 
@@ -21,21 +21,28 @@ Don't send large messages to the messaging system. Instead, send the message to 
 
 ## Issues and considerations
 
-Consider the following recommendations when implementing the claim-check pattern:
+Consider the following recommendations when implementing the Claim-Check pattern:
 
 - *Delete consumed messages.* If you don't need to archive the message, deleting the message data after it's consumed. Use either a synchronous or asynchronous deletion strategy:
+
   - *Synchronous deletion*: The consuming application deletes the message immediately after consumption. It ties deletion to the message handling workflow and uses messaging-workflow compute capacity.
   - *Asynchronous deletion*: A process outside the message processing workflow deletes the message. It decouples message deletion from the message handling workflow and minimizes use of messaging-workflow compute.
   
-- *Apply conditions.* Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This approach would result in a conditional claim-check pattern.
+- *Implement the pattern conditionally.* Incorporate logic in the sender application that only applies the Claim-Check pattern if the message size surpasses the messaging system's limit. For smaller messages, bypass the pattern and sent the smaller message to the messaging system. This conditional approach reduces latency, optimizes resources utilization, and improves throughput.
 
 ## When to use this pattern
 
-This pattern could be used whenever a message cannot fit the supported message limit of the chosen messaging technology. For example, Service Bus currently has a limit of 100 MB (premium tier), while Event Grid supports up to 1 MB messages.
+The following scenarios are the primary use cases for the Claim-Check pattern:
 
-The pattern can also be used to protect sensitive data in the message from access by unauthorized people or services. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when the payload contains sensitive data.
+- *Messaging system limitations*: Message sizes surpass the limits of your messaging system (e.g., over 100 MB for Service Bus premium tier, or 1 MB for Event Grid). Offload the message to external storage, sending only the token to the messaging system.
 
-Another scenario where this pattern is useful is when the message needs to travel through several system components, some of which may not be authorized to access the data, and potentially returning back to the original sender. By employing this pattern, we avoid having to unnecessarily process the payload at each step, improving performance and protecting the integrity of the payload.
+- *Messaging system performance*: Large messages are straining the messaging systems and degrading system performance.
+
+The following scenarios are secondary use cases for the Claim-Check pattern:
+
+- *Sensitive data protection*: Messages contain sensitive data that must be shielded from unauthorized access. Apply the Claim-Check pattern to all or portions of sensitive messages. Secure the data without transmitting it directly through the messaging system.
+
+- *Complex routing scenarios*: Messages traversing multiple components can cause performance bottlenecks due to serialization, deserialization, encryption, and decryption tasks. Use the Claim-Check pattern to prevent direct message processing by intermediary components.
 
 ## Workload design
 
@@ -52,7 +59,16 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Examples
 
-On Azure, this pattern can be implemented in several ways and with different technologies, but there are two main categories. In both cases, the receiver has the responsibility to read the claim check and use it to retrieve the payload.
+The following examples illustrate how Azure can facilitate the implementation of the Claim-Check Pattern. Find the code example that best meets your needs and use the link to see the code in GitHub:
+
+| Sample code | Data store        | Token generator | Sender | Messaging system        | Receiver |
+|-------------|-------------------|-----------------|--------|-------------------------|----------|
+| [Code example 1][example-1]   | Azure Blob Storage | Event Grid      | Function | Azure Storage Queue   | Client   |
+| [Code example 2][example-2]   | Azure Blob Storage | Event Grid      | Client | Event Hubs (Standard API) | Function |
+| [Code example 3][example-3]   | Azure Blob Storage | Event Grid      | ?      | Azure Service Bus      | ?        |
+| [Code example 4][example-4]   | Azure Blob Storage | Client          | Function | Azure Event Hubs (Kafka API) | Function |
+
+
 
 - **Automatic claim-check generation**. This approach uses [Azure Event Grid](/azure/event-grid) to automatically generate the claim check and push it into the messaging system.
 
@@ -110,7 +126,7 @@ You can find example code for this approach [here][example-3].
 
 ### Manual claim-check generation with Kafka
 
-In this example, a Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using [Kafka-enabled Event Hubs](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs). The consumer receives the message and can access the payload from Blob Storage. This example shows how a different messaging protocol can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
+In this example, a Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using [Kafka-enabled Event Hubs](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs). The consumer receives the message and can access the payload from Blob Storage. This example shows how a different messaging protocol can be used to implement the Claim-Check pattern in Azure. For example, you might need to support existing Kafka clients.
 
 You can find example code for this approach [here][example-4].
 
@@ -118,7 +134,7 @@ You can find example code for this approach [here][example-4].
 
 - The examples described above are available on [GitHub][sample-code].
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
-- For another example, see [Dealing with large Service Bus messages using claim check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
+- For another example, see [Dealing with large Service Bus messages using Claim-Check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
 - An alternative pattern for handling large messages is [Split][splitter] and [Aggregate][aggregator].
 - Libraries like NServiceBus provide support for this pattern out-of-the-box with their ["data bus" functionality](https://docs.particular.net/nservicebus/messaging/databus/azure-blob-storage).
 
