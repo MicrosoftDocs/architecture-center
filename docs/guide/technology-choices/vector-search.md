@@ -72,10 +72,9 @@ This section helps you select the most likely services for your needs. To narrow
 The following tables summarize the key differences in capabilities.
 
 ### Basic features
-
+Native support for **vector data type**, **ANN vector index**, vector **dimension limit**, multiple vector fields and multiple vector indexs can be different and these supportability is one of key decision point for vector store.
 Understand the basic vector features of each Azure service from the following table.
 
-Native support for **vector data type**, **ANN vector index**, vector **dimension limit**, multiple vector fields and multiple vector indexs can be different and these supportability is one of key decision point for vector store.
 
 | Capability                                       | Azure Cosmos DB for PostgreSQL                | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex)          | Azure AI Search                    | Azure SQL Database                |
 | ------------------------------------------------ | --------------------------------------------- | ----------------------------------- | --------------------------------------------- | ---------------------------------- | --------------------------------- |
