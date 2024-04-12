@@ -25,12 +25,18 @@ Azure API Management is a comprehensive API gateway and reverse proxy for APIs. 
 > [!NOTE]
 > This article focuses on how you can use Azure API Management when you have your own multitenant applications with APIs.
 > 
-> Another form of multitenancy is to provide Azure API Management as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. For this form of multitenancy, consider using [workspaces](/azure/api-management/workspaces-overview).
+> Another form of multitenancy is to provide Azure API Management as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. For this form of multitenancy, consider using [workspaces](/azure/api-management/workspaces-overview), which help you to share an Azure API Management instance across multiple teams who might have different levels of access.
 
 ## Isolation models
 
-Typically a shared component. But it's deployed to a region, so if you have a multi-region service you might need several instances distributed throughout the world, and then use something like Front Door
-Can sit inside or outside of the stamps.
+Most commonly, Azure API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy Azure API Management depending on your needs and your tenancy model.
+
+<!-- TODO more here with diagrams
+| Consideration | TODO |
+
+ -->
+
+Azure API Management is deployed as a regional service. If you're deploying a multi-region solution, you likely need several independent Azure API Management instances distributed globally, and then use a service like [Azure Front Door](front-door.md) to route incoming requests to the appropriate instance.
 
 ## Features of API Management that support multitenancy
 
@@ -62,11 +68,7 @@ API requests made to the Azure API Management gateway usually need to be authent
 
 ### Route to tenant-specific backends
 
-When you use Azure API Management as a shared component, you might need to route incoming API requests to different tenant-specific backends. These backends might be in different deployment stamps, or they might be different applications within a single stamp.
-
-TODO example diagram
-
-To customize the routing in a policy definition, use the [`set-backend-service` policy](/azure/api-management/set-backend-service-policy). You need to specify the new base URL that the request should be redirected to.
+When you use Azure API Management as a shared component, you might need to route incoming API requests to different tenant-specific backends. These backends might be in different deployment stamps, or they might be different applications within a single stamp. To customize the routing in a policy definition, use the [`set-backend-service` policy](/azure/api-management/set-backend-service-policy). You need to specify the new base URL that the request should be redirected to.
 
 ### Caching
 
