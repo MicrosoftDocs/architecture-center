@@ -252,7 +252,7 @@ This section aims to outline an exmaple of how to map personas to roles in Azure
 This example considers the following Personas to inform the identity-based RBAC group design:
 
 ##### 1 - Data Scientist/ML Engineer
-&nbsp;&nbsp; **Description** - The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of [platform support](secure_aml_security.md#7---platform-technical-support) expertise.  
+&nbsp;&nbsp; **Description** - The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
 <br/>&nbsp;&nbsp; **Type** - Person.<br/>
 &nbsp;&nbsp; **Project Specific** - Yes. 
 <br/>&nbsp;&nbsp; **Notes** - Involves data exploration and preprocessing to model training, evaluation, and deployment, to solve complex business problems and generate insight.<br/>
@@ -288,7 +288,7 @@ This example considers the following Personas to inform the identity-based RBAC 
 <br/>&nbsp;&nbsp; **Notes** - This role is read-only for the AML workspace configuration and components in development. Production coverage will be provided by the data governance application.<br/>
 
 ##### 7 - Platform Technical Support
-&nbsp;&nbsp; **Description** - The Technical support staff responsible for break/fix activities across the platform. This role would cover infrastructure, service, etc. But not the ML models, packages or data. These elements remain under the [Data Scientist/ML Engineer](secure_aml_security.md#1---data-scientistml-engineer) role's responsibility. 
+&nbsp;&nbsp; **Description** - The Technical support staff responsible for break/fix activities across the platform. This role would cover infrastructure, service, etc. But not the ML models, packages or data. These elements remain under the Data Scientist/ML Engineer role's responsibility. 
 <br/>&nbsp;&nbsp; **Type** - Person.<br/>
 &nbsp;&nbsp; **Project Specific** - No. 
 <br/>&nbsp;&nbsp; **Notes** - While the role group is permanent, membership is only transient, based upon a Privileged Identity Management ([PIM](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure)) process for time boxed, evaluated access.<br/>
