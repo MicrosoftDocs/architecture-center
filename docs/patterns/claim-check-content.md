@@ -26,7 +26,7 @@ Don't send large messages to the messaging system. Instead, send the message pay
 }
 ```
 
-1. Store message payload in the data store
+2. Store message payload in the data store
 
  ```json
 {
@@ -37,7 +37,7 @@ Don't send large messages to the messaging system. Instead, send the message pay
 }
 ```
 
-1. Send message with claim-check token to messaging system.
+3. Send message with claim-check token to messaging system.
 
 ```json
 {
@@ -51,9 +51,9 @@ Don't send large messages to the messaging system. Instead, send the message pay
 }
 ```
 
-1. Read the message claim-check token.
-1. Retrieve the message payload.
-1. Process the message payload.
+4. Read the message claim-check token.
+5. Retrieve the message payload.
+6. Process the message payload.
 
 ## Issues and considerations
 
