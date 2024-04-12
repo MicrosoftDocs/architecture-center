@@ -1,4 +1,4 @@
-The Claim-Check pattern allows workloads to process messages with large payloads without storing the payload in a messaging system. Instead, the pattern stores the message payload in a data store and stores a message with a "claim check" in the messaging system. A claim check is a unique, obscure token that validates entitlement to retrieve a specific object. The messaging system sends the message with the claim-check token to receiving applications so they can retrieve the message from a data store. The messaging system never stores the message payload.
+The Claim-Check pattern allows workloads to process large payloads without storing the payload in a messaging system. Instead, the pattern stores the payload in a data store and stores a message with a "claim check" in the messaging system. A claim check is a unique, obscure token or key that validates entitlement to retrieve an object. The messaging system sends a message with the claim-check token to receiving applications so they can retrieve the payload from a data store. The messaging system never sees or stores the payload.
 
 This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
 
@@ -8,7 +8,7 @@ Traditional messaging systems are optimized to manage a high volume of small mes
 
 ## Solution
 
-Don't send large messages to the messaging system. Instead, send the message payload to an external data store. Generate a claim-check token to retrieve the message payload later. Send the message with the claim-check token to the messaging system. The messaging system sends the message with claim-chceck token to receiving applications so they can retrieve the message payload from the payload.
+Don't send large messages to the messaging system. Instead, send the payload to an external data store. Generate a claim-check token and send a message with the claim-check token to the messaging system. The messaging system sends the message with claim-chceck token to receiving applications so they can retrieve the payload from the data store.
 
 [![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
@@ -23,11 +23,11 @@ Don't send large messages to the messaging system. Instead, send the message pay
 
 Consider the following recommendations when implementing the Claim-Check pattern:
 
-- *Delete consumed messages.* If you don't need to archive the message, delete the message, payload, and claim-check token after the receiving applications consume it. Use either a synchronous or asynchronous deletion strategy:
+- *Delete consumed messages.* If you don't need to archive the message, delete the message and payload after the receiving applications consume it. Use either a synchronous or asynchronous deletion strategy:
 
-  - *Synchronous deletion*: The consuming application deletes the message, payload, and claim-check token immediately after consumption. It ties deletion to the message handling workflow and uses messaging-workflow compute capacity.
+  - *Synchronous deletion*: The consuming application deletes the message and payload immediately after consumption. It ties deletion to the message handling workflow and uses messaging-workflow compute capacity.
   
-  - *Asynchronous deletion*: A process outside the message processing workflow deletes the message, payload, and claim-check token. It decouples the deletion process from the message handling workflow and minimizes use of messaging-workflow compute.
+  - *Asynchronous deletion*: A process outside the message processing workflow deletes the message and payload. It decouples the deletion process from the message handling workflow and minimizes use of messaging-workflow compute.
   
 - *Implement the pattern conditionally.* Incorporate logic in the sending application that applies the Claim-Check pattern if the message size surpasses the messaging system's limit. For smaller messages, bypass the pattern and send the smaller message to the messaging system. This conditional approach reduces latency, optimizes resources utilization, and improves throughput.
 
@@ -35,13 +35,13 @@ Consider the following recommendations when implementing the Claim-Check pattern
 
 The following scenarios are the primary use cases for the Claim-Check pattern:
 
-- *Messaging system limitations*: Use the Claim-Check pattern when message sizes surpass the limits of your messaging system. Offload the message payload to external storage. Send only the message with its claim-check token to the messaging system.
+- *Messaging system limitations*: Use the Claim-Check pattern when message sizes surpass the limits of your messaging system. Offload the payload to external storage. Send only the message with its claim-check token to the messaging system.
 
 - *Messaging system performance*: Use the Claim-Check pattern when large messages are straining the messaging systems and degrading system performance.
 
 The following scenarios are secondary use cases for the Claim-Check pattern:
 
-- *Sensitive data protection*: Use the Claim-Check pattern when message payloads contain sensitive data that don't want visible to the messaging system. Apply the pattern to all or portions of sensitive message payloads. Secure the sensitive data without transmitting it directly through the messaging system.
+- *Sensitive data protection*: Use the Claim-Check pattern when payloads contain sensitive data that don't want visible to the messaging system. Apply the pattern to all or portions of sensitive information in the payloads. Secure the sensitive data without transmitting it directly through the messaging system.
 
 - *Complex routing scenarios*: Messages traversing multiple components can cause performance bottlenecks due to serialization, deserialization, encryption, and decryption tasks. Use the Claim-Check pattern to prevent direct message processing by intermediary components.
 
