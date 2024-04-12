@@ -13,47 +13,11 @@ Don't send large messages to the messaging system. Instead, send the message pay
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
 1. Message with payload
-
-```json
-{
-  "header": {
-    "messageId": "123",
-    "timestamp": "2024-04-12T10:11:23Z"
-  },
-  "body": {
-    "data": "...." // large amount of data
-  }
-}
-```
-
-2. Store message payload in the data store
-
- ```json
-{
-  "claimCheck": "abc123",
-  "payload": {
-    "data": "...." // large amount of data
-  }
-}
-```
-
-3. Send message with claim-check token to messaging system.
-
-```json
-{
-  "header": {
-    "messageId": "123",
-    "timestamp": "2024-04-12T10:11:23Z"
-  },
-  "body": {
-    "claimCheck": "abc123" // unique identifier for the data in the data store
-  }
-}
-```
-
-4. Read the message claim-check token.
-5. Retrieve the message payload.
-6. Process the message payload.
+1. Store message payload in the data store
+1. Generate and send claim-check token to messaging system.
+1. Read the message claim-check token.
+1. Retrieve the message payload.
+1. Process the message payload.
 
 ## Issues and considerations
 
