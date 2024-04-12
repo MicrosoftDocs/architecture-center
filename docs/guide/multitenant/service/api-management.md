@@ -31,12 +31,35 @@ Azure API Management is a comprehensive API gateway and reverse proxy for APIs. 
 
 Most commonly, Azure API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy Azure API Management depending on your needs and your tenancy model.
 
-<!-- TODO more here with diagrams
-| Consideration | TODO |
+Azure API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical Azure API Management resource and have it shared across multiple Azure regions without needing to replicate configuration. This capability is especially helpful when you distribute or replicate your solution globally.
 
- -->
+| Consideration | Shared instance, single-tenant backends | Shared instance, sharded backends | Shared instance, multitenant backend | Instance per deployment stamp | Instance per tenant |
+|-|-|-|-|-|
+| Performance isolation | TODO | TODO | TODO | TODO | TODO |
+| Deployment complexity | Low. Single instance to manage. | Medium. | Medium. | High. | TODO. |
+| Operational complexity | Low. | Medium. | Medium. | High. | TODO. |
+| Cost | TODO | TODO | TODO | TODO | TODO |
+| Example scenario | TODO | TODO | TODO | TODO | TODO |
 
-Azure API Management is deployed as a regional service. If you're deploying a multi-region solution, you likely need several independent Azure API Management instances distributed globally, and then use a service like [Azure Front Door](front-door.md) to route incoming requests to the appropriate instance.
+### Shared instance with single-tenant backends
+- Maximum number of Tenants: Low
+- Performance is impacted because a tenant lookup is required for each request.
+
+### Shared instance with sharded tenant backends
+- Maximum number of Tenants: Low
+- Performance is impacted because a tenant lookup is still required for each request.
+
+### Shared instance with multi-tenant backend
+  - Number of Tenants: High
+  - Tenant lookup is not required, so no performance impact.
+
+### Shared instance per stamp
+- Number of Tenants: High
+- Tenant lookup is performed outside of APIM (e.g., by a Gateway routing to deployment stamp), so minimal performance impact.
+
+### Instance per tenant
+  - Number of Tenants: Medium, but run into limits with number of APIM instances.
+  - Tenant lookup is not required, so no performance impact.
 
 ## Features of API Management that support multitenancy
 
