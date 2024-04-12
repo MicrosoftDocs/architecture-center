@@ -88,6 +88,7 @@ Choose the example that suits your needs and follow the provided link to view th
   }
 }
 ```
+
 ### Message payload sent to data store
 
  ```json
