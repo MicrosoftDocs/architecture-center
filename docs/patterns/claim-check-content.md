@@ -13,8 +13,8 @@ Don't send large messages to the messaging system. Instead, send the message pay
 [![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
 1. Message with payload
-1. Store message payload in the data store
-1. Generate and send claim-check token to messaging system.
+1. Extract message payload and send to data store
+1. Generate claim-check token and send to messaging system.
 1. Read the message claim-check token.
 1. Retrieve the message payload.
 1. Process the message payload.
