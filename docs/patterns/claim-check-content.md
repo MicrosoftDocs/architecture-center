@@ -10,7 +10,7 @@ Traditional messaging systems are optimized to manage a high volume of small mes
 
 Don't send large messages to the messaging system. Instead, send the message payload to an external data store. Generate a claim-check token to retrieve the message payload later. Send the message with the claim-check token to the messaging system. The messaging system sends the message with claim-chceck token to receiving applications so they can retrieve the message payload from the payload.
 
-![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
+[![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
 1. Message with payload
 1. Store message payload in the data store
@@ -88,6 +88,16 @@ Choose the example that suits your needs and follow the provided link to view th
   }
 }
 ```
+### Message payload sent to data store
+
+ ```json
+{
+  "claimCheck": "abc123",
+  "payload": {
+    "data": "...." // large amount of data
+  }
+}
+```
 
 ### Message with claim check sent to messaging system
 
@@ -103,16 +113,6 @@ Choose the example that suits your needs and follow the provided link to view th
 }
 ```
 
-### Message payload sent to data store
-
- ```json
-{
-  "claimCheck": "abc123",
-  "payload": {
-    "data": "...." // large amount of data
-  }
-}
-```
 
 ## Next steps
 
