@@ -61,12 +61,12 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The following examples illustrate how Azure can facilitate the implementation of the Claim-Check Pattern. Find the code example that best meets your needs and use the link to see the code in GitHub:
 
-| Sample code                   | Data store         | Token generator    | Sender              | Messaging system             | Receiver            |
-|-------------------------------|--------------------|--------------------|---------------------|------------------------------|---------------------|
-| [Code example 1][example-1]   | Azure Blob Storage | Azure Event Grid   | Function            | Azure Storage Queue          | Command line client |
-| [Code example 2][example-2]   | Azure Blob Storage | Azure Event Grid   | Function            | Event Hubs (Standard API)    | Command line client |
-| [Code example 3][example-3]   | Azure Blob Storage | Azure Event Grid   | Function            | Azure Service Bus            | Command line client |
-| [Code example 4][example-4]   | Azure Blob Storage | Command line client| Command line client | Azure Event Hubs (Kafka API) | Function            |
+| Sample code                   | Data store         | Token generator               | Sender                         | Messaging system             | Receiver                 |
+|-------------------------------|--------------------|--------------------           |---------------------           |------------------------------|---------------------     |
+| [Code example 1][example-1]   | Azure Blob Storage | Azure Event Grid              | Function                       | Azure Storage Queue          | Executable command-line client |
+| [Code example 2][example-2]   | Azure Blob Storage | Azure Event Grid              | Function                       | Event Hubs (Standard API)    | Executable command-line client |
+| [Code example 3][example-3]   | Azure Blob Storage | Azure Event Grid              | Function                       | Azure Service Bus            | Executable command-line client |
+| [Code example 4][example-4]   | Azure Blob Storage | Executable command-line client| Executable command-line client | Azure Event Hubs (Kafka API)  | Function                 |
 
 
 
