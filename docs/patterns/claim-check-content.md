@@ -1,10 +1,10 @@
-The Claim-Check pattern allows workloads to process large messages without storing them in a messaging system. Instead, the pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to clients so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
+The Claim-Check pattern allows workloads to process large messages without storing them in a messaging system. Instead, the pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to receiving applications so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
 
-This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
+This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
 
 ## Context and problem
 
-Messaging systems are designed to handle a huge volume of small messages. Most messaging systems have limits on message size they can process. Large messages pose a challenge to messaging systems. They can exceed the message size or can degrade the performance of the entire workload when stored in a messaging system.
+Traditional messaging systems are optimized to manage a high volume of small messages and often have restrictions on the size of messages they can process. Large messages not only risk exceeding these limits but can also impair the performance of the entire system when they are stored within the messaging system.
 
 ## Solution
 
