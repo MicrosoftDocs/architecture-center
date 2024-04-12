@@ -92,18 +92,16 @@ For example, the `GetStatus` function in the reference implementation uses the A
 <!-- cSpell:ignore CosmosDB -->
 
 ```csharp
-[FunctionName("GetStatusFunction")]
-public static Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-    [CosmosDB(
-        databaseName: "%COSMOSDB_DATABASE_NAME%",
-        collectionName: "%COSMOSDB_DATABASE_COL%",
-        ConnectionStringSetting = "COSMOSDB_CONNECTION_STRING",
-        Id = "{Query.deviceId}",
-        PartitionKey = "{Query.deviceId}")] dynamic deviceStatus,
-    ILogger log)
+[Function("GetStatusFunction")]
+public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req,
+        [CosmosDBInput(
+           databaseName: "%COSMOSDB_DATABASE_NAME%",
+           containerName:"%COSMOSDB_DATABASE_COL%",
+           Connection  = "COSMOSDB_CONNECTION_STRING",
+           Id = "{Query.deviceId}",
+           PartitionKey = "{Query.deviceId}")] DeviceState? deviceStatus)
 {
-    ...
+  ...
 }
 ```
 
