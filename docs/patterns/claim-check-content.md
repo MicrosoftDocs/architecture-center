@@ -13,7 +13,7 @@ Don't send large messages to the messaging system. Instead, send the message pay
 [![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
 1. Message with payload
-1. Extract message payload and send to data store
+1. Extract message payload and send it to data store
 1. Generate claim-check token and send to messaging system.
 1. Read the message claim-check token.
 1. Retrieve the message payload.
@@ -68,12 +68,13 @@ The following examples demonstrate how Azure facilitates the implementation of t
 
 Choose the example that suits your needs and follow the provided link to view the code on GitHub:
 
-| Sample code                   | Data store         | Token generator               | Sending application            | Messaging system             | Receiving application          |
-|-------------------------------|--------------------|--------------------           |---------------------           |------------------------------|---------------------           |
-| [Code example 1][example-1]   | Azure Blob Storage | Azure Event Grid              | Function                       | Azure Queue Storage          | Executable command-line client |
-| [Code example 2][example-2]   | Azure Blob Storage | Azure Event Grid              | Function                       | Event Hubs (Standard API)    | Executable command-line client |
-| [Code example 3][example-3]   | Azure Blob Storage | Azure Event Grid              | Function                       | Azure Service Bus            | Executable command-line client |
-| [Code example 4][example-4]   | Azure Blob Storage | Executable command-line client| Executable command-line client | Azure Event Hubs (Kafka API) | Function                       |
+| Sample code                   | Messaging system             | Token generator               | Sending application            | Receiving application          | Data store         |
+|-------------------------------|------------------------------|------------------------------|--------------------------------|--------------------------------|--------------------|
+| [Code example 1][example-1]   | Azure Queue Storage          | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
+| [Code example 2][example-2]   | Event Hubs (Standard API)    | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
+| [Code example 3][example-3]   | Azure Service Bus            | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
+| [Code example 4][example-4]   | Azure Event Hubs (Kafka API) | Executable command-line client| Executable command-line client| Function                       | Azure Blob Storage |
+
 
 ### Message with payload
 
