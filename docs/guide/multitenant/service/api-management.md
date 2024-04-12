@@ -20,18 +20,16 @@ ms.custom:
 
 # Use Azure API Management in a multitenant solution
 
-Azure API Management is a comprehensive API gateway and reverse proxy for APIs. It provides many features that are useful to API-focused applications, including caching, response mocking, and a developer portal. This article summarizes some of the key features of Azure API Management that are particularly useful for multitenant solutions.
+Azure API Management is a comprehensive API gateway and reverse proxy for APIs. It provides many features that are useful to API-focused applications, including caching, response mocking, and a developer portal. This article summarizes some of the key features of API Management that are particularly useful for multitenant solutions.
 
 > [!NOTE]
-> This article focuses on how you can use Azure API Management when you have your own multitenant applications with APIs.
+> This article focuses on how you can use API Management when you have your own multitenant applications with APIs.
 > 
-> Another form of multitenancy is to provide Azure API Management as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. For this form of multitenancy, consider using [workspaces](/azure/api-management/workspaces-overview), which help you to share an Azure API Management instance across multiple teams who might have different levels of access.
+> Another form of multitenancy is to provide API Management as a service to other teams. For example, an enterprise might have a shared API Management instance that multiple application teams deploy to and use. For this form of multitenancy, consider using [workspaces](/azure/api-management/workspaces-overview), which help you to share an API Management instance across multiple teams who might have different levels of access.
 
 ## Isolation models
 
-Most commonly, Azure API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy Azure API Management depending on your needs and your tenancy model.
-
-Azure API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical Azure API Management resource and have it shared across multiple Azure regions without needing to replicate configuration. This capability is especially helpful when you distribute or replicate your solution globally.
+Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your needs, your [tenancy model](../considerations/tenancy-models.yml), and how you use [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
 
 | Consideration | Shared instance, single-tenant backends | Shared instance, sharded backends | Shared instance, multitenant backend | Instance per deployment stamp | Instance per tenant |
 |-|-|-|-|-|
@@ -41,35 +39,47 @@ Azure API Management [supports multi-region deployments](/azure/api-management/a
 | Cost | TODO | TODO | TODO | TODO | TODO |
 | Example scenario | TODO | TODO | TODO | TODO | TODO |
 
-### Shared instance with single-tenant backends
+### Shared instance isolation models
+
+It's common to share an API Management instance between multiple tenants, which helps to reduce cost as well as deployment and management complexity. The details of how you can share an API Management instance depend on how your tenants are assigned to backend applications.
+
+#### Single-tenant backend application
+
+You can deploy a single API Management instance and route 
+
 - Maximum number of Tenants: Low
 - Performance is impacted because a tenant lookup is required for each request.
 
-### Shared instance with sharded tenant backends
+#### Sharded tenant backend applications
 - Maximum number of Tenants: Low
 - Performance is impacted because a tenant lookup is still required for each request.
 
-### Shared instance with multi-tenant backend
+#### Multitenant backend application
   - Number of Tenants: High
   - Tenant lookup is not required, so no performance impact.
 
+<!-- TODO
 ### Shared instance per stamp
 - Number of Tenants: High
 - Tenant lookup is performed outside of APIM (e.g., by a Gateway routing to deployment stamp), so minimal performance impact.
+-->
 
 ### Instance per tenant
   - Number of Tenants: Medium, but run into limits with number of APIM instances.
   - Tenant lookup is not required, so no performance impact.
 
+> [!TIP]
+> If your only reason for deploying multiple instances is to support users in multiple geographic regions, consider whether the [multi-region deployment](#multi-region-deployments) capability in API Management might suit your needs instead.
+
 ## Features of API Management that support multitenancy
 
-Azure API Management enables flexibility through its use of [policies](/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
+API Management enables flexibility through its use of [policies](/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
 
 ### Identify tenants on incoming requests
 
 Consider how you'll identify tenants based on incoming requests. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
 
-Azure API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you'll map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
+API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you'll map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
 
 Alternatively, you can identify the tenant through other methods. Each of these methods may require additional work to extract the token, and then to map the request to the tenant. Here are some example custom approaches:
 
@@ -80,10 +90,12 @@ Alternatively, you can identify the tenant through other methods. Each of these 
 
 ### Authenticate incoming requests
 
-API requests made to the Azure API Management gateway usually need to be authenticated. Azure API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
+API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
 
 > [!NOTE]
-> We recommend using a subscription key (API key) as well as another method of authentication. On its own, a subscription key isn't a strong form of authentication, but use of the subscription key might be useful in certain scenarios, such as for tracking individual customers' API usage.
+> If you use a subscription key (API key), we recommend also using another method of authentication.
+>
+> On its own, a subscription key isn't a strong form of authentication, but the subscription key is be useful for many scenarios, such as for tracking individual customers' API usage.
 
 - No credential - An API Management subscription key is used to authenticate the request. This can be used when you control the calling application and can trust the request. This method shouldn't be used for any API that provides access to sensitive information.
 - Shared credential - All tenants share the same authentication credential such as a [client certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients). This should only be used when you control the calling application and can trust the request. This works when an API is only used by internal service-to-service communication. If the client isn't trusted, then it would be possible for the *subscription key* to be modified to change the request to a different tenant, putting tenant isolation at risk.
@@ -91,29 +103,33 @@ API requests made to the Azure API Management gateway usually need to be authent
 
 ### Route to tenant-specific backends
 
-When you use Azure API Management as a shared component, you might need to route incoming API requests to different tenant-specific backends. These backends might be in different deployment stamps, or they might be different applications within a single stamp. To customize the routing in a policy definition, use the [`set-backend-service` policy](/azure/api-management/set-backend-service-policy). You need to specify the new base URL that the request should be redirected to.
+When you use API Management as a shared component, you might need to route incoming API requests to different tenant-specific backends. These backends might be in different deployment stamps, or they might be different applications within a single stamp. To customize the routing in a policy definition, use the [`set-backend-service` policy](/azure/api-management/set-backend-service-policy). You need to specify the new base URL that the request should be redirected to.
 
 ### Caching
 
-Azure API Management has a powerful cache feature, which can be used to cache entire HTTP responses or any other data that you wish to cache. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
+API Management has a powerful cache feature, which can be used to cache entire HTTP responses or any other data that you wish to cache. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
 
 In a multitenant solution, it's important to ensure to carefully select your cache keys. If the cached data might be different for different tenants, ensure that you include the tenant identifier in the cache key.
 
 ### Custom domains
 
-Azure API Management enables you to use your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple custom domains.
+API Management enables you to use your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple custom domains.
 
-You can also use Azure API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, it's common for Azure Front Door to handle custom domains and TLS certificates, and for it to communicate with Azure API Management by using a single domain name.
+You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, it's common for Azure Front Door to handle custom domains and TLS certificates, and for it to communicate with API Management by using a single domain name.
 
 ### Rate limiting
 
 It's common to apply quotas or rate limits in a multitenant solution. Rate limits help to mitigate the [noisy neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), and they can be used to enforce quality of service and differentiate between different pricing tiers.
 
-Azure API Management provides capabilities to enforce tenant-specific rate limits. If you use tenant-specific subscriptions, consider using the [`quota` policy](/azure/api-management/quota-policy) to enforce a quota for each subscription. Alternatively, consider using the [`quota-by-key` policy](/azure/api-management/quota-by-key-policy) to enforce quotas by using any other rate limit key, such as a tenant identifier.
+API Management provides capabilities to enforce tenant-specific rate limits. If you use tenant-specific subscriptions, consider using the [`quota` policy](/azure/api-management/quota-policy) to enforce a quota for each subscription. Alternatively, consider using the [`quota-by-key` policy](/azure/api-management/quota-by-key-policy) to enforce quotas by using any other rate limit key, such as a tenant identifier.
 
 ### Monetization
 
-The Azure API Management documentation [provides extensive guidance on monetizing APIs](/azure/api-management/monetization-support), including a sample implementation. The monetization approaches combine many of the features of Azure API Management together to enable developers to publish an API, manage subscriptions, and charge based on different usage models.
+The API Management documentation [provides extensive guidance on monetizing APIs](/azure/api-management/monetization-support), including a sample implementation. The monetization approaches combine many of the features of API Management together to enable developers to publish an API, manage subscriptions, and charge based on different usage models.
+
+### Multi-region deployments
+
+API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource and have it shared across multiple Azure regions without needing to replicate configuration. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, allowing for low latency request processing, and manage them as a single logical instance.
 
 ## Contributors
 
@@ -127,5 +143,4 @@ Principal authors:
 
 ## Next steps
 
-TODO
-
+Review [architectural approaches for integration in multitenant solutions](../approaches/integration.md).
