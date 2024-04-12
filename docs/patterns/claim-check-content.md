@@ -12,12 +12,12 @@ Don't send large messages to the messaging system. Instead, send the message pay
 
 [![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
-1. Message with payload
-1. Extract message payload and send it to data store
-1. Generate claim-check token and send to messaging system.
-1. Read the message claim-check token.
-1. Retrieve the message payload.
-1. Process the message payload.
+1. Payload
+1. Save payload in data store.
+1. Generate claim-check token and send message with claim-check token.
+1. Receive message and read claim-check token.
+1. Retrieve the payload.
+1. Process the payload.
 
 ## Issues and considerations
 
