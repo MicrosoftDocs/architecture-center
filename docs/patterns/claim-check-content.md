@@ -75,47 +75,6 @@ Choose the example that suits your needs and follow the provided link to view th
 | [Code example 3][example-3]   | Azure Service Bus            | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
 | [Code example 4][example-4]   | Azure Event Hubs (Kafka API) | Executable command-line client| Executable command-line client| Function                       | Azure Blob Storage |
 
-
-### Message with payload
-
-```json
-{
-  "header": {
-    "messageId": "123",
-    "timestamp": "2024-04-12T10:11:23Z"
-  },
-  "body": {
-    "data": "...." // large amount of data
-  }
-}
-```
-
-### Message payload sent to data store
-
- ```json
-{
-  "claimCheck": "abc123",
-  "payload": {
-    "data": "...." // large amount of data
-  }
-}
-```
-
-### Message with claim check sent to messaging system
-
-```json
-{
-  "header": {
-    "messageId": "123",
-    "timestamp": "2024-04-12T10:11:23Z"
-  },
-  "body": {
-    "claimCheck": "abc123" // unique identifier for the data in the data store
-  }
-}
-```
-
-
 ## Next steps
 
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
