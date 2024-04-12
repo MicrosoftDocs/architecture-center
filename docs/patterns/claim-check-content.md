@@ -1,4 +1,4 @@
-The Claim-Check pattern allows workloads to process messages with large payloads without storing the payload in a messaging system. Instead, the pattern stores the message payload in a data store and stores a message with a "claim check" in the messaging system. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the message with the claim-check token to receiving applications so they can retrieve the message from a data store. The messaging system never stores the message payload.
+The Claim-Check pattern allows workloads to process messages with large payloads without storing the payload in a messaging system. Instead, the pattern stores the message payload in a data store and stores a message with a "claim check" in the messaging system. A claim check is a unique, obscure token that validates entitlement to retrieve a specific object. The messaging system sends the message with the claim-check token to receiving applications so they can retrieve the message from a data store. The messaging system never stores the message payload.
 
 This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
 
@@ -8,7 +8,7 @@ Traditional messaging systems are optimized to manage a high volume of small mes
 
 ## Solution
 
-Don't send large messages to the messaging system. Instead, send the message payload to an external data store. Generate a unique, obscure message claim-check token to retrieve the message payload later and send the message with the claim-check token to the messaging system. The messaging system sends the message claim-chceck token to receiving applications that need to retrieve that specific message payload.
+Don't send large messages to the messaging system. Instead, send the message payload to an external data store. Generate a claim-check token to retrieve the message payload later. Send the message with the claim-check token to the messaging system. The messaging system sends the message with claim-chceck token to receiving applications so they can retrieve the message payload from the payload.
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
@@ -27,7 +27,6 @@ Don't send large messages to the messaging system. Instead, send the message pay
 ```
 
 1. Store message payload in the data store
-1. Send message with claim-check token to messaging system.
 
  ```json
 {
@@ -38,7 +37,7 @@ Don't send large messages to the messaging system. Instead, send the message pay
 }
 ```
 
-1. Read the message claim-check token.
+1. Send message with claim-check token to messaging system.
 
 ```json
 {
@@ -52,6 +51,7 @@ Don't send large messages to the messaging system. Instead, send the message pay
 }
 ```
 
+1. Read the message claim-check token.
 1. Retrieve the message payload.
 1. Process the message payload.
 
@@ -110,6 +110,45 @@ Choose the example that suits your needs and follow the provided link to view th
 | [Code example 2][example-2]   | Azure Blob Storage | Azure Event Grid              | Function                       | Event Hubs (Standard API)    | Executable command-line client |
 | [Code example 3][example-3]   | Azure Blob Storage | Azure Event Grid              | Function                       | Azure Service Bus            | Executable command-line client |
 | [Code example 4][example-4]   | Azure Blob Storage | Executable command-line client| Executable command-line client | Azure Event Hubs (Kafka API) | Function                       |
+
+### Message with payload
+
+```json
+{
+  "header": {
+    "messageId": "123",
+    "timestamp": "2024-04-12T10:11:23Z"
+  },
+  "body": {
+    "data": "...." // large amount of data
+  }
+}
+```
+
+### Message with claim check sent to messaging system
+
+```json
+{
+  "header": {
+    "messageId": "123",
+    "timestamp": "2024-04-12T10:11:23Z"
+  },
+  "body": {
+    "claimCheck": "abc123" // unique identifier for the data in the data store
+  }
+}
+```
+
+### Message payload sent to data store
+
+ ```json
+{
+  "claimCheck": "abc123",
+  "payload": {
+    "data": "...." // large amount of data
+  }
+}
+```
 
 ## Next steps
 
