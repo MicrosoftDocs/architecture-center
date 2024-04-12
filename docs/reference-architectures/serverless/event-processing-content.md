@@ -150,8 +150,6 @@ Use infrastructure as code (IaC) when possible. IaC manages the infrastructure, 
 
 When creating templates, group resources as a way to organize and isolate them per workload. A common way to think about workload is a single serverless application or a virtual network. The goal of workload isolation is to associate the resources to a team, so that the DevOps team can independently manage all aspects of those resources and perform CI/CD.
 
-This architecture includes steps to configure the Drone Status Function App using Azure Pipelines with YAML and Azure Functions Slots.
-
 As you deploy your services you will need to monitor them. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
 For more information, see the [DevOps checklist][AWAF-devops-checklist].
