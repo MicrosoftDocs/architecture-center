@@ -1,10 +1,10 @@
-The Claim-Check pattern allows workloads to process large messages without storing them in a messaging broker. The pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to clients so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
+The Claim-Check pattern allows workloads to process large messages without storing them in a messaging system. Instead, the pattern stores the message in a data store and generates a "claim check" for the message. A claim check is a token that validates entitlement to retrieve a specific object. The messaging system sends the token (claim check) to clients so they can retrieve the message from a data store. The messaging system never stores the message, only the token.
 
 This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
 
 ## Context and problem
 
-Messaging systems are designed to handle a huge volume of small messages. Most messaging systems have limits on message size they can process. Large message pose a challenge to messaging systems. They can exceed the message size or can degrade the performance of the entire workload when stored in a messaging system.
+Messaging systems are designed to handle a huge volume of small messages. Most messaging systems have limits on message size they can process. Large messages pose a challenge to messaging systems. They can exceed the message size or can degrade the performance of the entire workload when stored in a messaging system.
 
 ## Solution
 
@@ -23,9 +23,10 @@ Don't send large messages to the messaging system. Instead, send the message to 
 
 Consider the following recommendations when implementing the Claim-Check pattern:
 
-- *Delete consumed messages.* If you don't need to archive the message, deleting the message data after it's consumed. Use either a synchronous or asynchronous deletion strategy:
+- *Delete consumed messages.* If you don't need to archive the message, delete the message data after the receiving applications consume it. Use either a synchronous or asynchronous deletion strategy:
 
   - *Synchronous deletion*: The consuming application deletes the message immediately after consumption. It ties deletion to the message handling workflow and uses messaging-workflow compute capacity.
+  
   - *Asynchronous deletion*: A process outside the message processing workflow deletes the message. It decouples message deletion from the message handling workflow and minimizes use of messaging-workflow compute.
   
 - *Implement the pattern conditionally.* Incorporate logic in the sender application that only applies the Claim-Check pattern if the message size surpasses the messaging system's limit. For smaller messages, bypass the pattern and sent the smaller message to the messaging system. This conditional approach reduces latency, optimizes resources utilization, and improves throughput.
@@ -34,7 +35,7 @@ Consider the following recommendations when implementing the Claim-Check pattern
 
 The following scenarios are the primary use cases for the Claim-Check pattern:
 
-- *Messaging system limitations*: Message sizes surpass the limits of your messaging system (e.g., over 100 MB for Service Bus premium tier, or 1 MB for Event Grid). Offload the message to external storage, sending only the token to the messaging system.
+- *Messaging system limitations*: Message sizes surpass the limits of your messaging system (for example, over 100 MB for Service Bus premium tier, or 1 MB for Event Grid). Offload the message to external storage, sending only the token to the messaging system.
 
 - *Messaging system performance*: Large messages are straining the messaging systems and degrading system performance.
 
@@ -50,16 +51,22 @@ An architect should evaluate how the Claim-Check pattern can be used in their wo
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | Message buses don't provide the same reliability and disaster recovery that are often present in dedicated data stores, so separating the data from the message can provide increased reliability for the underlying data. This separation also allows for a message queue recovery approach after a disaster.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
-| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of your workload's data and systems. | This pattern supports keeping sensitive data out of message bodies, instead keeping it managed in a secured data store. This configuration enables you to establish stricter authorization to support access to the sensitive data from services that are expected to use the data, but remove visibility from ancillary services like queue monitoring solutions.<br/><br/> - [SE:03 Data classification](/azure/well-architected/security/data-classification)<br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure it fully **recovers** after failure. | Messaging systems don't provide the same reliability and disaster recovery that are often present in dedicated data stores. Separating the data from the message can provide increased reliability for the underlying data. This separation facilitates message redundancy that allows you to recover messages after a disaster.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
+| [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of workload data and systems. | The Claim-Check pattern can extract sensitive data from messages and store it in a secure data store. This setup allows you to implement tighter access controls, ensuring that only the services intended to use the sensitive data can access it. At the same time, it hides this data from unrelated services, such as those used for queue monitoring.<br/><br/> - [SE:03 Data classification](/azure/well-architected/security/data-classification)<br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
 | [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | Messaging systems often impose limits on message size, and increased size limits is often a premium feature. Reducing the size of message bodies might enable you to use a cheaper messaging solution.<br/><br/> - [CO:07 Component costs](/azure/well-architected/cost-optimization/optimize-component-costs)<br/> - [CO:09 Flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs) |
-| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern improves the efficiency and performance of message publishers, subscribers, and the message bus itself when the system handles large data payloads. It works by decreasing the size of messages and ensuring that consumers retrieve payload data only if necessary and at an opportune time.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:12 Continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** by optimizing scaling, data transfer, and code execution. | The Claim-Check pattern improves the efficiency of sending and receiving applications and the messaging system by managing large messages more effectively. It reduces the size of messages sent to the messaging system and ensures receiving applications access large messages only when needed.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:12 Continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Examples
 
-The following examples illustrate how Azure can facilitate the implementation of the Claim-Check Pattern. They cover four different Azure messaging systems: Azure Queue Storage, Azure Event Hubs (Standard API), Azure Service Bus, and Azure Event Hubs (Kafka API). They also show you two ways to generate the claim-check token. In code examples 1-3, Azure Event Grid automatically generates the token when the sending application delivers the message to Azure Blob Storage. Code example 4 illustrates a manual process where the executable command-line client generates the token. Find the code example that best meets your needs and use the link to see the code in GitHub:
+The following examples demonstrate how Azure facilitates the implementation of the Claim-Check Pattern:
+
+- *Azure messaging systems*: They cover four different Azure messaging systems: Azure Queue Storage, Azure Event Hubs (Standard API), Azure Service Bus, and Azure Event Hubs (Kafka API).
+
+- *Automatic vs. manual token generation*: These examples also show two methods to generate the claim-check token. In code examples 1-3, Azure Event Grid automatically generates the token when the sending application sends the message to Azure Blob Storage. Code example 4 shows a manual token generation process using an executable command-line client.
+
+Choose the example that suits your needs and follow the provided link to view the code on GitHub:
 
 | Sample code                   | Data store         | Token generator               | Sending application            | Messaging system             | Receiving application          |
 |-------------------------------|--------------------|--------------------           |---------------------           |------------------------------|---------------------           |
@@ -70,7 +77,6 @@ The following examples illustrate how Azure can facilitate the implementation of
 
 ## Next steps
 
-- The examples described above are available on [GitHub][sample-code].
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
 - For another example, see [Dealing with large Service Bus messages using Claim-Check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
 - An alternative pattern for handling large messages is [Split][splitter] and [Aggregate][aggregator].
