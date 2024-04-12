@@ -410,7 +410,7 @@ This involved safelisting three industry standard ML package repositories, allow
 
 **Process Flow**
 
-1. Data scientists working within a specific AML workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&tabs=ipaddress%2Cpublic#recommended-configuration-for-training-and-deploying-models) applied, can self-serve ML packages on-demand from the whitelisted repositories.
+1. Data scientists working within a specific AML workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&tabs=ipaddress%2Cpublic#recommended-configuration-for-training-and-deploying-models) applied, can self-serve ML packages on-demand from the ML package repositories.
 <br/>&nbsp;&nbsp; - An exception process is required for everything else, using the [Private Storage](/azure/machine-learning/how-to-use-private-python-packages?view=azureml-api-1&viewFallbackFrom=azureml-api-2#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function. <br/> 
 1. AML delivers ML solutions as docker containers. As these solutions are developed, they are uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) would be used to for the vulnerability scanning process.
 2. Solution deployment occurs via a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
