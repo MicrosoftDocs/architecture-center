@@ -1,19 +1,17 @@
 <!-- Use the aac-browse-header.yml   -->
 Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client access, typically combined with TLS SNI. However, when a workload is accessible both from the public Internet and internally by enterprise users, routing to the application can follow distinct paths and receive varying security or Quality of Service (QoS) treatment. This architecture demonstrates an approach to differentiate traffic treatment based on DNS, considering whether the client originates from the Internet or the corporate network.
 
-In this example architecture, applications are hosted on distinct virtual machines, each machine is configured to respond to a unique subdomain derived from a primary apex domain. A primary focus will be on secure management of network traffic. The goals are that all communication between the Application Gateway and the backend application servers (VMs) is routed through an Azure Firewall. For user access and caching/optimization needs, Azure Front Door is employed for external users, but is bypassed for internal users. The primary solution to support this architecture will be controlling DNS results based on the network location of the client.
-
-This architectural approach offers high availability, scalability, and enhanced security for web applications hosted on Azure.
+In this example architecture, applications are hosted on distinct virtual machines. Azure Front Door is employed for external users, but is bypassed for internal users who will connect through the private IP address of an Application Gateway. The primary solution to support this architecture will be controlling DNS results based on the network location of the client.
 
 ## Architecture
 
-![Diagram of the application hosting architecture.](./media/SplitBrain-MultisiteHosting-FrontDoor-AppGW.png)
+![Diagram of the application hosting architecture.](./media/SplitBrain-DNS-hosting.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
 ### Public Internet workflow
 
-![Diagram of the pubic internet workflow.](./media/SplitBrain-MultisiteHosting-FrontDoor-AppGW-public.png)
+![Diagram of the pubic internet workflow.](./media/SplitBrain-DNS-hosting-public.png)
 
 The following workflow corresponds to the above diagram:
 
@@ -38,7 +36,7 @@ The following workflow corresponds to the above diagram:
 
 ### Private (enterprise) workflow
 
-![Diagram of the private enterprise workflow.](./media/SplitBrain-MultisiteHosting-FrontDoor-AppGW-private.png)
+![Diagram of the private enterprise workflow.](./media/SplitBrain-DNS-hosting-private.png)
 
 The following workflow corresponds to the above diagram:
 
