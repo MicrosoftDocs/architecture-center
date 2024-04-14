@@ -87,22 +87,22 @@ Reliability ensures your application can meet the commitments you make to your c
 
 **Reliability in Split-Brain DNS Architecture**
 
-   - **Identifying Failure Points**: In this split-brain DNS architecture, reliability hinges on the correct functioning of key components such as Azure Front Door, Application Gateway, and DNS configuration. It’s crucial to identify potential failure points like misconfigurations, SSL certificate issues, or capacity overloads.
-   - **Assessing Impact**: The impact of any failure must be assessed. For external users, Azure Front Door is the gateway, and any disruption could affect global access. For internal users, Application Gateway is the pathway, and issues here could impede enterprise operations.
-   - **Mitigation Strategies**: To mitigate risks, implement redundancy across [multiple zones](/azure/reliability/availability-zones-overview), use [health probes](/azure/frontdoor/health-probes) for real-time monitoring, and ensure DNS routing is correctly configured for both external and internal traffic. Regularly update DNS records and have a disaster recovery plan in place.
+   - **Identifying Failure Points**: In this split-brain DNS architecture, reliability hinges on the correct functioning of key components such as Azure Front Door, Application Gateway, and DNS configuration. It’s crucial to identify potential failure points such as misconfigurations, SSL certificate issues, or capacity overloads.
+   - **Assessing Impact**: The impact of any failure must be assessed. For external users, any disruption to Azure Front Door, which serves as the gateway, could affect global access. For internal users, Application Gateway is the pathway, and issues here could impede enterprise operations.
+   - **Mitigation Strategies**: To mitigate risks, implement redundancy across [multiple zones](/azure/reliability/availability-zones-overview), use [health probes](/azure/frontdoor/health-probes) for real-time monitoring, and ensure DNS routing is correctly configured for both external and internal traffic. Ensure that DNS records are updated regularly and a disaster recovery plan is in place.
    - **Continuous Monitoring**: Employ [Azure Monitor](/azure/azure-monitor/overview) and [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) to keep a vigilant eye on the system’s health. Set up alerts for anomalies and have an incident response plan ready to address potential issues promptly.
 
-By adhering to these principles, the architecture ensures a robust and reliable system that can withstand various challenges and maintain service continuity.
+Adhering to these principles ensures a robust and reliable system that can withstand various challenges and maintain service continuity.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
 
-1. **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a zero-trust approach. Regardless of whether a client originates from the Internet or the corporate network, we should verify their identity explicitly. This ensures that only trusted entities perform authorized actions.
+1. **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a [zero-trust](/azure/security/fundamentals/zero-trust) approach. We should explicitly verify the identity of a client, regardless of whether they originate from the Internet or the corporate network. This ensures that only trusted entities perform authorized actions.
    - **Implementation**: Implement Azure Active Directory (Azure AD) for robust identity management. Use [conditional access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on user context, device health, and location.
-2. **Confidentiality, Integrity, and Availability (CIA Triad)**: Our workload’s security hinges on maintaining the confidentiality of sensitive data, ensuring its integrity, and guaranteeing its availability to authorized users.
+2. **Confidentiality, Integrity, and Availability (CIA Triad)**: The security of our workload hinges on the maintenance of sensitive data confidentiality, the assurance of its integrity, and the guarantee of its availability to authorized users.
    - **Implementation**: [Encrypt data in transit and at rest](/azure/security/fundamentals/encryption-overview). Regularly audit access logs to detect any unauthorized activity. Set up monitoring alerts for suspicious behavior.
-3. **Assessing Security Efficacy**: We need to evaluate the effectiveness of our security measures in this dual-access workload.
+3. **Assessing Security Efficacy**: The effectiveness of our security measures in this dual-access workload needs to be evaluated.
    **Implementation**:
       - **Defensive Investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Are they providing meaningful protection against threats?
       - **Blast Radius Restriction**: Ensure that any security breach is contained within a limited scope. For example, isolate external and internal traffic flows effectively.
