@@ -1,8 +1,6 @@
 <!-- Use the aac-browse-header.yml   -->
 Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client access, typically combined with TLS SNI. However, when a workload is accessible both from the public Internet and internally by enterprise users, routing to the application can follow distinct paths and receive varying security or Quality of Service (QoS) treatment. This architecture demonstrates an approach to differentiate traffic treatment based on DNS, considering whether the client originates from the Internet or the corporate network.
 
-In this example architecture, applications are hosted on distinct virtual machines. Azure Front Door is employed for external users, but is bypassed for internal users who will connect through the private IP address of an Application Gateway. The primary solution to support this architecture will be controlling DNS results based on the network location of the client.
-
 ## Architecture
 
 ![Diagram of the application hosting architecture.](./media/SplitBrain-DNS-hosting.png)
@@ -40,7 +38,7 @@ The following workflow corresponds to the above diagram:
 1. Users initiate a request for the application `app.contoso.com` from the on-premise environment.
 2. Application FQDNs are configured on the on-premises DNS provider. This DNS provider could be on-premises Active Directory (AD) DNS servers or various other 3rd party solutions.
    - The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway.
-3. The connection that facilitates access to the Application Gateway can be either an [ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a site-to-site (S2S) VPN.
+3. The connection that facilitates access to the Application Gateway can be either an [ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a [site-to-site (S2S) VPN](/azure/vpn-gateway/design#s2smulti).
 4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the Application Gateway subnet to only allow incoming private requests from on-premises user networks where traffic will be originating from. This ensures that other sources of private traffic cannot reach the private IP of the Application Gateway directly.
 5. The Application Gateway is configured with a [listener](/azure/application-gateway/configuration-listeners) configured on port (443). Traffic is routed to the backend by the hostname specified within the listener.
 6. Traffic reaches the compute configured as a backend pool on the Application Gateway strictly over the private network.
@@ -87,74 +85,38 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-**Identify Failure Points**
+**Reliability in Split-Brain DNS Architecture**
 
-In our architecture, several critical components require careful consideration:
+   - **Identifying Failure Points**: In this split-brain DNS architecture, reliability hinges on the correct functioning of key components such as Azure Front Door, Application Gateway, and DNS configuration. It’s crucial to identify potential failure points like misconfigurations, SSL certificate issues, or capacity overloads.
+   - **Assessing Impact**: The impact of any failure must be assessed. For external users, Azure Front Door is the gateway, and any disruption could affect global access. For internal users, Application Gateway is the pathway, and issues here could impede enterprise operations.
+   - **Mitigation Strategies**: To mitigate risks, implement redundancy across multiple zones, use health probes for real-time monitoring, and ensure DNS routing is correctly configured for both external and internal traffic. Regularly update DNS records and have a disaster recovery plan in place.
+   - **Continuous Monitoring**: Employ Azure Monitor and Azure Log Analytics to keep a vigilant eye on the system’s health. Set up alerts for anomalies and have an incident response plan ready to address potential issues promptly.
 
-   - **Application Gateway**: The entry point for all internal user requests. Potential failure points include misconfigurations, SSL certificate expiration, or capacity limits.
-   - **Azure Front Door**: Primarily used for external user access and caching/optimization. Failure points may involve DNS misconfigurations, regional outages, or SSL termination issues.
-
-**Assess Impact**
-   - **External Users**: If the Application Gateway fails, external users won’t be able to access the subdomains associated with our primary apex domain. This directly impacts user experience and business continuity.
-   - **Internal Users**: Backend VMs are critical for internal users (e.g. financial analysts). A failure in communication between the Application Gateway and VMs disrupts data retrieval and analysis.
-
-**Mitigation Strategies**
-   - **Redundancy and Scaling**:
-      - Deploy multiple Application Gateways across availability zones to ensure high availability.
-   - **Health Probes and Monitoring**:
-      - Regularly check the health of your compute and various Azure networking services. Use Azure Monitor to trigger scaling events or failover (where applicable).
-      - Set up alerts for critical metrics (e.g., CPU, memory, response time).
-   - **DNS Control**:
-      - Implement DNS-based routing based on client network location:
-         - For external users, Azure DNS handles DNS resolution.
-         - For internal users, bypass Azure Front Door and route directly to the Application Gateway.
-      - Ensure DNS records are up-to-date and correctly configured. 
-         - In the event of a diaster, plan for the need to keep both public and private DNS records accurate post any required failover.
-
-**Continuous Monitoring and Incident Response**
-   - **Logging and Analysis**:
-      - Collect logs from all components (Application Gateway, Azure DNS, and Azure Front Door).
-      - Use Azure Log Analytics or Azure Monitor Logs for centralized analysis.
-   - **Incident Response Plan**:
-      - Define procedures for handling failures.
-      - Establish communication channels to inform users promptly during outages.
-
-By following these strategies, we can maintain a reliable and secure network traffic management system for our web applications, meeting the goals of our example workload.
+By adhering to these principles, the architecture ensures a robust and reliable system that can withstand various challenges and maintain service continuity.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
 
-**Network Security**: Define Network Boundaries
+1. **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a zero-trust approach. Regardless of whether a client originates from the Internet or the corporate network, we should verify their identity explicitly. This ensures that only trusted entities perform authorized actions.
+   - **Implementation**: Implement Azure Active Directory (Azure AD) for robust identity management. Use conditional access policies to enforce strict access controls based on user context, device health, and location.
+2. **Confidentiality, Integrity, and Availability (CIA Triad)**: Our workload’s security hinges on maintaining the confidentiality of sensitive data, ensuring its integrity, and guaranteeing its availability to authorized users.
+   - **Implementation**: Encrypt data in transit and at rest. Regularly audit access logs to detect any unauthorized activity. Set up monitoring alerts for suspicious behavior.
+3. **Assessing Security Efficacy**: We need to evaluate the effectiveness of our security measures in this dual-access workload.
+   **Implementation**:
+      - **Defensive Investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Are they providing meaningful protection against threats?
+      - **Blast Radius Restriction**: Ensure that any security breach is contained within a limited scope. For example, isolate external and internal traffic flows effectively.
+      - **Attacker’s Perspective**: Understand what an attacker gains by compromising our workload. Adjust security controls accordingly.
+      - **Business Impact**: Quantify the impact of a security incident. How would data theft or service disruption affect our business?
+      - **Detection and Recovery**: Set up Azure Security Center for continuous monitoring. Define incident response procedures.
+4. **Least-Privilege Access**: Limit permissions to the minimum necessary. Unauthorized access could compromise the entire workload.
+   - **Implementation**: Use Azure Role-Based Access Control (RBAC) to assign permissions based on roles. Regularly review and revoke unnecessary privileges.
+5. **Assume Breach**: Acknowledge that security controls can be breached. Prepare for such scenarios.
+   - **Implementation**: Implement network segmentation, micro-segmentation, and network security groups (NSGs). Assume that an attacker might gain access and design compensating controls accordingly.
+6. **Continuous Improvement**: Security is an ongoing effort, especially in a dynamic environment like ours.
+   - **Implementation**: Regularly update security policies, conduct penetration testing, and stay informed about emerging threats. Continuously enhance security posture.
 
-In our architecture, we have distinct network boundaries for external and internal users:
-   - **External Users**: Azure Front Door serves as the entry point for external traffic. It provides SSL termination, caching, and DDoS protection. Ensure proper network segmentation between external and internal components.
-   - **Internal Users**: Direct communication between the Application Gateway and backend compute. Restrict network access to authorized IP ranges for internal users.
-
-**Data Security**: Encrypt Data in Transit and at Rest
-   - **Data in Transit**:
-      - Implement [end-to-end TLS on Azure Front Door](/azure/frontdoor/end-to-end-tls) to ensure traffic traverses the Application Gateway and on to your backend compute in a secure manner.
-      - Configure Azure Front Door to enforce HTTPS for external users.
-> [!NOTE]
-> Self-signed certificates are not supported on Azure Front Door.
-      
-**Identity and Access Management (IAM)**: Implement Least Privilege Access
-   - **Role-Based Access Control (RBAC)**:
-      - Assign minimal permissions to service accounts and users.
-      - Use custom roles to limit access to specific resources.
-   - **Managed Identities**:
-      - Leverage managed identities for VMs to avoid storing credentials.
-      - Limit access to Azure services using managed identities.
-
-**Threat Detection and Monitoring**: Set Up Logging and Monitoring
-   - **Azure Monitor**:
-      - Enable diagnostic settings for all components (Application Gateway, Azure Firewall, VMs).
-      - Collect logs and metrics for analysis.
-   - **Security Center**:
-      - Enable threat detection and vulnerability assessments.
-      - Monitor security recommendations and apply necessary fixes.
-
-By addressing these security considerations, we can enhance the security of our subdomain-based web application.
+By integrating these security principles into our split-brain DNS architecture, we create a robust and resilient system that safeguards both internal and external access to our workload.
 
 ### Other Potential Security Enhacements
 
