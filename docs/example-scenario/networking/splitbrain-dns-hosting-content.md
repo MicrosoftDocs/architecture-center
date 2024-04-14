@@ -52,7 +52,7 @@ The following workflow corresponds to the above diagram:
   
 ### Alternatives
 
-The primary alternative to this architecture is to remove Front Door and simply have external users configured to hit the public IP (pip) of the Application Gateway. Based on the requirements, this architecture was not viable due to needing [caching/optimization](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) done at the entry point into Azure. This is called out further in the Cost Optimization section later on in this document.
+The primary alternative to this architecture is to remove Front Door and simply have external users configured to hit the public IP (pip) of the Application Gateway. Based on the requirements, this architecture was not viable due to needing [caching/optimization](/azure/frontdoor/front-door-caching) done at the entry point into Azure. This is called out further in the Cost Optimization section later on in this document.
 
 ![Diagram of the alternate Split-brain DNS Hosting architecture.](./media/SplitBrain-DNS-hosting-public-alt.png)
 
