@@ -89,8 +89,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
    - **Identifying Failure Points**: In this split-brain DNS architecture, reliability hinges on the correct functioning of key components such as Azure Front Door, Application Gateway, and DNS configuration. It’s crucial to identify potential failure points like misconfigurations, SSL certificate issues, or capacity overloads.
    - **Assessing Impact**: The impact of any failure must be assessed. For external users, Azure Front Door is the gateway, and any disruption could affect global access. For internal users, Application Gateway is the pathway, and issues here could impede enterprise operations.
-   - **Mitigation Strategies**: To mitigate risks, implement redundancy across multiple zones, use health probes for real-time monitoring, and ensure DNS routing is correctly configured for both external and internal traffic. Regularly update DNS records and have a disaster recovery plan in place.
-   - **Continuous Monitoring**: Employ Azure Monitor and Azure Log Analytics to keep a vigilant eye on the system’s health. Set up alerts for anomalies and have an incident response plan ready to address potential issues promptly.
+   - **Mitigation Strategies**: To mitigate risks, implement redundancy across [multiple zones](/azure/reliability/availability-zones-overview), use [health probes](/azure/frontdoor/health-probes) for real-time monitoring, and ensure DNS routing is correctly configured for both external and internal traffic. Regularly update DNS records and have a disaster recovery plan in place.
+   - **Continuous Monitoring**: Employ [Azure Monitor](/azure/azure-monitor/overview) and [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) to keep a vigilant eye on the system’s health. Set up alerts for anomalies and have an incident response plan ready to address potential issues promptly.
 
 By adhering to these principles, the architecture ensures a robust and reliable system that can withstand various challenges and maintain service continuity.
 
@@ -99,22 +99,22 @@ By adhering to these principles, the architecture ensures a robust and reliable 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
 
 1. **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a zero-trust approach. Regardless of whether a client originates from the Internet or the corporate network, we should verify their identity explicitly. This ensures that only trusted entities perform authorized actions.
-   - **Implementation**: Implement Azure Active Directory (Azure AD) for robust identity management. Use conditional access policies to enforce strict access controls based on user context, device health, and location.
+   - **Implementation**: Implement Azure Active Directory (Azure AD) for robust identity management. Use [conditional access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on user context, device health, and location.
 2. **Confidentiality, Integrity, and Availability (CIA Triad)**: Our workload’s security hinges on maintaining the confidentiality of sensitive data, ensuring its integrity, and guaranteeing its availability to authorized users.
-   - **Implementation**: Encrypt data in transit and at rest. Regularly audit access logs to detect any unauthorized activity. Set up monitoring alerts for suspicious behavior.
+   - **Implementation**: [Encrypt data in transit and at rest](/azure/security/fundamentals/encryption-overview). Regularly audit access logs to detect any unauthorized activity. Set up monitoring alerts for suspicious behavior.
 3. **Assessing Security Efficacy**: We need to evaluate the effectiveness of our security measures in this dual-access workload.
    **Implementation**:
       - **Defensive Investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Are they providing meaningful protection against threats?
       - **Blast Radius Restriction**: Ensure that any security breach is contained within a limited scope. For example, isolate external and internal traffic flows effectively.
       - **Attacker’s Perspective**: Understand what an attacker gains by compromising our workload. Adjust security controls accordingly.
       - **Business Impact**: Quantify the impact of a security incident. How would data theft or service disruption affect our business?
-      - **Detection and Recovery**: Set up Azure Security Center for continuous monitoring. Define incident response procedures.
+      - **Detection and Recovery**: Set up [Azure Security Center](/azure/security/fundamentals/encryption-overview) for continuous monitoring. Define [incident response](/security/benchmark/azure/security-control-incident-response) procedures.
 4. **Least-Privilege Access**: Limit permissions to the minimum necessary. Unauthorized access could compromise the entire workload.
-   - **Implementation**: Use Azure Role-Based Access Control (RBAC) to assign permissions based on roles. Regularly review and revoke unnecessary privileges.
+   - **Implementation**: Use [Azure Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview) to assign permissions based on roles. Regularly review and revoke unnecessary privileges.
 5. **Assume Breach**: Acknowledge that security controls can be breached. Prepare for such scenarios.
    - **Implementation**: Implement network segmentation, micro-segmentation, and network security groups (NSGs). Assume that an attacker might gain access and design compensating controls accordingly.
 6. **Continuous Improvement**: Security is an ongoing effort, especially in a dynamic environment like ours.
-   - **Implementation**: Regularly update security policies, conduct penetration testing, and stay informed about emerging threats. Continuously enhance security posture.
+   - **Implementation**: Regularly update security policies, conduct [penetration testing](/azure/security/fundamentals/pen-testing), and stay informed about emerging threats. Continuously enhance security posture.
 
 By integrating these security principles into our split-brain DNS architecture, we create a robust and resilient system that safeguards both internal and external access to our workload.
 
