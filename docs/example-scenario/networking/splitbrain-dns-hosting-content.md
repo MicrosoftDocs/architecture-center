@@ -1,5 +1,5 @@
 <!-- Use the aac-browse-header.yml   -->
-Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client access, typically combined with TLS SNI. However, when a workload is accessible both from the public Internet and internally by enterprise users, routing to the application can follow distinct paths and receive varying security or Quality of Service (QoS) treatment. This architecture demonstrates an approach to differentiate traffic treatment based on DNS, considering whether the client originates from the Internet or the corporate network.
+Teams managing workloads often rely on Fully Qualified Domain Names (FQDNs) for client access, which is typically combined with TLS SNI. However, when a workload is accessible from both the public Internet and internally by enterprise users, the routing to the application can follow distinct paths and may receive varying levels of security or Quality of Service (QoS). This architecture demonstrates an approach to differentiate traffic treatment based on DNS, taking into account whether the client originates from the Internet or the corporate network.
 
 ## Architecture
 
@@ -13,21 +13,25 @@ Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client acc
 
 The following workflow corresponds to the above diagram:
 
-1. Users initiate a request for the application `app.contoso.com` over the public internet.
+1. Users send a request for the application app.contoso.com over the public internet.
 2. An [Azure DNS Zone](/azure/dns/dns-zones-records) is configured for the `contoso.com` domain where the appropriate [CNAME entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
-3. External users access the web application through Azure Front Door, which acts as a global load balancer and web application firewall.
-   - Within Azure Front Door you assign the FQDN name of `app.contoso.com` via routes on a configured endpoint. It also hosts the TLS SNI certificates for the applications.
-   - Azure Front Door routes the requests based on the client `Host` HTTP header to the configured Origin Group.
-   - The Origin Group is configured to point to the Application Gateway by the Application Gateway's public IP address.
-4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the Internet service tag. This ensures that other sources of public traffic cannot reach the Public IP of the Application Gateway directly.
+3. External users access the web application via Azure Front Door, which functions as a global load balancer and web application firewall.
+   - Within Azure Front Door, the FQDN name of app.contoso.com is assigned via routes on a configured endpoint. It also hosts the TLS SNI certificates for the applications.
 
 > [!NOTE]
-> Be aware that this tag does not limit traffic from just *YOUR* instance of Azure Front Door, that validation happens at the next stage.
+> Azure Front Door does not support self-signed certificates.
 
-5. The Application Gateway is configured with a [listener](/azure/application-gateway/configuration-listeners) configured on port (443). Traffic is routed to the backend by the hostname specified within the listener.
+   - Azure Front Door routes the requests to the configured Origin Group based on the client Host HTTP header.
+   - The Origin Group is configured to point to the Application Gateway using the Application Gateway's public IP address.
+4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is set up to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
+
+> [!NOTE]
+> Please note that this tag does not limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
+
+5. The Application Gateway is set up with a [listener](/azure/application-gateway/configuration-listeners) on port (443). Traffic is routed to the backend by the hostname specified within the listener.
    - To ensure that traffic has originated from *YOUR* Front Door profile, you will configure a [custom WAF rule](/azure/web-application-firewall/ag/create-custom-waf-rules#example-7) to check the `X-Azure-FDID` header value. 
    - Azure generates a unique identifier for each Front Door profile and you can find the identifier in the Azure portal by looking for the *Front Door ID* value in the Overview page of your profile.
-6. Traffic reaches the compute configured as a backend pool on the Application Gateway.
+6. Traffic reaches the compute resource that is configured as a backend pool on the Application Gateway.
 
 ### Private (enterprise) workflow
 
