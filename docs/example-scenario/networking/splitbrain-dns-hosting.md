@@ -5,7 +5,7 @@ Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client acc
 
 ![Diagram of the application hosting architecture.](./media/SplitBrain-DNS-hosting.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file] of this architecture.*
 
 ### Public Internet workflow
 

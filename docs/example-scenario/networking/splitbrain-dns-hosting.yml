@@ -10,11 +10,13 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  - network
+  - networking
   - security
+  - web
+  - hybrid
 products:
   - azure-front-door
-  - azure-applications-gateway
+  - azure-application-gateway
   - azure-expressroute
   - azure-dns
 name: Secure tunneling with Azure Relay
