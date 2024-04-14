@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Split-brain DNS Hosting in Azure
+  titleSuffix: Azure Architecture Center
+  description: Provide external and internal users secure access to Azure resources.
+  author: troyhite
+  ms.author: troyhite
+  ms.date:  04/14/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - network
+  - security
+products:
+  - azure-front-door
+  - azure-applications-gateway
+  - azure-expressroute
+  - azure-dns
+name: Secure tunneling with Azure Relay
+summary: Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client access, typically combined with TLS SNI. However, when a workload is accessible both from the public Internet and internally by enterprise users, routing to the application can follow distinct paths and receive varying security or Quality of Service (QoS) treatment. This architecture demonstrates an approach to differentiate traffic treatment based on DNS, considering whether the client originates from the Internet or the corporate network.
+thumbnailUrl: /azure/architecture/browse/thumbs/thumbnail.png
+content: |
+  [!include[](splitbrain-dns-hosting.md)]
