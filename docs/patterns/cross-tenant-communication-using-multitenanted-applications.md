@@ -32,7 +32,7 @@ This pattern can be reused for any multitenant scenario with various services th
 ![PoC Infrastructure]([https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/Docs/arch.png](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
                       
 ## Architecture Image Flows
-![image](https://github.com/aulong-msft/architecture-center-pr/assets/72747548/624df5c6-479f-4e1d-93bc-7fd11978757d)
+![image](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
 1. Flow 1: An admin on the provider side creates a multi-tenant application registration and sets up a client secret for it. 
 
 1. Flow 2: An admin on the customer side provisions a service principal in their tenant based on the multi tenant application created by the provider. This can be done various ways. In the write up we chose to craft a URL to provide to the customer tenant admin, but the Graph API could be used instead.
