@@ -1,4 +1,4 @@
-The Claim-Check pattern allows workloads to process payloads without storing the payload in a messaging system. The pattern stores the payload in an external data store and sends a message with a "claim check" to the messaging system. The claim check is a unique, obscure token or key that allows any applications with the claim-check token to retrieve the payload. The messaging system never sees or stores the payload.
+The Claim-Check pattern allows workloads to process payloads without storing the payload in a messaging system. The pattern stores the payload in an external data store and sends a message with a "claim check" to the messaging system. The claim check is a unique, obscure token or key that allows any applications with the claim-check token to retrieve the payload.
 
 This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
 
@@ -8,7 +8,7 @@ Traditional messaging systems are optimized to manage a high volume of small mes
 
 ## Solution
 
-Use the Claim-Check pattern, and don't send large messages to the messaging system. Instead, send the payload to an external data store. Generate a claim-check token and send a message with the claim-check token to the messaging system. The messaging system sends the message with the claim-chceck token to receiving applications so they can retrieve the payload from the data store.
+Use the Claim-Check pattern, and don't send large messages to the messaging system. Instead, send the payload to an external data store. Generate a claim-check token and send a message with the claim-check token to the messaging system. The messaging system sends the message with the claim-chceck token to receiving applications so they can retrieve the payload from the data store. The messaging system never sees or stores the payload.
 
 [![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
