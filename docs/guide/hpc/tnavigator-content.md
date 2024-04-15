@@ -144,8 +144,8 @@ The following chart shows relative speed increases as the number of vCPUs increa
 
 #### Additional notes about tests on tNavigator
 
-•	It was observed that relative speed increases linearly as the number of vCPU cores were increased. 
-•	For all single-node tests, we have taken the solver time on HB120-16rs_v3 (8 cores) as the reference to calculate the relative speed increase with respect to other similar VMs with more vCPUs. The results presented above show that parallel performance improves as we increase from 8 to 120 vCPUs.
+-	It was observed that relative speed increases linearly as the number of vCPU cores were increased. 
+-	For all single-node tests, we have taken the solver time on HB120-16rs_v3 (8 cores) as the reference to calculate the relative speed increase with respect to other similar VMs with more vCPUs. The results presented above show that parallel performance improves as we increase from 8 to 120 vCPUs.
 
 ### Results in a multi-node configuration
 
@@ -190,8 +190,8 @@ The following chart shows relative speed increase of speed test 9 model:
 
 ### Additional notes about tests on tNavigator
 
-•	It was observed that relative speed increases linearly as the number of vCPU cores were increased. 
-•	For all single-node tests, we have taken the solver time on HB176-24rs_v4 (12 vCPUs) as the reference to calculate the relative speed up with respect to other similar VMs with more vCPUs. The results presented above show that parallel performance improves as we increase from 12 to 176 vCPUs.
+-	It was observed that relative speed increases linearly as the number of vCPU cores were increased. 
+-	For all single-node tests, we have taken the solver time on HB176-24rs_v4 (12 vCPUs) as the reference to calculate the relative speed up with respect to other similar VMs with more vCPUs. The results presented above show that parallel performance improves as we increase from 12 to 176 vCPUs.
 
 ### Results on multi-node configuration
 
@@ -231,8 +231,8 @@ The following chart shows Relative speed increase of Speed Test 9 model:
 
 ### Additional notes about tests on tNavigator
 
-•	It was observed that relative speed increases linearly as the number of vCPU cores and GPUs were increased. 
-•	For all tests we have taken the solver time on Standard_NC24ads_A100_v4 (24vCPUs & 0GPUs) as the reference to calculate the relative speed increase with respect to other similar VMs. The results presented above shows that parallel performance improves as we change the VM configuration with increasing number of vCPUs and GPUs.
+-	It was observed that relative speed increases linearly as the number of vCPU cores and GPUs were increased. 
+-	For all tests we have taken the solver time on Standard_NC24ads_A100_v4 (24vCPUs & 0GPUs) as the reference to calculate the relative speed increase with respect to other similar VMs. The results presented above shows that parallel performance improves as we change the VM configuration with increasing number of vCPUs and GPUs.
 
 ## Azure cost
 
@@ -280,33 +280,33 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### Summary details of cost consumption on HBv3-series used for the validation: 
 
-•	To evaluate the cost performance of the other available sizes of HBv3-series VM, Standard_HB120-16rs_v3 with 8vCPUs is considered as a baseline.
-•	There is partially linear scalability is observed when VM configuration changes from Standard_HB120-16rs_v3 to Standard_HB120_v3 ,while cost at each VM configuration is same.
-•	Users can achieve ~4.9x performance improvement there by reducing per hour cost of the VM as the simulation’s Elapsed time reduces.
-•	In Multi-Node setup, As the nodes are doubled, then cost also increases by 2x while the performance improvement at each increment is ~1.38x.
+-	To evaluate the cost performance of the other available sizes of HBv3-series VM, Standard_HB120-16rs_v3 with 8vCPUs is considered as a baseline.
+-	There is partially linear scalability is observed when VM configuration changes from Standard_HB120-16rs_v3 to Standard_HB120_v3 ,while cost at each VM configuration is same.
+-	Users can achieve ~4.9x performance improvement there by reducing per hour cost of the VM as the simulation’s Elapsed time reduces.
+-	In Multi-Node setup, As the nodes are doubled, then cost also increases by 2x while the performance improvement at each increment is ~1.38x.
 
 ### Summary details of cost consumption on HBv4-series used for the validation: 
 
-•	To evaluate the cost performance of the other available sizes of HBv4-series VM, Standard_HB176-24rs_v4 with 12vCPUs is considered as a baseline.
-•	Partial linear scalability is observed when VM configuration of HBv4-series changes from Standard_HB176-24rs_v4 to Standard_HB176_v4, while the cost of HBv4-series at each VM size remains constant.
-•	It is observed that ~5.86x performance can be enhanced which interns reduces the per hour cost of running the simulation using HBv4-series VMs.
-•	In Multi-Node setup, As the nodes are doubled, the cost also increases by 2x while the performance improvement at each increment is ~1.28x.
+-	To evaluate the cost performance of the other available sizes of HBv4-series VM, Standard_HB176-24rs_v4 with 12vCPUs is considered as a baseline.
+-	Partial linear scalability is observed when VM configuration of HBv4-series changes from Standard_HB176-24rs_v4 to Standard_HB176_v4, while the cost of HBv4-series at each VM size remains constant.
+-	It is observed that ~5.86x performance can be enhanced which interns reduces the per hour cost of running the simulation using HBv4-series VMs.
+-	In Multi-Node setup, As the nodes are doubled, the cost also increases by 2x while the performance improvement at each increment is ~1.28x.
 
 ### Summary details of cost consumption on NC A100 v4-series used for the validation: 
 
-•	To evaluate the cost performance of the other available sizes of NC A100 v4-series VM, Standard_NC24ads_A100_v4 configuration is considered as a baseline.
-•	It is evident that linear scalability in terms of performance and Azure cost is observed with every increment in NC A100 v4 series, as we increase the size from 24 vCPUs &1GPU (80GB) to 48vCPUs &2GPUs (160 GB), and 96vCPUs & 4GPUs (320GB).
-•	In comparison of Standard_NC48ads_A100_v4 performance and cost with respect to Standard_NC24ads_A100_v4, there is ~80% increase in performance while there is ~11% increase in overall cost.
-•	Similarly, comparison of Standard_NC96ads_A100_v40 performance and cost with respect to Standard_NC24ads_A100_v4, there is ~185% increase in performance however there is ~40% increase in overall cost.
+-	To evaluate the cost performance of the other available sizes of NC A100 v4-series VM, Standard_NC24ads_A100_v4 configuration is considered as a baseline.
+-	It is evident that linear scalability in terms of performance and Azure cost is observed with every increment in NC A100 v4 series, as we increase the size from 24 vCPUs &1GPU (80GB) to 48vCPUs &2GPUs (160 GB), and 96vCPUs & 4GPUs (320GB).
+-	In comparison of Standard_NC48ads_A100_v4 performance and cost with respect to Standard_NC24ads_A100_v4, there is ~80% increase in performance while there is ~11% increase in overall cost.
+-	Similarly, comparison of Standard_NC96ads_A100_v40 performance and cost with respect to Standard_NC24ads_A100_v4, there is ~185% increase in performance however there is ~40% increase in overall cost.
 
 ## Summary
-•	RFD tNavigator powered by Microsoft Azure platform exhibits high scalability on AMD EPYC™ 7V73X [Milan-X] vCPU cores and AMD EPYC™ 9V33X ("Genoa-X") vCPU cores. Moreover, it can also enhance performance by using A100 Nvidia GPU cards.
-•	For evaluating AMD CPU performance, the lowest VM configurations for HBv3 and HBv4 are used as a baseline to calculate the relative speed increase.
-•	On HBv3-series single node, we can achieve maximum scale up of ~4x with 64 vCPUs. Beyond which the performance becomes stale with minimum improvement. Whereas in HBv3 multi-node setup, a maximum scale up of 3.63x is observed with 16 nodes. 
-•	On HBv4-series single node, maximum performance of ~5x can be achieved with 96vCPUs and beyond which minimum improvement in performance is observed. Whereas in HBv4-series multi-node setup, a maximum scale up of ~2.11x is observed with 8 nodes. Providing more nodes beyond 8 can result in decrease in performance.
-•	In context with one-to-one comparison between 96 vCPUs HBv3-series and 96 vCPUs HBv4-series, it is noticed that HBv4-series is ~1.8x times faster.
-•	For evaluating Performance of tNavigator on NVIDIA GPUs, NC A100 v4 series VMs are used.
-•	 To show the scalability of NVIDIA GPUs, 24 vCPUs result was considered as a baseline.  A scale up of ~4.16x was observed with 1 A100 GPU and a maximum scale up of 11.84x is observed with 4 A100 GPU cards.
+-	RFD tNavigator powered by Microsoft Azure platform exhibits high scalability on AMD EPYC™ 7V73X [Milan-X] vCPU cores and AMD EPYC™ 9V33X ("Genoa-X") vCPU cores. Moreover, it can also enhance performance by using A100 Nvidia GPU cards.
+-	For evaluating AMD CPU performance, the lowest VM configurations for HBv3 and HBv4 are used as a baseline to calculate the relative speed increase.
+-	On HBv3-series single node, we can achieve maximum scale up of ~4x with 64 vCPUs. Beyond which the performance becomes stale with minimum improvement. Whereas in HBv3 multi-node setup, a maximum scale up of 3.63x is observed with 16 nodes. 
+-	On HBv4-series single node, maximum performance of ~5x can be achieved with 96vCPUs and beyond which minimum improvement in performance is observed. Whereas in HBv4-series multi-node setup, a maximum scale up of ~2.11x is observed with 8 nodes. Providing more nodes beyond 8 can result in decrease in performance.
+-	In context with one-to-one comparison between 96 vCPUs HBv3-series and 96 vCPUs HBv4-series, it is noticed that HBv4-series is ~1.8x times faster.
+-	For evaluating Performance of tNavigator on NVIDIA GPUs, NC A100 v4 series VMs are used.
+-	 To show the scalability of NVIDIA GPUs, 24 vCPUs result was considered as a baseline.  A scale up of ~4.16x was observed with 1 A100 GPU and a maximum scale up of 11.84x is observed with 4 A100 GPU cards.
 
 ## Contributors
 
