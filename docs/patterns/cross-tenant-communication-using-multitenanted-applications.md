@@ -32,7 +32,7 @@ This pattern can be reused for any multitenant scenario with various services th
 ![PoC Infrastructure]([https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/Docs/arch.png](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
                       
 ## Architecture Image Flows
-
+![image](https://github.com/aulong-msft/architecture-center-pr/assets/72747548/624df5c6-479f-4e1d-93bc-7fd11978757d)
 1. Flow 1: An admin on the provider side creates a multi-tenant application registration and sets up a client secret for it. 
 
 1. Flow 2: An admin on the customer side provisions a service principal in their tenant based on the multi tenant application created by the provider. This can be done various ways. In the write up we chose to craft a URL to provide to the customer tenant admin, but the Graph API could be used instead.
@@ -46,8 +46,7 @@ This pattern can be reused for any multitenant scenario with various services th
 1. Flow 6: Upon receiving the message, the customer's Azure Function would typically do some work before sending a status message back to the provider. However in this case, for demo purposes, a status message is immediately sent to the provider on a separate queue in the same Service Bus.
 
 1. Flow 7: This Azure Function reads from the status queue from the customer’s tenant via a timer triggered Azure Function.
-   
-![image](https://github.com/aulong-msft/architecture-center-pr/assets/72747548/624df5c6-479f-4e1d-93bc-7fd11978757d)
+
 
 ## The Problem Statement
 
