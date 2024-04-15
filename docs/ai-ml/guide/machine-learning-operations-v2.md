@@ -89,7 +89,7 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
    This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to creation and management of resources and roles associated with the project. These can include the following tasks, and perhaps others:
    1. Creation of project source code repositories
-   1. Creation of Machine Learning workspaces by using Bicep, Azure Resource Manager, or Terraform
+   1. Creation of Machine Learning workspaces by using Bicep or Terraform
    1. Creation or modification of datasets and compute resources that are used for model development and deployment
    1. Definition of project team users, their roles, and access controls to other resources
    1. Creation of CI/CD pipelines

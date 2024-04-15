@@ -41,7 +41,7 @@ Contoso wants to use the Azure Speech service to provide live subtitling and aud
 Contoso already has these required prerequisite components in place:
 
 - Human-generated transcripts for previous Olympics events. The transcripts represent commentaries from different sports and diverse commentators.
-- An Azure Cognitive Service resource. You can create one on the [Azure portal](https://ms.portal.azure.com).
+- An Azure Cognitive Service resource. You can create one on the [Azure portal](https://portal.azure.com).
 
 ## Develop a custom speech-based application
 
