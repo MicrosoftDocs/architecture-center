@@ -1,4 +1,4 @@
-The Claim-Check pattern allows workloads to process large payloads without storing the payload in a messaging system. Instead, the pattern stores the payload in a data store and stores a message with a "claim check" in the messaging system. A claim check is a unique, obscure token or key that validates entitlement to retrieve an object. The messaging system sends a message with the claim-check token to receiving applications so they can retrieve the payload from a data store. The messaging system never sees or stores the payload.
+The Claim-Check pattern allows workloads to process payloads without storing the payload in a messaging system. The pattern stores the payload in a data store and sends a message with a "claim check" to the messaging system. The claim check is a unique, obscure token or key that allows any applications with the claim-check token to retrieve the payload. The messaging system never sees or stores the payload.
 
 This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
 
@@ -19,7 +19,7 @@ Don't send large messages to the messaging system. Instead, send the payload to 
 1. Retrieve the payload.
 1. Process the payload.
 
-## Issues and considerations
+## Issues and considerations with the Claim-Check pattern
 
 Consider the following recommendations when implementing the Claim-Check pattern:
 
@@ -31,7 +31,7 @@ Consider the following recommendations when implementing the Claim-Check pattern
   
 - *Implement the pattern conditionally.* Incorporate logic in the sending application that applies the Claim-Check pattern if the message size surpasses the messaging system's limit. For smaller messages, bypass the pattern and send the smaller message to the messaging system. This conditional approach reduces latency, optimizes resources utilization, and improves throughput.
 
-## When to use this pattern
+## When to use the Claim-Check pattern
 
 The following scenarios are the primary use cases for the Claim-Check pattern:
 
@@ -45,7 +45,7 @@ The following scenarios are secondary use cases for the Claim-Check pattern:
 
 - *Complex routing scenarios*: Messages traversing multiple components can cause performance bottlenecks due to serialization, deserialization, encryption, and decryption tasks. Use the Claim-Check pattern to prevent direct message processing by intermediary components.
 
-## Workload design
+## Workload design with the Claim-Check pattern
 
 An architect should evaluate how the Claim-Check pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
 
@@ -58,7 +58,7 @@ An architect should evaluate how the Claim-Check pattern can be used in their wo
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
-## Examples
+## Claim-check pattern examples
 
 The following examples demonstrate how Azure facilitates the implementation of the Claim-Check Pattern:
 
