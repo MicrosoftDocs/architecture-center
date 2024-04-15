@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 07/28/2022
   ms.topic: reference-architecture
   ms.service: architecture-center

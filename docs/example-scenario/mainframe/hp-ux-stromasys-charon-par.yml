@@ -3,7 +3,7 @@ metadata:
   title: Run HP-UX workloads in Azure with Stromasys Charon-PAR
   titleSuffix: Azure Architecture Center
   description: Learn how to use a lift-and-shift approach to migrate an HP-UX workload to Azure. The architecture uses Charon-PAR emulator software.
-  author: martinekuan
+  author: imsunnymaghosh
   ms.author: sunnymaghosh
   ms.date: 04/20/2023
   ms.topic: example-scenario

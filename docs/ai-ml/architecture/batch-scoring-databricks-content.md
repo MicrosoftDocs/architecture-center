@@ -73,7 +73,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Performance
 
-An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
+An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline might be more computationally demanding than others. Databricks adds extra workers during these phases of your job (and removes them when they're no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don't need to provision the cluster to match a workload.
 
 Develop more complex scheduled pipelines by using [Azure Data Factory][adf] with Azure Databricks.
 
@@ -93,7 +93,7 @@ For this scenario, the standard pricing tier is sufficient. However, if your spe
 
 The solution notebooks can run on any Spark-based platform with minimal edits to remove the Databricks-specific packages. See the following similar solutions for various Azure platforms:
 
-- [SQL Server R services][sql-r]
+- [SQL Server R Services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 
 ## Deploy this scenario
@@ -102,12 +102,12 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
- 
+- [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

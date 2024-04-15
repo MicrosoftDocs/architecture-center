@@ -3,7 +3,7 @@ metadata:
   title: Data governance with Profisee and Microsoft Purview
   titleSuffix: Azure Architectures
   description: Integrate the Profisee master data management platform with Microsoft Purview to govern and manage data. Produce and deliver high-quality, trusted data.
-  author: martinekuan
+  author: gauravmalhot
   ms.author: gamal
   ms.date: 04/10/2023
   ms.topic: conceptual

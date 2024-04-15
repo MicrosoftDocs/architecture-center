@@ -27,4 +27,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-customer-lifetime-churn.png
 content: |
-  [!include[](customer-lifecycle-churn-content.md)]
+  [!INCLUDE[](customer-lifecycle-churn-content.md)]

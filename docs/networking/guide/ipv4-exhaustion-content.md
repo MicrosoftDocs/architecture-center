@@ -84,7 +84,10 @@ If an application exposes its endpoints via an Azure load balancer, the compute 
 
 ### Outbound dependencies
 
-An application’s back-end components don't need to be reachable, or receive inbound connections, from the corporate network, but they often have outbound dependencies. Back-end components might need to connect to endpoints that are outside their landing zones in instances such as DNS resolution, accessing application endpoints that are exposed by other landing zones, or accessing logging or backup facilities.
+An application’s back-end components don't need to be reachable, or receive inbound connections, from the corporate network, but they often have outbound dependencies. Back-end components might need to connect to endpoints that are outside their landing zones in instances such as DNS resolution, Active Directory Domain Services Domain Controllers, accessing application endpoints that are exposed by other landing zones, or accessing logging or backup facilities.
+
+> [!NOTE]
+> Client to Active Directory Domain Services (ADDS) Domain Controllers (DCs) communication over NAT has been tested and is supported, DC to DC communication has not been tested and is not supported as detailed further in [Description of support boundaries for Active Directory over NAT](/troubleshoot/windows-server/active-directory/support-for-active-directory-over-nat)
 
 When services initiate connections in nonroutable spoke virtual networks, you must implement source NAT (SNAT) for connections behind a routable IP address. To implement SNAT, deploy a NAT-capable device in the routable spoke virtual network. Each landing zone runs its own dedicated NAT NVA. There are two options for implementing SNAT in a landing zone: Azure Firewall or third-party NVAs. In both cases, all subnets in the nonroutable spoke must be associated with a custom route table. As shown in the following diagram, the route table forwards traffic to destinations outside the landing zone to the SNAT device. Azure NAT Gateway doesn't support SNAT for traffic destined to private IP address space, such as RFC 1918 space.
 
