@@ -2,7 +2,7 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Microsoft Azure services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-author: martinekuan
+author: BrianQu
 ms.author: yuanzhiqu
 ms.date: 11/18/2022
 ms.topic: conceptual

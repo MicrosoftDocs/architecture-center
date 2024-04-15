@@ -1,7 +1,7 @@
 ---
 title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
-author: martinekuan
+author: RobBagby
 ms.author: robbag
 categories: azure
 ms.date: 07/25/2022
@@ -29,7 +29,7 @@ The following options are available for machine learning in the Azure cloud.
 | [Azure SQL Managed Instance Machine Learning Services](#sql-machine-learning) | In-database machine learning for SQL | Train and deploy models inside Azure SQL Managed Instance |
 | [Machine learning in Azure Synapse Analytics](#sql-machine-learning) | Analytics service with machine learning | Train and deploy models inside Azure Synapse Analytics |
 | [Machine learning and AI with ONNX in Azure SQL Edge](#sql-machine-learning) | Machine learning in SQL on IoT | Train and deploy models inside Azure SQL Edge |
-| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLFlow](/azure/databricks/applications/mlflow/) platform. |
+| [Azure Databricks](#azure-databricks) | Apache Spark-based analytics platform | Build and deploy models and data workflows using integrations with open-source machine learning libraries and the [MLflow](/azure/databricks/applications/mlflow/) platform. |
 
 ## On-premises machine learning products
 
@@ -48,7 +48,7 @@ The following development platforms and tools are available for machine learning
 |-|-|-|
 | [Azure&nbsp;Data&nbsp;Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
-| [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
+| [Windows machine learning](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | [SynapseML](#synapseml) | Open-source, distributed, machine learning and microservices framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
 | [Machine Learning extension for Azure Data Studio](#sql-machine-learning) | Open-source and cross-platform machine learning extension for Azure Data Studio | Manage packages, import machine learning models, make predictions, and create notebooks to run experiments for your SQL databases |
 
@@ -60,26 +60,28 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 [Try Azure Machine Learning for free](https://aka.ms/AMLFree).
 
-|Item|Description|  
+|Item|Description|
 |--------|-----------|
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Model training<br>Deployment<br>MLOps/Management|
-|**Key benefits**           |Code first (SDK) and studio & drag-and-drop designer web interface authoring options. <br/><br/>Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
+|**Key benefits**           |Code first (SDK) and studio and drag-and-drop designer web interface authoring options. <br/><br/>Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
-## Azure Cognitive Services
+<a name='azure-cognitive-services'></a>
 
-[Azure Cognitive Services](/azure/cognitive-services/welcome) is a set of *pre-built* APIs that enable you to build apps that use natural methods of communication. The term pre-built suggests that you do not need to bring datasets or data science expertise to train models to use in your applications. That's all done for you and packaged as APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. You can easily add intelligent features to your apps, such as:
+## Azure AI services
 
-- **Vision:** Object detection, face recognition, OCR, etc. See [Computer Vision](/azure/cognitive-services/computer-vision/), [Face](/azure/cognitive-services/face/), [Form Recognizer](/azure/cognitive-services/form-recognizer/).
-- **Speech:** Speech-to-text, text-to-speech, speaker recognition, etc. See [Speech Service](/azure/cognitive-services/speech-service/).
-- **Language:** Translation, Sentiment analysis, key phrase extraction, language understanding, etc. See [Translator](/azure/cognitive-services/translator/), [Text Analytics](/azure/cognitive-services/text-analytics/), [Language Understanding](/azure/cognitive-services/luis/), [QnA Maker](/azure/cognitive-services/qnamaker/)
-- **Decision:** Anomaly detection, content moderation, reinforcement learning. See [Anomaly Detector](/azure/cognitive-services/anomaly-detector/), [Content Moderator](/azure/cognitive-services/content-moderator/), [Personalizer](/azure/cognitive-services/personalizer/).
+[Azure AI services](/azure/cognitive-services/welcome) is a set of *pre-built* APIs that enable you to build apps that use natural methods of communication. The term pre-built suggests that you do not need to bring datasets or data science expertise to train models to use in your applications. That's all done for you and packaged as APIs and SDKs that allow your apps to see, hear, speak, understand, and interpret user needs with just a few lines of code. You can easily add intelligent features to your apps, such as:
 
-Use Cognitive Services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
+- **Vision:** Object detection, face recognition, optical character recognition (OCR), and so on. For more information, see [Computer Vision](/azure/cognitive-services/computer-vision/), [Face](/azure/cognitive-services/face/), [Azure AI Document Intelligence](/azure/cognitive-services/form-recognizer/).
+- **Speech:** Speech to text, text to speech, Speaker Recognition, and so on. For more information, see [Speech service](/azure/cognitive-services/speech-service/).
+- **Language:** Translation, Sentiment analysis, key phrase extraction, language understanding, and so on. See [Translator](/azure/cognitive-services/translator/), [Text Analytics](/azure/cognitive-services/text-analytics/), [Language Understanding](/azure/cognitive-services/luis/), [QnA Maker](/azure/cognitive-services/qnamaker/)
+- **Decision:** Anomaly detection, content moderation, reinforcement learning. For more information, see [Anomaly Detector](/azure/cognitive-services/anomaly-detector/), [Content Moderator](/azure/cognitive-services/content-moderator/), [Personalizer](/azure/cognitive-services/personalizer/).
 
-|Item|Description|  
+Use Azure AI services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
+
+|Item|Description|
 |--------|-----------|
 |**Type**                   |APIs for building intelligent applications|
 |**Supported languages**    |Various options depending on the service. Standard ones are C#, Java, JavaScript, and Python. |
@@ -99,7 +101,7 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 
 Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
 
-|Item|Description|  
+|Item|Description|
 |--------|-----------|
 |**Type**                   |On-premises predictive analytics for relational data|
 |**Supported languages**    |Python, R, SQL|
@@ -109,23 +111,23 @@ Use SQL machine learning when you need built-in AI and predictive analytics on r
 
 ## Azure Data Science Virtual Machine
 
-The [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud. It is available in versions for both Windows and Linux Ubuntu. The environment is built specifically for doing data science and developing ML solutions. It has many popular data science, ML frameworks, and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
+The [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine environment on the Microsoft Azure cloud. It is available in versions for both Windows and Linux Ubuntu. The environment is built specifically for doing data science and developing machine learning solutions. It has many popular data science, machine learning frameworks, and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
 
-|Item|Description|  
+|Item|Description|
 |--------|-----------|
 |**Type**                   |Customized virtual machine environment for data science|
-|**Key benefits**           |Reduced time to install, manage, and troubleshoot data science tools and frameworks.<br/><br/>The latest versions of all commonly used tools and frameworks are included.<br/><br/>Virtual machine options include highly scalable images with GPU capabilities for intensive data modeling.|
+|**Key benefits**           |Reduced time to install, manage, and troubleshoot data science tools and frameworks.<br/><br/>The latest versions of all commonly used tools and frameworks are included.<br/><br/>Virtual machine options include highly scalable images with graphics processing unit (GPU) capabilities for intensive data modeling.|
 |**Considerations**         |The virtual machine cannot be accessed when offline.<br/><br/>Running a virtual machine incurs Azure charges, so you must be careful to have it running only when required.|
 
 ## Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
+[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
 
 Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 
-|Item|Description|  
+|Item|Description|
 |--------|-----------|
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |Python, R, Scala, SQL|
@@ -137,33 +139,35 @@ Use Databricks when you want to collaborate on building machine learning solutio
 
 Use ML.NET when you want to integrate machine learning solutions into your .NET applications. Choose between the [API](/dotnet/machine-learning/how-does-mldotnet-work) for a code-first experience and [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) or the [CLI](/dotnet/machine-learning/automate-training-with-cli) for a low-code experience.
 
-|Item|Description|  
+|Item|Description|
 |--------|-----------|
 |**Type**                   |Open-source cross-platform framework for developing custom machine learning applications with .NET |
 |**Languages supported**    |C#, F#|
 |**Machine learning phases**    |Data preparation<br>Training<br>Deployment|
-|**Key benefits**            |Data science & ML experience not required<br>Use familiar tools (Visual Studio, VS Code) and languages<br>Deploy where .NET runs<br>Extensible<br>Scalable<br>Local-first experience<br>|
+|**Key benefits**            |Data science and machine learning experience not required<br>Use familiar tools (Visual Studio, Microsoft Visual Studio Code) and languages<br>Deploy where .NET runs<br>Extensible<br>Scalable<br>Local-first experience<br>|
 
-## Windows ML
+<a name='windows-ml'></a>
 
-[Windows ML](/windows/uwp/machine-learning/) inference engine allows you to use trained machine learning models in your applications, evaluating trained models locally on Windows 10 devices.
+## Windows machine learning
 
-Use Windows ML when you want to use trained machine learning models within your Windows applications.
+[Windows machine learning](/windows/uwp/machine-learning/) inference engine allows you to use trained machine learning models in your applications, evaluating trained models locally on Windows 10 devices.
 
-|Item|Description|  
+Use Windows machine learning when you want to use trained machine learning models within your Windows applications.
+
+|Item|Description|
 |--------|-----------|
 |**Type**                   |Inference engine for trained models in Windows devices|
 |**Languages supported**    |C#/C++, JavaScript|
 
 ## SynapseML
 
-[SynapseML](https://aka.ms/spark/) (formerly known as MMLSpark) is an open-source library that simplifies the creation of massively scalable machine learning (ML) pipelines. SynapseML provides APIs for a variety of different machine learning tasks such as text analytics, vision, anomaly detection, and many others. SynapseML is built on the [Apache Spark](https://spark.apache.org/) distributed computing framework and shares the same API as the SparkML/MLLib library, allowing you to seamlessly embed SynapseML models into existing Apache Spark workflows.
+[SynapseML](https://aka.ms/spark/) (formerly known as MMLSpark) is an open-source library that simplifies the creation of massively scalable machine learning pipelines. SynapseML provides APIs for a variety of different machine learning tasks such as text analytics, vision, anomaly detection, and many others. SynapseML is built on the [Apache Spark](https://spark.apache.org/) distributed computing framework and shares the same API as the SparkML/MLLib library, allowing you to seamlessly embed SynapseML models into existing Apache Spark workflows.
 
- SynapseML adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Light Gradient Boosting Machine (LightGBM)](https://github.com/microsoft/LightGBM), [LIME (Model Interpretability)](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Cosmic Spark](/azure/cosmos-db/spark-connector).
+SynapseML adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Light Gradient Boosting Machine (LightGBM)](https://github.com/microsoft/LightGBM), [LIME (Model Interpretability)](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Cosmic Spark](/azure/cosmos-db/spark-connector).
 
-SynapseML also brings networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, SynapseML provides easy-to-use tools for orchestrating [Azure AI Services](https://azure.microsoft.com/products/ai-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput, submillisecond latency web services, backed by your Spark cluster.
+SynapseML also brings networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, SynapseML provides easy-to-use tools for orchestrating [Azure AI services](https://azure.microsoft.com/products/ai-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput, submillisecond latency web services, backed by your Spark cluster.
 
-|Item|Description|  
+|Item|Description|
 |--------|-----------|
 |**Type**                    |Open-source, distributed machine learning and microservices framework for Apache Spark|
 |**Languages supported**     |Scala 2.11, Java, Python 3.5+, R (beta)|
@@ -177,7 +181,7 @@ SynapseML also brings networking capabilities to the Spark ecosystem. With the H
 
 Principal author:
 
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | chief executive officer (CEO) and Architect
 
 ## Next steps
 
@@ -186,6 +190,6 @@ Principal author:
 
 ## Related resources
 
-- [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)

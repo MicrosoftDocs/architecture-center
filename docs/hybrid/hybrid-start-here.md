@@ -63,6 +63,5 @@ The typical hybrid solution journey ranges from learning how to get started with
 Here are some example implementations to consider:
 
 - [Cross-cloud scaling](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Cross-platform chat](../solution-ideas/articles/cross-platform-chat.yml)
 - [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
 - [Unlock legacy data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 04/01/2024
+ms.date: 04/08/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -22,6 +22,28 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## April 2024
+
+### New articles
+
+- [Deploy PSCAD on an Azure virtual machine](./guide/hpc/pscad.yml)
+- [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)
+
+### Updated articles
+
+- [Deploy Ansys CFX on an Azure virtual machine](./guide/hpc/ansys-cfx.yml)  ([#8354c1618a](https://github.com/MicrosoftDocs/architecture-center/commit/8354c1618a))
+- [Sharding pattern](./patterns/sharding.yml)  ([#53dea81b8b](https://github.com/MicrosoftDocs/architecture-center/commit/53dea81b8b))
+- [Unisys mainframe migration with Avanade AMT](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#ef52a9c4b8](https://github.com/MicrosoftDocs/architecture-center/commit/ef52a9c4b8))
+- [Choreography pattern](./patterns/choreography.yml)  ([#bee02f5541](https://github.com/MicrosoftDocs/architecture-center/commit/bee02f5541))
+- [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#4d8d14cfb0](https://github.com/MicrosoftDocs/architecture-center/commit/4d8d14cfb0))
+- [Analyze video content with Computer Vision and Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
+- [Automate document classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
+- [Automate document processing with AI Document Intelligence](./ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
+- [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
+- [Batch scoring for deep learning models](./ai-ml/architecture/batch-scoring-deep-learning.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
+- [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#f926f21c96](https://github.com/MicrosoftDocs/architecture-center/commit/f926f21c96))
+- [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#826d234caa](https://github.com/MicrosoftDocs/architecture-center/commit/826d234caa))
 
 ## March 2024
 

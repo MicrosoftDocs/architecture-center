@@ -2,8 +2,8 @@
 metadata:
   title: Noisy Neighbor antipattern
   description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
-  author: johndowns
-  ms.author: jodowns
+  ms.author: robbag
+  author: RobBagby
   ms.date: 03/14/2023
   ms.topic: design-pattern
   ms.service: architecture-center

@@ -33,7 +33,7 @@ A supermarket chain needs to forecast sales of products over the upcoming quarte
 
 Processing involves the following steps:
 
-1. An Azure Logic App triggers the forecast generation process once per week.
+1. An Azure logic app triggers the forecast generation process once per week.
 
 1. The logic app starts an Azure Container Instance running the scheduler Docker container, which triggers the scoring jobs on the Batch cluster.
 
@@ -85,7 +85,7 @@ Monitor and terminate Batch jobs from the **Jobs** pane of the Batch account in 
 
 The doAzureParallel package automatically collects logs of all stdout/stderr for every job submitted on Azure Batch. These logs can be found in the storage account created at setup. To view them, use a storage navigation tool such as [Azure Storage Explorer][storage-explorer] or Azure portal.
 
-To quickly debug Batch jobs during development, view the logs in your local R session. For more information, see  using the [Configure and submit training runs][getJobFiles].
+To quickly debug Batch jobs during development, view the logs in your local R session. For more information, see using the [Configure and submit training runs][getJobFiles].
 
 ### Cost optimization
 
@@ -93,10 +93,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The compute resources used in this reference architecture are the most costly components. For this scenario, a cluster of fixed size is created whenever the job is triggered and then shut down after the job has completed. Cost is incurred only while the cluster nodes are starting, running, or shutting down. This approach is suitable for a scenario where the compute resources required to generate the forecasts remain relatively constant from job to job.
 
-In scenarios where the amount of compute required to complete the job isn't known in advance, it may be more suitable to use automatic scaling. With this approach, the size of the cluster is scaled up or down depending on the size of the job. Azure Batch supports a range of autoscale formulae, which you can set when defining the cluster using the
+In scenarios where the amount of compute required to complete the job isn't known in advance, it might be more suitable to use automatic scaling. With this approach, the size of the cluster is scaled up or down depending on the size of the job. Azure Batch supports a range of autoscale formulas, which you can set when defining the cluster using the
 [doAzureParallel][doAzureParallel] API.
 
-For some scenarios, the time between jobs may be too short to shut down and start up the cluster. In these cases, keep the cluster running between jobs if appropriate.
+For some scenarios, the time between jobs might be too short to shut down and start up the cluster. In these cases, keep the cluster running between jobs if appropriate.
 
 Azure Batch and doAzureParallel support the use of low-priority VMs. These VMs come with a significant discount but risk being appropriated by other higher priority workloads. Therefore, the use of low-priority VMs isn't recommended for critical production workloads. However, they're useful for experimental or development workloads.
 
@@ -106,12 +106,12 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Angus Taylor](https://www.linkedin.com/in/angus-taylor-99ab4a74) | Senior Data Scientist
- 
+- [Angus Taylor](https://www.linkedin.com/in/angus-taylor-99ab4a74) | Senior Data Scientist
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
