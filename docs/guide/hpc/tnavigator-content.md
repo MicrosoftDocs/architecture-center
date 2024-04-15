@@ -186,7 +186,7 @@ The following table shows total elapsed time of speed test 9 in seconds:
 
 The following chart shows relative speed increase of speed test 9 model:
 
-:::image type="content" source="media/speed-test-9-single-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model." lightbox="media/speed-test-9-single-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test9-hbv4-singlenode-chart.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model on single node configuration." lightbox="media/speed-test-9-single-node.png" border="false":::
 
 ### Additional notes about tests on tNavigator
 
@@ -206,7 +206,7 @@ HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal co
 
 The following graph shows the relative speed increase as the number of nodes increases:
 
-:::image type="content" source="media/speed-test-9-multi-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test9-hbv4-multinode-chart.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 ### Additional notes about the multi-node tests 
 
@@ -227,7 +227,7 @@ The following table shows Total Elapsed time of Speed test 9 model in Seconds:
 
 The following chart shows Relative speed increase of Speed Test 9 model:
 
-:::image type="content" source="media/speed-test-9-multi-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test9-ncv4-chart.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model on Ncv4 configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 ### Additional notes about tests on tNavigator
 
