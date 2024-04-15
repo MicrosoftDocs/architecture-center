@@ -31,7 +31,7 @@ Many of the components of this architecture are the same as the resources in the
 - [Azure Storage](https://azure.microsoft.com/services/storage) is used to persist the prompt flow source files for prompt flow development.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Azure Container Registry.
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a fully managed service that provides REST API access to Azure OpenAI's large language models, including the GPT-4, GPT-3.5-Turbo, and Embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks), [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
-- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). Azure AI Search is included in the architecture as It's a common service used in the flows behind chat applications. Azure AI Search can be used to retrieve and index data that is relevant for user queries. The prompt flow implements the RAG pattern [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
+- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). Azure AI Search is included in the architecture as it's a common service used in the flows behind chat applications. Azure AI Search can be used to retrieve and index data that is relevant for user queries. The prompt flow implements the RAG pattern [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
 ### Azure Machine Learning prompt flow
 
@@ -46,6 +46,15 @@ The back end for enterprise chat applications generally follows a pattern simila
 - The back end returns the result to so that it can be displayed on the user interface
 
 The back end could be implemented in any number of languages and deployed to various Azure services. In this architecture, Azure Machine Learning prompt flow was chosen because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back end data stores, and LLMs.
+
+### Prompt flow runtimes
+
+Azure Machine Learning can directly host two types of prompt flow runtimes.
+
+- **Automatic Runtime**: A serverless compute option that manages the lifecycle and performance characteristics of the compute and allows flow-driven customization of the environment.
+- **Compute Instance Runtime**: An always-on compute option that requires the workload team select the performance characteristics and offers more customization and control of the environment.
+
+Prompt flows can also be hosted external to Azure Machine Learning compute on host container host platforms. In this architecture external hosting is demonstrated using Azure App Service.
 
 ## Networking
 
@@ -106,13 +115,13 @@ Each subnet has a network security group that limits both inbound and outbound t
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
 | snet-appGateway    | Allowances for our chat UI users source IPs (such as public internet), plus required items for the service | Access to the Azure App Service private endpoint, plus required items for the service. |
-| snet-PrivateEndpoints | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
+| snet-PrivateEndpoints | Allow only traffic from the virtual network. | Allow only traffic to the virtual network. |
 | snet-AppService | Allow only traffic from the virtual network. | Allow access to the private endpoints and Azure Monitor. |
 | AzureBastionSubnet | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) |
 | snet-jumpbox |  Allow inbound RDP and SSH from the Bastion Host subnet. | Allow access to the private endpoints |
-| snet-agents | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
-| snet-training | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
-| snet-scoring | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
+| snet-agents | Allow only traffic from the virtual network. | Allow only traffic to the virtual network. |
+| snet-training | Allow only traffic from the virtual network. | Allow only traffic to the virtual network. |
+| snet-scoring | Allow only traffic from the virtual network. | Allow only traffic to the virtual network. |
 
 All other traffic is explicitly denied.
 
@@ -130,7 +139,7 @@ In addition to content filtering, the Azure OpenAI service implements abuse moni
 
 ## Reliability
 
-The [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide redundancy within a region for supporting services when two or more instances are deployed in across them. When one zone experiences downtime, the other zones within the region may still be unaffected. The architecture also ensures enough instances of Azure services and configuration of those services to be spread across availability zones. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
+The [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide redundancy within a region for supporting services when two or more instances are deployed in across them. When one zone experiences downtime, the other zones within the region might still be unaffected. The architecture also ensures enough instances of Azure services and configuration of those services to be spread across availability zones. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
 
 This section addresses reliability from the perspective of the components in this architecture not addressed in the App Service baseline, including Azure Machine Learning, Azure OpenAI, and Azure AI Search.
 
@@ -173,7 +182,7 @@ Consider the following guidance for determining the appropriate number of replic
 
 ### Azure Machine Learning - reliability
 
-If you deploy to compute clusters behind the Azure Machine Learning managed online endpoint, consider the following guidance regarding scaling: 
+If you deploy to compute clusters behind the Azure Machine Learning managed online endpoint, consider the following guidance regarding scaling:
 
 - Follow the guidance to [autoscale your online endpoints](/azure/machine-learning/how-to-autoscale-endpoints) to ensure enough capacity is available to meet demand. If usage signals aren't timely enough due to burst usage, consider overprovisioning to prevent reliability impact from too few instances being available.
 - Consider creating scaling rules based on [deployment metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-rule-to-scale-out-using-metrics) such as CPU load and [endpoint metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-scaling-rule-based-on-endpoint-metrics) such as request latency.
@@ -232,31 +241,17 @@ If you're fine-tuning OpenAI models in your implementation, consider the followi
 - If you're uploading training data for fine-tuning, consider using [customer managed keys](/azure/ai-services/openai/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault) for encrypting that data.
 - If you're storing training data in a store such as Azure Blob Storage, consider using a customer managed key for data encryption, use a managed identity to control access to the data, and a private endpoint to connect to the data.
 
-## Performance efficiency
+### Governance through policy
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/performance-efficiency/).
+To help ensure alignment with security, consider using Azure Policy and Network Policy to enforce that deployments align to the requirements of the workload. The use of platform automation through policy reduces the burden of manual validation steps and ensures governance even if pipelines are bypassed. Below are some recommended security policies to consider:
 
-This section discusses performance efficiency from the perspective of Azure Search, Azure OpenAI and Azure Machine Learning.
-
-### Azure Search - performance efficiency
-
-Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
-
-### Azure OpenAI - performance efficiency
-
-- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or will use the shared hosting (consumption) model. Provisioned throughput offers reserved processing capacity for your OpenAI model deployments, providing predictable performance and throughput for your models. This billing model is unlike the shared hosting (consumption) model, which is best-effort and might be subject to noisy neighbor or other stressors on the platform.
-- For provisioned throughput, you should monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring)
-
-### Azure Machine Learning - performance efficiency
-
-If deploying to Azure Machine Learning online endpoints:
-
-- Follow the guidance on how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints) to stay closely aligned with demand, without excessive overprovisioning, especially in low-usage periods.
-- Choose the appropriate virtual machine SKU for the online endpoint to meet your performance targets. You want to test performance of both lower instance count and bigger SKUs vs larger instance count and smaller SKUs to find an optimal configuration.
+- Disable key or other local authentication access in Azure AI services, Key Vault, and more.
+- Require specific configuration of network access rules or NSGs
+- Encryption requirements, such as the use of customer-managed keys
 
 ## Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/). 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You'll need to customize the example to match your usage, as this example just includes the components included in the architecture. The most expensive components in the scenario are the chat UI & prompt flow compute and Azure AI Search, so look to optimization around those resources to save the most cost.
 
@@ -282,11 +277,23 @@ Azure OpenAI is a consumption-based service, and as with any consumption-based s
 - **Monitor provisioned throughput usage** - If using [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput), monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) to ensure you are not underutilizing the provisioned throughput you have purchased.
 - **Cost management** - Follow the guidance on [using cost management features with OpenAI](/azure/ai-services/openai/how-to/manage-costs) to monitor costs, set budgets to manage costs, and create alerts to notify stakeholders of risks or anomalies.
 
-## Large language model operations (LLMOps)
+## Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+### Azure Machine Learning - built-in prompt flow runtimes
+
+To minimize operational burden the **Automatic Runtime** is a serverless compute option within Azure Machine Learning simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low-maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload-team managed lifecycle of the compute, and should be selected when workload requirements have exceeded the configuration capabilities of the automatic runtime option.
+
+### Monitoring
+
+Diagnostics are configured for all services. All services but Azure Machine Learning and Azure App Service are configured to capture all logs. The Azure Machine Learning diagnostics is configured to capture the audit logs which are all resource logs that record customer interactions with data or the settings of the service. Azure App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs and AppServicePlatformLogs.
+
+### Large language model operations (LLMOps)
 
 Deployment for Azure OpenAI based chat solutions like this architecture should follow the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for CI/CD and network-secured architectures. The following guidance addresses the implementation of Flows and their associated infrastructure based on the LLMOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
 
-### Development
+#### Development
 
 Azure Machine Learning prompt flow offers both a browser-based authoring experience in Azure Machine Learning studio or through a [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When using Azure Machine Learning studio, the files are stored in an Azure Storage Account. When working in VS Code, the files are stored on your local filesystem.
 
@@ -294,7 +301,7 @@ In order to follow [best practices for collaborative development](/azure/machine
 
 For enterprise development, you should use the [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from VS Code and integrate the locally stored files with the online source control system and pipelines. While the browser-based experience is well suited for exploratory development, with some work, it can be integrated with the source control system. The flow folder can be downloaded from the flow page in the ```Files``` panel, unzipped, and pushed to the source control system.
 
-### Evaluation
+#### Evaluation
 
 You should test the flows used in a chat application just as you test other software artifacts. It's challenging to specify and assert a single "right" answer for LLM outputs, but you can use an LLM itself to evaluate responses. Consider implementing the following automated evaluations of your LLM flows:
 
@@ -311,7 +318,7 @@ Consider the following guidance when implementing automated evaluations:
 - Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. These question-answer pairs are referred to as your "golden dataset." A larger population might be required depending on the size and domain of your dataset.
 - Avoid using LLMs to generate any of the data in your golden dataset.
 
-### Deployment Flow
+#### Deployment Flow
 
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
   The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a PR pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a. CI pipeline and b. CD pipeline.
@@ -350,7 +357,7 @@ Consider the following guidance when implementing automated evaluations:
     - Managing costs
     - Communicating the model's performance to stakeholders
 
-### Deployment Guidance
+#### Deployment Guidance
 
 Azure Machine Learning Endpoints allow you to deploy models in a way that enables flexibility when releasing to production. Consider the following strategies to ensure the best model performance and quality:
 
@@ -362,11 +369,11 @@ Azure Machine Learning Endpoints allow you to deploy models in a way that enable
 - The LLM, the flows, and the client UI should be loosely coupled. Updates to the flows and the client UI can and should be able to be made without affecting the model and vice versa.
 - When developing and deploying multiple flows, each flow should have its own lifecycle, which allows for a loosely coupled experience when promoting flows from experimentation to production.
 
-### Infrastructure
+#### Infrastructure
 
 When deploying the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are more ephemeral in nature, their existence tied to a deployment.
 
-#### Foundational components
+##### Foundational components
 
 Some components in this architecture exist with a lifecycle that extends beyond any individual prompt flow or any model deployment. These resources are typically deployed once as part of the foundational deployment by the workload team, and maintained apart from new, removed, or updates to the prompt flows or model deployments.
 
@@ -379,7 +386,7 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure Bastion
 - Azure Virtual Machine for the jump box
 
-#### Ephemeral components
+##### Ephemeral components
 
 Some Azure resources are more tightly coupled to the design of specific prompt flows, allowing these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
 
@@ -389,9 +396,27 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 - The Azure Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
 - The Key Vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
 
-### Monitoring
+## Performance efficiency
 
-Diagnostics are configured for all services. All services but Azure Machine Learning and Azure App Service are configured to capture all logs. The Azure Machine Learning diagnostics is configured to capture the audit logs which are all resource logs that record customer interactions with data or the settings of the service. Azure App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs and AppServicePlatformLogs.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+
+This section discusses performance efficiency from the perspective of Azure Search, Azure OpenAI and Azure Machine Learning.
+
+### Azure Search - performance efficiency
+
+Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
+
+### Azure OpenAI - performance efficiency
+
+- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or will use the shared hosting (consumption) model. Provisioned throughput offers reserved processing capacity for your OpenAI model deployments, providing predictable performance and throughput for your models. This billing model is unlike the shared hosting (consumption) model, which is best-effort and might be subject to noisy neighbor or other stressors on the platform.
+- For provisioned throughput, you should monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring)
+
+### Azure Machine Learning - performance efficiency
+
+If deploying to Azure Machine Learning online endpoints:
+
+- Follow the guidance on how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints) to stay closely aligned with demand, without excessive overprovisioning, especially in low-usage periods.
+- Choose the appropriate virtual machine SKU for the online endpoint to meet your performance targets. You want to test performance of both lower instance count and bigger SKUs vs larger instance count and smaller SKUs to find an optimal configuration.
 
 ## Deploy this scenario
 
@@ -399,7 +424,7 @@ To the deploy and run the reference implementation, follow the steps in the [Ope
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Patterns & Practices - Microsoft
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
@@ -408,7 +433,7 @@ _This article is maintained by Microsoft. It was originally written by the follo
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Solution Architect - Microsoft
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
