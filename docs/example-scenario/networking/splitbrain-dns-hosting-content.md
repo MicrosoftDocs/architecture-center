@@ -13,10 +13,10 @@ Teams managing workloads often rely on Fully Qualified Domain Names (FQDNs) for 
 
 The following workflow corresponds to the above diagram:
 
-1. Users send a request for the application app.contoso.com over the public internet.
+1. Users send a request for the application `app.contoso.com` over the public internet.
 2. An [Azure DNS Zone](/azure/dns/dns-zones-records) is configured for the `contoso.com` domain where the appropriate [CNAME entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
 3. External users access the web application via Azure Front Door, which functions as a global load balancer and web application firewall.
-   - Within Azure Front Door, the FQDN name of app.contoso.com is assigned via routes on a configured endpoint. It also hosts the TLS SNI certificates for the applications.
+   - Within Azure Front Door, the FQDN name of `app.contoso.com` is assigned via routes on a configured endpoint. It also hosts the TLS SNI certificates for the applications.
 
 > [!NOTE]
 > Azure Front Door does not support self-signed certificates.
@@ -135,7 +135,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
   - **Backend compute**: The cost of running any backend compute service is driven by multiple factors. SKU selection, replica count, and region all play a part in chosing the right compute option. Ensure you take into account all elements of a [compute resource](/azure/architecture/guide/technology-choices/compute-decision-tree#choose-a-candidate-service) before selecting the option that works best for your workload. 
   - **Application Gateway**: The cost of Application Gateway is based on the number of instances, the size of the instances, and the amount of data processed. You can use [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to adjust the number of instances based on the traffic demand and optimize the cost. You can also use [zone-redundant SKUs](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability) to deploy across Availability Zones and reduce the need for additional instances for high availability. 
   - **Azure Front Door**: The cost of Azure Front Door is based on the number of routing rules, the number of HTTP(S) requests, and the amount of data transferred. You can use [Azure Front Door Standard/Premium](/azure/frontdoor/understanding-pricing) to get a unified experience with Azure CDN, Azure Web Application Firewall, and Azure Private Link. You can also use [Azure Front Door Rules Engine](/azure/frontdoor/front-door-rules-engine?pivots=front-door-standard-premium) to customize how your traffic is handled and optimize the performance and cost. If global access is not a requirement, or the additional features of Front Door are not needed, the same architecture can work with only the Application Gateway. All public DNS records can be pointed to the Public IP address configured on the Application Gateway listener(s).
-  - **Use available discounts**: You can use [Azure Reserved Virtual Machine Instances](/azure/cost-management-billing/reservations/save-compute-costs-reservations) to save up to 72% compared to pay-as-you-go prices. You can also use [Azure Hybrid Benefit](/windows-server/get-started/azure-hybrid-benefit) to reuse your existing Windows Server licenses and save up to 40%.
 
 See an example of this solution in the [Azure Pricing Calculator](https://azure.com/e/e0b74472f72d48ce891b08b3af105872) approximating typical usage with the components showcased in the architecture. Adjust to fit your scenario.
 
