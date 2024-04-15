@@ -107,7 +107,7 @@ Other contributor:
 ## Next steps
 
 - [Quickstart: Recognize and convert speech to text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windowsinstall%2Cterminal&pivots=programming-language-python)
-- [Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal](/azure/logic-apps/quickstart-create-first-logic-app-workflow)
+- [Quickstart: Create an integration workflow with multitenant Azure Logic Apps and the Azure portal](/azure/logic-apps/quickstart-create-first-logic-app-workflow)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [Azure AI services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/overview-cognitive-services)
 - [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
