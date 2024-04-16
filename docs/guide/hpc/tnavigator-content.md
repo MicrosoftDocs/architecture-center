@@ -105,16 +105,16 @@ Before you install tNavigator, you need to deploy and connect a VM. For informat
 
 ## tNavigator performance results
 
-The performance tests of tNavigator v22.4 on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) , [HBv4-series](/azure/virtual-machines/hbv4-series)  for CPU scaling and [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) and GPU scaling VM running on Linux operating system. The Speed test 9 model is used for performance testing of tNavigator.
+The performance tests of tNavigator v22.4 on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) , [HBv4-series](/azure/virtual-machines/hbv4-series)  for CPU scaling and [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) and GPU scaling VM running on Linux operating system. The Speed Test 9 model is used for performance testing of tNavigator.
 
 ### Model details
 
-The following image shows Speed test 9 model used for performance evaluation.
+The following image shows Speed Test 9 model used for performance evaluation.
 
 :::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the speed test model." border="true":::
 <br>
 
-The following table provides the details for the speed test 9 model:
+The following table provides the details for the Speed Test 9 model:
 
 |Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
 |---|---|-|-|
@@ -126,7 +126,7 @@ We deployed the HBv3-series VM with different numbers of vCPUs to determine the 
 
 #### HBv3-series VM on single-node configuration
 
-The following table shows total elapsed time of the speed test 9 model in seconds:
+The following table shows total elapsed time of the Speed Test 9 model in seconds:
 
 | VM size | Number of vCPUs used | Total elapsed time (seconds) | Relative speed increase |
 |---|---|---|---|
@@ -139,7 +139,7 @@ The following table shows total elapsed time of the speed test 9 model in second
 
 The following chart shows relative speed increases as the number of vCPUs increased:
 
-:::image type="content" source="media/speed-test-9-single-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model." lightbox="media/speed-test-9-single-node.png" border="false":::
+:::image type="content" source="media/speed-test-9-single-node.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model." lightbox="media/speed-test-9-single-node.png" border="false":::
 
 #### HBv3-series VM notes about tests on tNavigator
 
@@ -149,7 +149,7 @@ The following chart shows relative speed increases as the number of vCPUs increa
 
 ### HBv3-series VM results in a multi-node configuration
 
-The HBv3-series VMs standalone testing depicts Standard_HB120-64rs_v3 as the optimal core configuration to continue the testing on multinode cluster. The following table shows the total elapsed time recorded for speed test 9 model on 1, 2, 4, 6, 8, and 16 nodes.
+The HBv3-series VMs standalone testing depicts Standard_HB120-64rs_v3 as the optimal core configuration to continue the testing on multinode cluster. The following table shows the total elapsed time recorded for Speed Test 9 model on 1, 2, 4, 6, 8, and 16 nodes.
 
 This table shows the times recorded for varying numbers of nodes of the Standard_HB120-64rs_v3 VM on Azure CycleCloud:
 
@@ -163,7 +163,7 @@ This table shows the times recorded for varying numbers of nodes of the Standard
 
 The following graph shows the relative speed increases as the number of nodes increases:
 
-:::image type="content" source="media/speed-test-9-multi-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/speed-test-9-multi-node.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 #### HBv3-series VM notes about the multi-node tests
 
@@ -175,7 +175,7 @@ HBv4 VMs with different numbers of vCPUs were deployed to determine the optimal 
 
 #### Results on single-node configuration
 
-The following table shows total elapsed time of speed test 9 in seconds:
+The following table shows total elapsed time of Speed Test 9 in seconds:
 
 |VM Size|No. of vCPUs used|Total Elapsed time (Seconds)|Relative speed increase|
 |---|---|---|---|
@@ -186,9 +186,9 @@ The following table shows total elapsed time of speed test 9 in seconds:
 |Standard_HB176-144rs_v4|144|2017|5.75|
 |Standard_HB176_v4|176|1980|5.86|
 
-The following chart shows relative speed increase of speed test 9 model:
+The following chart shows relative speed increase of Speed Test 9 model:
 
-:::image type="content" source="media/tnavigator/speed-test9-hbv4-singlenode-chart.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model on single node configuration." lightbox="media/speed-test-9-single-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test9-hbv4-singlenode-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model on single node configuration." lightbox="media/speed-test-9-single-node.png" border="false":::
 
 #### HBv4-series VM notes about tests on tNavigator
 
@@ -198,7 +198,7 @@ The following chart shows relative speed increase of speed test 9 model:
 
 #### HBv4-series VM results on multi-node configuration
 
-HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal core configuration to continue the testing on multinode cluster. The following table shows the total elapsed time recorded for speed test 9 model on one, two, four, and eight nodes.
+HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal core configuration to continue the testing on multinode cluster. The following table shows the total elapsed time recorded for Speed Test 9 model on one, two, four, and eight nodes.
 
 |VM size|Number of nodes|Number of vCPUs|Total Elapsed time (seconds)| Relative speed increase|
 |---|---|---|---|---|
@@ -209,7 +209,7 @@ HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal co
 
 The following graph shows the relative speed increase as the number of nodes increases:
 
-:::image type="content" source="media/tnavigator/speed-test9-hbv4-multinode-chart.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test9-hbv4-multinode-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 ### HBv4-series VM notes about the multi-node tests
 
@@ -219,7 +219,7 @@ From the multi-node results, models scale linearly up to eight nodes, giving a m
 
 The following sections provide the performance results of running tNavigator on single-node Azure [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) VMs.
 
-The following table shows Total Elapsed time of Speed test 9 model in Seconds:
+The following table shows total elapsed time in seconds of Speed Test 9 model:
 
 |VM Size|	No. of vCPUs and GPUs used|	Total Elapsed time (Seconds)|	Relative speed increase|
 |---|---|---|---|
@@ -228,9 +228,9 @@ The following table shows Total Elapsed time of Speed test 9 model in Seconds:
 |Standard_NC48ads_A100_v4|	48vCPU & 2GPU|	2014|	7.43|
 |Standard_NC96ads_A100_v4|	96vCPU & 4GPU|	1265|	11.84|
 
-The following chart shows Relative speed increase of Speed Test 9 model:
+The following chart shows relative speed increase of Speed Test 9 model:
 
-:::image type="content" source="media/tnavigator/speed-test9-ncv4-chart.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model on Ncv4 configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test9-ncv4-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model on Ncv4 configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 #### NC A100 v4-series VM notes about tests on tNavigator
 
