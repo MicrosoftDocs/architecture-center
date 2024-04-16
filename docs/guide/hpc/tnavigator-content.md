@@ -302,7 +302,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ## Summary
 
-- RFD tNavigator powered by Microsoft Azure platform exhibits high scalability on AMD EPYC™ 7V73X [Milan-X] vCPU cores and AMD EPYC™ 9V33X ("Genoa-X") vCPU cores. Moreover, it can also enhance performance by using A100 Nvidia GPU cards.
+- RFD tNavigator powered by Microsoft Azure platform exhibits high scalability on AMD EPYC™ 7V73X Milan-X vCPU cores and AMD EPYC™ 9V33X ("Genoa-X") vCPU cores. Moreover, it can also enhance performance by using A100 Nvidia GPU cards.
 - For evaluating AMD CPU performance, the lowest VM configurations for HBv3 and HBv4 are used as a baseline to calculate the relative speed increase.
 - For HBv3-series single nodes, a maximal scaling up to approximately four times is possible with 64 vCPUs, with minimal gains beyond this configuration. In a multi-node HBv3 setup, scaling up to about 3.63 times is possible with 16 nodes.
 - For the HBv4-series, a single node can achieve a maximum performance increase of around five times with 96 vCPUs, with further nodes offering diminishing returns. In a multi-node setup, the maximum scalability observed is about 2.11 times with eight nodes, with performance declines when more nodes are added.
