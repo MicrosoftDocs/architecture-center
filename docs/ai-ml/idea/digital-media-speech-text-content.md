@@ -22,7 +22,6 @@ This solution idea identifies speech in static video files to manage speech as s
 ### Components
 
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of [Azure Storage](https://azure.microsoft.com/products/category/storage). Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
-- [Azure Media Services](https://azure.microsoft.com/services/media-services) is a cloud-based platform that you can use to stream video, enhance accessibility and distribution, and analyze video content.
 - [Live and on-demand streaming](https://azure.microsoft.com/services/media-services/live-on-demand) is a feature of Azure Media Services that delivers content to various devices at scale.
 - [Azure Encoding](https://azure.microsoft.com/services/media-services/encoding) provides a way to convert files that contain digital video or audio from one standard format to another.
 - [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player) plays videos that are in various formats.
