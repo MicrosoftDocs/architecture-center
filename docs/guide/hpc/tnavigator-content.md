@@ -171,7 +171,7 @@ From the multi-node results, we can observe that models scale linearly up to 16 
 
 ### Results on the HBv4-series VM
 
-HBv4 VMs with different numbers of vCPUs were deployed to determine the optimal core configuration to run tNavigator on a standalone VM. That optimal configuration was then tested in a multi-node cluster deployment.
+HBv4-series VMs with different numbers of vCPUs were deployed to determine the optimal core configuration to run tNavigator on a standalone VM. That optimal configuration was then tested in a multi-node cluster deployment.
 
 #### Results on single-node configuration
 
