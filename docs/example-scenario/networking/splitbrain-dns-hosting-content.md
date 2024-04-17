@@ -25,7 +25,7 @@ The following workflow corresponds to the above diagram:
 
    - Azure Front Door routes the requests to the configured Origin Group based on the client Host HTTP header.
    - The Origin Group is configured to point to the Application Gateway using the Application Gateway's public IP address.
-4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is set up to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
+4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the Application Gateway subnet to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
 
 > [!NOTE]
 > Please note that this tag does not limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
