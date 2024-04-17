@@ -7,6 +7,8 @@ Teams managing workloads often rely on Fully Qualified Domain Names (FQDNs) for 
 
 *Download a [Visio file] of this architecture.*
 
+The workload sections below are broken into two parts. One explains the public internet workflow and the other details the private workflow. Each section represents the entirety of the architecture allowing clients to utilize the split-brain hosting architecture.
+
 ### Public Internet workflow
 
 ![Diagram of the pubic internet workflow.](./media/SplitBrain-DNS-hosting-public.png)
@@ -49,14 +51,14 @@ The following workflow corresponds to the above diagram:
 
 ### Components
 
-- DNS (Domain Name System): Having [Azure public DNS](/azure/dns/dns-overview) configured with the proper CNAME of the Azure Front Door endpoint FQDN is a critical component for the public internet workflow. On the private (enterprise) side, configuring the local DNS provider (Active Directory DNS/3rd party) to point each application FQDN to the private IP of the Application Gateway is critical. This split-brain DNS situation allows the enterprise users to gain access to the applications without traversing the public internet.
+- DNS (Domain Name System): Having [Azure public DNS](/azure/dns/dns-overview) configured with the proper CNAME of the Azure Front Door endpoint FQDN is a critical component for the public internet workflow. On the private (enterprise) side, configuring the local DNS provider (Active Directory DNS/3rd party) to point each application FQDN to the private IP of the Application Gateway is critical. [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver) could also be utilized for the resolution of on-premise clients. This split-brain DNS situation allows the enterprise users to gain access to the applications without traversing the public internet.
 - [Azure Front Door](/azure/well-architected/service-guides/azure-front-door): Azure Front Door is a global load balancer and web application firewall that provides fast and secure delivery of web applications to users around the world. It is used in this architecture to route the external users to the Application Gateway instance and provide caching/optimization options to enhace user experience.
 - [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway): Application Gateway is a regional load balancer and web application firewall that provides high availability, scalability, and security for web applications. It is used in this architecture to route the requests from both external and internal users to the back-end compute and protect the web application from common web attacks. Since Azure Front Door and Application Gateway provide WAF capabilities, it was decided to use the WAF functionality on the Application Gateway since both workflows (public/private) utilize this resource. 
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. In this architecture it is one of the options to facilitate private connectivity to the Application Gateway for on premise users.
   
 ### Alternatives
 
-The primary alternative to this architecture is to remove Front Door and simply have external users configured to hit the public IP (pip) of the Application Gateway. Based on the requirements, this architecture was not viable due to needing [caching/optimization](/azure/frontdoor/front-door-caching) done at the entry point into Azure. This is called out further in the Cost Optimization section later on in this document.
+The primary alternative to this architecture is to remove Front Door and simply have the public Azure DNS record point to the public IP (pip) of the Application Gateway. Based on the requirements, this architecture was not viable due to needing [caching/optimization](/azure/frontdoor/front-door-caching) done at the entry point into Azure. This is called out further in the Cost Optimization section later on in this document.
 
 ![Diagram of the alternate Split-brain DNS Hosting architecture.](./media/SplitBrain-DNS-hosting-public-alt.png)
 
@@ -67,12 +69,11 @@ Other possible alternatives for the public ingress traffic in this architecture 
 
 ## Scenario details
 
-This scenario was built to solve the problem of hosting a web application that needs to serve both external and internal users with high availability, scalability, and security. The customer's goals are to:
+This scenario was built to solve the problem of hosting a web application that needs to serve both external and internal users ensuring the traffic follows the appropriate path given the user's point of origin. The customer's goals are to:
 
 - Provide fast and reliable access to the web application for users around the world.
 - Provide enterprise users the ability to access the application without traversing the public internet.
 - Protect the web application from common web attacks and malicious traffic.
-- Ensure the availability and fault tolerance of the web application.
 
 ### Potential use cases
 
