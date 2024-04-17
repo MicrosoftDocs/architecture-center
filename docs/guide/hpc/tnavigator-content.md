@@ -234,7 +234,7 @@ The following chart shows relative speed increase of Speed Test 9 model:
 
 #### NC A100 v4-series VM notes about tests on tNavigator
 
-- The elative speed increases linearly as the number of vCPU cores and GPUs increase.
+- The relative speed increases linearly as the number of vCPU cores and GPUs increase.
 - The solver time on Standard_NC24ads_A100_v4 (24vCPUs & 0GPUs) is the baseline reference for relative speed increase.
 - Parallel performance improves as the number of vCPUs and GPUs increase in all tests.
 
