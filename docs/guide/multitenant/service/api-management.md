@@ -45,18 +45,34 @@ It's common to share an API Management instance between multiple tenants, which 
 
 #### Single-tenant backend application
 
-You can deploy a single API Management instance and route 
+If you deploy distinct backend applications for each tenant, you can deploy a single API Management instance and route traffic to the correct tenant for each request. This approach requires that API Management be configured with the backend hostnames for each tenant, or is otherwise able to map an incoming request to the correct tenant's backend.
 
+Because of the additional lookup required, this approach might not scale to large numbers of tenants sharing a single API Management instance. There might also be some performance overhead when looking up the tenant backend to route to, although the size of this overhead varies depending on how you design such a lookup.
+
+<!--
 - Maximum number of Tenants: Low
-- Performance is impacted because a tenant lookup is required for each request.
+- Routing performance: Medium
+-->
 
 #### Sharded tenant backend applications
+
+Some multitenant solutions are designed with sharded backends. For example, tenants A, B, and C might share backend application 1, while tenants D, E, and F share backend application 2.
+
+As with the [single-tenant backend application model](#single-tenant-backend-application), this approach requires a way for API Management to look up a backend application for a tenant, so the same considerations generally apply.
+
+<!--
 - Maximum number of Tenants: Low
-- Performance is impacted because a tenant lookup is still required for each request.
+- Routing performance: Medium
+-->
 
 #### Multitenant backend application
+
+In scenarios where your tenants share a common backend application, API Management's routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to effectively achieve unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there is no performance impact from customized routing decisions.
+
+<!--
   - Number of Tenants: High
   - Tenant lookup is not required, so no performance impact.
+-->
 
 <!-- TODO
 ### Shared instance per stamp
@@ -65,11 +81,22 @@ You can deploy a single API Management instance and route
 -->
 
 ### Instance per tenant
-  - Number of Tenants: Medium, but run into limits with number of APIM instances.
-  - Tenant lookup is not required, so no performance impact.
+
+In some situations, you might deploy an instance of API Management for each tenant. This approach is generally only advisable if you have a small number of tenants, or if you have strict complicance requirements that mean you can't share any infrastructure between tenants.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users in multiple geographic regions, consider whether the [multi-region deployment](#multi-region-deployments) capability in API Management might suit your needs instead.
+
+When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
+
+For single-tenant instances, there is typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decisions.
+
+<!--
+  - Number of Tenants: Medium, but run into limits with number of APIM instances.
+  - Tenant lookup is not required, so no performance impact.
+
+  Maybe table should be 'routing scale' and routing performance?
+-->
 
 ## Features of API Management that support multitenancy
 
