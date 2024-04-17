@@ -25,8 +25,8 @@ The workload sections below are broken into two parts. One explains the public i
    - The Origin Group is configured to point to the Application Gateway using the Application Gateway's public IP address.
 4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the Application Gateway subnet to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
 
-> [!NOTE]
-> Please note that this tag does not limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
+  > [!NOTE]
+  > Please note that this tag does not limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
 
 5. The Application Gateway is set up with a [listener](/azure/application-gateway/configuration-listeners) on port (443). Traffic is routed to the backend by the hostname specified within the listener.
    - To ensure that traffic has originated from *YOUR* Front Door profile, you will configure a [custom WAF rule](/azure/web-application-firewall/ag/create-custom-waf-rules#example-7) to check the `X-Azure-FDID` header value. 
