@@ -111,8 +111,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
    - **Implementation**: Use [Azure Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview) to assign permissions based on roles. Regularly review and revoke unnecessary privileges.
 5. **Assume Breach**: Acknowledge that security controls can be breached. Prepare for such scenarios.
    - **Implementation**: Implement network segmentation, micro-segmentation, and network security groups (NSGs). Assume that an attacker might gain access and design compensating controls accordingly.
-6. **Continuous Improvement**: Security is an ongoing effort, especially in a dynamic environment like ours.
-   - **Implementation**: Regularly update security policies, conduct [penetration testing](/azure/security/fundamentals/pen-testing), and stay informed about emerging threats. Continuously enhance security posture.
 
 By integrating these security principles into our split-brain DNS architecture, we create a robust and resilient system that safeguards both internal and external access to our workload.
 
