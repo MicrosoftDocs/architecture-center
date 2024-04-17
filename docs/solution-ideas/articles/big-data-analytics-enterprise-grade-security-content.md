@@ -40,7 +40,7 @@ This example solution makes use of several Azure services and features:
 
 -   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) is the core service used in this example solution to provide data ingestion, processing, and analytics.
 
--   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction)  is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
+-   [Azure Data Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction) is built on top of [Azure Storage](/azure/storage/common/storage-introduction) services and provides data lake capabilities that other services in this example solution use when storing and processing data.
 
 -   [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) copies data from original sources into the data lake storage locations.
 
@@ -96,13 +96,13 @@ The solution described in this article demonstrates how to combine these technol
 
 You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The Azure Resource Manager templates, which you'll need to deploy the components described in this architecture, are available in the [GitHub](https://github.com/vsuopys/SecureSynapse/tree/master/SecureSynapseARM) repository. These templates will deploy all the services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
+The Azure Resource Manager templates, which you'll need to deploy the components described in this architecture, are available in the [GitHub](https://github.com/Azure/SynapseAnalyticsSecured/tree/main/SecureSynapseARM) repository. These templates will deploy all the services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
 
 It's up to the user to create the data lake folder structure and the Azure Synapse Analytics integration pipelines that are necessary to connect to the data sources.
 
 Deploy the ARM template directly by clicking this button:
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FSynapseAnalyticsSecured%2Fmain%2FSecureSynapseARM%2Fazuredeploy.json)
 
 ## Contributors
 

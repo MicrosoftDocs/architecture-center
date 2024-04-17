@@ -1,7 +1,7 @@
 ---
 title: Choose a data analytics and reporting technology
 description: Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.
-author: martinekuan
+author: RobBagby
 ms.author: robbag
 categories: azure
 ms.date: 07/25/2022
@@ -115,5 +115,4 @@ Principal author:
 ## Related resources
 
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
-- [Data analysis and visualization in an Azure industrial IoT analytics solution](../../guide/iiot-guidance/iiot-data.yml)
 - [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)

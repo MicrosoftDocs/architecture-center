@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article briefly describes the steps for running [Weather Research & Forecasting (WRF)](https://www.mmm.ucar.edu/models/wrf) on a virtual machine (VM) deployed on Azure. It also presents the performance results of running WRF on Azure.
 
 WRF is a mesoscale numerical weather-prediction system designed for atmospheric research and operational forecasting applications.
@@ -180,4 +183,3 @@ Other contributors:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to run FSI workloads on Azure using Azure Batch.
   author: utkarshayachit
-  ms.author: uayachit
+  ms.author: pnp
   ms.date: 11/10/2023
   ms.topic: conceptual
   ms.service: architecture-center

@@ -82,4 +82,4 @@ This architecture is suitable for hybrid applications that need the high bandwid
 
 ### Reference architectures
 
-- [Hub-spoke topology](./hub-spoke.yml)
+- [Hub-spoke topology](../../networking/architecture/hub-spoke.yml)

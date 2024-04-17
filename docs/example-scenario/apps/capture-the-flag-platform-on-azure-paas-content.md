@@ -128,7 +128,6 @@ Principal author:
 - [Baseline architecture for a zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Reference architecture for a multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
-- [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 - [Web applications architecture design](../../web-apps/index.md)
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)

@@ -16,7 +16,7 @@ Put closely associated resources that share the same lifecycle into the same [re
 
 ### Virtual machine
 
-You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.  Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
+You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.  Azure supports running various popular Linux distributions, including Debian, Red Hat Enterprise Linux (RHEL), and Ubuntu. For more information, see [Azure and Linux][azure-linux].
 
 Azure offers many different virtual machine sizes. For more information, see [Sizes for virtual machines in Azure][virtual-machine-sizes]. If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload in terms of CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed.
 
@@ -161,7 +161,7 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azure-linux]: /azure/virtual-machines/linux/overview
+[azure-linux]: /azure/virtual-machines/linux/endorsed-distros
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [azure-storage]: /azure/storage/common/storage-introduction
 [blob-storage]: /azure/storage/common/storage-introduction

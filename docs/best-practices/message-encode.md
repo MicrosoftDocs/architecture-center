@@ -1,7 +1,8 @@
 ---
 title: Message encoding considerations
 description: Review how to choose an encoding format for asynchronous messaging. Explore encoding format considerations and choices for encoding formats.
-author: PageWriter-MSFT
+ms.author: robbag
+author: RobBagby
 ms.date: 03/16/2020
 ms.topic: conceptual
 ms.service: architecture-center

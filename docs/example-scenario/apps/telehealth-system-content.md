@@ -45,7 +45,7 @@ The solution was set up in this way to:
 
 ### Alternatives
 
-On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service or Azure Service Fabric.
+On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service.
 
 ## Scenario details
 
@@ -128,11 +128,11 @@ For a deployment in a single region, example pricing information is available in
 
 Principal authors:
 
-* [Jean-Yves Devant](https://www.linkedin.com/in/jydevant) | Principal Product Manager
+- [Jean-Yves Devant](https://www.linkedin.com/in/jydevant/) | Principal Product Manager
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.NET Core](/dotnet/core).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [.NET MAUI](/dotnet/maui/).
 
 Product documentation:
 

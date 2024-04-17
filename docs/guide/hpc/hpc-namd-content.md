@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article describes the steps for running [NAMD](http://www.ks.uiuc.edu/Research/namd/) software on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running NAMD on single-node and multi-node VM configurations.
 
 NAMD is a computer application for molecular dynamics simulation that's based on the [Charm++](https://en.wikipedia.org/wiki/Charm%2B%2B) parallel programming model. It's often used to simulate systems that comprise millions of atoms. NAMD supports hundreds of cores for typical simulations and can support more than 500,000 cores for the largest simulations. Simulations and trajectory analysis are performed with the popular molecular graphics program VMD, but NAMD is also compatible with AMBER, CHARMM, and X-PLOR. A source code version of NAMD is available for free.
@@ -238,4 +241,3 @@ Other contributors:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

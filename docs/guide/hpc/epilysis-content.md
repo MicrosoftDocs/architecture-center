@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article presents the performance results of running the [BETA CAE EPILYSIS](https://www.beta-cae.com/epilysis.htm) application on an Azure virtual machine (VM). EPILYSIS is a software program that's used to perform several types of finite element analysis on various structures and materials.
 
 EPILYSIS is used in the aerospace, automotive, defense, high-tech, and industrial equipment industries. Engineers use EPILYSIS to help design and optimize products. EPILYSIS can be combined with other tools, such as ANSA and META, to optimize simulations. The solver covers various solution types, like structural, NVH (noise, vibration, and harshness), optimization, and more. 
@@ -177,4 +180,3 @@ Other contributors:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

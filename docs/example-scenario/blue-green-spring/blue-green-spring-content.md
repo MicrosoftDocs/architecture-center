@@ -138,5 +138,4 @@ Principal author:
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
 - [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
-- [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
 - [Deploy Azure Spring Apps to multiple regions](../../reference-architectures/microservices/spring-apps-multi-region.yml)

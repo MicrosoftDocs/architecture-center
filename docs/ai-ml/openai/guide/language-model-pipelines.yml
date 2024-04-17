@@ -3,7 +3,7 @@ metadata:
   title: Build language model pipelines with memory 
   description: Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.
   author: brandoncowenms
-  ms.author: brandoncowen
+  ms.author: pnp
   ms.date: 06/13/2023 
   ms.topic: conceptual
   ms.service: architecture-center

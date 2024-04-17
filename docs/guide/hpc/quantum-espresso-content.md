@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article describes the steps for running the [Quantum ESPRESSO](https://www.quantum-espresso.org/) application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Quantum ESPRESSO on single-node and multi-node VM configurations.
 
 Quantum ESPRESSO is based on density-functional theory, plane waves, and pseudopotentials. Quantum ESPRESSO is an integrated suite of open-source computer codes for electronic-structure calculations and materials modeling at the nanoscale. The Quantum ESPRESSO distribution consists of a historical core set of components, and a set of plug-ins that perform more advanced tasks, plus many third-party packages designed to be inter-operable with the core components.
@@ -192,4 +195,3 @@ Other contributors:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

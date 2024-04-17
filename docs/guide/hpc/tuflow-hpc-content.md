@@ -1,4 +1,4 @@
-This article presents the performance results of running [TUFLOW (heavily parallelized compute) HPC](https://wiki.tuflow.com/Hardware_Benchmarking_(2018-03-AA)) models on an Azure virtual machine (VM).
+This article presents the performance results of running [TUFLOW (heavily parallelized compute) HPC](https://www.tuflow.com/) models on an Azure virtual machine (VM).
 
 TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), including the sub-grid scale eddy viscosity model. It builds on the strength and accuracy of the TUFLOW Classic model. The TUFLOW HPC model provides finite volume TVD shock capturing, adaptive timestepping stability, and GPU acceleration that achieves simulation times that are 10 to 400 times faster than the TUFLOW Classic model. 
 
@@ -21,8 +21,6 @@ TUFLOW HPC is an explicit solver for the 2D shallow-water equations (SWEs), incl
 ## Scenario details
 
 TUFLOW HPC is the latest explicit finite volume engine. It can be used to distribute hydrodynamic calculations across multiple cores, specifically GPUs. The accuracy, stability, and speed of TUFLOW HPC combined with features like a quadtree mesh structure and sub-grid sampling make it a powerful 1D/2D hydrodynamic computational engine.
-
-TUFLOW HPC is used in the environment and natural resource industries, specifically in flood, urban stormwater, and coastal simulation labs. UVA Hydroinformatics and Chartered Institution of Water and Environmental Management are groups that use TUFLOW HPC.
 
 Deploy TUFLOW HPC on Azure to get benefits like:
 
@@ -177,5 +175,3 @@ Other contributors:
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
-

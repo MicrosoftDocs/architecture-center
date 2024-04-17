@@ -3,7 +3,7 @@ metadata:
   title: Ingest and store medical data in Azure
   description: Create a data store to search and filter medical data by using Azure Data Factory pipelines with preingestion and postingestion validation pipelines. 
   author: dsutton-msft
-  ms.author: dsutton, nabalas 
+  ms.author: dsutton
   ms.date: 07/20/2023
   ms.topic: conceptual
   ms.service: architecture-center

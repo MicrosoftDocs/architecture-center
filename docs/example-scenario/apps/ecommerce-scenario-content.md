@@ -43,7 +43,6 @@ Many other technologies are available for building a customer-facing application
 
 Other options for the web tier and functions include:
 
-- [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 - [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. The platform provides the agility of different components of the application, to scale independently, on demand.
 - [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
 - [Service Bus][service-bus] could be used in place of a Storage Queue.
@@ -157,7 +156,6 @@ Principal author:
 [docs-functions]: https://www.microsoft.com/azure/azure-functions/functions-overview
 [docs-redis-cache]: https://www.microsoft.com/azure/redis-cache/cache-overview
 [docs-search]: https://www.microsoft.com/azure/search/search-what-is-azure-search
-[docs-service-fabric]: https://www.microsoft.com/azure/service-fabric
 [docs-sentiment-analysis]: https://www.microsoft.com/azure/cognitive-services/welcome
 [docs-sql-database]: https://www.microsoft.com/azure/sql-database/sql-database-technical-overview
 [docs-storage-blobs]: https://www.microsoft.com/azure/storage/blobs/storage-blobs-introduction

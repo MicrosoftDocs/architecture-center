@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article describes the steps for running [Engys ELEMENTS](https://engys.com/products/elements) on a virtual machine (VM) and on an HPC cluster on Azure. It also presents the performance results of running ELEMENTS on single-node and multi-node VM configurations. 
 
 ELEMENTS is a computational fluid dynamics (CFD) and optimization solution for vehicle design applications. The simulation engine that's provided with ELEMENTS is powered by [HELYX](https://engys.com/products/helyx). The resulting solution combines automotive engineering design practices with open-source CFD and optimization methods developed by Engys.
@@ -218,4 +221,3 @@ Other contributors:
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
-- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

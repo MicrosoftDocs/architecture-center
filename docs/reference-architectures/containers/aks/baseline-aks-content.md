@@ -79,7 +79,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
-For more information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
+For more information, see [Hub-spoke network topology in Azure](../../../networking/architecture/hub-spoke.yml).
 
 To review the network design changes included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#network-design).
 
@@ -121,7 +121,7 @@ AKS maintains two separate groups of nodes (or node pools). The *system node poo
 
 Azure Private Link connections are created for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview), so these services can be accessed using [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet and can also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network, and allows you to apply granular security rules at the subnet level using network security groups.
 
-For more information, see [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
 
 ## Plan the IP addresses
 
@@ -240,7 +240,7 @@ Kubernetes supports role-based access control (RBAC) through:
 
 - A set of permissions. Defined by a `Role` or `ClusterRole` object for cluster-wide permissions.
 
-- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `CluserRoleBinding` object.
+- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `ClusterRoleBinding` object.
 
 Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Microsoft Entra users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
@@ -633,7 +633,23 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 > [!NOTE]
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
-### Security updates
+### AKS cluster updates
+
+Defining an update strategy that is consistent with the business requirements is paramount. Understanding the level of predictability for the date and time when the AKS cluster version or its nodes are updated, and the desired degree of control over what specific image or binaries get installed are fundamental aspects that will delineate your AKS cluster update blueprint. Predictability is tied to two main AKS cluster update properties that are the update cadence and maintenance window. Control is whether updates are manually or automatically installed. Organizations with AKS clusters that are not under a strict security regulation might consider weekly or even monthly updates, while the rest must update security-labeled patches as soon as available (daily). Organizations that operate AKS clusters as immutable infrastructure are not updating them. It means, neither automatic or manual updates are conducted. Instead when a desired update becomes available a replica stamp gets deployed and only when the new infrastructure instance is ready the old one is drained giving them the highest level of control.
+
+Once the AKS cluster update blueprint is determined, that can be easily mapped into the available update options for AKS nodes and AKS cluster version:
+
+- AKS nodes:
+  1. None/Manual updates: This is for immutable infrastructure or when manual updates are the preference. This achieves the greater level predictability and control over the AKS nodes updates.
+  1. Automatic Unattended updates: AKS execute native OS updates. This gives predictability by configuring maintenance windows aligned with what is good for the business. It might be based on peak hours and what is best operations-wise. The level of control is low since it is not possible to know in advance what is going to be specifically installed within the AKS node.
+  1. Automatic Node image updates: It is recommended to automatically update AKS node images when new virtual hard disks (VHDs) become available. Design maintenance windows to be aligned as much as possible with the business needs. For security-labeled VHD updates, it is recommended to configure a daily maintenance windows giving the lowest predictability. Regular VHD updates can be configured with a weekly maintenance window, every two weeks or even monthly. Depending on whether the need is for security-labeled vs regular VHDs combined with the scheduled maintenance window, the predictability fluctuates offering more or less flexibility to be aligned with the business requirements. While leaving this always up to the business requirements would be ideal, reality mandates organizations to find the tipping point. The level of control is low since it is not possible to know in advance what specific binaries were included into a new VHD and still this type of automatic updates are the recommended option since images are vetted before becoming available.
+
+  > [!NOTE]
+  > For more information about how to configure automatic AKS nodes updates please take a look at [Auto-upgrade node OS images](/azure/aks/auto-upgrade-node-os-image).
+
+- AKS cluster version:
+  1. None/Manual updates: This is for immutable infrastructure or when manual updates are the preference. This achieves the greater level predictability and control over the AKS cluster version updates. Opt-in for this is recommended, since this is leaving in full control giving the chance to test a new AKS cluster version (i.e. 1.14.x to 1.15.x) in lower environments before hitting production.
+  1. Automatic updates: A production cluster is not recommended to be automatically patched or updated in any fashion (i.e. 1.16.x to 1.16.y) to new AKS cluster version available without being properly tested in lower environments. While Kubernetes upstream releases and AKS cluster version updates are coordinated providing with a regular cadence, the recommendation is still to be defensive with AKS clusters in production increasing the predictability and control over the update process. Against consider this configuration for lower environments as part of the Operational Excellence, enabling proactive routine testing executions to detect potential issues as early as possible.
 
 Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 

@@ -24,7 +24,7 @@ This reference architecture is for training and deploying a real-time recommende
 ### Components
 
 - [Azure Databricks][databricks-service-page]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
-- [Azure Kubernetes Service][aks-service-page] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
+- [Azure Kubernetes Service (AKS)][aks-service-page]. AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
 - [Azure Cosmos DB][cosmosdb-service-page]. Azure Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
 - [Machine Learning][mls-service-page]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 - [Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
@@ -99,7 +99,7 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 1. Clone the [Microsoft Recommenders][github] repository into an environment where you can execute scripts (for example, your local computer).
 1. Follow the **Quick install** setup instructions to [install the relevant libraries][setup] on Azure Databricks.
 1. Follow the **Quick install** setup instructions to [prepare Azure Databricks for operationalization][setupo16n].
-1. Import the [ALS Movie Operationalization notebook][als-example] into your workspace. After logging into your Azure Databricks workspace, do the following:
+1. Import the [ALS Movie Operationalization notebook][als-example] into your workspace. After signing in to your Azure Databricks workspace, do the following:
    1. Click **Home** on the left side of the workspace.
    1. Right-click on white space in your home directory. Select **Import**.
    1. Select **URL**, and paste the following into the text field:
@@ -110,13 +110,13 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
 - [Miguel Fierro](https://www.linkedin.com/in/miguelgfierro) | Principal Data Scientist Manager
 - [Nikhil Joglekar](https://www.linkedin.com/in/nrjoglekar) | Product Manager, Azure algorithms and data science
- 
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps

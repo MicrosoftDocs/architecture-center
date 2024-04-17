@@ -8,7 +8,7 @@ Visual search engines retrieve information using images as input and often—but
 
 Engines are becoming more and more common in the retail industry, and for very good reasons:
 
-- Around 75% of internet users search for pictures or videos of a product before making a purchase, according to an [Emarketer](https://www.emarketer.com/Report/Visual-Commerce-2017-How-Image-Recognition-Augmentation-Changing-Retail/2002059) report published in 2017.
+- Around 75% of internet users search for pictures or videos of a product before making a purchase, according to an Emarketer report published in 2017.
 - 74% of consumers also find text searches inefficient, according to a Slyce (a visual search company) 2015 report.
 
 Therefore, the image recognition market will be worth more than $25 billion by 2019, according to research by [Markets &amp; Markets](https://www.marketsandmarkets.com/PressReleases/image-recognition.asp).
@@ -148,7 +148,7 @@ Implementing visual search need not be complex. You can use Bing or build your o
 
 - To begin creating a customized service, see [Bing Visual Search API Overview](/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
 - To create your first request, see the quickstarts: [C#](/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](/azure/cognitive-services/bing-visual-search/quickstarts/java) | [node.js](/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](/azure/cognitive-services/bing-visual-search/quickstarts/python)
-- Familiarize yourself with the [Visual Search API Reference](/rest/api/cognitiveservices/bingvisualsearch/images/visual-search).
+- Familiarize yourself with the [Visual Search API Reference](/bing/search-apis/bing-visual-search/overview).
 
 ### Background
 

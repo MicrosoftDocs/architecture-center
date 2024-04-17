@@ -42,7 +42,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting.
 
-Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml) in the Azure Architecture Center.
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml).
 
 ### Availability
 

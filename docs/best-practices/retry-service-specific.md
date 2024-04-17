@@ -2,7 +2,8 @@
 title: Azure service retry guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -478,7 +479,7 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
 
 ### Next steps
 
-- [Remote exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
+- [Remoting exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
 
 ## SQL Database using ADO.NET
 

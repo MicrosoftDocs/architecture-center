@@ -2,7 +2,7 @@
 title: DevOps checklist
 titleSuffix: Azure Architecture Center
 description: Use this checklist to assess your DevOps culture and process. DevOps integrates development, QA, and IT operations into a unified set of processes.
-author: martinekuan
+author: Katie-Novotny
 ms.author: katienovotny
 ms.date: 03/14/2023
 ms.topic: conceptual
@@ -164,9 +164,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 ## Related resources
 
 - [CI/CD baseline architecture with Azure Pipelines](../example-scenario/apps/devops-dotnet-baseline.yml)
-- [Automate multistage Azure pipelines with Azure Pipelines](../example-scenario/devops/automate-azure-pipelines.yml)
 - [CI/CD for Azure VMs](../solution-ideas/articles/cicd-for-azure-vms.yml)
-- [CI/CD for containers](../solution-ideas/articles/cicd-for-containers.yml)
 
 <!-- links -->
 
