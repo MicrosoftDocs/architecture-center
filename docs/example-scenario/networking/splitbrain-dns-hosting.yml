@@ -21,6 +21,6 @@ products:
   - azure-dns
 name: Secure tunneling with Azure Relay
 summary: Workload teams often rely on Fully Qualified Domain Names (FQDNs) for client access, typically combined with TLS SNI. However, when a workload is accessible both from the public Internet and internally by enterprise users, routing to the application can follow distinct paths and receive varying security or Quality of Service (QoS) treatment. This architecture demonstrates an approach to differentiate traffic treatment based on DNS, considering whether the client originates from the Internet or the corporate network.
-thumbnailUrl: /azure/architecture/browse/thumbs/thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/SplitBrain-DNS-hosting-thumb.png
 content: |
   [!include[](splitbrain-dns-hosting-content.md)]
