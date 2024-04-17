@@ -40,8 +40,7 @@ The workload sections below are broken into two parts. One explains the public i
 The following workflow corresponds to the above diagram:
 
 1. Users initiate a request for the application `app.contoso.com` from the on-premise environment.
-2. Application FQDNs are configured on the on-premises DNS provider. This DNS provider could be on-premises Active Directory (AD) DNS servers or various other 3rd party solutions.
-   - The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway.
+2. Application FQDNs are configured on the on-premises DNS provider. This DNS provider could be on-premises Active Directory (AD) DNS servers or various other 3rd party solutions. The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway.
 3. The connection that facilitates access to the Application Gateway can be either an [ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a [site-to-site (S2S) VPN](/azure/vpn-gateway/design#s2smulti).
 4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the Application Gateway subnet to allow incoming private requests from on-premises user networks where traffic will be originating from. This ensures that other sources of private traffic cannot reach the private IP of the Application Gateway directly.
 5. The Application Gateway is configured with a [listener](/azure/application-gateway/configuration-listeners) configured on ports 80 and 443. Traffic is routed to the backend by the hostname specified within the listener.
