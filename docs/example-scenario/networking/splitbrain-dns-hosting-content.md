@@ -18,8 +18,8 @@ The workload sections below are broken into two parts. One explains the public i
 3. External users access the web application via Azure Front Door, which functions as a global load balancer and web application firewall.
    - Within Azure Front Door, the FQDN name of `app.contoso.com` is assigned via routes on a configured endpoint. It also hosts the TLS SNI certificates for the applications.
 
-> [!NOTE]
-> Azure Front Door does not support self-signed certificates.
+  > [!NOTE]
+  > Azure Front Door does not support self-signed certificates.
 
    - Azure Front Door routes the requests to the configured Origin Group based on the client Host HTTP header.
    - The Origin Group is configured to point to the Application Gateway using the Application Gateway's public IP address.
