@@ -107,8 +107,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
    **Implementation**:
       - **Defensive Investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Are they providing meaningful protection against threats?
       - **Blast Radius Restriction**: Ensure that any security breach is contained within a limited scope. For example, isolate external and internal traffic flows effectively.
-4. **Least-Privilege Access**: Limit permissions to the minimum necessary. Unauthorized access could compromise the entire workload.
-   - **Implementation**: Use [Azure Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview) to assign permissions based on roles. Regularly review and revoke unnecessary privileges.
 5. **Assume Breach**: Acknowledge that security controls can be breached. Prepare for such scenarios.
    - **Implementation**: Implement network segmentation, micro-segmentation, and network security groups (NSGs). Assume that an attacker might gain access and design compensating controls accordingly.
 
