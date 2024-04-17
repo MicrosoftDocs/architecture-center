@@ -29,19 +29,21 @@ Azure API Management is a comprehensive API gateway and reverse proxy for APIs. 
 
 ## Isolation models
 
-Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your needs, your [tenancy model](../considerations/tenancy-models.yml), and how you use [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
+Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your needs [tenancy model](../considerations/tenancy-models.yml). This article assumes you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
 
-| Consideration | Shared instance, single-tenant backends | Shared instance, sharded backends | Shared instance, multitenant backend | Instance per deployment stamp | Instance per tenant |
-|-|-|-|-|-|
-| Performance isolation | TODO | TODO | TODO | TODO | TODO |
-| Deployment complexity | Low. Single instance to manage. | Medium. | Medium. | High. | TODO. |
-| Operational complexity | Low. | Medium. | Medium. | High. | TODO. |
-| Cost | TODO | TODO | TODO | TODO | TODO |
-| Example scenario | TODO | TODO | TODO | TODO | TODO |
+Typically, the way you use API Management is similar regardless of the isolation models. This section focuses on the differences in cost and complexity between the isolation models, and the differences in how each approach routes requests to your backend API applications.
+
+| Consideration | Shared instance, single-tenant backends | Shared instance, sharded tenant backends | Shared instance, multitenant backend | Instance per tenant |
+|---|---|---|---|---|
+| Number of tenants supported | Many | Many | Almost unbounded | One per instance |
+| Cost | Lower | Lower | Lower | Higher |
+| Deployment complexity | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | High. Multiple instances to manage |
+| Routing complexity | Higher | Higher | Lower | Lower |
+| Example scenario | Custom domain names per tenant | API applications shared between tenants based on pricing tier | Large multitenant solution with a shared application tier | Tenant-specific deployment stamps |
 
 ### Shared instance isolation models
 
-It's common to share an API Management instance between multiple tenants, which helps to reduce cost as well as deployment and management complexity. The details of how you can share an API Management instance depend on how your tenants are assigned to backend applications.
+It's common to share an API Management instance between multiple tenants, which helps to reduce cost as well as deployment and management complexity. The details of how you can share an API Management instance depend on how your tenants are assigned to backend API applications.
 
 #### Single-tenant backend application
 
@@ -49,36 +51,15 @@ If you deploy distinct backend applications for each tenant, you can deploy a si
 
 Because of the additional lookup required, this approach might not scale to large numbers of tenants sharing a single API Management instance. There might also be some performance overhead when looking up the tenant backend to route to, although the size of this overhead varies depending on how you design such a lookup.
 
-<!--
-- Maximum number of Tenants: Low
-- Routing performance: Medium
--->
-
 #### Sharded tenant backend applications
 
 Some multitenant solutions are designed with sharded backends. For example, tenants A, B, and C might share backend application 1, while tenants D, E, and F share backend application 2.
 
 As with the [single-tenant backend application model](#single-tenant-backend-application), this approach requires a way for API Management to look up a backend application for a tenant, so the same considerations generally apply.
 
-<!--
-- Maximum number of Tenants: Low
-- Routing performance: Medium
--->
-
 #### Multitenant backend application
 
 In scenarios where your tenants share a common backend application, API Management's routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to effectively achieve unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there is no performance impact from customized routing decisions.
-
-<!--
-  - Number of Tenants: High
-  - Tenant lookup is not required, so no performance impact.
--->
-
-<!-- TODO
-### Shared instance per stamp
-- Number of Tenants: High
-- Tenant lookup is performed outside of APIM (e.g., by a Gateway routing to deployment stamp), so minimal performance impact.
--->
 
 ### Instance per tenant
 
@@ -90,13 +71,6 @@ In some situations, you might deploy an instance of API Management for each tena
 When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
 
 For single-tenant instances, there is typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decisions.
-
-<!--
-  - Number of Tenants: Medium, but run into limits with number of APIM instances.
-  - Tenant lookup is not required, so no performance impact.
-
-  Maybe table should be 'routing scale' and routing performance?
--->
 
 ## Features of API Management that support multitenancy
 
