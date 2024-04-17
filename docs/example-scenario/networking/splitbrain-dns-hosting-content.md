@@ -101,13 +101,13 @@ Adhering to these principles ensures a robust and reliable system that can withs
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
 
-1. **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a [zero-trust](/azure/security/fundamentals/zero-trust) approach. We should explicitly verify the identity of a client, regardless of whether they originate from the Internet or the corporate network. This ensures that only trusted entities perform authorized actions.
+   - **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a [zero-trust](/azure/security/fundamentals/zero-trust) approach. We should explicitly verify the identity of a client, regardless of whether they originate from the Internet or the corporate network. This ensures that only trusted entities perform authorized actions.
    - **Implementation**: Implement Azure Active Directory (Azure AD) for robust identity management. Use [conditional access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on user context, device health, and location.
-3. **Assessing Security Efficacy**: The effectiveness of our security measures in this dual-access workload needs to be evaluated.
+   - **Assessing Security Efficacy**: The effectiveness of our security measures in this dual-access workload needs to be evaluated.
    **Implementation**:
       - **Defensive Investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Are they providing meaningful protection against threats?
       - **Blast Radius Restriction**: Ensure that any security breach is contained within a limited scope. For example, isolate external and internal traffic flows effectively.
-5. **Assume Breach**: Acknowledge that security controls can be breached. Prepare for such scenarios.
+   - **Assume Breach**: Acknowledge that security controls can be breached. Prepare for such scenarios.
    - **Implementation**: Implement network segmentation, micro-segmentation, and network security groups (NSGs). Assume that an attacker might gain access and design compensating controls accordingly.
 
 By integrating these security principles into our split-brain DNS architecture, we create a robust and resilient system that safeguards both internal and external access to our workload.
