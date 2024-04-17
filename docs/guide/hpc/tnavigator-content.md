@@ -205,7 +205,7 @@ HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal co
 |Standard_HB176-144rs_v4| 1|	144|	2,017|	1.00|
 |Standard_HB176-144rs_v4| 2|	288|	1,627|	1.24|
 |Standard_HB176-144rs_v4| 4|	576|	1,208|	1.67|
-|Standard_HB176-144rs_v4| 8|	1152|	958|	2.11|
+|Standard_HB176-144rs_v4| 8|	1,152|	958|	2.11|
 
 The following graph shows the relative speed increase as the number of nodes increases:
 
