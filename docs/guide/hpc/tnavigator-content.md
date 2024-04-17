@@ -221,7 +221,7 @@ The following sections provide the performance results of running tNavigator on 
 
 The following table shows total elapsed time in seconds of Speed Test 9 model:
 
-|VM Size|	No. of vCPUs and GPUs used|	Total Elapsed time (Seconds)|	Relative speed increase|
+|VM Size|	No. of vCPUs and GPUs used|	Total Elapsed time (seconds)|	Relative speed increase|
 |---|---|---|---|
 |Standard_NC24ads_A100_v4|	24vCPU & 0GPU|	14,973|	1|
 |Standard_NC24ads_A100_v4|	24vCPU & 1GPU|	3,596|	4.16|
