@@ -265,7 +265,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 |Standard_NC48ads_A100_v4| 48vCPUs & 2GPU|	0.56|
 |Standard_NC96ads_A100_v4| 96vCPUs & 4GPU|	0.35|
 
-### Multi node configuration: HBv3-series and HBv4 series VM
+### Multi node configuration: HBv3-series and HBv4-series VM
 
 |VM size| Number of nodes | Total elapsed time (hours) |
 |---|---|---|
