@@ -68,7 +68,7 @@ Other possible alternatives for the public ingress traffic in this architecture 
 
 This scenario was built to solve the problem of hosting a web application that needs to serve both external and internal users ensuring the traffic follows the appropriate path given the user's point of origin. The customer's goals are to:
 
-- Provide fast and reliable access to the web application for users around the world.
+- Provide fast and reliable access over the internet to the web application for non-enterprise users around the world.
 - Provide enterprise users the ability to access the application without traversing the public internet.
 - Protect the web application from common web attacks and malicious traffic.
 
