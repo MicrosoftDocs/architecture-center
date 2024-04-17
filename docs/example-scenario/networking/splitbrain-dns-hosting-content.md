@@ -23,7 +23,7 @@ The workload sections below are broken into two parts. One explains the public i
 
    - Azure Front Door routes the requests to the configured Origin Group based on the client Host HTTP header.
    - The Origin Group is configured to point to the Application Gateway using the Application Gateway's public IP address.
-4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the Application Gateway subnet to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
+4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the `AppGW subnet` to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
 
   > [!NOTE]
   > Please note that this tag does not limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
@@ -43,7 +43,7 @@ The following workflow corresponds to the above diagram:
 2. Application FQDNs are configured on the on-premises DNS provider. This DNS provider could be on-premises Active Directory (AD) DNS servers or various other 3rd party solutions.
    - The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway.
 3. The connection that facilitates access to the Application Gateway can be either an [ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a [site-to-site (S2S) VPN](/azure/vpn-gateway/design#s2smulti).
-4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the Application Gateway subnet to allow incoming private requests from on-premises user networks where traffic will be originating from. This ensures that other sources of private traffic cannot reach the private IP of the Application Gateway directly.
+4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the `AppGW subnet` to allow incoming private requests from on-premises user networks where traffic will be originating from. This ensures that other sources of private traffic cannot reach the private IP of the Application Gateway directly.
 5. The Application Gateway is configured with a [listener](/azure/application-gateway/configuration-listeners) configured on ports 80 and 443. Traffic is routed to the backend by the hostname specified within the listener.
 6. Traffic reaches the compute configured as a backend pool on the Application Gateway strictly over the private network.
 
