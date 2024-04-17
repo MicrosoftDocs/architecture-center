@@ -177,14 +177,14 @@ HBv4 VMs with different numbers of vCPUs were deployed to determine the optimal 
 
 The following table shows total elapsed time of Speed Test 9 in seconds:
 
-|VM Size|No. of vCPUs used|Total Elapsed time (Seconds)|Relative speed increase|
+|VM Size|No. of vCPUs used|Total Elapsed time (seconds)|Relative speed increase|
 |---|---|---|---|
-|Standard_HB176-24rs_v4|12|11602|1.00|
-|Standard_HB176-24rs_v4|24|6407|1.81|
-|Standard_HB176-48rs_v4|48|3288|3.53|
-|Standard_HB176-96rs_v4|96|2290|5.07|
-|Standard_HB176-144rs_v4|144|2017|5.75|
-|Standard_HB176_v4|176|1980|5.86|
+|Standard_HB176-24rs_v4|12|11,602|1.00|
+|Standard_HB176-24rs_v4|24|6,407|1.81|
+|Standard_HB176-48rs_v4|48|3,288|3.53|
+|Standard_HB176-96rs_v4|96|2,290|5.07|
+|Standard_HB176-144rs_v4|144|2,017|5.75|
+|Standard_HB176_v4|176|1,980|5.86|
 
 The following chart shows relative speed increase of Speed Test 9 model:
 
