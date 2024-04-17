@@ -223,10 +223,10 @@ The following table shows total elapsed time in seconds of Speed Test 9 model:
 
 |VM Size|	No. of vCPUs and GPUs used|	Total Elapsed time (Seconds)|	Relative speed increase|
 |---|---|---|---|
-|Standard_NC24ads_A100_v4|	24vCPU & 0GPU|	14973|	1|
-|Standard_NC24ads_A100_v4|	24vCPU & 1GPU|	3596|	4.16|
-|Standard_NC48ads_A100_v4|	48vCPU & 2GPU|	2014|	7.43|
-|Standard_NC96ads_A100_v4|	96vCPU & 4GPU|	1265|	11.84|
+|Standard_NC24ads_A100_v4|	24vCPU & 0GPU|	14,973|	1|
+|Standard_NC24ads_A100_v4|	24vCPU & 1GPU|	3,596|	4.16|
+|Standard_NC48ads_A100_v4|	48vCPU & 2GPU|	2,014|	7.43|
+|Standard_NC96ads_A100_v4|	96vCPU & 4GPU|	1,265|	11.84|
 
 The following chart shows relative speed increase of Speed Test 9 model:
 
