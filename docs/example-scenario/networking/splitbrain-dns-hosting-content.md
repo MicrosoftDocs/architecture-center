@@ -13,8 +13,6 @@ The workload sections below are broken into two parts. One explains the public i
 
 ![Diagram of the pubic internet workflow.](./media/SplitBrain-DNS-hosting-public.png)
 
-The following workflow corresponds to the above diagram:
-
 1. Users send a request for the application `app.contoso.com` over the public internet.
 2. An [Azure DNS Zone](/azure/dns/dns-zones-records) is configured for the `contoso.com` domain where the appropriate [CNAME entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
 3. External users access the web application via Azure Front Door, which functions as a global load balancer and web application firewall.
