@@ -103,8 +103,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 1. **Zero-Trust Approach**: In our split-brain DNS setup, we must apply a [zero-trust](/azure/security/fundamentals/zero-trust) approach. We should explicitly verify the identity of a client, regardless of whether they originate from the Internet or the corporate network. This ensures that only trusted entities perform authorized actions.
    - **Implementation**: Implement Azure Active Directory (Azure AD) for robust identity management. Use [conditional access policies](/azure/architecture/guide/security/conditional-access-zero-trust) to enforce strict access controls based on user context, device health, and location.
-2. **Confidentiality, Integrity, and Availability (CIA Triad)**: The security of our workload hinges on the maintenance of sensitive data confidentiality, the assurance of its integrity, and the guarantee of its availability to authorized users.
-   - **Implementation**: [Encrypt data in transit and at rest](/azure/security/fundamentals/encryption-overview). Regularly audit access logs to detect any unauthorized activity. Set up monitoring alerts for suspicious behavior.
 3. **Assessing Security Efficacy**: The effectiveness of our security measures in this dual-access workload needs to be evaluated.
    **Implementation**:
       - **Defensive Investments**: Regularly assess the effectiveness of Azure Front Door and Application Gateway. Are they providing meaningful protection against threats?
