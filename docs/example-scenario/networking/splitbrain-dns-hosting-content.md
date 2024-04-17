@@ -37,8 +37,6 @@ The workload sections below are broken into two parts. One explains the public i
 
 ![Diagram of the private enterprise workflow.](./media/SplitBrain-DNS-hosting-private.png)
 
-The following workflow corresponds to the above diagram:
-
 1. Users initiate a request for the application `app.contoso.com` from the on-premise environment.
 2. Application FQDNs are configured on the on-premises DNS provider. This DNS provider could be on-premises Active Directory (AD) DNS servers or various other 3rd party solutions. The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway.
 3. The connection that facilitates access to the Application Gateway can be either an [ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a [site-to-site (S2S) VPN](/azure/vpn-gateway/design#s2smulti).
