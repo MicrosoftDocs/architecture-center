@@ -10,34 +10,33 @@ This guide includes N articles: this introduction article and X articles that ar
 
 In this section, you learn about the key architectural challenges you face if your architecture includes direct access to Azure OpenAI from consumers. The challenges are organized by the WAF pillars.
 
-### Reliability
+### Reliability challenges
 
 - **Redundancy** - Deploy instances of OpenAI across regions and fail over when an instance becomes unhealthy.
 - **Scale out to handle spikes** - Ensure you're able to increase capacity to handle unexpected loads on the system.
 - **Load Balancing/Throttling** - The Azure OpenAI service throttles your requests by returning a 429 response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per Minute (RPM) in the pay-as-you-go model or requests that exceed the provisioned throughput units (PTU) capacity for the provisioned throughput model.
 
-### Security
+### Security challenges
 
 - **Identity management** - Implement a centralized identity model for all language model usage, including non-Azure OpenAI models with different identity management solutions.Support alternative identity providers other than the Azure OpenAI default authentication.
 - **Network Security** - Ensure network traffic is not exposed to the public internet when not necessary.
-- **Data Security** - Ensure overseeing access to the application and data is securely transfered with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits. 
+- **Data Security** - Ensure overseeing access to the application and data is securely transferred with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits.
 - **Data sovereignty** - Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Ensure regional affinity for consumers to comply with data residency and sovereignty laws.
 
-
-### Cost Optimization
+### Cost optimization challenges
 
 - **Cost tracking** -Track your OpenAI usage costs across your different departments, customers, or applications?
 - **Provisioned throughput utilization** - Ensure you're fully utilizing the provisioned throughput you paid for and orchestrate utilization in the manner consume.
 
-### Operational Excellence
+### Operational excellence challenges
 
 - **Quota control** - Centralized control over the usage of LLM models.
 - **Monitoring and Observability** - Azure OpenAI services default metrics is available via Azure Monitor however there is latency with the availability of the data and does not provide real-time monitoring. Monitor usage in real-time. This information can be useful to understand when a subsequent call likely results in being throttled.
-- **Hybrid integration** - Ensure efficient and secure access with other hybrid services. 
+- **Hybrid integration** - Ensure efficient and secure access with other hybrid services.
 
-### Performance Efficiency
+### Performance efficiency challenges
 
-- **Performance optimization** - How can you queue and batch low priority requests to run when model utilization is low. Ensure parameters such as max_tokens and best_of are set to approved values. Ensure critical workloads have prioritized access to Azure OpenAI deployed models. 
+- **Performance optimization** - How can you queue and batch low priority requests to run when model utilization is low. Ensure parameters such as max_tokens and best_of are set to approved values. Ensure critical workloads have prioritized access to Azure OpenAI deployed models.
 - **Minimize latency** - Route requests to the closest model. Deploy OpenAI instances in multiple regions to reduce latency.
 
 ## Solution
@@ -69,8 +68,8 @@ When you introduce a gateway into your architecture to address the consideration
 ### Security
 
 - Network Isolation with private network access
-- Data Security - Ensure overseeing access to the application and data is securely transfered with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits. 
-- **Multitenancy** - 
+- Data Security - Ensure overseeing access to the application and data is securely transferred with tools to cover common security challenges and tactics/techniques in the MITRE framework that threat actors use to leverage their exploits.
+- **Multitenancy** - TODO
 - Federated identity - Support alternate identity providers other than the Azure OpenAI default authentication.
 - Data sovereignty - Ensure that hybrid system also adheres to multi-region availability requirements to support affinity.
 
@@ -83,7 +82,6 @@ When you introduce a gateway into your architecture to address the consideration
 
 - The gateway allows routing request based on there priority which requires monitoring the PTU utilization. Monitoring can be done in a couple of ways. Consider one method comes with a delay where the other approach is near real-time, it requires writing customer aggregation services.
 - Adding a gateway service to your architecture adds complexity to the architecture. The gateway service deployment should be included in your Infrastructure as Code (IaC) strategy. The gateway should be included in your monitoring strategy.
-
 
 ### Performance Efficiency
 
@@ -99,7 +97,9 @@ You're not required to use a gateway if you want to implement services such as r
 - You want the client to be thin and focused on the business problem
 
 ## Implementation Options
+
 There are several options for implementing an API gateway in Azure, depending on the requirements and preferences of the developers and the organization.
+
 - Native Azure refers to the option of using Azure API Management (APIM) gateway. APIM is a fully managed service that offers a comprehensive set of features and capabilities for creating, publishing, managing, and securing APIs. APIM supports both SOAP and REST APIs, as well as GraphQL and gRPC protocols. APIM also integrates with other Azure services, such as Azure Active Directory, Azure Functions, Azure Logic Apps, Azure Service Bus, and Azure Event Grid.	Easy to deploy and configure using the Azure portal, Azure CLI, or Infrastructure as Code (IaC) tools such as ARM templates, Bicep, or Terraform.
 - Third party solutions refer to the option of using an external API gateway product or service that is not provided by Azure. There are many third party solutions available in the market, each with its own features, capabilities, and pricing models. These solutions can be deployed on Azure using virtual machines, containers, or serverless functions, depending on the requirements and preferences of the developers and the organization.
 
@@ -110,12 +110,11 @@ There are several options for implementing an API gateway in Azure, depending on
 :::image-end:::
 *Figure 2: Example architecture of accessing Azure OpenAI through a gateway*
 
-## List of scenarios
+## Next step
 
-The following table lists specific scenarios that injecting a gateway between an intelligent application and Azure OpenAI deployments can address:
+Learn about a specific scenario where injecting a gateway between an intelligent application and Azure OpenAI deployments is used to address workload requirements:
 
 | Scenario | Description |
 | --- | --- |
 | **Custom Authentication** | Provide authentication to generative AI services through an API gateway |
-| **Multiple Backend instances** | Route requests across multiple Azure OpenAI deployments using an API gateway |
-
+| [Multiple Backend instances](./azure-openai-gateway-multi-backend.yml) | Route requests across multiple Azure OpenAI deployments using an API gateway. |

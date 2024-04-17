@@ -160,6 +160,12 @@ items:
           href: guide/mlops-maturity-model.yml
         - name: Upscale ML lifecycle with MLOps
           href: guide/mlops-technical-paper.yml
+      - name: Proxy Azure OpenAI usage
+        items:
+        - name: Use a gateway infront of Azure OpenAI
+          href: guide/openai-gateway-guide.yml
+        - name: A gateway for multiple Azure OpenAI backends
+          href: guide/azure-openai-gateway-multi-backend.yml
       - name: Team Data Science Process
         items:
         - name: Overview
