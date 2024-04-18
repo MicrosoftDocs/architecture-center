@@ -1,8 +1,8 @@
-This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads in Remote Office/Branch Office (ROBO) scenarios.
+This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote offices scenarios.
 
 ## Architecture
 
-[ ![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.](images/azure-stack-robo.svg)](images/azure-stack-robo.svg#lightbox)
+[ ![Diagram illustrating an Azure Stack HCI storage switchless scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.](images/azure-stack-robo.svg)](images/azure-stack-robo.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -10,8 +10,8 @@ This reference architecture illustrates how to design infrastructure for highly 
 
 The architecture incorporates the following capabilities:
 
-- **[Azure Stack HCI (20H2)][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. The stretched cluster can consist of between four and 16 physical nodes.
-- **[File share witness][file-share-witness]**. A file share witness is a Server Message Block (SMB) share that Failover Cluster uses as a vote in the cluster quorum. Starting with Windows Server 2019, it's possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
+- **[Azure Stack HCI][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized workloads and storage in a hybrid on-premises environment or edge location. Azure Stack HCI clusters can scale from a single node to a maximum of sixteen nodes.
+- **[Cloud Witness][cloud-witness]**. Cloud Witness is a type of failover cluster quorum witness that uses Microsoft Azure to provide a vote on cluster quorum. It is possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
 - **[Azure Arc][azure-arc]**. A cloud-based service that extends the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **[Azure Policy][azure-policy]**. A cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
 - **[Azure Monitor][azure-monitor]**. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -42,7 +42,7 @@ Key technologies used to implement this architecture:
 
 ### Potential use cases
 
-Typical uses for this architecture include the following Remote Office/Branch Office (ROBO) scenarios:
+Typical uses for this architecture include the following remote office, retail or manufacturing scenarios:
 
 - Implement highly available, container-based edge workloads and virtualized, business-essential applications in a cost-effective manner.
 - Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
@@ -191,6 +191,7 @@ Microsoft Learn modules:
 [azure-monitor]: /azure/azure-monitor/overview
 [azure-backup]: /azure/backup/backup-overview
 [azure-security-center]: /azure/security-center/security-center-introduction
+[cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [file-share-witness]: /windows-server/failover-clustering/file-share-witness
 [azure-policy]: /azure/governance/policy/overview
 [azure-automation]: /azure/automation/automation-intro
