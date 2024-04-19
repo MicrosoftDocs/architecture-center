@@ -2,19 +2,19 @@ Delegate decision-making responsibilities from a central orchestrator to individ
 
 ## Context and problem
 
-A cloud-based application is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation can result in multiple point-to-point calls among all services. Designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
+A cloud-based application cation is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation can result in multiple point-to-point calls among all services. Designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
 
 A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
 The orchestrator pattern has some drawbacks. There's tight coupling between the orchestrator and other services. The orchestrator needs to have domain knowledge about the responsibilities of those services. Adding or removing services might break existing logic because you'll need to rewire portions of the communication path. This makes orchestrator implementation complex and hard to maintain. 
 
-The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure.
+The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure. It can also cause cascading failures in the downstream services.
 
 ![Processing a request using a central orchestrator](./_images/orchestrator.png)
 
 ## Solution
 
-Let each service decide and participate in the communication workflow for a business operation.
+Distribute transaction handling logic among the services. Let each service decide and participate in the communication workflow for a business operation.
 
 > The pattern is a way to minimize dependency on the central orchestrator and reduce performance bottleneck. The components of the workload share common responsibilities as they choreograph the workflow among themselves without having direct communication between them and depending on an orchestrator.
 
@@ -24,9 +24,11 @@ A common way to implement choreography is to use a message broker that buffers r
 
 The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
 
-1. A client request publishes messages to a message broker. As messages arrive, they are pushed to subscribers, or services, interested in that message. 
+1. A client requests are queued as messages in a message broker. 
 
-1. Each subscribed service does their operation as indicated by the message and responds to the message queue with success or failure of the operation. 
+1. The services or the subcriber poll the broker to determine if they can process that message based on their implemented business logic. The broker can also push messages to subscribers who are interested in that message. 
+
+1. Each subscribed service does their operation as indicated by the message and responds to the broker with success or failure of the operation. 
 
 1. If successful, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If the operation fails, the message broker can retry that operation.
 
