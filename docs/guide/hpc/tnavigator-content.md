@@ -1,15 +1,15 @@
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Consider your use and plan accordingly. For more information, see the [CentOS EOL guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is nearing end-of-life (EOL) status. Consider your use and plan accordingly. For more information, see the [CentOS EOL guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to run Rock Flow Dynamics [tNavigator](https://rfdyn.com/) on a virtual machine (VM) in Azure. It also provides the performance results of running tNavigator.
 
-tNavigator is a reservoir modeling and simulation platform that provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via remote desktop is also available.
+tNavigator is a reservoir modeling and simulation platform that provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution that has full GUI capabilities via remote desktop is also available.
 
-You can use tNavigator to perform extended uncertainty analysis and surface networks builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
+You can use tNavigator to perform extended uncertainty analysis and surface network builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
 
-## Why deploy tNavigator on Azure?
+## Why you should deploy tNavigator on Azure
 
-- Azure provides the latest and diverse compute options to align with the huge workloads for reservoir simulations.
+- Modern and diverse compute options to align with large-scale workloads for reservoir simulations.
 - Flexible virtualization without the purchase of physical hardware.
 - Rapid provisioning.
 - Dynamic reservoir simulations can be solved in a few hours by using a greater number of vCPU cores and GPUs.
@@ -43,7 +43,7 @@ The following diagram shows a multi-node configuration:
 
 ### HBv3-series
 
-The following table provides configuration details for HBv3-series.
+The following table provides configuration details for an HBv3-series VM.
 
 | VM size | vCPU | Memory (GiB) | Memory bandwidth (GBps) | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gbps) |
 |---|---|---|---|---|---|---|---|
@@ -79,11 +79,11 @@ The following table provides operating system details used for the testing of tN
 
 ## Compute sizing and drivers for GPU scaling
 
-Performance tests of tNavigator on Azure used [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) VMs running on Linux operating system for GPU scaling.
+Performance tests of tNavigator on Azure used [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) VMs running on the Linux operating system for GPU scaling.
 
 The following table provides configuration details for the NC A100 v4-series tests.
 
-| VM size | vCPU | Memory (GiB)| NVMe Disk (GiB) |GPU | GPU Memory(GiB) |Max data disk|
+| VM size | vCPU | Memory (GiB)| NVMe disk (GiB) |GPU | GPU Memory(GiB) |Max data disk|
 |---|---|---|---|---|---|---|
 | Standard_NC24ads_A100_v4|	24|	220|	960|	1|	80|	12|
 | Standard_NC48ads_A100_v4|	48|	440|	2x960|	2|	160|	24|
@@ -97,7 +97,7 @@ The following table provides operating system and driver details used for the te
 
 ### Required drivers
 
-To take advantage of the GPU capabilities [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install required NVIDIA GPU drivers. For information about how to install the drivers, see [Install NVIDIA GPU drivers](/azure/virtual-machines/linux/n-series-driver-setup) on N-series VMs that run Linux.
+To take advantage of the GPU capabilities of the [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) VMs, you need to install the required NVIDIA GPU drivers. For information about how to install the drivers, see [Install NVIDIA GPU drivers](/azure/virtual-machines/linux/n-series-driver-setup) on N-series VMs that run Linux.
 
 ## tNavigator installation
 
@@ -105,13 +105,13 @@ Before you install tNavigator, you need to deploy and connect a VM. For informat
 
 ## tNavigator performance results
 
-The performance tests of tNavigator v22.4 on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) and [HBv4-series](/azure/virtual-machines/hbv4-series) VMs for CPU scaling and [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) and GPU scaling VMs that run on Linux operating systems. The Speed Test 9 model is used for performance testing of tNavigator.
+The performance tests of tNavigator v22.4 on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) and [HBv4-series](/azure/virtual-machines/hbv4-series) VMs for CPU scaling. They also used [NC A100 v4-series](/azure/virtual-machines/nc-a100-v4-series) and GPU scaling VMs that run on Linux operating systems. The Speed Test 9 model was used for performance testing of tNavigator.
 
 ### Model details
 
-The following image shows Speed Test 9 model used for performance evaluation.
+The following image shows the Speed Test 9 model used for performance evaluation.
 
-:::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the speed test model." border="true":::
+:::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the Speed Test 9 model." border="true":::
 <br>
 
 The following table provides the details for the Speed Test 9 model:
@@ -145,11 +145,11 @@ The following chart shows relative speed increases as the number of vCPUs increa
 
 - The relative speed increases linearly with the addition of vCPU cores.
 - The solver time on the HB120-16rs_v3 (eight cores) VM serves as the baseline for relative speed increase results.
-- Parallel performance improves as we increase the vCPUs from 8 to 120 in all single-node tests.
+- Parallel performance improves as we increase the number of vCPUs from 8 to 120 in all single-node tests.
 
 ### HBv3-series VM results in a multi-node configuration
 
-The HBv3-series VMs standalone testing depicts Standard_HB120-64rs_v3 as the optimal core configuration to continue the testing on multinode cluster. The following table shows the total elapsed time recorded for Speed Test 9 model on 1, 2, 4, 6, 8, and 16 nodes.
+The HBv3-series VMs standalone testing depicts Standard_HB120-64rs_v3 as the optimal core configuration to continue the testing on multi-node cluster. The following table shows the total elapsed time recorded for Speed Test 9 model on 1, 2, 4, 6, 8, and 16 nodes.
 
 This table shows the times recorded for varying numbers of nodes of the Standard_HB120-64rs_v3 VM on Azure CycleCloud:
 
@@ -177,7 +177,7 @@ HBv4-series VMs with different numbers of vCPUs were deployed to determine the o
 
 The following table shows the total elapsed time of Speed Test 9 in seconds:
 
-|VM size|Number of vCPUs used|Total Elapsed time (seconds)|Relative speed increase|
+|VM size|Number of vCPUs used|Total elapsed time (seconds)|Relative speed increase|
 |---|---|---|---|
 |Standard_HB176-24rs_v4|12|11,602|1.00|
 |Standard_HB176-24rs_v4|24|6,407|1.81|
@@ -188,7 +188,7 @@ The following table shows the total elapsed time of Speed Test 9 in seconds:
 
 The following chart shows relative speed increase of Speed Test 9 model:
 
-:::image type="content" source="media/tnavigator/speed-test9-hbv4-singlenode-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model on single node configuration." lightbox="media/speed-test-9-single-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test-9-hbv4-single-node-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model on single-node configuration." lightbox="media/speed-test-9-single-node.png" border="false":::
 
 #### HBv4-series VM notes about tests on tNavigator
 
@@ -198,7 +198,7 @@ The following chart shows relative speed increase of Speed Test 9 model:
 
 #### HBv4-series VM results on multi-node configuration
 
-HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal core configuration to continue the testing on multinode cluster. The following table shows the total elapsed time recorded for Speed Test 9 model on one, two, four, and eight nodes.
+HBv4-series standalone testing shows that Standard_HB176-144rs_v4 is the optimal core configuration to continue the testing on multi-node clusters. The following table shows the total elapsed time recorded for the Speed Test 9 model on one, two, four, and eight nodes.
 
 |VM size|Number of nodes|Number of vCPUs|Total Elapsed time (seconds)| Relative speed increase|
 |---|---|---|---|---|
@@ -209,11 +209,11 @@ HBv4-series standalone testing depicts Standard_HB176-144rs_v4 is the optimal co
 
 The following graph shows the relative speed increase as the number of nodes increases:
 
-:::image type="content" source="media/tnavigator/speed-test9-hbv4-multinode-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test-9-hbv4-multi-node-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 ### HBv4-series VM notes about the multi-node tests
 
-From the multi-node results, models scale linearly up to eight nodes, which gives a maximum speed increase of 2.11 times the single node. We limited our validation study to a few iterations and eight nodes as more nodes results in drop in performance for this model.
+From the multi-node results, models scale linearly up to eight nodes, which gives a maximum speed increase of 2.11 times the single node. We limited our validation study to a few iterations and eight nodes because more nodes resulted in decreased performance for this model.
 
 ### Results on the NC A100 v4-series VM
 
@@ -228,9 +228,9 @@ The following table shows the total elapsed time in seconds of Speed Test 9 mode
 |Standard_NC48ads_A100_v4|	48vCPU & 2GPU|	2,014|	7.43|
 |Standard_NC96ads_A100_v4|	96vCPU & 4GPU|	1,265|	11.84|
 
-The following chart shows relative speed increase of Speed Test 9 model:
+The following chart shows the relative speed increase of the Speed Test 9 model:
 
-:::image type="content" source="media/tnavigator/speed-test9-ncv4-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model on NCv4 configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
+:::image type="content" source="media/tnavigator/speed-test-9-ncv4-chart.png" alt-text="Graph that shows the relative speed increases for the Speed Test 9 model on NCv4 configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
 #### NC A100 v4-series VM notes about tests on tNavigator
 
@@ -242,9 +242,9 @@ The following chart shows relative speed increase of Speed Test 9 model:
 
 Only model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative of your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed time in hours. To compute the total cost, multiply by the [Azure VM hourly costs for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+The following tables provide elapsed time in hours. To compute the total cost, multiply the hours by the [Azure VM hourly costs for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-### Single node configuration: HBv3-series and HBv4-series VM and NC A100 v4-series
+### Single-node configuration: HBv3-series and HBv4-series VM and NC A100 v4-series
 
 |VM size| Number of vCPUs and GPUs | Total elapsed time (hours) |
 |---|---|---|
@@ -265,7 +265,7 @@ The following tables provide elapsed time in hours. To compute the total cost, m
 |Standard_NC48ads_A100_v4| 48vCPUs & 2GPU|	0.56|
 |Standard_NC96ads_A100_v4| 96vCPUs & 4GPU|	0.35|
 
-### Multi node configuration: HBv3-series and HBv4-series VM
+### Multi-node configuration: HBv3-series and HBv4-series VM
 
 |VM size| Number of nodes | Total elapsed time (hours) |
 |---|---|---|
@@ -281,14 +281,14 @@ The following tables provide elapsed time in hours. To compute the total cost, m
 
 ### Summary of cost consumption on HBv3-series VMs
 
-- The Standard_HB120-16rs_v3 VM that features 8 vCPUs is the baseline to assess the cost-performance of different HBv3-series VM sizes.
+- The Standard_HB120-16rs_v3 VM that features 8 vCPUs is the baseline to assess the cost performance of different HBv3-series VM sizes.
 - There's partially linear scalability when VM configuration changes from Standard_HB120-16rs_v3 to Standard_HB120_v3, while the cost remains constant across these configurations.
 - Users can achieve approximately a 4.9 times performance improvement, which effectively reduces the per-hour cost as the elapsed time for simulations decreases.
 - In multi-node setups, doubling the number of nodes results in a twofold cost increase, while performance improves by approximately 1.38 times with each node addition.
 
 ### Summary of cost consumption on HBv4-series VMs
 
-- The Standard_HB176-24rs_v4 VM with 12 vCPUs serves as the baseline for evaluating the cost-performance across the HBv4-series VM sizes.
+- The Standard_HB176-24rs_v4 VM with 12 vCPUs serves as the baseline for evaluating the cost performance across the HBv4-series VM sizes.
 - A similar trend of partial linear scalability is observed when configurations are changed within the HBv4-series, from Standard_HB176-24rs_v4 to Standard_HB176_v4, with consistent costs across different VM sizes.
 - A performance enhancement of approximately 5.86 times can be observed, which in turn reduces the hourly operational cost when using the HBv4-series VMs.
 - In multi-node configurations, doubling the nodes doubles the cost but results in a performance increase of about 1.28 times with each increment.
