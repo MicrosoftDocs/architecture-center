@@ -15,7 +15,7 @@ products:
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
-name: Developing a RAG solution - Chunk enrichment phase 
+name: Chunk enrichment 
 summary: Learn about the importance of augmenting chunks with metadata like title, summary, keywords, entities, and more. Learn common cleaning operations you can perform on chunks that might improve vector matches.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |

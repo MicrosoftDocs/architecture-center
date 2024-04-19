@@ -15,7 +15,7 @@ products:
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
-name: Developing a RAG solution - Chunking phase
+name: Chunking
 summary: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. You will also learn about how the document structure should influence your chunking strategy.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
