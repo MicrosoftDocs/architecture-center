@@ -26,7 +26,7 @@ The RDRS logo is a trademark of its respective company. No endorsement is implie
 1. After data lands in the Azure data platform, it's consumed by Azure services or others that are permitted to see it. Examples include Power BI, Synapse Analytics, or even a custom application.
 1. The RDRS product can even reverse-sync capture changes from an Azure database platform (SQL Database, MySQL, PostgreSQL, Data Lake Storage, and so on) and write them back to the mainframe data tier.
 1. The mainframe database backup and unload files are copied to an Azure virtual machine (VM) with RDRS for bulk load processing.
-1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload. The bulk load provides an automatic translation of mainframe data types, such as extended binary coded decimal interchange code (EBCDIC)-packed fields. Typically, use the backup or unload data versus a direct read of the mainframe database for the best performance. The reason for not reading directly is because moving unload or backup data to the requisite RDRS Azure VM and by using native database loaders minimizes network input/output (IO) and reduces load time.
+1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload. The bulk load provides an automatic translation of mainframe data types, like extended binary coded decimal interchange code (EBCDIC)-packed fields. Typically, use the backup or unload data versus a direct read of the mainframe database for the best performance. The reason for not reading directly is because moving unload or backup data to the requisite RDRS Azure VM and by using native database loaders minimizes network input/output (IO) and reduces load time.
 
 ### Components
 
@@ -34,13 +34,13 @@ The solution uses the following components.
 
 #### Networking and identity components
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection handled by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Microsoft Azure and Microsoft 365.
+- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection handled by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, like Microsoft Azure and Microsoft 365.
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 - [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft Entra ID is an identity and access management service that you can synchronize with an on-premises directory.
 
 #### Application components
 
-- [Logic Apps](/azure/logic-apps/logic-apps-overview) - Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or upload files to a file share.
+- [Logic Apps](/azure/logic-apps/logic-apps-overview) - Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure, like HTTP or HTTPS endpoints, post messages to Azure services like Azure Storage and Azure Service Bus, or upload files to a file share.
 - [Functions](/azure/azure-functions/functions-overview) - Functions lets you run small pieces of code, or functions, without worrying about application infrastructure. With Functions, the cloud infrastructure provides the up-to-date servers you need to keep your application running at scale.
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) - Azure VMs are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
@@ -54,7 +54,7 @@ The solution uses the following components.
 
 - [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) - Application telemetry is sent to Application Insights for analysis and presentation.
-- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. Data from different sources such as platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications can be consolidated into a single workspace so that they can be analyzed together using a sophisticated query language that's capable of quickly analyzing millions of records.
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. Data from different sources like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications can be consolidated into a single workspace so that they can be analyzed together using a sophisticated query language that's capable of quickly analyzing millions of records.
 - [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) - Log queries help you gain the value of the data collected in Monitor Logs. A powerful query language lets you join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
 
 ## Considerations
