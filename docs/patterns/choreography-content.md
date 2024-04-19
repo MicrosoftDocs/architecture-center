@@ -6,15 +6,17 @@ A cloud-based application is often divided into several small services that work
 
 A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
-The orchestrator pattern has some drawbacks. There's tight coupling between the orchestrator and other services. The orchestrator needs to have domain knowledge about the responsibilities of those services. Adding or removing services might break existing logic because you'll need to rewire portions of the communication path. This makes orchestrator implementation complex and hard to maintain.
+The orchestrator pattern has some drawbacks. There's tight coupling between the orchestrator and other services. The orchestrator needs to have domain knowledge about the responsibilities of those services. Adding or removing services might break existing logic because you'll need to rewire portions of the communication path. This makes orchestrator implementation complex and hard to maintain. 
+
+The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure.
 
 ![Processing a request using a central orchestrator](./_images/orchestrator.png)
 
 ## Solution
 
-Let each service decide the communication workflow for a business operation.
+Let each service decide and participate in the communication workflow for a business operation.
 
-> The pattern is a way to minimize dependency on the central orchestrator and reduce performance bottleneck. The components of the workload share common responsibilities as they choreograph the workflow among themselves without depending on an orchestrator or having direct communication between them.
+> The pattern is a way to minimize dependency on the central orchestrator and reduce performance bottleneck. The components of the workload share common responsibilities as they choreograph the workflow among themselves without having direct communication between them and depending on an orchestrator.
 
 A common way to implement choreography is to use a message broker that buffers requests until they are picked by services. 
 
