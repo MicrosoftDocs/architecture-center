@@ -137,7 +137,7 @@ items:
       - name: Developing and evaluating RAG solutions
         items:
         - name: Preparation phase
-          href: guide/rag/rag-generating-embeddings.yml
+          href: guide/rag/rag-preparation-phase.yml
         - name: Chunking phase
           href: guide/rag/rag-chunking-phase.yml
         - name: Chunk enrichment phase
@@ -229,7 +229,7 @@ items:
         - name: Developing and evaluating RAG solutions
           items:
           - name: Preparation phase
-            href: guide/rag/rag-generating-embeddings.yml
+            href: guide/rag/rag-preparation-phase.yml
           - name: Chunking phase
             href: guide/rag/rag-chunking-phase.yml
           - name: Chunk enrichment phase
