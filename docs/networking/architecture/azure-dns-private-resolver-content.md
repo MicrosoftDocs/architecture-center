@@ -52,7 +52,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
 - An on-premises network. This network of customer datacenters is connected to Azure via ExpressRoute or a site-to-site Azure VPN Gateway connection. Network components include two local DNS servers. One uses the IP address 192.168.0.1. The other uses 192.168.0.2. Both servers work as resolvers or forwarders for all computers inside the on-premises network.
 
-  An administrator creates all local DNS and Azure endpoints on these servers. Conditional forwarders are configured on these servers for the Azure Blob Storage and Azure API Management services. Those forwarders send requests to the DNS Private Resolver inbound connection. The inbound endpoint uses the IP address 10.0.0.8 and is hosted within the Shared Service virtual network (subnet 10.0.0.0/28).
+ An administrator creates all local DNS records and Azure endpoints forwarders on these servers. Conditional forwarders are configured on these servers for the Azure Blob Storage and Azure API Management services. Those forwarders send requests to the DNS Private Resolver inbound connection. The inbound endpoint uses the IP address 10.0.0.8 and is hosted within the Shared Service virtual network (subnet 10.0.0.0/28).
 
   The following table lists the records on the local servers.
 
