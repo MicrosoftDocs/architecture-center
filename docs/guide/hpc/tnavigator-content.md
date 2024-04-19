@@ -200,7 +200,7 @@ The following chart shows relative speed increase of Speed Test 9 model:
 
 HBv4-series standalone testing shows that Standard_HB176-144rs_v4 is the optimal core configuration to continue the testing on multi-node clusters. The following table shows the total elapsed time recorded for the Speed Test 9 model on one, two, four, and eight nodes.
 
-|VM size|Number of nodes|Number of vCPUs|Total Elapsed time (seconds)| Relative speed increase|
+|VM size|Number of nodes|Number of vCPUs|Total elapsed time (seconds)| Relative speed increase|
 |---|---|---|---|---|
 |Standard_HB176-144rs_v4| 1|	144|	2,017|	1.00|
 |Standard_HB176-144rs_v4| 2|	288|	1,627|	1.24|
@@ -221,7 +221,7 @@ The following sections provide the performance results of running tNavigator on 
 
 The following table shows the total elapsed time in seconds of Speed Test 9 model:
 
-|VM size|	Number of vCPUs and GPUs used|	Total Elapsed time (seconds)|	Relative speed increase|
+|VM size|	Number of vCPUs and GPUs used|	Total elapsed time (seconds)|	Relative speed increase|
 |---|---|---|---|
 |Standard_NC24ads_A100_v4|	24vCPU & 0GPU|	14,973|	1|
 |Standard_NC24ads_A100_v4|	24vCPU & 1GPU|	3,596|	4.16|
