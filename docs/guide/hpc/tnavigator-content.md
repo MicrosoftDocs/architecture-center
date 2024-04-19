@@ -7,7 +7,7 @@ tNavigator is a reservoir modeling and simulation platform that provides tools f
 
 You can use tNavigator to perform extended uncertainty analysis and surface network builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
 
-## Why you should deploy tNavigator on Azure
+## Why deploy tNavigator on Azure?
 
 - Modern and diverse compute options to align with large-scale workloads for reservoir simulations.
 - Flexible virtualization without the purchase of physical hardware.
