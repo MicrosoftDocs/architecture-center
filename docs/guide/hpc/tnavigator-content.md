@@ -111,7 +111,7 @@ The performance tests of tNavigator v22.4 on Azure used [HBv3-series](/azure/vir
 
 The following image shows the Speed Test 9 model used for performance evaluation.
 
-:::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the Speed Test 9 model." border="true":::
+:::image type="content" source="media/speed-test-model.png" alt-text="3D graph that shows a view of the Speed Test 9 model." border="true":::
 <br>
 
 The following table provides the details for the Speed Test 9 model:
