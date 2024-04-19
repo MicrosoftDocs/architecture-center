@@ -1,28 +1,32 @@
-Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+Delegate decision-making responsibilities from a central orchestrator to individual components within a system.
 
 ## Context and problem
 
-In microservices architecture, it's often the case that a cloud-based application is divided into several small services that work together to process a business transaction end-to-end. To lower coupling between services, each service is responsible for a single business operation. Some benefits include faster development, smaller code base, and scalability. However, designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
+A cloud-based application is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation can result in multiple point-to-point calls among all services. Designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
 
-The services communicate with each other by using well-defined APIs. Even a single business operation can result in multiple point-to-point calls among all services. A common pattern for communication is to use a centralized service that acts as the orchestrator. It acknowledges all incoming requests and delegates operations to the respective services. In doing so, it also manages the workflow of the entire business transaction. Each service just completes an operation and is not aware of the overall workflow.
+A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
-The orchestrator pattern reduces point-to-point communication between services but has some drawbacks because of the tight coupling between the orchestrator and other services that participate in processing of the business transaction. To execute tasks in a sequence, the orchestrator needs to have some domain knowledge about the responsibilities of those services. If you want to add or remove services, existing logic will break, and you'll need to rewire portions of the communication path. While you can configure the workflow, add or remove services easily with a well-designed orchestrator, such an implementation is complex and hard to maintain.
+The orchestrator pattern has some drawbacks. There's tight coupling between the orchestrator and other services. The orchestrator needs to have domain knowledge about the responsibilities of those services. Adding or removing services might break existing logic because you'll need to rewire portions of the communication path. This makes orchestrator implementation complex and hard to maintain.
 
 ![Processing a request using a central orchestrator](./_images/orchestrator.png)
 
 ## Solution
 
-Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
+Let each service decide the communication workflow for a business operation.
 
-One way to implement choreography is to use the [asynchronous messaging pattern](./publisher-subscriber.yml) to coordinate the business operations.
+> The pattern is a way to minimize dependency on the central orchestrator and reduce performance bottleneck. The components of the workload share common responsibilities as they choreograph the workflow among themselves without depending on an orchestrator or having direct communication between them.
 
-![Processing a request using a choreographer](./_images/choreography-pattern.png)
+A common way to implement choreography is to use a message broker that buffers requests until they are picked by services. 
 
-A client request publishes messages to a message queue. As messages arrive, they are pushed to subscribers, or services, interested in that message. Each subscribed service does their operation as indicated by the message and responds to the message queue with success or failure of the operation. In case of success, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If an operation fails, the message bus can retry that operation.
+![Processing a request using a message broker](./_images/choreography-pattern.png)
 
-This way, the services choreograph the workflow among themselves without depending on an orchestrator or having direct communication between them.
+The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
 
-Because there isn't point-to-point communication, this pattern helps reduce coupling between services. Also, it can remove the performance bottleneck caused by the orchestrator when it has to deal with all transactions.
+1. A client request publishes messages to a message broker. As messages arrive, they are pushed to subscribers, or services, interested in that message. 
+
+1. Each subscribed service does their operation as indicated by the message and responds to the message queue with success or failure of the operation. 
+
+1. If successful, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If the operation fails, the message broker can retry that operation.
 
 ## When to use this pattern
 
