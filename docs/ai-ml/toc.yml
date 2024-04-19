@@ -143,7 +143,9 @@ items:
         - name: Chunk enrichment phase
           href: guide/rag/rag-enrichment-phase.yml
         - name: Embedding phase
-          href: guide/rag/rag-generating-embeddings.yml.yml
+          href: guide/rag/rag-generating-embeddings.yml
+        - name: Information retrieval phase
+          href: guide/rag/rag-information-retrieval.yml
       - name: Document processing
         items:
         - name: OpenAI GPT-3 summarization
@@ -224,6 +226,18 @@ items:
           href: openai/architecture/log-monitor-azure-openai.yml
       - name: Apply guidance
         items:
+        - name: Developing and evaluating RAG solutions
+          items:
+          - name: Preparation phase
+            href: guide/rag/rag-generating-embeddings.yml
+          - name: Chunking phase
+            href: guide/rag/rag-chunking-phase.yml
+          - name: Chunk enrichment phase
+            href: guide/rag/rag-enrichment-phase.yml
+          - name: Embedding phase
+            href: guide/rag/rag-generating-embeddings.yml
+          - name: Information retrieval phase
+            href: guide/rag/rag-information-retrieval.yml        
         - name: Build language model pipelines
           href: openai/guide/language-model-pipelines.yml
         - name: OpenAI GPT-3 summarization
