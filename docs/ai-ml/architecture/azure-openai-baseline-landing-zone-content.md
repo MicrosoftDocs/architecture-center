@@ -75,9 +75,9 @@ The platform team owns and maintains these centralized resources to optimize ove
 
 In a landing zone context, the workload team implementing this architecture must inform the platform team of their specific requirements, and the platform team must communicate their requirements to the workload team.
 
-For example, your **workload team** must include detailed information about the networking space that your workload needs, so that the platform team can allocate necessary resources. Your team determines the requirements and the platform team determines the IP addresses to assign within the virtual network. The platform team also decides the management group the subscription is assigned.
+For example, your **workload team** must include detailed information about the networking space that your workload needs, so that the platform team can allocate necessary resources. Your team determines the requirements and the platform team determines the IP addresses to assign within the virtual network.
 
-Likewise, the **platform team** assigns an appropriate management group based on the workload's business criticality and technical requirements, for example if a workload is exposed to the Internet like this one is. The platform team determines the configuration and implementation of these management groups. Your workload team must design the workload to work and be operated on within that governance.
+Likewise, the **platform team** assigns an appropriate management group based on the workload's business criticality and technical requirements, for example if a workload is exposed to the Internet like this one is. The platform team determines the configuration and implementation of these management groups. Your workload team must design the workload to work and be operated on within that governance. For more information on typical management group distinctions, see [Tailor the Azure landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz).
 
 Ultimately, the platform team is responsible for setting up the subscription for this architecture. The following sections provide guidance on the initial subscription setup as it relates to this architecture.
 
@@ -187,7 +187,7 @@ Be sure to evaluate if the inclusion of component features that directly depend 
 
 ### Egress traffic
 
-In the baseline architecture, Internet egress control was only available through the network configuration on Azure Machine Learning workspaces and Azure App Services, combined with using Network Security Groups (NSG) on the various subnets. Those controls remain present in this architecture, but are further augmented. All traffic that leaves the spoke virtual network is now rerouted through the peered hub network via an egress firewall.
+In the baseline architecture, Internet egress control was only available through the network configuration on Azure Machine Learning workspaces and Azure App Services, combined with using Network Security Groups (NSG) on the various subnets. Those controls remain present in this architecture but are further augmented. In this architecture, all traffic that leaves the spoke virtual network is now rerouted through the peered hub network via an egress firewall. Traffic originating inside the managed virtual network for Azure Machine Learning computes is not subject to this egress route.
 
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.png" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.png" border="false":::
    TODO - WAITING FOR FINAL IMAGE
