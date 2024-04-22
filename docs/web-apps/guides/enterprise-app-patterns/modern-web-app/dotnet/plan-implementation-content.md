@@ -1,27 +1,38 @@
 ---
 title: 
 ---
-This article shows you how to plan an implementation of the reliable web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
 
-[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To plan an implementation of the reliable web app pattern, follow these recommendations:
+[!INCLUDE [mwa-plan-intro](../includes/mwa-plan-intro.md)]
 
-##  goals
+[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
 
-*Example:* The fictional company, Relecloud, has applied the reliable web app pattern to their web app that allows customers to purchase concert tickets. Relecloud wants to improve how their web app handles spikes in demand especially for resource-intensive parts of the application, such as rendering ticket images. They identified the following business goals:
+## Understand the goals of the pattern
 
-- Maintain a service level objective of 99.9%
-- Decouple solution components so that they can operate and version independently
-- Allow high traffic components of their solution to automatically scale independently
-- Optimize costs by scaling unneeded resources to zero when appropriate
-- Deploy reliably by using containerized services
+The Modern Web App pattern drives toward specific web app goals. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
 
-To achieve these goals, they needed a more service-oriented architecture according to the modern web app pattern.
+| Modern Web App pattern business goals | Modern Web App pattern web app goals |
+|---------------------------------------|--------------------------------------|
+| Handle increased demand               | - Decouple components<br>- Autoscale high-traffic components independently|
+| Optimize web app costs                | - Scale unneeded resources to zero where appropriate |
+| Service-level objective of 99.9%      | - Deploy reliably by using containerized services<br>-Choose the right Azure services<br>-Choose the right architecture|
+
+If your goals align with the Modern Web App pattern, then it's likely the right solution for you.
+
+*Example:* The fictional company, Relecloud, has applied the Reliable Web App pattern to their web app that allows customers to purchase concert tickets. Relecloud wants to improve how the web app handles spikes in demand for resource-intensive parts of the application, such as rendering ticket images.
+
+## Identify prerequisites of the pattern
+
+The Modern Web App builds on the Reliable Web App pattern. Review the [implementation techniques](../../overview.md#principles-and-implementation-techniques-of-the-reliable-web-app-pattern) of the Reliable Web App pattern and make sure you apply the implementation techniques to your web app before you apply the Modern Web App pattern.
 
 ## Choose the right services
 
-The Azure services used when implementing the modern web app pattern must support the web app goals and the principles of the modern web app pattern. Unlike the reliable web app pattern, the modern web app pattern uses containerization to separate logical portions of the application into standalone services. It also adds a messaging solution to enable asynchronous communication and queue-based scaling.
+The Modern Web App pattern uses containerization to separate logical portions of the application into standalone services. It uses a messaging system to enable asynchronous communication and queue-based scaling.
 
-The services used to implement the modern web app pattern supplement the reliable web app pattern. When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized. In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
+The services used to implement the modern web app pattern supplement the reliable web app pattern.
+
+When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized. 
+
+In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
 
 *Example:* The existing web app for the modern web app pattern is the end state of the reliable web app pattern. In the example used in the modern web app pattern reference sample, the web app is Relecloud’s ticket purchasing application. After applying the reliable web app pattern, Relecloud’s application consists of two Azure App Services (a front-end and an API) which communicate with an Azure SQL database and an Azure Cache for Redis. The Relecloud solution stores configuration values and secrets in Azure App Configuration and Azure Key Vault.
 
