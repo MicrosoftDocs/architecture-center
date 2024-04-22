@@ -46,7 +46,7 @@ The solution uses the following components.
 
 #### Storage components
 
-- [Storage](/azure/storage/common/storage-introduction) - Storage offers unmanaged storage solutions like Azure Blob, Azure Tables, Azure Queues, and Azure Files. Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
+- [Storage](/azure/storage/common/storage-introduction) - Storage offers unmanaged storage solutions like Azure Blob, Azure Tables, Azure Queues, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
 - [Azure SQL](/azure/azure-sql/database/sql-database-paas-overview) - Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure services, such as Azure SQL Managed Instance, Azure SQL VM, Azure Database for PostgreSQL, Azure Database for MariaDB, and MySQL.
 - [Azure Cosmos DB](/azure/cosmos-db/introduction) - Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off the mainframe.
 
@@ -64,7 +64,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Reliability
 
 * Set up RDRS Open Platform Manager (OPM) on Azure VMs deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated. Then the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
-* Design database services in the Azure support zone redundancy to fail over to a secondary node in case of an outage or a planned maintenance window.
+* Design database services in the Azure support zone redundancy to fail over to a secondary node if there's an outage or a planned maintenance window.
 * Use Monitor and Application Insights in addition to Log Analytics to monitor the health of the Azure resource. You can set alerts for proactive management.
 * For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
