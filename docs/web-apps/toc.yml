@@ -74,10 +74,10 @@ items:
         items:
         - name: Enterprise app patterns
           items:
-          - name: Reliable web app pattern
+          - name: Overview
+            href: guides/enterprise-app-patterns/overview.md
+          - name: Reliable Web App pattern
             items:
-            - name: Overview
-              href: guides/reliable-web-app/overview.md
             - name: .NET
               items:
               - name: Plan the implementation
@@ -90,6 +90,14 @@ items:
                 href: guides/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/reliable-web-app/java/apply-pattern.yml
+          - name: Modern Web App pattern
+            items:
+            - name: MWA for .NET
+              href: guides/enterprise-app-patterns/modern-web-app/dotnet/mwa-dotnet.yml
+            - name: Plan MWA for .NET apps
+              href: guides/enterprise-app-patterns/modern-web-app/dotnet/plan-implementation.yml
+            - name: Apply MWA for .NET apps
+              href: guides/enterprise-app-patterns/modern-web-app/dotnet/apply-pattern.yml
     - name: Hosting applications
       items:
       - name: WordPress
