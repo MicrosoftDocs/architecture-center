@@ -68,7 +68,7 @@ The following examples demonstrate how Azure facilitates the implementation of t
 
 Choose the example that suits your needs and follow the provided link to view the code on GitHub:
 
-| Sample code                   | Messaging system             | Token generator               | Sending application            | Receiving application          | Data store         |
+| Sample code                   | Messaging system             | Token generator               | Receiving application          | Data store         |
 |-------------------------------|------------------------------|------------------------------|--------------------------------|--------------------------------|--------------------|
 | [Code example 1][example-1]   | Azure Queue Storage          | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
 | [Code example 2][example-2]   | Event Hubs (Standard API)    | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
