@@ -2,7 +2,7 @@ Rocket® Data Replicate and Sync (RDRS) is a data replication solution developed
 
 ## Architecture
 
-:::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-tcvision.svg" alt-text="Architecture diagram of the data flow in migrating mainframe to Azure data platform." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-tcvision.svg":::
+:::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-rdrs.svg" alt-text="Architecture diagram of the data flow in migrating mainframe to Azure data platform." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-rdrs.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-realtime-batch-data-replication-azure-rdrs.vsdx) of this architecture.*
 
@@ -26,7 +26,7 @@ The RDRS logo is a trademark of its respective company. No endorsement is implie
 1. After data lands in the Azure data platform, it's consumed by Azure services or other platforms that are permitted to see it. Examples include Power BI, Synapse Analytics, or custom applications.
 1. The RDRS product can reverse-sync capture changes from an Azure database platform (like SQL Database, MySQL, PostgreSQL, or Data Lake Storage) and write them back to the mainframe data tier.
 1. The mainframe database backup and unload files are copied to an Azure virtual machine (VM) with RDRS for bulk load processing.
-1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload. The bulk load provides an automatic translation of mainframe data types, like extended binary coded decimal interchange code (EBCDIC)-packed fields. Use the backup or unload data for the best performance instead of a direct read of the mainframe database. You shouldn't read the database directly because moving unload or backup data to the requisite RDRS Azure VM and using native database loaders minimizes network input/output (IO) and reduces load time.
+1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload. The bulk load provides an automatic translation of mainframe data types, like extended binary coded decimal interchange code (EBCDIC)-packed fields. Use the backup or unload data for the best performance instead of a direct read of the mainframe database. You shouldn't read the database directly because moving unload or backup data to the requisite RDRS Azure VM and using native database loaders minimizes network input/output (I/O) and reduces load time.
 
 ### Components
 

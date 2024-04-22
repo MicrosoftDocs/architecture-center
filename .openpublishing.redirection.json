@@ -4470,6 +4470,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/mainframe/mainframe-data-replication-azure-tcvision-content.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs-content",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path": "docs/example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/data/big-data-with-iot.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false

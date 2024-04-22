@@ -22,6 +22,6 @@ products:
   - azure-storage
 name: Mainframe and midrange data replication to Azure using RDRS
 summary: Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure Data Platform services.
-thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-realtime-batch-data-replication-azure-tcvision.png
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-realtime-batch-data-replication-azure-rdrs.png
 content: |
-  [!include[](mainframe-data-replication-azure-tcvision-content.md)]
+  [!include[](mainframe-data-replication-azure-rdrs-content.md)]
