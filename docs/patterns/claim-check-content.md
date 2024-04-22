@@ -1,7 +1,5 @@
 The Claim-Check pattern allows workloads to transfer payloads without storing the payload in a messaging system. The pattern stores the payload in an external data store and uses a "claim check" to retrieve the payload. The claim check is a unique, obscure token or key. To retrieve the payload, applications need to present the claim-check token to the external data store.
 
-This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
-
 ## Context and problem
 
 Traditional messaging systems are optimized to manage a high volume of small messages and often have restrictions on the message size they can handle. Large messages not only risk exceeding these limits but can also degrade the performance of the entire system when the messaging system stores them.
