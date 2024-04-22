@@ -32,9 +32,9 @@ The success factor in this step is being *qualitatively confident* that you have
 
 In this step, you are gathering test queries that will be used to evaluate your chunks, search solution and your prompt engineering. This step is done lockstep with gathering the representative documents, as you are not only gathering the queries, you are also gathering how the queries are addressed by the representative documents. Having both the sample queries, combined with the parts of the sample documents that address those queries, will allow us to evaluate every stage of the RAG solution as we are experimenting with different strategies and approaches.
 
-### Query output
+### Gather test query output
 
-The output of this phase includes content from both the #gather-test-queries step, as well as the #gather-representative-test-documents step. The output is a collection containing the following:
+The output of this phase includes content from both the #gather-test-queries step, as well as the [Gather representative test documents](#gather-representative-test-documents) step. The output is a collection containing the following:
 
 * **Query** - The query.
 * **Context** - A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.

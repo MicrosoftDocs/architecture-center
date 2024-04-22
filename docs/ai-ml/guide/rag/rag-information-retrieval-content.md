@@ -35,9 +35,9 @@ Search platforms will generally support full text and vector searches. Some plat
 
 #### Vector search
 
-[Vector searches](/azure/search/vector-search-how-to-quer) match on similarity between the vectorized query (prompt) and vector fields.
+[Vector searches](/azure/search/vector-search-how-to-query) match on similarity between the vectorized query (prompt) and vector fields.
 
-> IMPORTANT: You should perform the same [cleaning operations](./rag-enrichment-phase#cleaning) you performed on chunks prior to embedding the chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query prior to embedding.
+> IMPORTANT: You should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning) you performed on chunks prior to embedding the chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query prior to embedding.
 
 > NOTE: You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. See that section for more information.
 
@@ -263,3 +263,20 @@ Consider the following general guidance when implementing your search solution:
 * In general, it is a good practice to run queries on multiple fields, both vector and text queries. When you receive a query, you don't know whether vector search or text search will be better. You further do not know what fields the vector search or keyword search will be best to search. You can search on multiple fields, potentially with multiple queries, re-rank the results and return the results with the highest scores.
 * Keywords and entities fields are good candidates to consider filtering on.
 * It is a good practice to use keywords along with vector searches. The keywords filter the results to a smaller subset. The vector store works against that subset to find the best matches.
+
+## Search evaluation
+
+In the preparation phase you should have [gathered test queries along with test document information](./rag-preparation-phase.yml#gather-test-query-output). You can use the following information you gathered in that phase to evaluate your search results:
+
+* The query - The sample query
+* The context - The collection of all the text in the test documents that address the sample query
+
+The following are three well established retrieval evaluation methods you can use to evaluate your search solution: 
+
+* **Precision at K** - The percentage of correctly identified relevant items out of the total search results. This metric focuses on the accuracy of your search results.
+* **Recall at K** - Recall at K measures the percentage of relevant items in the top K out of the total possible relative items. This metric focuses on search results coverage.
+* **Mean Reciprocal Rank (MRR)** - MRR measures the average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
+
+TODO: Can we provide 1-2 examples - perhaps a positive and a negative
+
+You should test both positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data should not be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries and average the positive query results and the negative query results to understand how your search results are performing in aggregate.
