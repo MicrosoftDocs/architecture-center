@@ -64,7 +64,7 @@ The following examples demonstrate how Azure facilitates the implementation of t
 
 - *Azure messaging systems*: The examples cover four different Azure messaging system scenarios: Azure Queue Storage, Azure Event Hubs (Standard API), Azure Service Bus, and Azure Event Hubs (Kafka API).
 
-- *Automatic vs. manual claim-check token generation*: These examples also show two methods to generate the claim-check token. In code examples 1-3, Azure Event Grid automatically generates the token when the sending application sends the message to Azure Blob Storage. Code example 4 shows a manual token generation process using an executable command-line client.
+- *Automatic vs. manual claim-check token generation*: These examples also show two methods to generate the claim-check token. In code examples 1-3, Azure Event Grid automatically generates the token when the sending application transfers the payload to Azure Blob Storage. Code example 4 shows a manual token generation process using an executable command-line client.
 
 Choose the example that suits your needs and follow the provided link to view the code on GitHub:
 
