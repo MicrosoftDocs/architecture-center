@@ -10,22 +10,21 @@ The RDRS logo is a trademark of its respective company. No endorsement is implie
 
 ### Workflow
 
-1. The RDRS data replication solution supports CDC from many mainframe-based databases, including Db2, IMS/DB, Software AG ADABAS, CA Datacom, and CA IDMS. RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases.
-1. RDRS also supports CDC from virtual storage access method (VSAM) files.
+1. The RDRS data replication solution supports change data capture (CDC) from many mainframe-based databases, including Db2, IMS/DB, Software AG ADABAS, CA Datacom, and CA IDMS. RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases. RDRS also supports CDC from virtual storage access method (VSAM) files.
 1. A task starts on the mainframe. Started tasks (STCs) are created on the mainframe as part of RDRS software installation. Two vital STCs are:
    * Capture agent, which captures changed data from the source.
    * Apply agent, which uses DBMS-specific APIs to efficiently write changed data to the target.
    > [!NOTE]
-   > For Db2 z/OS, RDRS also offers an Agentless CDC solution by way of a Db2 user-defined type (UDT) that doesn't need an STC.
+   > For Db2 z/OS, RDRS also offers an Agentless CDC solution by way of a Db2 user-defined type (UDT) that doesn't need STCs.
 
-1. The Open Platform Manager acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set to extract the data from the source. The server transforms and processes the data for the target systems and writes the data into the targets. You can install this component on Linux, Unix, and Windows operating systems.
-1. The RDRS dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities help automate data exchange processes and manage unattended operations of the data synchronization process.
-1. The RDRS Apply Agent uses database management system-specific APIs. These APIs efficiently implement real-time data changes in combination with CDC technology at the source to the target Azure Data Services, meaning the database and files.
-1. RDRS supports direct streaming of the changed data into Azure Event Hubs or Kafka. Then Azure Logic Apps, a function, or a custom solution in the VM processes these events.
+1. The Open Platform Manager (OPM) acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set to extract the data from the source. The server transforms and processes the data for the target systems and writes the data into the targets. You can install this component on Linux, Unix, and Windows operating systems.
+1. The RDRS dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities automate data exchange processes and manage unattended operations of the data synchronization process.
+1. The RDRS apply agent uses database management system-specific APIs. These APIs efficiently implement real-time data changes in combination with CDC technology at the source to the target Azure Data Services, meaning the database and files.
+1. RDRS supports direct streaming of the changed data into Azure Event Hubs or Kafka. Then Azure Logic Apps, a function, or a custom solution in the VM, processes these events.
 1. The Azure data platform targets supported by RDRS include Azure SQL Database, Azure Database for PostgreSQL, MySQL, Azure Cosmos DB, Azure Data Lake Storage, and others.
-1. After data lands in the Azure data platform, it's consumed by Azure services or other platforms that are permitted to see it. Examples include Power BI, Synapse Analytics, or custom applications.
+1. Data that lands in the Azure data platform is consumed by Azure services or other platforms that are permitted to see it. Examples include Power BI, Synapse Analytics, or custom applications.
 1. The RDRS product can reverse-sync capture changes from an Azure database platform (like SQL Database, MySQL, PostgreSQL, or Data Lake Storage) and write them back to the mainframe data tier.
-1. The mainframe database backup and unload files are copied to an Azure virtual machine (VM) with RDRS for bulk load processing.
+1. The mainframe database backup and unload files are copied to an Azure virtual machine (VM) by using RDRS for bulk load processing.
 1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload. The bulk load provides an automatic translation of mainframe data types, like extended binary coded decimal interchange code (EBCDIC)-packed fields. Use the backup or unload data for the best performance instead of a direct read of the mainframe database. You shouldn't read the database directly because moving unload or backup data to the requisite RDRS Azure VM and using native database loaders minimizes network input/output (I/O) and reduces load time.
 
 ### Components
@@ -41,7 +40,7 @@ The solution uses the following components.
 #### Application components
 
 - [Logic Apps](/azure/logic-apps/logic-apps-overview) - Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside of Azure, like HTTP or HTTPS endpoints, post messages to Azure services like Azure Storage and Azure Service Bus, or upload files to a file share.
-- [Azure Functions](/azure/azure-functions/functions-overview) - Azure Functions lets you run small pieces of code, called functions, without worrying about application infrastructure. With Functions, the cloud infrastructure provides the up-to-date servers you need to keep your application running at scale.
+- [Azure Functions](/azure/azure-functions/functions-overview) - Azure Functions lets you run small pieces of code, called functions, without worrying about application infrastructure. By using Functions, the cloud infrastructure provides the up-to-date servers you need to keep your application running at scale.
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) - Azure VMs are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization and eliminates the maintenance demands of physical hardware. Azure VMs operate on both Windows and Linux systems.
 
 #### Storage components
@@ -63,7 +62,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-* Set up RDRS Open Platform Manager (OPM) on Azure VMs deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated. Then the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
+* Set up RDRS Open Platform Manager on Azure VMs deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated. Then the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
 * Design database services in the Azure support zone redundancy to fail over to a secondary node if there's an outage or a planned maintenance window.
 * Use Monitor and Application Insights in addition to Log Analytics to monitor the health of the Azure resource. You can set alerts for proactive management.
 * For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
@@ -79,10 +78,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Control authentication and access for RDRS with Microsoft Entra ID.
-* Encrypt data transfer between RDRS products (mainframe to Azure) with transport layer security (TLS).
+* Control authentication and access for RDRS by using Microsoft Entra ID.
+* Encrypt data transfer between RDRS products (mainframe to Azure) by using transport layer security (TLS).
 * Use Express Route or site-to-site VPN for private and efficient connection to Azure from an on-premises environment.
-* Authenticate Azure resources with Microsoft Entra ID and manage permissions with role-based access control (RBAC).
+* Authenticate Azure resources by using Microsoft Entra ID and manage permissions with role-based access control (RBAC).
 * Use the database services in Azure to support various security options like data encryption at rest (TDE), data encryption in transit (TLS), and data encryption while processing, which is always encrypted.
 * For guidelines about how to design secure solutions, see [Azure security documentation](/azure/security).
 * To find out your security baseline, see [Azure security baseline assessment](/security/benchmark/azure/security-baselines-overview).
