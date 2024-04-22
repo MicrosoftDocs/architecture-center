@@ -451,7 +451,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 ## Next steps
 
-- learn more about [MLOps](/azure/machine-learning/service/concept-model-management-and-deployment)
+- Learn more about [MLOps](/azure/machine-learning/service/concept-model-management-and-deployment)
 - [MLOps on Azure](https://github.com/microsoft/MLOps)
 - [Azure Monitor Visualizations](/azure/azure-monitor/visualizations)
 - [Machine Learning Lifecycle](/shows/AI-Show/MLOps-for-managing-the-end-to-end-life-cycle-with-Azure-Machine-Learning-service?term=MLOpsandlang-en=true)
