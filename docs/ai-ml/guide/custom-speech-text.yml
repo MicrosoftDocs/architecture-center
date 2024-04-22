@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Implement custom speech-to-text solutions that use AI
-  description: Learn about approaches for implementing high-quality speech-aware applications that use AI. This article describes the problem space and decision-making process. 
+  title: Implement custom speech to text solutions that use AI
+  description: Learn about approaches for implementing high-quality speech-aware applications that use AI. This article describes the problem space and decision-making process.
   author: mishrapratyush
   ms.author: pmishra
   ms.date: 04/07/2023 
@@ -14,8 +14,8 @@ products:
   - ai-services
   - azure-speech
   - azure-machine-learning
-name: Implement custom speech-to-text
+name: Implement custom speech to text
 summary: Learn about approaches for implementing high-quality speech-aware applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
-  [!include[](custom-speech-text-content.md)]
+  [!INCLUDE[](custom-speech-text-content.md)]
