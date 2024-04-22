@@ -4,7 +4,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
 		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="21.6406in" height="11.9796in"
 		viewBox="0 0 1558.13 862.53" xml:space="preserve" color-interpolation-filters="sRGB" class="st102">
-	<title>Mainframe to Azure Data copy using tcVision</title>
+	<title>Mainframe to Azure Data copy using RDRS</title>
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>

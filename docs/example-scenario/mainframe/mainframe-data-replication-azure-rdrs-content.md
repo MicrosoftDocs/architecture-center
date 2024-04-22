@@ -95,7 +95,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Mainframes are servers that process a large number of transactions. Mainframe applications produce and consume large amounts of data every day. The introduction of public clouds provides elasticity, cost optimization, ease of use, and easy integration. Many x86 and mainframe applications are moving to the cloud, so it's important for organizations to have a well-designed mainframe-to-cloud data integration and migration strategy.
 
-This scenario shows how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [RDRS](https://www.tcvision.de/tcvision-real-time-mainframe-data-integration) software provided by [Rocket Software](https://www.rocketsoftware.com/news/rocket-software-acquires-bos-simplify-mainframe-modernization-and-accelerate-hybrid-cloud).
+This scenario shows how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [RDRS](https://www.rocketsoftware.com/products/rocket-data-replicate-and-sync) software provided by [Rocket Software](https://www.rocketsoftware.com/news/rocket-software-acquires-bos-simplify-mainframe-modernization-and-accelerate-hybrid-cloud).
 
 ### Potential use cases
 
