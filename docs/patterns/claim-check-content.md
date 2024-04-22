@@ -37,11 +37,11 @@ The following scenarios are the primary use cases for the Claim-Check pattern:
 
 - *Messaging system limitations*: Use the Claim-Check pattern when message sizes surpass the limits of your messaging system. Offload the payload to external storage. Send only the message with its claim-check token to the messaging system.
 
-- *Messaging system performance*: Use the Claim-Check pattern when large messages are straining the messaging systems and degrading system performance.
+- *Messaging system performance*: Use the Claim-Check pattern when large messages are straining the messaging system and degrading system performance.
 
 The following scenarios are secondary use cases for the Claim-Check pattern:
 
-- *Sensitive data protection*: Use the Claim-Check pattern when payloads contain sensitive data that don't want visible to the messaging system. Apply the pattern to all or portions of sensitive information in the payloads. Secure the sensitive data without transmitting it directly through the messaging system.
+- *Sensitive data protection*: Use the Claim-Check pattern when payloads contain sensitive data that don't want visible to the messaging system. Apply the pattern to all or portions of sensitive information in the payload. Secure the sensitive data without transmitting it directly through the messaging system.
 
 - *Complex routing scenarios*: Messages traversing multiple components can cause performance bottlenecks due to serialization, deserialization, encryption, and decryption tasks. Use the Claim-Check pattern to prevent direct message processing by intermediary components.
 
@@ -68,12 +68,12 @@ The following examples demonstrate how Azure facilitates the implementation of t
 
 Choose the example that suits your needs and follow the provided link to view the code on GitHub:
 
-| Sample code                   | Messaging system scenarios   | Token generator               | Receiving application                           | Data store         |
-|-------------------------------|------------------------------|-------------------------------|-------------------------------------------------|--------------------|
-| [Code example 1][example-1]   | Azure Queue Storage          | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
-| [Code example 2][example-2]   | Event Hubs (Standard API)    | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
-| [Code example 3][example-3]   | Azure Service Bus            | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
-| [Code example 4][example-4]   | Azure Event Hubs (Kafka API) | Executable command-line client| Function                                        | Azure Blob Storage |
+| Sample code                   | Messaging system scenarios      | Token generator               | Receiving application                           | Data store         |
+|-------------------------------|---------------------------------|-------------------------------|-------------------------------------------------|--------------------|
+| [Code example 1][example-1]   | Azure Queue Storage             | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
+| [Code example 2][example-2]   | Azure Event Hubs (Standard API) | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
+| [Code example 3][example-3]   | Azure Service Bus               | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
+| [Code example 4][example-4]   | Azure Event Hubs (Kafka API)    | Executable command-line client| Function                                        | Azure Blob Storage |
 
 ## Next steps
 
