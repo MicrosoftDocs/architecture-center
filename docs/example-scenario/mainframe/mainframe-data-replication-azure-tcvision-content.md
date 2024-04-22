@@ -54,7 +54,7 @@ The solution uses the following components.
 
 - [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) - Application Insights analyzes and presents application telemetry.
-- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. Data from different sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, can be consolidated into a single workspace so that they can be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. Data from different sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, can be consolidated into a single workspace to be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
 - [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) - You can use log queries to get insights from the data collected in Monitor Logs. Log Analytics uses a powerful query language to let you join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code.
 
 ## Considerations
@@ -93,7 +93,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Scenario details
 
-Mainframes are servers that process a large number of transactions. Mainframe applications produce and consume large amounts of data every day. The introduction of public clouds offers elasticity, cost optimization, ease of use, and easy integration. Many x86 and mainframe applications are moving to the cloud, so it's important for organizations to have a well-designed mainframe-to-cloud data integration and migration strategy.
+Mainframes are servers that process a large number of transactions. Mainframe applications produce and consume large amounts of data every day. The introduction of public clouds provides elasticity, cost optimization, ease of use, and easy integration. Many x86 and mainframe applications are moving to the cloud, so it's important for organizations to have a well-designed mainframe-to-cloud data integration and migration strategy.
 
 This scenario shows how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [RDRS](https://www.tcvision.de/tcvision-real-time-mainframe-data-integration) software provided by [Rocket Software](https://www.rocketsoftware.com/news/rocket-software-acquires-bos-simplify-mainframe-modernization-and-accelerate-hybrid-cloud).
 
