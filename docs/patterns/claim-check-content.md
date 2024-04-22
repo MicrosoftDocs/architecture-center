@@ -1,4 +1,4 @@
-The Claim-Check pattern allows workloads to process payloads without storing the payload in a messaging system. The pattern stores the payload in an external data store and sends a message with a "claim check" to the messaging system. The claim check is a unique, obscure token or key. Any applications with the claim-check token can retrieve the payload.
+The Claim-Check pattern allows workloads to transfer payloads without storing the payload in a messaging system. The pattern stores the payload in an external data store and uses a "claim check" to retrieve the payload. The claim check is a unique, obscure token or key. To retrieve the payload, applications need to present the claim-check token to the external data store.
 
 This pattern is also known as Reference-Based Messaging and was first [introduced][enterprise-integration-patterns] in the book *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf.
 
@@ -8,7 +8,7 @@ Traditional messaging systems are optimized to manage a high volume of small mes
 
 ## Solution
 
-Use the Claim-Check pattern, and don't send large messages to the messaging system. Instead, send the payload to an external data store. Generate a claim-check token and send a message with the claim-check token to the messaging system. The messaging system sends the message with the claim-chceck token to receiving applications so they can retrieve the payload from the data store. The messaging system never sees or stores the payload.
+Use the Claim-Check pattern, and don't send large messages to the messaging system. Instead, send the payload to an external data store and generate a claim-check token for that payload. The messaging system sends a message with the claim-check token to receiving applications so these applications can retrieve the payload from the data store. The messaging system never sees or stores the payload.
 
 [![Diagram of the Claim-Check pattern.](./_images/claim-check-diagram.svg)](./_images/claim-check-diagram.svg)
 
@@ -51,7 +51,7 @@ An architect should evaluate how the Claim-Check pattern can be used in their wo
 
 | Pillar | How this pattern supports pillar goals |
 | :----- | :------------------------------------- |
-| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure it fully **recovers** after failure. | Messaging systems don't provide the same reliability and disaster recovery that are often present in dedicated data stores. Separating the data from the message can provide increased reliability for the underlying data. This separation facilitates message redundancy that allows you to recover messages after a disaster.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and ensure it fully **recovers** after failure. | Messaging systems don't provide the same reliability and disaster recovery that are often present in dedicated data stores. Separating the data from the message can provide increased reliability for the payload. This separation facilitates data redundancy that allows you to recover payloads after a disaster.<br/><br/> - [RE:03 Failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis)<br/> - [RE:09 Disaster recovery](/azure/well-architected/reliability/disaster-recovery) |
 | [Security](/azure/well-architected/security/checklist) design decisions help ensure the **confidentiality**, **integrity**, and **availability** of workload data and systems. | The Claim-Check pattern can extract sensitive data from messages and store it in a secure data store. This setup allows you to implement tighter access controls, ensuring that only the services intended to use the sensitive data can access it. At the same time, it hides this data from unrelated services, such as those used for queue monitoring.<br/><br/> - [SE:03 Data classification](/azure/well-architected/security/data-classification)<br/> - [SE:04 Segmentation](/azure/well-architected/security/segmentation) |
 | [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | Messaging systems often impose limits on message size, and increased size limits is often a premium feature. Reducing the size of message bodies might enable you to use a cheaper messaging solution.<br/><br/> - [CO:07 Component costs](/azure/well-architected/cost-optimization/optimize-component-costs)<br/> - [CO:09 Flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs) |
 | [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** by optimizing scaling, data transfer, and code execution. | The Claim-Check pattern improves the efficiency of sending and receiving applications and the messaging system by managing large messages more effectively. It reduces the size of messages sent to the messaging system and ensures receiving applications access large messages only when needed.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition)<br/> - [PE:12 Continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize) |
@@ -62,18 +62,18 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The following examples demonstrate how Azure facilitates the implementation of the Claim-Check Pattern:
 
-- *Azure messaging systems*: The examples cover four different Azure messaging systems: Azure Queue Storage, Azure Event Hubs (Standard API), Azure Service Bus, and Azure Event Hubs (Kafka API).
+- *Azure messaging systems*: The examples cover four different Azure messaging system scenarios: Azure Queue Storage, Azure Event Hubs (Standard API), Azure Service Bus, and Azure Event Hubs (Kafka API).
 
 - *Automatic vs. manual claim-check token generation*: These examples also show two methods to generate the claim-check token. In code examples 1-3, Azure Event Grid automatically generates the token when the sending application sends the message to Azure Blob Storage. Code example 4 shows a manual token generation process using an executable command-line client.
 
 Choose the example that suits your needs and follow the provided link to view the code on GitHub:
 
-| Sample code                   | Messaging system             | Token generator               | Sending application            | Receiving application          | Data store         |
-|-------------------------------|------------------------------|------------------------------|--------------------------------|--------------------------------|--------------------|
-| [Code example 1][example-1]   | Azure Queue Storage          | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
-| [Code example 2][example-2]   | Event Hubs (Standard API)    | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
-| [Code example 3][example-3]   | Azure Service Bus            | Azure Event Grid             | Function                       | Executable command-line client | Azure Blob Storage |
-| [Code example 4][example-4]   | Azure Event Hubs (Kafka API) | Executable command-line client| Executable command-line client| Function                       | Azure Blob Storage |
+| Sample code                   | Messaging system scenario          | Token generator               | Sending application            | Receiving application          | Data store         |
+|-------------------------------|------------------------------------|-------------------------------|--------------------------------|--------------------------------|--------------------|
+| [Code example 1][example-1]   | Azure Queue Storage                | Azure Event Grid              | Function                       | Executable command-line client | Azure Blob Storage |
+| [Code example 2][example-2]   | Azure Event Hubs (Standard API)    | Azure Event Grid              | Function                       | Executable command-line client | Azure Blob Storage |
+| [Code example 3][example-3]   | Azure Service Bus                  | Azure Event Grid              | Function                       | Executable command-line client | Azure Blob Storage |
+| [Code example 4][example-4]   | Azure Event Hubs (Kafka API)       | Executable command-line client| Executable command-line client | Function                       | Azure Blob Storage |
 
 ## Next steps
 
