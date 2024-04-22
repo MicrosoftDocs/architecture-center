@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Split-brain DNS Hosting in Azure
+  title: Split-brain DNS hosting in Azure
   titleSuffix: Azure Architecture Center
   description: Provide external and internal users secure access to Azure resources.
   author: troyhite
   ms.author: troyhite
-  ms.date:  04/14/2024
+  ms.date:  04/23/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
