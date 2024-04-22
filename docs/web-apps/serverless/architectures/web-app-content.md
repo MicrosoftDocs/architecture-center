@@ -16,7 +16,7 @@ The term serverless has two distinct but related meanings:
 Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:
 
 1. Compute resources are allocated dynamically as needed by the platform.
-1. Consumption-based pricing: You are charged only for the compute resources used to execute your code.
+1. Consumption-based pricing: You're charged only for the compute resources used to execute your code.
 1. The compute resources scale on demand based on traffic, without the developer needing to do any configuration.
 
 Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help with choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
@@ -25,7 +25,7 @@ Functions are executed when an external trigger occurs, such as an HTTP request 
 
 The architecture consists of the following components:
 
-**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There is no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
+**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There's no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
 
 **CDN**. Use [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) (CDN) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
 
@@ -65,15 +65,15 @@ This drone-delivery solution is ideal for the aircraft, aviation, aerospace, and
 
 Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running.  With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size.
 
-Note that the App Service plan is not strictly *serverless*, according to the definition given above. The programming model is the same, however &mdash; the same function code can run in both a consumption plan and an App Service plan.
+Note that the App Service plan isn't strictly *serverless*, according to the definition given above. The programming model is the same, however &mdash; the same function code can run in both a consumption plan and an App Service plan.
 
 Here are some factors to consider when choosing which type of plan to use:
 
-- **Cold start**. With the consumption plan, a function that hasn't been invoked recently will incur some additional latency the next time it runs. This additional latency is due to allocating and preparing the runtime environment. It is usually on the order of seconds but depends on several factors, including the number of dependencies that need to be loaded. For more information, see [Understanding Serverless Cold Start][functions-cold-start]. Cold start is usually more of a concern for interactive workloads (HTTP triggers) than asynchronous message-driven workloads (queue or event hubs triggers), because the additional latency is directly observed by users.
+- **Cold start**. With the consumption plan, a function that hasn't been invoked recently will incur some additional latency the next time it runs. This additional latency is due to allocating and preparing the runtime environment. It's usually on the order of seconds but depends on several factors, including the number of dependencies that need to be loaded. For more information, see [Understanding Serverless Cold Start][functions-cold-start]. Cold start is usually more of a concern for interactive workloads (HTTP triggers) than asynchronous message-driven workloads (queue or event hubs triggers), because the additional latency is directly observed by users.
 - **Timeout period**.  In the consumption plan, a function execution times out after a [configurable][functions-timeout] period of time (to a maximum of 10 minutes)
 - **Virtual network isolation**. Using an App Service plan allows functions to run inside of an [App Service Environment][ase], which is a dedicated and isolated hosting environment.
 - **Pricing model**. The consumption plan is billed by the number of executions and resource consumption (memory &times; execution time). The App Service plan is billed hourly based on VM instance SKU. Often, the consumption plan can be cheaper than an App Service plan, because you pay only for the compute resources that you use. This is especially true if your traffic experiences peaks and troughs. However, if an application experiences constant high-volume throughput, an App Service plan may cost less than the consumption plan.
-- **Scaling**. A big advantage of the consumption model is that it scales dynamically as needed, based on the incoming traffic. While this scaling occurs quickly, there is still a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs, so that you can handle bursts of traffic with zero ramp-up time. In that case, consider an App Service plan.
+- **Scaling**. A big advantage of the consumption model is that it scales dynamically as needed, based on the incoming traffic. While this scaling occurs quickly, there's still a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs, so that you can handle bursts of traffic with zero ramp-up time. In that case, consider an App Service plan.
 
 ### Function App boundaries
 
@@ -87,23 +87,21 @@ Consider taking a microservices approach, where each function app represents one
 
 Use Functions [bindings][functions-bindings] when possible. Bindings provide a declarative way to connect your code to data and integrate with other Azure services. An input binding populates an input parameter from an external data source. An output binding sends the function's return value to a data sink, such as a queue or database.
 
-For example, the `GetStatus` function in the reference implementation uses the Azure Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Azure Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
+For example, the `GetStatus` function in the reference implementation uses the Azure Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Azure Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it's passed to the function as a parameter.
 
 <!-- cSpell:ignore CosmosDB -->
 
 ```csharp
-[FunctionName("GetStatusFunction")]
-public static Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-    [CosmosDB(
-        databaseName: "%COSMOSDB_DATABASE_NAME%",
-        collectionName: "%COSMOSDB_DATABASE_COL%",
-        ConnectionStringSetting = "COSMOSDB_CONNECTION_STRING",
-        Id = "{Query.deviceId}",
-        PartitionKey = "{Query.deviceId}")] dynamic deviceStatus,
-    ILogger log)
+[Function("GetStatusFunction")]
+public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req,
+        [CosmosDBInput(
+           databaseName: "%COSMOSDB_DATABASE_NAME%",
+           containerName:"%COSMOSDB_DATABASE_COL%",
+           Connection  = "COSMOSDB_CONNECTION_STRING",
+           Id = "{Query.deviceId}",
+           PartitionKey = "{Query.deviceId}")] DeviceState? deviceStatus)
 {
-    ...
+  ...
 }
 ```
 
@@ -115,7 +113,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Scalability
 
-**Functions**. For the consumption plan, the HTTP trigger scales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time. For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale].
+**Functions**. For the consumption plan, the HTTP trigger scales based on the traffic. There's a limit to the number of concurrent function instances, but each instance can process more than one request at a time. For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale].
 
 **Azure Cosmos DB**. Throughput capacity for Azure Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput need to GET a 1KB document. In order to scale an Azure Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container and include the partition key in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
@@ -139,7 +137,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 The `GetStatus` API in the reference implementation uses Microsoft Entra ID to authenticate requests. Microsoft Entra ID supports the OpenID Connect protocol, which is an authentication protocol built on top of the OAuth 2 protocol.
 
-In this architecture, the client application is a single-page application (SPA) that runs in the browser. This type of client application cannot keep a client secret or an authorization code hidden, so the implicit grant flow is appropriate. (See [Which OAuth 2.0 flow should I use?][oauth-flow]). Here's the overall flow:
+In this architecture, the client application is a single-page application (SPA) that runs in the browser. This type of client application can't keep a client secret or an authorization code hidden, so the implicit grant flow is appropriate. (See [Which OAuth 2.0 flow should I use?][oauth-flow]). Here's the overall flow:
 
 1. The user clicks the "Sign in" link in the web application.
 1. The browser is redirected the Microsoft Entra sign-in page.
@@ -173,7 +171,7 @@ For more information, see [Working with client identities](/azure/azure-function
 
 #### CORS
 
-In this reference architecture, the web application and the API do not share the same origin. That means when the application calls the API, it is a cross-origin request. Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy* and prevents a malicious site from reading sensitive data from another site. To enable a cross-origin request, add a Cross-Origin Resource Sharing (CORS) [policy][cors-policy] to the API Management gateway:
+In this reference architecture, the web application and the API don't share the same origin. That means when the application calls the API, it's a cross-origin request. Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy* and prevents a malicious site from reading sensitive data from another site. To enable a cross-origin request, add a Cross-Origin Resource Sharing (CORS) [policy][cors-policy] to the API Management gateway:
 
 ```xml
 <cors allow-credentials="true">
@@ -189,7 +187,7 @@ In this reference architecture, the web application and the API do not share the
 </cors>
 ```
 
-In this example, the **allow-credentials** attribute is **true**. This authorizes the browser to send credentials (including cookies) with the request. Otherwise, by default the browser does not send credentials with a cross-origin request.
+In this example, the **allow-credentials** attribute is **true**. This authorizes the browser to send credentials (including cookies) with the request. Otherwise, by default the browser doesn't send credentials with a cross-origin request.
 
 > [!NOTE]
 > Be very careful about setting **allow-credentials** to **true**, because it means a website can send the user's credentials to your API on the user's behalf, without the user being aware. You must trust the allowed origin.
@@ -236,7 +234,7 @@ All calls to the function should go through the API gateway. You can achieve thi
 
 Don't store application secrets, such as database credentials, in your code or configuration files. Instead, use App settings, which are stored encrypted in Azure. For more information, see [Security in Azure App Service and Azure Functions][app-service-security].
 
-Alternatively, you can store application secrets in Key Vault. This allows you to centralize the storage of secrets, control their distribution, and monitor how and when secrets are being accessed. For more information, see [Configure an Azure web application to read a secret from Key Vault][key-vault-web-app]. However, note that Functions triggers and bindings load their configuration settings from app settings. There is no built-in way to configure the triggers and bindings to use Key Vault secrets.
+Alternatively, you can store application secrets in Key Vault. This allows you to centralize the storage of secrets, control their distribution, and monitor how and when secrets are being accessed. For more information, see [Configure an Azure web application to read a secret from Key Vault][key-vault-web-app]. However, note that Functions triggers and bindings load their configuration settings from app settings. There's no built-in way to configure the triggers and bindings to use Key Vault secrets.
 
 ### DevOps
 
@@ -247,9 +245,9 @@ The front end of this reference architecture is a single page application, with 
 - Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](../../../best-practices/cdn.yml) for additional recommendations.
 - Use a fast and reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions][gh-actions], to automatically build and deploy every source change. The source must reside in an online version control system. For more details on Azure Pipelines, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops&preserve-view=true). To learn more on GitHub Actions for Azure, see [Deploy apps to Azure](/azure/developer/github/deploy-to-azure).
 - Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows [compression on the fly on the edge servers](/azure/cdn/cdn-improve-performance). Alternatively, the deploy pipeline in this reference architecture compresses the files before deploying them to the Blob storage. This reduces the storage requirement, and gives you more freedom to choose the compression tools, regardless of any CDN limitations.
-- The CDN should be able to [purge its cache](/azure/cdn/cdn-purge-endpoint) to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
+- The CDN should be able to [purge its cache](/azure/cdn/cdn-purge-endpoint) to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes aren't atomic, for example, if they replace old files with newly built ones in the same origin folder.
 - A different cache strategy such as versioning using directories, may not require a purge by the CDN. The build pipeline in this front-end application creates a new directory for each newly built version. This version is uploaded as an atomic unit to the Blob storage. The Azure CDN points to this new version only after a completed deployment.
-- Increase the cache TTL by caching resource files for a longer duration, spanning months. To make sure the cached files are updated when they do change, fingerprint the filenames when they are rebuilt. This front-end application fingerprints all files except for public-facing files such as *index.html*. Since the index.html is updated frequently, it reflects the changed filenames causing a cache refresh. See the [Manage expiration of web content in Azure CDN](/azure/cdn/cdn-manage-expiration-of-cloud-service-content) for more information.
+- Increase the cache TTL by caching resource files for a longer duration, spanning months. To make sure the cached files are updated when they do change, fingerprint the filenames when they're rebuilt. This front-end application fingerprints all files except for public-facing files such as *index.html*. Since the index.html is updated frequently, it reflects the changed filenames causing a cache refresh. See the [Manage expiration of web content in Azure CDN](/azure/cdn/cdn-manage-expiration-of-cloud-service-content) for more information.
 
 #### Back-end deployment
 
@@ -265,7 +263,7 @@ An API is a contract between a service and clients. In this architecture, the AP
 
 If you make a breaking change in an API, publish a new version in API Management. Deploy the new version side-by-side with the original version, in a separate Function App. This lets you migrate existing clients to the new API without breaking client applications. Eventually, you can deprecate the previous version. API Management supports several [versioning schemes][apim-versioning-schemes]: URL path, HTTP header, or query string. For more information about API versioning in general, see [Versioning a RESTful web API][api-versioning].
 
-For updates that are not breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
+For updates that aren't breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
 
 ### Cost optimization
 
@@ -285,7 +283,7 @@ Azure Functions supports two hosting models.
 
     A set of VMs are allocated for your code. This plan defines the number of VMs and the VM size.
 
-In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput is not expected in this use case, **consumption plan** is recommended because you pay only for the compute resources you use.
+In this architecture, a function is invoked when a client makes an HTTP request. Because a constant high-volume throughput isn't expected in this use case, **consumption plan** is recommended because you pay only for the compute resources you use.
 
 #### Azure Cosmos DB
 
@@ -299,7 +297,7 @@ In this architecture, the function application fetches documents from Azure Cosm
 
 #### Content Delivery Network
 
-Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client is not the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts.
+Billing rate may differ depending on the billing region based on the location of the source server delivering the content to the end user. The physical location of the client isn't the billing region. Any HTTP or HTTPS request that hits the CDN is a billable event, which includes all response types: success, failure, or other. Different responses may generate different traffic amounts.
 
 In this reference architecture the deployment resides in a single Azure region.
 

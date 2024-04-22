@@ -5,7 +5,7 @@ metadata:
   description: Learn how Rock Flow Dynamics tNavigator software performs on an Azure virtual machine (VM), and learn how to run tNavigator on Azure. 
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 01/05/2024
+  ms.date: 04/17/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
