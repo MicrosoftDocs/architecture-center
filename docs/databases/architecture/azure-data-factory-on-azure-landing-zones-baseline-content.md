@@ -113,7 +113,7 @@ The typical workflow of accessing and landing data through the architecture:
 - Azure Firewalls can be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 - Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
 - PrivateLink and Private Endpoints are implemented, which allows you to bring the service into your virtual network.
-- ML-assisted data labeling doesn't support default storage accounts that are secured behind a virtual network [1]. You must use a non-default storage account for ML-assisted data labeling. The non-default storage account can be secured behind the virtual network
+- In order to take advantage of ML-assisted data labeling, you must create a new storage account, different than the default storage account you created when creating the AML workspace. The new, non-default storage account can be bound to the same VNet as the workspace, and can reside in a separate subnet within that VNet if you prefer to keep it separated.
   
 ## Callouts
 
