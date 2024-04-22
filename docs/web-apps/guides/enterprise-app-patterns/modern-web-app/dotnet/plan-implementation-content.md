@@ -30,11 +30,10 @@ The Modern Web App pattern uses containerization to separate logical portions of
 
 The services used to implement the modern web app pattern supplement the reliable web app pattern.
 
-When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized. 
+When applying the strangler fig pattern to extract functionality into a new service, the existing app continues executing as before except for the extracted component. New Azure services are adopted for the portion of the application that is being modernized.
 
-In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
-
-*Example:* The existing web app for the modern web app pattern is the end state of the reliable web app pattern. In the example used in the modern web app pattern reference sample, the web app is Relecloud’s ticket purchasing application. After applying the reliable web app pattern, Relecloud’s application consists of two Azure App Services (a front-end and an API) which communicate with an Azure SQL database and an Azure Cache for Redis. The Relecloud solution stores configuration values and secrets in Azure App Configuration and Azure Key Vault.
+*Example:* In the case of the Relecloud example, the services below are added to the solution to meet the goals and principles of the modern web app pattern.
+The existing web app for the modern web app pattern is the end state of the reliable web app pattern. In the example used in the modern web app pattern reference sample, the web app is Relecloud’s ticket purchasing application. After applying the reliable web app pattern, Relecloud’s application consists of two Azure App Services (a front-end and an API) which communicate with an Azure SQL database and an Azure Cache for Redis. The Relecloud solution stores configuration values and secrets in Azure App Configuration and Azure Key Vault.
 
 The Relecloud app still suffers from being deployed as a monolith which performs all business functions in the API web app. Processes which periodically consume a large amount of resources (such as rendering ticket images) are performed synchronously in-process as part of handling ticket purchase requests. Making changes to any part of the API results in needing to update the entire App Service. These challenges can be addressed by applying the modern web app pattern.
 
