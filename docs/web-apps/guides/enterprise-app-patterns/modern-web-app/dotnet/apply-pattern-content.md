@@ -77,9 +77,9 @@ The [retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retr
 
 **Add content here**
 
-#### Retry recommendations for .NET developers
+#### Retry implementation recommendations for .NET developers
 
-**Add content here**
+Add content here
 
 ---
 
