@@ -25,4 +25,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/data-sciene-lifecycle-model-flow.png
 content: |
-   [!include[](mlops-technical-paper-content.md)]
+   [!INCLUDE[](mlops-technical-paper-content.md)]

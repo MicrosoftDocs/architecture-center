@@ -13,7 +13,7 @@ The Modern Web App pattern uses two design patterns to improve web app reliabili
 
 ### Implement the Queue-Based Load Leveling pattern
 
-The [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by buffering incoming work requests in a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. It decouples tasks and services, enhancing the reliability of the system.
+The [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
 
 **ADD RECOMMENDATIONS for implementing QBLL in .NET web apps**
 
