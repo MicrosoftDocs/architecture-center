@@ -4426,13 +4426,8 @@
     },
     {
       "source_path": "docs/ai-ml/idea/machine-learning-model-deployment-aks.yml",
-      "redirect_url": "/articles/machine-learning/how-to-deploy-kubernetes-extension",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-kubernetes-extension",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/ai-ml/idea/machine-learning-model-deployment-aks-content.md",
-      "redirect_url": "/articles/machine-learning/how-to-deploy-kubernetes-extension",
-      "redirect_document_id": false  
     },
     {
       "source_path": "docs/solution-ideas/articles/monitor-mining-equipment.yml",
