@@ -82,4 +82,17 @@ Refer to the following resources for common similarity and evaluation metrics: T
 
 ## Documentation, reporting, and aggregation
 
+Documenting both the hyperparameters chosen for an experiment and the resulting evaluation metrics allows you to understand the impact of the hyperparameters on your results. This is true at granular levels like embedding or search evaluation and at a macro level, testing the entire system end to end.
+
+During design and development, you might be able to track the hyperparameters and results manually. However, while performing multiple evaluations against your entire test document and test query corpus might involve hundreds of evaluation runs and thousands of results. You should automate the persistence of parameters and results for your evaluations.
+
+Once your hyperparameters and results are persisted, you should consider building charts and graphs to allow you to more easily visualize the effects the hyperparameter choices have on the metrics. This will help you identify which choices lead to dips or spikes in performance.
+
+It is important for you to understand that this is not a one-time operation. Your corpus of documents will change over time. The questions your customers are asking will change over time and your understanding of the types of questions will evolve as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
+
+## The RAG Experiment Accelerator
+
+These articles have walked you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles have focused on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator) which is a tool designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results.
+
+TODO: Ritesh - anything you want to highlight here regarding the RAG Experiment Accelerator.
 
