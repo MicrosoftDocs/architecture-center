@@ -245,7 +245,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 Automatic horizontal scaling adds and removes service instances automatically based on relevant demand metrics. It the service to perform more work when demand is high and to save cost when demand is low. By scaling automatically based on metrics relevant to the application’s scenario, scale operations can be performed quickly and without any need for manual intervention.
 
-### ecommendations to .NET developers
+### Container autoscaling recommendations for .NET developers
 
 ---
 
