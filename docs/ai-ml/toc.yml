@@ -146,6 +146,8 @@ items:
           href: guide/rag/rag-generating-embeddings.yml
         - name: Information retrieval phase
           href: guide/rag/rag-information-retrieval.yml
+        - name: LLM end-to-end evaluation phase
+          href: guide/rag/rag-llm-evaluation-phase.yml
       - name: Document processing
         items:
         - name: OpenAI GPT-3 summarization
@@ -238,6 +240,8 @@ items:
             href: guide/rag/rag-generating-embeddings.yml
           - name: Information retrieval phase
             href: guide/rag/rag-information-retrieval.yml        
+          - name: LLM end-to-end evaluation phase
+            href: guide/rag/rag-llm-evaluation-phase.yml            
         - name: Build language model pipelines
           href: openai/guide/language-model-pipelines.yml
         - name: OpenAI GPT-3 summarization
