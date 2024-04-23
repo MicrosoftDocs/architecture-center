@@ -1,4 +1,4 @@
-Rocket® Data Replicate and Sync (RDRS) is a data replication solution developed by Rocket Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) with multiple Azure data platform services.
+Rocket® Data Replicate and Sync (RDRS) is a data replication solution developed by Rocket Software. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) for multiple Azure data platform services.
 
 ## Architecture
 
@@ -10,20 +10,20 @@ The RDRS logo is a trademark of its respective company. No endorsement is implie
 
 ### Workflow
 
-1. The RDRS data replication solution supports change data capture (CDC) from many mainframe-based databases, including Db2, IMS/DB, Software AG ADABAS, CA Datacom, and CA IDMS. RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases. RDRS also supports CDC from virtual storage access method (VSAM) files.
+1. The RDRS data replication solution supports change data capture (CDC) from many mainframe-based databases, including IMB Db2, IMS/DB, Software AG ADABAS, CA Datacom, and CA IDMS. RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases. RDRS also supports CDC from Virtual Storage Access Method (VSAM) files.
 1. A task starts on the mainframe. Started tasks (STCs) are created on the mainframe as part of RDRS software installation. Two vital STCs are:
    * Capture agent, which captures changed data from the source.
    * Apply agent, which uses DBMS-specific APIs to efficiently write changed data to the target.
    > [!NOTE]
-   > For Db2 z/OS, RDRS also offers an Agentless CDC solution by way of a Db2 user-defined type (UDT) that doesn't need STCs.
+   > For Db2 z/OS, RDRS also offers an agentless CDC solution by way of a Db2 user-defined type (UDT) that doesn't need STCs.
 
-1. The Open Platform Manager (OPM) acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the rule set to extract the data from the source. The server transforms and processes the data for the target systems and writes the data into the targets. You can install this component on Linux, Unix, and Windows operating systems.
-1. The RDRS dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command line utilities automate data exchange processes and manage unattended operations of the data synchronization process.
+1. The Open Platform Manager (OPM) acts as a replication server. This server contains utilities for automatic data mapping to generate metadata for sources and targets. It contains the ruleset to extract the data from the source. The server transforms and processes the data for the target systems and writes the data into the targets. You can install this component on Linux, Unix, and Windows operating systems.
+1. The RDRS dashboard provides administration, review, operation, control, and monitoring of the data exchange processes. The RDRS command-line utilities automate data exchange processes and manage unattended operations of the data synchronization process.
 1. The RDRS apply agent uses database management system-specific APIs. These APIs efficiently implement real-time data changes in combination with CDC technology at the source to the target Azure Data Services, meaning the database and files.
 1. RDRS supports direct streaming of the changed data into Azure Event Hubs or Kafka. Then Azure Logic Apps, a function, or a custom solution in the VM, processes these events.
 1. The Azure data platform targets supported by RDRS include Azure SQL Database, Azure Database for PostgreSQL, MySQL, Azure Cosmos DB, Azure Data Lake Storage, and others.
 1. Data that lands in the Azure data platform is consumed by Azure services or other platforms that are permitted to see it. Examples include Power BI, Synapse Analytics, or custom applications.
-1. The RDRS product can reverse-sync capture changes from an Azure database platform (like SQL Database, MySQL, PostgreSQL, or Data Lake Storage) and write them back to the mainframe data tier.
+1. The RDRS product can reverse-synchronized capture changes from an Azure database platform (like SQL Database, MySQL, PostgreSQL, or Data Lake Storage) and write them back to the mainframe data tier.
 1. The mainframe database backup and unload files are copied to an Azure virtual machine (VM) by using RDRS for bulk load processing.
 1. The RDRS bulk load performs an initial target database load by using mainframe source data. Source data can be read directly from the mainframe data store or from a mainframe backup or unload. The bulk load provides an automatic translation of mainframe data types, like extended binary coded decimal interchange code (EBCDIC)-packed fields. Use the backup or unload data for the best performance instead of a direct read of the mainframe database. You shouldn't read the database directly because moving unload or backup data to the requisite RDRS Azure VM and using native database loaders minimizes network input/output (I/O) and reduces load time.
 
@@ -45,15 +45,15 @@ The solution uses the following components.
 
 #### Storage components
 
-- [Storage](/azure/storage/common/storage-introduction) - Storage offers unmanaged storage solutions like Azure Blob, Azure Tables, Azure Queues, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
+- [Storage](/azure/storage/common/storage-introduction) - Storage offers unmanaged storage solutions like Azure Blob, Azure Tables, Azure Queues, and Azure Files. Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
 - [Azure SQL](/azure/azure-sql/database/sql-database-paas-overview) - Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure services, such as Azure SQL Managed Instance, Azure SQL VM, Azure Database for PostgreSQL, Azure Database for MariaDB, and MySQL.
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) - Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off the mainframe.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) - Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
 
 #### Monitoring components
 
 - [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) - Application Insights analyzes and presents application telemetry.
-- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. Data from different sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, can be consolidated into a single workspace to be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, into a single workspace to be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
 - [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) - You can use log queries to get insights from the data collected in Monitor Logs. Log Analytics uses a powerful query language to let you join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code.
 
 ## Considerations
@@ -62,7 +62,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-* Set up RDRS Open Platform Manager on Azure VMs deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated. Then the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
+* Set up RDRS OPM on Azure VMs deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated and the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
 * Design database services in the Azure support zone redundancy to fail over to a secondary node if there's an outage or a planned maintenance window.
 * Use Monitor and Application Insights in addition to Log Analytics to monitor the health of the Azure resource. You can set alerts for proactive management.
 * For more information about resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
@@ -71,7 +71,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 * Set up RDRS scaling for CDC processing by running multiple parallel replication streams. First analyze the files included in logical transactions. These files must be processed together in sequence. The RDRS CDC process ensures the integrity of each logical transaction. For instance, sets of tables that don't participate in common transactions might be divided into parallel tasks by creating multiple processing scripts.
 * RDRS can run parallel concurrent bulk load processing simultaneously on a single Azure VM or on multiple Azure VMs giving horizontal scalability. Bulk load large tables faster by splitting the process into multiple tasks, either by using arbitrary intervals or row filtering. Row filtering can use a key, partition key, date, and other filters.
-* The SQL Database serverless compute tier provides an automatic scaling option based on workload. Other Azure databases can be scaled up and down by using automation to meet the workload demands.
+* The SQL Database serverless compute tier provides an automatic scaling option based on workload. Other Azure databases can be scaled up and scaled down by using automation to meet the workload demands.
 * For more information, see [Autoscaling best practices in Azure](/azure/architecture/best-practices/auto-scaling).
 
 ### Security
@@ -94,14 +94,14 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Mainframes are servers that process a large number of transactions. Mainframe applications produce and consume large amounts of data every day. The introduction of public clouds provides elasticity, cost optimization, ease of use, and easy integration. Many x86 and mainframe applications are moving to the cloud, so it's important for organizations to have a well-designed mainframe-to-cloud data integration and migration strategy.
 
-This scenario shows how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [RDRS](https://www.rocketsoftware.com/products/rocket-data-replicate-and-sync) software provided by [Rocket Software](https://www.rocketsoftware.com/news/rocket-software-acquires-bos-simplify-mainframe-modernization-and-accelerate-hybrid-cloud).
+This scenario shows you how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [RDRS](https://www.rocketsoftware.com/products/rocket-data-replicate-and-sync) software provided by [Rocket Software](https://www.rocketsoftware.com/news/rocket-software-acquires-bos-simplify-mainframe-modernization-and-accelerate-hybrid-cloud).
 
 ### Potential use cases
 
 This solution is ideal for large-scale data migrations to Azure data platform. Consider this scenario for the following use cases:
 
 * **Full migration of a mainframe data tier**: In this use case, a customer wants to move all their Db2, IMS, IDMS, files, and other data from a mainframe to the Azure data platform.
-* **Coexistence of mainframe and Azure-based applications**: In this use case, a customer requires support for a bidirectional synchronization between mainframe and Azure data platform.
+* **Coexistence of mainframe and Azure-based applications**: In this use case, a customer requires support for a bidirectional synchronization between a mainframe and the Azure data platform.
 * **Archival**: In this use case, a customer wants to store data for audit and compliance purposes but doesn't want to access this data frequently. Storage provides a low-cost solution to store archive data.
 
 ## Contributors
