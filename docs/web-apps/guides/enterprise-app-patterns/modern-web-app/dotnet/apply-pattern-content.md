@@ -15,7 +15,9 @@ The Modern Web App pattern uses two design patterns to improve web app reliabili
 
 The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
 
-**ADD RECOMMENDATIONS for implementing QBLL in .NET web apps**
+#### QBLL recommendations for .NET developers**
+
+Add content here.
 
 ---
 **Example**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly.
@@ -69,9 +71,15 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
 
 ### Modify the Retry Pattern
 
-The [retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication and is an important part of any cloud solution. Retry patterns account for connectivity issues, throttling issues, and other temporary outages of dependencies by retrying failed connections, typically with increasing amounts of backoff time. While queue-based load leveling and competing consumers can help improve reliability of message-based communication, the retry pattern is essential for improving reliability of request-response communication.
+The [retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
 
+#### How does the retry pattern show up in new ways
 
+**Add content here**
+
+#### Retry recommendations for .NET developers
+
+**Add content here**
 
 *Example:* The reference implementation uses retry functionality built into the .NET Azure SDK when configuring connections to both Azure Service Bus and Azure Storage.
 

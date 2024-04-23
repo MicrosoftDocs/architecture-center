@@ -10,9 +10,9 @@ The Modern Web App pattern drives toward specific web app goals. Review the foll
 
 | Business goals                        | Web app goals                        |
 |---------------------------------------|--------------------------------------|
-| Handle increased demand               | Decouple components<br><br>Autoscale high-traffic components independently|
+| Handle increased demand               | Decouple components<br>Autoscale high-traffic components independently|
 | Optimize web app costs                | Scale unneeded resources to zero where appropriate |
-| Service-level objective of 99.9%      | Use containerized services<br><br>Choose the right services<br><br>Choose the right architecture|
+| Service-level objective of 99.9%      | Use containerized services<br>Choose the right services<br>Choose the right architecture|
 
 If your goals align with the Modern Web App pattern, then it's likely the right solution for you.
 

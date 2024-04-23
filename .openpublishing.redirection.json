@@ -4478,6 +4478,16 @@
         "source_path": "docs/solution-ideas/articles/cross-platform-chat.yml",
         "redirect_url": "/azure/architecture/example-scenario/signalr/",
         "redirect_document_id": false
+    },
+    {
+      "source_path": "web-apps/guides/reliable-web-app/pattern-overview.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "web-apps/guides/reliable-web-app/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/apply-pattern",
+      "redirect_document_id": false
     }
   ]
 }
