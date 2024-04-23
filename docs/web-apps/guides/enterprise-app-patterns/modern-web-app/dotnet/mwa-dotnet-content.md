@@ -1,12 +1,10 @@
----
-title: 
----
-
 [!INCLUDE [mwa-plan-intro](../includes/mwa-plan-intro.md)]
 
 [!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
 
-## Understand the goals of the Modern Web App pattern
+## Prerequisites
+
+### Understand the goals of the Modern Web App pattern
 
 The Modern Web App pattern drives toward specific web app goals. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
 
@@ -18,7 +16,7 @@ The Modern Web App pattern drives toward specific web app goals. Review the foll
 
 If your goals align with the Modern Web App pattern, then it's likely the right solution for you.
 
-## Satisfy the prerequisites of the Modern Web App pattern
+### Apply the Reliable Web App Pattern
 
 The Modern Web App builds on the Reliable Web App pattern. Before you apply the Modern Web App pattern, review the [implementation techniques](../../overview.md#principles-and-implementation-techniques-of-the-reliable-web-app-pattern) of the Reliable Web App pattern and make sure you apply the implementation techniques to your web app.
 

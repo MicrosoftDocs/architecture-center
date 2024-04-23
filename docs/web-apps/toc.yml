@@ -81,15 +81,15 @@ items:
             - name: .NET
               items:
               - name: Plan the implementation
-                href: guides/reliable-web-app/dotnet/plan-implementation.yml
+                href: guides/enterprise-app-patterns/reliable-web-app/dotnet/plan-implementation.yml
               - name: Apply the pattern
-                href: guides/reliable-web-app/dotnet/apply-pattern.yml
+                href: guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern.yml
             - name: Java
               items:
               - name: Plan the implementation
-                href: guides/reliable-web-app/java/plan-implementation.yml
+                href: guides/enterprise-app-patterns/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
-                href: guides/reliable-web-app/java/apply-pattern.yml
+                href: guides/enterprise-app-patterns/reliable-web-app/java/apply-pattern.yml
           - name: Modern Web App pattern
             items:
             - name: MWA for .NET

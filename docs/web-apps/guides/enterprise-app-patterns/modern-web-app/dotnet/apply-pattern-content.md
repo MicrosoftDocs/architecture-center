@@ -1,7 +1,7 @@
 ---
 title: Modern web app pattern for .NET – Apply the pattern
 ---
-This article shows you how to apply the Modern web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
+This article shows you how to apply the Modern web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-apply-intro.md)]
 
 [!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To apply the Modern Web App pattern, follow these recommendations aligned to the pillars of the Well-Architected Framework:
 
@@ -13,7 +13,7 @@ The Modern Web App pattern uses two design patterns to improve web app reliabili
 
 ### Implement the Queue-Based Load Leveling pattern
 
-The [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
+The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
 
 **ADD RECOMMENDATIONS for implementing QBLL in .NET web apps**
 

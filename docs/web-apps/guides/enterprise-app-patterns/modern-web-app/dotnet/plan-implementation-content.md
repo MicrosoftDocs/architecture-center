@@ -77,8 +77,6 @@ For each dependency in the critical path, you need to assign an availability goa
 
 Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
-<img src="c:\GitHub\architecture-center-pr\docs\web-apps\guides\modern-web-app\dotnet/media/image2.png" style="width:6.5in;height:3.17986in" alt="A diagram of a cloud network Description automatically generated" />
-
 Figure SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 Based on the individual services’ SLAs, a composite SLA can be calculated which must equal or exceed the required SLO. In Relecloud’s case, they are deploying application resources into multiple regions, so the composite SLA is calculated using the SLA values from the figure above as shown in the table below.
