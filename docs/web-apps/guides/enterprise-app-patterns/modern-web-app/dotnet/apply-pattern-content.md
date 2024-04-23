@@ -172,7 +172,7 @@ As in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern
 ---
 *Example:* The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.
 
-```json
+```bicep
 roleAssignments: \[
 
     {
