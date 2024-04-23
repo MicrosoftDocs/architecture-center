@@ -1,28 +1,34 @@
 ---
 title: Modern web app pattern for .NET – Apply the pattern
 ---
-This article shows you how to apply the reliable web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
+This article shows you how to apply the Modern web app pattern. [!INCLUDE [mwa-intro](../includes/mwa-intro.md)]
 
-[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To apply the reliable web app pattern, follow these recommendations:
+[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)] To apply the Modern Web App pattern, follow these recommendations aligned to the pillars of the Well-Architected Framework:
 
 ## Reliability
 
-Like the earlier reliable web app, a modern web app must be both resilient and available. In addition to these qualities, a modern web app should also be able to dynamically handle bursts of traffic in the busiest parts of the solution without affecting other parts of the application. By using queue-based load leveling, you can ensure that one component becoming busy will not slow down other parts of the application.
+[Reliability](/azure/well-architected/reliability/checklist) ensures your application can meet the commitments you make to your customers.
 
-### Queue-based load leveling
+The Modern Web App pattern uses two design patterns to improve web app reliability: queue-based load leveling and the retry pattern. The Queue-Based Load Leveling pattern improves message-based communication. The Retry pattern improves request-response communication.
 
-The [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) is a technique for decoupling components of a solution that request work to be done (called “tasks” in the pattern) from those that do the work (called “services”). Instead of directly requesting work to be done via HTTP requests or some similar synchronous mechanism, queue-based load leveling uses a queue as a buffer for work requests to smooth heavy loads that could otherwise cause the service to fail or cause delays in the calling task. The pattern decouples task and service and allows both to run without affecting the performance of the other.
+### Implement the Queue-Based Load Leveling pattern
 
-*Simulate the* *pattern:* You can simulate the benefits of queue-based load leveling by temporarily removing the ticket rendering worker service from Azure Container Apps. Note that this doesn’t prevent the Relecloud web API from selling tickets. When the ticket rendering service is restored, it will catch up on the queued work items and render all needed ticket images without the many incoming requests slowing down the work.
+The [queue-based load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by buffering incoming work requests in a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. It decouples tasks and services, enhancing the reliability of the system.
 
-*Example:* The reference implementation uses Azure Service Bus as an intermediate queue between the Relecloud web API and the ticket rendering service. The Relecloud ticket creation logic is updated to queue a request to have the ticket rendered rather than rendering it directly.
+**ADD RECOMMENDATIONS for implementing QBLL in .NET web apps**
 
+---
+**Example**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly.
+
+```csharp
 // Publish a message to request that the ticket be rendered.
 
 await messageSender.PublishAsync(new TicketRenderRequestMessage(Guid.NewGuid(), ticket, null, DateTime.Now), CancellationToken.None);
+```
 
-Notice that this code path waits for the message to be sent but it does not block waiting for the message to be received and handled. This way, if there are many tickets to be rendered, the web app will remain responsive while waiting for that work to be done. Instead, the Relecloud front end view which displays tickets displays a placeholder message if no image is available yet for a ticket it’s trying to display. This allows the performance of the Relecloud front end and web API to be decoupled from the performance of the ticket rendering service.
+The code path waits for the message to be sent, but it does not block waiting for the message to be received and handled. This way, if there are many tickets to be rendered, the web app will remain responsive while waiting for that work to be done. Instead, the Relecloud front end view which displays tickets displays a placeholder message if no image is available yet for a ticket it’s trying to display. This allows the performance of the Relecloud front end and web API to be decoupled from the performance of the ticket rendering service.
 
+```csharp
 @if (string.IsNullOrEmpty(ticket.ImageName))
 
 {
@@ -30,8 +36,11 @@ Notice that this code path waits for the message to be sent but it does not bloc
     \<div class="offset-top-md alert alert-warning"\>The customer's ticket is being generated, please check back later.\</div\>
 
 }
+```
 
 The new ticket rendering service is implemented as an ASP.NET Core hosted service. It doesn’t receive messages via incoming HTTP requests. Instead, it pulls messages from Service Bus using ServiceBusClient.CreateProcessor to create a message processing service. This pattern of pulling work instead of having it pushed allows the ticket rendering service to serve ticket rendering requests as quickly as possible without being overloaded by incoming requests since they will accumulate in the queue rather than in the service itself.
+
+```csharp
 
 // Create a processor for the given queue that will process incoming messages
 
@@ -54,10 +63,15 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
       PrefetchCount = 0
 
   });
+```
 
-### Retry Pattern
+---
+
+### Modify the Retry Pattern
 
 The [retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication and is an important part of any cloud solution. Retry patterns account for connectivity issues, throttling issues, and other temporary outages of dependencies by retrying failed connections, typically with increasing amounts of backoff time. While queue-based load leveling and competing consumers can help improve reliability of message-based communication, the retry pattern is essential for improving reliability of request-response communication.
+
+
 
 *Example:* The reference implementation uses retry functionality built into the .NET Azure SDK when configuring connections to both Azure Service Bus and Azure Storage.
 
