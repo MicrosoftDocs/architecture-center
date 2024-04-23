@@ -151,6 +151,7 @@ Azure OpenAI embeddings rely on cosine similarity to compute similarity between 
 ### Integration with Microsoft technology
 
 Some technologies from Microsoft are useful to build systems using vector search. For example, Azure OpenAI Service helps you to create vectors for your data and input queries for vector similarity search.  
+
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
 | Azure Open AI Service - add your own data | No | Yes <a href="#g1"><sup>1</sup></a> | No | Yes <a href="#g2"><sup>2</sup></a>| No |
