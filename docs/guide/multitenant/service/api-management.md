@@ -3,7 +3,7 @@ title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 04/10/2024
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -38,7 +38,7 @@ Typically, the way you use API Management is similar regardless of the isolation
 | Number of tenants supported | Many | Many | Almost unbounded | One per instance |
 | Cost | Lower | Lower | Lower | Higher |
 | Deployment complexity | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | High. Multiple instances to manage |
-| Routing complexity | Higher | Higher | Lower | Lower |
+| Routing configuration complexity | Higher | Higher | Lower | Lower |
 | Example scenario | Custom domain names per tenant | API applications shared between tenants based on pricing tier | Large multitenant solution with a shared application tier | Tenant-specific deployment stamps |
 
 ### Shared instance isolation models
