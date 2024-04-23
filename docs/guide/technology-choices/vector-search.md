@@ -197,4 +197,4 @@ If you're interested in trying vector search in Azure, you can find the referenc
 
 - [Understand data store models - Azure Application Architecture Guide | Microsoft Learn](/azure/architecture/guide/technology-choices/data-store-overview)
 - [Technology choices for Azure solutions - Azure Architecture Center | Microsoft Learn](/azure/architecture/guide/technology-choices/technology-choices-overview)
-- [Vector database](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-database)
+- [Vector database](/azure/cosmos-db/vector-database)
