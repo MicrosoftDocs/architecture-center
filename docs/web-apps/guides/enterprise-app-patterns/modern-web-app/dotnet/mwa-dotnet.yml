@@ -24,6 +24,6 @@ products:
   - dotnet
 name: Modern web app pattern for .NET - Apply the pattern
 summary: Modern web app pattern for .NET.
-thumbnailUrl: /azure/architecture/browse/thumbs/modern-web-app-dotnet.png
+thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](mwa-dotnet-content.md)]

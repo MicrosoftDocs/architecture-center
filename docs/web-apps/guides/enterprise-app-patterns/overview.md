@@ -27,8 +27,6 @@ The Enterprise App Patterns build on the principles of the Azure Well-Architecte
 
 [![Diagram showing the principles of the Reliable Web App](../_images/eap-overview.svg)](../_images/eap-overview.svg#lightbox)
 
-##
-
 There's specific implementation guidance for .NET and Java web apps. There's a reference implementation (sample web app) for both .NET and Java. The reference implementation has the reliable web app pattern applied. You should follow right guidance for your web app and use the reference implementation to expedite your progress.
 
 ## Web app architecture

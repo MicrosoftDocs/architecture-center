@@ -3002,12 +3002,12 @@
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern",
       "redirect_document_id": true
     },
     {
