@@ -23,7 +23,7 @@ As a workload owner, you can offload the management of shared resources to centr
 
 ## Architecture
 
-:::image type="complex" source="./_images/azure-openai-baseline-landing-zone.png" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone.png" border="false":::
+:::image type="complex" source="./_images/azure-openai-baseline-landing-zone.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone.svg":::
    TODO - WAITING FOR FINAL IMAGE
 :::image-end:::
 *Download a [Visio file - LINK TODO - WAITING FOR FINAL IMAGE](https://arch-center.azureedge.net/TODO) of this architecture.*
@@ -128,7 +128,7 @@ The organization's governance might add more requirements around container base 
 
 In the [baseline architecture](./baseline-openai-e2e-chat.yml#networking), the workload is provisioned in a single virtual network. In landing zones, the workload is effectively split over two virtual networks. One network for the workload components and one for controlling internet and cross-premises connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture; usually with a hub-spoke topology.
 
-:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking.png" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking.png" border="false":::
+:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking.svg":::
    TODO - WAITING FOR FINAL IMAGE
 :::image-end:::
 *Download a [Visio file - TODO - WAITING FOR FINAL IMAGE](https://arch-center.azureedge.net/TODO.vsdx) of this architecture.*
@@ -189,7 +189,7 @@ Be sure to evaluate if the inclusion of component features that directly depend 
 
 In the baseline architecture, Internet egress control was only available through the network configuration on Azure Machine Learning workspaces and Azure App Services, combined with using Network Security Groups (NSG) on the various subnets. Those controls remain present in this architecture but are further augmented. In this architecture, all traffic that leaves the spoke virtual network is now rerouted through the peered hub network via an egress firewall. Traffic originating inside the managed virtual network for Azure Machine Learning computes is not subject to this egress route.
 
-:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.png" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.png" border="false":::
+:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.svg":::
    TODO - WAITING FOR FINAL IMAGE
 :::image-end:::
 *Download a [Visio file TODO - WAITING FOR FINAL IMAGE](https://arch-center.azureedge.net/TODO.vsdx) of this architecture.*
