@@ -35,38 +35,38 @@ This section helps you select the most likely services for your needs. To narrow
 
 ### Key Requirements
 
-![images/vector-search-decision-tree.png](./images/vector-search-flow-chart.png)
+![Vector Search Flow Chart](./images/vector-search-flow-chart.png "Vector Search Flow Chart")
 
 - **You insert, update, or delete the values in vectorized fields frequently and the search result must always up to date with those changes:**
-  - If your scenarios require keep vector data with operational data, you can **_keep vector fields in database systems_**.
-  - In these scenarios, you can deploy **_RDBMS database or NoSQL database_** for vector store which based on your preference.
-  - You need to **_develop advanced search features and need to optimize search quality by yourself_**.
-  - Choosing database for vector store has more advantage in **_Cost Optimization_** perspective than choosing search engine.
+  - If your scenarios would benefit from keep vector data living directly with OLTP/operational data, you should **_keep vector fields in your existing database systems_**. This can be because of cost optimization or overhead of additional technology in the workload.
+  - In these scenarios, you would choose an the same **_RDBMS database or NoSQL database_** technology for vector store that your workload expects to use for its OLTP or non-relational store.
+  - You can **_optimize search quality by developing and applying advanced search functions such as Re-Ranking or Hybrid Search yourself through SQL or Coding_**.
+  - Typically, **_database operating costs are cheaper_** than search engine under the same condition.
   - **You have MongoDB already or you are familiar with MongoDB:**
     - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure Open AI Service integration and instantaneous scalability.
     - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
-    - Azure Cosmos DB for MongoDB vCore supports ANN vector index such as "HNSW" and "VFflat".
+    - Azure Cosmos DB for MongoDB vCore supports native ANN vector index such as "HNSW" and "IVFflat". This allows you to get fast search performance even with a large amount of data.
     - **_Only one vector field and index is available_** per container.
   - **You have PostgreSQL already or you prefer OSS technology:**
-    - In Azure, [Azure Database for PostgreSQL](/azure/postgresql/overview) and [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction) deliver high availability with a managed community PostgreSQL database service.
-    - Azure Database for PostgreSQL supports ANN vector index such as "HNSW" and "IVFflat".
+    - Azure Database for PostgreSQL supports supports native ANN vector index such as "HNSW" and "IVFflat". This allows you to get fast search performance even with a large amount of data.
     - You can define multiple vector fields in single table.
     - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
     - If you're using Azure Open AI Service, embedding feature is integrated and ready to use.
+    - If you are considering multi-tenant SaaS apps,  high throughput transactional app or if you need high performance distributed PostgreSQL with scale-out to multiple node, Azure Cosmos DB for PostgreSQL is the best choice.
   - **You have SQL Database already or you prefer SQL Server technology:**
     - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
     - SQL Server **_doesn't support vector data type and vector index_**. You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).
     - Vector search **_performance is slower and not recommended for large dataset_**.
 > [!NOTE]
 > Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
-- **Your application requires advanced search features with high quality:**
+- **Your application requires 'advanced search features' such as Re-Ranking or Built-In Hybrid Search for higher accuracy and fast search results:**
   - In Azure, [Azure AI Search](/azure/postgresql/overview) provides information retrieval at scale over user-owned content in traditional and AI search scenarios.
   - If you need to index **_unstructured data(e.g. images, docx, PDF and etc.)_**, Azure AI search has **_skill set which can help collect insightful metadata_** from them.
   - Azure AI Search supports ANN vector index such as "HNSW" and "Exhaustive KNN".
   - You can define multiple vector fields in single index.
   - You can create multiple vector indexes in search index.
   - If you're using Azure **_OpenAI Service, embedding feature is integrated and ready to use_**.
-  - **_Operational Cost can be higher_** than keeping vector data in database systems.
+  - AI Search provides excellent performance in relation to vector search and comes with features for high search result quality, but **_operating costs can be higher than databases under the same conditions_**.
 
 ## Capability Matrix
 The following tables summarize the key differences in capabilities.
@@ -116,9 +116,9 @@ Workloads often need to combine vector search with full-text search or even a hy
 Vector data indexing is the ability to efficiently store and retrieve vectors. This capability is important because indexing influences speed and accuracy of similarity searches and nearest neighbor queries on data sources.
 
 Indexes are typically based on an Exhaustive K-nearest Neighbor (EKNN) or an artificial neural network (ANN) algorithm. 
-EKNN does exhaustive search on all data points one by one and returns the accurate _K_ nearest neighbors. EKNN works in the milliseconds with small number of documents but can cause latency for large amounts of documents.
+EKNN does exhaustive search on all data points one by one and returns the accurate _K_ nearest neighbors. EKNN works in the milliseconds with small number of data but can cause latency for large amounts of data.
 
-[Hierarchical Navigable Small World (HNSW)](https://en.wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs) and [IVFflat](https://en.wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy involves a careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. IVFFlat is particularly effective in environments where resources are limited or query volumes are not high, whereas HNSW excels in systems that require fast query responses and can adapt to changes in the dataset.
+[Hierarchical Navigable Small World (HNSW)](https://en.wikipedia.org/wiki/Hierarchical_Navigable_Small_World_graphs) and [IVFflat](https://en.wikipedia.org/wiki/Nearest_neighbor_search) are ANN algorithm indexes. Selecting the appropriate indexing strategy involves a careful consideration of various factors such as the nature of the dataset, the specific requirements of the queries, and the available resources. IVFFlat is particularly effective in environments where hardware resources are limited or query volumes are not high, whereas HNSW excels in systems that require fast query responses and can adapt to changes in the dataset.
 
 Understand what kinds of vector data indexing are provided from the following table.
 
@@ -138,7 +138,7 @@ Understand what kinds of vector data indexing are provided from the following ta
 
 There are [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity), [Dot Product](https://en.wikipedia.org/wiki/Dot_product) and [Euclidean Distance](https://en.wikipedia.org/wiki/Euclidean_distance) calculation methods for vector search. These methods are used to calculate the similarity between two vectors or the distance between two vectors.
 
-Preliminary data analysis benefits from both metrics and Euclidean distances, which allow for the extraction of different insights on data structure, whereas text classification generally performs better under Euclidean distances, and retrieval of the most similar texts to a given document typically functions better with cosine similarity.
+Preliminary data analysis benefits from both metrics and Euclidean distances, which allow for the extraction of different insights on data structure, whereas text classification generally performs better under Euclidean distances, and retrieval of the most similar texts to a given text typically functions better with cosine similarity.
 
 Azure OpenAI embeddings rely on cosine similarity to compute similarity between documents and a query.
 
@@ -148,9 +148,9 @@ Azure OpenAI embeddings rely on cosine similarity to compute similarity between 
 | Euclidean distance (L2 distance)   | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
 | Dot product                                    | Yes                            | Yes                                 | Yes                                  | Yes             | No                 |
 
-### Integration with Microsoft technology
+### Integration with Azure Open AI and other components
 
-Some technologies from Microsoft are useful to build systems using vector search. For example, Azure OpenAI Service helps you to create vectors for your data and input queries for vector similarity search.  
+When implementing vector search, you can also consider linkage with other Microsoft components. For example, Azure OpenAI Service helps you to create vectors for your data and input queries for vector similarity search.  
 
 | Capability | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 |---|---|---|---|---|---|
