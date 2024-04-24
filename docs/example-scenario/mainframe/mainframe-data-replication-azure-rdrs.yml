@@ -6,7 +6,7 @@ metadata:
   author: sandippk
   ms.author: sandipk
   ms.date: 04/19/2024
-  ms.topic: example-scenario
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp
@@ -20,7 +20,7 @@ products:
   - azure-logic-apps
   - azure-sql-database
   - azure-storage
-name: Mainframe and midrange data replication to Azure using RDRS
+name: Replicate mainframe and midrange data to Azure by using RDRS
 summary: Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-realtime-batch-data-replication-azure-rdrs.png
 content: |
