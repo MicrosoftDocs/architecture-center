@@ -24,4 +24,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/data-science-initial-methodology.png
 content: |
-   [!include[](mlops-maturity-model-content.md)]
+   [!INCLUDE[](mlops-maturity-model-content.md)]

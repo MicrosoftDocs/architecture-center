@@ -54,8 +54,6 @@ items:
           href: ../solution-ideas/articles/cognitive-search-with-skillsets.yml
       - name: MLOps
         items:
-        - name: Model deployment to AKS
-          href: idea/machine-learning-model-deployment-aks.yml
         - name: Orchestrate MLOps with Azure Databricks
           href: idea/orchestrate-mlops-azure-databricks.yml    
         - name: Deploy AI and ML at the edge
