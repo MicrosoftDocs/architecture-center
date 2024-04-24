@@ -89,7 +89,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Scenario details
 
-Mainframes are servers that process a large number of transactions. Mainframe applications produce and consume large amounts of data every day. The introduction of public clouds provides elasticity, cost optimization, ease of use, and easy integration. Many x86 and mainframe applications are moving to the cloud, so it's important for organizations to have a well-designed mainframe-to-cloud data integration and migration strategy.
+Mainframes are servers that process a large number of transactions. Mainframe applications produce and consume large amounts of data every day. Public clouds provide elasticity, cost optimization, ease of use, and easy integration. Many x86 and mainframe applications are moving to the cloud, so organizations must have a well-designed mainframe-to-cloud data integration and migration strategy.
 
 This scenario integrates an IBM Z (mainframe) data tier with the Azure cloud data platform by using [RDRS](https://www.rocketsoftware.com/products/rocket-data-replicate-and-sync) provided by [Rocket Software](https://www.rocketsoftware.com/news/rocket-software-acquires-bos-simplify-mainframe-modernization-and-accelerate-hybrid-cloud).
 
@@ -120,10 +120,10 @@ Other contributors:
 * [Training: Architect a data platform in Azure](/training/paths/architect-data-platform/)
 * Contact the [Azure Data Engineering Team](mailto:datasqlninja@microsoft.com).
 * [Azure database migration guides](https://datamigration.microsoft.com/)
-* [Data platform modernization](/training/modules/introduction-data-platform-modernization/)
+* [Training: Design a SQL Server migration strategy](/training/modules/introduction-data-platform-modernization/)
 * [Migration guide: SQL Server to Azure SQL Database](/training/modules/design-your-migration-to-azure/)
 
 ## Related resources
 
-* [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
+* [Modernize mainframe and midrange data](modernize-mainframe-data-to-azure.yml)
 * [Replicate and synch mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
