@@ -27,7 +27,7 @@ This article compares the following services based on their vector search capabi
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 - [Azure SQL Database](/azure/azure-sql/)
 
-Architects and developers should compare the available services both from the perspective of system requirements presented in the [Choose a candidate service](#choose-a-candidate-service) section and based on specific product capabilities presented in the [Capability Matrix](#capability-matrix) section.
+Architects and developers should compare the available services from the perspective of system requirements in the [Choose a candidate service](#choose-a-candidate-service) section and in the [Capability Matrix](#capability-matrix) section.
 
 ## Choose a candidate service
 
@@ -38,8 +38,8 @@ This section helps you select the most likely services for your needs. To narrow
 ![Vector Search Flow Chart](./images/vector-search-flow-chart.png "Vector Search Flow Chart")
 
 - **You insert, update, or delete the values in vectorized fields frequently and the search result must always up to date with those changes:**
-  - If your scenarios would benefit from keep vector data living directly with OLTP/operational data, you should **_keep vector fields in your existing database systems_**. This can be because of cost optimization or overhead of additional technology in the workload.
-  - In these scenarios, you would choose an the same **_RDBMS database or NoSQL database_** technology for vector store that your workload expects to use for its OLTP or non-relational store.
+  - If your scenarios would benefit from keep vector data living directly with OLTP/operational data, you should **_keep vector fields in your existing database systems_**, which can be because of cost optimization or overhead of additional technology in the workload.
+  - In these scenarios, you would choose the same **_RDBMS database or NoSQL database_** technology for vector store that your workload expects to use for its "OLTP" or "non-relational" store.
   - You can **_optimize search quality by developing and applying advanced search functions such as Re-Ranking or Hybrid Search yourself through SQL or Coding_**.
   - Typically, **_database operating costs are cheaper_** than search engine under the same condition.
   - **You have MongoDB already or you are familiar with MongoDB:**
