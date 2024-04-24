@@ -71,7 +71,7 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
 
 ### Modify the Retry Pattern
 
-The [retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [reliable web app pattern](https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
+The [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.md#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
 
 #### How does the retry pattern show up in new ways
 
@@ -155,7 +155,7 @@ services.AddSingleton(sp =\>
 
 Because the Azure SDK handles retries automatically using the configured settings, no explicit retries are necessary in the reference implementation’s ticket rendering service.
 
-Implementing the retry pattern for the ticket rendering service’s handling of rendering request messages works a bit differently. Because these messages are processed from an Azure Service Bus queue (instead of received via HTTP), the retry pattern is implemented by ensuring that messages are read from the queue using the “[peek-lock](https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock)” receive mode. This means that the service will lock messages in the queue while processing them but won’t actually remove them from the queue until processing succeeds. Therefore, if there’s an unexpected error while processing the message, it will be returned to the queue automatically (when the lock expires) and the service will retry processing it. To avoid a malformed message from blocking the queue by continually causing the handler to fail, messages that repeatedly fail to be processed will be moved to a [dead-letter queue](https://learn.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues) for later review.
+Implementing the retry pattern for the ticket rendering service’s handling of rendering request messages works a bit differently. Because these messages are processed from an Azure Service Bus queue (instead of received via HTTP), the retry pattern is implemented by ensuring that messages are read from the queue using the “[peek-lock](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock)” receive mode. This means that the service will lock messages in the queue while processing them but won’t actually remove them from the queue until processing succeeds. Therefore, if there’s an unexpected error while processing the message, it will be returned to the queue automatically (when the lock expires) and the service will retry processing it. To avoid a malformed message from blocking the queue by continually causing the handler to fail, messages that repeatedly fail to be processed will be moved to a [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) for later review.
 
 ---
 
@@ -167,7 +167,7 @@ As you adopt the modern web app pattern, more and more components will be introd
 
 ### Use managed identities
 
-As in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.md#configure-user-authentication-and-authorization), use managed identities for all [Azure services that support managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
+As in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.md#configure-service-authentication-and-authorization), use managed identities for all [Azure services that support managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
 ---
 *Example:* The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.

@@ -4485,11 +4485,6 @@
         "redirect_document_id": false
     },
     {
-      "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern-content",
       "redirect_document_id": false
