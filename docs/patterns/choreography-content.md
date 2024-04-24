@@ -6,11 +6,12 @@ A cloud-based application cation is often divided into several small services th
 
 A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
-The orchestrator pattern is typically implemented as custom software and has domain knowledge about the responsibilities of those services. A benefit is that the orchestrator can consolidate the status of a transaction based on the results of individual operations conducted by the downstream services. However, there are some drawbacks. Adding or removing services might break existing logic because you need to rewire portions of the communication path. This dependency makes orchestrator implementation complex and hard to maintain. 
+![A diagram of a workflow that processes requests using a central orchestrator](./_images/orchestrator.png)
 
-The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure. It can also cause cascading failures in the downstream services.
+The orchestrator pattern is typically implemented as custom software and has domain knowledge about the responsibilities of those services. A benefit is that the orchestrator can consolidate the status of a transaction based on the results of individual operations conducted by the downstream services. 
 
-![Processing a request using a central orchestrator](./_images/orchestrator.png)
+However, there are some drawbacks. Adding or removing services might break existing logic because you need to rewire portions of the communication path. This dependency makes orchestrator implementation complex and hard to maintain. The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure. It can also cause cascading failures in the downstream services.
+
 
 ## Solution
 
@@ -18,11 +19,11 @@ Distribute transaction handling logic among the services. Let each service decid
 
 > The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
 
-A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. 
+A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
 
 ![An image showing processing of a request using a message broker](./_images/choreography-pattern.png)
 
-The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
+
 
 1. A client requests are queued as messages in a message broker. 
 
@@ -95,7 +96,7 @@ This example is a refactoring of the [Drone Delivery implementation](https://git
 
 ![Diagram of an event driven cloud native example workload implementing choreography pattern](./_images/choreography-example.png)
 
-The Ingestion service handles client requests and convert them into messages including the delivery details. Business transactions are initiated after consuming those new messages.
+The Ingestion service handles client requests and converts them into messages including the delivery details. Business transactions are initiated after consuming those new messages.
 
 A single client business transaction requires three distinct business operations: 
 
@@ -109,7 +110,7 @@ Three microservices perform the business processing: Package, Drone Scheduler, a
 
 The business transaction is processed in a sequence through multiple hops. Each hop is sharing a single message bus among all the business services.
 
-When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, converts such request into a message, and then publishes the message to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. If there's a failure or time-out, the service reports failure by sending the reason code to the message bus. Additionally, the message is added to a a dead-letter queue. Messages that couldn't be received or processed within a reasonable and appropriate amount of time are moved the DLQ as well.
+When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, converts such request into a message, and then publishes the message to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. If there's a failure or time-out, the service reports failure by sending the reason code to the message bus. Additionally, the message is added to a dead-letter queue. Messages that couldn't be received or processed within a reasonable and appropriate amount of time are moved the DLQ as well.
 
 The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The workload is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app?pivots=azure-cli#custom) that executes the business logic.
 
