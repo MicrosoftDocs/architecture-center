@@ -4485,14 +4485,34 @@
         "redirect_document_id": false
     },
     {
-      "source_path": "web-apps/guides/reliable-web-app/pattern-overview.yml",
+      "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "web-apps/guides/reliable-web-app/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/apply-pattern",
+      "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/plan-implementation-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/java/plan-implementation.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/plan-implementation-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/java/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/apply-pattern-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
       "redirect_document_id": false
     }
-  ]
+  ] 
 }
