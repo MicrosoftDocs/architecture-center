@@ -31,34 +31,40 @@ The solution uses the following components.
 
 #### Networking and identity components
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection that's handled by a connectivity provider. You can use ExpressRoute to establish connections to cloud services, like Microsoft Azure and Microsoft 365.
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
-- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft Entra ID is an identity and access management service that you can synchronize with an on-premises directory.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/): ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection that's handled by a connectivity provider. You can use ExpressRoute to establish connections to cloud services, like Microsoft Azure and Microsoft 365.
+- [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway/): A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+- [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id): Microsoft Entra ID is an identity and access management service that you can synchronize with an on-premises directory.
 
 #### Application components
 
-- [Logic Apps](/azure/logic-apps/logic-apps-overview) - Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside of Azure, like HTTP or HTTPS endpoints, post messages to Azure services like Azure Storage and Azure Service Bus, or upload files to a file share.
-- [Azure Functions](/azure/azure-functions/functions-overview) - Azure Functions lets you run small pieces of code, called functions, without worrying about application infrastructure. When you use Functions, the cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale.
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) - Azure VMs are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization and eliminates the maintenance demands of physical hardware. Azure VMs operate on both Windows and Linux systems.
+- [Logic Apps](https://azure.microsoft.com/products/logic-apps/): Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside of Azure, like HTTP or HTTPS endpoints, post messages to Azure services like Azure Storage and Azure Service Bus, or upload files to a file share.
+- [Azure Functions](https://azure.microsoft.com/products/functions/): Azure Functions lets you run small pieces of code, called functions, without worrying about application infrastructure. When you use Functions, the cloud infrastructure provides the up-to-date servers that you need to keep your application running at scale.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/): Azure VMs are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization and eliminates the maintenance demands of physical hardware. Azure VMs operate on both Windows and Linux systems.
 
 #### Storage components
 
-- [Storage](/azure/storage/common/storage-introduction) - Storage offers unmanaged storage solutions like Azure Blob Storage, Azure Table Storage, Azure Queue Storage, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
-- [Azure SQL](/azure/azure-sql/database/sql-database-paas-overview) - Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure components, such as Azure SQL Managed Instance, Azure SQL VMs, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Database for MySQL.
-- [Azure Cosmos DB](/azure/cosmos-db/introduction) - Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
+- [Storage](https://azure.microsoft.com/products/storage-actions/): Storage offers unmanaged storage solutions like Azure Blob Storage, Azure Table Storage, Azure Queue Storage, and Azure Files. Azure Files is especially useful for re-engineered mainframe solutions and provides an effective add-on with managed SQL storage.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql/): Azure SQL is a fully managed platform as a service (PaaS) for SQL Server from Azure. Relational data can be migrated and used efficiently with other Azure components, such as Azure SQL Managed Instance, Azure SQL VMs, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Database for MySQL.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/): Azure Cosmos DB is a no-SQL offering that you can use to migrate non-tabular data off of the mainframe.
 
 #### Monitoring components
 
-- [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview) - Application Insights analyzes and presents application telemetry.
-- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, into a single workspace to be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
-- [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) - Log Analytics is a tool in the Azure portal. You can use log queries to get insights from the data collected in Azure Monitor Logs. Log Analytics uses a powerful query language so you can join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor/): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights analyzes and presents application telemetry.
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs): Azure Monitor Logs is a feature of Monitor that collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, like platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications, into a single workspace to be analyzed together by using a sophisticated query language capable of quickly analyzing millions of records.
+- [Log Analytics](/azure/azure-monitor/log-query/log-query-overview): Log Analytics is a tool in the Azure portal. You can use log queries to get insights from the data collected in Azure Monitor Logs. Log Analytics uses a powerful query language so you can join data from multiple tables, aggregate large data sets, and perform complex operations with minimal code.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 * Set up RDRS OPM on Azure VMs that are deployed in separate availability zones to provide high availability. In case of failures, a secondary RDRS OPM is activated and the secondary RDRS OPM communicates its IP address to RDRS Mainframe Manager. The mainframe then communicates with the new RDRS OPM that continues to process at its next logical restart point by using a combination of logical unit of work (LUW) and restart files.
 * Design Azure database services to support zone redundancy so that they can fail over to a secondary node if there's an outage or a planned maintenance window.
@@ -73,7 +79,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 * Control authentication and access for RDRS by using Microsoft Entra ID.
 * Encrypt data transfers between RDRS products (mainframe to Azure) by using Transport Layer Security (TLS).
@@ -82,10 +88,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 * Use the database services in Azure to support various security options like data encryption at rest (TDE), data encryption in transit (TLS), and data encryption while processing, so your data is always encrypted.
 * For guidelines about how to design secure solutions, see [Azure security documentation](/azure/security).
 * To find out your security baseline, see [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ## Scenario details
 
