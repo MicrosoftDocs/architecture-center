@@ -14,23 +14,24 @@ The workload sections below are broken into two parts. One explains the public i
 
 ![Diagram of the public internet workflow.](./media/SplitBrain-DNS-hosting-public.png)
 
-1. Users send a request for the application `app.contoso.com` over the public internet.
+1. Users send a request for the application `app.contoso.com` via the public internet.
 
-1. An [Azure DNS zone](/azure/dns/dns-zones-records) is configured for the `contoso.com` domain where the appropriate [CNAME entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
+1. An [Azure DNS zone](/azure/dns/dns-zones-records) is configured for the `contoso.com` domain. The appropriate [CNAME entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
 1. External users access the web application via Azure Front Door, which functions as a global load balancer and web application firewall.
-   - Within Azure Front Door, the FQDN name of `app.contoso.com` is assigned via routes on a configured endpoint. It also hosts the TLS SNI certificates for the applications.
 
-  > [!NOTE]
-  > Azure Front Door doesn't support self-signed certificates.
+   - Within Azure Front Door, the FQDN name of `app.contoso.com` is assigned via routes on a configured endpoint. Azure Front Door also hosts the TLS SNI certificates for the applications.
 
-   - Azure Front Door routes the requests to the configured Origin Group based on the client Host HTTP header.
-   - The Origin Group is configured to point to the Application Gateway using the Application Gateway's public IP address.
-4. A [Network Security Group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the `AppGW subnet` to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, while disallowing inbound traffic on ports 80 and 443 from the Internet service tag.
+   > [!NOTE]
+   > Azure Front Door doesn't support self-signed certificates.
 
-  > [!NOTE]
-  > Please note that this tag doesn't limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
+   - Azure Front Door routes the requests to the configured origin group based on the client `Host` HTTP header.
+   - The origin group is configured to point to the Azure Application Gateway instance by using Application Gateway's public IP address.
+4. A [network security group (NSG)](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the `AppGW subnet` to allow inbound access on port 80 and port 443 from the *AzureFrontDoor.Backend* service tag. The NSG disallows inbound traffic on port 80 and port 443 from the internet service tag.
 
-5. The Application Gateway is set up with a [listener](/azure/application-gateway/configuration-listeners) on port (443). Traffic is routed to the backend by the hostname specified within the listener.
+   > [!NOTE]
+   > Please note that this tag doesn't limit traffic solely to YOUR instance of Azure Front Door; validation occurs at the next stage.
+
+5. The Application Gateway instance is set up with a [listener](/azure/application-gateway/configuration-listeners) on port (443). Traffic is routed to the backend by the hostname specified within the listener.
    - To ensure that traffic has originated from *YOUR* Front Door profile, you will configure a [custom WAF rule](/azure/web-application-firewall/ag/create-custom-waf-rules#example-7) to check the `X-Azure-FDID` header value. 
    - Azure generates a unique identifier for each Front Door profile and you can find the identifier in the Azure portal by looking for the *Front Door ID* value in the Overview page of your profile.
 6. Traffic reaches the compute resource that is configured as a backend pool on the Application Gateway.
