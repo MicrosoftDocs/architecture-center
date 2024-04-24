@@ -109,7 +109,7 @@ Workloads often need to combine vector search with full-text search or even a hy
 1. <span id="b4">[Vector Data](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications) on SQL Server</span>
 1. <span id="b5">Not provided as a first-class feature but [sample codes](https://github.com/pgvector/pgvector-python/blob/master/examples/hybrid_search_rrf.py) are provided.</span>
 1. <span id="b6">[Hybrid search (combination of Full Text search, Vector search, and Semantic Ranking)](/azure/search/hybrid-search-how-to-query) is provided as a first-class feature.</span>
-1. <span id="b7">Hybrid search [example](/Azure-Samples/azure-sql-db-openai/python) for Azure SQL database and SQL Server.</span>
+1. <span id="b7">Hybrid search [example](https://github.com/Azure-Samples/azure-sql-db-openai/blob/main/python/README.md) for Azure SQL database and SQL Server.</span>
 1. <span id="b8">Reranking called [Semantic Ranking](/azure/search/semantic-search-overview) is a first-class feature for reranking the result of full text search and/or vector search.</span>
 
 ### Vector data indexing algorithms
@@ -149,7 +149,7 @@ Azure OpenAI embeddings rely on cosine similarity to compute similarity between 
 | Euclidean distance (L2 distance)   | Yes                            | Yes                                 | Yes                                  | Yes             | Yes <a href="#e1"><sup>1</sup></a>                 |
 | Dot product                                    | Yes                            | Yes                                 | Yes                                  | Yes             | Yes <a href="#e1"><sup>1</sup></a>                 |
 
-1. <span id="e1">Distance calculation [examples](Azure-Samples/azure-sql-db-openai/distance-calculations-in-tsql.md) for Azure SQL database and SQL Server. </span>
+1. <span id="e1">Distance calculation [examples](https://github.com/Azure-Samples/azure-sql-db-openai/blob/main/distance-calculations-in-tsql.md) for Azure SQL database and SQL Server. </span>
 
 ### Integration with Azure OpenAI and other components
 
