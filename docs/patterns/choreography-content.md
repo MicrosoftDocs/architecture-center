@@ -1,8 +1,8 @@
-Delegate decision-making responsibilities from a centralized to individual components within a system.
+Decentralize workflow logic by distributing the responsibilities to other components within a system.
 
 ## Context and problem
 
-A cloud-based application cation is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation can result in multiple point-to-point calls among all services. Ideally, those services should be loosely coupled. It's challenging to design a workflow that's distributed, efficient, and scalable because it often involves complex interservice communication.
+A cloud-based application is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation (within a transaction) can result in multiple point-to-point calls among all services. Ideally, those services should be loosely coupled. It's challenging to design a workflow that's distributed, efficient, and scalable because it often involves complex interservice communication.
 
 A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
@@ -15,7 +15,7 @@ However, there are some drawbacks. Adding or removing services might break exist
 
 ## Solution
 
-Distribute transaction handling logic among the services. Let each service decide and participate in the communication workflow for a business operation.
+Delegate the transaction handling logic among the services. Let each service decide and participate in the communication workflow for a business operation.
 
 > The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
 
@@ -24,14 +24,13 @@ A common way to implement choreography is to use a message broker that buffers r
 ![An image showing processing of a request using a message broker](./_images/choreography-pattern.png)
 
 
-
 1. A client requests are queued as messages in a message broker. 
 
 1. The services or the subscriber poll the broker to determine if they can process that message based on their implemented business logic. The broker can also push messages to subscribers who are interested in that message. 
 
 1. Each subscribed service does their operation as indicated by the message and responds to the broker with success or failure of the operation. 
 
-1. If successful, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If the operation fails, the message broker can retry that operation.
+1. If successful, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If the operation fails, the message broker works with other services to compensate that operation or the entire transaction.
 
 
 
@@ -51,9 +50,7 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
 - The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
 
-- Distributing logic among components can cause them to become less resilient to failures.  
-
-    Each service isn't only responsible for the resiliency of its operation but also the workflow. This responsibility can be burdensome for the service and hard to implement. Each service must retry transient, nontransient, and time-out failures, so that the request terminates gracefully, if needed. Also, the service must be diligent about communicating the success or failure of the operation so that other services can act accordingly.
+- In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. So, there's added complexity because the downstream components must directly communicate with the resiliency handler. 
 
 
 ## When to use this pattern
