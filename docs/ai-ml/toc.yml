@@ -136,6 +136,8 @@ items:
         href: guide/data-science-and-machine-learning.md
       - name: Developing and evaluating RAG solutions
         items:
+        - name: Getting started
+          href: guide/rag/rag-solution-design-and-evaluation-guide.yml        
         - name: Preparation phase
           href: guide/rag/rag-preparation-phase.yml
         - name: Chunking phase
@@ -230,6 +232,8 @@ items:
         items:
         - name: Developing and evaluating RAG solutions
           items:
+          - name: Getting started
+            href: guide/rag/rag-solution-design-and-evaluation-guide.yml
           - name: Preparation phase
             href: guide/rag/rag-preparation-phase.yml
           - name: Chunking phase
