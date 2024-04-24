@@ -4425,6 +4425,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/idea/machine-learning-model-deployment-aks.yml",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-kubernetes-extension",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/monitor-mining-equipment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
