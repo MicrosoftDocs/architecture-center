@@ -37,11 +37,13 @@ As mentioned in the introduction, there are a variety of implementation decision
 :::image-end:::
 *Figure 2. Questions that arise when designing RAG solution*
 
+The series of articles in this guide addresses those considerations and more.
+
 [Preparation phase](./rag-preparation-phase.yml)
 
-* Determine solution domain
-* Gather representative test documents
-* Gather test queries
+* **Determine solution domain** - Discusses the importance of clearly defining the business requirements for the RAG solution
+* **Gather representative test documents** - Discusses considerations and guidance on gathering test documents for your RAG solution that are representative of your corpus.
+* **Gather test queries** - Discusses what information you should gather along with your test queries, provides guidance on generating synthetic queries and queries that your documents do not cover.
 
 [Chunking phase](./rag-chunking-phase.yml)
 
