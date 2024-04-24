@@ -1,4 +1,4 @@
-Decentralize workflow logic by distributing the responsibilities to other components within a system.
+Decentralize workflow logic and distribute the responsibilities to other components within a system.
 
 ## Context and problem
 
@@ -50,7 +50,7 @@ Decentralizing the orchestrator can cause issues while managing the workflow.
 
 - The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
 
-- In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. So, there's added complexity because the downstream components must directly communicate with the resiliency handler. 
+- In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. But now, the downstream components must directly communicate with the resiliency handler, increasing point-to-point communication. 
 
 
 ## When to use this pattern
