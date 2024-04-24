@@ -21,7 +21,9 @@ categories:
 
 # Enterprise App Patterns
 
-The [Well-Architected Framework](/azure/well-architected/pillars) establishes the overriding principles of the Enterprise App Patterns. It helps you create a web app that is cost optimized, observable, and ingress secure using infrastructure as code and identity-centric security.
+offers detailed instructions and reference implementations designed to help enterprise developers and solution architects modernize their most critical workloads on Azure. It adheres to the principles of the [Well-Architected Framework](/azure/well-architected/pillars) to , securely, and efficiently, while adhering to high-performance standards and contemporary design and operational practices.
+
+ establishes the overriding principles of the Enterprise App Patterns. It helps you create a web app that is cost optimized, observable, and ingress secure using infrastructure as code and identity-centric security.
 
 The Enterprise App Patterns build on the principles of the Azure Well-Architected Framework. They focus on several well-architected principles that are essential for the entire cloud adoption journey. The patterns focus on helping developers build web apps are cost optimized, observable, and ingress secure. The patterns also shows you how to implement infrastructure as code and identity-centric security.
 

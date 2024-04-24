@@ -71,7 +71,7 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
 
 ### Modify the Retry Pattern
 
-The [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.md#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
+The [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.yml#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
 
 #### How does the retry pattern show up in new ways
 
