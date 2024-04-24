@@ -18,4 +18,4 @@ name: Accessing Azure OpenAI and other LLMs through a gateway
 summary: Learn about the challenges of directly accessing Azure OpenAI or other LLMs and how injecting a gateway lets you augment the models with additional services.
 thumbnailUrl: ../../browse/thumbs/TODO.png
 content: |
-  [!include[](openai-gateway-guide-content.md)]
+  [!INCLUDE[](azure-openai-gateway-guide-content.md)]
