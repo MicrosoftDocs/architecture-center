@@ -1,8 +1,8 @@
-This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote offices scenarios.
+This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 
 ## Architecture
 
-[ ![Diagram illustrating an Azure Stack HCI storage switchless scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.](images/azure-stack-robo.svg)](images/azure-stack-robo.svg#lightbox)
+[ ![Diagram illustrating an Azure Stack HCI storage switchless scenario, with a three-node Azure Stack HCI cluster using a switchless storage. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery.](images/azure-stack-hci-switchless.svg)](images/azure-stack-hci-switchless.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -11,7 +11,7 @@ This reference architecture illustrates how to design infrastructure for highly 
 The architecture incorporates the following capabilities:
 
 - **[Azure Stack HCI][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) cluster solution that hosts virtualized workloads and storage in a hybrid on-premises environment or edge location. Azure Stack HCI clusters can scale from a single node to a maximum of sixteen nodes.
-- **[Cloud Witness][cloud-witness]**. Cloud Witness is a type of failover cluster quorum witness that uses Microsoft Azure to provide a vote on cluster quorum. It is possible to use [a USB drive connected to a router][usb-file-share-witness] for this purpose.
+- **[Cloud Witness][cloud-witness]**. Cloud Witness is a type of failover cluster quorum witness that uses an Azure Storage Account to provide cluster quorum voting capabilities.
 - **[Azure Arc][azure-arc]**. A cloud-based service that extends the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **[Azure Policy][azure-policy]**. A cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
 - **[Azure Monitor][azure-monitor]**. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -28,15 +28,16 @@ The architecture incorporates the following capabilities:
 
 Key technologies used to implement this architecture:
 
-- [Automation](https://azure.microsoft.com/services/automation)
-- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery)
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc)
-- [Azure Backup](https://azure.microsoft.com/services/backup)
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-- [Azure Files](https://azure.microsoft.com/services/storage/files)
-- [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy)
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud)
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
+- [Azure Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
+- [Automation](https://azure.microsoft.com/products/automation)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
+- [Azure Backup](https://azure.microsoft.com/products/backup)
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
+- [Azure Files](https://azure.microsoft.com/products/storage/files)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
 
 ## Scenario details
 
@@ -52,9 +53,9 @@ Typical uses for this architecture include the following remote office, retail o
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-### Use Azure Stack HCI switchless interconnect and lightweight quorum for highly available and cost-effective ROBO infrastructure.
+### Use Azure Stack HCI switchless interconnect for highly available and cost-effective infrastructure for retail, manufacturing and remote office scenarios
 
-In ROBO scenarios, a primary business concern is minimizing costs. Yet many ROBO workloads are of utmost criticality with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering both resiliency and cost-effectiveness. Using Azure Stack HCI, you can apply built-in [resiliency of Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly available compute, storage, and network infrastructure for containerized and virtualized ROBO workloads. For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices. To finalize cluster configuration, you can implement [a file share witness simply by using a USB drive][usb-file-share-witness] connected to a router that hosts uplinks from cluster nodes. For maximum resiliency, on a 2-node cluster you have the option of configuring Storage Spaces Direct volumes with either [nested two-way mirror, or nested mirror accelerated parity][s2d-nested-resiliency]. Unlike the traditional two-way mirroring, these options tolerate multiple simultaneous hardware failures without data loss.
+For retail, manufacturing and remote office scenarios, a primary business concern is minimizing costs, yet workloads that power these business scenarios are of utmost criticality, with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering both resiliency and cost-effectiveness. Using Azure Stack HCI, you can apply built-in [resiliency of Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly available compute, storage, and network infrastructure for containerized and virtualized ROBO workloads. For cost-effectiveness, you can use as few as two cluster nodes with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects between nodes, thereby eliminating the need for redundant switch devices. To finalize cluster configuration, you can implement [a file share witness simply by using a USB drive][usb-file-share-witness] connected to a router that hosts uplinks from cluster nodes. For maximum resiliency, on a 2-node cluster you have the option of configuring Storage Spaces Direct volumes with either [nested two-way mirror, or nested mirror accelerated parity][s2d-nested-resiliency]. Unlike the traditional two-way mirroring, these options tolerate multiple simultaneous hardware failures without data loss.
 
 > [!NOTE]
 > With nested resiliency, a 2-node cluster and all of its volumes will remain online following a failure of a single node and a single disk on the surviving node.
