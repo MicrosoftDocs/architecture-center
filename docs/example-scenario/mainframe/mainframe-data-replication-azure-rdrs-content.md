@@ -8,7 +8,8 @@ Rocket® Data Replicate and Sync (RDRS), formerly tcVISION, is a data replicatio
 
 ### Workflow
 
-1. The RDRS data replication solution supports CDC from many mainframe-based databases, including IBM Db2, IBM Information Management System (IMS) DB, Adabas for Software AG, CA Datacom, and Computer Associates Integrated Data Management System (CA IDMS). RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases. RDRS also supports CDC from Virtual Storage Access Method (VSAM) files.
+1. The RDRS data replication solution supports CDC from many mainframe-based databases, including IBM Db2, IBM Information Management System (IMS) DB, Adabas for Software AG, CA Datacom, and Computer Associates Integrated Data Management System (CA IDMS). RDRS provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases.
+1. RDRS supports CDC from Virtual Storage Access Method (VSAM) files.
 1. A task starts on the mainframe. Started tasks, or STCs, are created on the mainframe as part of RDRS software installation. Two vital STCs are:
    * Capture agent, which captures changed data from the source.
    * Apply agent, which uses database management system (DBMS)-specific APIs to efficiently write changed data to the target.
