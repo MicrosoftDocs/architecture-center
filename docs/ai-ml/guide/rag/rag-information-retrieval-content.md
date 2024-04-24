@@ -2,7 +2,7 @@ When experimenting with information retrieval, there are several areas to consid
 
 ## Search index
 
-> [!Info]
+> [!NOTE]
 > Azure AI Search is a first party Azure search service. This section will mention some specifics for AI Search. If you are using a different store, consult the documentation to find the key configuration for that service.
 
 The search index in your store will have a column for every field in your data. Search stores will generally have support for [nonvector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-nonvector-fields) such as string, boolean, integer, single, double, datetime, and collections like Collection(single) and [vector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) such as Collection(single). For each column, you must [configure information](/azure/search/vector-search-how-to-create-index#add-a-vector-field-to-the-fields-collection) such as the data type, whether the field is filterable, retrievable, and/or searchable.
