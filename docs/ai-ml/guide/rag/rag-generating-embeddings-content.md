@@ -14,14 +14,14 @@ The vocabulary of an embedding model is important because of how embedding model
 :::image-end:::
 *Figure 1. Breaking down an unknown word into subwords*
 
-Let's take a fictitious example where the word "histamine" isn't in the embedding model vocabulary. "Histamine" has a semantic meaning as a chemical your body releases which causes many symptoms of allergies. Because the embedding model doesn't contain "histamine", it might break it down into subwords that are in its vocabulary such as "his", "ta", and "mine". The semantic meanings of these subwords are nowhere close to the meaning of "histamine". The individual or aggregated vector values of the subwords produces worse vector matches than if "histamine" were in the model's vocabulary.
+Let's take a fictitious example where the word "histamine" isn't in the embedding model vocabulary. "Histamine" has a semantic meaning as a chemical your body releases which causes many symptoms of allergies. Because the embedding model doesn't contain "histamine", it might break it down into subwords that are in its vocabulary such as "his", "ta", and "mine". The semantic meanings of these subwords are nowhere close to the meaning of "histamine". The individual or aggregated vector values of the subwords produce worse vector matches than if "histamine" were in the model's vocabulary.
 
 ## Choosing an embedding model
 
 Determining the right embedding model for your use case is a human activity. Embedding model vocabulary should be a key factor you consider when choosing your embedding model.
 
 :::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram the flow of choosing an embedding model." border="false":::
-   Diagram showing a flow for choosing an embedding model. The first decision is "Domain specific?". If no, the flow terminates at "Test top ranked general models". If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model". If yes, the flow terminates at "Test domain model".
+   Diagram showing a flow for choosing an embedding model. The first decision is "Domain specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
 *Figure 2. Choosing an embedding model flow*
 
@@ -29,7 +29,7 @@ The first thing you should determine is whether your content is domain specific.
 
 ### General or non domain specific content
 
-When choosing a general embedding model, a good place to start is the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). This site provides an up-to-date ranking of embedding models. Evaluate how the models work with your data, starting with the top-ranking models.
+When you are choosing a general embedding model, a good place to start is the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). This site provides an up-to-date ranking of embedding models. Evaluate how the models work with your data, starting with the top-ranking models.
 
 ### Domain specific content
 
