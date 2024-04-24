@@ -44,19 +44,20 @@ This section helps you select the most likely services for your needs. To narrow
   - Typically, **_database operating costs are cheaper_** than search engine under the same condition.
   - **You have MongoDB already or you are familiar with MongoDB:**
     - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure OpenAI Service integration and instantaneous scalability.
-    - JSON(BSON) format is more flexible than RDBMS to keep other relevant data along with vector fields.
+    - JSON(BSON) format is flexible to keep other relevant data along with vector fields.
     - Azure Cosmos DB for MongoDB vCore supports native ANN vector index such as "HNSW" and "IVFflat". Native ANN vector index allows you to get fast search performance even with a large amount of data.
     - **_Only one vector field and index is available_** per container.
   - **You have PostgreSQL already or you prefer OSS technology:**
-    - Azure Database for PostgreSQL supports supports native ANN vector index such as "HNSW" and "IVFflat". Native ANN vector index allows you to get fast search performance even with a large amount of data.
+    - Azure Database for PostgreSQL supports native ANN vector index such as "HNSW" and "IVFflat". Native ANN vector index allows you to get fast search performance even with a large amount of data.
     - You can define multiple vector fields in single table.
     - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
     - If you're using Azure OpenAI Service, embedding feature is integrated and ready to use.
-    - If you're considering multitenant SaaS apps,  high throughput transactional app or if you need high performance distributed PostgreSQL with scale-out to multiple nodes, Azure Cosmos DB for PostgreSQL is the best choice.
+    - If you're considering multitenant SaaS apps, high throughput transactional app or if you need high performance distributed PostgreSQL with scale-out to multiple nodes, Azure Cosmos DB for PostgreSQL is the best choice.
   - **You have SQL Database already or you prefer SQL Server technology:**
     - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
+    - You already have data in SQL Database or SQL Server and **_you want to perform exact match searches on existing fields along with similarity search on vectors_**.
     - SQL Server **_doesn't support vector data type and native vector index_**.  An index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss). You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).
-    - Pure vector search performance **_can be slower on a large dataset(> 10M of vectors) compares to using native vector inedex_**.
+    - Pure vector search performance **_can be slower on a large dataset(> 10M of vectors) compares to using native vector index_**.
 > [!NOTE]
 > Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
 - **Your application requires 'advanced search features' such as Re-Ranking or Built-In Hybrid Search for higher accuracy and fast search results:**
