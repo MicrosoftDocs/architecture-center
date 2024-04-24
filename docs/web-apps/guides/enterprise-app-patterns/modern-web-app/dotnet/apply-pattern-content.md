@@ -7,7 +7,7 @@ This article shows you how to apply the Modern web app pattern. [!INCLUDE [mwa-i
 
 ## Reliability
 
-[Reliability](/azure/well-architected/reliability/checklist) ensures your application can meet the commitments you make to your customers.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 The Modern Web App pattern uses two design patterns to improve web app reliability: queue-based load leveling and the retry pattern. The Queue-Based Load Leveling pattern improves message-based communication. The Retry pattern improves request-response communication.
 
@@ -15,12 +15,12 @@ The Modern Web App pattern uses two design patterns to improve web app reliabili
 
 The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
 
-#### QBLL recommendations for .NET developers**
+#### QBLL recommendations for .NET developers
 
 Add content here.
 
 ---
-**Example**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
+**Example - implementing the Queue-Based Load Leveling pattern**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
 
 ```csharp
 // Publish a message to request that the ticket be rendered.
@@ -71,7 +71,7 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
 
 ### Modify the Retry Pattern
 
-The [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.yml#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
+The [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern##use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
 
 #### How does the retry pattern show up in new ways
 
@@ -83,7 +83,7 @@ Add content here
 
 ---
 
-*Example:* The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
+**Example - Modify the Retry pattern**: The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
 
 ```csharp
 
@@ -165,12 +165,12 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 As you adopt the modern web app pattern, more and more components will be introduced to your solution architecture. New services will be created as monoliths are split into multiple services and new dependencies will be added for message queues or container image repositories. The modern web app pattern doesn’t introduce any new security patterns beyond those already present in the Reliable Web App pattern, but those existing patterns (managed identities, secrets management, and private endpoints) are applied to many new resources.
 
-### Use managed identities
+### Configure service authentication and authorization
 
-As in the [Reliable Web App pattern](../../reliable-web-app/dotnet/apply-pattern-content.md#configure-service-authentication-and-authorization), use managed identities for all [Azure services that support managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
+As in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#configure-service-authentication-and-authorization), use managed identities for all [Azure services that support managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
 ---
-*Example:* The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.
+**Example - Configure service authentication and authorization**: The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.
 
 ```bicep
 roleAssignments: \[
@@ -249,7 +249,7 @@ Automatic horizontal scaling adds and removes service instances automatically ba
 
 ---
 
-*Example:* In order to optimize costs, the reference implementation uses [Azure Container Apps autoscaling](https://learn.microsoft.com/azure/container-apps/scale-app). Autoscaling in Azure Container Apps can add or remove instances of Azure Container App replicas based on the number of concurrent HTTP requests, the number of concurrent TCP requests, or on custom [Kubernetes Event-Driven Autoscaler (KEDA)](https://keda.sh/docs/2.13/) scalers. Support for KEDA scalers allows Azure Container Apps to scale based on triggers from dozens of different metrics-based scalers. You can even write your own external KEDA scaler implementations to scale based on metrics custom to your solution.
+**Example - implementing container autoscaling**: In order to optimize costs, the reference implementation uses [Azure Container Apps autoscaling](https://learn.microsoft.com/azure/container-apps/scale-app). Autoscaling in Azure Container Apps can add or remove instances of Azure Container App replicas based on the number of concurrent HTTP requests, the number of concurrent TCP requests, or on custom [Kubernetes Event-Driven Autoscaler (KEDA)](https://keda.sh/docs/2.13/) scalers. Support for KEDA scalers allows Azure Container Apps to scale based on triggers from dozens of different metrics-based scalers. You can even write your own external KEDA scaler implementations to scale based on metrics custom to your solution.
 
 Autoscaling allows Azure Container Apps to dynamically add or remove instances, potentially even scaling down to zero active instances. Scaling to zero will minimize costs when no work needs done, but developers should be aware that scaling to zero means that there will be a small delay (often several seconds) in spinning the service back up from zero once more work needs to be done. If this delay is not acceptable, you can scale down to one replica instead which will ensure that there’s always a worker ready to handle incoming requests. Azure Container Apps scaling has [cooldown and stabilization window times](https://learn.microsoft.com/azure/container-apps/scale-app?pivots=azure-cli#scale-behavior) so that the scaler pauses after scale operations and does not continually add and remove instances in scenarios of frequently fluctuating demand.
 
@@ -322,15 +322,15 @@ In some cases, a strangler fig [façade service](https://learn.microsoft.com/azu
 
 Add recommendations
 
----
-
-*Simulate the pattern:* The modern web app reference implementation uses [a feature flag](https://learn.microsoft.com/azure/azure-app-configuration/manage-feature-flags) to enable or disable the standalone ticket rendering service. By default, ticket rendering work is done in a separate service that was implemented according to the strangler fig pattern. To simulate switching between this solution and one without the strangler fig pattern applied, you can navigate to the solution’s Azure App Configuration resource in the Azure Portal and change the value of the DistributedTicketRendering feature flag from true to false (in the feature manager blade). Within 30 seconds, the application should begin rendering tickets in the web API instead of using the separate ticket rendering service (which will scale in to zero active replicas). You can set the feature flag back to true to switch back to using the standalone service for ticket rendering.
-
-*Example*: In the modern web app reference implementation, you can see the new ticket rendering service in the src/Relecloud.TicketRenderer folder of the solution. It takes functionality that was previously part of the web API and implements it in a standalone service. Because the goal of the modern web app reference implementation is to demonstrate moving toward a micro-service architecture, the ticket rendering service does not share data storage with the web API except for the blob container where ticket images are stored. The ticket rendering service does not interact with the web API’s SQL database. Instead, the Service Bus message requesting ticket rendering includes the data necessary to perform the rendering and, once the rendering is completed (as indicated by another Service Bus message queued by the rendering service and received by the web API), the web API updates its database with details on where the ticket image can be retrieved from.
+--- 
+**Example - Implementing the Strangler Fig pattern**: In the modern web app reference implementation, you can see the new ticket rendering service in the src/Relecloud.TicketRenderer folder of the solution. It takes functionality that was previously part of the web API and implements it in a standalone service. Because the goal of the modern web app reference implementation is to demonstrate moving toward a micro-service architecture, the ticket rendering service does not share data storage with the web API except for the blob container where ticket images are stored. The ticket rendering service does not interact with the web API’s SQL database. Instead, the Service Bus message requesting ticket rendering includes the data necessary to perform the rendering and, once the rendering is completed (as indicated by another Service Bus message queued by the rendering service and received by the web API), the web API updates its database with details on where the ticket image can be retrieved from.
 
 The modern web app reference implementation enables both the old (in-process) and new (separate service) behaviors for ticket rendering so that you can simulate the change from the previous architecture to the new one through the application of the strangler fig pattern. Because of this, an interface is used in the reference web API and different implementations are chosen to render tickets depending on the state of the feature flag.
 
 You will also note that the ticket rendering logic that was moved to the new service was updated to run in a Linux container instead of on Windows. For example, System.Drawing APIs were replaced with cross-platform SkiaSharp alternatives. This was done because Azure Container Apps only supports running Linux Docker containers. As part of the strangler fig pattern, extracted services are often upgraded or updated in some way. The specifics of how they are updated, though, will vary based on your specific context and environment. Updating to run in Linux containers is a detail of the reference implementation’s choice to use Azure Container Apps.
+
+
+*Simulate the Strangler Fig pattern:* The modern web app reference implementation uses [a feature flag](https://learn.microsoft.com/azure/azure-app-configuration/manage-feature-flags) to enable or disable the standalone ticket rendering service. By default, ticket rendering work is done in a separate service that was implemented according to the strangler fig pattern. To simulate switching between this solution and one without the strangler fig pattern applied, you can navigate to the solution’s Azure App Configuration resource in the Azure Portal and change the value of the DistributedTicketRendering feature flag from true to false (in the feature manager blade). Within 30 seconds, the application should begin rendering tickets in the web API instead of using the separate ticket rendering service (which will scale in to zero active replicas). You can set the feature flag back to true to switch back to using the standalone service for ticket rendering.
 
 ### Implement the Health Endpoint Monitoring pattern
 
@@ -341,7 +341,7 @@ The [health endpoint monitoring pattern](https://learn.microsoft.com/azure/archi
 Add recommendations
 
 ---
-*Example:* The modern web app reference implementation uses [ASP.NET Core health check middleware](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks) to expose endpoints for checking application liveness. It also uses extensions from the popular [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) open source project so that the service’s health checks will include validating that key dependencies (Azure Service Bus and Azure blob storage) are available.
+**Example - Implementing the Health Endpoint Monitoring pattern**: The modern web app reference implementation uses [ASP.NET Core health check middleware](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks) to expose endpoints for checking application liveness. It also uses extensions from the popular [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) open source project so that the service’s health checks will include validating that key dependencies (Azure Service Bus and Azure blob storage) are available.
 
 ```C#
 // Add health checks, including health checks for Azure services that are used by this service.
@@ -393,7 +393,7 @@ Add recommendations
 
 ---
 
-*Example:* The reference implementation publishes the new ticket rendering service as a [Docker container image](https://learn.microsoft.com/dotnet/core/docker/introduction). This means that all dependencies for the app to function are
+**Example - Implementing containerized service deployment**: The reference implementation publishes the new ticket rendering service as a [Docker container image](https://learn.microsoft.com/dotnet/core/docker/introduction). This means that all dependencies for the app to function are
 
 encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. The reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) Dockerfile which first builds the solution in a Docker container (based on a mcr.microsoft.com/dotnet/sdk image) and then publishes the final service in a separate smaller container.
 
@@ -469,7 +469,7 @@ Add content
 --- 
 *Simulate the pattern:* You can simulate the benefits of competing consumers in the Relecloud modern web app reference implementation by purchasing many tickets at once (100 or more). This will cause many ticket rendering requests to be queue in Azure Service Bus. The requests are quickly handled, though, because the ticket rendering service will automatically scale out and handle the requests in parallel.
 
-*Example:* The reference implementation uses a stateless Azure Container App to process ticket rendering requests from an Azure Service Bus queue.
+**Example - Implementing the Competing Consumers pattern**: The reference implementation uses a stateless Azure Container App to process ticket rendering requests from an Azure Service Bus queue.
 
 // Create a processor for the given queue that will process incoming messages
 
