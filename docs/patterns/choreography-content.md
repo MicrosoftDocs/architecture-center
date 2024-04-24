@@ -1,12 +1,12 @@
-Delegate decision-making responsibilities from a central orchestrator to individual components within a system.
+Delegate decision-making responsibilities from a centralized to individual components within a system.
 
 ## Context and problem
 
-A cloud-based application cation is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation can result in multiple point-to-point calls among all services. Designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
+A cloud-based application cation is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation can result in multiple point-to-point calls among all services. Ideally, those services should be loosely coupled. Designing a distributed, efficient, and scalable workflow is a challenge and often requires complex interservice communication.
 
 A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
-The orchestrator pattern has some drawbacks. There's tight coupling between the orchestrator and other services. The orchestrator needs to have domain knowledge about the responsibilities of those services. Adding or removing services might break existing logic because you'll need to rewire portions of the communication path. This makes orchestrator implementation complex and hard to maintain. 
+The orchestrator pattern is typically implemented as custom software and has domain knowledge about the responsibilities of those services. A benefit is that the orchestrator can consolidate the status of a transaction based on the results of individual operations conducted by the downstream services. However, there are some drawbacks. Adding or removing services might break existing logic because you'll need to rewire portions of the communication path. This makes orchestrator implementation complex and hard to maintain. 
 
 The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure. It can also cause cascading failures in the downstream services.
 
@@ -16,7 +16,7 @@ The orchestrator might have a negative impact on the reliability of the workload
 
 Distribute transaction handling logic among the services. Let each service decide and participate in the communication workflow for a business operation.
 
-> The pattern is a way to minimize dependency on the central orchestrator and reduce performance bottleneck. The components of the workload share common responsibilities as they choreograph the workflow among themselves without having direct communication between them and depending on an orchestrator.
+> The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
 
 A common way to implement choreography is to use a message broker that buffers requests until they are picked by services. 
 
@@ -34,11 +34,21 @@ The image shows request handling through a [publisher-subscriber model](./publis
 
 ## When to use this pattern
 
-Use the choreography pattern if you expect to update or replace services frequently, and add or remove some services eventually. The entire app can be modified with less effort and minimal disruption to existing services.
+Use this pattern when:
 
-Consider this pattern if you experience performance bottlenecks in the central orchestrator.
+- The downstream components handle atomic operations independently. Think of it as a  'fire and forget' mechanism. A component is responsible for a task that doesn't need to be managed actively. When the task is complete, it sends notification to the other components.
 
-This pattern is a natural model for the serverless architecture where all services can be short lived, or event driven. Services can spin up because of an event, do their task, and are removed when the task is finished.
+- The components are expected to be updated and replaced frequently. The pattern enables the application to be modified with less effort and minimal disruption to existing services.
+
+- The pattern is a natural fit for serverless architectures that are appropriate for simple workflows. The components can be short-lived and event-driven. When an event occurs, components are spun up, perform their tasks, and removed once the task is completed.
+
+- There is performance bottleneck introduced by the central orchestrator.
+
+This pattern might not be useful when:
+
+- The application is complex and requires a central component to handle shared logic to keep the downstream components lightweight.
+
+- There are situations where point-to-point communication between the components is inevitable.
 
 ## Issues and considerations
 
