@@ -37,37 +37,13 @@ This section helps you select the most likely services for your needs. To narrow
 
 ![Vector Search Flow Chart](./images/vector-search-flow-chart.png "Vector Search Flow Chart")
 
-- **You insert, update, or delete the values in vectorized fields frequently and the search result must always up to date with those changes:**
-  - If your scenarios would benefit from keep vector data living directly with OLTP/operational data, you should **_keep vector fields in your existing database systems_**, which can be because of cost optimization or overhead of additional technology in the workload.
-  - In these scenarios, you would choose the same **_RDBMS database or NoSQL database_** technology for vector store that your workload expects to use for its OLTP or non-relational store.
-  - You can **_optimize search quality by developing and applying advanced search functions such as Re-Ranking or Hybrid Search yourself through SQL or Coding_**.
-  - Typically, **_database operating costs are cheaper_** than search engine under the same condition.
-  - **You have MongoDB already or you are familiar with MongoDB:**
-    - If so, Azure Cosmos DB supports [MongoDB](/azure/cosmos-db/mongodb/introduction) and APIs to take advantage of the many benefits that Azure Cosmos DB offers, including Azure OpenAI Service integration and instantaneous scalability.
-    - JSON(BSON) format is flexible to keep other relevant data along with vector fields.
-    - Azure Cosmos DB for MongoDB vCore supports native ANN vector index such as "HNSW" and "IVFflat". Native ANN vector index allows you to get fast search performance even with a large amount of data.
-    - **_Only one vector field and index is available_** per container.
-  - **You have PostgreSQL already or you prefer OSS technology:**
-    - Azure Database for PostgreSQL supports native ANN vector index such as "HNSW" and "IVFflat". Native ANN vector index allows you to get fast search performance even with a large amount of data.
-    - You can define multiple vector fields in single table.
-    - You can create multiple vector indexes in single table with different ANN algorithm and similarity/distance calculation.
-    - If you're using Azure OpenAI Service, embedding feature is integrated and ready to use.
-    - If you're considering multitenant SaaS apps, high throughput transactional app or if you need high performance distributed PostgreSQL with scale-out to multiple nodes, Azure Cosmos DB for PostgreSQL is the best choice.
-  - **You have SQL Database already or you prefer SQL Server technology:**
-    - In Azure, you can have your workloads running in IaaS-based [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/) or on the PaaS-based [Azure SQL Database hosted service](/azure/azure-sql/database/sql-database-paas-overview). Choosing which option to use is primarily a question of whether you want to manage your database, apply patches, and take backups, or if you want to delegate these operations to Azure. In some scenarios, compatibility issues might require the use of IaaS-hosted SQL Server. For more information about how to choose the correct option for your workloads, see [Choose the right SQL Server option in Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).
-    - You already have data in SQL Database or SQL Server and **_you want to perform exact match searches on existing fields along with similarity search on vectors_**.
-    - SQL Server **_doesn't support vector data type and native vector index_**.  An index can be created with the aid of external libraries like [Scikit Learn](https://github.com/Azure-Samples/azure-sql-db-vectors-kmeans) or [FAISS](https://github.com/Azure-Samples/azure-sql-db-vectors-faiss). You need to [unpivot vector data into a table with column store index](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications).
-    - Pure vector search performance **_can be slower on a large dataset(> 10M of vectors) compares to using native vector index_**.
-> [!NOTE]
-> Learn more about how to assess database options for each of your applications or services in the [Azure application architecture guide](./data-store-overview.md).
-- **Your application requires 'advanced search features' such as Re-Ranking or Built-In Hybrid Search for higher accuracy and fast search results:**
-  - In Azure, [Azure AI Search](/azure/postgresql/overview) provides information retrieval at scale over user-owned content in traditional and AI search scenarios.
-  - If you need to index **_unstructured data(e.g. images, docx, PDF and etc.)_**, Azure AI search has **_skill set which can help collect insightful metadata_** from them.
-  - Azure AI Search supports ANN vector index such as "HNSW" and "Exhaustive KNN".
-  - You can define multiple vector fields in single index.
-  - You can create multiple vector indexes in search index.
-  - If you're using Azure **_OpenAI Service, embedding feature is integrated and ready to use_**.
-  - AI Search provides excellent performance in relation to vector search and comes with features for high search result quality, but **_operating costs can be higher than databases under the same conditions_**.
+The primary decision point when determining whether to use a traditional database solution or Azure AI Search service comes down to the requirements you have relative to being able to perform live or real-time vector searching on you data. If you change values in vectorized fields frequently, and those changes need to be searchable in real-time or near real-time, using a traditional relational or NoSQL database will be the best fit for your scenario. Likewise, using your existing database may be the best solution for you to meet your performance targets. On the other hand, if your workload doesn't require real-time or near real-time vector searchability, and you accept managing an index of vectors, Azure AI Search can be a compelling choice.
+
+If the primary decision point guides you to choose a traditional database solution, the specific type of database service you decide to use mostly depends on your team's skill set and the databases that you currently operate. If you already use a specific type of database, like Mongo DB for example, using that same type of database may be the easiest solution for your scenario. As shown in the [Capability Matrix](#capability-matrix) section below, each database service has some unique capabilities and limitations for vector search, and you should review that information to ensure that your preferred database type supports the functionality you require. 
+
+If cost concerns are a driving factor, maintaining your existing design is likely the best fit for your scenario, as introducing new services or additional instances of a database service can add net new costs and complexity. Using your current databases for vector search will likely impact your costs less than a dedicated service.
+
+If you choose to use a traditional database instead of Azure AI Search, be aware that there are some advanced search features that won't be available by default for you. For example, if you want to be able to do reranking or hybrid search, you will need to enable that functionality through T-SQL or other coding. 
 
 ## Capability Matrix
 The following tables summarize the key differences in capabilities.
