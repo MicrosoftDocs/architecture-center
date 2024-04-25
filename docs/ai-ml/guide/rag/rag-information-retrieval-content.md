@@ -113,18 +113,18 @@ The sample code performs a full text search against the title, content, and summ
 
 #### Manual multiple
 
-You can, of course, run multiple queries, such as a vector search and a keyword full text search, manually. You aggregate the results and rerank (TODO: Add link to reranking section) the results manually and return the top results. The following are use cases for manual multiple:
+You can, of course, run multiple queries, such as a vector search and a keyword full text search, manually. You aggregate the results and [rerank](#reranking) the results manually and return the top results. The following are use cases for manual multiple:
 
 * You're using a search platform that doesn't support hybrid searches. You would follow this option to perform your own hybrid search.
 * You want to run full text searches against different queries. For example, you might extract keywords from the query and run a full text search against your keywords metadata field. You might then extract entities and run a query against the entities metadata field.
 * You want to control the reranking process yourself.
-* The query requires multiple subqueries (TODO: Add link to section below) to be run to retrieve grounding data from multiple sources.
+* The query requires [multiple subqueries](#multiple-subqueries) to be run to retrieve grounding data from multiple sources.
 
 ### Multiple subqueries
 
 Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
  
-It's good practice to determine if the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run manual multiple queries (TODO: Add link to above) for all the queries. Use a Large Language Model (LLM) to determine if multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
+It's good practice to determine if the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a Large Language Model (LLM) to determine if multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
@@ -271,7 +271,7 @@ In the preparation phase, you should have [gathered test queries along with test
 * The query - The sample query
 * The context - The collection of all the text in the test documents that address the sample query
 
-The following are three well established retrieval evaluation methods you can use to evaluate your search solution: 
+The following are three well established retrieval evaluation methods you can use to evaluate your search solution:
 
 * **Precision at K** - The percentage of correctly identified relevant items out of the total search results. This metric focuses on the accuracy of your search results.
 * **Recall at K** - Recall at K measures the percentage of relevant items in the top K out of the total possible relative items. This metric focuses on search results coverage.
