@@ -34,4 +34,4 @@ products:
   - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/ml-ops-python.png
 content: |
-  [!include[](mlops-python-content.md)]
+  [!INCLUDE[](mlops-python-content.md)]
