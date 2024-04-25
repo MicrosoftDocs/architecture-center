@@ -119,7 +119,7 @@ Document layout analysis libraries and services expose a model that represents t
 
 There are services, such as Azure AI Document Intelligence, that offer prebuilt models you can take advantage of for a various document types. Some models are trained for specific document types, such as the US Tax W-2 form, while others target a broader genre of document types such as an invoice.
 
-**Tools**:  [Azure AI Document Intelligence prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), TODO: Any more?<br/>
+**Tools**:  [Azure AI Document Intelligence prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), [Power Automate Intelligent Document Processing](https://powerautomate.microsoft.com/en-us/intelligent-document-processing/), [LayoutLMv3](https://huggingface.co/microsoft/layoutlmv3-base)<br/>
 **Engineering effort**: Low<br/>
 **Processing cost**: Medium/High<br/>
 **Use cases**: Structured documents where a prebuilt model exists<br/>
@@ -129,7 +129,7 @@ There are services, such as Azure AI Document Intelligence, that offer prebuilt 
 
 For highly structured documents where no prebuilt model exists, you might have to build a custom model. This approach can be a effective for images or documents that are highly structured, making them difficult to use text parsing techniques.
 
-**Tools**:  [Azure AI Document Intelligence custom models](/azure/ai-services/document-intelligence/overview#custom-models) TODO: More?<br/>
+**Tools**:  [Azure AI Document Intelligence custom models](/azure/ai-services/document-intelligence/overview#custom-models), [Tesseract](https://github.com/tesseract-ocr/tessdoc)<br/>
 **Engineering effort**: High<br/>
 **Processing cost**: Medium/High<br/>
 **Use cases**: Structured documents where a prebuilt model doesn't exist<br/>

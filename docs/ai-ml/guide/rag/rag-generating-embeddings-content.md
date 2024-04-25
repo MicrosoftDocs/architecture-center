@@ -33,7 +33,7 @@ When you are choosing a general embedding model, a good place to start is the [H
 
 ### Domain specific content
 
-For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. TODO: NEED AN EXAMPLE OF A DOMAIN SPECIFIC MODEL. If domain models are available, start by evaluating how these models work with your data.
+For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. Imagine, for example, that your data is in the biomedical domain – you may consider leveraging the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pre-trained on a large corpus of biomedical literature and is specifically intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
 
 If there are no domain specific models available, or the domain specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
 
