@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use a split-brain DNS configuration to host a web app in Azure
+  title: Use a split-brain DNS configuration to host a web app
   titleSuffix: Azure Architecture Center
   description: Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.
   author: troyhite
@@ -19,8 +19,8 @@ products:
   - azure-application-gateway
   - azure-expressroute
   - azure-dns
-name: Use a split-brain DNS configuration to host a web app
+name: Use a split-brain DNS configuration to host a web app in Azure
 summary: Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.
 thumbnailUrl: ../../browse/thumbs/SplitBrain-DNS-hosting-thumb.png
 content: |
-  [!include[](split-brain-dns-hosting-content.md)]
+  [!include[](split-brain-dns-content.md)]
