@@ -1,4 +1,14 @@
-The Retrieval Augmented Generation (RAG) pattern is the industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data not already known to the LLM. While the architecture is straightforward, designing and evaluating RAG solutions that fit into this architecture involves many complex considerations. These considerations include determining what test documents and queries to use during evaluation, choosing a chunking strategy, determining what and how you should enrich the chunks, choosing the right embedding model, how to configure the search index, determining what searches you want to perform, and how to evaluate each step. The articles in this guide address all of those considerations.
+The Retrieval Augmented Generation (RAG) pattern is the industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data that is not already known to the LLM. While the architecture is straightforward, designing and evaluating RAG solutions that fit into this architecture involves many complex considerations. These considerations include:
+
+* Determining what test documents and queries to use during evaluation
+* Choosing a chunking strategy
+* Determining what and how you should enrich the chunks
+* Choosing the right embedding model
+* Determining how to configure the search index
+* Determining what searches you want to perform: vector, full text, hybrid, manual multiple
+* How to evaluate each step
+
+The articles in this guide address all of those considerations.
 
 ## RAG Architecture
 
@@ -23,14 +33,14 @@ The following is a high-level flow for a data pipeline that supplies grounding d
 1. Documents are either pushed or pulled into a data pipeline.
 2. The data pipeline processes each document with the following steps:
 
-    * Chunks documents - Breaks the documents down into semantically relevant parts that ideally have a single idea or concept.
-    * Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords. 
-    * Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that will be used for vector searches.
+    * Chunks documents - Breaks down the documents into semantically relevant parts that ideally have a single idea or concept.
+    * Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords.
+    * Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
     * Persists chunks - Stores the chunks in the search index.
 
 ## RAG design and evaluation considerations
 
-As mentioned in the introduction, there are a variety of implementation decisions you must make when designing your RAG solution. The figure below illustrates some of those decisions.
+As mentioned in the introduction, there are a variety of implementation decisions you must make when designing your RAG solution. The following figure illustrates some of those decisions.
 
 :::image type="complex" source="./_images/rag-high-level-architecture-questions.svg" lightbox="./_images/rag-high-level-architecture-questions.svg" alt-text="Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution." border="false":::
    Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution.
@@ -43,18 +53,18 @@ The series of articles in this guide addresses those considerations and more.
 
 * **Determine solution domain** - Discusses the importance of clearly defining the business requirements for the RAG solution
 * **Gather representative test documents** - Discusses considerations and guidance on gathering test documents for your RAG solution that are representative of your corpus.
-* **Gather test queries** - Discusses what information you should gather along with your test queries, provides guidance on generating synthetic queries and queries that your documents do not cover.
+* **Gather test queries** - Discusses what information you should gather along with your test queries, provides guidance on generating synthetic queries and queries that your documents don't cover.
 
 **[Chunking phase](./rag-chunking-phase.yml)**
 
 * **Chunking economics** - Discusses the factors to consider when looking at the overall cost of your chunking solution for your text corpus
-* **Document analysis** - Provides a list of questions you can ask when analyzing a document type that will help you determine what in the document you want to ignore or exclude, what you want to capture in chunks and how you want to chunk
+* **Document analysis** - Provides a list of questions you can ask when analyzing a document type that helps you determine what in the document you want to ignore or exclude, what you want to capture in chunks and how you want to chunk
 * **Chunking approaches** - Outlines the different approaches to chunking like sentence-based, fixed-size, custom, LLM augmentation, document layout analysis, using machine learning models
 * **Document structure** - Discusses how the degree of structure a document has influences your choice for a chunking approach
 
 **[Chunk enrichment phase](./rag-enrichment-phase.yml)**
 
-* **Cleaning** - Discusses different cleaning approaches you can implement to support closeness matches by eliminating potential differences that are not material to the semantics of the text
+* **Cleaning** - Discusses different cleaning approaches you can implement to support closeness matches by eliminating potential differences that aren't material to the semantics of the text
 * **Augmenting chunks** - Discusses some common metadata fields you should consider augmenting your chunk data with along with some guidance about their potential uses in search, and tools or techniques that are commonly used to generate the metadata content
 
 **[Embedding phase](./rag-generating-embeddings.yml)**
@@ -65,7 +75,7 @@ The series of articles in this guide addresses those considerations and more.
 
 **[Information retrieval phase](./rag-information-retrieval.yml)**
 
-* **Search index** - Discusses some key decisions you must make for the vector search configuration that will be applied to vector fields
+* **Search index** - Discusses some key decisions you must make for the vector search configuration that applies to vector fields
 * **Searches** - Provides an overview of the types of search you can consider such as vector, full text, hybrid, and manual multiple. Provides guidance on splitting a query into subqueries, filtering queries
 * **Search evaluation** - Provides guidance on evaluating your search solution
 
@@ -74,4 +84,4 @@ The series of articles in this guide addresses those considerations and more.
 * **LLM evaluation metrics** - Provides overview of several metrics you can use to evaluate the LLMs response including groundedness, completeness, utilization, and relevancy
 * **Similarity and evaluation metrics** - Provides a small list of similarity and evaluation metrics you can use when evaluating your RAG solution
 * **Documentation, reporting, and aggregation** - Discusses the importance of documenting the hyperparameters along with evaluation results, aggregating results from multiple queries, and visualizing the results
-* **The RAG Experiment Accelerator** - Provides a link to the [Rag Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator) which is a tool that is designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results
+* **The RAG Experiment Accelerator** - Provides a link to the [Rag Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator), which is a tool that is designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results
