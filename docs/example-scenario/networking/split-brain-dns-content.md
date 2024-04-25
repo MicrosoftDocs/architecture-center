@@ -22,7 +22,7 @@ The following workflow sections describe two configurations: a public internet w
    - Within Azure Front Door, `app.contoso.com` is assigned as the FQDN via routes on a configured endpoint. Azure Front Door also hosts the TLS SNI certificates for the applications.
 
      > [!NOTE]
-   > Azure Front Door doesn't support self-signed certificates.
+     > Azure Front Door doesn't support self-signed certificates.
 
    - Azure Front Door routes the requests to the configured origin group based on the customer's `Host` HTTP header.
    - The origin group is configured to point to the Azure Application Gateway instance via Application Gateway's public IP address.
