@@ -2,14 +2,12 @@
 
 [!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
 
-## Prerequisites
-
 ### Understand the goals of the Modern Web App pattern
 
 The Modern Web App pattern drives toward specific web app goals. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
 
 | Business goals                        | Web app goals                        |
-||--|
+|---|--|
 | Handle increased demand               | Decouple components<br>Autoscale high-traffic components independently|
 | Optimize web app costs                | Scale unneeded resources to zero where appropriate |
 | Service-level objective of 99.9%      | Use containerized services<br>Choose the right services<br>Choose the right architecture|
@@ -18,7 +16,7 @@ If your goals align with the Modern Web App pattern, then it's likely the right 
 
 ### Apply the Reliable Web App Pattern
 
-The Modern Web App builds on the Reliable Web App pattern. Before you apply the Modern Web App pattern, review the [implementation techniques](../../overview.md#principles-and-implementation-techniques-of-the-reliable-web-app-pattern) of the Reliable Web App pattern and make sure you apply the implementation techniques to your web app.
+The Modern Web App builds on the Reliable Web App pattern. Before you apply the Modern Web App pattern, review the [implementation techniques](../../overview.md#reliable-web-app-pattern) of the Reliable Web App pattern and make sure you apply the implementation techniques to your web app.
 
 ### Choose the right services for your web app
 
@@ -105,7 +103,7 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
 
 ### Modify the Retry Pattern
 
-The [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern##use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
+The [Retry pattern](/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
 
 #### How does the retry pattern show up in new ways
 
@@ -457,39 +455,6 @@ Important items to note in the implementation of the Service Bus processor are:
 
 Also important is that images are written to Blob Storage in such a way that writing to the same blob twice will simply overwrite the older one rather than causing a failure. This is important when using peek-lock receive mode since it’s possible that in rare circumstances the same rendering request might be processed twice. Scaling is performed automatically based on queue length, as described in the cost optimization section.
 
-# Next steps
-
-You can deploy the reference implementation by following the instructions in the [modern web app pattern for .NET repository](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment of the reference implementation. Once deployed, you can observe the patterns described in this document in action.
-
-For additional learning, consult the resources below.
-
-## Cloud best practices
-
-- [Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework/). A set of guiding tenets for architecting cloud workloads, the principles of the Well-Architected Framework underly both the reliable web app pattern and the modern web app pattern.
-
-- [Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/overview). Can help your organization prepare and execute a strategy to build solutions on Azure.
-
-- [Mission-Critical Workloads](https://learn.microsoft.com/en-us/azure/architecture/framework/mission-critical/mission-critical-overview). Useful guidance for scenarios that require a higher SLO than the modern web app pattern.
-
-## Azure migration guidance
-
-- [Azure Migrate](https://learn.microsoft.com/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment and migration of web apps, SQL Server, and virtual machines.
-
-- [Azure Database Migration Guides](https://learn.microsoft.com/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
-
-- [Azure Migrate Application and Code Assessment](https://learn.microsoft.com/azure/migrate/appcat/) is a set of static analysis tools for .NET and Java that assess the readiness of applications to run in Azure platform-as-a-service environments like Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps. Azure Migrate Application and Code Assessment differs from other Azure Migrate tooling by focusing specifically on the source code of applications for deep application-level guidance.
-
-## .NET upgrade guidance
-
-When applying the modern web app pattern, it’s common to begin running in containers. As part of this transition, you may want to run on Linux which requires upgrading from .NET Framework to more recent versions of .NET. This can be a non-trivial process, especially for ASP.NET apps. But guidance and tooling as available to help.
-
-- [Overview of porting from .NET Framework to .NET](https://learn.microsoft.com/dotnet/core/porting/). Get guidance based on your specific type of .NET app.
-
-- [.NET Upgrade Assistant](https://learn.microsoft.com/dotnet/core/porting/upgrade-assistant-overview) is a tool (available as a Visual Studio extension or a command line tool) that helps identify and, in many cases, automatically fix issues associated with .NET upgrade scenarios.
-
-- [Incremental ASP.NET to ASP.NET Core upgrade](https://learn.microsoft.com/aspnet/core/migration/inc/overview) is the recommended approach to upgrading large web applications which can be difficult to modernize.
-
-
 ## Next steps
 
-This article showed you how to plan an implementation of the modern web app pattern. In the next article, learn how to apply the modern web app pattern.
+You can deploy the reference implementation by following the instructions in the [modern web app pattern for .NET repository](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment of the reference implementation. Once deployed, you can observe the patterns described in this document in action.
