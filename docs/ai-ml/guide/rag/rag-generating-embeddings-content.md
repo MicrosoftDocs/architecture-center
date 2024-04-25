@@ -14,7 +14,7 @@ The vocabulary of an embedding model is important because of how embedding model
 :::image-end:::
 *Figure 1. Breaking down an unknown word into subwords*
 
-Let's take a fictitious example where the word "histamine" isn't in the embedding model vocabulary. "Histamine" has a semantic meaning as a chemical your body releases which causes many symptoms of allergies. Because the embedding model doesn't contain "histamine", it might break it down into subwords that are in its vocabulary such as "his", "ta", and "mine". The semantic meanings of these subwords are nowhere close to the meaning of "histamine". The individual or aggregated vector values of the subwords produce worse vector matches than if "histamine" were in the model's vocabulary.
+Let's take a fictitious example where the word "histamine" isn't in the embedding model vocabulary. "Histamine" has a semantic meaning as a chemical your body releases, which causes many symptoms of allergies. Because the embedding model doesn't contain "histamine", it might break it down into subwords that are in its vocabulary such as "his", "ta", and "mine". The semantic meanings of these subwords are nowhere close to the meaning of "histamine". The individual or aggregated vector values of the subwords produce worse vector matches than if "histamine" were in the model's vocabulary.
 
 ## Choosing an embedding model
 
@@ -29,11 +29,11 @@ The first thing you should determine is whether your content is domain specific.
 
 ### General or non domain specific content
 
-When you are choosing a general embedding model, a good place to start is the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). This site provides an up-to-date ranking of embedding models. Evaluate how the models work with your data, starting with the top-ranking models.
+When you're choosing a general embedding model, a good place to start is the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). This site provides an up-to-date ranking of embedding models. Evaluate how the models work with your data, starting with the top-ranking models.
 
 ### Domain specific content
 
-For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. Imagine, for example, that your data is in the biomedical domain – you may consider leveraging the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pre-trained on a large corpus of biomedical literature and is specifically intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
+For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You consider consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is specifically intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
 
 If there are no domain specific models available, or the domain specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
 

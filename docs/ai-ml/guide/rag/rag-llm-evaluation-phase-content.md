@@ -1,19 +1,19 @@
-This phase addresses the process of evaluating of your RAG solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the LLM. Prior to reaching this phase, you will have completed the preparation phase where you collected your test documents and queries, chunked your test documents, enriched the chunks, embedded the chunks, created a search index, and implemented a search strategy. You have evaluated each of these phases and are happy with the results. At this point, you should feel comfortable that your solution will return relevant grounding data for a user query.
+This phase addresses the process of evaluating of your RAG solution from the perspective of evaluating expected user prompts containing the retrieved grounding data against the large language model (LLM). Before you reach this phase, you should have completed the preparation phase where you collected your test documents and queries, chunked your test documents, enriched the chunks, embedded the chunks, created a search index, and implemented a search strategy. You should have evaluated each of these phases and are happy with the results. At this point, you should feel comfortable that your solution returns relevant grounding data for a user query.
 
-This grounding data forms the context for the prompt that you will send to the LLM to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the LLM from the perspective of the grounding data. This article will cover *some* common high-level metrics that you can use to evaluate the responses from your LLM, as well as some specific similarity and evaluation metrics that can be used in the effectiveness calculations or as stand alone metrics.
+This grounding data forms the context for the prompt that you send to the LLM to address the user's query. [Prompt engineering strategies](https://platform.openai.com/docs/guides/prompt-engineering) are beyond the scope of this article. This article addresses the evaluation of the engineered call to the LLM from the perspective of the grounding data. This article covers *some* common LLM evaluation metrics, and some specific similarity and evaluation metrics that can be used in the LLM evaluation calculations or as stand alone metrics.
 
-This article does not attempt to provide an exhaustive list of either LLM metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are a variety of metrics, each with their own distinct use case. You are the only one with a wholistic understand your workload, so you and your data scientists must determine what it is that you want to measure and which metrics will help you accomplish that task.
+This article doesn't attempt to provide an exhaustive list of either LLM metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are various metrics, each with their own distinct use case. You're the only one with a holistic understand your workload. You and your data scientists must determine what it is that you want to measure and which metrics help you accomplish that task.
 
 ## LLM evaluation metrics
 
-There are several metrics you can use to evaluate the LLMs response, from both the perspective of the query and the grounding data you provided as part of the context, including groundedness, completeness, utilization, and relevancy.
+There are several metrics you can use to evaluate the LLM's response, including groundedness, completeness, utilization, and relevancy.
 
 > [!IMPORTANT]
-> LLM responses are non-deterministic, meaning the same prompt to an LLM can and will often return different results. This is important to understand when using LLMs as part of your evaluation process. Consider using a target range over a single target when evaluating using an LLM.
+> LLM responses are non-deterministic, meaning the same prompt to an LLM can and will often return different results. This is important to understand when using an LLM as part of your evaluation process. Consider using a target range over a single target when evaluating using an LLM.
 
 ### Groundedness
 
-Groundedness, sometimes referred to as faithfulness, measures whether the response is completely based on the context. It validates that the response is not using information other what exists in the context. A low groundedness metric indicates that the LLM might be drifting into imaginative or nonsensical territory known as hallucinations.
+Groundedness, sometimes referred to as faithfulness, measures whether the response is completely based on the context. It validates that the response isn't using information other what exists in the context. A low groundedness metric indicates that the LLM might be drifting into imaginative or nonsensical territory known as hallucinations.
 
 **Calculating**
 
@@ -22,7 +22,7 @@ Groundedness, sometimes referred to as faithfulness, measures whether the respon
 * [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness.html)
 * [Mlflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
-**Evaluating** - If groundedness is low, this indicates that the LLM does not see the chunks as relevant. You should evaluate if you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
+**Evaluating** - If groundedness is low, it indicates that the LLM doesn't see the chunks as relevant. You should evaluate if you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
 
 ### Completeness
 
@@ -42,7 +42,7 @@ Utilization measures the extent to which the response is made up of information 
 
 * You can use an LLM to calculate the utilization. You can pass the response and the context containing the chunks to the LLM. You can ask the LLM to determine the number of chunks that entail the answer.
 
-**Evaluating** - TODO: What are the logical steps
+**Evaluating** - TODO: What are the logical steps?
 
 ### Relevance
 
@@ -60,39 +60,39 @@ Measures the extent to which the LLM's response is pertinent and related to the 
 
 As mentioned in the introduction, there are hundreds of similarity and evaluation metrics used in data science. Some algorithms are specific to a domain, such as speech to text or language to language translation. Each algorithm has a unique strategy for calculating its metric.
 
-The data scientist will determine what it is you want to measure and what metric or combination of metrics you can use to measure it. For example, in the area of language translation, the Bleu metric checks how many n-grams appear in both the machine translation and human translation to measure similarity based on using the same words. Cosine similarity uses embeddings between the machine and human translations to measure semantic similarity. If your goal was to have high semantic similarity and use similar words to the human translation, your goal would be a high Bleu score with high cosine similarity. If you only cared about semantic similarity, you would focus on cosine similarity.
+The data scientist determines what it is you want to measure and what metric or combination of metrics you can use to measure it. For example, in the area of language translation, the Bleu metric checks how many n-grams appear in both the machine translation and human translation to measure similarity based on using the same words. Cosine similarity uses embeddings between the machine and human translations to measure semantic similarity. If your goal was to have high semantic similarity and use similar words to the human translation, your goal would be a high Bleu score with high cosine similarity. If you only cared about semantic similarity, you would focus on cosine similarity.
 
-The following is a small list of some common similarity and evaluation metrics. Notice that the similarity metrics listed are described as token based, sequence based, or edit based, illustrating how they use vastly different approaches to calculating similarity. Also note that the list contains 3 algorithms for evaluating the quality of text translation from one language to another.
+The following list contains a small sample of common similarity and evaluation metrics. Notice that the similarity metrics listed are described as token based, sequence based, or edit based, illustrating how they use vastly different approaches to calculating similarity. Also note that the list contains three algorithms for evaluating the quality of text translation from one language to another.
 
 * **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** - Sequence based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by either the number of characters of the smaller or larger input string.
-* **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** - Sequence based algorithm that finds the longest subsequence between two strings. LCS does not require the subsequences to be in consecutive order.
+* **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** - Sequence based algorithm that finds the longest subsequence between two strings. LCS doesn't require the subsequences to be in consecutive order.
 * **[Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)** - Token based algorithm that calculates the cosine of the angle between the two vectors.
 * **[Jaro Winkler](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)** - Edit based algorithm that counts the minimum number of steps to transform one string into another.
 * **[Hamming](https://en.wikipedia.org/wiki/Hamming_distance)** - Edit based algorithm that measures the minimum number of substitutions that are required to transform one string to another.
 * **[Jaccard](https://en.wikipedia.org/wiki/Jaccard_index)** - Token based algorithm that calculates similarity by dividing the intersection of two strings by the union of those strings.
 * **[Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance)** - Edit based algorithm that calculates similarity by determining the minimum number of single character edits required to transform one string to another.
-* **[Bleu](https://en.wikipedia.org/wiki/BLEU) - Evaluates the quality of text that is the result of machine translation from one language to another by determining the overlap of n-grams in a machine translation and a human quality translation.
-* **[Rouge](https://en.wikipedia.org/wiki/ROUGE_(metric)) - Compare a machine translation of one language to another to a human created translation. There are several Rouge variants that use the overlap of n-grams, skip-bigrams or longest common subsequence.
-* **[Meteor](https://en.wikipedia.org/wiki/METEOR) - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
+* **[Bleu](https://en.wikipedia.org/wiki/BLEU)** - Evaluates the quality of text that is the result of machine translation from one language to another. Bleu calculates the overlap of n-grams between a machine translation and a human quality translation to make this evaluation.
+* **[Rouge](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several Rouge variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
+* **[Meteor](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
 
-Refer to the following resources for common similarity and evaluation metrics: TODO: Verify and add to list
+Refer to the following resources for common similarity and evaluation metrics: TODO: Verify and add to list.
 
 * [PyPi textdistance package](https://pypi.org/project/textdistance/)
 * [Wikipedia list of similarity algorithms](https://en.wikipedia.org/wiki/Similarity_measure)
 
 ## Documentation, reporting, and aggregation
 
-Documenting both the hyperparameters chosen for an experiment and the resulting evaluation metrics allows you to understand the impact of the hyperparameters on your results. This is true at granular levels like embedding or search evaluation and at a macro level, testing the entire system end to end.
+You should document both the hyperparameters you chose for an experiment and the resulting evaluation metrics so you can understand the impact of the hyperparameters on your results. You should document hyperparameters and results at granular levels like embedding or search evaluation and at a macro level, like testing the entire system end to end.
 
 During design and development, you might be able to track the hyperparameters and results manually. However, while performing multiple evaluations against your entire test document and test query corpus might involve hundreds of evaluation runs and thousands of results. You should automate the persistence of parameters and results for your evaluations.
 
 Once your hyperparameters and results are persisted, you should consider building charts and graphs to allow you to more easily visualize the effects the hyperparameter choices have on the metrics. This will help you identify which choices lead to dips or spikes in performance.
 
-It is important for you to understand that this is not a one-time operation. Your corpus of documents will change over time. The questions your customers are asking will change over time and your understanding of the types of questions will evolve as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
+It is important for you to understand that designing and evaluating your RAG solution isn't a one-time operation. Your corpus of documents will change over time. The questions your customers are asking will change over time and your understanding of the types of questions will evolve as you learn from production. You should revisit this process again and again. Maintaining documentation of past evaluations is critical for future design and evaluation efforts.
 
 ## The RAG Experiment Accelerator
 
-These articles have walked you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles have focused on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator) which is a tool designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results.
+These articles walk you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). This tool helps teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results.
 
 TODO: Ritesh - anything you want to highlight here regarding the RAG Experiment Accelerator.
 
