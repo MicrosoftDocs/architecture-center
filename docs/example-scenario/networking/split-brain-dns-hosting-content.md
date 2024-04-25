@@ -4,15 +4,15 @@ This architecture demonstrates an approach to differentiate traffic treatment ba
 
 ## Architecture
 
-:::image type="content" source="./media/SplitBrain-DNS-hosting.png" alt-text="Diagram of the application hosting architecture." border="false" lightbox="./media/SplitBrain-DNS-hosting.png":::
+:::image type="content" source="./media/split-brain-dns.svg" alt-text="Diagram of the application hosting architecture." border="false" lightbox="split-brain-dns.svg":::
 
-*Download a [Visio file] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns.vsdx) of this architecture.*
 
-The workload sections below are broken into two parts. One explains the public internet workflow and the other details the private workflow. Each section represents the entirety of the architecture allowing clients to utilize the split-brain hosting architecture.
+The following workflow sections describe two configurations: a public internet workflow and a private workflow. Combine the two workflows to implement a split-brain hosting architecture.
 
 ### Public internet workflow
 
-![Diagram of the public internet workflow.](./media/SplitBrain-DNS-hosting-public.png)
+:::image type="content" source="./media/SplitBrain-DNS-hosting-public.png" alt-text="Diagram of the public internet workflow." border="false" lightbox="./media/SplitBrain-DNS-hosting-public.png":::
 
 1. Users send a request for the *app.contoso.com* application via the public internet.
 
@@ -36,7 +36,7 @@ The workload sections below are broken into two parts. One explains the public i
    - Azure generates a unique identifier for each Azure Front Door profile. The unique identifier is the *Front Door ID* value on the overview page of your Azure portal profile.
 6. Traffic reaches the compute resource that's configured as a back-end pool on Application Gateway.
 
-### Private (enterprise) workflow
+### Private enterprise workflow
 
 :::image type="content" source="./media/SplitBrain-DNS-hosting-private.png" alt-text="Diagram of the private enterprise workflow." border="false" lightbox="./media/SplitBrain-DNS-hosting-private.png":::
 
@@ -63,7 +63,7 @@ The workload sections below are broken into two parts. One explains the public i
 
 As an alternative solution, you can remove Azure Front Door and instead point the public Azure DNS record to the public IP address of Application Gateway. Based on this architecture's requirements, you must do [caching and optimization](/azure/frontdoor/front-door-caching) at the entry point into Azure. Therefore, the alternative solution isn't an option for this scenario. For more information, see [Cost optimization](#cost-optimization).
 
-:::image type="content" source="./media/SplitBrain-DNS-hosting-public-alt.png" alt-text="Diagram of the alternate Split-brain DNS Hosting architecture." border="false" lightbox="./media/SplitBrain-DNS-hosting-public-alt.png":::
+:::image type="content" source="./media/SplitBrain-DNS-hosting-public-alt.png" alt-text="Diagram of the alternate split-brain DNS hosting architecture." border="false" lightbox="./media/SplitBrain-DNS-hosting-public-alt.png":::
 
 Other possible alternatives for the public ingress traffic in this architecture include:
 
