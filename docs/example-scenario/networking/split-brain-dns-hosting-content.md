@@ -1,6 +1,6 @@
-Teams that manage workloads often rely on fully qualified domain names (FQDNs) for client access, which is typically combined with Transport Layer Security (TLS) Server Name Indication (SNI). However, when users can access a workload from the public internet and enterprise users can access a workload internally, the routing to the application can follow distinct paths and might receive various levels of security or quality of service (QoS).
+Teams that manage workloads often rely on fully qualified domain names (FQDNs) for client access, which is typically combined with Transport Layer Security (TLS) Server Name Indication (SNI). However, when users access a workload from the public internet and enterprise users access a workload internally, the routing to the application might follow fixed paths and have various levels of security or quality of service (QoS).
 
-This architecture demonstrates an approach to differentiate traffic treatment based on the Domain Name System (DNS) and whether the client originates from the internet or the corporate network.
+This architecture demonstrates an approach to differentiate traffic treatment based on the Domain Name System (DNS) and whether the client originates from the internet or a corporate network.
 
 ## Architecture
 
@@ -116,27 +116,29 @@ Security provides assurances against deliberate attacks and the abuse of your va
       
       - **Blast radius restriction**: Ensure that you contain security breaches within a limited scope. For example, effectively isolate external and internal traffic flows.
    - **Assume breach**: Acknowledge that attackers can breach security controls. Prepare for such scenarios.
-   - **Implement security measures**: Implement network segmentation, micro-segmentation, and NSGs. Assume that an attacker might gain access and design compensating controls accordingly.
+   - **Implement security measures**: Implement network segmentation, micro-segmentation, and NSGs. Assume that an attacker might gain access, and design compensating controls accordingly.
 
 Integrate these security principles into your split-brain DNS architecture to create a robust and resilient system that safeguards internal and external access to your workload.
 
-### Other potential security enhacements
+#### Other security enhancements
 
-  - **Application Gateway**: You can use a [WAF](/azure/web-application-firewall/ag/ag-overview) to protect your web applications from common web vulnerabilities and exploits. You can also use [Application Gateway Private Link](/azure/application-gateway/private-link) to securely access your backend application servers from Application Gateway without exposing them to the public internet.
+  - **Application Gateway**: You can use a [WAF](/azure/web-application-firewall/ag/ag-overview) to protect your web applications from common web vulnerabilities and exploits. You can also use [Azure Private Link](/azure/application-gateway/private-link) to securely access your back-end application servers from Application Gateway without exposing them to the public internet.
   
-   - **Azure Firewall**: You can add an Azure Firewall to the hub vNET and use [Azure Firewall Threat Intelligence](/azure/firewall/threat-intel) to block malicious traffic from known malicious IP addresses and domains. You can also use [Azure Firewall DNS Proxy](/azure/firewall/dns-details) to intercept and inspect DNS traffic and apply DNS filtering rules. 
-   - **Azure Front Door**: You can use [Azure WAF](/azure/web-application-firewall/afds/afds-overview) to protect your web applications from common web vulnerabilities and exploits at the edge. You can also use [Azure Private Link](/azure/frontdoor/private-link) in Azure Front Door Premium to securely access your backend application servers from Azure Front Door without exposing them to the public internet.    
+   - **Azure Firewall**: You can add an Azure firewall to the hub virtual network and use [Azure Firewall threat intelligence](/azure/firewall/threat-intel) to block malicious traffic from known malicious IP addresses and domains. You can also use [Azure Firewall as a DNS proxy](/azure/firewall/dns-details) to intercept and inspect DNS traffic and apply DNS-filtering rules. 
+   - **Azure Front Door**: You can use [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) to protect your web applications from common web vulnerabilities and exploits at the edge. You can also use [Private Link](/azure/frontdoor/private-link) with the Azure Front Door Premium tier to securely access your back-end application servers from Azure Front Door without exposing them to the public internet.    
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-  - **Backend compute**: The cost of running any backend compute service is driven by multiple factors. SKU selection, replica count, and region all play a part in chosing the right compute option. Ensure you take into account all elements of a [compute resource](/azure/architecture/guide/technology-choices/compute-decision-tree#choose-a-candidate-service) before selecting the option that works best for your workload.
+  - **Back-end compute**: Many factors, such as SKU selection, replica count, and region, drive the cost of running back-end compute services. Ensure that you consider all elements of a [compute resource](/azure/architecture/guide/technology-choices/compute-decision-tree#choose-a-candidate-service) before you select the best option for your workload.
   
-  - **Application Gateway**: The cost of Application Gateway is based on the number of instances, the size of the instances, and the amount of data processed. You can use [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to adjust the number of instances based on the traffic demand and optimize the cost. You can also use [zone-redundant SKUs](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability) to deploy across Availability Zones and reduce the need for additional instances for high availability. 
-  - **Azure Front Door**: The cost of Azure Front Door is based on the number of routing rules, the number of HTTP(S) requests, and the amount of data transferred. You can use [Azure Front Door Standard/Premium](/azure/frontdoor/understanding-pricing) to get a unified experience with Azure CDN, Azure WAF, and Azure Private Link. You can also use [Azure Front Door Rules Engine](/azure/frontdoor/front-door-rules-engine?pivots=front-door-standard-premium) to customize how your traffic is handled and optimize the performance and cost. If global access is not a requirement, or the additional features of Azure Front Door are not needed, the same architecture can work with only the Application Gateway. All public DNS records can be pointed to the Public IP address configured on the Application Gateway listener(s).
+  - **Application Gateway**: Application Gateway costs depend on the number of instances, the size of instances, and the amount of processed data. You can optimize cost by using [autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) to adjust the number of instances based on traffic demand. You can also deploy [zone-redundant SKUs](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability) across availability zones to reduce the need for additional instances for high availability. 
+  - **Azure Front Door**: Azure Front Door costs depend on the number of routing rules, the number of HTTP or HTTPS requests, and the amount of transferred data. You can use [Azure Front Door Standard tier or Premium tier](/azure/frontdoor/understanding-pricing) to get a unified experience with Azure Content Delivery Network, Azure Web Application Firewall, and Private Link. You can also use [the Azure Front Door rules engine feature](/azure/frontdoor/front-door-rules-engine) to customize traffic management and optimize performance and cost.
+  
+    If your scenario doesn't require global access or the extra features of Azure Front Door, you can use this solution with only Application Gateway. You can point all public DNS records to the public IP address that's configured on the Application Gateway listeners.
 
-See an example of this solution in the [Azure Pricing Calculator](https://azure.com/e/e0b74472f72d48ce891b08b3af105872) approximating typical usage with the components showcased in the architecture. Adjust to fit your scenario.
+See [an example of this solution](https://azure.com/e/e0b74472f72d48ce891b08b3af105872) that approximates the typical usage of the components in this architecture. Adjust the costs to fit your scenario.
 
 ## Contributors
 
