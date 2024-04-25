@@ -96,3 +96,16 @@ These articles walk you through all the phases and design choices involved in de
 
 TODO: Ritesh - anything you want to highlight here regarding the RAG Experiment Accelerator.
 
+## Contributors
+
+* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Rag accelerator](https://github.com/microsoft/rag-experiment-accelerator)
+
+## Related resources

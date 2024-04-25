@@ -79,3 +79,17 @@ It's important to gather queries that the documents don't address, for example "
 * Determine if there is a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
 * The customer or SME for the use case should act as a quality gate to determine whether or not the gathered documents, the associated test queries, and the answers to the queries from the documents are comprehensive, representative, and are correct.
 * Reviewing the body of questions and answers should be done periodically to ensure that they continue to accurately reflect the source documents.
+
+## Contributors
+
+* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Chunking phase](./rag-chunking-phase.yml)
+
+## Related resources

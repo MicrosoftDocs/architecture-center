@@ -44,3 +44,17 @@ The following are some common metadata fields, along with the original chunk tex
 ## Augmenting economics
 
 The use of LLMs for augmenting chunks can be expensive. You need to calculate the cost of each enrichment you're considering and multiply it by the estimated number of chunks over time. You should use this information, along with your testing of those enriched fields as part of the search to make a good business decision.
+
+## Contributors
+
+* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Generate embeddings phase](./rag-generating-embeddings.yml)
+
+## Related resources

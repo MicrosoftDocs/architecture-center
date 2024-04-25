@@ -85,3 +85,17 @@ The series of articles in this guide addresses those considerations and more.
 * **Similarity and evaluation metrics** - Provides a small list of similarity and evaluation metrics you can use when evaluating your RAG solution
 * **Documentation, reporting, and aggregation** - Discusses the importance of documenting the hyperparameters along with evaluation results, aggregating results from multiple queries, and visualizing the results
 * **The RAG Experiment Accelerator** - Provides a link to the [Rag Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator), which is a tool that is designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results
+
+## Contributors
+
+* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Preparation phase](./rag-preparation-phase.yml)
+
+## Related resources

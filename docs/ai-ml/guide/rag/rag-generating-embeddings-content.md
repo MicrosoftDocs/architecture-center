@@ -58,3 +58,17 @@ TODO: Can someone put together a real example with TSNE that we can use to repla
 #### Calculating embedding distances
 
 A programmatic means of evaluating how well your embedding model is working with your questions and chunks is to calculate the distance between the question vectors and the chunk vectors. You can use the Euclidean distance or the Manhattan distance.
+
+## Contributors
+
+* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Information retrieval phase](./rag-information-retrieval.yml)
+
+## Related resources

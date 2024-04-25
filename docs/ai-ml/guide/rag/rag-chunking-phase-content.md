@@ -186,3 +186,17 @@ A good approach for documents with little to no structure are sentence-based or 
 ### Experimentation
 
 Although the best fit of each of the chunking approach are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. You should experiment on a various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
+
+## Contributors
+
+* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Chunk enrichment phase](./rag-enrichment-phase.yml)
+
+## Related resources
