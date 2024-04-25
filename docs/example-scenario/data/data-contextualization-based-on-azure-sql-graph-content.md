@@ -33,7 +33,7 @@ Many other graph databases are available. For more information, see:
 - [Graph processing with SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 - [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/)
 - [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
-- [RedisGraph](https://redis.io/docs/stack/graph/)
+- [RedisGraph](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/deprecated-features/graph/)
 - [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
 
 There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
