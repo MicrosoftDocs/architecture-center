@@ -45,7 +45,8 @@ If cost concerns are a driving factor, maintaining your existing design is likel
 
 If you choose to use a traditional database instead of Azure AI Search, be aware that there are some advanced search features that won't be available by default for you. For example, if you want to be able to do reranking or hybrid search, you will need to enable that functionality through T-SQL or other coding. 
 
-## Capability Matrix
+## Capability matrix
+
 The following tables summarize the key differences in capabilities.
 
 ### Basic features
