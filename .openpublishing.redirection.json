@@ -4728,8 +4728,6 @@
       "source_path": "docs/guide/hpc/hpc-altair-acusolve.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
-    },
-
-
+    }
   ]
 }
