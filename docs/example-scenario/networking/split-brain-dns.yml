@@ -5,7 +5,7 @@ metadata:
   description: Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.
   author: troyhite
   ms.author: troyhite
-  ms.date:  04/25/2024
+  ms.date:  04/26/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -21,6 +21,6 @@ products:
   - azure-dns
 name: Use a split-brain DNS configuration to host a web app in Azure
 summary: Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.
-thumbnailUrl: ../../browse/thumbs/SplitBrain-DNS-hosting-thumb.png
+thumbnailUrl: ../../browse/thumbs/split-brain-dns.png
 content: |
   [!include[](split-brain-dns-content.md)]

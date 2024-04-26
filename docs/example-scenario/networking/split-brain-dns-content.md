@@ -1,6 +1,6 @@
 Teams that manage workloads often rely on fully qualified domain names (FQDNs) for customer access. FQDNs are typically combined with Transport Layer Security (TLS) Server Name Indication (SNI). With this approach, when public customers access a workload from the public internet or enterprise customers access a workload internally, the routing to the application might follow fixed paths and have various levels of security or quality of service (QoS).
 
-The following architecture demonstrates an approach to differentiate traffic treatment based on the Domain Name System (DNS) and whether the customer originates from the internet or from a corporate network.
+The following architecture demonstrates an approach to differentiate how traffic is treated based on the Domain Name System (DNS) and whether the customer originates from the internet or from a corporate network.
 
 ## Architecture
 
@@ -12,7 +12,9 @@ The following workflow sections describe two configurations: a public internet w
 
 ### Public internet workflow
 
-:::image type="content" source="./media/SplitBrain-DNS-hosting-public.png" alt-text="Diagram of the public internet workflow." border="false" lightbox="./media/SplitBrain-DNS-hosting-public.png":::
+:::image type="content" source="./media/split-brain-dns-host-public.svg" alt-text="Diagram of the public internet workflow." border="false" lightbox="./media/split-brain-dns-host-public.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns-host-public.vsdx) of this architecture.*
 
 1. Customers send a request for the *app.contoso.com* application via the public internet.
 
@@ -39,7 +41,9 @@ The following workflow sections describe two configurations: a public internet w
 
 ### Private enterprise workflow
 
-:::image type="content" source="./media/SplitBrain-DNS-hosting-private.png" alt-text="Diagram of the private enterprise workflow." border="false" lightbox="./media/SplitBrain-DNS-hosting-private.png":::
+:::image type="content" source="./media/split-brain-dns-host-private.svg" alt-text="Diagram of the private enterprise workflow." border="false" lightbox="./media/split-brain-dns-host-private.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns-host-private.vsdx) of this architecture.*
 
 1. Customers initiate a request for the *app.contoso.com* application from an on-premises environment.
 
@@ -64,7 +68,9 @@ The following workflow sections describe two configurations: a public internet w
 
 As an alternative solution, you can remove Azure Front Door and instead point the public Azure DNS record to the public IP address of Application Gateway. Based on this architecture's requirements, you must do [caching and optimization](/azure/frontdoor/front-door-caching) at the entry point into Azure. Therefore, the alternative solution isn't an option for this scenario. For more information, see [Cost optimization](#cost-optimization).
 
-:::image type="content" source="./media/SplitBrain-DNS-hosting-public-alt.png" alt-text="Diagram of the alternate split-brain DNS hosting architecture." border="false" lightbox="./media/SplitBrain-DNS-hosting-public-alt.png":::
+:::image type="content" source="./media/split-brain-dns-host-public-alt.svg" alt-text="Diagram of the alternate split-brain DNS hosting architecture." border="false" lightbox="./media/split-brain-dns-host-public-alt.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns-host-public-alt.vsdx) of this architecture.*
 
 Other possible alternatives for the public ingress traffic in this architecture include:
 
