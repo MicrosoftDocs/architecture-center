@@ -193,6 +193,8 @@ Although the best fit of each of the chunking approach are listed, in practice, 
 * [Rob Bagby](https://www.linkedin.com/in/robbagby/)
 * [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
 * [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
+* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
 
 ## Next steps
 
