@@ -54,7 +54,7 @@ The data flows through the solution as follows:
 
 - [Microsoft Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 
-- [Azure App Services](https://azure.microsoft.com/services/app-service) can be used to build web and mobile applications. [Azure API Management](https://azure.microsoft.com/services/api-management) can be used to expose data to third parties, based on the data stored in the Serving Layer.
+- [Azure App Services](/azure/well-architected/service-guides/app-service-web-apps) can be used to build web and mobile applications. [Azure API Management](https://azure.microsoft.com/services/api-management) can be used to expose data to third parties, based on the data stored in the Serving Layer.
 
 - [Microsoft HoloLens](https://www.microsoft.com/hololens) can be used by service technicians to view vehicle data (for example, service history, OBD-II data, part diagrams, and so on) holographically to aid in troubleshooting and repair.
 

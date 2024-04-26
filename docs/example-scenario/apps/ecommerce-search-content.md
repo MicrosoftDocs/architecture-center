@@ -19,7 +19,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 ### Components
 
-- [Azure App Service - Web Apps][docs-webapps-service-page] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service - Web Apps](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications allowing autoscale and high availability without having to manage infrastructure.
 - [Azure SQL Database][docs-sql-database-service-page] is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 - [AI Search][docs-search-service-page] is a cloud solution that provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 - [Azure AI Bot Service][docs-botservice-service-page] provides tools to build, test, deploy, and manage intelligent bots.
@@ -143,7 +143,6 @@ To find out more about other Azure components, see these resources:
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-sql-database-service-page]: https://azure.microsoft.com/products/azure-sql/database
 [docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-webapps-service-page]: https://azure.microsoft.com/products/app-service/web/
 [docs-botservice]: /azure/bot-service/
 [docs-botservice-service-page]: https://azure.microsoft.com/products/bot-services
 [docs-cognitive]: /azure/cognitive-services/what-are-cognitive-services
