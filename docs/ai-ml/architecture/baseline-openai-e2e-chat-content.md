@@ -289,6 +289,12 @@ To minimize operational burden the **Automatic Runtime** is a serverless compute
 
 Diagnostics are configured for all services. All services but Azure Machine Learning and Azure App Service are configured to capture all logs. The Azure Machine Learning diagnostics is configured to capture the audit logs which are all resource logs that record customer interactions with data or the settings of the service. Azure App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs and AppServicePlatformLogs.
 
+Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
+
+- [Azure Container Registry alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/ContainerRegistry/registries/)
+- [Azure Machine Learning and Azure OpenAI alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
+- [Azure Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
+
 ### Large language model operations (LLMOps)
 
 Deployment for Azure OpenAI based chat solutions like this architecture should follow the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for CI/CD and network-secured architectures. The following guidance addresses the implementation of Flows and their associated infrastructure based on the LLMOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
