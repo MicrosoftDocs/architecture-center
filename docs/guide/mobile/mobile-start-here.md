@@ -23,7 +23,7 @@ The Azure platform can help you quickly build Android, iOS, and Windows apps tha
 
 These are just some of the services that Azure provides to help you with mobile development and back-end infrastructure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
 
 - [.NET MAUI](/dotnet/maui/). Build mobile applications using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
 

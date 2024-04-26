@@ -327,7 +327,7 @@ Principal author:
 [Azure-DNS]: https://azure.microsoft.com/services/dns
 [Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn
 [Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor
-[Azure-AppService]: https://azure.microsoft.com/services/app-service
+[Azure-AppService]: /azure/well-architected/service-guides/app-service-web-apps
 [Azure-Function]: https://azure.microsoft.com/services/functions
 [Azure-Storage]: https://azure.microsoft.com/product-categories/storage
 [Azure-Redis-Cache]: https://azure.microsoft.com/services/cache
