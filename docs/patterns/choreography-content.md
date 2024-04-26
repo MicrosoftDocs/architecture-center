@@ -6,7 +6,7 @@ A cloud-based application is often divided into several small services that work
 
 A common pattern for communication is to use a centralized service or an _orchestrator_. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
-![A diagram of a workflow that processes requests using a central orchestrator](./_images/orchestrator.png)
+![A diagram of a workflow that processes requests using a central orchestrator.](./_images/orchestrator.png)
 
 The orchestrator pattern is typically implemented as custom software and has domain knowledge about the responsibilities of those services. A benefit is that the orchestrator can consolidate the status of a transaction based on the results of individual operations conducted by the downstream services. 
 
@@ -21,7 +21,7 @@ Delegate the transaction handling logic among the services. Let each service dec
 
 A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
 
-![An image showing processing of a request using a message broker](./_images/choreography-pattern.png)
+![A diagram showing processing of a request using a message broker.](./_images/choreography-pattern.png)
 
 
 1. A client requests are queued as messages in a message broker. 
