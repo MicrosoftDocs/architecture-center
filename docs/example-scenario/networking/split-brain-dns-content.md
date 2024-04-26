@@ -34,7 +34,7 @@ The following workflow sections describe two configurations: a public internet w
 1. The Application Gateway instance has a [listener](/azure/application-gateway/configuration-listeners) on port 443. Traffic is routed to the back end based on the hostname that's specified within the listener.
    - To ensure that traffic originates from *your* Azure Front Door profile, configure a [custom WAF rule](/azure/web-application-firewall/ag/create-custom-waf-rules#example-7) to check the `X-Azure-FDID` header value.
    
-   - Azure generates a unique identifier for each Azure Front Door profile. The unique identifier is the *Front Door ID* value on the overview page of the Azure portal.
+   - Azure generates a unique identifier for each Azure Front Door profile. The unique identifier is the *Front Door ID* value located on the overview page of the Azure portal.
 1. Traffic reaches the compute resource that's configured as a back-end pool in Application Gateway.
 
 ### Private enterprise workflow
@@ -43,7 +43,7 @@ The following workflow sections describe two configurations: a public internet w
 
 1. Customers initiate a request for the *app.contoso.com* application from an on-premises environment.
 
-1. Application FQDNs are configured on the on-premises DNS provider. This DNS provider could be on-premises Windows Server Active Directory DNS servers or other partner solutions. The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway instance.
+1. Application FQDNs are configured on the on-premises DNS provider. This DNS provider can be on-premises Windows Server Active Directory DNS servers or other partner solutions. The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway instance.
 1. An [Azure ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a [site-to-site VPN](/azure/vpn-gateway/design#s2smulti) facilitates access to Application Gateway.
 1. An [NSG](/azure/application-gateway/configuration-infrastructure#network-security-groups) is configured on the *AppGW subnet* to allow incoming private requests from on-premises customer networks where traffic originates from. This configuration ensures that other sources of private traffic can't directly reach the private IP address of Application Gateway.
 1. Application Gateway has a [listener](/azure/application-gateway/configuration-listeners) that's configured on port 80 and port 443. Traffic is routed to the back end based on the hostname that's specified within the listener.
@@ -53,7 +53,7 @@ The following workflow sections describe two configurations: a public internet w
 
 - DNS: For a public internet workflow, you must configure a [public Azure DNS zone](/azure/dns/dns-overview) with the proper CNAME of the Azure Front Door endpoint FQDN. On the private (enterprise) side, configure the local DNS provider (Windows Server Active Directory DNS or a partner solution) to point each application FQDN to the private IP address of Application Gateway.
 
-- [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): You can also use DNS Private Resolver for the resolution of on-premises customers. Enterprise customers can use this split-brain DNS solution to gain access to applications without traversing the public internet.
+- [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver): You can use DNS Private Resolver for the resolution of on-premises customers. Enterprise customers can use this split-brain DNS solution to gain access to applications without traversing the public internet.
 - [Azure Front Door](https://azure.microsoft.com/products/frontdoor/): Azure Front Door is a global load balancer and WAF that provides fast and secure web application delivery to customers around the world. In this architecture, Azure Front Door routes external customers to the Application Gateway instance and provides caching and optimization options to enhance customer experience.
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway/): Application Gateway is a regional load balancer and WAF that provides high availability, scalability, and security for web applications. In this architecture, Application Gateway routes external and internal customer requests to the back-end compute and protects the web application from common web attacks.
 
