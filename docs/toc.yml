@@ -2020,7 +2020,6 @@ items:
         maintainContext: true
       - name: Cross-tenant communication
         href: patterns/cross-tenant-communication-using-multitenanted-applications.md
-        maintainContext: true
       - name: Identity and access management in Azure
         href: /security/compass/identity
         maintainContext: true

@@ -59,7 +59,7 @@ The following workflow corresponds to the preceding diagram:
 
 A provider has multiple customers. The provider and each customer have their own individual Microsoft Entra ID tenant and Azure resources. The provider and each customer need a secure, bidirectional method of communication so that they can exchange messages via Service Bus queues. The solution should have a compelling identity story that avoids introducing unnecessary credentials or secrets.
 
-### Things to know about multitenant applications
+### What to know about multitenant applications
 
 - An application object is a globally unique instance of the application.
 
