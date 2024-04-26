@@ -1,5 +1,5 @@
 ---
-title: Cross-tenant communication using multitenant applications
+title: Implement cross-tenant communication by using multitenant applications
 description: Learn how to implement bidirectional, secure communications between services that are hosted in Azure subscriptions that are managed by different Microsoft Entra tenants.
 author: aulong-msft, ashtmMSFT, John-Garland
 ms.author: aulong, ashtm, johngarland
@@ -17,7 +17,7 @@ categories:
   - Security
 ---
 
-# Cross-tenant communication using multitenant applications
+# Implement cross-tenant communication by using multitenant applications
 
 This guide provides a solution to achieve bidirectional, secure communications between services that are hosted in Azure subscriptions that are managed by different Microsoft Entra tenants.
 
@@ -25,7 +25,7 @@ Securing multitenant communications in Azure can be challenging due to limitatio
 
 One option that avoids this overhead is to create a multitenant application to represent your workload's identity. Through a consent process, you can make this workload identity known to an external tenant and ultimately allow it to authenticate services in the external tenant.
 
-This article covers an example implementation of this pattern and provides [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
+This article presents an example implementation of this pattern that uses [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
 
 This pattern can be reused for any multitenant scenario that has various services that need to communicate across Microsoft Entra tenant boundaries.
 
@@ -43,7 +43,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. An admin on the provider side creates a multitenant application registration and sets up a client secret for it.
 
-1. An admin on the customer side provisions a service principal in their tenant. This service principal is based on the multitenant application that the provider created. You can do this step in various ways. In the example, we chose to craft a URL to provide to the customer tenant admin, but you can use the Microsoft Graph API instead.
+1. An admin on the customer side provisions a service principal in its tenant. This service principal is based on the multitenant application that the provider created. You can do this step in multiple ways. In the example, we chose to craft a URL to provide to the customer tenant admin, but you can use the Microsoft Graph API instead.
 
 1. The customer applies role-based access control (RBAC) roles to this new service principal so that it's authorized to access Azure Service Bus.
 
@@ -59,7 +59,7 @@ The following workflow corresponds to the preceding diagram:
 
 A provider has multiple customers. The provider and each customer have their own individual Microsoft Entra ID tenant and Azure resources. The provider and each customer need a secure, bidirectional method of communication so that they can exchange messages via Service Bus queues. The solution should have a compelling identity story that avoids introducing unnecessary credentials or secrets.
 
-### Some context on multitenant applications
+### Things to know about multitenant applications
 
 - An application object is a globally unique instance of the application.
 
@@ -69,7 +69,7 @@ A provider has multiple customers. The provider and each customer have their own
 
 - The application object is the global representation of your application and is used across all tenants. The service principal object is the local representation that's used in a specific tenant.
 
-- A service principal object must be created in each tenant where the application is used so that it can establish an identity for sign-in or for access to resources that are secured by the tenant. A single-tenant application has only one service principal object in its home tenant. This service principal object is created and allowed for use during application registration. A multitenant application also has a service principal object that's created in each tenant, and a user from that tenant consented to its use.
+- A service principal object must be created in each tenant where the application is used so that it can establish an identity for sign-in or for access to resources that are secured by the tenant. A single-tenant application has only one service principal object in its home tenant. This service principal object is created and permitted for use during application registration. A multitenant application also has a service principal object that's created in each tenant, and a user from that tenant consented to its use.
 
 - To access resources that are secured by a Microsoft Entra tenant, a security principal must represent the entity that requires access.
 
@@ -77,15 +77,15 @@ A provider has multiple customers. The provider and each customer have their own
 
 ## How does the provider message the customer?
 
-Ideally, the provider is able to assign a managed identity to the Azure compute resource that's responsible for sending messages to a customer's queue. The customer's tenant is configured to trust managed identities from the provider's tenant. However, a true federation, which would essentially allow the "sharing" of identities from one tenant to another, between two Microsoft Entra tenants isn't currently possible. So, the provider needs to authenticate by using an identity that the customer recognizes. The provider needs to authenticate to the customer's Microsoft Entra tenant as a service principal that the customer knows about.
+Ideally, the provider is able to assign a managed identity to the Azure compute resource that's responsible for sending messages to a customer's queue. The customer's tenant is configured to trust managed identities from the provider's tenant. However, a true federation between two Microsoft Entra tenants, which would essentially allow the "sharing" of identities from one tenant to another, isn't currently possible. So, the provider needs to authenticate by using an identity that the customer recognizes. The provider needs to authenticate to the customer's Microsoft Entra tenant as a service principal that the customer knows about.
 
 We recommend that the provider registers a multitenant application in its own tenant and then has each customer provision an associated service principal into their tenant. The provider can then authenticate to the customer's tenant and the customer-hosted APIs by using this service principal. The provider never needs to share a client secret in this approach. Credential management is the sole responsibility of the provider.
 
 ## How does the customer message the provider?
 
-We recommend that the customer creates or hosts a queue from which the provider can read. The customer writes a message into the queue. The provider repeatedly polls each customer queue for messages by using a service principal object. The downside of this approach is that it introduces polling latency when receiving a message. Code also needs to run more often in the provider because it must wake up and perform polling logic instead of waiting for an event to trigger it. However, credential management remains the sole responsibility of the provider, which bolsters security.
+We recommend that the customer creates or hosts a queue from which the provider can read. The customer writes a message into the queue. The provider repeatedly polls each customer queue for messages by using a service principal object. The downside of this approach is that it introduces polling latency when the provider receives a message. Code also needs to run more often in the provider because it must wake up and perform polling logic instead of waiting for an event to trigger it. However, credential management remains the sole responsibility of the provider, which bolsters security.
 
-### Alternative solution
+### An alternative solution
 
 Another possible solution is to have the provider create or host a queue for each of its customers. Each customer creates their own multitenant application and requests that the provider provision it in its tenant as a service principal object. The customer then uses this service principal object to send messages to a customer-specific queue on the provider side. Credential management remains the sole responsibility of the customer. One downside to this approach is that the provider must provision service principals that are associated with customer applications into its tenant. This process is manual, and providers likely don't want manual steps to be part of the flow for onboarding a new customer.
 
@@ -95,15 +95,15 @@ The following steps guide you through the process of setting up cross-tenant com
 
 ### Provider setup
 
-The provider setup includes generating and provisioning a multitenant application service principal and the provisioning steps for the customer tenant.
+The provider setup includes the steps to generate and provision a multitenant application service principal and the steps to provision the customer tenant.
 
-1. Create an HTTP-triggered function app to kick off a message to write to the customer's Service Bus command queue within the customer tenant.
+1. Create an HTTP-triggered function app to send a message to write to the customer's Service Bus command queue within the customer tenant.
 
 1. Create a time-triggered function app to periodically check a status queue within the customer's Service Bus within the customer tenant.
 
 #### Create a multitenant application within the provider's tenant
 
-First, create a multitenant application in the provider's tenant and provision that identity within the customer's tenant. In this scenario, the identity is a service principal. The [architecture](./cross-tenant-communication-using-multitenanted-applications.md#architecture) earlier in this article shows how to set up and provision a service principal from the provider's tenant into the customer's tenant. The architecture also outlines the process to provision with multiple Microsoft Entra tenants. 
+First, create a multitenant application in the provider's tenant and provision that identity within the customer's tenant. In this scenario, the identity is a service principal. The [architecture](./cross-tenant-communication-using-multitenanted-applications.md#architecture) earlier in this article shows you how to set up and provision a service principal from the provider's tenant into the customer's tenant. The architecture also outlines how to provision with multiple Microsoft Entra tenants. 
 
 1. Choose the multitenant organization option.
 
@@ -119,7 +119,7 @@ First, create a multitenant application in the provider's tenant and provision t
 
 #### Azure Functions - HTTP-triggered
 
-Use the HTTP function to start the deployment from the provider's tenant by sending a message into the customer's Service Bus deployment queue. We chose this HTTP-triggered function as the method of delivery to start this proof-of-concept. The service principal that you generated earlier acts as the credential to access the customer tenant and write to a specific queue within Service Bus. You also need to finish the [customer setup](./cross-tenant-communication-using-multitenanted-applications.md#customer-setup) for this step to work properly.
+Use the HTTP function to start the deployment from the provider's tenant by sending a message into the customer's Service Bus deployment queue. We chose the HTTP-triggered function as the method of delivery to start this proof-of-concept. The service principal that you generated earlier acts as the credential to access the customer tenant and write to a specific queue within Service Bus. You also need to finish the [customer setup](./cross-tenant-communication-using-multitenanted-applications.md#customer-setup) for this step to work properly.
 
 #### Azure Functions - Timer-triggered
 
@@ -131,7 +131,7 @@ Use the timer-triggered function to poll the deployment status queue from within
 
 1. Scope the provider service principal to use the appropriate RBAC controls.
 
-1. Create a Service Bus triggered function to read a message off a Service Bus message queue and place a message into another queue. For demo purposes, this flow is optimal to test the functionality.
+1. Create a Service Bus triggered function to read a message from a Service Bus message queue and place a message into another queue. For demo purposes, this flow is optimal to test the functionality.
 
 1. Create a system-assigned managed identity for the Service Bus triggered function.
 
@@ -145,23 +145,23 @@ Use the timer-triggered function to poll the deployment status queue from within
 
 1. Sign in with an account from the customer's tenant.
 
-1. After you see a consent screen, select **Accept** to provision the provider's application in the customer tenant. The URL eventually redirects to `microsoft.com`, which still has the desired effect of provisioning the identity into the customer tenant.
+1. On the consent screen, select **Accept** to provision the provider's application in the customer tenant. The URL eventually redirects to `microsoft.com`, which still has the desired effect of provisioning the identity into the customer tenant.
 
 1. Verify the identity within the customer's Microsoft Entra tenant by going to **Enterprise Applications** to see the newly provisioned service principal.
 
 #### Set up RBAC for the provisioned service principal
 
-Scope the provider service principal from the provider service principal setup to have "Service Bus Data Owner" roles on the Service Bus. This service principal is used in both writing to a queue with an HTTP-triggered function and reading from a queue from a timer-triggered function. Ensure that you add the "Azure Service Bus Data Owner" role to the service principal.
+Scope the provider service principal from the provider service principal setup to have "Service Bus Data Owner" roles on the Service Bus. This service principal is used in both writing to a queue with an HTTP-triggered function and reading from a queue from a timer-triggered function. Make sure that you add the "Azure Service Bus Data Owner" role to the service principal.
 
 #### Azure Functions - Service Bus trigger
 
-Follow the steps in the [identity-based functions tutorial](https://learn.microsoft.com/azure/azure-functions/functions-identity-based-connections-tutorial-2) to define the function trigger from the Service Bus queue and to learn how to set up a managed identity. This guidance helps you trigger the function app from the Service Bus queue when a message is added to the queue. You also use the managed identity when you place a message into a different queue. For demo purposes, we used the same function to push the message through.
+Follow the steps in the [identity-based functions tutorial](/azure/azure-functions/functions-identity-based-connections-tutorial-2) to define the function trigger from the Service Bus queue and to learn how to set up a managed identity. This guidance helps you trigger the function app from the Service Bus queue when a message is added to the queue. You also use the managed identity when you place a message into a different queue. For demo purposes, we use the same function to push the message through.
 
 In your newly created Service Bus namespace, select **Access Control (IAM)**. You can view and configure who has access to the resource in the control plane.
 
 #### Grant the function app access to the Service Bus namespace by using managed identities
 
-1. Ensure that you add the "Azure Service Bus Data Receiver" role to the managed identity.
+1. Make sure that you add the "Azure Service Bus Data Receiver" role to the managed identity.
 
 1. In the managed identity selector, choose **Function App** from the **System-assigned managed identity** category. The label **Function App** might have a number in parentheses next to it. That number indicates how many apps that have system-assigned identities are in the subscription.
 
