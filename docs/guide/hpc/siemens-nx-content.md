@@ -1,4 +1,4 @@
-This article briefly describes the steps for running [Siemens NX](https://www.plm.automation.siemens.com/global/en/products/nx/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running NX on Azure.
+This article briefly describes the steps for running [Siemens NX](https://plm.sw.siemens.com/en-US/nx/manufacturing/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running NX on Azure.
 
 Organizations use NX for design, simulation, and manufacturing solutions that enable digital twin technology. Siemens NX:
 
