@@ -15,7 +15,7 @@ This solution is used across multiple industries to improve customer experience 
 
 ### Components
 
-* App Service [Web Apps](https://azure.microsoft.com/services/app-service/web) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances. Used by Sitecore to host its content delivery, content management, reporting, and processing roles.
+* App Service [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances. Used by Sitecore to host its content delivery, content management, reporting, and processing roles.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A SQL Database instance stores and serves data about the site.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) enables fast queries, and improves scalability by reducing the load on the main database. Sitecore's Session State session state is managed by [Azure Cache for Redis](https://azure.microsoft.com/services/cache).
 * An [Azure Cognitive Search](https://azure.microsoft.com/services/search) service used for quick lookup of data. All Sitecore search indexes are stored in [Azure Cognitive Search](https://azure.microsoft.com/services/search) for quick lookup and scalability.

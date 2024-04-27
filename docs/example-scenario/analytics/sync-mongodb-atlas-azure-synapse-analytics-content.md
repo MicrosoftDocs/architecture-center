@@ -35,7 +35,7 @@ Real-time changes in the MongoDB Atlas operational data store (ODS) are captured
 
 ### Alternatives
 
-This solution uses Atlas triggers to wrap the code for listening to Atlas change streams and triggering Azure Functions in response to the change event. It's therefore much easier to implement than the previously provided [alternative solution](azure-synapse-analytics-integrate-mongodb-atlas.yml). For that solution, you need to write code to listen to change streams in an [Azure App Service](https://azure.microsoft.com/products/app-service) app.
+This solution uses Atlas triggers to wrap the code for listening to Atlas change streams and triggering Azure Functions in response to the change event. It's therefore much easier to implement than the previously provided [alternative solution](azure-synapse-analytics-integrate-mongodb-atlas.yml). For that solution, you need to write code to listen to change streams in an [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) web app.
 
 Another alternative is to use the [MongoDB Spark Connector](https://www.mongodb.com/blog/post/introducing-mongodb-spark-connector-version-10-1) to read MongoDB stream data and write it to Delta tables. The code is run continuously in a Spark Notebook that's part of a pipeline in Azure Synapse Analytics. For more information on implementing this solution, see [Sync from Atlas to Azure Synapse Analytics using Spark streaming](https://github.com/mongodb-partners/Synapse-Spark-Streaming).
 

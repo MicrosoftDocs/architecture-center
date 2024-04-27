@@ -24,7 +24,7 @@ The following dataflow corresponds to the preceding architecture:
 
 ### Components
 
-- [App Service](https://azure.microsoft.com/products/app-service) is an HTTP-based service that hosts web apps, REST APIs, and mobile back ends. In this solution, organizations use an interactive web app or API for the supply chain data. App Service reads or references data in all stages.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service that hosts web apps, REST APIs, and mobile back ends. In this solution, organizations use an interactive web app or API for the supply chain data. App Service reads or references data in all stages.
 
 - [Service Bus](https://azure.microsoft.com/products/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics in a namespace. Manufacturers use Service Bus to add data to the blockchain ledger or off-chain data store.
 
