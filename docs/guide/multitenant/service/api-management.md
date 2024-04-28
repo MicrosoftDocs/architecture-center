@@ -100,17 +100,12 @@ API Management supports [named values](/azure/api-management/api-management-howt
 
 ### Authenticate incoming requests
 
-API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
+API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients). Consider which types of credentials you should support, and whether credentials should be validated by API Management, your backend applications, or in both places.
 
 > [!NOTE]
 > If you use a subscription key (API key), we recommend also using another method of authentication.
 >
 > On its own, a subscription key isn't a strong form of authentication, but the subscription key is be useful for many scenarios, such as for tracking individual customers' API usage.
-
-<!-- TODO jazz this up -->
-- No credential - An API Management subscription key is used to authenticate the request. This can be used when you control the calling application and can trust the request. This method shouldn't be used for any API that provides access to sensitive information.
-- Shared credential - All tenants share the same authentication credential such as a [client certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients). This should only be used when you control the calling application and can trust the request. This works when an API is only used by internal service-to-service communication. If the client isn't trusted, then it would be possible for the *subscription key* to be modified to change the request to a different tenant, putting tenant isolation at risk.
-- Per-tenant credential - Each tenant provides a unique credential to access an API. This is best used with an OAuth2.0 method of authentication is available. It's possible to implement this method with client certificate authentication, but it's harder to scale this approach because complicated policies are required to uniquely identify each user.
 
 ### Route to tenant-specific backends
 
