@@ -3,7 +3,7 @@ title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 04/23/2024
+ms.date: 04/29/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -33,13 +33,13 @@ Most commonly, API Management is deployed as a shared component, with a single i
 
 Typically, the way you use API Management is similar regardless of the isolation models. This section focuses on the differences in cost and complexity between the isolation models, and the differences in how each approach routes requests to your backend API applications.
 
-| Consideration | Shared instance, single-tenant backends | Shared instance, sharded tenant backends | Shared instance, multitenant backend | Instance per tenant |
+| Consideration | Shared instance, single-tenant backends | Shared instance, multitenant backend | Instance per tenant |
 |---|---|---|---|---|
-| Number of tenants supported | Many | Many | Almost unbounded | One per instance |
-| Cost | Lower | Lower | Lower | Higher |
-| Deployment complexity | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | High. Multiple instances to manage |
-| Routing configuration complexity | Higher | Higher | Lower | Lower |
-| Example scenario | Custom domain names per tenant | API applications shared between tenants based on pricing tier | Large multitenant solution with a shared application tier | Tenant-specific deployment stamps |
+| Number of tenants supported | Many | Almost unbounded | One per instance |
+| Cost | Lower | Lower | Higher |
+| Deployment complexity | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | High. Multiple instances to manage |
+| Routing configuration complexity | Higher | Lower | Lower |
+| Example scenario | Custom domain names per tenant | Large multitenant solution with a shared application tier | Tenant-specific deployment stamps |
 
 ### Shared instance isolation models
 
@@ -63,7 +63,7 @@ In scenarios where your tenants share a common backend application, API Manageme
 
 ### Instance per tenant
 
-In some situations, you might deploy an instance of API Management for each tenant. This approach is generally only advisable if you have a small number of tenants, or if you have strict complicance requirements that mean you can't share any infrastructure between tenants.
+In some situations, you might deploy an instance of API Management for each tenant. This approach is generally only advisable if you have a small number of tenants, or if you have strict compliance requirements that mean you can't share any infrastructure between tenants.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users in multiple geographic regions, consider whether the [multi-region deployment](#multi-region-deployments) capability in API Management might suit your needs instead.
@@ -71,6 +71,11 @@ In some situations, you might deploy an instance of API Management for each tena
 When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
 
 For single-tenant instances, there is typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decisions.
+
+<!-- TODO -->
+If you deploy a VNet per tenant, you probably need this model
+
+This model has a higher cost. If it seems like it fits your needs, consider whether self-hosted gateways might provide an option to reuse tenant-specific compute resources that you already deploy.
 
 ## Features of API Management that support multitenancy
 
@@ -98,6 +103,7 @@ API requests made to the API Management gateway usually need to be authenticated
 >
 > On its own, a subscription key isn't a strong form of authentication, but the subscription key is be useful for many scenarios, such as for tracking individual customers' API usage.
 
+<!-- TODO jazz this up -->
 - No credential - An API Management subscription key is used to authenticate the request. This can be used when you control the calling application and can trust the request. This method shouldn't be used for any API that provides access to sensitive information.
 - Shared credential - All tenants share the same authentication credential such as a [client certificate](/azure/api-management/api-management-howto-mutual-certificates-for-clients). This should only be used when you control the calling application and can trust the request. This works when an API is only used by internal service-to-service communication. If the client isn't trusted, then it would be possible for the *subscription key* to be modified to change the request to a different tenant, putting tenant isolation at risk.
 - Per-tenant credential - Each tenant provides a unique credential to access an API. This is best used with an OAuth2.0 method of authentication is available. It's possible to implement this method with client certificate authentication, but it's harder to scale this approach because complicated policies are required to uniquely identify each user.
@@ -110,7 +116,8 @@ When you use API Management as a shared component, you might need to route incom
 
 API Management has a powerful cache feature, which can be used to cache entire HTTP responses or any other data that you wish to cache. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
 
-In a multitenant solution, it's important to ensure to carefully select your cache keys. If the cached data might be different for different tenants, ensure that you include the tenant identifier in the cache key.
+> [!WARNING]
+> In a multitenant solution, it's important to be careful when you set your cache keys. If the cached data might be different for different tenants, ensure that you include the tenant identifier in the cache key.
 
 ### Custom domains
 
@@ -131,6 +138,16 @@ The API Management documentation [provides extensive guidance on monetizing APIs
 ### Multi-region deployments
 
 API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource and have it shared across multiple Azure regions without needing to replicate configuration. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, allowing for low latency request processing, and manage them as a single logical instance.
+
+### Capacity management
+
+<!-- TODO -->
+Each APIM instance has a certain amount of capacity units. Multitenant instances might be at risk of consuming higher amounts of capacity, so consider capacity planning carefully.
+
+### Named values
+
+<!-- TODO -->
+Be mindful of scope. Be careful with names to avoid accessing info from one tenant from anohter tenant's requests.
 
 ## Contributors
 
