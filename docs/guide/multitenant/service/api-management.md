@@ -59,7 +59,7 @@ As with the [single-tenant backend application model](#single-tenant-backend-app
 
 #### Multitenant backend application
 
-In scenarios where your tenants share a common backend application, API Management's routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to effectively achieve unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there is no performance impact from customized routing decisions.
+In scenarios where your tenants share a common backend application, API Management's routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to effectively achieve unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there's no performance impact from customized routing decisions.
 
 ### Instance per tenant
 
@@ -70,9 +70,9 @@ In some situations, you might deploy an instance of API Management for each tena
 
 When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
 
-For single-tenant instances, there is typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decision. 
+For single-tenant instances, there's typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decision. 
 
-However, you'll typically incur a higher resource cost than if you were deploying a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) might enable you to to reuse tenant-specific compute resources that you already deploy.
+However, you'll typically incur a higher resource cost than if you were deploying a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) might enable you to reuse tenant-specific compute resources that you already deploy.
 
 ## Features of API Management that support multitenancy
 
@@ -93,7 +93,7 @@ Alternatively, you can identify the tenant through other methods. Each of these 
 
 ### Named values
 
-API Management supports [named values](/azure/api-management/api-management-howto-properties), which are custom configuration settings that can be used throughout your policies. For example, you might use a named value to store a tenant's backend URL and then reuse that same value multiple times throughout your policies. If you need to update the URL, you can update it in a single place.
+API Management supports [named values](/azure/api-management/api-management-howto-properties), which are custom configuration settings that can be used throughout your policies. For example, you might use a named value to store a tenant's backend URL and then reuse that same value in several places within your policies. If you need to update the URL, you can update it in a single place.
 
 > [!WARNING]
 > In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings might be different for different tenants, ensure that you include the tenant identifier in the name.
