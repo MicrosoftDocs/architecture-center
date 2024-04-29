@@ -4245,6 +4245,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/hybrid/azure-stack-robo.yml",
+      "redirect_url": "docs/hybrid/azure-stack-hci-switchless.yml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md",
       "redirect_url": "/hybrid/app-solutions/overview-app-design-considerations",
       "redirect_document_id": false
@@ -4425,6 +4430,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/ai-ml/idea/machine-learning-model-deployment-aks.yml",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-kubernetes-extension",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/monitor-mining-equipment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
       "redirect_document_id": false
@@ -4467,6 +4477,11 @@
     {
       "source_path": "docs/example-scenario/mainframe/asysco-zos-migration.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path": "docs/example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml",
+      "redirect_url": "/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs",
       "redirect_document_id": false
     },
     {

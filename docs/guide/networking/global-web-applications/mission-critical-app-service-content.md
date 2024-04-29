@@ -37,7 +37,7 @@ For more information, see [Application design of mission-critical workloads on A
 
 This architecture uses the following components.
 
-- [App Service](https://azure.microsoft.com/products/app-service) is the application-hosting platform.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is the application-hosting platform.
 - [Azure Cache for Redis](https://azure.microsoft.com/products/cache) caches requests.
 - [App Configuration](https://azure.microsoft.com/products/app-configuration) stores configuration settings.
 - [Azure SQL](https://azure.microsoft.com/products/azure-sql) is the back-end database.

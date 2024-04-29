@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 04/15/2024
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -34,20 +34,31 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Claim-Check pattern](./patterns/claim-check.yml)  ([#7cd4a5fc06](https://github.com/MicrosoftDocs/architecture-center/commit/7cd4a5fc06))
 - [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#d4096a7e81](https://github.com/MicrosoftDocs/architecture-center/commit/d4096a7e81))
 - [Reliable web app pattern for .NET - Apply the pattern](./web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
 - [Reliable web app pattern for .NET - Plan the implementation](./web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
 - [Reliable web app pattern for Java - Apply the pattern](./web-apps/guides/reliable-web-app/java/apply-pattern.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
 - [Reliable web app pattern for Java - Plan the implementation](./web-apps/guides/reliable-web-app/java/plan-implementation.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
 - [Reliable Web App pattern](./web-apps/guides/reliable-web-app/overview.md)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
+- [Deploy tNavigator on an Azure virtual machine](./guide/hpc/tnavigator.yml)  ([#569296a317](https://github.com/MicrosoftDocs/architecture-center/commit/569296a317))
 - [Deploy Ansys CFX on an Azure virtual machine](./guide/hpc/ansys-cfx.yml)  ([#8354c1618a](https://github.com/MicrosoftDocs/architecture-center/commit/8354c1618a))
 - [Sharding pattern](./patterns/sharding.yml)  ([#53dea81b8b](https://github.com/MicrosoftDocs/architecture-center/commit/53dea81b8b))
 - [Unisys mainframe migration with Avanade AMT](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#ef52a9c4b8](https://github.com/MicrosoftDocs/architecture-center/commit/ef52a9c4b8))
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](./ai-ml/guide/mlops-technical-paper.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [Network security checklist for MLOps solutions](./ai-ml/guide/network-security-mlops.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [Query-based document summarization](./ai-ml/guide/query-based-summarization.md)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [Build and deploy a social media analytics solution](./ai-ml/architecture/build-deploy-social-media-analytics-solution.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
+- [Image classification on Azure](./ai-ml/architecture/intelligent-apps-image-processing.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
+- [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#863c1fb294](https://github.com/MicrosoftDocs/architecture-center/commit/863c1fb294))
+- [Serverless web application](./web-apps/serverless/architectures/web-app.yml)  ([#08aa3d6222](https://github.com/MicrosoftDocs/architecture-center/commit/08aa3d6222))
+- [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)  ([#95dfc35ea1](https://github.com/MicrosoftDocs/architecture-center/commit/95dfc35ea1))
 - [Secure research environment for regulated data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
-- [Build a speech-to-text transcription pipeline to analyze recorded conversations](./ai-ml/architecture/speech-to-text-transcription-analytics.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Build a speech to text transcription pipeline to analyze recorded conversations](./ai-ml/architecture/speech-to-text-transcription-analytics.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Conversation summarization](./ai-ml/guide/conversation-summarization.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
-- [Implement custom speech-to-text solutions that use AI](./ai-ml/guide/custom-speech-text.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
-- [Deploy a custom speech-to-text solution that uses AI](./ai-ml/guide/custom-speech-text-deploy.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Implement custom speech to text solutions that use AI](./ai-ml/guide/custom-speech-text.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Deploy a custom speech to text solution that uses AI](./ai-ml/guide/custom-speech-text-deploy.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Microsoft machine learning products](./ai-ml/guide/data-science-and-machine-learning.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [Machine learning operations (MLOps) v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
 - [MLOps for Python with Azure Machine Learning](./ai-ml/guide/mlops-python.yml)  ([#171d0a834e](https://github.com/MicrosoftDocs/architecture-center/commit/171d0a834e))
