@@ -4,15 +4,15 @@
 
 ### Understand the goals of the Modern Web App pattern
 
-The Modern Web App pattern drives toward specific web app goals. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
+The Modern Web App pattern drives toward specific web app goals to support typical business goals for a post-migration modernization effort. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
 
-| Business goals                        | Web app goals                        |
+| Business objectives                        | Web app objectives                        |
 |---|--|
 | Handle increased demand               | Decouple components<br>Autoscale high-traffic components independently|
 | Optimize web app costs                | Scale unneeded resources to zero where appropriate |
 | Service-level objective of 99.9%      | Use containerized services<br>Choose the right services<br>Choose the right architecture|
 
-If your goals align with the Modern Web App pattern, then it's likely the right solution for you.
+Continue with the Modern Web App pattern if these goals align your needs.
 
 ### Apply the Reliable Web App Pattern
 
@@ -38,7 +38,7 @@ When using any container-based compute service, it’s necessary to have a repos
 
 #### Choose a messaging system
 
-A messaging system is an important piece of service-oriented architectures. It allows multiple workers to balance work by pulling from a common queue. It decouples message senders and receivers to enables [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Ideally, your messaging system should support message queues and publish-subscribe methods.
+A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Pick an Azure messaging system that supports your design message queues and publish-subscribe methods.
 
 Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
 
@@ -50,7 +50,7 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 ## Implement the Modern Web App pattern
 
-The following sections shows you how to implement the Modern web app pattern. These recommendations follow the pillars of the Well-Architected Framework:
+The following sections shows you how to implement the Modern web app pattern. It details essential code updates you need to make to your web app so that it successfully fulfills its objectives in alignment with the  pillars of the Well-Architected Framework:
 
 ### Reliability
 
