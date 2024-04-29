@@ -43,7 +43,7 @@ You store your files in the cloud in serverless Azure file shares. You can use t
 
 ### Deploy the Storage Sync Service
 
-Begin Azure File Sync deployment by deploying a Storage Sync Service resource into a resource group of your selected subscription. We recommend provisioning as few Storage Sync Service objects as possible. You'll create a trust relationship between your servers and this resource, and a server can only be registered to one Storage Sync Service. As a result, we recommend that you deploy as many Storage Sync Services as you need to separate groups of servers. Keep in mind that servers from different Storage Sync Services can't sync with each other.
+Begin Azure File Sync deployment by deploying a Storage Sync Service resource into a resource group of your selected subscription. We recommend provisioning as few Storage Sync Service objects as possible. You'll create a trust relationship between your servers and this resource. A server can only be registered to one Storage Sync Service. As a result, we recommend that you deploy as many Storage Sync Services as you need to separate groups of servers. Keep in mind that servers from different Storage Sync Services can't sync with each other.
 
 ### Registering Windows Server machines with the Azure File Sync agent
 
@@ -60,6 +60,7 @@ Azure File Sync is supported by the Windows Server versions that are listed in t
 
 |Version|Supported SKUs|Supported deployment options|
 |---------|----------------|------------------------------|
+|Windows Server 2022|Azure, Datacenter, Essentials, Standard, and IoT|Full and Core|
 |Windows Server 2019|Datacenter, Standard, and IoT|Full and Core|
 |Windows Server 2016|Datacenter, Standard, and Storage Server|Full and Core|
 |Windows Server 2012 R2|Datacenter, Standard, and Storage Server|Full and Core|
@@ -76,7 +77,7 @@ A *cloud endpoint* is a pointer to an Azure file share. All server endpoints wil
 
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must be a path on a registered server (rather than a mounted share), and must use cloud tiering. The server endpoint path must be on a non-system volume. NAS isn't supported.
 
-### Azure File Share to Windows file share relationships
+### Azure file share to Windows file share relationships
 
 You should deploy Azure file shares one-to-one with Windows file shares wherever possible. The server endpoint object gives you a great degree of flexibility on how you set up the sync topology on the server-side of the sync relationship. To simplify management, make the path of the server endpoint match the path of the Windows file share.
 
@@ -117,8 +118,7 @@ Reliability ensures that your application can meet the commitments you make to y
 - There are two main types of storage accounts for Azure Files deployments:
   - General purpose version 2 (GPv2) storage accounts. GPv2 storage accounts allow you to deploy Azure file shares on standard, hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, and tables.
   - FileStorage storage accounts: FileStorage storage accounts make it possible for you to deploy Azure file shares on premium, solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares. You can't deploy other storage resources such as blob containers, queues, and tables in a FileStorage account.
-- By default, standard file shares can span no more than 5 terabytes (TiB), although the share limit can be increased to 100 TiB. To do this, the large file share feature must be enabled at the storage-account level. Premium storage accounts (FileStorage storage accounts) don't have the large file share feature flag, because all premium file shares are already enabled for provisioning up to the full 100-TiB capacity. You can only enable large file shares on locally redundant or zone-redundant standard storage accounts. After you enable the large file share feature flag, you can't change the redundancy level to geo-redundant storage or geo-zone-redundant storage. To enable large file shares on an existing storage account, enable the **Large file share** option in the **Configuration** view of the associated storage account.
-- You should ensure that Azure File Sync is supported in the regions where you deploy your solution. For more information, see [Azure file sync region availability][Azure file sync region availability].
+- You should ensure that Azure File Sync is supported in the regions where you deploy your solution. For more information, see [Azure File Sync region availability][Azure file sync region availability].
 - You should ensure that the services that are referenced in the **Architecture** section are supported in the region where you deploy the hybrid file services architecture.
 - To protect the data in your Azure file shares against data loss or corruption, all Azure file shares store multiple copies of each file as it's written. Depending on the requirements of your workload, you can select more degrees of redundancy.
 - *Previous Versions* is a Windows feature that enables you to use server-side Volume Shadow Copy Service (VSS) snapshots of a volume to present restorable versions of a file to an SMB client. VSS snapshots and Previous Versions work independently of Azure File Sync. However, cloud tiering must be set to a compatible mode. Many Azure File Sync server endpoints can exist on the same volume. You have to make the following PowerShell call per volume that has even one server endpoint, where you plan to or are using cloud tiering. For more information about Previous Versions and VSS, see [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)][Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)].
@@ -157,7 +157,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 - [How is Azure File Sync billed?](/azure/storage/files/understanding-billing?toc=/azure/storage/file-sync/toc.json#azure-file-sync)
 - [How to plan for Azure File Sync Deployment?](/azure/storage/file-sync/file-sync-planning)
 - [How to deploy Azure File Sync?](/azure/storage/file-sync/file-sync-deployment-guide)
-- [Azure File Sync network consideration.](/azure/storage/file-sync/file-sync-networking-overview)
+- [Azure File Sync network considerations](/azure/storage/file-sync/file-sync-networking-overview)
 - [What is Cloud Tiering?](/azure/storage/file-sync/file-sync-cloud-tiering-overview)
 - [What disaster recovery option are available in Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)
 - [How to backup Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)
