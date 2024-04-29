@@ -92,3 +92,9 @@ Principal authors:
 - [HDInsight—Iceberg open-source table format](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hdinsight-iceberg-open-source-table-format/ba-p/3754126)	
 - [Build a data lakehouse by using Azure HDInsight](https://murggu.medium.com/building-a-data-lakehouse-using-azure-hdinsight-d41f7c3547d8)
 - [Use a shared Hive metastore across Azure Synapse, HDInsight, and Databricks](https://murggu.medium.com/using-a-shared-hive-metastore-across-azure-synapse-hdinsight-and-databricks-72c53acda778)
+
+## Related resources
+
+- [Event-driven architecture style](/../guide/architecture-styles/event-driven)
+- [Partitioning in Azure Event Hubs and Kafka](/../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
+- [Apache Kafka open-source scenarios on Azure](/../guide/apache-scenarios#apache-kafka)
