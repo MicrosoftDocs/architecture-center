@@ -4511,7 +4511,7 @@
     },
     {
       "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview#reliable-web-app-pattern",
       "redirect_document_id": false
     }
   ] 
