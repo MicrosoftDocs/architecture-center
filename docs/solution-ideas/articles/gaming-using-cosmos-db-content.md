@@ -29,7 +29,7 @@ This architecture includes the following components:
     - Caching responses
     - Monitoring and logging requests
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) hosts API applications allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) hosts API applications allowing autoscale and high availability without having to manage infrastructure.
 
 - [Azure CDN](https://azure.microsoft.com/services/cdn) delivers static, cached content from locations close to users to reduce latency.
 

@@ -98,9 +98,9 @@ DR considerations include *availability*, the ability of the app to keep running
 
 HA failover should be fast, with no data loss, and have a very limited effect on service. In contrast, a traditional DR failover might have a longer associated *Recovery Time Objective (RTO)* and *Recovery Point Objective (RPO)*, and is asynchronous, with potential data loss.
 
-You can take advantage of AZs for both HA and DR by using a different AZ for your DR solution. However, using a different AZ doesn't guarantee that the datacenters in each AZ will be located physically far apart.
+You can take advantage of availability zones for both high availability and disaster recovery by using a different availability zone for your disaster recovery solution. Availability zones are close enough to have low-latency connections to other availability zones (round-trip latency of less than 2ms). However, they're far enough apart to reduce the likelihood that local outages or weather could affect more than one availability zone. For mission-critical workloads, you should consider a solution that uses multiple regions in addition to multiple availability zones.
 
-[Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart) lets you replicate VMs to another Azure region for regional disaster recovery and business continuity. You can use Azure Site Recovery to recover your apps in the event of source region outages, or to conduct periodic disaster recovery drills to ensure you meet compliance requirements.
+[Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart) lets you replicate VMs to another Azure region for regional disaster recovery and business continuity. You can use Azure Site Recovery to recover your apps in the event of source region outages or to conduct periodic disaster recovery drills to ensure you meet compliance requirements.
 
 If your app supports Azure Site Recovery, you can provide a regional DR solution for increased protection, if the criticality of the app demands it. However, cross-zone, cross-datacenter HA alone might be sufficient protection, because if an app is fully resilient to datacenter failure, there should be no downtime or data loss.
 

@@ -41,7 +41,7 @@ The remaining architecture, after data ingestion, is equal for both streaming an
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Azure Machine Learning Endpoints](/azure/machine-learning/concept-endpoints)
 - [Microsoft Power BI on Azure](https://azure.microsoft.com/services/developer-tools/power-bi/)
-- [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/)
+- [Azure Web Apps](/azure/well-architected/service-guides/app-service-web-apps)
 
 ## Considerations
 

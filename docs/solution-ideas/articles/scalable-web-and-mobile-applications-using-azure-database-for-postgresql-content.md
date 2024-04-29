@@ -20,7 +20,7 @@ _Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-dat
 
 ### Components
 
-- [Azure App Services](https://azure.microsoft.com/services/app-service)
+- [Azure App Services](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql)
 
 ## Contributors

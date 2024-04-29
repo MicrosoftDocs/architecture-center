@@ -36,7 +36,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Change streams](https://www.mongodb.com/docs/manual/changeStreams) in MongoDB Atlas give applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifications about changes to a particular collection, database, or entire deployment cluster.
 
-- [App Service](https://azure.microsoft.com/services/app-service) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
 
   - [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid)
   - [Storage version](https://github.com/Azure/SynapseRTSStorage)
