@@ -202,3 +202,6 @@ Although the best fit of each of the chunking approach are listed, in practice, 
 > [Chunk enrichment phase](./rag-enrichment-phase.yml)
 
 ## Related resources
+
+* [Chunking large documents for vector search solutions in Azure AI Search](/azure/search/vector-search-how-to-chunk-documents)
+* [Integrated data chunking and embedding in Azure AI Search](/azure/search/vector-search-integrated-vectorization)

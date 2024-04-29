@@ -74,3 +74,6 @@ A programmatic means of evaluating how well your embedding model is working with
 > [Information retrieval phase](./rag-information-retrieval.yml)
 
 ## Related resources
+
+* [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
+* [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings)

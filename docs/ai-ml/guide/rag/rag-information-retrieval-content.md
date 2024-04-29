@@ -296,3 +296,6 @@ You should test both positive and negative examples. For the positive examples, 
 > [LLM end to end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
+
+* [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
+* [Hybrid search using vectors and full text in Azure AI Search](/azure/search/hybrid-search-overview)

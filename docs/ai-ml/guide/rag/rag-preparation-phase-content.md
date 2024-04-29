@@ -95,3 +95,6 @@ It's important to gather queries that the documents don't address, for example "
 > [Chunking phase](./rag-chunking-phase.yml)
 
 ## Related resources
+
+* [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer)
+* [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)

@@ -111,3 +111,5 @@ TODO: Ritesh - anything you want to highlight here regarding the RAG Experiment 
 > [Rag accelerator](https://github.com/microsoft/rag-experiment-accelerator)
 
 ## Related resources
+
+* [Develop an evaluation flow in Azure AI Studio](/azure/ai-studio/how-to/flow-develop-evaluation)

@@ -60,3 +60,6 @@ The use of LLMs for augmenting chunks can be expensive. You need to calculate th
 > [Generate embeddings phase](./rag-generating-embeddings.yml)
 
 ## Related resources
+
+* [AI enrichment in Azure AI Search](/azure/search/cognitive-search-concept-intro)
+* [Skillset concepts in Azure AI Search](/azure/search/cognitive-search-working-with-skillsets)

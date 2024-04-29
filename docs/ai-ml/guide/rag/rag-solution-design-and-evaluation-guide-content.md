@@ -101,3 +101,6 @@ The series of articles in this guide addresses those considerations and more.
 > [Preparation phase](./rag-preparation-phase.yml)
 
 ## Related resources
+
+* [Retrieval Augmented Generation (RAG) in Azure AI Search](/azure/search/retrieval-augmented-generation-overview)
+* [Retrieval augmented generation and indexes](/azure/ai-studio/concepts/retrieval-augmented-generation)
