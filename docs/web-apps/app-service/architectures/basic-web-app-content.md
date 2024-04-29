@@ -8,7 +8,7 @@ This architecture shows the fundamental components of a basic web application. Y
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
 - [Deployment slots](/azure/app-service-web/web-sites-staged-publishing) lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [release engineering and deployment](#release-engineering-and-deployment) section below for specific recommendations.
 - [IP address](/azure/app-service/overview-inbound-outbound-ips): The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).

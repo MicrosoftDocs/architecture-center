@@ -25,7 +25,7 @@ Organizations can use this solution to help employees learn processes and materi
 * [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed reality experiences
 * [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
-* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
+* [App Service](/azure/well-architected/service-guides/app-service-web-apps): Quickly create powerful cloud apps for web and mobile
 * [Media Services](https://azure.microsoft.com/services/media-services): Encode, store, and stream video and audio at scale
 * [Video Indexer](https://azure.microsoft.com/en-us/products/ai-video-indexer/): Make your media more discoverable and accessible
 

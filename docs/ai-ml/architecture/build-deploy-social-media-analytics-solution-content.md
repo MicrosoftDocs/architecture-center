@@ -48,7 +48,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 - [Data Lake](https://azure.microsoft.com/solutions/data-lake) is a massively scalable data lake for high-performance analytics workloads.
 
-- [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps. The Web Apps feature is a service for hosting web applications, REST APIs, and mobile back ends.
 
 - [Machine Learning](https://azure.microsoft.com/products/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
 

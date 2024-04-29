@@ -36,7 +36,7 @@ architecture answers this challenge.
 
 ### Components
 
-[Azure App Service](https://azure.microsoft.com/services/app-service) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines. App Service manages the underlying compute infrastructure on which your apps run, and it provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
+[Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines. App Service manages the underlying compute infrastructure on which your apps run, and it provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
 
 [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing SQL Server Integration Services (SSIS) packages to Azure and run them with full compatibility in Azure Data Factory.
 

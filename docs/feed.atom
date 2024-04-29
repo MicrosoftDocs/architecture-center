@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-04-24T01:47:42.764Z</updated>
+    <updated>2024-04-29T17:39:03.922Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Migrate mainframe data to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
+        <updated>2024-04-26T18:43:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Supply chain management - Track and trace with Kaleido Blockchain as a Service powered by Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/blockchain/blockchain-service</id>
@@ -25,11 +33,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy PSCAD on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/pscad</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/pscad"/>
-        <updated>2024-04-04T19:43:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run PSCAD software on an Azure virtual machine, and see the performance results on HBv3-series and HBv4-series VMs.]]></summary>
+        <title type="html"><![CDATA[Use a split-brain DNS configuration to host a web app]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/networking/split-brain-dns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/networking/split-brain-dns"/>
+        <updated>2024-04-29T17:23:22.000Z</updated>
+        <summary type="html"><![CDATA[Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -97,19 +105,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy tNavigator on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tnavigator</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tnavigator"/>
-        <updated>2024-04-19T19:33:05.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Rock Flow Dynamics tNavigator software performs on an Azure virtual machine (VM), and learn how to run tNavigator on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Ansys CFX on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-cfx</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-cfx"/>
-        <updated>2024-04-05T16:50:45.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Ansys CFX computational fluid dynamics software performs on an Azure virtual machine (VM).]]></summary>
+        <title type="html"><![CDATA[Choreography pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/choreography</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/choreography"/>
+        <updated>2024-04-26T19:07:04.000Z</updated>
+        <summary type="html"><![CDATA[Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -126,6 +126,46 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
         <updated>2024-04-03T22:32:01.000Z</updated>
         <summary type="html"><![CDATA[Learn about options for using the Avanade Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Disconnected AI at the edge with Azure Stack Hub]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Machine Learning architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end machine learning lifecycle.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer churn prediction using real-time analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-churn-prediction</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-churn-prediction"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer support and feedback analysis]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-feedback-and-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-feedback-and-analytics"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Use knowledge mining to help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AI and machine learning at the edge]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -273,14 +313,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Choreography pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/patterns/choreography</id>
-        <link href="https://learn.microsoft.com/azure/architecture/patterns/choreography"/>
-        <updated>2024-04-08T17:04:13.000Z</updated>
-        <summary type="html"><![CDATA[Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Consumer health portal on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/digital-health/health-portal</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/digital-health/health-portal"/>
@@ -369,14 +401,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Autodesk VRED Core on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-vred-core</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-vred-core"/>
-        <updated>2024-03-14T18:18:37.000Z</updated>
-        <summary type="html"><![CDATA[See how Autodesk VRED Core performs on an Azure virtual machine. VRED Core enables streaming of high-quality VRED real-time renderings on any device.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Governance Visualizer Accelerator guidance]]></title>
         <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator</id>
         <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator"/>
@@ -390,14 +414,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway"/>
         <updated>2024-03-01T18:56:49.000Z</updated>
         <summary type="html"><![CDATA[Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure. Migrate or establish new SWIFT connectivity in Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Ansys Speos on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos"/>
-        <updated>2024-03-01T18:50:25.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Ansys Speos optical-system simulation software performs on an Azure virtual machine (VM).]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -737,14 +753,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy TUFLOW HPC on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc"/>
-        <updated>2024-02-06T21:43:31.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Databases architecture design]]></title>
         <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
         <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
@@ -878,14 +886,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
         <updated>2024-02-09T22:19:14.000Z</updated>
         <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Devito on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine"/>
-        <updated>2024-02-05T18:12:11.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1137,14 +1137,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy BETA CAE EPILYSIS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/epilysis</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/epilysis"/>
-        <updated>2024-01-31T18:43:48.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the benefits and the test performance results of running BETA CAE EPILYSIS software on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Load Testing with custom plugins to simulate device behaviors]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins"/>
@@ -1177,22 +1169,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Devito on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine"/>
-        <updated>2024-01-09T20:07:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Ansys HFSS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-hfss</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-hfss"/>
-        <updated>2024-01-09T18:49:40.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Ansys HFSS 3D electromagnetic simulation software performs on an Azure virtual machine (VM), and learn how to run HFSS on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Choose an Azure container service]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/choose-azure-container-service</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/choose-azure-container-service"/>
@@ -1206,14 +1182,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
         <updated>2024-01-04T20:14:05.000Z</updated>
         <summary type="html"><![CDATA[Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy tNavigator on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tnavigator</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tnavigator"/>
-        <updated>2024-01-04T19:42:57.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Rock Flow Dynamics tNavigator software performs on an Azure virtual machine (VM), and learn how to run tNavigator on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1289,27 +1257,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Barracuda Virtual Reactor on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor"/>
-        <updated>2024-01-25T22:15:55.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on a virtual machine.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
         <updated>2024-01-18T04:38:46.000Z</updated>
         <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Altair Radioss on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss"/>
-        <updated>2024-01-04T20:20:36.000Z</updated>
-        <summary type="html"><![CDATA[Find out how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
