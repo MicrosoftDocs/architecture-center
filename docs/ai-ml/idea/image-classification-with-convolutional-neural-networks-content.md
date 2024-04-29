@@ -4,7 +4,7 @@ Use convolutional neural networks (CNNs) to classify large volumes of images eff
 
 ## Architecture
 
-[ ![Architecture diagram: image classification with convolutional neural networks and Azure Machine Learning](_images/image-classification-with-convolutional-neural-networks.png).](_images/image-classification-with-convolutional-neural-networks.png#lightbox)
+[ ![Architecture diagram: image classification with convolutional neural networks and Azure Machine Learning](_images/image-classification-with-convolutional-neural-networks.png)](_images/image-classification-with-convolutional-neural-networks.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/image-classification-with-convolutional-neural-networks.vsdx) of this architecture.*
 

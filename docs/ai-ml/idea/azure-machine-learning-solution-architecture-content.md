@@ -24,7 +24,7 @@ This architecture shows you the components used to build, deploy, and manage hig
 
 ### Components
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learningRemove redundant parenthetical service for the end-to-end machine learning lifecycle.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for the end-to-end machine learning lifecycle.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a unified service where you can ingest, explore, prepare, transform, manage, and serve data for immediate BI and machine learning needs.
 - [Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure data lake for your high-performance analytics workloads.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. Build, store, secure, scan, replicate, and manage container images and artifacts with a fully managed, geo-replicated instance of OCI distribution.
@@ -36,7 +36,7 @@ This architecture shows you the components used to build, deploy, and manage hig
 
 ## Scenario details
 
-Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end machine learning lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learningRemove redundant parenthetical.
+Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end machine learning lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learning.
 
 ### Potential use cases
 
@@ -90,7 +90,7 @@ See related guidance on the Azure Architecture Center:
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-technical-paper)
 - [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
-- [Many models machine learningRemove redundant parenthetical at scale with Azure Machine Learning](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning)
+- [Many models machine learning at scale with Azure Machine Learning](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning)
 - [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
 - [Predict hospital readmissions by using traditional and automated machine learning techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
 - [Secure research environment for regulated data](/azure/architecture/ai-ml/architecture/secure-compute-for-research)

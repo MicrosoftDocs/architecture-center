@@ -4,7 +4,7 @@ This solution idea identifies speech in static video files to manage speech as s
 
 ## Architecture
 
-[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint](_images/digital-media-speech-text.svg).](_images/digital-media-speech-text.svg#lightbox)
+[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint](_images/digital-media-speech-text.svg)](_images/digital-media-speech-text.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/digital-media-speech-text.vsdx) of this architecture.*
 
