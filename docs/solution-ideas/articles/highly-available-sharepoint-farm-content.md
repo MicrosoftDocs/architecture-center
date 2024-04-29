@@ -9,7 +9,7 @@ This solution address the capability to deliver highly available intranet capabi
 ## Architecture
 
 ![Architecture Diagram](../media/highly-available-sharepoint-farm.png)
-*Download a [Visio file](../media/highly-available-sharepoint-farm.svg) of this architecture.*
+*Download an [SVG](../media/highly-available-sharepoint-farm.svg) of this architecture.*
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-9">
 <p>Use ExpressRoute or VPN Gateway for management access to resource group.</p>
