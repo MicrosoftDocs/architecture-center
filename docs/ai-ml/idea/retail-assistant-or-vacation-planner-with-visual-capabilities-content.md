@@ -21,7 +21,7 @@ This solution idea uses Azure services with a bot assistant to improve interacti
 
 ### Components
 
-- [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps.
 - [Bot Service](https://azure.microsoft.com/services/bot-services) provides an integrated development environment for bot building.
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) consists of cloud-based services that provide AI functionality.
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of Cognitive Services that offers many natural language processing services.

@@ -39,7 +39,7 @@ The data source in the architecture is an existing Online Transaction Processing
 
 ### Components
 
-- [App Service](https://azure.microsoft.com/products/app-service) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. 
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
 - [Service Bus](https://azure.microsoft.com/products/service-bus/) provides reliable cloud messaging as a service.
 - [SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed SQL database that's built for the cloud. It provides automatic updates, provisioning, scaling, and backups.
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/) is a globally distributed, multimodel database for applications of any scale.
