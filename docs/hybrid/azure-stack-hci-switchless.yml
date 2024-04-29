@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Stack HCI switchless storage
+  title: Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases
   description: Learn how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office use cases.
   author: martinekuan
   ms.author: pnp
@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - e2e-hybrid
-name: Azure Stack HCI using switchless storage for retail, manufacturing or remote office use cases
+name: Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases
 azureCategories:
   - hybrid
   - management-and-governance
