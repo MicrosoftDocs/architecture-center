@@ -16,7 +16,7 @@ This article describes a solution that you can use to ingest and process million
 
 The following dataflow corresponds to the preceding architecture.
 
-1. Real-time event data, such as IoT event data, is ingested to Kafka via a [Kafka producer](https://kafka.apache.org/documentation/#producerapi).
+1. Real-time event data, such as IoT event data, is ingested to Apache Kafka via an [Apache Kafka producer](https://kafka.apache.org/documentation/#producerapi).
 
 1. [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) processes the data in near real time.
 1. Apache Spark provides sinks for writing transformed and calculated analytics. Processed data is stored in an [Azure Data Lake Storage account](https://azure.microsoft.com/services/storage/data-lake-storage) in [Delta Lake table format](https://delta.io/).
@@ -28,15 +28,15 @@ The following dataflow corresponds to the preceding architecture.
 
 ### Components
 
-- [HDInsight](/azure/hdinsight/) provides [open-source components](/azure/hdinsight/hdinsight-5x-component-versioning) for enterprise analytics. You can run these Apache components in an Azure environment with [enterprise-grade security](/azure/hdinsight/domain-joined/hdinsight-security-overview). HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight) including scalability, security, centralized monitoring, global availability, and extensibility.
+- [HDInsight](https://azure.microsoft.com/products/hdinsight/) provides [open-source components](/azure/hdinsight/hdinsight-5x-component-versioning) for enterprise analytics. You can run these Apache components in an Azure environment with [enterprise-grade security](/azure/hdinsight/domain-joined/hdinsight-security-overview). HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight) including scalability, security, centralized monitoring, global availability, and extensibility.
 
 - [Apache Kafka in HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed open-source distributed platform that you can use to build real-time streaming data pipelines and applications. Apache Kafka provides high performance and durability so that you can group records into topics, partitions, and consumer groups and multiplex streams of events from producers to consumers.
 - [Apache Spark in HDInsight](/azure/hdinsight/spark/apache-spark-overview) is a managed Microsoft implementation of Apache Spark in the cloud and is one of several Spark offerings in Azure.
 - [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) is a scalable, exactly-once fault-tolerance engine for processing streams. It's built on the Spark SQL engine. Structured Streaming queries are near real time and have low latency. Apache Spark Structured Streaming provides several connectors for data sources and data sinks, and you can join multiple streams from various source types.
-- [Apache Spark Structured Streaming in Kafka](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html) is used to batch and stream queries and store them in a storage layer, a database, or Kafka.
-- A [Delta Lake](https://delta.io/) storage layer provides reliability for data lakes by adding a transactional storage layer on top of data that's stored in cloud storage, such as Azure Storage. This storage layer extends Apache Parquet data files with file-based transaction logs. You can store data in Delta Lake format to take advantage of benefits like ACID transactions, schema evolution, and history versions.
+- [Apache Spark Structured Streaming in Apache Kafka](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html) is used to batch and stream queries and store them in a storage layer, a database, or Apache Kafka.
+- A [Delta Lake](https://delta.io/) storage layer provides reliability for data lakes by adding a transactional storage layer on top of data that's stored in cloud storage, such as Azure Storage. This storage layer extends Apache Parquet data files with file-based transaction logs. You can store data in Delta Lake table format to take advantage of benefits like atomicity, consistency, isolation, and durability (ACID) transactions, schema evolution, and history versions.
 - A [Power BI Delta Lake table connector](https://github.com/delta-io/delta/tree/master/connectors/powerbi) is used to read Delta Lake table data from [Power BI](https://powerbi.microsoft.com).
-- [Machine Learning](/azure/hdinsight/hadoop/apache-hadoop-deep-dive-advanced-analytics#machine-learning-and-apache-spark) is an Azure service where you can send the data that you collect to then use for machine learning models.
+- [Machine Learning](https://azure.microsoft.com/products/machine-learning/) is an Azure service where you can [send the data](/azure/hdinsight/hadoop/apache-hadoop-deep-dive-advanced-analytics#machine-learning-and-apache-spark) that you collect to then use for machine learning models.
 
 ## Scenario details
 
@@ -44,31 +44,31 @@ Event streaming is a continuous unbounded sequence of immutable events in which 
 
 ### Potential use cases
 
-This solution provides an opportunity for your business to process immutable exactly-once fault-tolerant event streams in near real time. This approach uses Kafka as an input source for Spark Structured Streaming and uses Delta Lake as a storage layer.
+This solution provides an opportunity for your business to process immutable exactly-once fault-tolerant event streams in near real time. This approach uses Apache Kafka as an input source for Spark Structured Streaming and uses Delta Lake as a storage layer.
 
 Business scenarios include:
 
-- Smart manufacturing and Industrial IoT (IIoT)
-- Middleware for enterprise big data solutions
-- Credit card fraud detection 
-- Short-sale risk calculation
-- Digital image and video processing
-- Account login fraud detection
-- Analysis of real-time stock market data
+- Account sign in fraud detection
 - Analysis of current market conditions
+- Analysis of real-time stock market data
+- Credit card fraud detection 
+- Digital image and video processing
 - Drug research and discovery
+- Middleware for enterprise big data solutions
+- Short-sale risk calculation
+- Smart manufacturing and industrial IoT (IIoT)
 
 This solution applies to the following industries:
 
-- Retail
-- Finance
-- Insurance
-- Health care
 - Agriculture
 - Consumer packaged goods (CPG)
+- Cyber security
+- Finance
+- Health care
+- Insurance
 - Logistics
 - Manufacturing
-- Cyber security
+- Retail
 
 ## Contributors
 
@@ -95,6 +95,6 @@ Principal authors:
 
 ## Related resources
 
-- [Event-driven architecture style](/../guide/architecture-styles/event-driven)
-- [Partitioning in Azure Event Hubs and Kafka](/../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka)
-- [Apache Kafka open-source scenarios on Azure](/../guide/apache-scenarios#apache-kafka)
+- [Event-driven architecture style](../../guide/architecture-styles/event-driven.yml)
+- [Partitioning in Azure Event Hubs and Kafka](../../reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml)
+- [Apache Kafka open-source scenarios on Azure](../../guide/apache-scenarios.md#apache-kafka)
