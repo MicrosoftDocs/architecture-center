@@ -1,17 +1,14 @@
 ### YamlMime:Architecture
 metadata:
   title: Streaming using HDInsight and Delta Lake
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Streaming, and Delta Lake.
   author: arunsethia
   ms.author: arunsethia
-  ms.date: 03/29/2024
-  ms.topic: solution-idea
+  ms.date: 05/01/2024
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - databases
-    - analytics
   ms.custom:
     - acom-architecture
     - Data
@@ -28,6 +25,10 @@ azureCategories:
 summary: Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Streaming and Delta Lake.
 products:
   - azure-hdinsight
+  - entra-id
+  - azure-load-balancer
+  - azure-expressroute
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/hdinsight-kafka-spark-deltalake-thumb.png
 content: |
    [!include[](hdinsight-kafka-spark-deltalake-content.md)]
