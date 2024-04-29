@@ -56,9 +56,9 @@ Storage accounts allow you to use different storage services in the same storage
 
 Premium file shares are deployed to FileStorage storage accounts and are stored on solid-state drive-based (SSD-based) hardware. This setup makes them suitable for storing and accessing data that requires consistent performance, high throughput, and low latency. (For example, these premium file shares work well with databases.) You can store other workloads that are less sensitive to performance variability on standard file shares. These workload types include general-purpose file shares and dev/test environments. For more information, see [How to create an Azure file share][Premium-Azure-file-share].
 
-### Always require encryption when accessing Azure file shares
+### Always require encryption when accessing SMB Azure file shares
 
-Always use encryption in transit when accessing data in Azure file shares. (Encryption in transit is enabled by default.) Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
+Always use encryption in transit when accessing data in SMB Azure file shares. Encryption in transit is enabled by default. Azure Files will only allow the connection if it's made with a protocol that uses encryption, such as SMB 3.0. Clients that don't support SMB 3.0 will be unable to mount the Azure file share if encryption in transit is required.
 
 ### Use VPN if port that SMB uses (port 445) is blocked
 
@@ -76,15 +76,14 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - Azure file share size is limited to 100 tebibytes (TiB). There's no minimum file share size and no limit on the number of Azure file shares.
 - Maximum size of a file in a file share is 1 TiB, and there's no limit on the number of files in a file share.
-- Maximum I/O operations per second (IOPS) per standard file share is 10,000 IOPS and 100,000 IOPS per premium file share.
-- Maximum throughput for a single standard file share is up to 300 mebibytes/sec (MiB/sec) and up to 6,204 MiB/s for premium file shares.
 - IOPS and throughput limits are per Azure storage account and are shared between Azure file shares in the same storage account.
-- For more information, see [Azure Files scalability and performance targets][Azure-Files-scalability-performance].
+
+For more information, see [Azure Files scalability and performance targets][Azure-Files-scalability-performance].
 
 ### Availability
 
 > [!NOTE]
-> Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that's provided by the storage account that contains the share.
+> An Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that's provided by the storage account that contains the share.
 
 - Azure file shares currently support the following data redundancy options:
   - **Locally redundant storage (LRS)**. Data is copied synchronously three times within a single physical location in the primary region. This practice protects against loss of data because of hardware faults, such as a bad disk drive.
@@ -122,12 +121,12 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) and [Understand Azure Files billing](/azure/storage/files/understanding-billing).
 
 - Azure Files has two storage tiers and two pricing models:
-  - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you need to pay for file operations, such as enumerating a directory or reading a file.
-  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes and you pay per provisioned storage space. When using premium storage, all file operations are free.
-- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about the actual costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
+  - **Standard storage**: Uses HDD-based storage. There's no minimum file share size, and you pay only for used storage space. Also, you pay for file operations, such as enumerating a directory or reading a file.
+  - **Premium storage**: Uses SSD-based storage. The minimum size for a premium file share is 100 gibibytes, and you pay per provisioned storage space. When using premium storage, all file operations are free.
+- Extra costs are associated with file share snapshots and outbound data transfers. (When you transfer data from Azure file shares, inbound data transfer is free.) Data transfer costs depend on the amount of transferred data and the stock keeping unit (SKU) of your virtual network gateway, if you use one. For more information about costs, see [Azure Files Pricing][Azure-Files-Pricing] and [Azure Pricing calculator][Azure-Pricing-calculator]. The actual cost varies by Azure region and your individual contract. Contact a Microsoft sales representative for additional information on pricing.
 
 ## Contributors
 
@@ -145,7 +144,6 @@ Learn more about the component technologies:
 
 - [How to create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) for instructions on getting started with an SMB share.
 - [How to create an NFS share](/azure/storage/files/storage-files-how-to-create-nfs-shares) for instructions on getting started with an NFS mount share.
-- [Enable and create large file shares](/azure/storage/files/storage-files-how-to-create-large-file-share) documentation on creating large file shares upto 100 TiB.
 
 ## Related resources
 
