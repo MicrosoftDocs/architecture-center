@@ -1,8 +1,8 @@
 ---
 title: Implement cross-tenant communication by using multitenant applications
-description: Learn how to implement bidirectional, secure communications between services that are hosted in Azure subscriptions that are managed by different Microsoft Entra tenants.
-author: aulong-msft, ashtmMSFT, John-Garland
-ms.author: aulong, ashtm, johngarland
+description: Learn how to implement bidirectional, secure communications between services that are hosted in Azure subscriptions that different Microsoft Entra tenants manage.
+author: aulong-msft
+ms.author: aulong
 ms.date: 04/24/2024
 ms.topic: conceptual
 ms.service: architecture-center
@@ -19,7 +19,7 @@ categories:
 
 # Implement cross-tenant communication by using multitenant applications
 
-This guide provides a solution to achieve bidirectional, secure communications between services that are hosted in Azure subscriptions that are managed by different Microsoft Entra tenants.
+This guide provides a solution to achieve bidirectional, secure communications between services that are hosted in Azure subscriptions that different Microsoft Entra tenants manage.
 
 Securing multitenant communications in Azure can be challenging due to limitations that are inherent to many services. You can eliminate the need to manage credentials directly by using Azure managed identities to obtain tokens from Microsoft Entra ID. However, Azure managed identities don't work across tenant boundaries, and the typical alternative is to use shared secrets, like shared access signature URLs. Remember that if you use shared secrets, you need to securely distribute and rotate the secrets across Microsoft Entra tenant boundaries. 
 
@@ -28,12 +28,10 @@ One option that avoids this overhead is to create a multitenant application to r
 This article presents an example implementation of this pattern that uses [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
 
 This pattern can be reused for any multitenant scenario that has various services that need to communicate across Microsoft Entra tenant boundaries.
-
-![PoC Infrastructure]([https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/Docs/arch.png](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
                       
 ## Architecture
 
-![Diagram of the cross-tenant communication architecture.](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
+![A diagram of the cross-tenant communication architecture.](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
@@ -53,7 +51,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. After it receives the message, the customer's function app typically does some work before sending a status message back to the provider. However in this case, for demo purposes, the function app immediately sends a status message to the provider on a separate queue in the same Service Bus.
 
-1. This function app reads from the status queue from the customer's tenant via a timer that's triggered by Azure Functions.
+1. This function app reads from the status queue from the customer's tenant via a timer that Azure Functions triggers.
 
 ## Scenario details
 
@@ -69,7 +67,7 @@ A provider has multiple customers. The provider and each customer have their own
 
 - The application object is the global representation of your application and is used across all tenants. The service principal object is the local representation that's used in a specific tenant.
 
-- A service principal object must be created in each tenant where the application is used so that it can establish an identity for sign-in or for access to resources that are secured by the tenant. A single-tenant application has only one service principal object in its home tenant. This service principal object is created and permitted for use during application registration. A multitenant application also has a service principal object that's created in each tenant, and a user from that tenant consented to its use.
+- A service principal object must be created in each tenant where the application is used so that it can establish an identity for sign-in or for access to resources that the tenant secures. A single-tenant application has only one service principal object in its home tenant. This service principal object is created and permitted for use during application registration. A multitenant application also has a service principal object that's created in each tenant, and a user from that tenant consented to its use.
 
 - To access resources that are secured by a Microsoft Entra tenant, a security principal must represent the entity that requires access.
 
@@ -84,8 +82,6 @@ We recommend that the provider registers a multitenant application in its own te
 ## How does the customer message the provider?
 
 We recommend that the customer creates or hosts a queue from which the provider can read. The customer writes a message into the queue. The provider repeatedly polls each customer queue for messages by using a service principal object. The downside of this approach is that it introduces polling latency when the provider receives a message. Code also needs to run more often in the provider because it must wake up and perform polling logic instead of waiting for an event to trigger it. However, credential management remains the sole responsibility of the provider, which bolsters security.
-
-### An alternative solution
 
 Another possible solution is to have the provider create or host a queue for each of its customers. Each customer creates their own multitenant application and requests that the provider provision it in its tenant as a service principal object. The customer then uses this service principal object to send messages to a customer-specific queue on the provider side. Credential management remains the sole responsibility of the customer. One downside to this approach is that the provider must provision service principals that are associated with customer applications into its tenant. This process is manual, and providers likely don't want manual steps to be part of the flow for onboarding a new customer.
 
@@ -139,7 +135,7 @@ Use the timer-triggered function to poll the deployment status queue from within
 
 #### Provision the service principal from the provider's tenant to the customer's tenant
 
-1. Visit the following URL and replace the `client_id` query string parameter with your own client ID: `https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=code&response_mode=query&scope=openid&client_id=your_client_ID`.
+1. Visit the following URL and replace the `client_id` query string parameter with your own client ID: `https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=code&response_mode=query&scope=openid&client_id=<your_client_ID>`.
 
    You can also provision the service principal into another Microsoft Entra tenant with an admin Microsoft Graph API call, an Azure PowerShell command, or an Azure CLI command.
 
@@ -169,7 +165,7 @@ In your newly created Service Bus namespace, select **Access Control (IAM)**. Yo
 
 1. In the portal, search for your function app or go to it on the **Function App** page.
 
-1. In **Application settings**, select **+ New** to create a new application setting in the table. `Service BusConnection__fullyQualifiedNamespace    <SERVICE_BUS_NAMESPACE>.Service Bus.windows.net`.
+1. In **Application settings**, select **+ New** to create a new application setting in the table. `Service BusConnection__fullyQualifiedNamespace <SERVICE_BUS_NAMESPACE>.Service Bus.windows.net`.
 
 ### Service principal client secret lifecycle management
 
@@ -194,9 +190,6 @@ Principal authors:
 ## Next steps
 
 - [Cross-tenant communication using Azure Service Bus sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
-<!--
-- [Cross-tenant service communication in Microsoft Azure (YouTube, 18m)](https://www.youtube.com/watch?v=uHbuMqSFpVI)
--->
 - [Identity-based functions tutorial](/azure/azure-functions/functions-identity-based-connections-tutorial-2)
   
 ## Related resources
