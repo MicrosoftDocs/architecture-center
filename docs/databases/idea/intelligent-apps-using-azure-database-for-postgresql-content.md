@@ -22,7 +22,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) provides a fully managed platform for quickly building, deploying, and scaling web apps and APIs.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a fully managed platform for quickly building, deploying, and scaling web apps and APIs.
 - [Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. For information about how to use an activity to run a function as part of a Data Factory pipeline, see [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform.
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides a suite of AI services and APIs that you can use to build cognitive intelligence into apps.

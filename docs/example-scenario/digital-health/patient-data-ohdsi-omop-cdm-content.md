@@ -37,7 +37,7 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service houses the OMOP CDM and all associated relational data.
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) helps protect applications from common web-based attacks like [OWASP](https://owasp.org) vulnerabilities, SQL injection, and cross-site scripting. This technology is cloud native. It doesn't require licensing and is pay-as-you-go.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this solution, it stores OHDSI application images (BroadSea WebTools and BroadSea Methods) for deployment into Azure App Service.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. This service supports the OHDSI WebAPI and Atlas applications.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. This service supports the OHDSI WebAPI and Atlas applications.
 
 ### Alternatives
 

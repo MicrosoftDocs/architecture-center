@@ -37,7 +37,7 @@ This flow explains how a user can use the tool:
 The accelerator is based on a GitHub template repository that consists of the following components:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
 - [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects.
 - [GitHub Actions](/azure/developer/github/github-actions) provides continuous integration and continuous deployment capabilities in this architecture.
 

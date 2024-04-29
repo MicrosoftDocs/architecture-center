@@ -56,7 +56,7 @@ Depending on your specific use case and your choice of analytics platform for en
 
 Instead of running the Ray framework on Kubernetes, you can use the Ray framework on a compute instance in Azure Machine Learning to perform inferencing. If you incorporate the Ray framework on Azure Machine Learning, you might find [ray-on-ml](https://github.com/microsoft/ray-on-aml), a package on GitHub, helpful.
 
-You could use [Web Apps](https://azure.microsoft.com/services/app-service/web) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
+You could use [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
 
 ## Scenario details
 

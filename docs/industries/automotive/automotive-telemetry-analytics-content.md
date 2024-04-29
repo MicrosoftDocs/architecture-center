@@ -60,7 +60,7 @@ The following key technologies implement this workload:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
 - [Azure Functions](https://azure.microsoft.com/services/functions)
 - [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps)
 - [Azure API Management](https://azure.microsoft.com/services/api-management)
 - [Power BI](https://powerbi.microsoft.com)

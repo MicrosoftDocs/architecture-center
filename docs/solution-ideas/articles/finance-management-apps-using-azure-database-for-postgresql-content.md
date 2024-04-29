@@ -19,7 +19,7 @@ The architecture shows the flow of data in a common three-tier application desig
 
 ### Components
 
-- [App Service](https://azure.microsoft.com/products/app-service) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql) is a relational database service that's powered by the PostgreSQL community edition.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 

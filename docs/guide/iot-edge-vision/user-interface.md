@@ -35,7 +35,7 @@ Users interact with computer systems through a user interface (UI). UI requireme
 
 Here are some of the services and software you can use to create user interfaces for IoT Edge vision AI systems:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
 
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure services.
 

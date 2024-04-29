@@ -51,8 +51,8 @@ The following dataflow corresponds to the preceding diagram:
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is an always up-to-date, fully managed relational database that's built for the cloud.
 - [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
 - [Power BI](https://powerbi.microsoft.com/) is a visualization tool that provides easy integration with Azure resources. 
-- [Azure App Service](https://azure.microsoft.com/products/app-service/) enables you to build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure. Supported languages include .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python.
- 
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure. Supported languages include .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python.
+
 ### Alternatives
 
 You can use [Azure Databricks](https://azure.microsoft.com/products/databricks)to develop, deploy, and manage machine learning models and analytics workloads. The service provides a unified environment for model development.
