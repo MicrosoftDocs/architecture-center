@@ -8,14 +8,11 @@ This article shows you how to apply the Reliable Web App pattern. he Reliable We
 
 The initial step in transitioning to cloud computing is to articulate your business objectives. The Reliable Web App pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
 
-## Determine service level objective
+## Choose the right web app architecture 
 
-Establish an SLO for your web app. A service level objective (SLO) for availability defines how available you want a web app to be for users, such as 99.9% of the time.
-- List all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
-- Assign an availability goal for each dependency in the critical path. Service level agreements (SLAs) provide a good starting point. However, SLAs don't factor downtime due to code, operations, or architecture. (1) downtime associated with the application code (2) deployment and operation methodologies, (3) architecture choices to connect the services. 
-- The availability metric you assign to a dependency shouldn't exceed the SLA.
 
-## Choose the right managed services
+
+### Choose managed services
 
 When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
 
@@ -35,13 +32,13 @@ When you move a web app to the cloud, you should select Azure services that meet
 | Network firewall | Use Azure Firewall | Azure Firewall | [Azure Firewall overview](/azure/firewall/overview) |
 | Remote access | Use Azure Bastion | Azure Bastion | [Azure Bastion overview](/azure/bastion/bastion-overview) |
 
-## Choose architecture redundancy
+### Choose architecture redundancy
 
 Determine service level objective (SLO) for the web app, such as 99.9% uptime. When you have an SLO, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
 Assign an availability estimate for each service. Use the service level agreements (SLAs) as a starting point. However, SLAs don't account for code, deployment strategies, and architectural connectivity decisions.
 
-## Choose a network topology
+### Choose a network topology
 
 Choose the right network topology for your web and networking requirements. A hub and spoke network topology is standard configuration in Azure. It provides cost, management, and security benefits. It also supports hybrid connectivity options to on-premises networks.
 
@@ -58,33 +55,21 @@ Ensure data reliability by distributing it across Azure's regions and availabili
 
 - *Create a failover plan.* Develop a failover (disaster recovery) plan outlining response strategies to outages, determined by downtime or functionality loss. Specify the recovery time objectives (RTO) for maximum acceptable downtime. Ensure the failover process is quicker than RTO. Decide on automated or manual failover mechanisms for consistency and control, and detail the return to normal operations process. Test the failover plan to ensure effectiveness.
 
----
-ms.custom: devx-track-dotnet
----
-This article shows you how to apply the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+## Implement the Reliable Web App pattern
 
-To facilitate the application of this guidance, there's a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Reliable Web App pattern that you can deploy.
+To apply the Reliable Web App pattern, follow these recommendations aligned to the pillars of the Well-Architected Framework:
 
-[![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
-*Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+### Reliability
 
-The following guidance uses the reference implementation as an example throughout. To apply the Reliable Web App pattern, follow these recommendations aligned to the pillars of the Well-Architected Framework:
-
-## Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
-
-The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
 
 ### Use the Retry pattern
 
-The [Retry pattern](/azure/architecture/patterns/retry) addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults), which usually resolve within seconds. These faults often result from service throttling, dynamic load distribution, and network issues in cloud environments. Implementing the Retry pattern involves resending failed requests, allowing configurable delays and attempts before conceding failure.
+The [Retry pattern](/azure/architecture/patterns/retry) addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). These faults usually resolve within seconds and result from service throttling, dynamic load distribution, and network issues in cloud environments. Implementing the Retry pattern involves resending failed requests, allowing configurable delays and attempts before conceding failure.
 
-Applications using the Retry pattern should integrate Azure's client software development kits (SDKs) and service-specific retry mechanisms for enhanced efficiency. Applications lacking this pattern should adopt it using the following guidance.
+#### Use the built-in retry mechanism
 
-#### Try the Azure service and client SDKs first
-
-Most Azure services and client SDKs have a [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific). You should use the built-in retry mechanism for Azure services to expedite the implementation.
+Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
 
 *Example:* The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
 
@@ -103,7 +88,7 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
 
 You might need to make calls to a dependency that isn't an Azure service or doesn't support the Retry pattern natively. In that case, you should use the Polly library to implement the Retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
 
-*Example:* The reference implementation uses Polly to set up the ASP.NET Core dependency injection. Polly enforces the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a *policy*. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the Retry pattern every time the front-end web app calls web API concert search services  (*see the following code*).
+*Example:* The reference implementation uses Polly to set up the ASP.NET Core dependency injection. Polly enforces the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a *policy*. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the Retry pattern every time the front-end web app calls web API concert search services. The policy handler for the `RelecloudApiConcertSearchService` instance applies the Retry pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs (*see the following code*).
 
 ```csharp
 private void AddConcertSearchService(IServiceCollection services)
@@ -136,13 +121,11 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 }
 ```
 
-The policy handler for the `RelecloudApiConcertSearchService` instance applies the Retry pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
-
 ### Use the Circuit Breaker pattern
 
-Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a nonresponsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
+Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a nonresponsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults.
 
-*Example:* The reference implementation adds the Circuit Breaker pattern in the `GetCircuitBreakerPolicy` method (*see the following code*).
+*Example:* The reference implementation adds the Circuit Breaker pattern in the `GetCircuitBreakerPolicy` method. In the code, the policy handler for the `RelecloudApiConcertSearchService` instance applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. (*see the following code*).
 
 ```csharp
 private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
@@ -154,45 +137,45 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 }
 ```
 
-In the code, the policy handler for the `RelecloudApiConcertSearchService` instance applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time.
-
 ## Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern uses managed identities to implement identity-centric security. Private endpoints, web application firewall, and restricted access to the web app provide a secure ingress.
 
-### Enforce least privileges
+### Assign permissions to identities
 
 To ensure security and efficiency, only grant users (user identities) and Azure services (workload identities) the permissions they need.
 
-#### Assign permissions to user identities
+- *Assign permissions to user identities.* Assess your application's needs to define a set of roles that cover all user actions without overlap. Map each user to the most appropriate role. Ensure they receive access only to what's necessary for their duties.
 
-Assess your application's needs to define a set of roles that cover all user actions without overlap. Map each user to the most appropriate role. Ensure they receive access only to what's necessary for their duties.
-
-#### Assign permissions to workload identities
-
-Grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities.
-
-- *Prefer role-based access control (RBAC).* Always start with [Azure RBAC](/azure/role-based-access-control/overview) to assign permissions. It offers precise control, ensuring access is both auditable and granular. Use Azure RBAC to grant only the permissions necessary for the service to perform its intended functions.
-
-- *Supplement with Azure service-level access controls.* If Azure RBAC doesn't cover a specific scenario, supplement with Azure-service level access policies.
+- *Assign permissions to workload identities.* Grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities.
+  - *Prefer Azure role-based access control (RBAC).* [Azure RBAC](/azure/role-based-access-control/overview) offers precise control, ensuring access is both auditable and granular. Use Azure RBAC to grant only the permissions necessary for the service to perform its intended functions.
+  - *Supplement with Azure service-level access controls.* If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
 
 ### Configure user authentication and authorization
-
-Authentication and authorization are critical aspects of web application security. *Authentication* is the process of verifying the identity of a user. *Authorization* specifies the actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (Azure App Service) and identity provider (Microsoft Entra ID).
-
-#### Configure user authentication
 
 Secure your web app by enabling user authentication through your platform's features. [Azure App Service](/azure/app-service/overview-authentication-authorization) supports authentication with identity providers like Microsoft Entra ID, offloading the authentication workload from your code.
 
 ### Configure service authentication and authorization
 
-Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions. Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach.
+Configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions.
+
+#### Use managed identities
+
+Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) in Microsoft Entra ID to automate the creation and management of service identities, eliminating manual credential management. A managed identity allows your web app to securely access Azure services, like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments to Azure App Service. However, in scenarios like hybrid deployments or with legacy systems, continue using your on-premises authentication solutions to simplify migration. Transition to managed identities when your system is ready for a modern identity management approach.
+
+*Example:* The reference implementation uses Bicep templates to (1) create the managed identity, (2) associate the identity with the web app, and (3) grant the identity permission to access the SQL database. The `Authentication` argument in the connection string tells the Microsoft client library to connect with a managed identity  (*see the following code*).
+
+```csharp
+    Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
+ ```
+
+For more information, see [Connect to SQL database from .NET App Service](/azure/app-service/tutorial-connect-msi-sql-database).
 
 #### Use DefaultAzureCredential to set up code
 
 Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) to provide credentials for local development and managed identities in the cloud. `DefaultAzureCredential` generates a `TokenCredential` for OAuth token acquisition. It handles most Azure SDK scenarios and Microsoft client libraries. It detects the application's environment to use the correct identity and requests access tokens as needed. `DefaultAzureCredential` streamlines authentication for Azure-deployed applications.
 
-*Example:* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault  (*see the following code*).
+*Example:* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault (*see the following code*).
 
 ```csharp
 builder.Configuration.AddAzureAppConfiguration(options =>
@@ -208,21 +191,9 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 });
 ```
 
-#### Use infrastructure as code to create managed identities
-
-You should use Bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don't use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
-
-*Example:* The reference implementation uses Bicep templates to (1) create the managed identity, (2) associate the identity with the web app, and (3) grant the identity permission to access the SQL database. The `Authentication` argument in the connection string tells the Microsoft client library to connect with a managed identity  (*see the following code*).
-
-```csharp
-    Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
- ```
-
-For more information, see [Connect to SQL database from .NET App Service](/azure/app-service/tutorial-connect-msi-sql-database).
-
 ### Use a central secrets store to manage secrets
 
-When you move your application to the cloud, use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to securely store all such secrets. This centralized repository offers secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, [Azure App Configuration](/azure/azure-app-configuration/overview) is recommended.
+Use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store all secrets. This centralized repository offers secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, use [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 *Example:* The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Microsoft Entra ID associated with the Microsoft Authentication Library (MSAL) implementation.
 
@@ -246,11 +217,11 @@ Use temporary permissions to safeguard against unauthorized access and breaches.
 
 ### Use private endpoints
 
-Use private endpoints in all production environments for all supported Azure services. Private endpoints provide private connections between resources in an Azure virtual network and Azure services. By default, communication to most Azure services crosses the public internet. Private endpoints don't require any code changes, app configurations, or connection strings. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
+Use [private endpoints](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) in all production environments for all supported Azure services. Private endpoints provide private connections between resources in an Azure virtual network and Azure services. They don't require any code changes, app configurations, or connection strings.  [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
 
 *Example:* Azure App Configuration, Azure SQL Database, Azure Cache for Redis, Azure Storage, Azure App Service, and Key Vault use a private endpoint.
 
-### Use web application firewall and restrict inbound internet traffic
+### Use a web application firewall
 
 All inbound internet traffic to the web app must pass through a web application firewall to protect against common web exploits. Force all inbound internet traffic to pass through the public load balancer, if you have one, and the web application firewall.
 
@@ -282,7 +253,10 @@ var redisCacheCapacity = isProd ? 1 : 0
 
 ### Use autoscale
 
-Autoscale automates horizontal scaling for production environments. Autoscale based on performance metrics. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application. Don't scale vertically to meet frequent changes in demand. It's less cost efficient. For more information, see [Scaling in Azure App Service](/azure/app-service/manage-scale-up) and [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
+Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
+
+- *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
+- *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
 
 *Example:* The reference implementation uses the following configuration in the Bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance. It uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal (*see the following code*).
 
