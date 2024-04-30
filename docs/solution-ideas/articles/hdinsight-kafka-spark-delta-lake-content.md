@@ -12,6 +12,9 @@ This article describes a solution that you can use to ingest and process million
 
 *Download a [Visio file](https://arch-center.azureedge.net/hdinsight-kafka-spark-delta-lake.vsdx) of this architecture.*
 
+*The [Jupyter Notebook](https://jupyter.org/) logo is a trademark of their respective company. No endorsement is implied by the use of this mark.*
+ 
+
 ### Dataflow
 
 The following dataflow corresponds to the preceding architecture.
