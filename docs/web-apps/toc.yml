@@ -78,8 +78,14 @@ items:
             href: guides/enterprise-app-patterns/overview.md
           - name: Reliable Web App pattern
             items:
-            - name: Reliable Web App for .NET
+            - name: Reliable Web App pattern for .NET
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/rwa-dotnet.yml
+          - name: Modern Web App pattern
+            items:
+            - name: Modern Web App pattern for .NET
+              href: guides/enterprise-app-patterns/modern-web-app/dotnet/mwa-dotnet.yml
+          - name: Previous
+            items:
             - name: Example scenario
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/example-scenario.md
             - name: .NET
@@ -94,10 +100,6 @@ items:
                 href: guides/enterprise-app-patterns/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/enterprise-app-patterns/reliable-web-app/java/apply-pattern.yml
-          - name: Modern Web App pattern
-            items:
-            - name: Modern Web App for .NET
-              href: guides/enterprise-app-patterns/modern-web-app/dotnet/mwa-dotnet.yml
             - name: Plan MWA for .NET apps
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/plan-implementation.yml
             - name: Apply MWA for .NET apps
