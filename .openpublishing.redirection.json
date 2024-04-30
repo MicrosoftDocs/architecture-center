@@ -4733,6 +4733,11 @@
       "source_path": "docs/guide/hpc/hpc-altair-acusolve.yml",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/databases/architecture/sql-managed-instance-cmk.yml",
+      "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql-mi",
+      "redirect_document_id": false
     }
   ]
 }
