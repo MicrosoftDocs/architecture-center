@@ -2,35 +2,33 @@
 ms.custom: devx-track-dotnet
 ---
 
-This article shows you how to apply the Reliable Web App pattern. he Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
+This article shows you how to apply the Reliable Web App pattern. The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the minimal code updates you need to make to be successful in the cloud.
 
-## Understand the objectives of the Reliable Web App Pattern
-
-The initial step in transitioning to cloud computing is to articulate your business objectives. The Reliable Web App pattern emphasizes the importance of setting both immediate and future objectives for your web application. These objectives influence your choice of cloud services and the architecture of your web application in the cloud.
-
-## Choose the right web app architecture 
-
-
+## Choose a web app architecture
 
 ### Choose managed services
 
-When you move a web app to the cloud, you should select Azure services that meet your business requirements and align with the current features of the on-premises web app. The alignment helps minimize the replatforming effort. For example, use services that allow you to keep the same database engine and support existing middleware and frameworks. The following sections provide guidance for selecting the right Azure services for your web app.
+Select managed, Azure services that support the features of your on-premises web app, such as the same runtime and database engine. The alignment helps minimize the replatforming effort. Managed services help improve security and operational efficiency. Use the following table to choose the right managed service based on your web app:
 
 | Web app component | Recommendation | Reference implementation selection | Decision guidance |
 | ----------------- | -------------- | ---------------------------------- | ----------------- |
 | Application platform | Choose based on web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
-| Identity management | Use Microsoft Entra | Microsoft Entra | [compare identity management solutions](/entra/identity/domain-services/compare-identity-solutions) and [authentication methods](/entra/identity/hybrid/connect/choose-ad-authn) |
-| Database | Choose based on web app | Azure SQL Database | Use the [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
+| Database | Choose based on web app | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
+| Load balancer | Choose based on web app | Azure Front Door | [Load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) |
+| Storage | Choose based on web app | Azure Storage | [Storage decision tree](/azure/architecture/guide/technology-choices/storage-options) |
+
+
+
+| Web app component | Recommendation | Reference implementation selection |
+| Identity management | Microsoft Entra | Microsoft Entra | [compare identity management solutions](/entra/identity/domain-services/compare-identity-solutions) and [authentication methods](/entra/identity/hybrid/connect/choose-ad-authn) |
 | Application performance monitoring | Application Insights | Use Application Insights | [Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
-| Cache | Use Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis overview](/azure/azure-cache-for-redis/cache-overview) |
-| Load balancer | Choose based on web app | Azure Front Door | Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) |
-| Web application firewall | Use Azure Web Application Firewall | Azure Web Application Firewall | [Azure Web Application Firewall overview](/azure/web-application-firewall/overview) |
-| Configuration storage | Use Azure App Configuration | Azure App Configuration | [Azure App Configuration overview](/azure/azure-app-configuration/overview) |
-| Secrets manager | Use Azure Key Vault | Azure Key Vault | [Azure Key Vault overview](/azure/key-vault/general/overview) |
-| Storage | Choose based on web app | Azure Storage | Use [storage decision tree](/azure/architecture/guide/technology-choices/storage-options) |
-| Endpoint security | Use Azure Private Link | Azure Private Link | [Azure Private Link overview](/azure/private-link/private-link-overview) |
-| Network firewall | Use Azure Firewall | Azure Firewall | [Azure Firewall overview](/azure/firewall/overview) |
-| Remote access | Use Azure Bastion | Azure Bastion | [Azure Bastion overview](/azure/bastion/bastion-overview) |
+| Cache | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| Secrets manager | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
+| Web application firewall | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
+| Configuration storage | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
+| Endpoint security | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
+| Network firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
+| Remote access | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
 
 ### Choose architecture redundancy
 
