@@ -6,22 +6,23 @@ This article shows you how to apply the Reliable Web App pattern. The Reliable W
 
 ## Choose a web app architecture
 
-### Choose managed services
+### Choose the right managed services
 
-Select managed, Azure services that support the features of your on-premises web app, such as the same runtime and database engine. The alignment helps minimize the replatforming effort. Managed services help improve security and operational efficiency. Use the following table to choose the right managed service based on your web app:
+Select managed, Azure services that support the needs of you web app. Prefer managed services to improve security and reduce management overhead. To minimize the replaforming effort, choose services that support the features of your web app, such as the same runtime and database engine. Azure has multiple service options for several web app components. Use the following table to find guidance to choose the right service for each web app component.
 
-| Web app component | Recommendation | Reference implementation selection | Decision guidance |
+| Web app component | Recommendation | Reference implementation selection | Guidance |
 | ----------------- | -------------- | ---------------------------------- | ----------------- |
-| Application platform | Choose based on web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
-| Database | Choose based on web app | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
-| Load balancer | Choose based on web app | Azure Front Door | [Load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview) |
-| Storage | Choose based on web app | Azure Storage | [Storage decision tree](/azure/architecture/guide/technology-choices/storage-options) |
+| **Application platform** | Support current web framework | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
+| **Database** | Support current database engine | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
+| **Load balancer** | Support cloud architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
+| **Storage** | Support storage requirements | Azure Storage | [Storage options](/azure/architecture/guide/technology-choices/storage-options) |
 
+For other web app components, Azure has a single recommended service (*see following table*).
 
-
-| Web app component | Recommendation | Reference implementation selection |
-| Identity management | Microsoft Entra | Microsoft Entra | [compare identity management solutions](/entra/identity/domain-services/compare-identity-solutions) and [authentication methods](/entra/identity/hybrid/connect/choose-ad-authn) |
-| Application performance monitoring | Application Insights | Use Application Insights | [Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
+| Web app component | Recommendation | Reference implementation selection | Guidance |
+| ----------------- | -------------- | ---------------------------------- |
+| Identity management | Microsoft Entra ID | Microsoft Entra ID | [Migrate to Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
+| Application performance monitoring | Application Insights | Application Insights | [Application Insights overview](/azure/azure-monitor/app/app-insights-overview) |
 | Cache | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 | Secrets manager | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
 | Web application firewall | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
@@ -32,7 +33,7 @@ Select managed, Azure services that support the features of your on-premises web
 
 ### Choose architecture redundancy
 
-Determine service level objective (SLO) for the web app, such as 99.9% uptime. When you have an SLO, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
+Determine how many availability zones and regions you need to meet your service level objective (SLO), such as 99.9% uptime. Define a target availability SLO. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app.
 
 Assign an availability estimate for each service. Use the service level agreements (SLAs) as a starting point. However, SLAs don't account for code, deployment strategies, and architectural connectivity decisions.
 
