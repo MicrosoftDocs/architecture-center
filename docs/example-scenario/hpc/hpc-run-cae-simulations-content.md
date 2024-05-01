@@ -130,9 +130,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 This architecture uses the AMD CPU-based HBv3-series VMs for CFD simulations and Nvidia GPU-based NC series VMs for visualization and DEM simulations on Azure.
 
-[HBv3 series VMs](/azure/virtual-machines/hbv3-series): These VMs are well suited for compute intensive and high-bandwidth simulations that use multi-node cluster setup to achieve scale. This architecture covers applications such as Ansys CFX, Ansys Fluent, and Siemens STAR CCM+, which scale well on HBv3. The application architecture guides [Ansys CFX](/azure/architecture/guide/hpc/ansys-cfx) and [Ansys Fluent](/azure/architecture/guide/hpc/ansys-fluent) show that in single-node configurations, the performance of these applications scales effectively up to 64 or 96 CPU cores. In multi-node configurations, the performance scales linearly as nodes are added.
+[HBv3 series VMs](/azure/virtual-machines/hbv3-series): These VMs are well suited for compute intensive and high-bandwidth simulations that use multi-node cluster setup to achieve scale. This architecture covers applications such as Ansys CFX, Ansys Fluent, and Siemens STAR CCM+, which scale well on HBv3. In single-node configurations, the performance of these applications scales effectively up to 64 or 96 CPU cores. In multi-node configurations, the performance scales linearly as nodes are added.
 
-[NCv4 series VMs](/azure/virtual-machines/nc-a100-v4-series): These VMs are well suited for compute-intensive GPU-accelerated simulations that use multi-GPU capabilities to achieve scalable performance. This architecture covers Ansys Rocky applications which scale well on NCv4 A100 GPUs. The application architecture guide [Ansys Rocky](/azure/architecture/guide/hpc/ansys-rocky) shows that in single-node configurations, the relative performance speed-up increases significantly by utilizing the GPU acceleration.
+[NCv4 series VMs](/azure/virtual-machines/nc-a100-v4-series): These VMs are well suited for compute-intensive GPU-accelerated simulations that use multi-GPU capabilities to achieve scalable performance. This architecture covers Ansys Rocky applications which scale well on NCv4 A100 GPUs. In single-node configurations, the relative performance speed-up increases significantly by utilizing the GPU acceleration.
 
 ## Contributors
 

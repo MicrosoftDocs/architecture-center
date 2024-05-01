@@ -4,7 +4,7 @@ This solution idea identifies speech in static video files to manage speech as s
 
 ## Architecture
 
-[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint.](_images/digital-media-speech-text.svg)](_images/digital-media-speech-text.svg#lightbox)
+[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint](_images/digital-media-speech-text.svg)](_images/digital-media-speech-text.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/digital-media-speech-text.vsdx) of this architecture.*
 
@@ -12,7 +12,7 @@ This solution idea identifies speech in static video files to manage speech as s
 
 - Azure Blob Storage stores large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob Storage](/azure/storage/blobs/storage-blobs-introduction) to expose data publicly to the world, or to store application data privately.
 - [Azure Encoding](/azure/media-services/latest/encode-concept) converts media files from one encoding to another.
-- [Azure streaming endpoint](/azure/media-services/latest/media-services-overview) represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
+- [Azure streaming endpoint](/azure/media-services/latest/media-services-overview) represents a streaming service that can deliver content directly to a client player application, or to a content delivery network for further distribution.
 - [Content Delivery Network](/azure/frontdoor/front-door-overview) provides secure, reliable content delivery with broad global reach and a rich feature set.
 - [Azure Media Player](/azure/media-services/latest/media-services-overview) uses industry standards, such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, you have a unified JavaScript interface to access APIs.
 - [Azure Cognitive Search](/azure/search) provides a ready-to-use service that gets populated with data and then used to add search functionality to a web or mobile application.
@@ -33,7 +33,7 @@ This solution idea identifies speech in static video files to manage speech as s
 
 ## Scenario details
 
-A speech-to-text solution provides a way to identify speech in static video files so you can manage it as standard content. For instance, employees can use this technology to search within training videos for spoken words or phrases. Then they can navigate to the specific moment in the video that contains the word or phrase.
+A speech to text solution provides a way to identify speech in static video files so you can manage it as standard content. For instance, employees can use this technology to search within training videos for spoken words or phrases. Then they can navigate to the specific moment in the video that contains the word or phrase.
 
 When you use this solution, you can upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in an Azure database. You can search for words or phrases by using the Web Apps feature of Azure App Service. Then you can retrieve a list of results. When you select a result, you can see the place in the video that mentions the word or phrase.
 
