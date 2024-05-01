@@ -9,11 +9,7 @@ The Reliable Web App pattern is a set of [principles and implementation techniqu
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
 
-## Design the web app architecture
-
-
-
-### Choose the right managed services
+## Choose Azure services
 
 Select managed, Azure services that support the needs of you web app. Prefer managed services to improve security and reduce management overhead. To minimize the replaforming effort, choose services that support the features of your web app, such as the same runtime and database engine. Azure has multiple service options for several web app components. Use the following table to find guidance to choose the right service for each web app component. It provides a component recommendation, the reference implementation selection, and guidance to implement the recommendation.
 
@@ -33,17 +29,19 @@ Select managed, Azure services that support the needs of you web app. Prefer man
 | **Network firewall** | Azure Firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
 | **Remote access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
 
-### Choose a network topology
+## Design web app architecture
 
-Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
-
-### Design infrastructure redundancy
+- *Design network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
 
 - *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
 
 - *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
 
-## Update web app
+- *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+
+- *Use a web application firewall.* Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
+
+## Update web app code
 
 Follow these recommendations aligned to the pillars of the Well-Architected Framework:
 
@@ -129,12 +127,6 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern covers role-based access control, managed identities, private endpoints, secrets management, and web application firewall.
 
-- *Secure secrets.* Store all secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). It provides centralized secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
-
-- *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
-
-- *Use a web application firewall.* Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
-
 ### Configure user authentication and authorization
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). It allows developers to build single-tenant, line-of-business (LOB) applications and multi-tenant software-as-a-service (SaaS) applications, so users and customers can sign in to using their Microsoft identities or social accounts.
@@ -182,6 +174,10 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 #### Configure service authorization
 
 Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
+
+#### Secure secrets
+
+Store all secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). It provides centralized secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 ## Cost optimization
 
