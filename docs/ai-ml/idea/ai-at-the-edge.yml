@@ -36,4 +36,4 @@ products:
   - azure-stack-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-thumbnail.png
 content: |
-  [!include[](ai-at-the-edge-content.md)]
+  [!INCLUDE[](ai-at-the-edge-content.md)]

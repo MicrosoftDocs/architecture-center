@@ -25,4 +25,4 @@ products:
   - azure-translator
 thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-customer-feedback-and-analytics-thumbnail.png
 content: |
-  [!include[](customer-feedback-and-analytics-content.md)]
+  [!INCLUDE[](customer-feedback-and-analytics-content.md)]
