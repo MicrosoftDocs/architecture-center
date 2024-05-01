@@ -108,7 +108,7 @@ This logic could be implemented in clients or server side in a gateway. Implemen
 
 Utilizing a gateway with multiple Azure OpenAI instances in a single region and subscription enables you to treat all backends as active-active deployments and not just use them in active-passive failovers. You can deploy the same PTU-based model across multiple Azure OpenAI instances and use the gateway to load balance between them.
 
-> !INFORMATION
+> [!NOTE]
 > Consumption-based quotas are subscription-level, not Azure OpenAI instance level. Load balancing against consumption-based instances in the same subscription doesn't achieve additional throughput.
 
 One option a workload team has when provisioning Azure OpenAI is deciding if the billing and throughput model is PTU-based or consumption-based. A cost optimization strategy to avoid waste through unused PTU is to slightly under provision the PTU instance and also deploy a consumption-based instance along side. The goal with this topology is to have clients first consume all available PTU and then "burst" over to the consumption-based deployment for overages. This form of planned failover benefits from the same reason as mentioned in the opening paragraph of this section: keeping this complexity out of client code.
@@ -241,7 +241,7 @@ This model can also be used to provide an active-passive approach to specificall
    An architecture diagram that shows a client connecting to two API Management gateways with a note that says "Built-in API Management FQDN (uses performance based routing)." The API Management instance is in a resource group called rg-gateway-westus but has a gateway in both West US and East US, in an active-active topology. Each gateway has an arrow pointing to a single Private Endpoint each. Each private endpoint points to a single Azure OpenAI instance each in the same region. Each Azure OpenAI instance has a gpt-4 (PTU) model deployed.
 :::image-end:::
 
-To improve the reliability of the prior Azure API Management-based architecture, API Management supports deploying an [instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region). This deployment option gives you a single control plane, through a single API Management instance, but replicated gateways in the regions of your choice. In this topology, you deploy gateway components into each region containing Azure OpenAI instances that provides an active-active gateway architecture.
+To improve the reliability of the prior Azure API Management-based architecture, API Management supports deploying an [instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region). This deployment option gives you a single control plane, through a single API Management instance, but replicated gateways in the regions of your choice. In this topology, you deploy gateway components into each region containing Azure OpenAI instances that provide an active-active gateway architecture.
 
 Policies (routing and request handling logic) are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure you're calling Azure OpenAI instances in the same region as the current gateway. For more information, see [Route API calls to regional backend services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to Azure OpenAI instances in its own region, usually through private endpoints.
 

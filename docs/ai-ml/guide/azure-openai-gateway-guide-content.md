@@ -79,7 +79,7 @@ Some specific scenarios have additional guidance available that directly address
 
 ## Considerations
 
-When you introduce a new component into your architecture, you need to evaluate the newly introduced tradeoffs. When you inject an API gateway between your clients and the Azure OpenAI data plane to address any of [key challenges](#key-challenges), you introduce new considerations to your architecture. Carefully evaluate if the workload impact across these architectural considerations justify the added value or utility of the gateway.
+When you introduce a new component into your architecture, you need to evaluate the newly introduced tradeoffs. When you inject an API gateway between your clients and the Azure OpenAI data plane to address any of [key challenges](#key-challenges), you introduce new considerations to your architecture. Carefully evaluate if the workload impact across these architectural considerations justifies the added value or utility of the gateway.
 
 ### Reliability
 
