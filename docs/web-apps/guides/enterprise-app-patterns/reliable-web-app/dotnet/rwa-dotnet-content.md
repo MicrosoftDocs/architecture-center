@@ -53,59 +53,55 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
 
-#### Use built-in retry mechanisms
+- *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
 
-Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
+    *Example:* The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
 
-*Example:* The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
-
-```csharp
-services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
-    sqlServerOptionsAction: sqlOptions =>
-    {
-        sqlOptions.EnableRetryOnFailure(
-        maxRetryCount: 5,
-        maxRetryDelay: TimeSpan.FromSeconds(3),
-        errorNumbersToAdd: null);
-    }));
-```
-
-#### Use programming libraries
-
-Use programming libraries that support the Retry pattern, such as [Polly](https://github.com/App-vNext/Polly), on services that don't have built-in support for the Retry pattern.
-
-*Example:* The reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
-
-```csharp
-private void AddConcertSearchService(IServiceCollection services)
-{
-    var baseUri = Configuration["App:RelecloudApi:BaseUri"];
-    if (string.IsNullOrWhiteSpace(baseUri))
-    {
-        services.AddScoped<IConcertSearchService, MockConcertSearchService>();
-    }
-    else
-    {
-        services.AddHttpClient<IConcertSearchService, RelecloudApiConcertSearchService>(httpClient =>
+    ```csharp
+    services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
+        sqlServerOptionsAction: sqlOptions =>
         {
-            httpClient.BaseAddress = new Uri(baseUri);
-            httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-            httpClient.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "Relecloud.Web");
-        })
-        .AddPolicyHandler(GetRetryPolicy())
-        .AddPolicyHandler(GetCircuitBreakerPolicy());
-    }
-}
+            sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(3),
+            errorNumbersToAdd: null);
+        }));
+    ```
 
-private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-{
-    var delay = Backoff.DecorrelatedJitterBackoffV2(TimeSpan.FromMilliseconds(500), retryCount: 3);
-    return HttpPolicyExtensions
-      .HandleTransientHttpError()
-      .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
-      .WaitAndRetryAsync(delay);
-}
-```
+- *Use programming libraries.* For services that don't have built-in support for the Retry pattern, use programming libraries that support the Retry pattern, such as [Polly](https://github.com/App-vNext/Polly)
+
+    *Example:* The reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
+
+    ```csharp
+    private void AddConcertSearchService(IServiceCollection services)
+    {
+        var baseUri = Configuration["App:RelecloudApi:BaseUri"];
+        if (string.IsNullOrWhiteSpace(baseUri))
+        {
+            services.AddScoped<IConcertSearchService, MockConcertSearchService>();
+        }
+        else
+        {
+            services.AddHttpClient<IConcertSearchService, RelecloudApiConcertSearchService>(httpClient =>
+            {
+                httpClient.BaseAddress = new Uri(baseUri);
+                httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+                httpClient.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "Relecloud.Web");
+            })
+            .AddPolicyHandler(GetRetryPolicy())
+            .AddPolicyHandler(GetCircuitBreakerPolicy());
+        }
+    }
+    
+    private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+    {
+        var delay = Backoff.DecorrelatedJitterBackoffV2(TimeSpan.FromMilliseconds(500), retryCount: 3);
+        return HttpPolicyExtensions
+          .HandleTransientHttpError()
+          .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+          .WaitAndRetryAsync(delay);
+    }
+    ```
 
 ### Use the Circuit Breaker pattern
 
@@ -171,52 +167,56 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
-### Rightsize resources
+### Rightsize environments
 
-Understand the different performance tiers of Azure services and only use the appropriate SKU for the needs of each environment. Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Nonproduction environments typically don't need the same capabilities. For extra savings, consider [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+- *Optimize all environments.* Use the performance tiers (SKUs) of Azure services that meets the needs of [each environment](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments).
 
-*Example:* The reference implementation uses Bicep parameters to deploy higher resource tiers (SKUs) to production (*see the following code*).
+- *Optimize production.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production.
 
-```bicep
-var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-var redisCacheFamilyName = isProd ? 'C' : 'C'
-var redisCacheCapacity = isProd ? 1 : 0
-```
+- [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should b the right balance of lower-cost resources, turning off unneeded services, and applying discounts offered for preproduction usage, such as [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview). Make sure to [balance similarity with production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid creating production risks.
+
+    *Example*: The reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
+
+    ```bicep
+    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
+    var redisCacheFamilyName = isProd ? 'C' : 'C'
+    var redisCacheCapacity = isProd ? 1 : 0
+    ```
 
 ### Use autoscale
 
-Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
+- *Automate scale-out.* Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
 
 - *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
 
 - *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
 
-*Example:* The reference implementation uses the following configuration in the Bicep template (*see the following code*).
-
-```csharp
-resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (autoScaleSettings != null) { 
-  name: '${name}-autoscale' 
-  location: location 
-  tags: tags 
-  properties: { 
-    targetResourceUri: appServicePlan.id 
-    enabled: true 
-    profiles: [ 
-      { 
-        name: 'Auto created scale condition' 
-        capacity: { 
-          minimum: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
-          maximum: string(autoScaleSettings!.maxCapacity) 
-          default: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
-        } 
-        rules: [ 
-          ... 
+    *Example:* The reference implementation uses the following configuration in the Bicep template (*see the following code*).
+    
+    ```csharp
+    resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (autoScaleSettings != null) { 
+      name: '${name}-autoscale' 
+      location: location 
+      tags: tags 
+      properties: { 
+        targetResourceUri: appServicePlan.id 
+        enabled: true 
+        profiles: [ 
+          { 
+            name: 'Auto created scale condition' 
+            capacity: { 
+              minimum: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
+              maximum: string(autoScaleSettings!.maxCapacity) 
+              default: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
+            } 
+            rules: [ 
+              ... 
+            ] 
+          } 
         ] 
       } 
-    ] 
-  } 
-}
-```
+    }
+    ```
 
 ### Optimize resource usage
 
@@ -238,43 +238,31 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 ### Configure monitoring
 
-Collect metrics and logs from application code, infrastructure (runtime), and the platform (Azure resources). Add a diagnostic setting for every Azure resource in your architecture. Each Azure service has a different set of logs and metrics you can capture. To configure monitoring, follow these recommendations:
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
 
-#### Collect application telemetry
+    *Example:* The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection) (*see the following code*).
 
-Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+       ...
+       services.AddApplicationInsightsTelemetry(Configuration["App:Api:ApplicationInsights:ConnectionString"]);
+       ...
+    }
+    ```
 
-*Example:* The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection) (*see the following code*).
+- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-   ...
-   services.AddApplicationInsightsTelemetry(Configuration["App:Api:ApplicationInsights:ConnectionString"]);
-   ...
-}
-```
+    *Example:* The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
 
-#### Create custom metrics
+    ```csharp
+    this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
+        { "ConcertId", concertId.ToString() },
+        { "Count", count.ToString() }
+    });
+    ```
 
-Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
-
-*Example:* The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
-
-```csharp
-this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
-    { "ConcertId", concertId.ToString() },
-    { "Count", count.ToString() }
-});
-```
-
-#### Monitor the platform
-
-Platform monitoring is the collection of data from the Azure services in your architecture.
-
-- *Enable diagnostics for all supported services.* Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
-
-- *Send diagnostics to same destination as the application logs.* Send the platform logs to the same destination as the application logs so you can correlate the two datasets.
+- *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
 ## Performance efficiency
 
