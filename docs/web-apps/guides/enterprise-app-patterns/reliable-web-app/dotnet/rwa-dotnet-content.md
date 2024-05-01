@@ -13,9 +13,9 @@ The Reliable Web App pattern is a set of [principles and implementation techniqu
 
 ### Choose the right managed services
 
-Select managed, Azure services that support the needs of you web app. Prefer managed services to improve security and reduce management overhead. To minimize the replaforming effort, choose services that support the features of your web app, such as the same runtime and database engine. Azure has multiple service options for several web app components. Use the following table to find guidance to choose the right service for each web app component.
+Select managed, Azure services that support the needs of you web app. Prefer managed services to improve security and reduce management overhead. To minimize the replaforming effort, choose services that support the features of your web app, such as the same runtime and database engine. Azure has multiple service options for several web app components. Use the following table to find guidance to choose the right service for each web app component. It provides a component recommendation, the reference implementation selection, and guidance to implement the recommendation.
 
-| Web app component | Recommendation | Reference implementation selection | Guidance |
+| Web app component | Recommendation | Reference implementation | Guidance |
 | ----------------- | -------------- | ---------------------------------- | ----------------- |
 | **Application platform** | Support current web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
 | **Database** | Support current database engine | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
