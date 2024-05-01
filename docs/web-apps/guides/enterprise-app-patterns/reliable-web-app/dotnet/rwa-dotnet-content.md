@@ -172,7 +172,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 - [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should b the right balance of lower-cost resources, turning off unneeded services, and applying discounts offered for preproduction usage, such as [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview). Make sure to [balance similarity with production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid creating production risks.
 
-    *Example*: The reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
+    The reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
 
     ```bicep
     var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
