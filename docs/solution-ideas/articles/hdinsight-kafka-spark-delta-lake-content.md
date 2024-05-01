@@ -2,7 +2,7 @@
 
 This article describes a solution that you can use to ingest and process millions of streaming events per second and then write the events to a Delta Lake table. This solution uses Apache Spark and Apache Kafka in Azure HDInsight.
 
-*Apache®, [Apache Kafka](https://kafka.apache.org), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache Kafka](https://kafka.apache.org), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries or regions. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 *[Delta Lake](https://delta.io/) Project is the registered trademark of The Linux Foundation in the U.S. and/or other countries.*
 
@@ -21,7 +21,7 @@ The following dataflow corresponds to the preceding architecture.
 
 1. Real-time event data, such as IoT event data, is ingested to Apache Kafka via an [Apache Kafka producer](https://kafka.apache.org/documentation/#producerapi).
 
-1. [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) processes the data in near real time.
+1. [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) processes the data in near real-time.
 1. Apache Spark provides sinks for writing transformed and calculated analytics. Processed data is stored in an [Azure Data Lake Storage account](https://azure.microsoft.com/services/storage/data-lake-storage) in [Delta Lake table format](https://delta.io/).
 1. Processed data is continuously ingested into Apache Kafka. 
 1. The data in the Azure Data Lake Storage account can provide insights for:
@@ -33,9 +33,9 @@ The following dataflow corresponds to the preceding architecture.
 
 - [HDInsight](https://azure.microsoft.com/products/hdinsight/) provides [open-source components](/azure/hdinsight/hdinsight-5x-component-versioning) for enterprise analytics. You can run these Apache components in an Azure environment with [enterprise-grade security](/azure/hdinsight/domain-joined/hdinsight-security-overview). HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight) including scalability, security, centralized monitoring, global availability, and extensibility.
 
-- [Apache Kafka in HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed open-source distributed platform that you can use to build real-time streaming data pipelines and applications. Apache Kafka provides high performance and durability so that you can group records into topics, partitions, and consumer groups and multiplex streams of events from producers to consumers.
+- [Apache Kafka in HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed open-source distributed platform that you can use to build real-time streaming data pipelines and applications. Apache Kafka provides high performance and durability so that you can group records into topics, partitions, and consumer groups and multiplex event streams from producers to consumers.
 - [Apache Spark in HDInsight](/azure/hdinsight/spark/apache-spark-overview) is a managed Microsoft implementation of Apache Spark in the cloud and is one of several Spark offerings in Azure.
-- [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) is a scalable, exactly-once fault-tolerance engine for processing streams. It's built on the Spark SQL engine. Structured Streaming queries are near real time and have low latency. Apache Spark Structured Streaming provides several connectors for data sources and data sinks, and you can join multiple streams from various source types.
+- [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) is a scalable, exactly-once fault-tolerance engine for processing streams. It's built on the Spark SQL engine. Structured Streaming queries are near real-time and have low latency. Apache Spark Structured Streaming provides several connectors for data sources and data sinks. You can also join multiple streams from various source types.
 - [Apache Spark Structured Streaming in Apache Kafka](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html) is used to batch and stream queries and store them in a storage layer, a database, or Apache Kafka.
 - A [Delta Lake](https://delta.io/) storage layer provides reliability for data lakes by adding a transactional storage layer on top of data that's stored in cloud storage, such as Azure Storage. This storage layer extends Apache Parquet data files with file-based transaction logs. You can store data in Delta Lake table format to take advantage of benefits like atomicity, consistency, isolation, and durability (ACID) transactions, schema evolution, and history versions.
 - A [Power BI Delta Lake table connector](https://github.com/delta-io/delta/tree/master/connectors/powerbi) is used to read Delta Lake table data from [Power BI](https://powerbi.microsoft.com).
@@ -43,15 +43,15 @@ The following dataflow corresponds to the preceding architecture.
 
 ## Scenario details
 
-Event streaming is a continuous unbounded sequence of immutable events in which events flow from the event publisher to subscribers. In some business use cases, you must store these events in raw format and clean, transform, and aggregate the events for various analytics needs. Use event streaming to perform near real-time processing and analysis of events, which generates immediate insights.
+Event streaming is a continuous unbounded sequence of immutable events that flow from the event publisher to subscribers. In some business use cases, you must store these events in raw format and then clean, transform, and aggregate the events for various analytics needs. Use event streaming to perform near real-time processing and analysis of events, which generates immediate insights.
 
 ### Potential use cases
 
-This solution provides an opportunity for your business to process immutable exactly-once fault-tolerant event streams in near real time. This approach uses Apache Kafka as an input source for Spark Structured Streaming and uses Delta Lake as a storage layer.
+This solution provides an opportunity for your business to process immutable exactly-once fault-tolerant event streams in near real-time. This approach uses Apache Kafka as an input source for Spark Structured Streaming and uses Delta Lake as a storage layer.
 
 Business scenarios include:
 
-- Account sign in fraud detection
+- Account sign-in fraud detection
 - Analysis of current market conditions
 - Analysis of real-time stock market data
 - Credit card fraud detection 
@@ -67,7 +67,7 @@ This solution applies to the following industries:
 - Consumer packaged goods (CPG)
 - Cyber security
 - Finance
-- Health care
+- Healthcare
 - Insurance
 - Logistics
 - Manufacturing
