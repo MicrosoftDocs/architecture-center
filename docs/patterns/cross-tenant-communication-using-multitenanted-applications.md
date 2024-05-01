@@ -31,7 +31,7 @@ This pattern can be reused for any multitenant scenario that has various service
                       
 ## Architecture
 
-![A diagram of the cross-tenant communication architecture.](https://github.com/aulong-msft/architecture-center-pr/blob/main/docs/patterns/_images/cross-tenant-communication-architecture.png)
+![A diagram of the cross-tenant communication architecture.](/_images/cross-tenant-communication-architecture.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cross-tenant-communication-architecture.pptx) of this architecture.*
 
