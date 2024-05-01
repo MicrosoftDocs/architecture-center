@@ -30,4 +30,4 @@ products:
   - azure-stack-edge
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ai-ml-azure-stack-edge.png
 content: |
-  [!include[](deploy-ai-ml-azure-stack-edge-content.md)]
+  [!INCLUDE[](deploy-ai-ml-azure-stack-edge-content.md)]
