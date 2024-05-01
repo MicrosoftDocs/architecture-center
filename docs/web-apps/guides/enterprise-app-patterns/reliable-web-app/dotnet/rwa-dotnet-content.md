@@ -143,41 +143,33 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Configure service authentication and authorization
 
-Configure authentication for Azure services ([workload identities](/entra/workload-id/workload-identities-overview)) so the services in your environment perform necessary functions.
+- *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-#### Use managed identities
+    *Example:* The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity (*see the following code*).
 
-Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of service identities and eliminate manual credential management. A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
+    ```csharp
+        Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
+     ```
 
-*Example:* The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity (*see the following code*).
+    `DefaultAzureCredential` allows the web API to connect to Key Vault using a managed identity (*see the following code*).
 
-```csharp
-    Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
- ```
+    ```csharp
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+         options
+            .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
+            .ConfigureKeyVault(kv =>
+            {
+                // Some of the values coming from Azure App Configuration are stored Key Vault. Use
+                // the managed identity of this host for the authentication.
+                kv.SetCredential(new DefaultAzureCredential());
+            });
+    });
+    ```
 
-`DefaultAzureCredential` allows the web API to connect to Key Vault using a managed identity (*see the following code*).
+- *Configure service authentication.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
 
-```csharp
-builder.Configuration.AddAzureAppConfiguration(options =>
-{
-     options
-        .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
-        .ConfigureKeyVault(kv =>
-        {
-            // Some of the values coming from Azure App Configuration are stored Key Vault. Use
-            // the managed identity of this host for the authentication.
-            kv.SetCredential(new DefaultAzureCredential());
-        });
-});
-```
-
-#### Configure service authorization
-
-Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
-
-#### Secure secrets
-
-Store all secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). It provides centralized secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
+- *Secure secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 ## Cost optimization
 
