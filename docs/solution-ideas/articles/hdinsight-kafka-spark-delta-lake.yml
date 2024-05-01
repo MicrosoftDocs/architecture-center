@@ -16,13 +16,13 @@ metadata:
     - Apache Spark
     - Apache Kafka
     - Delta Lake
-    - "https://azure.microsoft.com/solutions/architecture/hdinsight-kafka-spark-deltalake"
-  social_image_url: /azure/architecture/solution-ideas/media/hdinsight-kafka-spark-deltalake.png
+    - "https://azure.microsoft.com/solutions/architecture/hdinsight-kafka-spark-delta-lake"
+  social_image_url: /azure/architecture/solution-ideas/media/hdinsight-kafka-spark-delta-lake.png
 name: Use HDInsight and Delta Lake to manage event data
 azureCategories:
   - databases
   - analytics
-summary: Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Structured Streaming and Delta Lake.
+summary: Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Structured Streaming, and Delta Lake.
 products:
   - azure-hdinsight
   - entra-id
