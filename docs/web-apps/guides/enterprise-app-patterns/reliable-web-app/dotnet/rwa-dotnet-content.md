@@ -7,9 +7,11 @@ This article shows you how to apply the Reliable Web App pattern.
 The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the essential changes you need to make to be successful in the cloud.
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
 
-## Design web app architecture
+## Design the web app architecture
+
+
 
 ### Choose the right managed services
 
@@ -21,30 +23,25 @@ Select managed, Azure services that support the needs of you web app. Prefer man
 | **Database** | Support current database engine | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
 | **Load balancer** | Support architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
 | **Storage** | Support storage requirements | Azure Storage | [Storage options](/azure/architecture/guide/technology-choices/storage-options) |
-
-For other web app components, Azure has a single recommended service (*see following table*).
-
-| Web app component | Recommendation | Reference implementation | Guidance |
-| ----------------- | -------------- | ---------------------------------- |
-| **Identity management** | Microsoft Entra ID | Microsoft Entra ID | [Migrate to Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
-| **Application performance monitoring** | Application Insights | Application Insights | [Application Insights overview](/azure/azure-monitor/app/app-insights-overview) |
+| **Identity management** | Microsoft Entra ID | Microsoft Entra ID | [Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
+| **App monitoring** | Application Insights | Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | **Cache** | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 | **Secrets manager** | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
-| **Web application firewall** | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
-| **Configuration storage** | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
-| **Endpoint security** | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
-| **Network firewall** | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
-| **Remote virtual machine access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
+| **Web application firewall** | Azure Web Application Firewall | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
+| **Configuration storage** | Azure App Configuration | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
+| **Endpoint security** | Azure Private Link | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
+| **Network firewall** | Azure Firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
+| **Remote access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
 
-### Design a network topology
+### Choose a network topology
 
 Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
 
 ### Design infrastructure redundancy
 
-Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
+- *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
 
-Make sure your infrastructure also supports your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
+- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
 
 ## Update web app
 
@@ -132,6 +129,12 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern covers role-based access control, managed identities, private endpoints, secrets management, and web application firewall.
 
+- *Secure secrets.* Store all secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). It provides centralized secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
+
+- *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+
+- *Use a web application firewall.* Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
+
 ### Configure user authentication and authorization
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). It allows developers to build single-tenant, line-of-business (LOB) applications and multi-tenant software-as-a-service (SaaS) applications, so users and customers can sign in to using their Microsoft identities or social accounts.
@@ -179,22 +182,6 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 #### Configure service authorization
 
 Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
-
-### Store secrets in Azure Key Vault
-
-Store all secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). It provides centralized secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, use [Azure App Configuration](/azure/azure-app-configuration/overview).
-
-Don't put Key Vault in the HTTP-request flow. Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
-
-### Configure private endpoints
-
- in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings. [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
-
-### Use a web application firewall
-
-Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
-
-*Example:* The reference implementation forces all inbound internet traffic through Azure Front Door and Azure Web Application Firewall. In production, [preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
 ## Cost optimization
 
@@ -313,7 +300,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
 
-*Example:* The reference implementation caches upcoming concerts. The  `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
+*Example:* The reference implementation caches upcoming concerts. The `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
 
 ```csharp
 private void AddAzureCacheForRedis(IServiceCollection services)
