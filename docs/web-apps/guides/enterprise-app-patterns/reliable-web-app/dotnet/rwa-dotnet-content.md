@@ -3,6 +3,10 @@ ms.custom: devx-track-dotnet
 ---
 The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the essential changes you need to make to be successful in the cloud.
 
+| Reliable Web App pattern objectives | Implementation techniques |
+| --- | --- |
+| <br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized environments <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Infrastructure as code <br> |
+
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
 
@@ -205,6 +209,8 @@ Operational excellence covers the operations processes that deploy an applicatio
 ### Automate deployment
 
 Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource.
+
+The reference implementation uses Bicep to deploy and configure all Azure resources.
 
 ### Configure monitoring
 
