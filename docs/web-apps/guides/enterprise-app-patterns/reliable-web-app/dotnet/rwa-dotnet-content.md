@@ -145,11 +145,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-    *Example:* The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity (*see the following code*).
-
-    ```csharp
-        Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
-     ```
+    *Example:* The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`
 
     `DefaultAzureCredential` allows the web API to connect to Key Vault using a managed identity (*see the following code*).
 
