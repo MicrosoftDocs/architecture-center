@@ -21,11 +21,9 @@ categories:
 
 # Enterprise App Patterns
 
-Enterprise App Patterns provides prescriptive guidance and reference implementations to help developers and architects modernize critical workloads on Azure. They build on the principles of the [Well-Architected Framework](/azure/well-architected/pillars) and guides you to build reliable, secure, cost-optimized, operationally excellent, and performant applications. Enterprise App Patterns consists of two
+Enterprise App Patterns provides prescriptive guidance and reference implementations to help developers and architects modernize critical workloads on Azure. They build on the principles of the [Well-Architected Framework](/azure/well-architected/pillars) and guides you to build reliable, secure, cost-optimized, operationally excellent, and performant applications. Enterprise App Patterns consists of two patterns.
 
 [![Diagram showing the principles of the Reliable Web App](../_images/eap-overview.svg)](../_images/eap-overview.svg#lightbox)
-
-The Enterprise App Patterns aren't a set of architectures. The patterns help you define the architecture your business needs and provide the  guidance needed to maximize on the benefits of the cloud. The unique needs of your business and the characteristics of your existing web application are crucial in determining the most suitable architecture and network topology.
 
 ## Reliable Web App pattern
 
@@ -33,7 +31,7 @@ The Reliable Web App pattern aims provides essential guidance for migrating web 
 
 | Reliable Web App pattern objectives | Implementation techniques |
 | --- | --- |
-| <br>▪ Minimal code changes<br>▪ Improved reliability<br>▪ Adopt managed services<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep (.NET) and Terraform (Java) deployment <br>▪ Telemetry, logging, monitoring |
+| <br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized environments <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Infrastructure as code <br>▪ Monitoring |
 
 >[!div class="nextstepaction"]
 >[Reliable web app pattern for .NET](./reliable-web-app/dotnet/plan-implementation.yml)

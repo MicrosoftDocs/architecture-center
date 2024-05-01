@@ -329,7 +329,12 @@ Moving an application to the cloud can introduce extra network hops and latency 
 
 ## Next steps
 
-Deploy the **[reference implementation](https://aka.ms/eap/rwa/dotnet)** by following the instructions in the GitHub repository. Use the following resources to learn more about .NET applications, web apps, cloud best practices, and migration.
+Deploy the **[reference implementation](https://aka.ms/eap/rwa/dotnet)** by following the instructions in the GitHub repository.
+
+[![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
+*Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+
+Use the following resources to learn more about .NET applications, web apps, cloud best practices, and migration.
 
 ### Upgrading .NET Framework applications
 
