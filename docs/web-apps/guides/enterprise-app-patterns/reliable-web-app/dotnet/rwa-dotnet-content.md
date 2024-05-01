@@ -1,9 +1,6 @@
 ---
 ms.custom: devx-track-dotnet
 ---
-
-This article shows you how to apply the Reliable Web App pattern.
-
 The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the essential changes you need to make to be successful in the cloud.
 
 > [!TIP]
@@ -190,33 +187,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 - *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
 
 - *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
-
-    The reference implementation uses the following configuration in the Bicep template (*see the following code*).
-    
-    ```csharp
-    resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (autoScaleSettings != null) { 
-      name: '${name}-autoscale' 
-      location: location 
-      tags: tags 
-      properties: { 
-        targetResourceUri: appServicePlan.id 
-        enabled: true 
-        profiles: [ 
-          { 
-            name: 'Auto created scale condition' 
-            capacity: { 
-              minimum: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
-              maximum: string(autoScaleSettings!.maxCapacity) 
-              default: string(zoneRedundant ? 3 : autoScaleSettings!.minCapacity) 
-            } 
-            rules: [ 
-              ... 
-            ] 
-          } 
-        ] 
-      } 
-    }
-    ```
 
 ### Optimize resource usage
 
