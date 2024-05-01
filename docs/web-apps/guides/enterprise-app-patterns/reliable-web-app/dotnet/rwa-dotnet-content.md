@@ -55,7 +55,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
 
 - *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
 
-    *Example:* The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
+    The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
 
     ```csharp
     services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
@@ -70,7 +70,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
 
 - *Use programming libraries.* For services that don't have built-in support for the Retry pattern, use programming libraries that support the Retry pattern, such as [Polly](https://github.com/App-vNext/Polly)
 
-    *Example:* The reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
+    The reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
 
     ```csharp
     private void AddConcertSearchService(IServiceCollection services)
@@ -107,7 +107,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
 
 Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
-*Example:* The reference implementation applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time (*see the following code*).
+The reference implementation applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time (*see the following code*).
 
 ```csharp
 private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
@@ -141,7 +141,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-    *Example:* The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`
+    The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`
 
     `DefaultAzureCredential` allows the web API to connect to Key Vault using a managed identity (*see the following code*).
 
@@ -191,7 +191,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 - *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
 
-    *Example:* The reference implementation uses the following configuration in the Bicep template (*see the following code*).
+    The reference implementation uses the following configuration in the Bicep template (*see the following code*).
     
     ```csharp
     resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (autoScaleSettings != null) { 
@@ -226,7 +226,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 - *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types.
 
-    *Example:* The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
+    The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
 
 ## Operational excellence
 
@@ -240,7 +240,7 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 - *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
 
-    *Example:* The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection) (*see the following code*).
+    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection) (*see the following code*).
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -253,7 +253,7 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 - *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
 
-    *Example:* The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
+    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
 
     ```csharp
     this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
@@ -272,7 +272,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
 
-*Example:* The reference implementation caches upcoming concerts. The `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
+The reference implementation caches upcoming concerts. The `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
 
 ```csharp
 private void AddAzureCacheForRedis(IServiceCollection services)
@@ -295,7 +295,7 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 - *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
 
-    *Example:* The reference implementation caches high-need data that supports the Upcoming Concerts. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
+    The reference implementation caches high-need data that supports the Upcoming Concerts. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
 
     ```csharp
     public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
@@ -327,7 +327,7 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 - *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
 
-    *Example:* The reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes (*see the following code*).
+    The reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes (*see the following code*).
 
     ```csharp
     public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
@@ -341,7 +341,7 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 - *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-    *Example:* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
+    The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
 
     ```csharp
     public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
