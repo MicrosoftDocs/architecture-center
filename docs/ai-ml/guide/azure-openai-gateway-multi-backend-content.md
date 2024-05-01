@@ -302,7 +302,7 @@ No matter which topology your workload needs there are a few cross-cutting recom
 
 ### Stateful interactions
 
-When clients are using Azure OpenAI's stateful features (such as the Assistant API), you need to configure your gateway to pin a client to a specific backend duration that interaction. This can be accomplished with instance data being stored in cookie. This might mean it's better to return an Azure OpenAI API response like a `429` to a pinned client instead of redirecting them to a new Azure OpenAI instance. This allows the client to explicitly handle sudden unavailability vs hiding it and being routed to a model instance that has no history.
+When clients are using Azure OpenAI's stateful features, such as the Assistant API, you'll need to configure your gateway to pin a client to a specific backend for the duration of that interaction. This can be accomplished by storing instance data in a cookie. In these scenarios, consider returning an Azure OpenAI API response like a `429` to a pinned client instead of redirecting them to a different Azure OpenAI instance. This allows the client to explicitly handle sudden unavailability vs hiding it and being routed to a model instance that has no history.
 
 ### Gateway health checks
 
