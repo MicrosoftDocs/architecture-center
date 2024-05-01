@@ -385,13 +385,7 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Test database performance
 
-Test the performance of your database to ensure it's optimized. Database performance can affect the performance and scalability of an application.
-
-- *Test network hops.* Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces.
-
-- *Establish a performance baseline.* Use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
-
-- *Optimize database performance.* Make sure you use the right cloud region to reduce latency. Implement connection pooling and the Cache-Aside pattern and optimize database queries.
+Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare application performance in the cloud. Make sure you use the right cloud region to reduce latency. Implement connection pooling and the Cache-Aside pattern and optimize database queries.
 
 ## Next steps
 
