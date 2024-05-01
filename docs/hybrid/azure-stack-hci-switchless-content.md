@@ -11,7 +11,7 @@ This reference architecture illustrates how to design infrastructure for highly 
 The architecture incorporates the following capabilities:
 
 - **[Azure Stack HCI][azs-hci]** is a hyper-converged infrastructure (HCI) solution that hosts virtualized workloads and storage in a hybrid on-premises environment or edge location. Azure Stack HCI clusters can scale from a single node to a maximum of sixteen nodes.
-- **[Azure Arc][azure-arc]** is a cloud-based service that extends the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized data services.
+- **[Azure Arc][azure-arc]** is a cloud-based service that extends the Azure Resource Manager-based management model to Azure Stack HCI and other non-Azure locations. Azure Arc provides the ability to manage resources including virtual machines (VMs), Kubernetes clusters, and containerized data services using Azure as the control and management plane.
 - **[Key Vault][key-vault]** is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
 - **[Cloud Witness][cloud-witness]** is a type of failover cluster quorum witness that uses an Azure Storage Account to provide Azure Stack HCI cluster node quorum voting capabilities.
 - **[Update Management][azure-update-management]** is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, or other cloud platforms from a single dashboard.
