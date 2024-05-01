@@ -27,11 +27,7 @@ Enterprise App Patterns provides prescriptive guidance and reference implementat
 
 ## Reliable Web App pattern
 
-The Reliable Web App pattern aims provides essential guidance for migrating web application to the cloud. It assumes your organization has worked through Cloud Adoption Framework and established a [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/). The Reliable Web App pattern details implementation techniques for replatforming your web application to ensure a successful migration to your landing zone. These implementation techniques support three key objectives: minimal code changes, reliability design patterns, and managed services.
-
-| Reliable Web App pattern objectives | Implementation techniques |
-| --- | --- |
-| <br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized environments <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Infrastructure as code <br>▪ Monitoring |
+The Reliable Web App pattern aims provides essential guidance for migrating web application to the cloud. It assumes your organization has worked through Cloud Adoption Framework and established a [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/). The Reliable Web App pattern details implementation techniques for replatforming your web application to ensure a successful migration to your landing zone. These implementation techniques support three key objectives: adopting the right services, minimal code changes, and reliability design patterns.
 
 >[!div class="nextstepaction"]
 >[Reliable web app pattern for .NET](./reliable-web-app/dotnet/plan-implementation.yml)

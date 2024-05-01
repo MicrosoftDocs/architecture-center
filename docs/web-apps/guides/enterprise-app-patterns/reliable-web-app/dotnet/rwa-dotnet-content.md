@@ -42,7 +42,7 @@ Select managed, Azure services that support the needs of you web app. Prefer man
 
 - *Use a web application firewall.* Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
 
-## Update web app code
+## Implement web app updates
 
 Follow these recommendations aligned to the pillars of the Well-Architected Framework:
 
