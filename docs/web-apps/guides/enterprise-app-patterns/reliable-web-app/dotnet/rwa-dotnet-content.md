@@ -9,7 +9,7 @@ The Reliable Web App pattern is a set of [principles and implementation techniqu
 > [!TIP]
 > ![GitHub logo](../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
 
-## Choose a web app architecture
+## Design web app architecture
 
 ### Choose the right managed services
 
@@ -54,11 +54,11 @@ Follow these recommendations aligned to the pillars of the Well-Architected Fram
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
 
-### Apply the Retry pattern
+### Use the Retry pattern
 
 Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
 
-#### Use the built-in retry mechanism to apply the Retry pattern
+#### Use built-in retry mechanisms
 
 Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
 
@@ -75,7 +75,7 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
     }));
 ```
 
-#### Use programming libraries to apply the Retry pattern
+#### Use programming libraries
 
 Use programming libraries that support the Retry pattern, such as [Polly](https://github.com/App-vNext/Polly), on services that don't have built-in support for the Retry pattern.
 
@@ -140,11 +140,11 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Enforce authorization in the application.* Use RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Assess your application's needs to define a set of roles that cover all user actions without overlap. Map each user to the most appropriate role. Ensure they receive access only to what's necessary for their duties.
 
+- *Prefer temporary access to storage.* Use temporary permissions to safeguard against unauthorized access and breaches, such as [shared access signatures (SASs)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Use User Delegation SASs to maximize security when granting temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
+
 - *Enforce authorization in Azure.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to assign least privileges to user identities. Azure RBAC determines what Azure resources identities can access, what they can do with those resources, and what areas they have access to.
 
 - *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
-
-- *Prefer temporary access to storage.* Use temporary permissions to safeguard against unauthorized access and breaches, such as [shared access signatures (SASs)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Use User Delegation SASs to maximize security when granting temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
 
 ### Configure service authentication and authorization
 
@@ -200,7 +200,7 @@ Force all inbound internet traffic to through a web application firewall to prot
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
-### Rightsize resources for each environment
+### Rightsize resources
 
 Understand the different performance tiers of Azure services and only use the appropriate SKU for the needs of each environment. Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Nonproduction environments typically don't need the same capabilities. For extra savings, consider [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
 
@@ -247,7 +247,7 @@ resource autoScaleRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = if (a
 }
 ```
 
-### Use resources efficiently
+### Optimize resource usage
 
 - *Delete unused environments.* Delete nonproduction environments after hours or during holidays to optimize cost. You can use infrastructure as code to delete Azure resources and entire environments. Remove the declaration of the resource that you want to delete from the template.
 
@@ -267,13 +267,13 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 ### Configure monitoring
 
-Collect metrics and logs from application code, infrastructure (runtime), and the platform (Azure resources). Add a diagnostic setting for every Azure resource in your architecture. Each Azure service has a different set of logs and metrics you can capture. To configure monitoring, follow these recommendations
+Collect metrics and logs from application code, infrastructure (runtime), and the platform (Azure resources). Add a diagnostic setting for every Azure resource in your architecture. Each Azure service has a different set of logs and metrics you can capture. To configure monitoring, follow these recommendations:
 
-#### Monitor baseline metrics
+#### Collect application telemetry
 
-Use Azure Application Insights to track baseline application metrics, such as request throughput, average request duration, errors, and dependency monitoring. Use `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection).
+Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
 
-*Example:* The reference implementation configures baseline metrics in Application Insights (*see the following code*).
+*Example:* The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core) and [Dependency injection in .NET](/dotnet/core/extensions/dependency-injection) (*see the following code*).
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -284,11 +284,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### Create custom telemetry
+#### Create custom metrics
 
-Use Application Insights to gather custom telemetry to better understand your web app users. Create an instance of the `TelemetryClient` class and use the `TrackEvent` methods to create the right metric. Turn the query into an Azure Dashboard widget.
+Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
 
-*Example:* The reference implementation uses `TelemetryClient` and `TrackEvent` method to gather telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
+*Example:* The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
 
 ```csharp
 this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
@@ -297,13 +297,9 @@ this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
 });
 ```
 
-For more information, see, [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics#trackevent), [TelemetryClient class](/dotnet/api/microsoft.applicationinsights.telemetryclient), and [Telemetry client methods](/dotnet/api/microsoft.applicationinsights.telemetryclient)
+#### Monitor the platform
 
-#### Gather log-based metrics
-
-Track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. For more information, see [Azure Application Insights log-based metrics](/azure/azure-monitor/essentials/app-insights-metrics) and [Log-based and preaggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-
-#### Enable platform diagnostics
+Platform monitoring is the collection of data from the Azure services in your architecture.
 
 - *Enable diagnostics for all supported services.* Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
@@ -313,7 +309,7 @@ Track log-based metrics to gain more visibility into essential application healt
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The Reliable Web App pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
 
-### Add the Cache-Aside pattern
+### Use the Cache-Aside pattern
 
 Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
 
@@ -340,9 +336,9 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 #### Cache high-need data
 
-Identify data that drives user engagement and system performance. Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
+Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
 
-*Example:* The reference implementation caches the data that supports the Upcoming Concerts. The Upcoming Concerts page creates the most queries to SQL Database and produces a consistent output for each visit. The Cache-Aside pattern caches the data after the first request for this page to reduce the load on the database. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database. The method populates the cache with the latest concerts data. The method filters by time, sorts the data, and returns the data to the controller to display the results (*see the following code*).
+*Example:* The reference implementation caches high-need data that supports the Upcoming Concerts. The Upcoming Concerts page creates the most queries to SQL Database and produces a consistent output for each visit. The Cache-Aside pattern caches the data after the first request for this page to reduce the load on the database. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database. The method populates the cache with the latest concerts data. The method filters by time, sorts the data, and returns the data to the controller to display the results (*see the following code*).
 
 ```csharp
 public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
@@ -406,11 +402,13 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Test database performance
 
-Database performance can affect the performance and scalability of an application. It's important to test the performance of your database to ensure it's optimized. Some key considerations include choosing the right cloud region, connection pooling, cache-aside pattern, and optimizing queries.
+Test the performance of your database to ensure it's optimized. Database performance can affect the performance and scalability of an application.
 
-- *Test network hops.* Moving an application to the cloud can introduce extra network hops and latency to your database. You should test for extra hops that the new cloud environment introduces.
+- *Test network hops.* Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces.
 
-- *Establish a performance baseline.* You should use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
+- *Establish a performance baseline.* Use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
+
+- *Optimize database performance.* Make sure you use the right cloud region to reduce latency. Implement connection pooling and the Cache-Aside pattern and optimize database queries.
 
 ## Next steps
 
