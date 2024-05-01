@@ -361,7 +361,7 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Test database performance
 
-Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare application performance in the cloud. Make sure you use the right cloud region to reduce latency. Implement connection pooling and the Cache-Aside pattern and optimize database queries.
+Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
 
 ## Next steps
 
