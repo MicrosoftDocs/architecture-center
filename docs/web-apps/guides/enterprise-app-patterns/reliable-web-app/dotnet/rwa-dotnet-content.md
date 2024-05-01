@@ -17,24 +17,24 @@ Select managed, Azure services that support the needs of you web app. Prefer man
 
 | Web app component | Recommendation | Reference implementation selection | Guidance |
 | ----------------- | -------------- | ---------------------------------- | ----------------- |
-| **Application platform** | Support current web framework | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
+| **Application platform** | Support current web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
 | **Database** | Support current database engine | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
-| **Load balancer** | Support cloud architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
+| **Load balancer** | Support architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
 | **Storage** | Support storage requirements | Azure Storage | [Storage options](/azure/architecture/guide/technology-choices/storage-options) |
 
 For other web app components, Azure has a single recommended service (*see following table*).
 
 | Web app component | Recommendation | Reference implementation | Guidance |
 | ----------------- | -------------- | ---------------------------------- |
-| Identity management | Microsoft Entra ID | Microsoft Entra ID | [Migrate to Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
-| Application performance monitoring | Application Insights | Application Insights | [Application Insights overview](/azure/azure-monitor/app/app-insights-overview) |
-| Cache | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
-| Secrets manager | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
-| Web application firewall | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
-| Configuration storage | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
-| Endpoint security | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
-| Network firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
-| Remote access | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
+| **Identity management** | Microsoft Entra ID | Microsoft Entra ID | [Migrate to Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
+| **Application performance monitoring** | Application Insights | Application Insights | [Application Insights overview](/azure/azure-monitor/app/app-insights-overview) |
+| **Cache** | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| **Secrets manager** | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
+| **Web application firewall** | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
+| **Configuration storage** | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
+| **Endpoint security** | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
+| **Network firewall** | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
+| **Remote virtual machine access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
 
 ### Design a network topology
 
@@ -132,39 +132,35 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern covers role-based access control, managed identities, private endpoints, secrets management, and web application firewall.
 
-### Configure authentication and authorization
+### Configure user authentication and authorization
 
-Only grant users (user identities) and Azure services ([workload identities](/entra/workload-id/workload-identities-overview)) the permissions they need. Use [Azure RBAC](/azure/role-based-access-control/overview) to grant only the permissions necessary for user and workload identities and follow [Azure RBAC best practices](/azure/role-based-access-control/best-practices).
+- *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). It allows developers to build single-tenant, line-of-business (LOB) applications and multi-tenant software-as-a-service (SaaS) applications, so users and customers can sign in to using their Microsoft identities or social accounts.
 
-### Configure user identity authentication
+- *Use platform features.* Where possible, enable user identity authentication using platform features. For example, [App Service](/azure/app-service/overview-authentication-authorization) provides built-in authentication support, so you can sign in users and access data by writing minimal or no code in your web app.
 
-Enable user identity authentication through your platform's features, when possible. For example, [Azure App Service](/azure/app-service/overview-authentication-authorization) authentication with identity providers like Microsoft Entra ID, offloading the authentication workload from your code.
+- *Enforce authorization in the application.* Use RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Assess your application's needs to define a set of roles that cover all user actions without overlap. Map each user to the most appropriate role. Ensure they receive access only to what's necessary for their duties.
 
-- *Assign least privileges to user identities.* Assess your application's needs to define a set of roles that cover all user actions without overlap. Map each user to the most appropriate role. Ensure they receive access only to what's necessary for their duties.
+- *Enforce authorization in Azure.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to assign least privileges to user identities. Azure RBAC determines what Azure resources identities can access, what they can do with those resources, and what areas they have access to.
 
-- *Avoid permanent elevated permissions.* Only grant just-in-time access to perform privileged operations. For example, developers often need administrator-level access to maintain the database or troubleshoot issues. Administrator-level access to the database grants permissions to perform privileged operations. Privileged operations include creating and deleting databases, modifying table schemas, or changing user permissions. With just-in-time access, users receive temporary permissions to perform privileged tasks.
+- *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
 
-#### Configure workload identity authentication
+- *Prefer temporary access to storage.* Use temporary permissions to safeguard against unauthorized access and breaches, such as [shared access signatures (SASs)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Use User Delegation SASs to maximize security when granting temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
 
-Configure authentication for workload identities so the services in your environment perform necessary functions. Use Azure RBAC to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
+### Configure service authentication and authorization
+
+Configure authentication for Azure services ([workload identities](/entra/workload-id/workload-identities-overview)) so the services in your environment perform necessary functions.
 
 #### Use managed identities
 
-Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of service identities and eliminate manual credential management. A managed identity allows your web app to securely access Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions for the migration and should transition to managed identities quickly.
+Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of service identities and eliminate manual credential management. A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-*Example:* The reference implementation uses Bicep templates to (1) create the managed identity, (2) associate the identity with the web app, and (3) grant the identity permission to access the SQL database. The `Authentication` argument in the connection string tells the Microsoft client library to connect with a managed identity (*see the following code*).
+*Example:* The `Authentication` argument in the SQL database connection string allows App Service to [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity (*see the following code*).
 
 ```csharp
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default
  ```
 
-For more information, see [Connect to SQL database from .NET App Service](/azure/app-service/tutorial-connect-msi-sql-database).
-
-#### Use DefaultAzureCredential to set up code
-
-Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) to provide credentials for local development and managed identities in the cloud. `DefaultAzureCredential` generates a `TokenCredential` for OAuth token acquisition. It handles most Azure SDK scenarios and Microsoft client libraries. It detects the application's environment to use the correct identity and requests access tokens as needed. `DefaultAzureCredential` streamlines authentication for Azure-deployed applications.
-
-*Example:* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault (*see the following code*).
+`DefaultAzureCredential` allows the web API to connect to Key Vault using a managed identity (*see the following code*).
 
 ```csharp
 builder.Configuration.AddAzureAppConfiguration(options =>
@@ -180,15 +176,15 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 });
 ```
 
+#### Configure service authorization
+
+Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
+
 ### Store secrets in Azure Key Vault
 
 Store all secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). It provides centralized secure storage, key rotation, access auditing, and monitoring for services not supporting managed identities. For application configurations, use [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 Don't put Key Vault in the HTTP-request flow. Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
-
-### Prefer temporary access methods
-
-Use temporary permissions to safeguard against unauthorized access and breaches, such as [shared access signatures (SASs)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Use User Delegation SASs to maximize security when granting temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
 
 ### Configure private endpoints
 
@@ -221,6 +217,7 @@ var redisCacheCapacity = isProd ? 1 : 0
 Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
 
 - *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
+
 - *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
 
 *Example:* The reference implementation uses the following configuration in the Bicep template (*see the following code*).
