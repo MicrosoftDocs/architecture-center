@@ -228,12 +228,12 @@ Microsoft Learn modules:
 [azs-hci-billing]: /azure-stack/hci/concepts/billing
 [azs-hci-deploy-via-portal]: /azure-stack/hci/deploy/deploy-via-portal
 [azs-hci-deploy-via-template]: /azure-stack/hci/deploy/deployment-azure-resource-manager-template
-[azs-hci-manage-with-cli]: /cli/azure/stack-hci?view=azure-cli-latest
+[azs-hci-manage-with-cli]: /cli/azure/stack-hci
 [azs-hci-manage-cluster-at-scale]: /azure-stack/hci/manage/manage-at-scale-dashboard
 [azs-hci-manage-arc-vms]: /azure-stack/hci/manage/azure-arc-vm-management-overview
 [azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
-[azs-hci-vm-automate-cli]: /azure/stack-hci-vm?view=azure-cli-latest
-[azs-hci-aks-automate-cli]: /cli/azure/aksarc?view=azure-cli-latest
+[azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
+[azs-hci-aks-automate-cli]: /cli/azure/aksarc
 [azs-hci-manage-non-arc-vms]: /azure-stack/hci/manage/vm-powershell
 [az-auto-hybrid-worker]: /azure/automation/automation-hybrid-runbook-worker
 [azs-hci-k8s-gitops]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
