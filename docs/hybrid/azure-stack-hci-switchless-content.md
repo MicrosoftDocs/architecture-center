@@ -42,9 +42,10 @@ Key technologies used to implement this architecture:
 
 Typical use cases for this architecture pattern include the ability to run highly available (HA) workloads for retail, manufacturing or remote office scenarios:
 
-- Deploy and manage highly available (HA) virtualized or container-based edge workloads, enabling business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
+- Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based deployment, centralized management, monitoring and alerting.
-- Ability to adhere to strict security, compliance and audit requirements by using virtualization-based security, secure boot, certified hardware, enforced application control policies, and cloud-based endpoint detection and response (EDR) services.
+- Centralized provisioning capability to deploy workloads to multiple Azure Stack HCI clusters using Azure and Azure Arc, such as portal, command-line-interface (cli) or infrastructure as code (IaC) templates for automation and repeatability.
+- Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
 
 ## Recommendations
 
@@ -85,6 +86,16 @@ The deployment and management of IT services for retail, manufacturing and remot
 Azure Stack HCI&ndash;certified hardware ensures built-in Secure Boot, Unified Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) support. These technologies, combined with [virtualization-based security (VBS)][azs-hci-vbs], help protect security-sensitive workloads. BitLocker Drive Encryption allows you to encrypt Boot disk volume and Storage Spaces Direct volumes at rest while SMB encryption provides automatic encryption in transit, facilitating compliance with standards such as Federal Information Processing Standard 140-2 (FIPS 140-2) and Health Insurance Portability and Accountability Act (HIPAA).
 
 In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Cloud][ms-defender-for-cloud] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by managing Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
+
+## Network design for three node switchless storage clusters
+
+### Physical network design
+
+[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
+
+### Logical network design
+
+[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
 ## Considerations
 
