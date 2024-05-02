@@ -22,8 +22,8 @@ products:
   - azure-front-door
   - azure-cache-redis
   - dotnet
-name: Modern web app pattern for .NET - Apply the pattern
+name: Modern web app pattern for .NET
 summary: Modern web app pattern for .NET.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
-   [!include[](mwa-dotnet-content.md)]
+   [!include[](guidance-content.md)]
