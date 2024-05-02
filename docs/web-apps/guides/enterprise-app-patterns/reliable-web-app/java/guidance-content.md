@@ -3,10 +3,10 @@ ms.custom: devx-track-dotnet
 ---
 [!INCLUDE [intro](../includes/intro.md)]
 
+The first step in the Reliable Web App pattern is choosing the right Azure services for your web app. With the right services, you can start to design your web app architecture to meet your availability and recovery metrics. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
+
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/java) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern.
-
-The first step in the Reliable Web App pattern is choosing the right Azure services for your web app. With the right services, you can start to design your web app architecture to meet your availability and recovery metrics. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
 
 [!INCLUDE [define goals and choose azure services](../includes/goals-services.md)]
 
