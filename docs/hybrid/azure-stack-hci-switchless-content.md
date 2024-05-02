@@ -130,7 +130,7 @@ Cost optimization considerations include:
 - Cloud-style billing model. Azure Stack HCI pricing follows the [monthly subscription billing model][azs-hci-billing], with a flat rate per physical processor core in an Azure Stack HCI cluster (additional usage charges apply if you use other Azure services). If you own on-premises core licenses for Windows Server Datacenter edition, with active Software Assurance (SA) you might choose to exchange these licenses to activate Azure Stack HCI cluster and Windows Server VM subscription fee.
 
 > [!TIP]
-> You can get cost savings with Azure Hybrid Benefit if you have Windows Server Datacenter licenses with active Software Assurance. For more information about Azure Hybrid Benefit, see [Azure Hybrid Benefit](azs-hybrid-benefit) for Azure Stack HCI.
+> You can get cost savings with Azure Hybrid Benefit if you have Windows Server Datacenter licenses with active Software Assurance. For more information about Azure Hybrid Benefit, see [Azure Hybrid Benefit for Azure Stack HCI][azs-hybrid-benefit].
 
 ### Operational excellence
 
@@ -139,7 +139,6 @@ Operational excellence covers the operations processes that deploy an applicatio
 Operational excellence considerations include:
 
 - Simplified provisioning and management experience integrated with Azure. The [**Cloud Based Deployment** in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. Similarly, [Azure Portal simplifies the process of managing Azure Stack HCI Clusters and Azure Arc VMs][azs-hci-manage-cluster-at-scale] and [azs-hci-manage-arc-vms].
-- Automation capabilities for platform. Azure Stack HCI provides a wide range of automation capabilities, with the [ARM template based deployment of clusters][azs-hci-deploy-via-template], with OS updates combined with full-stack updates including firmware and drivers provided by Azure Stack HCI vendors and partners. With Azure Update Manager & Cluster-Aware Updating (CAU), OS updates run unattended while Azure Stack HCI workloads remain online. This results in seamless transitions between cluster nodes that eliminate impact from post-patching reboots. Azure Stack HCI also offers support for [managing Azure Stack HCI cluster][azs-hci-manage-with-cli] by using Azure CLI. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer.
 - Automation capabilities for Virtual Machines. Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as Virtual Machines, with the [automated deployment of Arc VMs using Azure CLI, ARM or Bicep Template][azs-hci-automate-arc-vms], with Virtual Machine OS updates using Azure Arc Extension for Updates and Azure Update Manager[azs-update-manager]. Azure Stack HCI also offers support for [Azure Arc VM management][azs-hci-vm-automate-cli] by using Azure CLI and [Non-Azure Arc VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of additional automation scenarios for [virtual machine][arc-vm-extensions] workloads through Azure Arc extensions.
 - Automation capabilities for Containers on AKS (Azure Kubernetes Service). Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as containers on AKS, with the [automated deployment of AKS clusters using Azure CLI][azs-hci-automate-arc-aks], with AKS workload cluster updates using Azure Arc Extension for [Kubernetes Updates][azs-hci-automate-aks-update]. Azure Stack HCI also offers support for [Azure Arc AKS management][azs-hci-aks-automate-cli] by using Azure CLI. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with Azure Arc facilitates a wide range of additional automation scenarios for [containerized][azs-hci-k8s-gitops] workloads through Azure Arc extensions.
 - Decreased management complexity. Switchless interconnect eliminates the risk of switch device failures and the need for their configuration and management.
@@ -221,6 +220,7 @@ Microsoft Learn modules:
 [arc-enabled-aks]: /azure/aks/hybrid/aks-create-clusters-portal
 [azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
 [azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
+[azs-hybrid-benefit]: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
 [arc-enabled-data-services]: /azure/azure-arc/data/overview
 [arc-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
 [arc-azure-policy]: /azure/azure-arc/servers/security-controls-policy
@@ -228,7 +228,7 @@ Microsoft Learn modules:
 [azs-hci-billing]: /azure-stack/hci/concepts/billing
 [azs-hci-deploy-via-portal]: /azure-stack/hci/deploy/deploy-via-portal
 [azs-hci-deploy-via-template]: /azure-stack/hci/deploy/deployment-azure-resource-manager-template
-[azs-hci-manage-with-cli]: /azure/stack-hci?view=azure-cli-latest
+[azs-hci-manage-with-cli]: /cli/azure/stack-hci?view=azure-cli-latest
 [azs-hci-manage-cluster-at-scale]: /azure-stack/hci/manage/manage-at-scale-dashboard
 [azs-hci-manage-arc-vms]: /azure-stack/hci/manage/azure-arc-vm-management-overview
 [azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
