@@ -1,14 +1,16 @@
 ---
 ms.custom: devx-track-dotnet
 ---
-The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the essential changes you need to make to be successful in the cloud.
+This article shows you how to implement the Reliable Web App pattern. The Reliable Web App pattern defines how you should modify web apps (replatform) when migrating to the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and focuses on the essential changes you need to make to be successful in the cloud. These changes include three design patterns and other key updates to your web app (*see table*).
 
-| Reliable Web App pattern objectives | Implementation techniques |
-| --- | --- |
-| <br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized environments <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Infrastructure as code <br> |
+| Objectives | Design patterns | Key updates |
+| --- | --- | --- |
+| ▪ High-value updates <br>▪ Minimal code changes <br>▪ Cloud-ready web app | ▪ Retry <br> ▪ Circuit-breaker  <br>▪ Cache-aside | ▪ Managed identities <br>▪ Private endpoints <br>▪ Rightsized environments <br>▪ Infrastructure as code |
+
+The first step in the Reliable Web App pattern is choosing the right Azure services for your web app. With the right services, you can start to design your web app architecture to meet your availability and recovery metrics. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/java) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
 
 ## Choose Azure services
 
@@ -42,9 +44,9 @@ Select managed, Azure services that support the needs of you web app. Prefer man
 
 - *Use a web application firewall.* Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
 
-## Implement web app updates
+## Update code and configurations
 
-Follow these recommendations aligned to the pillars of the Well-Architected Framework:
+The following sections details essential the code and configuration updates you need to make to your web app. It follows the pillars of the Well-Architected Framework and covers the design patterns and key updates of the Reliable Web App pattern.
 
 ### Reliability
 
