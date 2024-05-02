@@ -1,42 +1,27 @@
-[!INCLUDE [mwa-plan-intro](../includes/mwa-plan-intro.md)]
+[!INCLUDE [intro](../includes/mwa-intro.md)]
 
-[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use this sample web app to guide your implementation of Reliable Web App pattern.
 
-### Understand the goals of the Modern Web App pattern
+## Choose the right services
 
-The Modern Web App pattern drives toward specific web app goals to support typical business goals for a post-migration modernization effort. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
+The Modern Web App pattern introduces containerization, asynchronous communication, and queue-based scaling. The services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. You likely need to adopt new Azure services for the portion of the application that you want to modernize. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
 
-| Business objectives                        | Web app objectives                        |
-|---|--|
-| Handle increased demand               | Decouple components<br>Autoscale high-traffic components independently|
-| Optimize web app costs                | Scale unneeded resources to zero where appropriate |
-| Service-level objective of 99.9%      | Use containerized services<br>Choose the right services<br>Choose the right architecture|
+### Choose a container service
 
-Continue with the Modern Web App pattern if these goals align your needs.
+For the parts of your application that you want to containerize, you need an application platform that supports containers. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
 
-### Apply the Reliable Web App Pattern
-
-The Modern Web App builds on the Reliable Web App pattern. Before you apply the Modern Web App pattern, review the [implementation techniques](../../overview.md#reliable-web-app-pattern) of the Reliable Web App pattern and make sure you apply the implementation techniques to your web app.
-
-### Choose the right services for your web app
-
-The Modern Web App pattern introduces containerization, asynchronous communication, and queue-based scaling. The services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. You need to adopt new Azure services for the portion of the application that you want to modernize. For the Modern Web App pattern, you need an application platform that supports containerization. You need a container image repository, and you need a messaging system.
-
-#### Choose a container service
-
-For the parts of your application that you want to containerize, you need an application platform that supports containers. Azure has three principle container services: Azure Container Apps (ACA), Azure Kubernetes Service (AKS), and App Service.
-
-- *Azure Container Apps*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-- *Azure Kubernetes Service*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
+- *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+- *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
 - *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
 For more information, see [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service).
 
-#### Choose a container repository
+### Choose a container repository
 
 When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. For more information, see [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro).
 
-#### Choose a messaging system
+### Choose a messaging system
 
 A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Pick an Azure messaging system that supports your design message queues and publish-subscribe methods.
 
@@ -48,9 +33,19 @@ Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure
 
 For more information, see [Choose between Azure messaging services](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services).
 
-## Implement the Modern Web App pattern
+## Design the architecture
 
-The following sections shows you how to implement the Modern web app pattern. It details essential code updates you need to make to your web app so that it successfully fulfills its objectives in alignment with the  pillars of the Well-Architected Framework:
+- *Design network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
+
+- *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
+
+- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO. A multi-region, active-active approach requires code updates to synchronize data across regions.
+
+- *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+
+## Update the code and configuration
+
+The following sections details essential the code and configuration updates you need to make to your web app. It follows the pillars of the Well-Architected Framework and covers the design patterns and key updates of the Modern Web App pattern.
 
 ### Reliability
 
@@ -66,7 +61,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 Add content here.
 
-**Example - implementing the Queue-Based Load Leveling pattern**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
+The reference implementation uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
 
 ```csharp
 // Publish a message to request that the ticket be rendered.
@@ -103,7 +98,7 @@ var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOp
 
 ### Modify the Retry Pattern
 
-The [Retry pattern](/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. The retry pattern is a technique for handling transient faults during service-to-service communication.
+The [Retry pattern](/azure/architecture/patterns/retry) is used extensively in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#use-the-retry-pattern) but also shows up in new ways in the modern web app pattern. 
 
 #### How does the retry pattern show up in new ways
 
@@ -113,7 +108,7 @@ Add content here
 
 Add content here
 
-**Example - Modify the Retry pattern**: The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
+The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
 
 ```csharp
 builder.Services.AddAzureClients(clientConfiguration =>

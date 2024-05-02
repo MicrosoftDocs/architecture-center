@@ -1,1 +1,0 @@
-This article shows you how to plan an implementation of the Modern Web App pattern. The Modern Web App pattern provides is a set of principles of techniques that show you how to modernize web apps in the cloud. It focuses on moving from monolithic architectures toward micro-service architectures to better take advantage of cloud services.

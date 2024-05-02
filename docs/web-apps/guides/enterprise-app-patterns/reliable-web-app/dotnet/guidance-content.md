@@ -1,21 +1,23 @@
 ---
 ms.custom: devx-track-dotnet
 ---
-The Reliable Web App pattern is a set of [principles and implementation techniques](../../overview.md) that define how you should modify web apps (replatform) when migrating to the cloud. It focuses on the essential changes you need to make to be successful in the cloud.
+This article shows you how to implement the Reliable Web App pattern. The Reliable Web App pattern defines how you should modify web apps (replatform) when migrating to the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and focuses on the essential changes you need to make to be successful in the cloud. These changes include three design patterns and other key updates to your web app (*see table*).
 
-| Reliable Web App pattern objectives | Implementation techniques |
-| --- | --- |
-| <br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized environments <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Infrastructure as code <br> |
+| Objectives | Design patterns | Key updates |
+| --- | --- | --- |
+| ▪ High-value updates <br>▪ Minimal code changes <br>▪ Cloud-ready web app | ▪ Retry <br> ▪ Circuit-breaker  <br>▪ Cache-aside | ▪ Managed identities <br>▪ Private endpoints <br>▪ Rightsized environments <br>▪ Infrastructure as code |
 
-> [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
+The first step in the Reliable Web App pattern is choosing the right Azure services for your web app. With the right services, you can start to design your web app architecture to meet your availability and recovery metrics. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
 
-## Choose Azure services
+> [!IMPORTANT]
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [**reference implementation**](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use this sample web app to guide your implementation of Reliable Web App pattern.
 
-Select managed, Azure services that support the needs of you web app. Prefer managed services to improve security and reduce management overhead. To minimize the replaforming effort, choose services that support the features of your web app, such as the same runtime and database engine. Azure has multiple service options for several web app components. Use the following table to find guidance to choose the right service for each web app component. It provides a component recommendation, the reference implementation selection, and guidance to implement the recommendation.
+## Choose the right Azure services
+
+Select managed, Azure services that support the needs of you web app. Prefer managed services to improve security and reduce management overhead. To minimize the replatforming effort, choose services that support the features of your web app, such as the same runtime and database engine. Azure has multiple service options for several web app components. Use the following table to find guidance to choose the right service for each web app component. It provides a component recommendation, the reference implementation selection, and guidance to implement the recommendation.
 
 | Web app component | Recommendation | Reference implementation | Guidance |
-| ----------------- | -------------- | ---------------------------------- | ----------------- |
+| ----------------- | -------------- | ------------------------ | -------- |
 | **Application platform** | Support current web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
 | **Database** | Support current database engine | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
 | **Load balancer** | Support architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
@@ -30,21 +32,21 @@ Select managed, Azure services that support the needs of you web app. Prefer man
 | **Network firewall** | Azure Firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
 | **Remote access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
 
-## Design web app architecture
+## Design the architecture
 
 - *Design network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
 
 - *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
 
-- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
+- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO. A multi-region, active-active approach requires code updates to synchronize data across regions.
 
 - *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
-- *Use a web application firewall.* Force all inbound internet traffic to through a web application firewall to protect against common web exploits.
+- *Use a web application firewall.* Force all inbound internet traffic to through your web application firewall to protect against common web exploits. Deploy [Azure Web application Firewall](/azure/web-application-firewall/overview) with your frontend load balancer of choice.
 
-## Implement web app updates
+## Update the code and configuration
 
-Follow these recommendations aligned to the pillars of the Well-Architected Framework:
+The following sections details essential the code and configuration updates you need to make to your web app. It follows the pillars of the Well-Architected Framework and covers the design patterns and key updates of the Reliable Web App pattern.
 
 ### Reliability
 
