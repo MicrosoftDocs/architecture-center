@@ -1,22 +1,4 @@
-[!INCLUDE [mwa-plan-intro](../includes/mwa-intro.md)]
-
-[!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
-
-### Understand the goals of the Modern Web App pattern
-
-The Modern Web App pattern drives toward specific web app goals to support typical business goals for a post-migration modernization effort. Review the following goals of the Modern Web App Pattern and ensure they align with your goals:
-
-| Business objectives                        | Web app objectives                        |
-|---|--|
-| Handle increased demand               | Decouple components<br>Autoscale high-traffic components independently|
-| Optimize web app costs                | Scale unneeded resources to zero where appropriate |
-| Service-level objective of 99.9%      | Use containerized services<br>Choose the right services<br>Choose the right architecture|
-
-Continue with the Modern Web App pattern if these goals align your needs.
-
-### Apply the Reliable Web App Pattern
-
-The Modern Web App builds on the Reliable Web App pattern. Before you apply the Modern Web App pattern, review the [implementation techniques](../../overview.md#reliable-web-app-pattern) of the Reliable Web App pattern and make sure you apply the implementation techniques to your web app.
+[!INCLUDE [intro](../includes/mwa-intro.md)]
 
 ### Choose the right services for your web app
 
@@ -66,7 +48,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 Add content here.
 
-**Example - implementing the Queue-Based Load Leveling pattern**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
+The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
 
 ```csharp
 // Publish a message to request that the ticket be rendered.
@@ -113,7 +95,7 @@ Add content here
 
 Add content here
 
-**Example - Modify the Retry pattern**: The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
+The reference implementation uses the retry functionality built into the .NET Azure SDK when connecting to Azure Service Bus and Azure Storage. The reference implementation uses `AzureClientFactoryBuilder` to configure retry settings. It invokes `ConfigureDefaults` to apply these settings. It uses the default retry settings for all HTTP-based Azure clients, including the blob storage client (*see following code*).
 
 ```csharp
 builder.Services.AddAzureClients(clientConfiguration =>
@@ -185,13 +167,13 @@ Implementing the retry pattern for the ticket rendering service’s handling of 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-As you adopt the modern web app pattern, more and more components will be introduced to your solution architecture. New services will be created as monoliths are split into multiple services and new dependencies will be added for message queues or container image repositories. The modern web app pattern doesn’t introduce any new security patterns beyond those already present in the Reliable Web App pattern, but those existing patterns (managed identities, secrets management, and private endpoints) are applied to many new resources.
+New services will be created as monoliths are split into multiple services and new dependencies will be added for message queues or container image repositories. The modern web app pattern doesn’t introduce any new security patterns beyond those already present in the Reliable Web App pattern, but those existing patterns (managed identities, secrets management, and private endpoints) are applied to many new resources.
 
 ### Configure service authentication and authorization
 
 As in the [Reliable Web App pattern](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern#configure-service-authentication-and-authorization), use managed identities for all [Azure services that support managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
-**Example - Configure service authentication and authorization**: The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.
+The reference implementation makes use of managed identities by configuring the Azure Container Registry resource and the Azure Service Bus resource to allow access to several identities. It configures access for the identity performing the deployment, the user-assigned managed identity corresponding to the application owner, and the user-assigned managed identity corresponding to the application. This is done in infrastructure-as-code using role assignments in bicep as shown here.
 
 ```bicep
 roleAssignments: \[

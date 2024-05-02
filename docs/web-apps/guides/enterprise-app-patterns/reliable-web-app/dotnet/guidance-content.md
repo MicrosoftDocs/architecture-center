@@ -52,7 +52,7 @@ The following sections details essential the code and configuration updates you 
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
 
-### Use the Retry pattern
+#### Use the Retry pattern
 
 Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
 
@@ -106,7 +106,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
     }
     ```
 
-### Use the Circuit Breaker pattern
+#### Use the Circuit Breaker pattern
 
 Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
@@ -335,12 +335,14 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
 
-## Next steps
+## Deploy the reference implementation
 
 Deploy the **[reference implementation](https://aka.ms/eap/rwa/dotnet)** by following the instructions in the GitHub repository.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
 *Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+
+## Next steps
 
 Use the following resources to learn more about .NET applications, web apps, cloud best practices, and migration.
 

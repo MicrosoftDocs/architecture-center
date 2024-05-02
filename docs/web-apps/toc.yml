@@ -86,7 +86,7 @@ items:
             items:
             - name: Modern Web App pattern for .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
-            - name: Modern Web App pattern for .NET
+            - name: Modern Web App pattern for Java
               href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
           - name: Previous
             items:
