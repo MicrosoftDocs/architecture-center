@@ -6,7 +6,7 @@ ms.custom: devx-track-dotnet
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use implementation to apply the Reliable Web App pattern to your web app.
 
-[!INCLUDE [choose azure services](../includes/choose-azure-services.md)]
+[!INCLUDE [define goals and choose azure services](../includes/goals-services.md)]
 
 | Web app component | Recommendation | Reference implementation | Guidance |
 | ----------------- | -------------- | ------------------------ | -------- |
