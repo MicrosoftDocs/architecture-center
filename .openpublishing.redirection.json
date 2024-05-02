@@ -4246,7 +4246,7 @@
     },
     {
       "source_path": "docs/hybrid/azure-stack-robo.yml",
-      "redirect_url": "/hybrid/azure-stack-hci-switchless",
+      "redirect_url": "/azure/architecture/hybrid/azure-stack-hci-switchless",
       "redirect_document_id": false
     },
     {
