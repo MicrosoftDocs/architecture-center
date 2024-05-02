@@ -983,6 +983,8 @@ items:
         href: solution-ideas/articles/logical-data-warehouse.yml
       - name: Manage data across the Azure SQL estate
         href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
+      - name: Manage event data with HDInsight and Delta Lake
+        href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Oil and Gas tank level forecasting
