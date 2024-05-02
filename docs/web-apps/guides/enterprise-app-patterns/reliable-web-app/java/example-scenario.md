@@ -18,11 +18,16 @@ categories:
   - web
 ---
 
-This article provides an example scenario for implementing the Reliable Web App pattern. It follows the journey of a fictional company called Relecloud and its migration to the cloud. The **[reference implementation](aka.ms/eap/rwa/dotnet/)** represents the final result of the migration and implementation of the Reliable Web App pattern.
+# Reliable Web App pattern for Java (example scenario)
+
+This article provides an example scenario for implementing the [Reliable Web App pattern for Java](./guidance-content.md). It follows the journey of a fictional company called Contoso Fiber and its migration to the cloud.
+
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) The **[reference implementation](aka.ms/eap/rwa/java/)** represents the final result of the migration and implementation of the Reliable Web App pattern.
 
 ## Define business goals
 
-The fictional company Relecloud sells tickets through its on-premises web application. Relecloud has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
+The fictional company Contoso Fiber sells tickets through its on-premises web application. Contoso Fiber has a positive sales forecast and anticipates increased demand on their ticketing web app. To meet this demand, they defined the goals for the web application:
 
 - Apply low-cost, high-value code changes
 - Reach a service level objective (SLO) of 99.9%
@@ -30,15 +35,15 @@ The fictional company Relecloud sells tickets through its on-premises web applic
 - Create cost-optimized environments
 - Improve reliability and security
 
-Relecloud's on-premises infrastructure wasn't a cost-effective solution to reach these goals. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
+Contoso Fiber's on-premises infrastructure wasn't a cost-effective solution to reach these goals. So, they decided that migrating their web application to Azure was the most cost effective way to achieve their immediate and future objectives.
 
 ## Choose the right services
 
-Before the move to the cloud, Relecloud's ticketing web app was an on-premises, monolithic, ASP.NET app. It ran on two virtual machines and had a Microsoft SQL Server database. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
+Before the move to the cloud, Contoso Fiber's ticketing web app was an on-premises, monolithic, ASP.NET app. It ran on two virtual machines and had a Microsoft SQL Server database. The web app suffered from common challenges in scalability and feature deployment. This starting point, their business goals, and SLO drove their service choices.
 
 ### Application platform
 
-Relecloud chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
+Contoso Fiber chose [Azure App Service](/azure/app-service/overview) as the application platform for the following reasons:
 
 - *High service level agreement (SLA):* It has a high SLA that meets the production environment SLO of 99.9%.
 
@@ -52,7 +57,7 @@ Relecloud chose [Azure App Service](/azure/app-service/overview) as the applicat
 
 ### Identity management
 
-Relecloud chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
+Contoso Fiber chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the following reasons:
 
 - *Authentication and authorization:* The application needs to authenticate and authorize call center employees.
 
@@ -64,7 +69,7 @@ Relecloud chose [Microsoft Entra ID](/entra/fundamentals/whatis) for the followi
 
 ### Database
 
-The web app used SQL Server on-premises, and Relecloud wanted to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but Relecloud chose [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) for the following reasons:
+The web app used SQL Server on-premises, and Contoso Fiber wanted to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but Contoso Fiber chose [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) for the following reasons:
 
 - *Reliability:* The general-purpose tier provides a high SLA and multi-region redundancy. It can support a high user load.
 
@@ -80,7 +85,7 @@ The web app used SQL Server on-premises, and Relecloud wanted to use the existin
 
 ### Application performance monitoring
 
-Relecloud chose to use Application Insights for the following reasons:
+Contoso Fiber chose to use Application Insights for the following reasons:
 
 - *Integration with Azure Monitor:* It provides the best integration with Azure Monitor.
 
@@ -94,7 +99,7 @@ Relecloud chose to use Application Insights for the following reasons:
 
 ### Cache
 
-Relecloud's web app load is heavily skewed toward viewing concerts and venue details. It added Azure Cache for Redis for the following reasons:
+Contoso Fiber's web app load is heavily skewed toward viewing concerts and venue details. It added Azure Cache for Redis for the following reasons:
 
 - *Reduced management overhead:* It's a fully managed service.
 
@@ -108,7 +113,7 @@ Relecloud's web app load is heavily skewed toward viewing concerts and venue det
 
 ### Load balancer
 
-Relecloud needed a layer-7 load balancer that could route traffic across multiple regions. Relecloud needed a multi-region web app to meet the SLO of 99.9%. Relecloud chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
+Contoso Fiber needed a layer-7 load balancer that could route traffic across multiple regions. Contoso Fiber needed a multi-region web app to meet the SLO of 99.9%. Contoso Fiber chose [Azure Front Door](/azure/frontdoor/front-door-overview) for the following reasons:
 
 - *Global load balancing:* It's a layer-7 load balancer that can route traffic across multiple regions.
 
@@ -126,11 +131,11 @@ Relecloud needed a layer-7 load balancer that could route traffic across multipl
 
 - *DDoS protection:* It has built-in layer 3-4 DDoS protection.
 
-- *Content delivery network:* It positions Relecloud to use a content delivery network. The content delivery network provides site acceleration.
+- *Content delivery network:* It positions Contoso Fiber to use a content delivery network. The content delivery network provides site acceleration.
 
 ### Web application firewall
 
-Relecloud needed to protect the web app from web attacks. They used Azure Web Application Firewall for the following reasons:
+Contoso Fiber needed to protect the web app from web attacks. They used Azure Web Application Firewall for the following reasons:
 
 - *Global protection:* It provides improved global web app protection without sacrificing performance.
 
@@ -142,7 +147,7 @@ Relecloud needed to protect the web app from web attacks. They used Azure Web Ap
 
 ### Configuration storage
 
-Relecloud wanted to replace file-based configuration with a central configuration store that integrates with the application platform and code. They added App Configuration to the architecture for the following reasons:
+Contoso Fiber wanted to replace file-based configuration with a central configuration store that integrates with the application platform and code. They added App Configuration to the architecture for the following reasons:
 
 - *Flexibility:* It supports feature flags. Feature flags allow users to opt in and out of early preview features in a production environment without redeploying the app.
 
@@ -152,7 +157,7 @@ Relecloud wanted to replace file-based configuration with a central configuratio
 
 ### Secrets manager
 
-Relecloud's on-premises web app stored secrets in code configuration files, but it's a better security practice to externalize secrets. While [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Relecloud had application secrets they needed to manage. Relecloud used Key Vault for the following reasons:
+Contoso Fiber's on-premises web app stored secrets in code configuration files, but it's a better security practice to externalize secrets. While [managed identities](/entra/architecture/service-accounts-managed-identities) are the preferred solution for connecting to Azure resources, Contoso Fiber had application secrets they needed to manage. Contoso Fiber used Key Vault for the following reasons:
 
 - *Encryption:* It supports encryption at rest and in transit.
 
@@ -164,7 +169,7 @@ Relecloud's on-premises web app stored secrets in code configuration files, but 
 
 ### Storage solution
 
-On-premises, the web app had disk storage mounted to each web server, but the team wanted to use an external data storage solution. Relecloud chose [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for the following reasons:
+On-premises, the web app had disk storage mounted to each web server, but the team wanted to use an external data storage solution. Contoso Fiber chose [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for the following reasons:
 
 - *Secure access:* The web app can eliminate endpoints for accessing storage exposed to the public internet with anonymous access.
 
@@ -174,7 +179,7 @@ On-premises, the web app had disk storage mounted to each web server, but the te
 
 ### Endpoint security
 
-Relecloud used Private Link for the following reasons:
+Contoso Fiber used Private Link for the following reasons:
 
 - *Enhanced security communication:* It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
 
@@ -182,12 +187,12 @@ Relecloud used Private Link for the following reasons:
 
 ### Network security
 
-Relecloud adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Relecloud needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
+Contoso Fiber adopted a hub and spoke network topology and wanted to put shared network security services in the hub. Azure Firewall improves security by inspecting all outbound traffic from the spokes to increase network security. Contoso Fiber needed Azure Bastion for secure deployments from a jump host in the DevOps subnet.
 
 ## Design web app architecture
 
-Relecloud identified the services on the critical path of availability. They used Azure SLAs for availability estimates. Based on the composite SLA calculation, Relecloud needed a multi-region architecture to meet the SLO of 99.9%. Relecloud chose a hub and spoke network topology to increase the security of their multi-region deployment at reduced cost and management overhead.
+Contoso Fiber identified the services on the critical path of availability. They used Azure SLAs for availability estimates. Based on the composite SLA calculation, Contoso Fiber needed a multi-region architecture to meet the SLO of 99.9%. Contoso Fiber chose a hub and spoke network topology to increase the security of their multi-region deployment at reduced cost and management overhead.
 
 ## Update code and configurations
 
-Relecloud updated the application and code and configurations according to the Reliable Web App pattern guidance. They introduced three design patterns: Retry, Circuit Breaker, and Cache-Aside to improve the reliability and performance efficiency of their ticketing web app. They also implemented the key updates of the Reliable Web App pattern. The reference implementation
+Contoso Fiber updated the application and code and configurations according to the Reliable Web App pattern guidance. They introduced three design patterns: Retry, Circuit Breaker, and Cache-Aside to improve the reliability and performance efficiency of their ticketing web app. They also implemented the key updates of the Reliable Web App pattern. The reference implementation

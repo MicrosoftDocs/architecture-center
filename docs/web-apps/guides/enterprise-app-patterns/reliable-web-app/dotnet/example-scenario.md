@@ -18,7 +18,12 @@ categories:
   - web
 ---
 
-This article provides an example scenario for implementing the Reliable Web App pattern. It follows the journey of a fictional company called Relecloud and its migration to the cloud. The **[reference implementation](aka.ms/eap/rwa/dotnet/)** represents the final result of the migration and implementation of the Reliable Web App pattern.
+# Reliable Web App pattern for .NET (example scenario)
+
+This article provides an example scenario for implementing the [Reliable Web App pattern for .NET](./guidance-content.md). It follows the journey of a fictional company called Relecloud and its migration to the cloud.
+
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) The **[reference implementation](aka.ms/eap/rwa/dotnet/)** represents the final result of the migration and implementation of the Reliable Web App pattern.
 
 ## Business scenario
 
