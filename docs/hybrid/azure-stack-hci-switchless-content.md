@@ -1,10 +1,28 @@
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 
+> [!TIP]
+> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/) demonstrates how to deploy a 3-node Azure Stack HCI cluster using an ARM template and parameter file.
+
 ## Architecture
 
 [![Diagram illustrating a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates and Azure Site Recovery.](images/azure-stack-hci-switchless.svg)](images/azure-stack-hci-switchless.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+### Components
+
+This architecture consists of Azure Stack HCI, Azure Arc and several Azure services that offer supporting resources. The services for each and their roles are described in the following sections.
+
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [Azure Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
+- [Azure Backup](https://azure.microsoft.com/products/backup)
 
 ### Workflow
 
@@ -21,20 +39,13 @@ The architecture incorporates the following capabilities:
 - **[Azure Backup][azure-backup]** service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 - **[Azure Site Recovery][azure-site-recovery]** provides business continuity and disaster recovery (BC/DR) capabilities, by enabling business apps and workloads to failover in the event of a disaster or outage. Site Recovery manages replication and failover of workloads running on both physical and virtual machines, between their primary site and a secondary location.
 
-### Components
+### Cluster design choices
+When designing an Azure Stack HCI cluster is is important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:
 
-Key technologies used to implement this architecture:
-
-- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
-- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
-- [Azure Backup](https://azure.microsoft.com/products/backup)
+- CPU, memory, and storage input/output operations per second (IOPS)
+- Processors architecture
+- Number of cluster nodes
+- Update
 
 ## Scenario details
 
@@ -46,6 +57,21 @@ Typical use cases for this architecture pattern include the ability to run highl
 - Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based deployment, centralized management, monitoring and alerting.
 - Centralized provisioning capability to deploy workloads to multiple Azure Stack HCI clusters using Azure and Azure Arc, such as portal, command-line-interface (cli) or infrastructure as code (IaC) templates for automation and repeatability.
 - Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
+
+## Network layout switchless storage clusters
+
+Opening paragraph...
+
+### Physical network topology
+
+Physical network topology description
+
+[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
+
+### Logical network topology
+
+Logical network topology description. Network ATC and Intents
+[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
 ## Recommendations
 
@@ -86,16 +112,6 @@ The deployment and management of IT services for retail, manufacturing and remot
 Azure Stack HCI&ndash;certified hardware ensures built-in Secure Boot, Unified Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) support. These technologies, combined with [virtualization-based security (VBS)][azs-hci-vbs], help protect security-sensitive workloads. BitLocker Drive Encryption allows you to encrypt Boot disk volume and Storage Spaces Direct volumes at rest while SMB encryption provides automatic encryption in transit, facilitating compliance with standards such as Federal Information Processing Standard 140-2 (FIPS 140-2) and Health Insurance Portability and Accountability Act (HIPAA).
 
 In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Cloud][ms-defender-for-cloud] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by managing Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
-
-## Network design for three node switchless storage clusters
-
-### Physical network design
-
-[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
-
-### Logical network design
-
-[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
 ## Considerations
 
