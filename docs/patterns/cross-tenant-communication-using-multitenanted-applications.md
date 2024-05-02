@@ -31,7 +31,7 @@ This pattern can be reused for any multitenant scenario that has various service
                       
 ## Architecture
 
-![A diagram of the cross-tenant communication architecture.](./_images/cross-tenant-communication-architecture.png)
+:::image type="content" source="./_images/cross-tenant-communication-architecture.png" alt-text="A diagram of the cross-tenant communication architecture." lightbox="./_images/cross-tenant-communication-architecture.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cross-tenant-communication-architecture.pptx) of this architecture.*
 
