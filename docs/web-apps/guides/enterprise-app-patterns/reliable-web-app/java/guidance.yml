@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web app pattern for .NET
+  title: Reliable web app pattern for Java
   titleSuffix: Azure Reference Architectures
-  description: Implement the reliable web app pattern for .NET. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.
+  description: Implement the reliable web app pattern for Java. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.
   author: stephen-sumner
   ms.author: keschlob
   ms.reviewer: ssumner
@@ -20,8 +20,8 @@ products:
   - azure-front-door
   - azure-cache-redis
   - dotnet
-name: Reliable web app pattern for .NET
-summary: Implement the reliable web app pattern for .NET. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.
+name: Reliable web app pattern for Java
+summary: Implement the reliable web app pattern for Java. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet-1.1.svg
 content: |
    [!include[](guidance-content.md)]

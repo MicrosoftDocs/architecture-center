@@ -18,7 +18,6 @@ categories:
   - web
 ---
 
-
 # Enterprise App Patterns
 
 Enterprise App Patterns provides prescriptive guidance and reference implementations to help developers and architects modernize critical workloads on Azure. They build on the principles of the [Well-Architected Framework](/azure/well-architected/pillars) and guides you to build reliable, secure, cost-optimized, operationally excellent, and performant applications. Enterprise App Patterns consists of two patterns.
