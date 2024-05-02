@@ -78,15 +78,15 @@ items:
             href: guides/enterprise-app-patterns/overview.md
           - name: Reliable Web App pattern
             items:
-            - name: Reliable Web App pattern for .NET
+            - name: .NET
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
-            - name: Reliable Web App pattern for Java
+            - name: Java
               href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml
           - name: Modern Web App pattern
             items:
-            - name: Modern Web App pattern for .NET
+            - name: .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
-            - name: Modern Web App pattern for Java
+            - name: Java
               href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
           - name: Previous
             items:
