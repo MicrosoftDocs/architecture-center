@@ -1,88 +1,117 @@
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 
+> [!TIP]
+> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/) demonstrates how to deploy a 3-node Azure Stack HCI cluster using an ARM template and parameter file.
+
 ## Architecture
 
 [![Diagram illustrating a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates and Azure Site Recovery.](images/azure-stack-hci-switchless.svg)](images/azure-stack-hci-switchless.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
+### Components
+
+This architecture consists of Azure Stack HCI, Azure Arc and several Azure services that offer supporting resources. The services for each and their roles are described in the following sections.
+
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [Azure Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
+- [Azure Backup](https://azure.microsoft.com/products/backup)
+
 ### Workflow
 
 The architecture incorporates the following capabilities:
 
-- **[Azure Stack HCI][azs-hci]**. Azure Stack HCI is a hyper-converged infrastructure (HCI) solution that hosts virtualized workloads and storage in a hybrid on-premises environment or edge location. Azure Stack HCI clusters can scale from a single node to a maximum of sixteen nodes.
-- **[Azure Arc][azure-arc]**. A cloud-based service that extends the Azure Resource Manager&ndash;based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized data services.
-- **[Cloud Witness][cloud-witness]**. Cloud Witness is a type of failover cluster quorum witness that uses an Azure Storage Account to provide cluster quorum voting capabilities.
-- **[Azure Policy][azure-policy]**. A cloud-based service that evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to customizable business rules.
-- **[Azure Monitor][azure-monitor]**. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-- **[Microsoft Defender for Cloud][azure-security-center]**. Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - and on premises.
-- **[Update Management][azure-update-management]**. A feature of Azure Automation that streamlines management of OS updates for Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments.
-- **[Azure Backup][azure-backup]**. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
-- **[Azure Site Recovery][azure-site-recovery]**. A cloud-based service that helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery manages replication and failover of workloads running on both physical and virtual machines between their primary site and a secondary location.
-- **[Storage Replica][storage-replica]**. A Windows Server technology that enables replication of volumes between servers or clusters for disaster recovery.
+- **[Azure Stack HCI][azs-hci]** is a hyper-converged infrastructure (HCI) solution that hosts virtualized workloads and storage in a hybrid on-premises environment or edge location. Azure Stack HCI clusters can scale from a single node to a maximum of sixteen nodes.
+- **[Azure Arc][azure-arc]** is a cloud-based service that extends the Azure Resource Manager-based management model to Azure Stack HCI and other non-Azure locations. Azure Arc provides the ability to manage resources including virtual machines (VMs), Kubernetes clusters, and containerized data services using Azure as the control and management plane.
+- **[Key Vault][key-vault]** is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
+- **[Cloud Witness][cloud-witness]** is a type of failover cluster quorum witness that uses an Azure Storage Account to provide Azure Stack HCI cluster node quorum voting capabilities.
+- **[Update Management][azure-update-management]** is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, or other cloud platforms from a single dashboard.
+- **[Azure Monitor][azure-monitor]** is a cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on diagnostic logs and telemetry from your cloud and on-premises workloads.
+- **[Azure Policy][azure-policy]** evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to determine compliance based on customizable business rules.
+- **[Microsoft Defender for Cloud][ms-defender-for-cloud]** is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - and on premises.
+- **[Azure Backup][azure-backup]** service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+- **[Azure Site Recovery][azure-site-recovery]** provides business continuity and disaster recovery (BC/DR) capabilities, by enabling business apps and workloads to failover in the event of a disaster or outage. Site Recovery manages replication and failover of workloads running on both physical and virtual machines, between their primary site and a secondary location.
 
-### Components
+### Cluster design choices
+When designing an Azure Stack HCI cluster is is important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:
 
-Key technologies used to implement this architecture:
-
-- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
-- [Automation](https://azure.microsoft.com/products/automation)
-- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
-- [Azure Backup](https://azure.microsoft.com/products/backup)
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
-- [Azure Files](https://azure.microsoft.com/products/storage/files)
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- CPU, memory, and storage input/output operations per second (IOPS)
+- Processors architecture
+- Number of cluster nodes
+- Update
 
 ## Scenario details
 
 ### Potential use cases
 
-Typical uses for this architecture include the following remote office, retail or manufacturing scenarios:
+Typical use cases for this architecture pattern include the ability to run highly available (HA) workloads for retail, manufacturing or remote office scenarios:
 
-- Implement highly available, container-based edge workloads and virtualized, business-essential applications in a cost-effective manner.
-- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based automation, centralized management, and centralized monitoring.
-- Control and audit security and compliance by using virtualization-based protection, certified hardware, and cloud-based services.
+- Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
+- Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based deployment, centralized management, monitoring and alerting.
+- Centralized provisioning capability to deploy workloads to multiple Azure Stack HCI clusters using Azure and Azure Arc, such as portal, command-line-interface (cli) or infrastructure as code (IaC) templates for automation and repeatability.
+- Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
+
+## Network layout switchless storage clusters
+
+Opening paragraph...
+
+### Physical network topology
+
+Physical network topology description
+
+[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
+
+### Logical network topology
+
+Logical network topology description. Network ATC and Intents
+[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirements that override them.
 
 ### Azure Stack HCI switchless storage for retail, manufacturing or remote office scenarios
 
-For retail, manufacturing and remote office scenarios, a primary business concern is minimizing costs, yet workloads that power these business scenarios are of utmost criticality, with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering both resiliency and cost-effectiveness. Using Azure Stack HCI, you can apply built-in [resiliency of Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly available compute, storage, and network infrastructure for containerized and virtualized workloads. For cost-effectiveness, you can scale deployments from a single node cluster, up to two or three nodes, with only four disks and 64 gigabytes (GB) of memory per node. To further minimize costs, you can use switchless interconnects for storage traffic between nodes, thereby eliminating the need for redundant switch devices. For maximum reliability and workload resiliency, deploy a 3-node cluster and use [3-way mirrors for the infrastructure and user volumes](/azure-stack/hci/concepts/fault-tolerance#three-way-mirror).
+For retail, manufacturing or remote office scenarios, a primary business concern is minimizing costs, yet the workloads that power these business scenarios are of utmost criticality, with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering high levels of resiliency, and a cost-effective and scalable solution. Deploying Azure Stack HCI using multiple cluster nodes, provides built-in [storage fault tolerance and efficiency using Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly available compute, storage, and network infrastructure for containerized and virtualized workloads. For cost-effectiveness, you can scale deployments from a single node cluster, up to two or three nodes, with only four data disks and 64 gigabytes (GB) of memory per node. To further minimize costs, it is possible to use a "switchless storage design", which interconnects each physical node directly with one or more links, thereby eliminating the requirement for dedicated switches for storage. For maximum storage reliability and workload resiliency, it is recommended to deploy a minimum of 3-nodes in the HCI cluster and use the default configuration of a [3-way mirror for the infrastructure and user volumes](/azure-stack/hci/concepts/fault-tolerance#three-way-mirror).
 
 ### Azure Stack HCI directly integrates with Azure using Azure Arc, lowering the total cost of ownership (TCO) and operational overheads
 
-Azure Stack HCI 23H2 (and above) is deployed and managed from Azure, with deep integration enabled through Azure Arc and the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview). Azure Stack HCI cluster nodes must be enrolled with [Azure Arc for Servers](/azure-stack/hci/deploy/deployment-arc-register-server-permissions) as a prerequisite to initiating the cloud based deployment of an Azure Stack HCI cluster. Once deployed, the HCI cluster can be monitored using Azure Monitor and Log Analytics, and is updated using Azure Update Management. Workload resources, such as [Azure Arc VMs](/azure-stack/hci/manage/create-arc-virtual-machines), [Arc-enabled AKS](/azure/aks/hybrid/aks-create-clusters-cli) and [Azure Virtual Desktop (AVD) node pools](/azure/virtual-desktop/deploy-azure-virtual-desktop) can be deployed using Azure, by selecting an [Azure Stack HCI cluster's "custom location"](/azure-stack/hci/manage/azure-arc-vm-management-overview#components-of-azure-arc-vm-management) as the target for the workload deployment, these components provide centralized administration, management, and support.
+Azure Stack HCI 23H2 (and above) is deployed and managed from Azure, providing  built-in integration of Azure Arc and deployment of the [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) component as part of HCI cluster deployment process. Azure Stack HCI cluster nodes are enrolled with [Azure Arc for Servers](/azure-stack/hci/deploy/deployment-arc-register-server-permissions) as a prerequisite to initiating the cloud based deployment of the cluster. Once deployed, an HCI cluster can be monitored using Azure Monitor and Log Analytics, by enabling Azure Stack HCI Insights. [Feature updates for Azure Stack HCI are released periodically to enhance customer experience](/azure-stack/hci/release-information-23h2), these updates are controlled and managed using [Azure Update Management][azure-update-management]. Workload resources, such as [Azure Arc VMs](/azure-stack/hci/manage/create-arc-virtual-machines), [Arc-enabled AKS][arc-enabled-aks] and [Azure Virtual Desktop (AVD) node pools](/azure/virtual-desktop/deploy-azure-virtual-desktop) can be deployed using Azure, by selecting an [Azure Stack HCI cluster's "custom location"](/azure-stack/hci/manage/azure-arc-vm-management-overview#components-of-azure-arc-vm-management) as the target for the workload deployment, these components provide centralized administration, management, and support. For customers that have existing Windows Server Datacenter Core Licenses with active Software Assurance (SA), it is possible to further reduce costs by applying Azure Hybrid Benefit to Azure Stack HCI, and Windows Server VMs and AKS clusters to optimize the costs for these services.
 
-To minimize Azure Stack HCI cluster and workload management overhead, you should also consider uses the following Azure services, which provide the following capabilities:
+To minimize the Azure Stack HCI cluster and workload operational management costs, consider using the Azure services below, which provide the following capabilities:
 
-- [Azure Monitor][azs-hci-monitor]. Collects telemetry generated by clusters and their VMs for monitoring, analytics, and alerting.
-- [Azure Automation, Update Management feature][az-auto-update-mgmt]. Use for Azure Stack HCI VM automated patch deployment and reporting.
+- [Azure Monitor][azs-hci-monitor] to collect diagnostic logs and telemetry generated by HCI clusters and the Arc VM or Arc AKS workload for the purposes of monitoring, analytics, and alerting.
+- [Azure Update Management][azure-update-management] to manage updates for Azure Stack HCI clusters and Virtual Machines, to automate the deployment and reporting processes for security updates.
 - [Azure Automation, Change Tracking, and Inventory feature][az-auto-ct-and-inv]. Track Azure Stack HCI VM configuration changes.
 - [Azure Automation DSC][az-auto-vm-dsc-hybrid-worker]. Automate a desired state configuration of Azure Stack HCI VMs.
 - [Azure Backup][azs-hci-vm-backup]. Manage the backup of Azure Stack HCI VMs and their workloads.
 - [Azure Site Recovery][azs-hci-vm-dr]. Implement and orchestrate disaster recovery for Azure Stack HCI VMs.
 - [Azure File Sync][az-file-sync]. Synchronize and tier file shares that are hosted on Azure Stack HCI clusters.
-- [Azure Kubernetes Service (AKS)][azs-hci-aks]. Implement container orchestration.
+- [Arc-enabled Azure Kubernetes Service (AKS)][azs-hci-aks] Implement container orchestration.
+- [Azure Virtual Desktop (AVD)][azs-hci-avd]. Implement node pools for VDI workloads on Azure Stack HCI.
 
 To further benefit from Azure capabilities, you can extend the scope of Azure Arc integration to the Azure Stack HCI virtualized and containerized workloads, by implementing the following functionality:
 
-- [Azure Arc enabled servers][arc-enabled-servers]. Use for virtualized workloads that run Azure Stack HCI VMs.
-- [Azure Arc enabled data services][arc-enabled-data-services]. Use for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that's running on AKS and hosted by Azure Stack HCI VMs.
+- [Azure Arc-enabled VMs][arc-enabled-vms] for applications or services that run as virtualized workloads in Azure Stack HCI VMs.
+- [Azure Arc-enabled AKS][arc-enabled-aks] for containerized applications or services that will benefit from using Kubernetes as their orchestration platform.
+- [Azure Arc enabled data services][arc-enabled-data-services] for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that use Arc-enabled AKS hosted on Azure Stack HCI.
 
-With the scope of Azure Arc extended to Azure Stack HCI VMs, you'll be able to [automate their configuration by using Azure VM extensions][arc-vm-extensions] and evaluate their [compliance with industry regulations and corporate standards by using Azure Policy][arc-azure-policy].
+With the scope of Azure Arc extended to Azure Stack HCI VMs, it is possible to [automate the Guest OS configuration using Azure Arc VM extensions][arc-vm-extensions] and evaluate [compliance with industry regulations and corporate standards by using Azure Policy][arc-azure-policy].
 
 ### Azure Stack HCI default security configuration provides defense in depth approach, simplifying security and compliance costs
 
 The deployment and management of IT services for retail, manufacturing and remote office scenarios present unique challenges for security and compliance. With no&mdash;or at best&mdash;limited local IT support and lack of dedicated datacenters, it is particularly important to protect workloads from both internal and external threats. Azure Stack HCI's default security hardening and deep integration with Azure services can help address these challenges.
 
-Azure Stack HCI&ndash;certified hardware ensures built-in Secure Boot, Unified Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) support. These technologies, combined with [virtualization-based security (VBS)][azs-hci-vbs], help protect security-sensitive workloads. BitLocker Drive Encryption allows you to encrypt Storage Spaces Direct volumes at rest while SMB encryption provides automatic encryption in transit, facilitating compliance with standards such as Federal Information Processing Standard 140-2 (FIPS 140-2) and Health Insurance Portability and Accountability Act (HIPAA).
+Azure Stack HCI&ndash;certified hardware ensures built-in Secure Boot, Unified Extensible Firmware Interface (UEFI), and Trusted Platform Module (TPM) support. These technologies, combined with [virtualization-based security (VBS)][azs-hci-vbs], help protect security-sensitive workloads. BitLocker Drive Encryption allows you to encrypt Boot disk volume and Storage Spaces Direct volumes at rest while SMB encryption provides automatic encryption in transit, facilitating compliance with standards such as Federal Information Processing Standard 140-2 (FIPS 140-2) and Health Insurance Portability and Accountability Act (HIPAA).
 
-In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Cloud][az-security-center] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by onboarding Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
+In addition, you can onboard Azure Stack HCI VMs in [Microsoft Defender for Cloud][ms-defender-for-cloud] to activate cloud-based behavioral analytics, threat detection and remediation, alerting, and reporting. Similarly, by managing Azure Stack HCI VMs in Azure Arc, you gain the ability to use [Azure Policy][arc-azure-policy] to evaluate their compliance with industry regulations and corporate standards.
 
 ## Considerations
 
@@ -95,7 +124,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Reliability considerations include:
 
 - Improved Storage Spaces Direct volume repair speed (also referred to as *resync*). Storage Spaces Direct provides automatic resync following events that affect availability of storage pool disks, such as shutting down a cluster node or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at much finer granularity than Windows Server 2019 and significantly reduces the resync operation time. This minimizes potential impact of multiple overlapping hardware failures.
-- Failover Clustering witness selection. The lightweight, USB drive&ndash;based witness eliminates dependencies on reliable internet connectivity, which is required when using cloud witness-based configuration.
+- Failover Clustering witness selection. The lightweight, Cloud Witness&ndash;based witness eliminates dependencies in setting up a separate server or maintain additional infrastructure such as file share witness. The use of cloud witness for quorum is easier to manage and reduces operational overhead.
 
 ### Security
 
@@ -103,8 +132,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Security considerations include:
 
-- [Azure Stack HCI basic security][azs-hci-basic-security]. Leverage Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Windows Admin Center role-based access control][wac-rbac] to delegate management tasks by following the principle of least privilege.
-- [Azure Stack HCI advanced security][azs-hci-advanced-security]. Apply Microsoft security baselines to Azure Stack HCI clusters and their Windows Server workloads by using Active Directory Domain Services (AD DS) with Group Policy. You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
+- [Azure Stack HCI basic security][azs-hci-basic-security]. Leverage Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Azure role-based access control][azure-rbac] to delegate management tasks by following the principle of least privilege.
+- [Azure Stack HCI security default][azs-hci-security-default]. Apply default security settings for your Azure Stack HCI cluster during deployment to keep the nodes in a known good state. You can use the security default settings to manage cluster security, drift control, and Secured core server settings on your cluster.
+[Azure Stack HCI advanced security][azs-hci-advanced-security] You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
 
 ### Cost optimization
 
@@ -112,11 +142,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Cost optimization considerations include:
 
-- Switchless vs switch-based cluster interconnects. The switchless interconnect topology consists of redundant connections between single-port or dual-port Remote Direct Memory Access (RDMA) adapters on each node (which forms a full mesh), with each node connected directly to every other node. While this is straightforward to implement in a 2-node cluster, larger clusters require additional network adapters in each node's hardware.
-- Cloud-style billing model. Azure Stack HCI pricing follows the [monthly subscription billing model][azs-hci-billing], with a flat rate per physical processor core in an Azure Stack HCI cluster.
+- Switchless vs switch-based cluster interconnects. The switchless interconnect topology consists of redundant connections between single-port or dual-port Remote Direct Memory Access (RDMA) adapters on each node (which forms a full mesh), with each node connected directly to every other node. While this is straightforward to implement in a 2-node or 3-node cluster, larger clusters require additional network adapters in each node's hardware.
+- Cloud-style billing model. Azure Stack HCI pricing follows the [monthly subscription billing model][azs-hci-billing], with a flat rate per physical processor core in an Azure Stack HCI cluster (additional usage charges apply if you use other Azure services). If you own on-premises core licenses for Windows Server Datacenter edition, with active Software Assurance (SA) you might choose to exchange these licenses to activate Azure Stack HCI cluster and Windows Server VM subscription fee.
 
-> [!CAUTION]
-> While there are no on-premises software licensing requirements for cluster nodes hosting the Azure Stack HCI infrastructure, Azure Stack HCI VMs might require individual OS licenses. Additional usage charges might also apply if you use other Azure services.
+> [!TIP]
+> You can get cost savings with Azure Hybrid Benefit if you have Windows Server Datacenter licenses with active Software Assurance. For more information about Azure Hybrid Benefit, see [Azure Hybrid Benefit for Azure Stack HCI][azs-hybrid-benefit].
 
 ### Operational excellence
 
@@ -124,8 +154,9 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Operational excellence considerations include:
 
-- Simplified provisioning and management experience with Windows Admin Center. The [**Create Cluster Wizard** in Windows Admin Center][azs-hci-create-with-wac] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. Similarly, [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs][azs-hci-manage-vms-with-wac].
-- Automation capabilities. Azure Stack HCI provides a wide range of automation capabilities, with OS updates combined with full-stack updates including firmware and drivers provided by Azure Stack HCI vendors and partners. With Cluster-Aware Updating (CAU), OS updates run unattended while Azure Stack HCI workloads remain online. This results in seamless transitions between cluster nodes that eliminate impact from post-patching reboots. Azure Stack HCI also offers support for [automated cluster provisioning][azs-hci-create-with-powershell] and [VM management][azs-hci-manage-vms-with-powershell] by using Windows PowerShell. You can run Windows PowerShell locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of additional automation scenarios for [virtualized][arc-vm-extensions] and [containerized][azs-hci-k8s-gitops] workloads.
+- Simplified provisioning and management experience integrated with Azure. The [**Cloud Based Deployment** in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. Similarly, [Azure Portal simplifies the process of managing Azure Stack HCI Clusters and Azure Arc VMs][azs-hci-manage-cluster-at-scale] and [azs-hci-manage-arc-vms].
+- Automation capabilities for Virtual Machines. Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as Virtual Machines, with the [automated deployment of Arc VMs using Azure CLI, ARM or Bicep Template][azs-hci-automate-arc-vms], with Virtual Machine OS updates using Azure Arc Extension for Updates and Azure Update Manager[azs-update-manager]. Azure Stack HCI also offers support for [Azure Arc VM management][azs-hci-vm-automate-cli] by using Azure CLI and [Non-Azure Arc VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of additional automation scenarios for [virtual machine][arc-vm-extensions] workloads through Azure Arc extensions.
+- Automation capabilities for Containers on AKS (Azure Kubernetes Service). Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as containers on AKS, with the [automated deployment of AKS clusters using Azure CLI][azs-hci-automate-arc-aks], with AKS workload cluster updates using Azure Arc Extension for [Kubernetes Updates][azs-hci-automate-aks-update]. Azure Stack HCI also offers support for [Azure Arc AKS management][azs-hci-aks-automate-cli] by using Azure CLI. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with Azure Arc facilitates a wide range of additional automation scenarios for [containerized][azs-hci-k8s-gitops] workloads through Azure Arc extensions.
 - Decreased management complexity. Switchless interconnect eliminates the risk of switch device failures and the need for their configuration and management.
 
 ### Performance efficiency
@@ -182,41 +213,44 @@ Microsoft Learn modules:
 [azure-arc]: /azure/azure-arc/overview
 [azure-monitor]: /azure/azure-monitor/overview
 [azure-backup]: /azure/backup/backup-overview
-[azure-security-center]: /azure/security-center/security-center-introduction
+[ms-defender-for-cloud]: /azure/security-center/security-center-introduction
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
-[file-share-witness]: /windows-server/failover-clustering/file-share-witness
 [azure-policy]: /azure/governance/policy/overview
 [azure-automation]: /azure/automation/automation-intro
 [azure-change-tracking-and-inventory]: /azure/automation/change-tracking/overview
 [azure-update-management]: /azure/automation/update-management/overview
 [azure-site-recovery]: /azure/site-recovery/site-recovery-overview
-[azure-file-sync]: /azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2cproactive-portal
-[storage-replica]: /windows-server/storage/storage-replica/storage-replica-overview
-[usb-file-share-witness]: https://techcommunity.microsoft.com/t5/failover-clustering/new-file-share-witness-feature-in-windows-server-2019/ba-p/372149
+[key-vault]: /azure/key-vault/general/basic-concepts
 [s2d-resiliency]: /windows-server/storage/storage-spaces/storage-spaces-fault-tolerance
 [failover-clustering]: /windows-server/failover-clustering/failover-clustering-overview
-[s2d-nested-resiliency]: /windows-server/storage/storage-spaces/nested-resiliency#why-nested-resiliency
-[azs-hci-register-arc]: /azure-stack/hci/deploy/register-with-azure
-[azs-hci-portal-view]: /azure-stack/hci/manage/azure-portal
 [azs-hci-monitor]: /azure-stack/hci/manage/azure-monitor
 [az-auto-vm-dsc-hybrid-worker]: /azure/automation/automation-hybrid-runbook-worker#azure-automation-state-configuration-on-a-hybrid-runbook-worker
-[az-auto-update-mgmt]: /azure/automation/update-management/update-mgmt-overview
 [az-auto-ct-and-inv]: /azure/automation/change-tracking
 [azs-hci-vm-backup]: /azure-stack/hci/manage/use-azure-backup
 [azs-hci-vm-dr]: /azure-stack/hci/manage/azure-site-recovery
 [az-file-sync]: /azure/storage/files/storage-sync-files-planning
 [azs-hci-aks]: /azure-stack/aks-hci/overview
+[azs-hci-avd]: /azure/virtual-desktop/deploy-azure-virtual-desktop?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&tabs=portal
 [arc-enabled-servers]: /azure/azure-arc/servers/overview
+[arc-enabled-vms]: /azure-stack/hci/manage/azure-arc-vm-management-overview
+[arc-enabled-aks]: /azure/aks/hybrid/aks-create-clusters-portal
+[azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
+[azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
+[azs-hybrid-benefit]: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
 [arc-enabled-data-services]: /azure/azure-arc/data/overview
 [arc-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
 [arc-azure-policy]: /azure/azure-arc/servers/security-controls-policy
 [azs-hci-vbs]: /windows-hardware/design/device-experiences/oem-vbs
-[az-security-center]: /azure-stack/hci/concepts/security#part-2-use-azure-security-center
 [azs-hci-billing]: /azure-stack/hci/concepts/billing
-[azs-hci-create-with-wac]: /azure-stack/hci/deploy/create-cluster
-[azs-hci-create-with-powershell]: /azure-stack/hci/deploy/create-cluster-powershell
-[azs-hci-manage-vms-with-wac]: /azure-stack/hci/manage/vm
-[azs-hci-manage-vms-with-powershell]: /azure-stack/hci/manage/vm-powershell
+[azs-hci-deploy-via-portal]: /azure-stack/hci/deploy/deploy-via-portal
+[azs-hci-deploy-via-template]: /azure-stack/hci/deploy/deployment-azure-resource-manager-template
+[azs-hci-manage-with-cli]: /cli/azure/stack-hci
+[azs-hci-manage-cluster-at-scale]: /azure-stack/hci/manage/manage-at-scale-dashboard
+[azs-hci-manage-arc-vms]: /azure-stack/hci/manage/azure-arc-vm-management-overview
+[azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
+[azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
+[azs-hci-aks-automate-cli]: /cli/azure/aksarc
+[azs-hci-manage-non-arc-vms]: /azure-stack/hci/manage/vm-powershell
 [az-auto-hybrid-worker]: /azure/automation/automation-hybrid-runbook-worker
 [azs-hci-k8s-gitops]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [s2d-disks]: /windows-server/storage/storage-spaces/choosing-drives
@@ -232,6 +266,7 @@ Microsoft Learn modules:
 [azs-hci-switchless-interconnects-reqs]: /azure-stack/hci/concepts/plan-host-networking#interconnects-for-2-3-node-clusters
 [sr-resync]: /windows-server/storage/storage-spaces/understand-storage-resync
 [azs-hci-basic-security]: /azure-stack/hci/concepts/security#part-1-build-a-secure-foundation
-[wac-rbac]: /windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control
-[azs-hci-advanced-security]: /azure-stack/hci/concepts/security#part-3-add-advanced-security
+[azure-rbac]: /azure/role-based-access-control/overview
+[azs-hci-security-default]: /azure-stack/hci/manage/manage-secure-baseline
+[azs-hci-advanced-security]: /azure-stack/hci/concepts/security
 [ms-ata]: /advanced-threat-analytics/what-is-ata

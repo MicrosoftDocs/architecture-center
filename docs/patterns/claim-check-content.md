@@ -68,9 +68,9 @@ Choose the example that suits your needs and follow the provided link to view th
 
 | Sample code                   | Messaging system scenarios      | Token generator               | Receiving application                           | Data store         |
 |-------------------------------|---------------------------------|-------------------------------|-------------------------------------------------|--------------------|
-| [Code example 1][example-1]   | Azure Queue Storage             | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
-| [Code example 2][example-2]   | Azure Event Hubs (Standard API) | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
-| [Code example 3][example-3]   | Azure Service Bus               | Azure Event Grid              | Function<br><br>Executable command-line client  | Azure Blob Storage |
+| [Code example 1][example-1]   | Azure Queue Storage             | Azure Event Grid              | Function                                        | Azure Blob Storage |
+| [Code example 2][example-2]   | Azure Event Hubs (Standard API) | Azure Event Grid              | Executable command-line client                  | Azure Blob Storage |
+| [Code example 3][example-3]   | Azure Service Bus               | Azure Event Grid              | Function                                        | Azure Blob Storage |
 | [Code example 4][example-4]   | Azure Event Hubs (Kafka API)    | Executable command-line client| Function                                        | Azure Blob Storage |
 
 ## Next steps
