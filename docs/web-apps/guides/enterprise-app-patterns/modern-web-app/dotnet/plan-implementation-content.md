@@ -2,7 +2,7 @@
 title: 
 ---
 
-[!INCLUDE [mwa-plan-intro](../includes/mwa-plan-intro.md)]
+[!INCLUDE [mwa-plan-intro](../includes/mwa-intro.md)]
 
 [!INCLUDE [reference-implementation-dotnet](../includes/reference-implementation-dotnet.md)]
 
