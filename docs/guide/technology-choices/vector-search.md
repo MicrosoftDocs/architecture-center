@@ -46,7 +46,7 @@ If you choose to use a traditional database instead of Azure AI Search, some adv
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities.
+The tables in this section summarize the key differences in capabilities.
 
 ### Basic features
 
