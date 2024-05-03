@@ -31,7 +31,7 @@ This pattern can be reused for any multitenant scenario that has various service
                       
 ## Architecture
 
-:::image type="content" source="./_images/cross-tenant-communication-architecture.png" alt-text="A diagram of the cross-tenant communication architecture." lightbox="./_images/cross-tenant-communication-architecture.png":::
+:::image type="content" source="./_images/cross-tenant-communication-architecture.png" alt-text="A diagram of the cross-tenant communication architecture." border="false" lightbox="./_images/cross-tenant-communication-architecture.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cross-tenant-communication-architecture.pptx) of this architecture.*
 
@@ -49,7 +49,7 @@ The following workflow corresponds to the preceding diagram:
 
 1. The customer's function app uses a managed identity to read the provider's message from the queue via a Service Bus trigger.
 
-1. After it receives the message, the customer's function app typically does some work before sending a status message back to the provider. However in this case, for demo purposes, the function app immediately sends a status message to the provider on a separate queue in the same Service Bus.
+1. After it receives the message, the customer's function app typically does some work before sending a status message back to the provider. In this case, for demo purposes, the function app immediately sends a status message to the provider on a separate queue in the same Service Bus.
 
 1. This function app reads from the status queue from the customer's tenant via a timer that Azure Functions triggers.
 
@@ -67,7 +67,7 @@ A provider has multiple customers. The provider and each customer have their own
 
 - The application object is the global representation of your application and is used across all tenants. The service principal object is the local representation that's used in a specific tenant.
 
-- A service principal object must be created in each tenant where the application is used so that it can establish an identity for sign-in or for access to resources that the tenant secures. A single-tenant application has only one service principal object in its home tenant. This service principal object is created and permitted for use during application registration. A multitenant application also has a service principal object that's created in each tenant, and a user from that tenant consented to its use.
+- A service principal object must be created in each tenant where the application is used so that it can establish an identity to access resources that the tenant secures. A single-tenant application has only one service principal object in its home tenant. This service principal object is created and permitted for use during application registration. A multitenant application also has a service principal object that's created in each tenant, and a user from that tenant consented to its use.
 
 - To access resources that are secured by a Microsoft Entra tenant, a security principal must represent the entity that requires access.
 
@@ -135,7 +135,7 @@ Use the timer-triggered function to poll the deployment status queue from within
 
 #### Provision the service principal from the provider's tenant to the customer's tenant
 
-1. Visit the following URL and replace the `client_id` query string parameter with your own client ID: `https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=code&response_mode=query&scope=openid&client_id=<your_client_ID>`.
+1. Visit the following URL after replacing the `client_id` query string parameter with your own client ID: `https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=code&response_mode=query&scope=openid&client_id=<your_client_ID>`.
 
    You can also provision the service principal into another Microsoft Entra tenant with an admin Microsoft Graph API call, an Azure PowerShell command, or an Azure CLI command.
 
