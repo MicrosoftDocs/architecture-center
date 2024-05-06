@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Many models ML with Azure Machine Learning
+  title: Many models machine learning with Azure Machine Learning
   titleSuffix: Azure Example Scenarios
-  description: Many machine learning (ML) problems are too complex for a single ML model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
+  description: Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
   author: james-tn
   ms.author: janguy
   ms.date: 11/11/2022
@@ -19,8 +19,8 @@ products:
   - azure-databricks
   - azure-machine-learning
   - azure-synapse-analytics
-name: Many models machine learning (ML) at scale with Azure Machine Learning
-summary: Many machine learning (ML) problems are too complex for a single ML model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
+name: Many models machine learning at scale with Azure Machine Learning
+summary: Many machine learning problems are too complex for a single machine learning model to solve. Learn about many models machine learning at scale with Azure Machine Learning.
 thumbnailUrl: /azure/architecture/browse/thumbs/many-models-machine-learning-azure-thumbnail.png
 content: |
-  [!include[](many-models-machine-learning-azure-machine-learning-content.md )]
+  [!INCLUDE[](many-models-machine-learning-azure-machine-learning-content.md)]
