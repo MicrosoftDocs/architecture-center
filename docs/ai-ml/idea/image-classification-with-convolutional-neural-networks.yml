@@ -36,4 +36,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks-thumbnail.png
 content: |
-  [!include[](image-classification-with-convolutional-neural-networks-content.md)]
+  [!INCLUDE[](image-classification-with-convolutional-neural-networks-content.md)]
