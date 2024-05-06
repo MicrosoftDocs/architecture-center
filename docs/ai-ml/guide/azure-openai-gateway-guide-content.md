@@ -18,7 +18,7 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances carries greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-- **Load balancing/throttling:** The Azure OpenAI APIs throttles requests by returning a 429 response code to requests that exceed the Token-Per-Minute (Trusted Platform Module (TPM)) or Requests-Per Minute (RPM) in the consumption billing model or requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
+- **Load balancing/throttling:** The Azure OpenAI APIs throttles requests by returning a 429 response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per Minute (RPM) in the consumption billing model or requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 
 ### Security challenges
 
@@ -30,7 +30,7 @@ Security controls must protect workload confidentiality, integrity, and availabi
 
 - **Network security:** Depending on client location relative to your Azure OpenAI instances, public internet access to LLM models might be necessary.
 
-- **Data sovereignty** - Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity for clients to comply with data residency and sovereignty laws. This involves multiple Azure OpenAI deployments.
+- **Data sovereignty:** Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity for clients to comply with data residency and sovereignty laws. This involves multiple Azure OpenAI deployments.
 
 ### Cost optimization challenges
 

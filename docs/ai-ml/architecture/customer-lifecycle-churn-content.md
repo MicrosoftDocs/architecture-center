@@ -2,7 +2,7 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 ## Architecture
 
-[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services](_images/architecture-customer-lifetime-churn.svg).](_images/architecture-customer-lifetime-churn.svg#lightbox)
+[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services](_images/architecture-customer-lifetime-churn.svg)](_images/architecture-customer-lifetime-churn.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-customer-lifetime-churn.vsdx) of this architecture.*
 
@@ -84,7 +84,7 @@ Azure components offer availability through redundancy and as specified in servi
 
 ### Scalability
 
-This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gbp). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
+This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gb/s). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
 
 This scenario uses Azure Databricks clusters, which enable autoscaling by default. Autoscaling enables Databricks during runtime to dynamically reallocate resources. With autoscaling, you don't need to start a cluster to match a workload, which makes it easier to achieve high cluster usage.
 

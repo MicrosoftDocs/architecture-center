@@ -31,7 +31,7 @@ A topology that includes a single Azure OpenAI instance but contains more than o
 
 - Expose different model capabilities, such as `gpt-35-turbo`, `gpt-4`, and custom fine-tuned models
 - Expose different model versions, such as `0613`, `1106`, and custom fine-tuned models to support workload evolution or blue/green deployments
-- Expose different quota assigned (30K Tokens Per Minute (Trusted Platform Module (TPM)), 60K TPM) to support consumption throttling across multiple clients
+- Expose different quota assigned (30K Tokens Per Minute (TPM), 60K TPM) to support consumption throttling across multiple clients
 
 ### Introduce a gateway for multiple model deployments
 
@@ -238,7 +238,7 @@ This model can also be used to provide an active-passive approach to specificall
 #### Use Azure API Management (Multi-region deployment)
 
 :::image type="complex" source="_images/multiple-regions-api-management-multiple-after.svg" alt-text="An architecture diagram of a client connecting to an Azure OpenAI instance in both West US and East US through gateways located each region." lightbox="_images/multiple-regions-api-management-multiple-after.svg":::
-   An architecture diagram that shows a client connecting to two API Management gateways with a note that says "Built-in API Management fully qualified domain name (FQDN) (uses performance based routing)." The API Management instance is in a resource group called rg-gateway-westus but has a gateway in both West US and East US, in an active-active topology. Each gateway has an arrow pointing to a single Private Endpoint each. Each private endpoint points to a single Azure OpenAI instance each in the same region. Each Azure OpenAI instance has a gpt-4 (PTU) model deployed.
+   An architecture diagram that shows a client connecting to two API Management gateways with a note that says "Built-in API Management FQDN (uses performance based routing)." The API Management instance is in a resource group called rg-gateway-westus but has a gateway in both West US and East US, in an active-active topology. Each gateway has an arrow pointing to a single Private Endpoint each. Each private endpoint points to a single Azure OpenAI instance each in the same region. Each Azure OpenAI instance has a gpt-4 (PTU) model deployed.
 :::image-end:::
 
 To improve the reliability of the prior Azure API Management-based architecture, API Management supports deploying an [instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region). This deployment option gives you a single control plane, through a single API Management instance, but replicated gateways in the regions of your choice. In this topology, you deploy gateway components into each region containing Azure OpenAI instances that provide an active-active gateway architecture.
@@ -280,7 +280,7 @@ The previous section addresses the availability of the gateway by providing an a
 
 If your per-gateway routing rules are too complex for your team to consider tenable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with Azure Front Door (Anycast) or Traffic Manager (DNS), typically using latency based routing and appropriate health checks of gateway availability.
 
-Use Azure Front Door if you require an Azure web application firewall and public Internet access. Use Traffic Manager if you don't need an Azure web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that gateway can't be bypassed. Make the gateway instances available only via private endpoint when using Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
+Use Azure Front Door if you require a web application firewall and public Internet access. Use Traffic Manager if you don't need a web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that gateway can't be bypassed. Make the gateway instances available only via private endpoint when using Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
 
 Place per-region resources that are used in your custom gateway in per-region resource groups. This reduces the blast radius of a related regional outage affecting your ability to access the resource provider for your gateway resources in that region.
 
