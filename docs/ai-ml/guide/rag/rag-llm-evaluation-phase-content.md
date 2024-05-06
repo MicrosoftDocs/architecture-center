@@ -92,9 +92,13 @@ It is important for you to understand that designing and evaluating your RAG sol
 
 ## The RAG Experiment Accelerator
 
-These articles walk you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). This tool helps teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results.
+These articles walk you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework designed to optimize and enhance the development of Retrieval Augmented Generation (RAG) solutions. RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance, ultimately leading to more accurate and coherent text generation.
 
-TODO: Ritesh - anything you want to highlight here regarding the RAG Experiment Accelerator.
+With it's CLI based interface, you can effortlessly experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development while abstracting away the complexities of hyper-parameter tuning using simple configuration.
+
+Moreover, the framework provides comprehensive support for Language Model (LLM) configuration, enabling you to strike the perfect balance between model complexity and generation quality. This tool allows you to streamline the experimentation process, save valuable time, and significantly improve the performance of your RAG models.
+
+Whether you are a seasoned researcher pushing the boundaries of natural language understanding or an industry professional seeking to enhance text generation capabilities, this experimentation framework is the ultimate solution to accelerate your RAG development journey. Embrace the future of RAG experimentation and unlock the true potential of your models with this cutting-edge tool.
 
 ## Contributors
 
