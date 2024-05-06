@@ -26,13 +26,18 @@ Groundedness, sometimes referred to as faithfulness, measures whether the respon
 
 ### Completeness
 
-Completeness measures whether the response is answering all parts of the query. This helps you understand whether the chunks in the context are adequate to answer the query completely.
+Completeness measures whether the response is answering all parts of the query. This helps you understand whether the chunks in the context are pertinent and directly related to the query and provide a complete answer.
 
 **Calculating**
 
-* You can use an LLM to calculate the completeness of the LLM response. You can use the LLM to restate the question. You then pass the restated question and the response to the LLM and ask it to evaluate the completeness of the response. TODO: Do we need an example or a link?
+* [AI-assisted: Retrieval Score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score)
+* An LLM can help you measure the quality of the LLM response. You need the question, context, and generated answer to do this. The following outlines the high level process:
+  1. Use the LLM to rephrase, summarize, or simplify the question. This identifies the intent.
+  2. Ask the model to check if the intent or the answer to the intent is found or can be derived from retrieved documents where the answer can be "No", or "Yes" for each document. Answers that start with "Yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
+  3. Calculate the ratio of the intents that have an answer beginning with "Yes".
+  4. Square the score to highlight the errors.
 
-**Evaluating** - If completeness is low, you can start by evaluating your embedding model. TODO: why? What next?
+**Evaluating** - If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine if you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you are using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
 
 ### Utilization
 
@@ -41,8 +46,9 @@ Utilization measures the extent to which the response is made up of information 
 **Calculating**
 
 * You can use an LLM to calculate the utilization. You can pass the response and the context containing the chunks to the LLM. You can ask the LLM to determine the number of chunks that entail the answer.
+* [AI-Assisted GPT-Similarity prompting]( /azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-gpt-similarity)
 
-**Evaluating** - TODO: What are the logical steps?
+**Evaluating** - TODO:
 
 ### Relevance
 

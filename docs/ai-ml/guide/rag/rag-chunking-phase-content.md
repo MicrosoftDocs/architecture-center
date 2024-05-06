@@ -60,13 +60,13 @@ You find a brief overview of each approach, a list of common tools used for the 
 
 ### Sentence-based parsing
 
-This straightforward approach breaks down text documents into chunks made up of complete sentences. The benefits of this approach include that it's inexpensive to implement, it has low processing cost, and it can be applied to any text-based document. A challenge with this approach is that each chunk might not capture the complete context of a thought or meaning. Often, multiple sentences must be taken together to capture the semantic meaning.
+This straightforward approach breaks down text documents into chunks made up of complete sentences. The benefits of this approach include that it's inexpensive to implement, it has low processing cost, and it can be applied to any text-based document that is written in prose, or full sentences. A challenge with this approach is that each chunk might not capture the complete context of a thought or meaning. Often, multiple sentences must be taken together to capture the semantic meaning.
 
-**Tools**: [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html), [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/)
+**Tools**: [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
-**Use cases**: Unstructured documents, prohibitive number of different document types to build individual chunking strategies for<br/>
-**Examples**: User-generated content like open-ended feedback from surveys, forum posts, or reviews, email messages, and personal or research notes<br/>
+**Use cases**: Unstructured documents written in prose, or full sentences, and your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
+**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel or an essay<br/>
 
 ### Fixed-size parsing (with overlap)
 
@@ -77,8 +77,8 @@ You must choose the fixed size of the chunks and the amount of overlap. Because 
 **Tools**:  [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [Hugging Face chunk visualizer](https://huggingface.co/spaces/m-ric/chunk_visualizer)<br/>
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
-**Use cases**: Unstructured documents, prohibitive number of different document types to build individual chunking strategies for<br/>
-**Examples**: User-generated content like open-ended feedback from surveys, forum posts, or reviews, email messages, and personal or research notes TODO: Validate these examples or come up with different ones than sentence based.<br/>
+**Use cases**: Unstructured documents written in prose or non-prose with complete or incomplete sentences. Your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
+**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal or research notes or lists<br/>
 
 ### Custom code
 
