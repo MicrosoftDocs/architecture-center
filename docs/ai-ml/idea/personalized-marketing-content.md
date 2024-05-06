@@ -4,7 +4,7 @@ This architecture shows how you can create a solution personalizing offers with 
 
 ## Architecture
 
-[ ![Architecture diagram: personalizing offers with machine learning and near real time analytics](_images/personalized-marketing.svg).](_images/personalized-marketing.svg#lightbox)
+[ ![Architecture diagram: personalizing offers with machine learning and near real time analytics](_images/personalized-marketing.svg)](_images/personalized-marketing.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/personalized-marketing.vsdx) of this architecture.*
 
@@ -48,14 +48,14 @@ This solution is ideal for the retail and marketing industries.
 
 See the product documentation:
 
-- learn more about [Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
-- learn more about [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-- [Learn how to use Azure Cosmos DB](/azure/cosmos-db)
-- learn more about [Azure Storage](/azure/storage/common/storage-introduction)
-- [Learn how to create functions](/azure/azure-functions/functions-overview)
-- learn more about [machine learning](/azure/machine-learning/overview-what-is-azure-ml)
-- [Learn how to use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
-- learn about [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+- [Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
+- [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+- [Azure Cosmos DB](/azure/cosmos-db)
+- [Azure Storage](/azure/storage/common/storage-introduction)
+- [Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+- [Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache)
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
 
 Try a learning path:
 

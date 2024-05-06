@@ -1,6 +1,6 @@
  This article describes an architecture for many models that uses Machine Learning and compute clusters. It provides great versatility for situations that require complex setup.
 
-A companion article, [Many models machine learningRemove redundant parenthetical at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml), uses Apache Spark in either Azure Databricks or Azure Synapse Analytics.
+A companion article, [Many models machine learning at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml), uses Apache Spark in either Azure Databricks or Azure Synapse Analytics.
 
 ## Architecture
 
@@ -44,7 +44,7 @@ A companion article, [Many models machine learningRemove redundant parenthetical
 
 ## Scenario details
 
-Many machine learningRemove redundant parenthetical problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is common across a wide variety of industries, and has many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
+Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is common across a wide variety of industries, and has many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
 
 A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for every item of every store, every dataset will be for a unique item-store combination.
 
@@ -67,7 +67,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
   - The Machine Learning and compute clusters solution provides great versatility for situations that require complex setup. For example, you can make use of a custom Docker container, or download files, or download pre-trained models. Computer vision and natural language processing (NLP) deep learning are examples of applications that might require such versatility.
 - **Spark training and scoring:** When you use the Spark architecture, you can use the Spark pandas function API for parallel training and scoring.
 - **Separate model repos:** To protect the deployed models, consider storing them in their own repository that the training and testing pipelines don't touch.
-- **ParallelRunStep Class:** The Python [ParallelRunStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is a powerful option to run many models training and inferencing. It can partition your data in a variety of ways, and then apply your machine learning script on elements of the partition in parallel. Like other forms of Machine Learning training, you can specify a custom training environment with access to Python Package Index (PyPI) packages, or a more advanced custom Docker environment for configurations that require more than standard PyPI. There are many CPUs and graphics processing units (GPUs) to choose from.
+- **ParallelRunStep Class:** The Python [ParallelRunStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is a powerful option to run many models training and inferencing. It can partition your data in a variety of ways, and then apply your machine learning script on elements of the partition in parallel. Like other forms of Machine Learning training, you can specify a custom training environment with access to Python Package Index (PyPI) packages, or a more advanced custom Docker environment for configurations that require more than standard PyPI. There are many CPUs and GPUs to choose from.
 - **Online inferencing:** If a pipeline loads and caches all models at the start, the models might exhaust the container's memory. Therefore, load the models on demand in the run method, even though it might increase latency slightly.
 
 ### Cost optimization
@@ -107,4 +107,4 @@ Principal author:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Many models machine learningRemove redundant parenthetical at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml)
+- [Many models machine learning at scale in Azure with Spark](many-models-machine-learning-azure-spark.yml)

@@ -3,7 +3,7 @@
 > [!NOTE]
 > Use Spark versions 3.0 and later for many models applications. The data transformation capabilities and support for Python and pandas are much better than in earlier versions.
 
-A companion article, [Many models machine learningRemove redundant parenthetical at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml), uses Machine Learning and compute clusters.
+A companion article, [Many models machine learning at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml), uses Machine Learning and compute clusters.
 
 ## Architecture
 
@@ -47,7 +47,7 @@ A companion article, [Many models machine learningRemove redundant parenthetical
 
 ## Scenario details
 
-Many machine learningRemove redundant parenthetical problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is very common across a wide variety of industries, and applies to many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
+Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is very common across a wide variety of industries, and applies to many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
 
 A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for every item of every store, every dataset will be for a unique item-store combination.
 
@@ -111,5 +111,5 @@ Principal author:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Many models machine learningRemove redundant parenthetical at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml)
+- [Many models machine learning at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml)
 - [Batch scoring of Spark models on Azure Databricks](../../ai-ml/architecture/batch-scoring-databricks.yml)
