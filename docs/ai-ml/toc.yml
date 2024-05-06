@@ -54,8 +54,6 @@ items:
           href: ../solution-ideas/articles/cognitive-search-with-skillsets.yml
       - name: MLOps
         items:
-        - name: Model deployment to AKS
-          href: idea/machine-learning-model-deployment-aks.yml
         - name: Orchestrate MLOps with Azure Databricks
           href: idea/orchestrate-mlops-azure-databricks.yml    
         - name: Deploy AI and ML at the edge
@@ -160,6 +158,12 @@ items:
           href: guide/mlops-maturity-model.yml
         - name: Upscale ML lifecycle with MLOps
           href: guide/mlops-technical-paper.yml
+      - name: Proxy Azure OpenAI usage
+        items:
+        - name: Use a gateway infront of Azure OpenAI
+          href: guide/azure-openai-gateway-guide.yml
+        - name: A gateway for multiple Azure OpenAI backends
+          href: guide/azure-openai-gateway-multi-backend.yml
       - name: Team Data Science Process
         items:
         - name: Overview

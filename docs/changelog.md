@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 04/08/2024
+ms.date: 04/29/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,15 +27,47 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Deploy PSCAD on an Azure virtual machine](./guide/hpc/pscad.yml)
+- [Migrate mainframe data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)
+- [Supply chain management - Track and trace with Kaleido Blockchain as a Service powered by Azure](./guide/blockchain/blockchain-service.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)
+- [Use a split-brain DNS configuration to host a web app](./example-scenario/networking/split-brain-dns.yml)
 - [Replatform AIX workloads on Azure](./example-scenario/mainframe/replatform-aix-workloads.yml)
 
 ### Updated articles
 
-- [Deploy Ansys CFX on an Azure virtual machine](./guide/hpc/ansys-cfx.yml)  ([#8354c1618a](https://github.com/MicrosoftDocs/architecture-center/commit/8354c1618a))
+- [Claim-Check pattern](./patterns/claim-check.yml)  ([#7cd4a5fc06](https://github.com/MicrosoftDocs/architecture-center/commit/7cd4a5fc06))
+- [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#d4096a7e81](https://github.com/MicrosoftDocs/architecture-center/commit/d4096a7e81))
+- [Reliable web app pattern for .NET - Apply the pattern](./web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
+- [Reliable web app pattern for .NET - Plan the implementation](./web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
+- [Reliable web app pattern for Java - Apply the pattern](./web-apps/guides/reliable-web-app/java/apply-pattern.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
+- [Reliable web app pattern for Java - Plan the implementation](./web-apps/guides/reliable-web-app/java/plan-implementation.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
+- [Reliable Web App pattern](./web-apps/guides/reliable-web-app/overview.md)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
+- [Choreography pattern](./patterns/choreography.yml)  ([#44545f677e](https://github.com/MicrosoftDocs/architecture-center/commit/44545f677e))
 - [Sharding pattern](./patterns/sharding.yml)  ([#53dea81b8b](https://github.com/MicrosoftDocs/architecture-center/commit/53dea81b8b))
 - [Unisys mainframe migration with Avanade AMT](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#ef52a9c4b8](https://github.com/MicrosoftDocs/architecture-center/commit/ef52a9c4b8))
-- [Choreography pattern](./patterns/choreography.yml)  ([#bee02f5541](https://github.com/MicrosoftDocs/architecture-center/commit/bee02f5541))
+- [Disconnected AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge-disconnected.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
+- [Azure Machine Learning architecture](./ai-ml/idea/azure-machine-learning-solution-architecture.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
+- [Customer churn prediction using real-time analytics](./ai-ml/idea/customer-churn-prediction.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
+- [Customer support and feedback analysis](./ai-ml/idea/customer-feedback-and-analytics.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
+- [Deploy AI and machine learning at the edge](./ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)  ([#5c8a0bfe5b](https://github.com/MicrosoftDocs/architecture-center/commit/5c8a0bfe5b))
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](./ai-ml/guide/mlops-technical-paper.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [Network security checklist for MLOps solutions](./ai-ml/guide/network-security-mlops.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [Query-based document summarization](./ai-ml/guide/query-based-summarization.md)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [AI at the edge with Azure Stack Hub](./ai-ml/idea/ai-at-the-edge.yml)  ([#9597e138f4](https://github.com/MicrosoftDocs/architecture-center/commit/9597e138f4))
+- [Build and deploy a social media analytics solution](./ai-ml/architecture/build-deploy-social-media-analytics-solution.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
+- [Image classification on Azure](./ai-ml/architecture/intelligent-apps-image-processing.yml)  ([#f2fe7193e5](https://github.com/MicrosoftDocs/architecture-center/commit/f2fe7193e5))
+- [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#863c1fb294](https://github.com/MicrosoftDocs/architecture-center/commit/863c1fb294))
+- [Serverless web application](./web-apps/serverless/architectures/web-app.yml)  ([#08aa3d6222](https://github.com/MicrosoftDocs/architecture-center/commit/08aa3d6222))
+- [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)  ([#95dfc35ea1](https://github.com/MicrosoftDocs/architecture-center/commit/95dfc35ea1))
+- [Secure research environment for regulated data](./ai-ml/architecture/secure-compute-for-research.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Build a speech to text transcription pipeline to analyze recorded conversations](./ai-ml/architecture/speech-to-text-transcription-analytics.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Conversation summarization](./ai-ml/guide/conversation-summarization.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Implement custom speech to text solutions that use AI](./ai-ml/guide/custom-speech-text.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Deploy a custom speech to text solution that uses AI](./ai-ml/guide/custom-speech-text-deploy.yml)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Microsoft machine learning products](./ai-ml/guide/data-science-and-machine-learning.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [Machine learning operations (MLOps) v2](./ai-ml/guide/machine-learning-operations-v2.md)  ([#5be601f9c0](https://github.com/MicrosoftDocs/architecture-center/commit/5be601f9c0))
+- [MLOps for Python with Azure Machine Learning](./ai-ml/guide/mlops-python.yml)  ([#171d0a834e](https://github.com/MicrosoftDocs/architecture-center/commit/171d0a834e))
+- [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#b872e39b9a](https://github.com/MicrosoftDocs/architecture-center/commit/b872e39b9a))
 - [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#4d8d14cfb0](https://github.com/MicrosoftDocs/architecture-center/commit/4d8d14cfb0))
 - [Analyze video content with Computer Vision and Azure Machine Learning](./ai-ml/architecture/analyze-video-computer-vision-machine-learning.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
 - [Automate document classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
@@ -52,10 +84,8 @@ The following new and updated articles have recently been published in the Azure
 - [SaaS and multitenant solution architecture](./guide/saas-multitenant-solution-architecture/index.md)
 - [Deployment patterns for Microsoft Fabric](./analytics/architecture/fabric-deployment-patterns.yml)
 - [Certificate lifecycle management on Azure](./example-scenario/certificate-lifecycle/index.yml)
-- [Deploy Autodesk VRED Core on an Azure virtual machine](./guide/hpc/autodesk-vred-core.yml)
 - [Azure Governance Visualizer Accelerator guidance](./landing-zones/azure-governance-visualizer-accelerator.yml)
 - [SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway.yml)
-- [Deploy Ansys Speos on an Azure virtual machine](./guide/hpc/ansys-speos.yml)
 
 ### Updated articles
 
@@ -106,7 +136,6 @@ The following new and updated articles have recently been published in the Azure
 - [Host a Murex MX.3 workload on Azure using SQL](./example-scenario/finance/murex-mx3-sql.yml)
 - [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.yml)
 - [Quarantine pattern](./patterns/quarantine.yml)
-- [Deploy TUFLOW HPC on an Azure virtual machine](./guide/hpc/tuflow-hpc.yml)
 
 ### Updated articles
 
@@ -127,7 +156,6 @@ The following new and updated articles have recently been published in the Azure
 - [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
 - [Team lead tasks in the Team Data Science Process](./data-science-process/team-lead-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
 - [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#3384d4cef1](https://github.com/MicrosoftDocs/architecture-center/commit/3384d4cef1))
-- [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)  ([#ae882b9576](https://github.com/MicrosoftDocs/architecture-center/commit/ae882b9576))
 - [Azure icons](./icons/index.md)  ([#e57764588e](https://github.com/MicrosoftDocs/architecture-center/commit/e57764588e))
 - [Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search](./ai-ml/openai/idea/search-and-query-using-openai-service.yml)  ([#f8cde6690c](https://github.com/MicrosoftDocs/architecture-center/commit/f8cde6690c))
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#b91e17155e](https://github.com/MicrosoftDocs/architecture-center/commit/b91e17155e))
@@ -164,16 +192,12 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)
-- [Deploy BETA CAE EPILYSIS on an Azure virtual machine](./guide/hpc/epilysis.yml)
 - [Azure Load Testing with custom plugins to simulate device behaviors](./guide/testing/load-testing/load-testing-with-custom-plugins.md)
 - [Azure Virtual Machines baseline architecture](./virtual-machines/baseline.yml)
 - [Azure Virtual Machines baseline architecture in an Azure landing zone](./virtual-machines/baseline-landing-zone.yml)
 - [SDWAN integration with Azure hub-and-spoke network topologies](./networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies.yml)
-- [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)
-- [Deploy Ansys HFSS on an Azure virtual machine](./guide/hpc/ansys-hfss.yml)
 - [Choose an Azure container service](./guide/choose-azure-container-service.md)
 - [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)
-- [Deploy tNavigator on an Azure virtual machine](./guide/hpc/tnavigator.yml)
 
 ### Updated articles
 
@@ -186,9 +210,7 @@ The following new and updated articles have recently been published in the Azure
 - [Observability patterns and metrics](./databricks-monitoring/databricks-observability.yml)  ([#02bb1b491a](https://github.com/MicrosoftDocs/architecture-center/commit/02bb1b491a))
 - [Automated scheduling and dispatching for semiconductor manufacturing](./example-scenario/manufacturing/fab-scheduling-azure.yml)  ([#02bb1b491a](https://github.com/MicrosoftDocs/architecture-center/commit/02bb1b491a))
 - [Use subject matter expertise in machine teaching](./solution-ideas/articles/machine-teaching.yml)  ([#02bb1b491a](https://github.com/MicrosoftDocs/architecture-center/commit/02bb1b491a))
-- [Deploy Barracuda Virtual Reactor on a virtual machine](./guide/hpc/barracuda-virtual-reactor.yml)  ([#ca7fc55dae](https://github.com/MicrosoftDocs/architecture-center/commit/ca7fc55dae))
 - [Run a Linux VM on Azure](./reference-architectures/n-tier/linux-vm.yml)  ([#b57167ff45](https://github.com/MicrosoftDocs/architecture-center/commit/b57167ff45))
-- [Deploy Altair Radioss on an Azure virtual machine](./guide/hpc/altair-radioss.yml)  ([#274173ea1e](https://github.com/MicrosoftDocs/architecture-center/commit/274173ea1e))
 - [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b0be31cf9a](https://github.com/MicrosoftDocs/architecture-center/commit/b0be31cf9a))
 - [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#bdbd521054](https://github.com/MicrosoftDocs/architecture-center/commit/bdbd521054))
 - [Index file content and metadata by using Azure AI Search](./ai-ml/architecture/search-blob-metadata.yml)  ([#3d146959dc](https://github.com/MicrosoftDocs/architecture-center/commit/3d146959dc))

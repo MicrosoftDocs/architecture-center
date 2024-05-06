@@ -9,10 +9,9 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-app-service
-  - vs-app-center
-  - xamarin
   - azure-communication-services
   - azure-notification-hubs
+  - dotnet-maui
 categories:
   - mobile
   - developer-tools
@@ -24,11 +23,9 @@ The Azure platform can help you quickly build Android, iOS, and Windows apps tha
 
 These are just some of the services that Azure provides to help you with mobile development and back-end infrastructure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
 
-- [Visual Studio App Center](https://azure.microsoft.com/services/app-center). Build, test, release, and monitor your mobile apps.
-
-- [Xamarin](https://azure.microsoft.com/features/xamarin). Quickly create cloud-powered mobile apps.
+- [.NET MAUI](/dotnet/maui/). Build mobile applications using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
 
 - [Azure Communication Services](https://azure.microsoft.com/services/communication-services). Use a set of rich communication APIs, video APIs, and SMS APIs to deploy your applications across any device, on any platform.
 

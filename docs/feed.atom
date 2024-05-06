@@ -2,18 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-04-08T19:00:03.225Z</updated>
+    <updated>2024-04-29T17:39:03.922Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Deploy PSCAD on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/pscad</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/pscad"/>
-        <updated>2024-04-04T19:43:17.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run PSCAD software on an Azure virtual machine, and see the performance results on HBv3-series and HBv4-series VMs.]]></summary>
+        <title type="html"><![CDATA[Migrate mainframe data to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-data-replication-azure-rdrs"/>
+        <updated>2024-04-26T18:43:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use RDRS, a mainframe data replication solution, to migrate data to and from multiple Azure data platform services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Supply chain management - Track and trace with Kaleido Blockchain as a Service powered by Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/blockchain/blockchain-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/blockchain/blockchain-service"/>
+        <updated>2024-04-11T21:04:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure services and Kaleido Blockchain as a Service to track and trace physical assets, along with their metadata.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IBM z/OS mainframe migration with Avanade AMT]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/avanade-amt-zos-migration"/>
+        <updated>2024-04-11T20:17:28.000Z</updated>
+        <summary type="html"><![CDATA[See how to use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use a split-brain DNS configuration to host a web app]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/networking/split-brain-dns</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/networking/split-brain-dns"/>
+        <updated>2024-04-29T17:23:22.000Z</updated>
+        <summary type="html"><![CDATA[Implement a split-brain DNS configuration to differentiate traffic treatment based on DNS and whether a client originates from the internet or a corporate network.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -25,11 +49,67 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Ansys CFX on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-cfx</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-cfx"/>
-        <updated>2024-04-05T16:50:45.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Ansys CFX computational fluid dynamics software performs on an Azure virtual machine (VM).]]></summary>
+        <title type="html"><![CDATA[Claim-Check pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/claim-check</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/claim-check"/>
+        <updated>2024-04-22T19:48:18.000Z</updated>
+        <summary type="html"><![CDATA[Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure mainframe and midrange architecture concepts and patterns]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/mainframe/mainframe-midrange-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/mainframe/mainframe-midrange-architecture"/>
+        <updated>2024-04-11T20:17:28.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for .NET - Apply the pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern"/>
+        <updated>2024-04-10T23:02:21.000Z</updated>
+        <summary type="html"><![CDATA[Apply the reliable web app pattern for .NET to your web app. Find essential implementation guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for .NET - Plan the implementation]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation"/>
+        <updated>2024-04-10T23:02:21.000Z</updated>
+        <summary type="html"><![CDATA[Plan the implementation of the reliable web app pattern for .NET. Find essential design guidance for migrating web apps to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for Java - Apply the pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern"/>
+        <updated>2024-04-10T23:02:21.000Z</updated>
+        <summary type="html"><![CDATA[Apply the reliable web app pattern for Java to your web app. Find essential implementation guidance for web apps moving to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for Java - Plan the implementation]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/plan-implementation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/plan-implementation"/>
+        <updated>2024-04-10T23:02:21.000Z</updated>
+        <summary type="html"><![CDATA[Plan the implementation of the reliable web app pattern for Java. Find essential design guidance for web apps moving to the cloud. Learn how to update (replatform) web apps to be successful in the cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable Web App pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/overview"/>
+        <updated>2024-04-10T23:02:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Reliable Web App pattern.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choreography pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/choreography</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/choreography"/>
+        <updated>2024-04-26T19:07:04.000Z</updated>
+        <summary type="html"><![CDATA[Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -49,11 +129,187 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Choreography pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/patterns/choreography</id>
-        <link href="https://learn.microsoft.com/azure/architecture/patterns/choreography"/>
-        <updated>2024-04-08T17:04:13.000Z</updated>
-        <summary type="html"><![CDATA[Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.]]></summary>
+        <title type="html"><![CDATA[Disconnected AI at the edge with Azure Stack Hub]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Machine Learning architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end machine learning lifecycle.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer churn prediction using real-time analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-churn-prediction</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-churn-prediction"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer support and feedback analysis]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-feedback-and-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/customer-feedback-and-analytics"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Use knowledge mining to help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AI and machine learning at the edge]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge"/>
+        <updated>2024-04-29T16:57:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/mlops-technical-paper</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/mlops-technical-paper"/>
+        <updated>2024-04-22T16:30:27.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to apply the machine learning operations (MLOps) maturity model to implement a machine learning solution for predicting product shipping levels.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Network security checklist for MLOps solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/network-security-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/network-security-mlops"/>
+        <updated>2024-04-22T16:30:27.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure network security capabilities, such as virtual networks, network peering, Private Link, and private DNS zones to protect MLOps solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Query-based document summarization]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/query-based-summarization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/query-based-summarization"/>
+        <updated>2024-04-22T16:30:27.000Z</updated>
+        <summary type="html"><![CDATA[Implement query-based document summarization by using the Azure OpenAI GPT-3 model. Review two example use cases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI at the edge with Azure Stack Hub]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/ai-at-the-edge</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/ai-at-the-edge"/>
+        <updated>2024-04-22T16:30:27.000Z</updated>
+        <summary type="html"><![CDATA[Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and deploy a social media analytics solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-social-media-analytics-solution</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/build-deploy-social-media-analytics-solution"/>
+        <updated>2024-04-22T15:10:12.000Z</updated>
+        <summary type="html"><![CDATA[Build and deploy a social medial analytics solution that uses Azure Synapse Analytics, Azure Machine Learning, and Azure AI services with external data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Image classification on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/intelligent-apps-image-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/intelligent-apps-image-processing"/>
+        <updated>2024-04-22T15:10:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless event processing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing"/>
+        <updated>2024-04-19T19:50:32.000Z</updated>
+        <summary type="html"><![CDATA[This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless web application]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/serverless/architectures/web-app</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/serverless/architectures/web-app"/>
+        <updated>2024-04-19T19:44:54.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for IoT in a multitenant solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
+        <updated>2024-04-17T14:39:33.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches for supporting multitenancy in your IoT solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure research environment for regulated data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/secure-compute-for-research"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a speech to text transcription pipeline to analyze recorded conversations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/speech-to-text-transcription-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/speech-to-text-transcription-analytics"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Build a pipeline to transcribe and analyze audio conversations by using the AI Speech and Language APIs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Conversation summarization]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement custom speech to text solutions that use AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about approaches for implementing high-quality speech-aware applications that use AI. This article describes the problem space and decision-making process.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy a custom speech to text solution that uses AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/custom-speech-text-deploy"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft machine learning products]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/data-science-and-machine-learning"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning operations (MLOps) v2]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/machine-learning-operations-v2"/>
+        <updated>2024-04-15T15:33:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a single deployable set of repeatable, and maintainable patterns for creating machine learning CI/CD and retraining pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MLOps for Python with Azure Machine Learning]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/mlops-python</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/mlops-python"/>
+        <updated>2024-04-15T13:29:26.000Z</updated>
+        <summary type="html"><![CDATA[Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pipes and Filters pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters</id>
+        <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
+        <updated>2024-04-10T17:33:29.000Z</updated>
+        <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -145,14 +401,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Autodesk VRED Core on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-vred-core</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-vred-core"/>
-        <updated>2024-03-14T18:18:37.000Z</updated>
-        <summary type="html"><![CDATA[See how Autodesk VRED Core performs on an Azure virtual machine. VRED Core enables streaming of high-quality VRED real-time renderings on any device.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Governance Visualizer Accelerator guidance]]></title>
         <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator</id>
         <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-governance-visualizer-accelerator"/>
@@ -166,14 +414,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway"/>
         <updated>2024-03-01T18:56:49.000Z</updated>
         <summary type="html"><![CDATA[Deploy and run SWIFT Alliance Remote Gateway with Alliance Connect Virtual on Azure. Migrate or establish new SWIFT connectivity in Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Ansys Speos on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-speos"/>
-        <updated>2024-03-01T18:50:25.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Ansys Speos optical-system simulation software performs on an Azure virtual machine (VM).]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -513,14 +753,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy TUFLOW HPC on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tuflow-hpc"/>
-        <updated>2024-02-06T21:43:31.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run benchmark tests with TUFLOW HPC. See the results of running TUFLOW HPC on Azure virtual machines.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Databases architecture design]]></title>
         <id>https://learn.microsoft.com/azure/architecture/databases/index</id>
         <link href="https://learn.microsoft.com/azure/architecture/databases/index"/>
@@ -654,14 +886,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/patterns/pipes-and-filters"/>
         <updated>2024-02-09T22:19:14.000Z</updated>
         <summary type="html"><![CDATA[Break down a task that performs complex processing into a series of separate elements that can be reused or reordered.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Devito on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine"/>
-        <updated>2024-02-05T18:12:11.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -913,14 +1137,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy BETA CAE EPILYSIS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/epilysis</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/epilysis"/>
-        <updated>2024-01-31T18:43:48.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the benefits and the test performance results of running BETA CAE EPILYSIS software on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Azure Load Testing with custom plugins to simulate device behaviors]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/testing/load-testing/load-testing-with-custom-plugins"/>
@@ -953,22 +1169,6 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Devito on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/devito-virtual-machine"/>
-        <updated>2024-01-09T20:07:04.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to install and run Devito on an Azure virtual machine, and see the performance results of running Devito on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Ansys HFSS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-hfss</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/ansys-hfss"/>
-        <updated>2024-01-09T18:49:40.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Ansys HFSS 3D electromagnetic simulation software performs on an Azure virtual machine (VM), and learn how to run HFSS on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Choose an Azure container service]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/choose-azure-container-service</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/choose-azure-container-service"/>
@@ -982,14 +1182,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/guide/container-service-general-considerations"/>
         <updated>2024-01-04T20:14:05.000Z</updated>
         <summary type="html"><![CDATA[Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy tNavigator on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/tnavigator</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/tnavigator"/>
-        <updated>2024-01-04T19:42:57.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Rock Flow Dynamics tNavigator software performs on an Azure virtual machine (VM), and learn how to run tNavigator on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -1065,27 +1257,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy Barracuda Virtual Reactor on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/barracuda-virtual-reactor"/>
-        <updated>2024-01-25T22:15:55.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on a virtual machine.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
         <updated>2024-01-18T04:38:46.000Z</updated>
         <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Altair Radioss on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-radioss"/>
-        <updated>2024-01-04T20:20:36.000Z</updated>
-        <summary type="html"><![CDATA[Find out how the Altair Radioss analysis solution for nonlinear problems performs on an Azure virtual machine.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

@@ -20,7 +20,7 @@ This solution presents a visual assistant that provides rich information that's 
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed HTTP-based service for hosting web apps, REST APIs, and mobile backends.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed HTTP-based service for hosting web apps, REST APIs, and mobile backends.
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-services) offers an environment for developing intelligent, enterprise-grade bots that enrich customer experiences. The integrated environment also provides a way to maintain control of your data.
 - The [Bing Custom Search API](https://www.microsoft.com/bing/apis/bing-custom-search-api) provides a way to create customized search experiences with Bing's powerful ranking and global-scale search index.
 - The [Bing Entity Search API](https://www.microsoft.com/bing/apis/bing-entity-search-api) offers search capabilities that identify relevant entities, such as well-known people, places, movies, TV shows, video games, books, and businesses.

@@ -4,8 +4,8 @@ description: Learn about the Reliable Web App pattern.
 author: stephen-sumner    
 ms.author: ssumner
 ms.reviewer: ssumner
-ms.date: 04/28/2022
-ms.topic: conceptual
+ms.date: 04/15/2024
+ms.topic: azure-guide
 ms.service: architecture-center
 ms.subservice: azure-guide
 azureCategories:

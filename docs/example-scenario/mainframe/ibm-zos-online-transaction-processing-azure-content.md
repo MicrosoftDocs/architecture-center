@@ -58,7 +58,7 @@ This architecture consists of several Azure cloud services and is divided into f
 #### Application
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management) supports the publishing, routing, securing, logging, and analytics of APIs. You can control how the data is presented and extended, and which apps can access it. You can restrict access to your apps, or allow third parties.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - WebJobs is a feature of Azure App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. For technical information, see [Run background tasks with WebJobs in Azure App Service](/azure/app-service/webjobs-create).
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
 - [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage, and run Spring microservices, and write Spring applications using Java or .NET.
@@ -160,7 +160,7 @@ See the following related architectures and related technical information:
 ### Related architectures
 
 - [High-volume batch transaction processing](./process-batch-transactions.yml)
-- [IBM z/OS mainframe migration with Avanade AMT](./asysco-zos-migration.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](./avanade-amt-zos-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

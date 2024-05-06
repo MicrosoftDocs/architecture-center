@@ -153,7 +153,7 @@ The addition of a user to a tenant workflow consists of the following steps:
 
 This architecture uses the following Azure services:
 
-- [App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
 

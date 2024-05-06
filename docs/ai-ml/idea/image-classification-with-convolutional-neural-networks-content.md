@@ -4,7 +4,7 @@ Use convolutional neural networks (CNNs) to classify large volumes of images eff
 
 ## Architecture
 
-[ ![Architecture diagram: image classification with convolutional neural networks and Azure Machine Learning.](_images/image-classification-with-convolutional-neural-networks.png)](_images/image-classification-with-convolutional-neural-networks.png#lightbox)
+[ ![Architecture diagram: image classification with convolutional neural networks and Azure Machine Learning](_images/image-classification-with-convolutional-neural-networks.png)](_images/image-classification-with-convolutional-neural-networks.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/image-classification-with-convolutional-neural-networks.vsdx) of this architecture.*
 
@@ -12,7 +12,7 @@ Use convolutional neural networks (CNNs) to classify large volumes of images eff
 
 1. Image uploads to Azure Blob Storage are ingested by Azure Machine Learning.
 2. Because the solution follows a supervised learning approach and needs data labeling to train the model, the ingested images are labeled in Machine Learning.
-3. The CNN model is trained and validated in the Machine Learning notebook. Several pre-trained image classification models are available. You can use them by using a transfer learning approach. For information about some variants of pre-trained CNNs, see [Advancements in image classification using convolutional neural networks](https://arxiv.org/pdf/1905.03288.pdf). You can download these image classification models and customize them with your labeled data.
+3. The CNN model is trained and validated in the Machine Learning notebook. Several pre-trained image classification models are available. You can use them by using a transfer learning approach. For information about some variants of pre-trained CNNs, see [Advancements in image classification using convolutional neural networks](https://arxiv.org/pdf/1905.03288.pdf). You can download these image classification models and customize them with your labeled data.
 4. After training, the model is stored in a model registry in Machine Learning.
 5. The model is deployed through batch managed endpoints.
 6. The model results are written to Azure Cosmos DB and consumed through the front-end application.

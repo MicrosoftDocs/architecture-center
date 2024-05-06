@@ -28,4 +28,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/customer-churn-prediction-thumbnail.png
 content: |
-  [!include[](customer-churn-prediction-content.md)]
+  [!INCLUDE[](customer-churn-prediction-content.md)]

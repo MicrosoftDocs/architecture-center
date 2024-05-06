@@ -38,7 +38,7 @@ This workflow corresponds to the preceding architecture.
 
 - [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) eliminates network-based trust and provides system-assigned managed identities, which improves security.
 
-- [Azure App Service](https://azure.microsoft.com/products/app-service) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) eliminates the need to administer an operating system and server, which increases operational efficiency and business agility.
 
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a fully managed and scalable service that provides web application firewall and reverse proxy functionality.
 

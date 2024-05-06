@@ -17,7 +17,7 @@ This solution uses Azure Cache for Redis to route real-time messages in publish 
 ### Components
 
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed, in-memory cache that enables high-performance and scalable architectures. You can use it to create cloud or hybrid deployments that handle millions of requests per second at submillisecond latency—all with the configuration, security, and availability benefits of a managed service. Although Azure Cache for Redis is often used as a data cache to improve application performance, you can also use it as a message broker.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With App Service, you can develop in your favorite language, be it .NET, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease in both Windows and Linux-based environments.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With App Service, you can develop in your favorite language, be it .NET, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease in both Windows and Linux-based environments.
 - [Azure SignalR Service](https://azure.microsoft.com/products/signalr-service) is an open-source software library that provides a way to send notifications to web apps in real time.
 
 ## Scenario details
