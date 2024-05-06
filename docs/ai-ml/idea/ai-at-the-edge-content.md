@@ -12,7 +12,7 @@ This architecture shows how you can bring your trained AI model to the edge with
 
 1. Data is processed using Azure Data Factory, to be placed on Azure Data Lake.
 1. Data from Azure Data Factory is placed into the Azure Data Lake Storage for training.
-1. Data scientists train a model using Azure Machine Learning. The model is containerized and put into an Azure Container Registry.
+1. Data scientists train a model using Azure Machine Learning. The model is containerized and put into an Azure container registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
 1. The on-premises web application can be used to score data that's provided by the end user, to score against the model that's deployed in the Kubernetes cluster.
 1. End users provide data that's scored against the model.
