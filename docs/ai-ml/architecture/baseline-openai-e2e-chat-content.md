@@ -1,8 +1,8 @@
-Enterprise chat applications have the ability to empower employees through conversational interaction. This is especially true due to the continuous advancement of large language models such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a user interface for chatting, data repositories containing domain-specific information pertinent to the user's queries, large language models (LLMs) that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
+Enterprise chat applications have the ability to empower employees through conversational interaction. This is especially true due to the continuous advancement of large language models (LLMs) such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a user interface for chatting, data repositories containing domain-specific information pertinent to the user's queries, large language models (LLMs) that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
 
-This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI large language models](/azure/ai-services/openai/concepts/models). The architecture employs Azure Machine Learning (AML) prompt flow to create executable flows that orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the LLMs, along with any other Python logic required. The executable flow is deployed to an Azure Machine Learning compute cluster behind a managed online endpoint.
+This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI large language models](/azure/ai-services/openai/concepts/models). The architecture employs Azure Machine Learning prompt flow to create executable flows that orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the LLMs, along with any other Python logic required. The executable flow is deployed to an Azure Machine Learning compute cluster behind a managed online endpoint.
 
-The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Services. In that architecture the App Service communicates to Azure PaaS services through virtual network integration over private endpoints. Likewise, the chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint and public access to the Azure Machine Learning workspace is disabled.
+The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Service. In that architecture the App Service communicates to Azure platform as a service (PaaS) services through virtual network integration over private endpoints. Likewise, the chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint and public access to the Azure Machine Learning workspace is disabled.
 
 > [!IMPORTANT]
 > The article doesn't cover the components or architecture decisions from the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Please read that article for architectural guidance for hosting the chat UI.
@@ -10,12 +10,12 @@ The hosting of the custom chat user interface (UI) follows the [baseline app ser
 The Machine Learning workspace is configured with [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources such as the workplace Azure Storage, Azure Container Registry, and Azure OpenAI. These private connections are used during flow authoring and testing, and by flows deployed to Azure Machine Learning compute.
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) This article is backed by a [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) which showcases a baseline end-to-end chat implementation on Azure. This implementation can be used as a basis for custom solution development in your first step towards production.
+> ![GitHub logo](../../_images/github.svg) This article is backed by a [reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) which showcases a baseline end-to-end chat implementation on Azure. This implementation can be used as a basis for custom solution development in your first step toward production.
 
 ## Architecture
 
 :::image type="complex" source="_images/openai-end-to-end-aml-deployment.svg" lightbox="_images/openai-end-to-end-aml-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI.":::
-    The diagram shows the App Service baseline architecture with a private endpoint connecting to a managed online endpoint in an Azure Machine Learning managed virtual network. The managed online endpoint sits in front of an Azure Machine Learning compute cluster. The diagram show that the machine learning workspace has a dotted line pointing to the compute cluster, representing that the executable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources required by the executable flow such as the Azure Container Registry and Azure Storage. the diagram further shows user-defined private endpoints providing private connectivity to the Azure OpenAI service and Azure AI Search.
+    The diagram shows the App Service baseline architecture with a private endpoint connecting to a managed online endpoint in an Azure Machine Learning managed virtual network. The managed online endpoint sits in front of an Azure Machine Learning compute cluster. The diagram show that the machine learning workspace has a dotted line pointing to the compute cluster, representing that the executable flow is deployed to the compute cluster. The managed virtual network uses managed private endpoints that provide private connectivity to resources required by the executable flow such as the Azure container registry and Azure Storage. the diagram further shows user-defined private endpoints providing private connectivity to the Azure OpenAI service and Azure AI Search.
 :::image-end:::
 *Figure 1: Baseline end-to-end chat architecture with OpenAI*
 
@@ -40,8 +40,8 @@ The back end for enterprise chat applications generally follows a pattern simila
 - The user enters a prompt in a custom chat user interface (UI)
 - That prompt is sent to the back end by the interface code
 - The user intent (question or directive) is extracted from the prompt by the back end
-- (optional) The back end determines the data store(s) that holds data that is relevant to the user prompt
-- The back end queries the relevant data store(s)
+- (optional) The back end determines the data stores that holds data that is relevant to the user prompt
+- The back end queries the relevant data stores
 - The back end sends the intent, the relevant grounding data, and any history provided in the prompt to the LLM.
 - The back end returns the result to so that it can be displayed on the user interface
 
@@ -60,11 +60,11 @@ Along with identity-based access, network security is at the core of the baselin
 ### Network flows
 
 :::image type="complex" source="_images/openai-end-to-end-aml-deployment-flows.svg" lightbox="_images/openai-end-to-end-aml-deployment-flows.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI with flow numbers.":::
-    The diagram resembles the baseline end-to-end chat architecture with Azure OpenAI architecture with three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are duplicated from the Baseline Azure App Service web architecture. The Azure Machine Learning managed online endpoint flow shows an arrow from the Compute Instance private endpoint in the client UI virtual network pointing to the managed online endpoint. The second number shows an arrow pointed from the managed online endpoint to the compute cluster. The third shows arrows from the compute cluster to private endpoints that point to the Azure Container Registry, Azure Storage, Azure OpenAI service and Azure AI Search.
+    The diagram resembles the baseline end-to-end chat architecture with Azure OpenAI architecture with three numbered network flows. The inbound flow and the flow from App Service to Azure PaaS services are duplicated from the Baseline Azure App Service web architecture. The Azure Machine Learning managed online endpoint flow shows an arrow from the Compute Instance private endpoint in the client UI virtual network pointing to the managed online endpoint. The second number shows an arrow pointed from the managed online endpoint to the compute cluster. The third shows arrows from the compute cluster to private endpoints that point to the Azure container registry, Azure Storage, Azure OpenAI service and Azure AI Search.
 :::image-end:::
 *Figure 2: Network flows for the baseline end-to-end chat architecture with OpenAI*
 
-Two flows in this diagram are covered in [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml): 1. the inbound flow from the end user to the chat UI and 2. the App Service to [Azure PaaS services flow](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow). See that article for details on those flows. This section focuses on the Azure Machine Learning online endpoint flow. The following details the flow from the chat UI running in the baseline App Service web application to the flow deployed to Azure Machine Learning compute:
+Two flows in this diagram are covered in [Baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml): 1. the inbound flow from the end user to the chat UI and 2. the App Service to [Azure PaaS services flow](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow). See that article for details on those flows. This section focuses on the Azure Machine Learning online endpoint flow. The following details the flow from the chat UI running in the baseline App Service web application to the flow deployed to Azure Machine Learning compute:
 
 1. The call from the App Service hosted chat UI is routed through a private endpoint to the Azure Machine Learning online endpoint.
 1. The online endpoint routes the call to a server running the deployed flow. The online endpoint acts as both a load balancer, and a router.
@@ -87,7 +87,7 @@ The diagram shows a prompt flow author connecting through Azure Bastion to a vir
 
 It's recommended that the Azure Machine Learning workspace is configured for [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) with a configuration that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Azure Container Registry and Azure Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or Azure AI Search, that your workflow is going to use. It's your responsibility to configure user-defined outbound rules, while required outbound rules are configured when the managed virtual network is created.
 
-The outbound rules can be private endpoints, service tags, or FQDNs for external public endpoints. In this architecture, connectivity to Azure services such as Azure Container Registry, Azure Storage, Azure Key Vault, Azure OpenAI service, and Azure AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, downloading base container images from external repositories.
+The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Azure Container Registry, Azure Storage, Azure Key Vault, Azure OpenAI service, and Azure AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a public IP (PIP) package, cloning a GitHub repo, downloading base container images from external repositories.
 
 ### Virtual network segmentation and security
 
@@ -101,15 +101,15 @@ The network in this architecture has separate subnets for the following:
 - Training - not used for model training in this architecture
 - Scoring
 
-Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
+Each subnet has a network security group (NSG) that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
 
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
 | snet-appGateway    | Allowances for our chat UI users source IPs (such as public internet), plus required items for the service | Access to the Azure App Service private endpoint, plus required items for the service. |
 | snet-PrivateEndpoints | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
 | snet-AppService | Allow only traffic from the virtual network. | Allow access to the private endpoints and Azure Monitor. |
-| AzureBastionSubnet | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) |
-| snet-jumpbox |  Allow inbound RDP and SSH from the Bastion Host subnet. | Allow access to the private endpoints |
+| AzureBastionSubnet | See guidance in [Working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See guidance in [Working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) |
+| snet-jumpbox |  Allow inbound Remote Desktop Protocol (RDP) and SSH from the Azure Bastion Host subnet. | Allow access to the private endpoints |
 | snet-agents | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
 | snet-training | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
 | snet-scoring | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
@@ -118,7 +118,7 @@ All other traffic is explicitly denied.
 
 Consider the following points when implementing virtual network segmentation and security.
 
-- Enable [DDoS protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
+- Enable [DDoS Protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP (PIP).
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
 
@@ -126,33 +126,33 @@ Consider the following points when implementing virtual network segmentation and
 
 Azure OpenAI service includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in both input prompts and output completions. Categories for this potentially harmful content include hate, sexual, self harm, violence, profanity, and jailbreak (content designed to bypass the constraints of an LLM). You can configure the strictness of what you want to filter the content for each category, with options being low, medium, or high. This reference architecture adopts a stringent approach. You should adjust the settings according to your requirements.
 
-In addition to content filtering, the Azure OpenAI service implements abuse monitoring features. Abuse monitoring is an asynchronous operation designed to detect and mitigate instances of recurring content and/or behaviors that suggest use of the service in a manner that may violate the [Azure OpenAI code of conduct](/legal/cognitive-services/openai/code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) for example if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
+In addition to content filtering, the Azure OpenAI service implements abuse monitoring features. Abuse monitoring is an asynchronous operation designed to detect and mitigate instances of recurring content or behaviors that suggest use of the service in a manner that might violate the [Azure OpenAI code of conduct](/legal/cognitive-services/openai/code-of-conduct). You can request an [exemption of abuse monitoring and human review](/legal/cognitive-services/openai/data-privacy#how-can-customers-get-an-exemption-from-abuse-monitoring-and-human-review) for example if your data is highly sensitive or if there are internal policies or applicable legal regulations that prevent the processing of data for abuse detection.
 
 ## Reliability
 
-The [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide redundancy within a region for supporting services when two or more instances are deployed in across them. When one zone experiences downtime, the other zones within the region may still be unaffected. The architecture also ensures enough instances of Azure services and configuration of those services to be spread across availability zones. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
+The [baseline App Service web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide redundancy within a region for supporting services when two or more instances are deployed in across them. When one zone experiences downtime, the other zones within the region might still be unaffected. The architecture also ensures enough instances of Azure services and configuration of those services to be spread across availability zones. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
 
 This section addresses reliability from the perspective of the components in this architecture not addressed in the App Service baseline, including Azure Machine Learning, Azure OpenAI, and Azure AI Search.
 
 ### Zonal redundancy for flow deployments
 
-Enterprise deployments usually require at least zonal redundancy. To achieve this in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least the instances of the resource or enable the platform support when instance control isn't available. Currently, Azure Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on AML components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
+Enterprise deployments usually require at least zonal redundancy. To achieve this in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least the instances of the resource or enable the platform support when instance control isn't available. Currently, Azure Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on Azure Machine Learning components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
-Deploying prompt flows isn't limited to Azure Machine Learning compute clusters. The executable flow, being a containerized application, can be deployed to any Azure service that is compatible with containers. These options include services like Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps (ACA), and Azure App Service. Each of those services support availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
+Deploying prompt flows isn't limited to Azure Machine Learning compute clusters. The executable flow, being a containerized application, can be deployed to any Azure service that is compatible with containers. These options include services like Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps, and Azure App Service. Each of those services support availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
 
 The following is an alternate architecture where prompt flows are deployed to Azure App Service. App Service is used in this architecture because the workload already uses it for the chat UI and wouldn't benefit from introducing a new technology into the workload. Workload teams who have experience with AKS should consider deploying in that environment, especially if AKS is being used for other components in the workload.
 
 :::image type="complex" source="_images/openai-end-to-end-app-service-deployment.svg" lightbox="_images/openai-end-to-end-app-service-deployment.svg" alt-text="Diagram that shows a baseline end-to-end chat architecture with OpenAI with prompt flow deployed to Azure App Service.":::
-    The diagram shows the App Service baseline architecture with 3 instances of a client App Service and 3 instances of a prompt flow app service. In addition to what is in the app service baseline architecture, this architecture includes private endpoints for Azure Container Registry, Azure AI Search, and Azure OpenAI. The architecture also shows an Azure Machine Learning workspace, used for authoring flows, running in a managed virtual network. The managed virtual network uses managed private endpoints that provide private connectivity to resources required by the executable flow such as the Azure  Storage. The diagram further shows user-defined private endpoints providing private connectivity to the Azure OpenAI service and Azure AI Search. Lastly, there's a dotted line from the Machine Learning Workspace to the Azure Container Registry (ACR) which indicates that executable flows are deployed to ACR, where the prompt flow App Service can load it.
+    The diagram shows the App Service baseline architecture with 3 instances of a client App Service and 3 instances of a prompt flow app service. In addition to what is in the app service baseline architecture, this architecture includes private endpoints for Azure Container Registry, Azure AI Search, and Azure OpenAI. The architecture also shows an Azure Machine Learning workspace, used for authoring flows, running in a managed virtual network. The managed virtual network uses managed private endpoints that provide private connectivity to resources required by the executable flow such as the Azure Storage. The diagram further shows user-defined private endpoints providing private connectivity to the Azure OpenAI service and Azure AI Search. Lastly, there's a dotted line from the Machine Learning Workspace to the Azure Container Registry which indicates that executable flows are deployed to Azure Container Registry, where the prompt flow App Service can load it.
 :::image-end:::
 *Figure 4: Alternate end-to-end chat architecture with OpenAI deploying prompt flows to Azure App Services*
 
 The diagram is numbered for areas that are noteworthy in this architecture:
 
 1. Flows are still authored in Azure Machine Learning prompt flow and the Azure Machine Learning network architecture is unchanged. Flow authors still connect to the workspace authoring experience through a private endpoint and the managed private endpoints are used to connect to Azure services when testing flows.
-1. This dotted line indicates that containerized executable flows are pushed to Azure Container Registry (ACR). Not shown in the diagram are the pipelines that containerize the flows and push to ACR.
-1. There's another Web App deployed to the same App Service plan that is already hosting the chat UI. The new Web App hosts the containerized prompt flow, colocated on the same App Service plan that already runs at a minimum of three instances, spread across availability zones.  These App Service instances connect to ACR over a private endpoint when loading the prompt flow container image.
-1. The prompt flow container needs to connect to all dependent services for flow execution. In this architecture that would be to Azure AI Search and Azure OpenAI service. PaaS services that were exposed only to the AML managed private endpoint subnet now also need to be exposed in the virtual network so line of sight can be established from App Service.
+1. This dotted line indicates that containerized executable flows are pushed to Azure Container Registry. Not shown in the diagram are the pipelines that containerize the flows and push to Azure Container Registry.
+1. There's another Web App deployed to the same App Service plan that is already hosting the chat UI. The new Web App hosts the containerized prompt flow, colocated on the same App Service plan that already runs at a minimum of three instances, spread across availability zones. These App Service instances connect to Azure Container Registry over a private endpoint when loading the prompt flow container image.
+1. The prompt flow container needs to connect to all dependent services for flow execution. In this architecture that would be to Azure AI Search and Azure OpenAI service. PaaS services that were exposed only to the Azure Machine Learning managed private endpoint subnet now also need to be exposed in the virtual network so line of sight can be established from App Service.
 
 ### Azure OpenAI - reliability
 
@@ -160,7 +160,7 @@ Azure OpenAI doesn't currently support availability zones. To mitigate the poten
 
 In order to support multiple instances effectively, we recommend that you externalize fine-tuning files, such as to a geo-redundant Azure Storage account. This will minimize the state stored in the Azure OpenAI service per region. Fine-tuning will still need to be done per instance in order to host the model deployment.
 
-It's important to monitor the required throughput in terms of Tokens per Minute (TPM) and Requests per Minute (RPM) to ensure you have assigned enough TPM from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management (APIM) can be deployed in front of your OpenAI service(s) and can be configured for retry in the case of transient errors and throttling. APIM can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding it's quota.
+It's important to monitor the required throughput in terms of Tokens per Minute (Trusted Platform Module (TPM)) and Requests per Minute (RPM) to ensure you have assigned enough TPM from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management (APIM) can be deployed in front of your OpenAI services and can be configured for retry in the case of transient errors and throttling. APIM can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding it's quota.
 
 ### Azure AI Search - reliability
 
@@ -173,7 +173,7 @@ Consider the following guidance for determining the appropriate number of replic
 
 ### Azure Machine Learning - reliability
 
-If you deploy to compute clusters behind the Azure Machine Learning managed online endpoint, consider the following guidance regarding scaling: 
+If you deploy to compute clusters behind the Azure Machine Learning managed online endpoint, consider the following guidance regarding scaling:
 
 - Follow the guidance to [autoscale your online endpoints](/azure/machine-learning/how-to-autoscale-endpoints) to ensure enough capacity is available to meet demand. If usage signals aren't timely enough due to burst usage, consider overprovisioning to prevent reliability impact from too few instances being available.
 - Consider creating scaling rules based on [deployment metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-rule-to-scale-out-using-metrics) such as CPU load and [endpoint metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-scaling-rule-based-on-endpoint-metrics) such as request latency.
@@ -193,7 +193,7 @@ Network security was discussed in the networking section. This section discusses
 
 The following guidance extends the [identity and access management guidance in the App Service baseline](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management):
 
-- Create separate managed identities for the following AML resources, where applicable:
+- Create separate managed identities for the following Azure Machine Learning resources, where applicable:
   - Workspace - used during flow authoring and management
   - Compute instance - used when testing flows
   - Online endpoint - used by the deployed flow if deployed to a managed online endpoint
@@ -211,11 +211,11 @@ This architecture follows the least privilege principle by only assigning roles 
 | Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
 | Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
 | Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
-| Workspace managed identity | Workspace Container Registry | ACRPush |
+| Workspace managed identity | Workspace Container Registry | AcrPush |
 | Online endpoint managed identity | Workspace Container Registry | AcrPull |
 | Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
 | Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
-| Compute instance managed identity | Workspace Container Registry | ACRPull |
+| Compute instance managed identity | Workspace Container Registry | AcrPull |
 | Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
 
 ### Key rotation
@@ -223,14 +223,14 @@ This architecture follows the least privilege principle by only assigning roles 
 There are two services in this architecture that use key-based authentication: Azure OpenAI and the Azure Machine Learning managed online endpoint. Because you're using key-based authentication for these services, It's important to:
 
 - Store the key in a secure store like Azure Key Vault for on-demand access from authorized clients (such as the Azure Web App hosting the prompt flow container).
-- Implement a key rotation strategy. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), you should create a key expiration policy and use Azure policy to monitor whether the key has been rotated.
+- Implement a key rotation strategy. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), you should create a key expiration policy and use Azure Policy to monitor whether the key has been rotated.
 
 ### OpenAI model fine-tuning
 
 If you're fine-tuning OpenAI models in your implementation, consider the following guidance:
 
 - If you're uploading training data for fine-tuning, consider using [customer managed keys](/azure/ai-services/openai/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault) for encrypting that data.
-- If you're storing training data in a store such as Azure Blob Storage, consider using a customer managed key for data encryption, use a managed identity to control access to the data, and a private endpoint to connect to the data.
+- If you're storing training data in a store such as Azure Blob Storage, consider using a customer-managed key for data encryption, use a managed identity to control access to the data, and a private endpoint to connect to the data.
 
 ## Performance efficiency
 
@@ -256,26 +256,26 @@ If deploying to Azure Machine Learning online endpoints:
 
 ## Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/). 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/).
 
-To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You'll need to customize the example to match your usage, as this example just includes the components included in the architecture. The most expensive components in the scenario are the chat UI & prompt flow compute and Azure AI Search, so look to optimization around those resources to save the most cost.
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You'll need to customize the example to match your usage, as this example just includes the components included in the architecture. The most expensive components in the scenario are the chat UI and prompt flow compute and Azure AI Search, so look to optimization around those resources to save the most cost.
 
 ### Compute
 
-Azure Machine Learning prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Azure Machine Learning, Azure Kubernetes Service, Azure App Service, and Azure Container Service. Each of these options has their own billing model. The choice of compute impacts the overall cost of the solution.
+Azure Machine Learning prompt flow supports multiple options to host the executable flows. The options include managed online endpoints in Azure Machine Learning, Azure Kubernetes Service, Azure App Service, and Azure Kubernetes Service. Each of these options has their own billing model. The choice of compute impacts the overall cost of the solution.
 
 ### Azure OpenAI
 
 Azure OpenAI is a consumption-based service, and as with any consumption-based service, controlling demand against supply is the primary cost control. To do that in the Azure OpenAI service specifically you need to employ a combination of approaches:
 
-- **Control clients.** Client requests are the primary source of cost in a consumption model, as such controlling client behavior is critical.  All clients should:
-  - Be approved. Avoid exposing the service in such a way that supports free-for-all access. Limit access both through network and identity controls (key or RBAC).
+- **Control clients.** Client requests are the primary source of cost in a consumption model, as such controlling client behavior is critical. All clients should:
+  - Be approved. Avoid exposing the service in such a way that supports free-for-all access. Limit access both through network and identity controls (key or role-based access control (RBAC)).
   - Be self-controlled. Require clients to use the token-limiting constraints offered by the API calls, such as max_tokens and max_completions.
   - Use batching, where practical. Review clients to ensure they're appropriately batching prompts.
   - Optimize prompt input and response length. Longer prompts consume more tokens, raising the cost, yet prompts that are missing sufficient context don't help the models yield good results. Create concise prompts that provide enough context to allow the model to generate a useful response. Likewise, ensure you optimize the limit of the response length.
 - **Azure OpenAI playground** usage should be as-necessary and on preproduction instances, so those activities aren't incurring production costs.
 - **Select the right AI model.** Model selection also plays a large role in the overall cost of Azure OpenAI. All models have strengths and weaknesses and are individually priced. Using the correct model for the use case can make sure you're not overspending on a more expensive model when a less expensive model yields acceptable results. In this chat reference implementation, GPT 3.5-turbo was chosen over GPT-4 to save about an order of magnitude of model deployment costs while achieving sufficient results.
-- **Understand billing breakpoints** - Fine-tuning is charged per-hour. To be the most efficient, you'll want to utilize as much of that time available per hour to improve the fine-tuning results while avoiding just slipping into the next billing period. Likewise, the cost for 100 images from image generation is the same as the cost for 1 image.  Maximize the price break points to your advantage.
+- **Understand billing breakpoints** - Fine-tuning is charged per-hour. To be the most efficient, you'll want to utilize as much of that time available per hour to improve the fine-tuning results while avoiding just slipping into the next billing period. Likewise, the cost for 100 images from image generation is the same as the cost for 1 image. Maximize the price break points to your advantage.
 - **Understand billing models** - Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. Once you have predictable usage patterns, evaluate switching to this prepurchase billing model if it calculates to be more cost effective at your usage volume.
 - **Set provisioning limits** - Ensure that all provisioning quota is allocated only to models that are expected to be part of the workload, on a per-model basis. Throughput to already deployed models are not limited to this provisioned quota while dynamic quota is enabled. Note that quota does not directly map to costs and cost might vary.
 - **Monitor pay-as-you-go usage** - If using pay-as-you-go, [monitor usage](/azure/ai-services/openai/how-to/quota?tabs=rest#view-and-request-quota) of Tokens per Minute (TPM) and Requests per Minute (RPM). Use that information to inform architectural design decisions such as what models to use, as well as optimize prompt sizes.
@@ -288,39 +288,39 @@ Deployment for Azure OpenAI based chat solutions like this architecture should f
 
 ### Development
 
-Azure Machine Learning prompt flow offers both a browser-based authoring experience in Azure Machine Learning studio or through a [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When using Azure Machine Learning studio, the files are stored in an Azure Storage Account. When working in VS Code, the files are stored on your local filesystem.
+Azure Machine Learning prompt flow offers both a browser-based authoring experience in Azure Machine Learning studio or through a [Microsoft Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When using Azure Machine Learning studio, the files are stored in an Azure Storage Account. When working in Microsoft Visual Studio Code, the files are stored on your local filesystem.
 
 In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This approach facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
-For enterprise development, you should use the [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from VS Code and integrate the locally stored files with the online source control system and pipelines. While the browser-based experience is well suited for exploratory development, with some work, it can be integrated with the source control system. The flow folder can be downloaded from the flow page in the ```Files``` panel, unzipped, and pushed to the source control system.
+For enterprise development, you should use the [Microsoft Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from Microsoft Visual Studio Code and integrate the locally stored files with the online source control system and pipelines. While the browser-based experience is well suited for exploratory development, with some work, it can be integrated with the source control system. The flow folder can be downloaded from the flow page in the `Files` panel, unzipped, and pushed to the source control system.
 
 ### Evaluation
 
 You should test the flows used in a chat application just as you test other software artifacts. It's challenging to specify and assert a single "right" answer for LLM outputs, but you can use an LLM itself to evaluate responses. Consider implementing the following automated evaluations of your LLM flows:
 
-- **Classification Accuracy**: Evaluates whether the LLM gives a "correct" or "incorrect" score and aggregates the outcomes to produce an accuracy grade.
-- **Coherence**: Evaluates how well the sentences in a model's predicted answer are written and how they coherently connect with each other.
-- **Fluency**: Assesses the model's predicted answer for its grammatical and linguistic accuracy.
-- **Groundedness Against Context**: Evaluates how well the model's predicted answers are based on preconfigured context. Even if LLM's responses are correct, if they can't be validated against the given context, then such responses aren't grounded.
-- **Relevance**: Evaluates how well the model's predicted answers align with the question asked.
+- **Classification Accuracy:** Evaluates whether the LLM gives a "correct" or "incorrect" score and aggregates the outcomes to produce an accuracy grade.
+- **Coherence:** Evaluates how well the sentences in a model's predicted answer are written and how they coherently connect with each other.
+- **Fluency:** Assesses the model's predicted answer for its grammatical and linguistic accuracy.
+- **Groundedness Against Context:** Evaluates how well the model's predicted answers are based on preconfigured context. Even if LLM's responses are correct, if they can't be validated against the given context, then such responses aren't grounded.
+- **Relevance:** Evaluates how well the model's predicted answers align with the question asked.
 
 Consider the following guidance when implementing automated evaluations:
 
 - Produce scores from evaluations and measure them against a predefined success threshold. Use these scores to report test pass/fail in your pipelines.
 - Some of these tests require preconfigured data inputs of questions, context, and ground truth.
-- Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. These question-answer pairs are referred to as your "golden dataset." A larger population might be required depending on the size and domain of your dataset.
+- Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. These question-answer pairs are referred to as your "Golden dataset." A larger population might be required depending on the size and domain of your dataset.
 - Avoid using LLMs to generate any of the data in your golden dataset.
 
 ### Deployment Flow
 
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
-  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a PR pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a. CI pipeline and b. CD pipeline.
+  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a pull request (PR) pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a. CI pipeline and b. CD pipeline.
 :::image-end:::
 *Figure 5: Prompt flow deployment*
 
-1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using Prompt flow for VS Code, periodically committing changes and pushing those changes to the feature branch.
+1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using Prompt flow for Microsoft Visual Studio Code, periodically committing changes and pushing those changes to the feature branch.
 2. Once local development and experimentation are completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR pipeline. This pipeline runs fast quality checks that should include:
-  
+
     - Execution of experimentation flows
     - Execution of configured unit tests
     - Compilation of the codebase
@@ -329,13 +329,13 @@ Consider the following guidance when implementing automated evaluations:
 3. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
 4. The merge to Main triggers the build and release process for the Development environment. Specifically:
 
-    a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
+    1. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
 
       - Experimentation flow
       - Evaluation flow
       - Registers the flows in the Azure Machine Learning Registry when changes are detected
 
-    b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
+    1. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
 
       - Deploys the flow from the Azure Machine Learning Registry to an Azure Machine Learning online endpoint
       - Runs integration tests that target the online endpoint
@@ -381,13 +381,13 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 
 #### Ephemeral components
 
-Some Azure resources are more tightly coupled to the design of specific prompt flows, allowing these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
+Some Azure resources are more tightly coupled to the design of specific prompt flows, allowing these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get re-created and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
 
 - The model in the Azure Machine Learning model registry should be updated, if changed, as part of the CD pipeline.
 - The container image should be updated in the container registry as part of the CD pipeline.
 - An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that doesn't exist. That [endpoint needs to be updated to turn off public access](/azure/machine-learning/concept-secure-online-endpoint#secure-inbound-scoring-requests).
 - The Azure Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
-- The Key Vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
+- The key vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
 
 ### Monitoring
 
@@ -399,7 +399,7 @@ To the deploy and run the reference implementation, follow the steps in the [Ope
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Patterns & Practices - Microsoft
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
@@ -408,7 +408,7 @@ _This article is maintained by Microsoft. It was originally written by the follo
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Solution Architect - Microsoft
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
