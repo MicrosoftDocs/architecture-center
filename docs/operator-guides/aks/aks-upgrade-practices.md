@@ -3,6 +3,7 @@ title: "AKS day-2 guide: Patch and upgrade guidance"
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.
 author: aionic
+ms.author: anevico
 ms.date: 12/28/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
