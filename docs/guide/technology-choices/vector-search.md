@@ -34,7 +34,7 @@ This section helps you select the most likely services for your needs. To narrow
 
 ### Key requirements
 
-:::image type="content" source="[./images/vector-search-flow-chart.png]" alt-text="[A flow chart that helps you choose the right Azure service for vector search.]" lightbox="./images/vector-search-flow-chart.png" border="false":::
+:::image type="content" source="./images/vector-search-flow-chart.png" alt-text="A flow chart that helps you choose the right Azure service for vector search." lightbox="./images/vector-search-flow-chart.png" border="false":::
 
 When deciding whether to use a traditional database solution or Azure AI Search service, consider your requirements and whether you can perform live or real-time vector searching on your data. A traditional relational or NoSQL database is the best fit for your scenario if you change values in vectorized fields frequently and the changes need to be searchable in real time or near real time. Likewise, using your existing database might be the best solution for you to meet your performance targets. On the other hand, if your workload doesn't require real-time or near real-time vector searchability, and you accept managing an index of vectors, AI Search can be a compelling choice.
 
