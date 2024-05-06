@@ -17,10 +17,11 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 #### QBLL recommendations for .NET developers
 
-Add content here.
+- The task that is queueing messages should not block waiting for messages to be handled. If the task makes use of the result of the queued operation, have a ‘standby’ code path that can be used until the data is available.
+- Queued messages that cannot be processed successfully should be retried and, if failures persist, removed from the queue. Azure Service Bus’s built-in retry and dead letter queue features address this need.
+- Logic processing messages from the queue must be idempotent in case a message is processed more than once.
 
----
-**Example - implementing the Queue-Based Load Leveling pattern**: The reference implementation is a ticket rendering application. It uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
+The reference implementation uses Azure Service Bus as a queue between a web API and its ticket rendering service. The ticket-creation logic creates a request to for ticket rendering rather than rendering it directly. The code waits for the message to be sent, but it does not block waiting for the message to be received and handled. This non-blocking approach allows the web app to stay responsive even when processing multiple ticket rendering requests simultaneously (*see following code*).
 
 ```csharp
 // Publish a message to request that the ticket be rendered.
