@@ -13,7 +13,7 @@ There are several metrics you can use to evaluate the LLM's response, including 
 
 ### Groundedness
 
-Groundedness, sometimes referred to as faithfulness, measures whether the response is completely based on the context. It validates that the response isn't using information other what exists in the context. A low groundedness metric indicates that the LLM might be drifting into imaginative or nonsensical territory known as hallucinations.
+Groundedness, sometimes referred to as faithfulness, measures whether the response is completely based on the context. It validates that the response isn't using information other than what exists in the context. A low groundedness metric indicates that the LLM might be drifting into imaginative or nonsensical territory known as hallucinations.
 
 **Calculating**
 
@@ -77,9 +77,9 @@ The following list contains a small sample of common similarity and evaluation m
 * **[Hamming](https://en.wikipedia.org/wiki/Hamming_distance)** - Edit based algorithm that measures the minimum number of substitutions that are required to transform one string to another.
 * **[Jaccard](https://en.wikipedia.org/wiki/Jaccard_index)** - Token based algorithm that calculates similarity by dividing the intersection of two strings by the union of those strings.
 * **[Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance)** - Edit based algorithm that calculates similarity by determining the minimum number of single character edits required to transform one string to another.
-* **[Bleu](https://en.wikipedia.org/wiki/BLEU)** - Evaluates the quality of text that is the result of machine translation from one language to another. Bleu calculates the overlap of n-grams between a machine translation and a human quality translation to make this evaluation.
-* **[Rouge](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several Rouge variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
-* **[Meteor](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
+* **[BLEU](https://en.wikipedia.org/wiki/BLEU)** - Evaluates the quality of text that is the result of machine translation from one language to another. Bleu calculates the overlap of n-grams between a machine translation and a human quality translation to make this evaluation.
+* **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several Rouge variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
+* **[METEOR](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
 
 Refer to the following resources for common similarity and evaluation metrics: TODO: Verify and add to list.
 
