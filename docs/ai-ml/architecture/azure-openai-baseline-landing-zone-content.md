@@ -105,34 +105,16 @@ Ultimately, the platform team is responsible for setting up the subscription for
 
 For this architecture, the workload team and platform teams need to collaborate on a few topics: management group assignment, including the associated Azure Policy governance, and networking setup. Use the following network requirements to initiate discussion and negotiation with the platform team. These points serve as examples in the context of this architecture.
 
-- **The number of spoke virtual networks**: Only one dedicated virtual network for a spoke is required. All resources are deployed in that network.
-
-- **The size of the spoke network**: Most of the services in this architecture are private endpoints with single IP addresses or have predefined space requirements. When communicating these requirements consider the following larger items:
-
-  - Application Gateway subnet (fixed required size)
-  
-  - Prompt flow container host (either as part of Azure Machine Learning compute or on your dedicated host). If you plan to implement blue/green deployments of prompt flow compute, the maximum size should account for the space that your side-by-side deployments require. (variable size based on needs)
-  - Private Endpoints and Azure Web App endpoints (fixed count).
-
-- **The deployment region**: The platform team uses this information to ensure that the spoke's hub is provisioned in the same region.
-
-- **The workload characteristics and design choices**: Communicate your design choices, components, and usage characteristics to your platform team.
-
-  For instance, if you expect your prompt flow code to generate a high number of concurrent connections to the internet (*chatty*), the platform team should ensure that there are sufficient ports available to prevent exhaustion. They can add IP addresses to the centralized firewall to support the traffic or set up a NAT gateway to route the traffic through an alternate path. It's possible that the platform team might consider placing you in a different management group (such as Online instead of Corp) based on a key decision point such as this.
-
-- **The firewall configuration**: The platform team must be aware of specifics of the traffic that is expected to leave the spoke network. These are workload dependencies.
-
-  Cover the needs of both the authoring experience and production hosting. For example, prompt flow might need access to a vector database that another team owns or maybe prompt flow connects to Wikipedia to augment the prompt to Azure OpenAI.
-
-- **Data scientist access to browser-based portals**: Work with the platform team to determine the best way to allow authorized network traffic into Azure AI Studio or similar portals.
-
-  The platform team can help establish routing through an existing VPN gateway or ExpressRoute connection from the data scientists' workstations and corporate network connection. Otherwise, establish routing through Azure Bastion provided by the platform team to a jump box managed by the workload team.
-
-- **The public IPs**: Inform the platform team about the ingress traffic profile, including any anticipated public IP addresses. The platform team should inform the workload team if these IPs are under an Azure DDoS Protection plan or if that's the responsibility of the workload team.
-
-  In this architecture, only internet-sourced traffic targets the public IP on Application Gateway.
-
-- **Private endpoint usage**: Inform the platform team that this architecture uses private endpoints. All clients of those endpoints in the workload must able to resolve the private endpoint IP address.
+| &nbsp; | Workload requirement |
+|---|---|
+|&#9744;|**The number of spoke virtual networks**: Only one dedicated virtual network for a spoke is required. All resources are deployed in that network.|
+|&#9744;|**The size of the spoke network**: Most of the services in this architecture are private endpoints with single IP addresses or have predefined space requirements. When communicating these requirements consider the following larger items: <br><br>- Application Gateway subnet (fixed required size) <br><br>- Prompt flow container host (either as part of Azure Machine Learning compute or on your dedicated host). If you plan to implement blue/green deployments of prompt flow compute, the maximum size should account for the space that your side-by-side deployments require. (variable size based on needs)<br><br>- Private Endpoints and Azure Web App endpoints (fixed count).|
+|&#9744;|**The deployment region**: The platform team uses this information to ensure that the spoke's hub is provisioned in the same region. |
+|&#9744;|**The workload characteristics and design choices**: Communicate your design choices, components, and usage characteristics to your platform team. <br><br> For instance, if you expect your prompt flow code to generate a high number of concurrent connections to the internet (*chatty*), the platform team should ensure that there are sufficient ports available to prevent exhaustion. They can add IP addresses to the centralized firewall to support the traffic or set up a NAT gateway to route the traffic through an alternate path. It's possible that the platform team might consider placing you in a different management group (such as Online instead of Corp) based on a key decision point such as this.
+|&#9744;|**The firewall configuration**: The platform team must be aware of specifics of the traffic that is expected to leave the spoke network. These are workload dependencies. <br><br>Cover the needs of both the authoring experience and production hosting. For example, prompt flow might need access to a vector database that another team owns or maybe prompt flow connects to Wikipedia to augment the prompt to Azure OpenAI. |
+|&#9744;|**Data scientist access to browser-based portals**: Work with the platform team to determine the best way to allow authorized network traffic into Azure AI Studio or similar portals. <br><br> The platform team can help establish routing through an existing VPN gateway or ExpressRoute connection from the data scientists' workstations and corporate network connection. Otherwise, establish routing through Azure Bastion provided by the platform team to a jump box managed by the workload team. |
+|&#9744;|**The public IPs**: Inform the platform team about the ingress traffic profile, including any anticipated public IP addresses. The platform team should inform the workload team if these IPs are under an Azure DDoS Protection plan or if that's the responsibility of the workload team. <br><br> In this architecture, only internet-sourced traffic targets the public IP on Application Gateway.
+|&#9744;|**Private endpoint usage**: Inform the platform team that this architecture uses private endpoints. All clients of those endpoints in the workload must able to resolve the private endpoint IP address. |
 
 > [!IMPORTANT]
 > We recommend a subscription vending process for the platform team that involves a series of questions designed to capture information from the workload team. These questions might vary from one organization to another, but the intent is to gather the requirements for implementing subscriptions. For more information, see [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
