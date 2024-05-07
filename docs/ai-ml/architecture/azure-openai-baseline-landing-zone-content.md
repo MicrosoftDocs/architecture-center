@@ -26,7 +26,7 @@ As a workload owner, you can offload the management of shared resources to platf
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone.svg":::
    TODO - WAITING FOR FINAL IMAGE
 :::image-end:::
-*Download a [Visio file - LINK TODO - WAITING FOR FINAL IMAGE](https://arch-center.azureedge.net/TODO) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
 ### Components
 
@@ -136,7 +136,7 @@ In this architecture, the workload is effectively split over two virtual network
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking.svg":::
    TODO - WAITING FOR FINAL IMAGE
 :::image-end:::
-*Download a [Visio file - TODO - WAITING FOR FINAL IMAGE](https://arch-center.azureedge.net/TODO.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
 - **Hub virtual network**: A regional hub contains centralized, and often shared, services that communicate with workload resources in the same region. The hub found in the [connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). The platform team owns the resources in this network.
 
@@ -201,7 +201,7 @@ In this architecture, those controls remain present but are further augmented. A
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.svg":::
    TODO - WAITING FOR FINAL IMAGE
 :::image-end:::
-*Download a [Visio file TODO - WAITING FOR FINAL IMAGE](https://arch-center.azureedge.net/TODO.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
 East-west client communication to the private endpoints for Azure Container Registry, Azure Key Vault, Azure OpenAI, and so on, remains the same as the [baseline architecture](./baseline-openai-e2e-chat.yml#networking). That path is omitted from the preceding diagram for brevity.
 
