@@ -1,14 +1,14 @@
 ---
 title: Azure landing zones - Azure Virtual Desktop landing zone design considerations
 description: Design considerations for using the enterprise-scale Azure Virtual Desktop landing zone, which is part of the Cloud Adoption Framework for Azure.
-author: BryanLa
+author: RobBagby
 categories:
   - azure-virtual-desktop
   - management-and-governance
   - migration
   - networking
   - security
-ms.author: bryanla
+ms.author: pnp
 ms.date: 04/19/2023
 ms.topic: conceptual
 ms.service: architecture-center
