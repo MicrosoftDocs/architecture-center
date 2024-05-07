@@ -1,12 +1,12 @@
-The Azure OpenAI Service exposes HTTP APIs that allow your applications to perform embeddings or completions using OpenAI's large language models (LLMs). Intelligent applications call these HTTP APIs either directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines, while examples of orchestrators include LangChain, Semantic Kernel, and Azure Machine Learning prompt flow. When your workload involves connecting to one or more Azure OpenAI instances, you'll need to decide if these consumers connect directly or through a reverse proxy API gateway.
+The Azure OpenAI Service exposes HTTP APIs that allow your applications to perform embeddings or completions using OpenAI's large language models (LLMs). Intelligent applications call these HTTP APIs either directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines, while examples of orchestrators include LangChain, Semantic Kernel, and Azure Machine Learning prompt flow. When your workload involves connecting to one or more Azure OpenAI instances, you must decide if these consumers connect directly or through a reverse proxy API gateway.
 
-Use this guide to learn about the key challenges across the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/) that you'll encounter if your workload design includes direct access from your consumers to the Azure OpenAI data plane APIs. You'll then learn how introducing a gateway in your architecture can address these direct access challenges, while introducing new challenges you need to further address. This article doesn't cover how the gateway is implemented, rather it covers the architectural pattern.
+Use this guide to learn about the key challenges across the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/) that you encounter if your workload design includes direct access from your consumers to the Azure OpenAI data plane APIs. You then learn how introducing a gateway in your architecture can address these direct access challenges, while introducing new challenges you need to further address. This article doesn't cover how the gateway is implemented, rather it covers the architectural pattern.
 
 Because a gateway can be used to solve specific scenarios, not all of which are present in every workload, be sure to see [specific scenario guidance](#next-step) that looks at that specific use case of a gateway in more depth.
 
 ## Key challenges
 
-Without an API gateway or the ability to add logic into the Azure OpenAI HTTP APIs, the responsibility for API client logic, including retry mechanisms or circuit breaking, falls on the client. This can be challenging in scenarios where you are not in direct control of the client code or the code is restricted to specific SDK usage. Multiple clients or multiple Azure OpenAI instances and deployments present further challenges, such as coordination of safe deployments and observability.
+Without an API gateway or the ability to add logic into the Azure OpenAI HTTP APIs, the responsibility for API client logic, including retry mechanisms or circuit breaking, falls on the client. This situation can be challenging in scenarios where you aren't in direct control of the client code or the code is restricted to specific SDK usage. Multiple clients or multiple Azure OpenAI instances and deployments present further challenges, such as coordination of safe deployments and observability.
 
 Here are some examples of specific key architectural challenges you face if your architecture only supports direct access to Azure OpenAI from consumers. The challenges are organized using the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars).
 
@@ -18,19 +18,19 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Scale out to handle spikes**: Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances carries greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-- **Load balancing/throttling**: The Azure OpenAI APIs throttles requests by returning a 429 response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per Minute (RPM) in the consumption billing model or requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
+- **Load balancing/throttling**: The Azure OpenAI APIs throttles requests by returning a 429 response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per Minute (RPM) in the pay-as-you-go model or requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 
 ### Security challenges
 
 Security controls must protect workload confidentiality, integrity, and availability. Without a gateway, all security concerns must be addressed exclusively in client logic and Azure OpenAI service features. Workload requirements might demand more than what's available for client segmentation, client control, or service security features for direct communication.
 
-- **Identity management - authentication scope**: The data plane APIs exposed by Azure OpenAI can be secured in one of two ways, API key or Azure role-based access control (RBAC). No matter which approach is used, authentication happens at the Azure OpenAI instance level, not the individual deployment level. This introduces complexity for providing least privileged access and identity segmentation for specific deployment models.
+- **Identity management - authentication scope**: The data plane APIs exposed by Azure OpenAI can be secured in one of two ways, API key or Azure role-based access control (RBAC). In both cases, authentication happens at the Azure OpenAI instance level, not the individual deployment level, which introduces complexity for providing least privileged access and identity segmentation for specific deployment models.
 
-- **Identity management - identity providers**: For clients that cannot use identities found in the Microsoft Entra tenant backing the Azure OpenAI instance, clients are left sharing a single full-access API key. API keys have security usefulness limitations and are problematic when multiple clients are involved due to all clients sharing the same identity.
+- **Identity management - identity providers**: For clients that can't use identities found in the Microsoft Entra tenant backing the Azure OpenAI instance, clients are left sharing a single full-access API key. API keys have security usefulness limitations and are problematic when multiple clients are involved due to all clients sharing the same identity.
 
 - **Network security**: Depending on client location relative to your Azure OpenAI instances, public internet access to LLM models might be necessary.
 
-- **Data sovereignty** - Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country or region. Your workload needs to ensure regional affinity for clients to comply with data residency and sovereignty laws. This involves multiple Azure OpenAI deployments.
+- **Data sovereignty** - Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country/region. Your workload needs to ensure regional affinity for clients to comply with data residency and sovereignty laws. Doing so involves multiple Azure OpenAI deployments.
 
 ### Cost optimization challenges
 
@@ -44,11 +44,11 @@ Workloads benefit from ensuring architectures minimize waste and maximize utilit
 
 Without a gateway, observability, change control, and development processes are limited to what is provided with direct client to server communication provides.
 
-- **Quota control**: Clients receive 429s directly from Azure OpenAI when the HTTP APIs are throttled. Workload operators are responsible to make sure enough quota is available for legitimate usage while also ensuring that misbehaving clients do not consume in excess. When your workload consists of multiple model deployments, understanding where quota is being used, where quota is available, can be a challenge to visualize.
+- **Quota control**: Clients receive 429s directly from Azure OpenAI when the HTTP APIs are throttled. Workload operators are responsible to make sure enough quota is available for legitimate usage while also ensuring that misbehaving clients don't consume in excess. When your workload consists of multiple model deployments, understanding where quota is being used, where quota is available, can be a challenge to visualize.
 
 - **Monitoring and observability**: Azure OpenAI services default metrics are available via Azure Monitor however there's latency with the availability of the data and doesn't provide real-time monitoring.
 
-- **Safe deployment practices**: Your LLMOps process will require coordination between clients and the models deployed in Azure OpenAI. For advanced deployment approaches, such as blue/green or canary, that logic will need to be handled client side.
+- **Safe deployment practices**: Your LLMOps process requires coordination between clients and the models deployed in Azure OpenAI. For advanced deployment approaches, such as blue/green or canary, that logic needs to be handled client side.
 
 ### Performance efficiency challenges
 
@@ -56,7 +56,7 @@ Without a gateway, your workload puts responsibility on clients to be both indiv
 
 - **Performance optimization - priority traffic**: Prioritizing client requests so that high priority clients have preferential access over low priority clients would require extensive, and likely untenable, client-to-client coordination. Some workloads would benefit from having low priority requests queued to run when model utilization is low.
 
-- **Performance optimization - client compliance**: In order to share capacity, clients need to be well-behaved, such as ensuring `max_tokens` and `best_of` are set to approved values. Without a gateway, you'll need to trust clients to act in the best interest of preserving capacity of your Azure OpenAI instance.
+- **Performance optimization - client compliance**: In order to share capacity, clients need to be well-behaved, such as ensuring `max_tokens` and `best_of` are set to approved values. Without a gateway, you must trust clients to act in the best interest of preserving capacity of your Azure OpenAI instance.
 
 - **Minimize latency**: While network latency is usually a small component of the overall prompt and completion request flow, ensuring clients are routed to a network endpoint and model close to them could be a benefit. Without a gateway, clients would need to self-select which of your model deployments endpoint to use and what credentials are necessary for that specific Azure OpenAI data plane API.
 
@@ -75,7 +75,7 @@ To address the many of the challenges listed in the [key challenges](#key-challe
 - Ability to introduce [gateway aggregation](../../patterns/gateway-aggregation.yml) and advanced [routing](../../patterns/gateway-routing.yml) to multiple services such as routing low priority messages to a queue for [queue-based load leveling](../../patterns/queue-based-load-leveling.yml) or to compute to perform tasks.
 - Load balancing that uses [health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) to route only to health endpoints by [circuit breaking](../../patterns/circuit-breaker.yml) on unavailable or overloaded model deployments.
 
-Some specific scenarios have additional guidance available that directly addresses an API gateway and Azure OpenAI instances. Those scenarios are listed in the [Next step](#next-step) section.
+Some specific scenarios have more guidance available that directly addresses an API gateway and Azure OpenAI instances. Those scenarios are listed in the [Next step](#next-step) section.
 
 ## Considerations
 
@@ -86,7 +86,7 @@ When you introduce a new component into your architecture, you need to evaluate 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist) to evaluate your design. You need to address reliability considerations such as:
 
 - The gateway solution can introduce a single point of failure. This failure could have its origin in service availability of the gateway platform, interruptions due to code or configuration deployments, or even misconfiguration of critical API endpoints in your gateway. Ensure you design your implementation to meet your workload's availability requirements. Consider resiliency and fault tolerance capabilities in the implementation by including the gateway in the [failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis) of the workload.
-- Your solution might require global routing capabilities if your architecture requires Azure OpenAI instances in multiple regions. This can further complicate the topology through management of additional FQDNs, TLS certificates, and additional global routing components.
+- Your solution might require global routing capabilities if your architecture requires Azure OpenAI instances in multiple regions. This situation can further complicate the topology through management of extra fully qualified domain names, TLS certificates, and more global routing components.
 
 > [!IMPORTANT]
 > Don't implement a gateway if doing so would jeopardize your workload's ability to hit agreed upon service-level objectives.
@@ -96,8 +96,8 @@ When considering how an API gateway benefits your architecture, use the [Design 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Security](/azure/well-architected/security/checklist) to evaluate your design. You need to address security considerations such as:
 
 - The surface area of the workload is increased with the addition of the gateway. That surface area brings extra identity and access management (IAM) considerations of the Azure resources, increased hardening efforts, and more.
-- The gateway can act as a network boundary transition between client network space and private Azure OpenAI network space. While this might allow a previously Internet-facing Azure OpenAI endpoint to now be private through private link, point of entry is instead shifted to the gateway, which needs protection itself.
-- A gateway is in a unique position to see raw request data and formulated responses from the LLM, which could include confidential data from either source. Data compliance and regulatory scope is now extended to this additional component.
+- The gateway can act as a network boundary transition between client network space and private Azure OpenAI network space. While it might allow a previously Internet-facing Azure OpenAI endpoint to now be private through private link, point of entry is instead shifted to the gateway, which needs protection itself.
+- A gateway is in a unique position to see raw request data and formulated responses from the LLM, which could include confidential data from either source. Data compliance and regulatory scope is now extended to this other component.
 - A gateway can extend the scope of client authorization and authentication beyond Entra ID and API key authentication, potentially across multiple identity providers (IdP).
 - In multi-region implementations, you must factor in data sovereignty in your implementation. Ensure your gateway compute and routing logic adheres to sovereignty requirements placed on your workload.
 
@@ -123,7 +123,7 @@ When considering how an API gateway benefits your architecture, use the [Design 
 When considering how an API gateway benefits your architecture, use the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) to evaluate your design. You need to address performance efficiency considerations such as:
 
 - The gateway service can introduce a throughput bottleneck. Ensure the gateway has adequate performance to handle full concurrent load and can easily scale in line with your growth expectations. Ensure elasticity in the solution to ensure the gateway can reduce supply (scale down) when demand is low, such as typical with business day usage.
-- The gateway service does have processing to perform per request, and will introduce added latency per API invocation. You should optimize your routing logic to keep requests performing well.
+- The gateway service does have processing to perform per request, and introduces added latency per API invocation. You should optimize your routing logic to keep requests performing well.
 - In most cases, the gateway should be geographically near both the users and the Azure OpenAI instances to reduce latency. While network latency is usually a small percentage of time in overall API calls to LLMs, it might be a competitive factor for your workload.
 - Evaluate the impact of the gateway on Azure OpenAI features such as streaming responses or instance pinning for stateful interactions such as the Assistant API.
 
@@ -136,13 +136,13 @@ Azure doesn't offer a turn-key solution designed specifically to proxy Azure Ope
 
 ### Use Azure API Management
 
-[Azure API Management](/azure/api-management/api-management-key-concepts) is platform-managed service specifically designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas through a single control plane.
+[Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas through a single control plane.
 
-Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You'll combine [built-in policies](/azure/api-management/api-management-policies) and custom policies. Some example custom policies can be found on this community GitHub repository, [Azure OpenAI API Management policies](https://github.com/CrewAakash/aoai-apim-policies).
+Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You combine [built-in policies](/azure/api-management/api-management-policies) and custom policies. Some example custom policies can be found on this community GitHub repository, [Azure OpenAI API Management policies](https://github.com/CrewAakash/aoai-apim-policies).
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution involving Azure API Management.
 
-Using Azure API Management for your gateway implementation is generally the preferred approach to building and operating an Azure OpenAI gateway. This is based on the service being a PaaS offering with rich built-in capabilities, high availability, and networking options. It also robust APIOps approaches to managing your completion APIs.
+Using Azure API Management for your gateway implementation is generally the preferred approach to building and operating an Azure OpenAI gateway. It's based on the service being a PaaS offering with rich built-in capabilities, high availability, and networking options. It also robust APIOps approaches to managing your completion APIs.
 
 ### Use custom code
 
@@ -152,7 +152,7 @@ The workload can usually use compute they're familiar with. For example, hosting
 
 Custom code deployments can also be fronted with API Management, where API Management is used exclusively for its core HTTP API gateway capabilities between your clients and your custom code. This way your custom code focuses exclusively on interfacing with your Azure OpenAI HTTP APIs based on the necessary business logic.
 
-The use of third-party gateway technology, a product or service that isn't natively provided by Azure, also can be considered as part of this approach.
+The use of non-Microsoft gateway technology, a product or service that isn't natively provided by Azure, also can be considered as part of this approach.
 
 ## Example architecture
 
