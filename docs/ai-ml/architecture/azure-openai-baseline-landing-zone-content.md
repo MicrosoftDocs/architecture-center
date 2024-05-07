@@ -23,8 +23,8 @@ As a workload owner, you can offload the management of shared resources to platf
 
 ## Architecture
 
-:::image type="complex" source="./_images/azure-openai-baseline-landing-zone.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone.svg":::
-   TODO - WAITING FOR FINAL IMAGE
+:::image type="complex" source="./_images/azure-openai-baseline-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources" lightbox="./_images/azure-openai-baseline-landing-zone.svg":::
+   Architecture diagram that is broken up into two primary sections. The top section is blue and is labeled "Application landing zone subscription." The bottom section is yellow and is labeled "Platform landing zone subscription." The top box contains both workload-created resources as well as subscription-vending resources. The workload resources consist of Application Gateway + Web Application Firewall, App Service and its integration subnet, Private Endpoints for PaaS services such as Azure Storage, Azure Key Vault, Azure AI Search, Azure OpenAI service, Azure Container Registry. The workload resources also has Machine Learning Workspace and monitoring resources. Azure App Service shows three instances, each in a different Azure zone. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a dithered out VPN Gateway & ExpressRoute. There is virtual network peering between a virtual network in the application landing zone and the hub virtual network.
 :::image-end:::
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
@@ -133,8 +133,8 @@ In the [baseline architecture](./baseline-openai-e2e-chat.yml#networking), the w
 
 In this architecture, the workload is effectively split over two virtual networks. One network for the workload components and one for controlling internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture; usually with a hub-spoke topology.
 
-:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking.svg":::
-   TODO - WAITING FOR FINAL IMAGE
+:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking.svg" alt-text="Architecture diagram focusing mostly on network ingress flows." lightbox="./_images/azure-openai-baseline-landing-zone-networking.svg":::
+   This architecture diagram has a blue box at the top labeled "Application landing zone subscription" which contains a spoke virtual network. In that virtual network are five boxes, each labeled snet-appGateway, snet-agents, snet-jumpbox, snet-appServicePlan, snet-privateEndpoints. Each subnet has an NSG logo, and all but the snet-appGateway subnet has a UDR that says "to hub." Ingress traffic from On-premises and not on-premises users are pointing to the Application Gateway. A Data scientist user is connected to the VPN Gateway or ExpressRoute in the bottom part of the diagram labeled Connectivity subscription. The connectivity subscription contains Private DNS Zones for Private Link, Azure DNS Private Resolver, and Azure DDoS Protection. The hub virtual network, contained in the Connectivity subscription and the spoke virtual network are connected with a line labeled "Virtual network peering." There is text in the spoke virtual network that reads, "DNS provided by hub."
 :::image-end:::
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
@@ -194,12 +194,12 @@ We recommend that you familiarize yourself with how the platform team manages DN
 
 ### Egress traffic
 
-In the baseline architecture, internet egress control was only available through the network configuration on Azure Machine Learning workspaces and Azure App Services, combined with using network security groups (NSGs) on the various subnets. 
+In the baseline architecture, internet egress control was only available through the network configuration on Azure Machine Learning workspaces and Azure App Services, combined with using network security groups (NSGs) on the various subnets.
 
 In this architecture, those controls remain present but are further augmented. All traffic that leaves the spoke virtual network is now rerouted through the peered hub network via an egress firewall. Traffic originating inside the managed virtual network for Azure Machine Learning computes is not subject to this egress route.
 
-:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.svg" alt-text="TODO - WAITING FOR FINAL IMAGE" lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.svg":::
-   TODO - WAITING FOR FINAL IMAGE
+:::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.svg" alt-text="Architecture diagram focusing mostly on network egress flows." lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.svg":::
+   The top section of this architecture diagram is labeled "Application landing zone subscription" and contains a Spoke virtual network box and an Azure Machine Learning box. The Azure Machine Learning box contains private endpoints for Azure Storage, Azure Container Registry, Azure AI Search, and Azure OpenAI. The Spoke virtual network box contains five subnets, snet-appGateway, snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. All of the subnets, expect snet-appGateway have a dashed line leading from them to Azure Firewall, which is in the bottom box. The bottom box is labeled "Connectivity subscription." That Azure Firewall then has the same style line pointing out to the Internet represented as a cloud. The Azure Machine Learning box has the same dashed line style pointing from it out to the Internet cloud as well. In the top box there is text that reads, "Where possible all workload-originated, internet bound traffic flows through the hub due to the 0.0.0.0/0 UDR." The Hub virtual network in the bottom box and the spoke virtual network in the top box are connected with a line that reads "Virtual network peering."
 :::image-end:::
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
@@ -340,7 +340,7 @@ View all functionality that the workload performs in the platform and applicatio
 For this architecture, consider the following workload dependencies in this architecture:
 
 - **Egress firewall**: The centralized egress firewall, shared by multiple workloads, undergoes changes unrelated to the workload.
-- - **DNS Resolution**: This architecture is using DNS provided by the platform team instead of directly interfacing with Azure DNS. This means that timely updates to DNS records for private endpoints and availability of DNS services are new dependencies.
+- **DNS Resolution**: This architecture is using DNS provided by the platform team instead of directly interfacing with Azure DNS. This means that timely updates to DNS records for private endpoints and availability of DNS services are new dependencies.
 - **DINE policies**: DINE policies for Azure DNS private DNS zones (or any other platform-provided dependency) are *best effort*, with no SLA on execution. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or Prompt Flow from completing queries.
 - **Management group policies**: Consistent policies among environments are key for reliability. Ensure that preproduction environments are similar to production environments to provide accurate testing and to prevent environment-specific deviations that can block a deployment or scale. For more information, see [Manage application development environments in Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments).
 
