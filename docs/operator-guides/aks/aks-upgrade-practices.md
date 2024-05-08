@@ -85,11 +85,11 @@ Generally speaking, most clusters should use the `NodeImage` update channel. Thi
 Available channels include the following:
 
 - `None`. No updates are automatically applied.
-- `Unmanaged`. Ubuntu and Azure Linux updates are applied by the OS on a nightly basis. Reboots must be managed separately.
-- `SecurityPatch`. Nightly security patches are deployed as an OS image update.
-- `NodeImage`. Weekly AKS patches and nightly security patches are combined.
+- `Unmanaged`. Ubuntu and Azure Linux updates are applied by the OS on a nightly basis. Reboots must be managed separately. AKS is neither able to test this nor control the cadence of this. 
+- `SecurityPatch`. Nightly security patches which are AKS-tested, fully managed, and applied with safe deployment practices. It does not contain any bug fixes just security updates. 
+- `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safed deployment practices.
 
-If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/). If you choose the `SecurityPatch` update channel, updates can be applied as frequently as nightly. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. Additionally, you need to combine the `SecurityPatch` configuration with a `NodeImage` configuration to enable a complete node patching process.
+If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/), also it does not come with safe deployment practices and will not work under maintenance windows. If you choose the `SecurityPatch` update channel, updates can be applied as frequently as daily. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. You can control when the `SecurityPatch` is applied by choosing `aksManagedNodeOSUpgradeSchedule` and selecting a cadence that works best for you, See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for setting this. If you also need bug fixes that come typically with new node images(VHD), then you need to choose the `NodeImage` channel. 
 
 As a best practice, use the `NodeImage` update channel and configure an `aksManagedNodeOSUpgradeSchedule` maintenance window to a time when the cluster is outside of peak usage windows.
 See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes that you can use to configure the cluster maintenance window. The key attributes are:
