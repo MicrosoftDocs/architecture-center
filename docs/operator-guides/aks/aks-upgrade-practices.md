@@ -89,7 +89,7 @@ Available channels include the following:
 - `SecurityPatch`. OS security patches which are AKS-tested, fully managed, and applied with safe deployment practices. It does not contain any OS bug fixes just security updates. 
 - `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safe deployment practices. For real time information on currently deployed node images, please refer to [AKS Node images section in the Release tracker][release-tracker].
 
-To understand the default cadences without any maintenance window employed please refer to [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule).
+To understand the default cadences without a maintenance window established, please refer to [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule).
 
 If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/). `Unmanaged` does not come with AKS-provided safe deployment practices and will not work under maintenance windows. If you choose the `SecurityPatch` update channel, updates can be applied as frequently as weekly. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. Control when the `SecurityPatch` is applied by setting an appropriate `aksManagedNodeOSUpgradeSchedule` that aligns to a cadence that works best for your workload. For more information, see [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window). If you also need bug fixes that come typically with new node images (VHD), then you need to choose the `NodeImage` channel instead of `SecurityPatch`.
 
@@ -102,7 +102,6 @@ See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-m
 - `dayofWeek`. Set the days of the week for the window. For example, `Saturday`.
 - `schedule`. Set the frequency of the window. For `NodeImage` updates, we recommend `weekly`.
 - `durationHours`. Set this attribute to at least four hours.
-
 
 This example sets a weekly maintenance window to 8:00 PM Eastern Time on Saturdays:
 
@@ -341,7 +340,6 @@ Other contributors:
 - [AKS baseline automation](https://github.com/Azure/aks-baseline-automation)
 - [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
 - [release-tracker](https://releases.aks.azure.com/webpage/index.html)
-- [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule)
 ## Related resources
 
 - [AKS day-2 operations guide](./day-2-operations-guide.md)
