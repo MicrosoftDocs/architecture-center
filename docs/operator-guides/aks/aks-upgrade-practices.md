@@ -331,6 +331,7 @@ Other contributors:
 ## Next steps
 
 - [AKS product documentation](/azure/aks/)
+- [AKS release tracker](https://releases.aks.azure.com/webpage/index.html)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
 - [AKS landing zone accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator)
 - [Troubleshoot AKS Issues](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes)
@@ -339,7 +340,7 @@ Other contributors:
 - [AKS construction set](https://github.com/Azure/Aks-Construction)
 - [AKS baseline automation](https://github.com/Azure/aks-baseline-automation)
 - [Defining Day-2 Operations](https://dzone.com/articles/defining-day-2-operations)
-- [release-tracker](https://releases.aks.azure.com/webpage/index.html)
+
 ## Related resources
 
 - [AKS day-2 operations guide](./day-2-operations-guide.md)
