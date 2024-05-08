@@ -16,7 +16,7 @@ This key or token is usually referred to as a valet key. It provides time-limite
 
 The client uses this token to access a specific resource in the data store for only a specific period, and with specific restrictions on access permissions, as shown in the figure. After the specified period, the key becomes invalid and won't allow access to the resource.
 
-![Figure 1 - Overview of the pattern](./_images/valet-workflow.png)
+![Figure 1 - Overview of the pattern](./_images/valet-key-workflow.png)
 
 It's also possible to configure a key that has other dependencies, such as the scope of the data. For example, depending on the data store capabilities, the key can specify a complete table in a data store, or only specific rows in a table. In cloud storage systems the key can specify a container, or just a specific item within a container.
 
