@@ -22,7 +22,7 @@ It's also possible to configure a key that has other dependencies, such as the s
 
 The key can also be invalidated by the application. This is a useful approach if the client notifies the server that the data transfer operation is complete. The server can then invalidate that key to prevent further access.
 
-Using this pattern can simplify managing access to resources because there's no requirement to create and authenticate a user, grant permissions, and then remove the user again. It also makes it easy to limit standing permissions like the location, the permission, and the validity period&mdash;all by simply generating a key at runtime. The important factors are to limit the validity period, and especially the location of the resource, as tightly as possible so that the recipient can only use it for the intended purpose.
+Using this pattern can simplify managing access to resources because there's no requirement to create and authenticate a user, grant permissions, and then remove the user again, or worse leave that permission as a standing permission. It also makes it easy to limit the location, the permission, and the validity period&mdash;all by simply generating a key at runtime. The important factors are to limit the validity period, and especially the location of the resource, as tightly as possible so that the recipient can only use it for the intended purpose.
 
 ## Issues and considerations
 
@@ -54,7 +54,7 @@ Other issues to be aware of when implementing this pattern are:
 
 - If the client code runs in a web browser, the browser might need to support cross-origin resource sharing (CORS) to enable code that executes within the web browser to access data in a different domain from the one that served the page. Some older browsers and some data stores don't support CORS, and code that runs in these browsers might not be able to use a valet key to provide access to data in a different domain, such as a cloud storage account.
 
-- The client doesn't need to authenticate to the end resource, but does need some way to authenticate to the valet key service. How you configure that authentication depends on the identity solution you use for other systems.
+- While the client doesn't need to have pre-configured authentication for to the end resource, the client does need to preestablish means of authentication to the valet key service.
 
 - Keys should only be handed out to authenticated clients with proper authorization.
 
@@ -76,7 +76,7 @@ This pattern is useful for the following situations:
 
 This pattern might not be useful in the following situations:
 
-- If clients can already uniquely authenticate to your backend service, with RBAC for example, do not use this pattern. 
+- If clients can already uniquely authenticate to your backend service, with RBAC for example, do not use this pattern.
 
 - If the application must perform some task on the data before it's stored or before it's sent to the client. For example, if the application needs to perform validation, log access success, or execute a transformation on the data. However, some data stores and clients are able to negotiate and carry out simple transformations such as compression and decompression (for example, a web browser can usually handle gzip formats).
 
