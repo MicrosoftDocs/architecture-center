@@ -1,4 +1,4 @@
-> This article is part of a series that builds on the [Azure OpenAI end-to-end chat baseline architecture](baseline-openai-e2e-chat.yml). We recommend that you familiarize yourself with that architecture to understand the changes required when you deploy it in an Azure landing zone application landing zone subscription.
+> This article is part of a series that builds on the [Azure OpenAI end-to-end chat baseline architecture](baseline-openai-e2e-chat.yml). It's important that you familiarize yourself with that architecture to understand the changes required when you deploy it in an Azure landing zone application landing zone subscription.
 
 This article describes the architecture of a generative AI workload that deploys the same **baseline chat application** but in this case, uses some resources that fall outside the scope of the workload team. Those resources are shared among other workload teams and are centrally managed by platform teams of an organization. The shared resources include networking resources for connecting to or from on-premises locations, identity access management, and policies. It's assumed that the organization uses Azure landing zones to ensure consistent governance and cost efficiency.
 
@@ -6,7 +6,7 @@ As a workload owner, you can offload the management of shared resources to platf
 
 > [!IMPORTANT]
 > **What are Azure landing zones?**
-> Azure landing zones present two areas of an organization's cloud footprint. An *application landing zone* is an Azure subscription in which a workload runs. It's connected to the organization's shared platform resources. Through that connection, it has access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring. A *platform landing zone* is a collection of various subscriptions that multiple platform teams can manage. Each subscription has a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, hybrid connectivity, and network virtual appliances (NVAs) that are available for platform teams to use.
+> Azure landing zones present two areas of an organization's cloud footprint. An *application landing zone* is an Azure subscription in which a workload runs. It's connected to the organization's shared platform resources. Through that connection, it has access to the infrastructure that supports the workload, such as networking, identity access management, policies, and monitoring. A *platform landing zone* is a collection of various subscriptions that multiple platform teams can manage. Each subscription has a specific function. For example, a connectivity subscription provides centralized Domain Name System (DNS) resolution, cross-premises connectivity, and network virtual appliances (NVAs) that are available for platform teams to use.
 >
 > We recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone), as well as its [design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) to help you prepare for the implementation of this architecture.
 
@@ -63,31 +63,31 @@ The platform team owns and maintains these centralized resources. This architect
 
 - **Azure Firewall in the hub network** is used to route, inspect, and restrict egress traffic. Workload egress traffic is traffic going to the internet, cross-premises destinations, or to other application landing zones. Compared to the baseline, this component is new in the architecture.
   
-  *Compared to the baseline architecture*, this component is new in this architecture. Azure Firewall isn't cost-effective or practical for each workload team to manage their own instance.
+  > Change from the baseline: This component is new in this architecture. Azure Firewall isn't cost-effective or practical for each workload team to manage their own instance.
 
 - **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Studio components.
 
-  *In the baseline architecture*, the workload team owned this component.
+   > Change from the baseline: The workload team owned this component.
 
 - The **spoke virtual network** is where the workload is deployed.
 
-  *In the baseline architecture*, the workload team owned this network.
+   > Change from the baseline: The workload team owned this network.
 
 - **User-defined routes** (UDRs) are used to force tunneling to the hub network. 
 
-  *Compared to the baseline architecture*, this component is new in this architecture.
+   > Change from the baseline: This component is new in this architecture.
 
 - **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies are part of the workload subscription. These are extra policies that exist over what was described in the baseline. These policies can be applied at both the platform-team owned Management Group level or applied to the workload's subscription directly.
 
 - **Azure Private DNS Zones** to host the `A` records for private endpoints. See [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
 
-  *In the baseline architecture*, this component is moved to the hub and is platform managed.
+   > Change from the baseline: This component is moved to the hub and is platform managed.
 
 - **DNS resolution service** for spoke virtual networks and cross-premises workstations. This usually takes the form of Azure Firewall DNS Proxy or Azure Private DNS Resolver. In this architecture, this service resolves private endpoint DNS records for all DNS requests originating in the spoke.
   
 - **Azure DDoS Protection** is used to protect public IPs against distributed attacks.
 
-  *In the baseline architecture*, DDoS Protection was a workload team purchase.
+  > Change from the baseline: DDoS Protection was a workload team purchase.
 
 > [!IMPORTANT]
 > Azure landing zones provide some of the preceding resources as part of the platform landing zone subscriptions, and your workload subscription provides other resources. Many of the resources are part of the connectivity subscription, which has additional resources, such as Azure ExpressRoute, Azure VPN Gateway, and Azure Private DNS Resolver. These additional resources provide cross-premises access and name resolution. The management of these resources is outside the scope of this article.
@@ -106,13 +106,15 @@ Ultimately, the platform team is responsible for setting up the subscription for
 
 For this architecture, the workload team and platform teams need to collaborate on a few topics: management group assignment, including the associated Azure Policy governance, and networking setup. Prepare a checklist of requirements to initiate discussion and negotiation with the platform team. This checklist serves as an example in the context of this architecture.
 
+creating & configuring the virtual network and making it a spoke by peering it to the central hub
+
 | &nbsp; | Topic | Workload requirement |
 |---|---|---|
-|&#9744;|**Number of spoke virtual networks and their size**. The platform team needs to know the number of spokes because they are responsible for creating, configuring, and peering each spoke to the central hub. They also need to make sure the network is big enough to accomodate future growth. | Only one dedicated virtual network for a spoke is required. All resources are deployed in that network. <br><br> Request /22 contiguous address space to operate at full scale and,or accomodate situations, such as side-by-side deployments. Most IP addresse requirements are driven by: <br> - App Gateway requirements on subnet size. Fixed. <br>- Private endpoints with single IP addresses for PaaS services. Fixed. <br> - Subnet size for build agents. Fixed.<br> - Blue/green deployments of prompt flow compute. Variable.  |
+|&#9744;|**Number of spoke virtual networks and their size**. The platform team needs to know the number of spokes because they are responsible for creating and configuring the virtual network and make it a spoke by peering it to the central hub. They also need to make sure the network is big enough to accomodate future growth. | Only one dedicated virtual network for a spoke is required. All resources are deployed in that network. <br><br> Request /22 contiguous address space to operate at full scale and,or accomodate situations, such as side-by-side deployments. Most IP addresse requirements are driven by: <br> - App Gateway requirements on subnet size. Fixed. <br>- Private endpoints with single IP addresses for PaaS services. Fixed. <br> - Subnet size for build agents. Fixed.<br> - Blue/green deployments of prompt flow compute. Variable.  |
 |&#9744;|**Deployment region**. The platform team uses this information to ensure they have a hub deployed in the same region as the workload resources.| Azure OpenAI has limited availability in certain regions. Communicate the chosen region. Also, communicate the region(s) in which the underlying compute resources are deployed. They should support availability zones. |
 |&#9744;|**Type, volume, and pattern of traffic**. The platform team uses this information to determine the ingress and egress requirements of the shared resources used by your workload. | Provide information about: <br> - How this workload is expected to be consumed by users. <br> - How this workload consumes its sorrounding resources. <br> - The configured transport protocol. <br> - The traffic pattern and the expected peak and offpeak hours. When do you expect high number of concurrent connections to the internet (chatty) and when do you expect the workload to generate minimal network traffic (background noise).|
-|&#9744;|**Firewall configuration**. The platform team uses this information to set rules to allow legitimate egress traffic.| The platform team must be aware of specifics of the traffic that is expected to leave the spoke network. <br> - Build agent machines need regular OS patching. Egress traffic to reach OS vendors is expected weekly. <br>- The compute sends out Windows Watson telemetry. <br> - In the alternate solution, the prompt flow business logic reaches Wikipedia. |
-|&#9744;|**Ingress traffic from specialized roles**. The platform team uses this information to enable the specified roles to access the workload, while implementing proper segmentation.|Work with the platform team to determine the best way to allow authorized access for: <br> - Data scientists to access the Azure Machine Learning web UI from their workstations on corporate network connection. <br> - Operators to access the compute layer through a jump box managed by the workload team. |
+|&#9744;|**Firewall configuration**. The platform team uses this information to set rules to allow legitimate egress traffic.| The platform team must be aware of specifics of the traffic that is expected to leave the spoke network. <br> - Build agent machines need regular OS patching. Egress traffic to reach OS vendors is expected weekly. <br>- The compute sends out Windows Watson telemetry. <br> - In the [alternative solution](#alternative), the prompt flow business logic reaches Wikipedia. |
+|&#9744;|**Ingress traffic from specialized roles**. The platform team uses this information to enable the specified roles to access the workload, while implementing proper segmentation.|Work with the platform team to determine the best way to allow authorized access for: <br> - Data scientists to access the Azure Machine Learning web UI from their workstations on corporate network connection. <br> - Operators to access the compute layer through the jump box managed by the workload team. |
 |&#9744;|**The public IPs**| Inform the platform team about the ingress traffic profile, including any anticipated public IP addresses. The platform team should inform the workload team if these IPs are under an Azure DDoS Protection plan or if that's the responsibility of the workload team. <br><br> In this architecture, only internet-sourced traffic targets the public IP on Application Gateway.
 |&#9744;|**Private endpoint usage**| Inform the platform team that this architecture uses private endpoints. All clients of those endpoints in the workload must able to resolve the private endpoint IP address. |
 
@@ -131,7 +133,7 @@ The organization's governance might add more requirements around container base 
 
 In the [baseline architecture](./baseline-openai-e2e-chat.yml#networking), the workload is provisioned in a single virtual network.
 
-In this architecture, the workload is effectively split over two virtual networks. One network for the workload components and one for controlling internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture; usually with a hub-spoke topology.
+> Change from the baseline: The workload is effectively split over two virtual networks. One network for the workload components and one for controlling internet and hybrid connectivity. The platform team determines how the workload's virtual network integrates with the organization's larger network architecture; usually with a hub-spoke topology.
 
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking.svg" alt-text="Architecture diagram focusing mostly on network ingress flows." lightbox="./_images/azure-openai-baseline-landing-zone-networking.svg":::
    This architecture diagram has a blue box at the top labeled "Application landing zone subscription" which contains a spoke virtual network. In that virtual network are five boxes, each labeled snet-appGateway, snet-agents, snet-jumpbox, snet-appServicePlan, snet-privateEndpoints. Each subnet has an NSG logo, and all but the snet-appGateway subnet has a UDR that says "to hub." Ingress traffic from On-premises and not on-premises users are pointing to the Application Gateway. A Data scientist user is connected to the VPN Gateway or ExpressRoute in the bottom part of the diagram labeled Connectivity subscription. The connectivity subscription contains Private DNS Zones for Private Link, Azure DNS Private Resolver, and Azure DDoS Protection. The hub virtual network, contained in the Connectivity subscription and the spoke virtual network are connected with a line labeled "Virtual network peering." There is text in the spoke virtual network that reads, "DNS provided by hub."
@@ -146,7 +148,7 @@ Because of this management and ownership split, make sure that you clearly [comm
 
 > [!IMPORTANT]
 > **For the platform team**:
-> Unless specifically required by the workload, don't directly peer the spoke network to another spoke virtual network. This practice protects the segmentation goals of the workload. Unless the application landing zone teams have cross-connected with self-managed private endpoints, your team should facilitate all transitive virtual network connections. Be sure to inquire if components in this architecture requires access to dependencies hosted by other workloads. One such example might be prompt flow requiring access to a vector database managed by another workload team.
+> Unless specifically required by the workload, don't directly peer the spoke network to another spoke virtual network. This practice protects the segmentation goals of the workload. Unless the application landing zone teams have cross-connected with self-managed private endpoints, your team should facilitate all transitive virtual network connections. Make sure you have a good understanding of the resources used by this workload but are managed by teams outside the scope of this workload team. For example, understand the network connectivity between the prompt flow and a vector database that's managed by another team.
 
 ### Virtual network subnets
 
@@ -160,13 +162,15 @@ The ingress traffic flow remains the same as the [baseline architecture](./basel
 
 Your workload team is responsible for any resources that are related to public internet ingress into the workload. For example, in this architecture, Application Gateway and its public IP are placed in the spoke network and not the hub network. Some organizations might place resources with ingress traffic in a connectivity subscription by using a centralized demilitarized (DMZ) implementation. Integration with that specific topology is out of scope for this article.
 
+##### Alternate approach
+
 This architecture doesn't use Azure Firewall for inspecting incoming traffic. Sometimes organizational governance requires this approach. Platform teams support the implementation to provide workload teams an extra layer of intrusion detection and prevention to block unwanted inbound traffic. This architecture needs additional UDR configurations to support this topology. To explore this approach, see [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml).
 
 ### DNS configuration
 
 In the baseline architecture, Azure DNS was used directly by all components for DNS resolution.
 
-In this architecture, DNS is usually delegated to one or more DNS servers in the hub. When the virtual network is created for this architecture, the DNS properties on the virtual network are expected to already be set accordingly. The DNS service is considered opaque to your workload team.
+> Change from the baseline: DNS is usually delegated to one or more DNS servers in the hub. When the virtual network is created for this architecture, the DNS properties on the virtual network are expected to already be set accordingly. The DNS service is considered opaque to your workload team.
 
 The workload components in this architecture get configured with DNS in the following ways.
 
@@ -196,7 +200,7 @@ We recommend that you familiarize yourself with how the platform team manages DN
 
 In the baseline architecture, internet egress control was only available through the network configuration on Azure Machine Learning workspaces and Azure App Services, combined with using network security groups (NSGs) on the various subnets.
 
-In this architecture, those controls remain present but are further augmented. All traffic that leaves the spoke virtual network is now rerouted through the peered hub network via an egress firewall. Traffic originating inside the managed virtual network for Azure Machine Learning computes is not subject to this egress route.
+> Change from the baseline: The egress controls are further augmented. All traffic that leaves the spoke virtual network is rerouted through the peered hub network via an egress firewall. Traffic originating inside the managed virtual network for Azure Machine Learning computes is not subject to this egress route.
 
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.svg" alt-text="Architecture diagram focusing mostly on network egress flows." lightbox="./_images/azure-openai-baseline-landing-zone-networking-egress.svg":::
    The top section of this architecture diagram is labeled "Application landing zone subscription" and contains a Spoke virtual network box and an Azure Machine Learning box. The Azure Machine Learning box contains private endpoints for Azure Storage, Azure Container Registry, Azure AI Search, and Azure OpenAI. The Spoke virtual network box contains five subnets, snet-appGateway, snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. All of the subnets, expect snet-appGateway have a dashed line leading from them to Azure Firewall, which is in the bottom box. The bottom box is labeled "Connectivity subscription." That Azure Firewall then has the same style line pointing out to the Internet represented as a cloud. The Azure Machine Learning box has the same dashed line style pointing from it out to the Internet cloud as well. In the top box there is text that reads, "Where possible all workload-originated, internet bound traffic flows through the hub due to the 0.0.0.0/0 UDR." The Hub virtual network in the bottom box and the spoke virtual network in the top box are connected with a line that reads "Virtual network peering."
@@ -236,9 +240,7 @@ Architectures that use private endpoints for east-west traffic within their work
 
 In the baseline architecture, the workload team was directly responsible for the private DNS zones.
 
-In this architecture, it's assumed that Azure Private DNS Zones are maintained by the platform team. They might use another technology, but for this architecture we assume it's private DNS zone records.
-
-The workload team must have a clear understanding of the requirements and expectation of the management of those private DNS zone records from their platform team. These DNS zone records are typically managed through a process established by the platform team and can't be managed directly by your workload team. The correct configuration of these zone records enables functionality on Azure Firewall such as DNS proxy and fully qualified domain name (FQDN) network rules. The private DNS zones also support the use of Azure Private DNS Resolver as the region's spokes' DNS server.
+> Change from the baseline: It's assumed that Azure Private DNS Zones are maintained by the platform team. They might use another technology, but for this architecture we assume it's private DNS zone records. The workload team must have a clear understanding of the requirements and expectation of the management of those private DNS zone records from their platform team. 
 
 In this architecture, the platform team must ensure the reliable and timely DNS hosting for the following private link endpoints:
 
@@ -324,6 +326,7 @@ The following examples are workload changes in this architecture that you should
 - **Business criticality rating**: If there are changes to the workload's service-level agreements (SLAs), you might need a new collaboration approach between the platform and workload teams.
 
   *Example*: Your workload could transition preview to low to high business critically with increased adoption and workload success.
+
 
 ## Reliability
 
@@ -423,9 +426,9 @@ Many services in this architecture use private endpoints. This design potentiall
 
 ## Performance efficiency
 
-The performance efficiency considerations addressed in the [baseline architecture](./baseline-openai-e2e-chat.yml#performance-efficiency) also apply to this architecture. Because the platform team is largely not involved in resources used in the demand flows of the workload, supply of the resources used in the demand flows remain in control of the workload team, and not the platform team. Scale the chat UI host, prompt flow host, large language models (LLM), and so on, as needed by the workload and allowed by the cost constraints. Depending on implementation details of your final architecture, remember to consider the following factors when measuring your performance against performance targets.
+The performance efficiency considerations addressed in the [baseline architecture](./baseline-openai-e2e-chat.yml#performance-efficiency) also apply to this architecture. Supply of the resources used in the demand flows remain in control of the workload team, and not the platform team. Scale the chat UI host, prompt flow host, large language models (LLM), and so on, as needed by the workload and allowed by the cost constraints. Depending on the final implementation of your architecture, consider the following factors when measuring your performance against performance targets.
 
-- Egress & cross-premises latency
+- Egress and cross-premises latency
 - SKU limitations derived from cost containment governance
 
 ## Deploy this scenario
