@@ -185,7 +185,7 @@ Example output:
 
 ### Filtering
 
-Fields in the search store that are configured as filterable can be used to filter queries. Keywords and entities are good candidates for filtering. As with every decision, it's important to experiment and test. Queries may not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
+Fields in the search store that are configured as filterable can be used to filter queries. Consider filtering on keywords and entities for queries that use those fields to help narrow down the result. Filtering allows you to retrieve only the data that satisfies certain conditions from an index by eliminating irrelevant data. This improves the overall performance of the query with more relevant results. As with every decision, it's important to experiment and test. Queries might not have keywords or wrong keywords, abbreviations, or acronyms. You need to take these cases into consideration.
 
 ### Reranking
 

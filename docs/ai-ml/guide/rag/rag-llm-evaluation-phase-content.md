@@ -41,14 +41,20 @@ Completeness measures whether the response is answering all parts of the query. 
 
 ### Utilization
 
-Utilization measures the extent to which the response is made up of information from the chunks in the context. The goal is to determine the extent to which each chunk is part of the response. If utilization is low, this indicates that our results may not be relevant to the query.
+Utilization measures the extent to which the response is made up of information from the chunks in the context. The goal is to determine the extent to which each chunk is part of the response. If utilization is low, this indicates that our results might not be relevant to the query. Utilization should be evaluated along side completeness.
 
 **Calculating**
 
-* You can use an LLM to calculate the utilization. You can pass the response and the context containing the chunks to the LLM. You can ask the LLM to determine the number of chunks that entail the answer.
-* [AI-Assisted GPT-Similarity prompting]( /azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-gpt-similarity)
+You can use an LLM to calculate the utilization. You can pass the response and the context containing the chunks to the LLM. You can ask the LLM to determine the number of chunks that entail the answer.
 
-**Evaluating** - TODO:
+**Evaluating**
+
+The following table provides guidance, taking both completeness and utilization together.
+
+| | High utilization | Low utilization |
+| --- | --- | --- |
+| **High completeness** | No action needed | In this case, the data returned is able to address the question, but irrelevant chunks were returned. Consider reducing the top-k parameter value to yield more probable/deterministic results. |
+| **Low completeness** | In this case, the chunks you are providing are being used, but are not fully addressing the question. Consider the following:<br /><ul><li>Review your chunking strategy to increase the context within the chunks</li><li>Increase the number of chunks by increasing the top-k parameter value</li><li>Evaluate whether you have chunks that were not returned that can increase the completeness. If so, investigate why they were not returned.</li><li>Follow the guidance in [the completeness section](#completeness)</li></ul> | In this case, you are not fully answering the question and the chunks you are providing are not being well utilized. Consider the following to address these issues:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you are using fixed size chunking, consider increasing the chunk sizes.</li><li>Tune your prompts to improve responses</li></ul> |
 
 ### Relevance
 
@@ -56,11 +62,18 @@ Measures the extent to which the LLM's response is pertinent and related to the 
 
 **Calculating**
 
-* [AI-assisted: Retrieval Score in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score)
+* [AI-assisted: Relevance in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance) - You can use Azure AI Studio to perform the calculations, or use the guidance in this article to calculate relevance for yourself.
 * [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance.html)
 * [Mlflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
-**Evaluating**  - TODO: What are the relevant steps?
+**Evaluating** - When relevance is low, evaluate the following:
+
+* Ensure that the chunks provided to the LLM are relevant.
+  * Determine if there are viable chunks that are relevant that were not returned. If there are, evaluate your embedding model.
+  * If there are not viable chunks, look to see if relevant data exists. If it does, evaluate your chunking strategy.
+* If relevant chunks were returned, evaluate your prompt.
+
+Other evaluation methods like [completeness](#completeness) should be calculated and should yield similar scores to the ones observed in the relevance measure.
 
 ## Similarity and evaluation metrics
 
