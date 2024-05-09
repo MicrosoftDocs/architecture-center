@@ -288,19 +288,19 @@ app.MapHealthChecks("/health");
 
 ### Containerize service deployment
 
-An important part of the modern web app pattern is dividing services according to domain boundaries (as discussed in the strangler fig pattern).
+This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. An important part of the modern web app pattern is dividing services according to domain boundaries (as discussed in the strangler fig pattern).
 
 #### Containerizing implementations recommendations for .NET developers
 
-- When creating Docker images for .NET apps, you should use chiseled base images to minimize package size and attack surface area.
+- *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
+- *Create docker images.* When creating Docker images for your .NET services, use chiseled base images. These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
+- *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. This helps to keep your production images small and secure.
+- *Run as non-root user.* Run your .NET containers as a non-root user (via user name or UID, $APP_UID) to align with the principle of least privilege. It limits the potential impact of a compromised container.
+- *Listen on port 8080.* When running as a non-root user, configure your application to listen on port 8080. It's a common convention for non-root users.
+- *Encapsulate dependencies.* Ensure that all dependencies for the app to function are encapsulated in the Docker container image. This allows the app to be reliably deployed to a wide range of hosts.
+- *Choose the right base images.* The base image you choose depends on your deployment environment. If you’re deploying to Azure Container Apps, for instance, you’ll need to use Linux Docker images.
 
-- You should use multistage Dockerfiles to separate build-time assets from the runtime container image.
-
-- You should run .NET containers as [the non-root user “App”](https://devblogs.microsoft.com/dotnet/securing-containers-with-rootless/) (via that users name or UID, $APP_UID) to align with the principle of least privilege. 
-
-- When running as a non-root user, you application should listen on port 8080.
-
-**Example - Implementing containerized service deployment**: The reference implementation publishes the new ticket rendering service as a [Docker container image](https://learn.microsoft.com/dotnet/core/docker/introduction). This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. The reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) Dockerfile which first builds the solution in a Docker container (based on a mcr.microsoft.com/dotnet/sdk image) and then publishes the final service in a separate smaller container.
+The reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a non-root user (`USER $APP_UID`) and exposes port 8080. The ll dependencies required for the application to operate are included within the Docker image, as evidenced by the commands to copy project files and restore packages. The choice of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) for the runtime environment for deployment within Azure Container Apps, which requires Linux containers.
 
 ```dockerfile
 # Build in a separate stage to avoid copying the SDK into the final image
@@ -331,10 +331,6 @@ COPY --from=build /app/publish .
 USER $APP_UID
 ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 ```
-
-The ticket rendering service uses a chiseled base image (mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled) so that only the minimal set of packages needed for ASP.NET Core to run are included. This reduces the size of the container image and improves security by reducing attack surface area. The service’s Dockerfile also specifies that the container should run with [a non-root user](https://devblogs.microsoft.com/dotnet/securing-containers-with-rootless/) in keeping with the principle of least privilege.
-
-The ticket rendering service is built on Linux-based .NET base images, but .NET Docker containers can be built on either Windows or Linux base images. Because the reference implementation uses Azure Container Apps, however, Linux Docker images are required for this scenario.
 
 ## Performance efficiency
 
