@@ -1,5 +1,7 @@
 The first phase of RAG development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of gathering documents and sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The questions must be answerable by content in the documents and the documents must answer relevant questions.
 
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+
 ## Determine solution domain
 
 The first step in this process is to clearly define the business requirements for the solution or the use case. These requirements help determine what kind of questions the solution intends to address and what source data or documents help address those questions. In later stages, the solution domain helps inform your embedding model strategy.

@@ -1,5 +1,7 @@
 Once you’ve broken down your documents down into a collection of chunks, the next step is to enrich each chunk by both cleaning and augmenting the chunks with metadata. Cleaning the chunks allows you to achieve better matches for semantic queries against the vectorized chunks. Adding information allows you to support searches beyond semantic searches of the chunks. Both cleaning and augmenting involve extending the schema for the chunk.
 
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+
 :::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram showing json records with a single field being enriched" border="false":::
    The diagram shows json with two rows. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into 2 json rows, each with six fields: Chunk, CleanedChunk, Title, Summary, Keywords and Questions, where Keywords and Questions are arrays and the other fields are name-value pairs.
 :::image-end:::

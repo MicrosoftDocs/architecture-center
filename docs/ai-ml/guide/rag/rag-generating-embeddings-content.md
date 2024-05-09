@@ -3,6 +3,8 @@ An embedding is a vector representation of an object, such as text. Embeddings a
 > [!NOTE]
 > This feature of vectors stresses the importance of cleaning the chunks so mathematical proximity can be tracked more closely with semantic relevancy.
 
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+
 ## Importance of the embedding model
 
 The embedding model you choose can have a significant effect on relevancy of your vector search results. One of the key factors you must consider when choosing an embedding model is the vocabulary of the model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of [BERT](https://huggingface.co/docs/transformers/en/model_doc/bert) is around 30,000.

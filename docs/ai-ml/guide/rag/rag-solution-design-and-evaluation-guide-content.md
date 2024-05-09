@@ -1,4 +1,8 @@
-The Retrieval Augmented Generation (RAG) pattern is the industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data that is not already known to the LLM. While the architecture is straightforward, designing and evaluating RAG solutions that fit into this architecture involves many complex considerations. These considerations include:
+The Retrieval Augmented Generation (RAG) pattern is an industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data that is not already known to the LLM. While the architecture is straightforward, designing and evaluating RAG solutions that fit into this architecture involves many complex considerations.
+
+> This guide is presented as a series. Each article in the series covers a specific phase in designing RAG solutions.
+
+These considerations the articles in this guides cover include:
 
 * Determining what test documents and queries to use during evaluation
 * Choosing a chunking strategy
@@ -6,7 +10,7 @@ The Retrieval Augmented Generation (RAG) pattern is the industry standard approa
 * Choosing the right embedding model
 * Determining how to configure the search index
 * Determining what searches you want to perform: vector, full text, hybrid, manual multiple
-* How to evaluate each step
+* Evaluating each step
 
 The articles in this guide address all of those considerations.
 
@@ -33,10 +37,10 @@ The following is a high-level flow for a data pipeline that supplies grounding d
 1. Documents are either pushed or pulled into a data pipeline.
 2. The data pipeline processes each document with the following steps:
 
-    * Chunks documents - Breaks down the documents into semantically relevant parts that ideally have a single idea or concept.
-    * Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords.
-    * Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
-    * Persists chunks - Stores the chunks in the search index.
+    a. Chunks documents - Breaks down the documents into semantically relevant parts that ideally have a single idea or concept.
+    b. Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords.
+    c. Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
+    d. Persists chunks - Stores the chunks in the search index.
 
 ## RAG design and evaluation considerations
 

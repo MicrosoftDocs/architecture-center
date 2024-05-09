@@ -1,5 +1,7 @@
 When you're experimenting with information retrieval, there are several areas to consider, including configuration options for the search index, the types of searches you should perform, and your reranking strategy. This article covers these three topics.
 
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+
 ## Search index
 
 > [!NOTE]

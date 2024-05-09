@@ -4,6 +4,8 @@ This grounding data forms the context for the prompt that you send to the LLM to
 
 This article doesn't attempt to provide an exhaustive list of either LLM metrics or similarity and evaluation metrics. The number of these metrics are growing every day. What is important for you to take away from this article is that there are various metrics, each with their own distinct use case. You're the only one with a holistic understand your workload. You and your data scientists must determine what it is that you want to measure and which metrics help you accomplish that task.
 
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+
 ## LLM evaluation metrics
 
 There are several metrics you can use to evaluate the LLM's response, including groundedness, completeness, utilization, and relevancy.

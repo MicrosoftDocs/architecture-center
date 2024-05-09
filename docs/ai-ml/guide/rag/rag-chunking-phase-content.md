@@ -2,6 +2,8 @@ Breaking down documents into a collection of right-sized, semantically relevant 
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are a various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
 
+> This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
+
 ## Chunking economics
 
 When determining your overall chunking strategy, you must consider your budget along with your quality and throughput requirements for your text corpus. There are engineering costs for the design and implementation of each unique chunking implementation and per-document processing costs that differ depending upon the approach.
