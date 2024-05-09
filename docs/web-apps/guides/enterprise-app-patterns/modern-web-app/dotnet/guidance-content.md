@@ -334,29 +334,28 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 
 ## Performance efficiency
 
-Performance represents the ability of a solution to function efficiently even as workload demands change. As applications move from the reliable web app pattern to the modern web app pattern, it should be possible to improve performance because of increased decoupling of application services. In a modern web app, one component slowing down should not negatively affect the performance of other components. One pattern supporting the pillar of performance that has already been discussed is queue-based load leveling. Queue-based load leveling provides both reliability benefits (for the worker service) and performance benefits (for the calling task). Another related pattern which is often paired with queue-based load leveling which can improve performance in the worker service is the competing consumers pattern.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
+The Modern Web App uses the Competing Consumers pattern to optimize performance efficiency.
+
+As applications evolve from the Reliable Web App pattern to the Modern Web App pattern, performance benefits from greater service decoupling. This architecture prevents a slowdown in one component from affecting others. Queue-based load leveling, which distributes tasks evenly, is essential for improving both reliability and performance. Additionally, implementing the competing consumers pattern further enhances performance by distributing tasks among multiple workers efficiently.
+
+As applications move from the Reliable Web App pattern to the Modern Web App pattern, it should be possible to improve performance because of increased decoupling of application services. In a modern web app, one component slowing down should not negatively affect the performance of other components. One pattern supporting the pillar of performance that has already been discussed is queue-based load leveling. Queue-based load leveling provides both reliability benefits (for the worker service) and performance benefits (for the calling task). Another related pattern which is often paired with queue-based load leveling which can improve performance in the worker service is the competing consumers pattern.
 
 ### Competing Consumers pattern
 
 The [Competing Consumers pattern](https://learn.microsoft.com/azure/architecture/patterns/competing-consumers) allows incoming work to be efficiently handled by multiple parallel workers. This pattern enables handling bursts of demand by temporarily scaling workers horizontally which are designed such that they can all consume work requests from a message queue in parallel. This pattern can be used if your solution is designed so that message ordering doesn’t matter, malformed messages don’t block the queue, and processing is idempotent so that messages that aren’t successfully handled by one worker can be picked up by another without fear of errors due to processing the message more than once.
 
-#### Competing Consumers implementation recommendations for .NET developers
+- *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
+- *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they are ready.
+- *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retry messages that fail processing. This mode enhances reliability over deletion-first methods.
+- *Implement error handling.* Route malformed or unprocessable messages to a separate, dead-letter queue. This design prevents repetitive processing. For example, you can catch exceptions during message processing and move the problematic message to the separate queue.
+- *Handle out-of-order messages.* Design consumers to is capable of processing messages that arrive out of sequence. Multiple parallel consumers means they might process messages out of order.
+- *Scale based on queue length.* Services consuming messages from a queue should auto-scale based on queue length. This allows for efficient processing of spikes of incoming messages.
+- *Use message-reply queue.* If the system requires notifications post-message processing, set up a dedicated reply or response queue. This divides operational messaging from notification processes.
+- *Use stateless services.* Consider using stateless services to process requests from a queue. This allows for easy scaling and efficient resource usage.
+- *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting.
 
-- When receiving messages from a Service Bus queue, you should set MaxConncurrentCalls to 1 and PrefetchCount to 0 because multiple messages will be handled by multiple consumers.
-
-- When receiving messages from a Service Bus queue, you should use PeekLock mode rather than ReceiveAndDelete mode to automatically retry processing messages that fail.
-
-- Consumers should move malformed messages to the dead letter queue so that they are not needlessly retried.
-
-- Consumers should be architected such that they function even when messages are received out-of-order. Even if messages are queued in order, having multiple parallel consumers means that messages may be processed out of order. 
-
-- Services consuming Service Bus messages should auto-scale based on queue length in order to efficiently process spikes of incoming messages.
-
-- If the consumer service needs to notify the sender when a message is processed, it should use a dedicated message reply queue.
-
-*Simulate the pattern:* You can simulate the benefits of competing consumers in the Relecloud modern web app reference implementation by purchasing many tickets at once (100 or more). This will cause many ticket rendering requests to be queue in Azure Service Bus. The requests are quickly handled, though, because the ticket rendering service will automatically scale out and handle the requests in parallel.
-
-**Example - Implementing the Competing Consumers pattern**: The reference implementation uses a stateless Azure Container App to process ticket rendering requests from an Azure Service Bus queue.
+The reference implementation uses a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue.
 
 ```C#
 // Create a processor for the given queue that will process incoming messages
@@ -389,16 +388,6 @@ processor.ProcessMessageAsync += async args =>
     }
 };
 ```
-
-Important items to note in the implementation of the Service Bus processor are:
-
-- Work is retrieved from Service Bus using **peek-lock** receive mode so that if a worker fails while processing a request, the request will simply be returned to the queue and handled by a different worker. Also, the ticket rendering service is implemented such that processing a request twice will not cause any problems. This avoids errors in the case of a worker failing after already completing some or all of the processing work.
-
-- Persistent errors such as malformed JSON in messages are handled by sending messages to a **dead-letter queue**. This prevents malformed messages from clogging the queue.
-
-- **MaxConcurrentCalls** is set to 1 and **PrefetchCount** is set to 0 since scaling is expected to happen in Azure Container Apps, so it’s not necessary for an individual worker to optimize for handling many messages at once.
-
-Also important is that images are written to Blob Storage in such a way that writing to the same blob twice will simply overwrite the older one rather than causing a failure. This is important when using peek-lock receive mode since it’s possible that in rare circumstances the same rendering request might be processed twice. Scaling is performed automatically based on queue length, as described in the cost optimization section.
 
 ## Next steps
 
