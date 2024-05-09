@@ -24,9 +24,7 @@ As a workload owner, you can offload the management of shared resources to platf
 ## Architecture
 
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources" lightbox="./_images/azure-openai-baseline-landing-zone.svg":::
-   Architecture diagram that is broken up into two primary sections:
-   - Application Landing Zone Subscription (Blue Section): Contains workload-created resources and subscription-vending resources. Individual components owned by that team are described in [Workload team-owned resources](#workload-team-owned-resources). 
-   - Platform Landing Zone Subscription (Yellow Section): Contains platform-level resources. These are described in [Platform team-owned resources](#Platform-team-owned-resources)
+    Architecture diagram that is broken up into two primary sections. The blue section and is labeled "Application landing zone subscription." The bottom section is yellow and is labeled "Platform landing zone subscription." The top box contains both workload-created resources as well as subscription-vending resources. The workload resources consist of Application Gateway + Web Application Firewall, App Service and its integration subnet, Private Endpoints for PaaS services such as Azure Storage, Azure Key Vault, Azure AI Search, Azure OpenAI service, Azure Container Registry. The workload resources also has Machine Learning Workspace and monitoring resources. Azure App Service shows three instances, each in a different Azure zone. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a dithered out VPN Gateway and ExpressRoute. There is virtual network peering between a virtual network in the application landing zone and the hub virtual network.
 :::image-end:::
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
