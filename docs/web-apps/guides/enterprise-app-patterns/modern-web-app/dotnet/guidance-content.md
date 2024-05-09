@@ -238,16 +238,14 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 ### Implement the Health Endpoint Monitoring pattern
 
-The [health endpoint monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of service endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. Both ASP.NET Core and Azure Container Apps support this pattern. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. Azure Container Apps allow configuration of [health probes](https://learn.microsoft.com/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
+The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies.
 
 #### HEM pattern implementation recommendations for .NET developers
 
-- *Implement health checks.* Use ASP.NET Core [Health Checks Middleware](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints in the new independent service.
-- *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies. This is crucial for confirming the health of your service.
-- *Use third-party packages.* [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) is a popular third-party package that implements health check dependency checks for many common app dependencies.
-- *Configure Azure resources.* When deploying an app to Azure, the Azure resource (Azure App Service, Azure Kubernetes Service, or Azure Container Apps) should be configured to use the app’s health check URLs to confirm liveness and readiness.
+- *Implement health checks.* Use ASP.NET Core [Health Checks Middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
+- *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
 
-The reference implementation uses [ASP.NET Core health check middleware](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks) to expose endpoints for checking application liveness. It also uses extensions from the popular [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) open source project so that the service’s health checks will include validating that key dependencies (Azure Service Bus and Azure blob storage) are available.
+    The reference implementation uses [ASP.NET Core health check middleware](/aspnet/core/host-and-deploy/health-checks) to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the AspNetCore.Diagnostics.HealthChecks package. Azure Container Apps allow configuration of [health probes](https://learn.microsoft.com/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
 ```C#
 // Add health checks, including health checks for Azure services that are used by this service.
@@ -269,22 +267,24 @@ builder.Services.AddHealthChecks()
 app.MapHealthChecks("/health");
 ```
 
-These health checks are used by the Azure Container App to monitor the liveness of service replicas. The health check endpoint configuration is defined for the ticket rendering service Container App in the app’s bicep template.
+- *Configure Azure resources.* Configure the Azure resource to use the app’s health check URLs to confirm liveness and readiness.
 
-```bicep
-probes: [
-  {
-    type: 'liveness'
-    httpGet: {
-      path: '/health'
-      port: 8080
-    }
-    initialDelaySeconds: 2
-    periodSeconds: 10
-  }
-]
+    The reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hits the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
 
-```
+    ```bicep
+    probes: [
+      {
+        type: 'liveness'
+        httpGet: {
+          path: '/health'
+          port: 8080
+        }
+        initialDelaySeconds: 2
+        periodSeconds: 10
+      }
+    ]
+    
+    ```
 
 ### Containerize service deployment
 
