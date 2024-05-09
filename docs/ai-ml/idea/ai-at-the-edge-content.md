@@ -26,15 +26,15 @@ This architecture shows how you can bring your trained AI model to the edge with
 
 Key technologies used to implement this architecture:
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions.
-* [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Ingest data into Azure Data Factory.
-* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Load data into Azure Data Lake Storage Gen2 with Azure Data Factory.
-* [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments.
-* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes.
-* [Azure Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage.
-* [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries.
-* [Azure Functions](https://azure.microsoft.com/services/functions): Event-driven serverless compute unit for on-demand tasks running without the needs of maintaining the computing server.
-* [Azure App Service](/azure/app-service/overview): Path that captures end-user feedback data to enable model optimization.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Ingest data into Azure Data Factory.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Load data into Azure Data Lake Storage Gen2 with Azure Data Factory.
+- [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes.
+- [Azure Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage.
+- [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries.
+- [Azure Functions](https://azure.microsoft.com/services/functions): Event-driven serverless compute unit for on-demand tasks running without the needs of maintaining the computing server.
+- [Azure App Service](/azure/app-service/overview): Path that captures end-user feedback data to enable model optimization.
 
 ## Scenario details
 
@@ -44,38 +44,38 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 
 There's a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
 
-* Security camera detection processes.
-* Image and video analysis (the media and entertainment industry).
-* Transportation and traffic (the automotive and mobility industry).
-* Manufacturing.
-* Energy (smart grids).
+- Security camera detection processes.
+- Image and video analysis (the media and entertainment industry).
+- Transportation and traffic (the automotive and mobility industry).
+- Manufacturing.
+- Energy (smart grids).
 
 ## Next steps
 
-* Want to learn more? Check out the [Introduction to Azure Stack](/training/modules/intro-to-azure-stack/) module
-* Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/certifications/azure-stack-hub-operator/) certification
-* How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
-* How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
-* Deploy your ML models to an edge device with [Azure Stack Edge Devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
-* Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services)
+- Want to learn more? Check out the [Introduction to Azure Stack](/training/modules/intro-to-azure-stack/) module
+- Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/certifications/azure-stack-hub-operator/) certification
+- How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
+- How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
+- Deploy your machine learning models to an edge device with [Azure Stack Edge Devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
+- Innovate further and deploy [Azure AI services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services)
 
 For more information about the featured Azure services, see the following articles and samples:
 
-* [App Service documentation](/azure/app-service)
-* [Azure Data Lake Storage Gen 2](/azure/databricks/data/data-sources/azure/adls-gen2)
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Azure Machine Learning documentation](/azure/machine-learning/service)
-* [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
-* [Azure Stack Hub Deployment Options](/azure-stack/operator/azure-stack-overview#deployment-options)
-* [Container Registry documentation](/azure/container-registry)
-* [Storage documentation](/azure/storage)
-* [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
-* [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
+- [App Service documentation](/azure/app-service)
+- [Azure Data Lake Storage Gen 2](/azure/databricks/data/data-sources/azure/adls-gen2)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Azure Machine Learning documentation](/azure/machine-learning/service)
+- [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
+- [Azure Stack Hub Deployment Options](/azure-stack/operator/azure-stack-overview#deployment-options)
+- [Container Registry documentation](/azure/container-registry)
+- [Storage documentation](/azure/storage)
+- [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
+- [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
 ## Related resources
 
 See the following related architectures:
 
-* [Disconnected AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected)
-* [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
-* [AI-based footfall detection](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection)
+- [Disconnected AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge-disconnected)
+- [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
+- [AI-based footfall detection](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection)

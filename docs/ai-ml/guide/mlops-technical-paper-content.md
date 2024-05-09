@@ -1,29 +1,29 @@
 This client project helped a Fortune 500 food company improve its demand forecasting. The company ships products directly to multiple retail outlets. The improvement helped them optimize the stocking of their products in different stores across several regions of the United States. To achieve this, Microsoft's Commercial Software Engineering (CSE) team worked with the client's data scientists on a pilot study to develop customized machine learning models for the selected regions. The models take into account:
 
-* Shopper demographics
-* Historical and forecasted weather
-* Past shipments
-* Product returns
-* Special events
+- Shopper demographics
+- Historical and forecasted weather
+- Past shipments
+- Product returns
+- Special events
 
 The goal to optimize stocking represented a major component of the project and the client realized a significant sales lift in the early field trials. Also, the team saw a 40% reduction in forecasting mean absolute percentage error (MAPE) when compared with a historical average baseline model.
 
 A key part of the project was figuring out how to scale up the data science workflow from the pilot study to a production level. This production-level workflow required the CSE team to:
 
-* Develop models for many regions.
-* Continuously update and monitor performance of the models.
-* Facilitate collaboration between the data and engineering teams.
+- Develop models for many regions.
+- Continuously update and monitor performance of the models.
+- Facilitate collaboration between the data and engineering teams.
 
 The typical data science workflow today is closer to a one-off lab environment than a production workflow. An environment for data scientists must be suitable for them to:
 
-* Prepare the data.
-* Experiment with different models.
-* Tune hyperparameters.
-* Create a build-test-evaluate-refine cycle.
+- Prepare the data.
+- Experiment with different models.
+- Tune hyperparameters.
+- Create a build-test-evaluate-refine cycle.
 
 Most tools that are used for these tasks have specific purposes and aren't well suited to automation. In a production level machine learning operation, there must be more consideration given to application lifecycle management and DevOps.
 
-The CSE team helped the client scale up the operation to production levels. They implemented various aspects of continuous integration (CI)/continuous delivery (CD) capabilities and addressed issues like observability, and integration with Azure capabilities. During the implementation, the team uncovered gaps in existing MLOps guidance. Those gaps needed to be filled so that MLOps was better understood and applied at scale.
+The CSE team helped the client scale up the operation to production levels. They implemented various aspects of continuous integration and continuous delivery (CI/CD) capabilities and addressed issues like observability, and integration with Azure capabilities. During the implementation, the team uncovered gaps in existing MLOps guidance. Those gaps needed to be filled so that MLOps was better understood and applied at scale.
 
 Understanding MLOps practices helps organizations ensure that the machine learning models that the system produces are production quality models that improve business performance. When MLOps is implemented, the organization no longer has to spend as much of their time on low-level details relating to the infrastructure and engineering work that's required to develop and run machine learning models for production level operations. Implementing MLOps also helps the data science and software engineering communities to learn to work together to deliver a production-ready system.
 
@@ -68,30 +68,30 @@ Implementing MLOps in real-world production environments has unique challenges t
 
 Much of the work during the Phase 1 pilot field study was creating the machine learning models that the CSE team applied to the large and small retail stores in a single region. Notable requirements for the models included:
 
-* Use of the Azure Machine Learning service.
-* Initial experimental models that were developed in Jupyter notebooks and implemented in Python.
+- Use of the Azure Machine Learning service.
+- Initial experimental models that were developed in Jupyter notebooks and implemented in Python.
 
     > [!NOTE]
     > Teams used the same machine learning approach for large and small stores, but the training and scoring data depended on the size of the store.
-* Data that requires preparation for model consumption.
-* Data that's processed on a batch basis rather than in real time.
-* Model retraining whenever code or data changes, or the model goes stale.
-* Viewing of model performance in Power BI dashboards.
-* Model performance in scoring that's considered significant when MAPE <= 45% when compared with a historical average baseline model.
+- Data that requires preparation for model consumption.
+- Data that's processed on a batch basis rather than in real time.
+- Model retraining whenever code or data changes, or the model goes stale.
+- Viewing of model performance in Power BI dashboards.
+- Model performance in scoring that's considered significant when MAPE <= 45% when compared with a historical average baseline model.
 
 ## MLOps requirements
 
 The team had to meet several key requirements to scale up the solution from the Phase 1 pilot field study, in which only a few models were developed for a single sales region. Phase 2 implemented custom machine learning models for multiple regions. The implementation included:
 
-* Weekly batch processing for large and small stores in each region to retrain the models with new datasets.
-* Continuous refinement of the machine learning models.
-* Integration of the development/test/package/test/deploy process common to CI/CD in a DevOps-like processing environment for MLOps.
+- Weekly batch processing for large and small stores in each region to retrain the models with new datasets.
+- Continuous refinement of the machine learning models.
+- Integration of the development/test/package/test/deploy process common to CI/CD in a DevOps-like processing environment for MLOps.
 
   > [!NOTE]
   > This represents a shift in how data scientists and data engineers have commonly worked in the past.
-* A unique model that represented each region for large and small stores based on store history, demographics, and other key variables. The model had to process the entire dataset to minimize the risk of processing error.
-* The ability to initially scale up to support 14 sales regions with plans to scale up further.
-* Plans for additional models for longer term forecasting for regions and other store clusters.
+- A unique model that represented each region for large and small stores based on store history, demographics, and other key variables. The model had to process the entire dataset to minimize the risk of processing error.
+- The ability to initially scale up to support 14 sales regions with plans to scale up further.
+- Plans for additional models for longer term forecasting for regions and other store clusters.
 
 ## Machine learning model solution
 
@@ -121,23 +121,23 @@ As MLOps concepts mature, teams often discover challenges in bringing the data s
 
 But there are similarities to build on. MLOps, like DevOps, is a development process implemented by a toolchain. The MLOps toolchain includes such things as:
 
-* Version control
-* Code analysis
-* Build automation
-* Continuous integration
-* Testing frameworks and automation
-* Compliance policies integrated into CI/CD pipelines
-* Deployment automation
-* Monitoring
-* Disaster recovery and high availability
-* Package and container management
+- Version control
+- Code analysis
+- Build automation
+- Continuous integration
+- Testing frameworks and automation
+- Compliance policies integrated into CI/CD pipelines
+- Deployment automation
+- Monitoring
+- Disaster recovery and high availability
+- Package and container management
 
 As noted above, the solution takes advantage of existing DevOps guidance, but is augmented to create a more mature MLOps implementation that meets the needs of the client and of the data science community. MLOps builds on DevOps guidance with these additional requirements:
 
-* **Data and model versioning isn't the same as code versioning**: There must be versioning of datasets as the schema and origin data changes.
-* **Digital audit trail requirements**: Track all changes when dealing with code and client data.
-* **Generalization**: Models are different than code for reuse, since data scientists must tune models based on input data and scenario. To reuse a model for a new scenario, you may need to fine-tune/transfer/learn on it. You need the training pipeline.
-* **Stale models**: Models tend to decay over time and you need the ability to retrain them on demand to ensure they remain relevant in production.
+- **Data and model versioning isn't the same as code versioning:** There must be versioning of datasets as the schema and origin data changes.
+- **Digital audit trail requirements:** Track all changes when dealing with code and client data.
+- **Generalization:** Models are different than code for reuse, since data scientists must tune models based on input data and scenario. To reuse a model for a new scenario, you might need to fine-tune/transfer/learn on it. You need the training pipeline.
+- **Stale models:** Models tend to decay over time and you need the ability to retrain them on demand to ensure they remain relevant in production.
 
 ## MLOps challenges
 
@@ -153,8 +153,8 @@ Software engineers and data scientists bring unique skill sets to the team. Thes
 
 There's often a need for multiple models to solve for difficult machine learning scenarios. One of the challenges of MLOps is managing these models, including:
 
-* Having a coherent versioning scheme.
-* Continually evaluating and monitoring all the models.
+- Having a coherent versioning scheme.
+- Continually evaluating and monitoring all the models.
 
 Traceable lineage of both code and data is also needed to diagnose model issues and create reproducible models. Custom dashboards can make sense of how deployed models are performing and indicate when to intervene. The team created such dashboards for this project.
 
@@ -168,9 +168,9 @@ Much of the pilot field test focused on conditioning the raw data so that the ma
 
 The purpose of the MLOps maturity model is to clarify the principles and practices and to identify gaps in an MLOps implementation. It's also a way to show a client how to incrementally grow their MLOps capability instead of trying to do it all at once. The client should use it as a guide to:
 
-* Estimate the scope of the work for the project.
-* Establish success criteria.
-* Identify deliverables.
+- Estimate the scope of the work for the project.
+- Establish success criteria.
+- Identify deliverables.
 
 The MLOps maturity model defines five levels of technical capability:
 
@@ -188,13 +188,13 @@ For the current version of the MLOps maturity model, see the [MLOps maturity mod
 
 MLOps includes all activities from acquiring raw data to delivering model output, also known as scoring:
 
-* Data conditioning
-* Model training
-* Model testing and evaluation
-* Build definition and pipeline
-* Release pipeline
-* Deployment
-* Scoring
+- Data conditioning
+- Model training
+- Model testing and evaluation
+- Build definition and pipeline
+- Release pipeline
+- Deployment
+- Scoring
 
 ## Basic machine learning process
 
@@ -229,10 +229,10 @@ The following diagram describes how to apply CI/CD development and release workf
 
 ![MLOps process flow archetype diagram](_images/mlops-process-flow.png)
 
-* When a pull request (PR) is created from a feature branch, the pipeline runs [code validation tests](#code-validation-tests) to validate the quality of the code via unit tests and code quality tests. To validate quality upstream, the pipeline also runs [basic model validation tests](#basic-model-validation-tests) to validate the end-to-end training and scoring steps with a sample set of mocked data.
-* When the PR is merged into the main branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the artifacts, which include the code and binaries, to run in the machine learning environment.
-* After the artifacts are available, a [model validation CD pipeline](#model-validation-cd-pipeline) is triggered. It runs end-to-end validation on the development machine learning environment. A scoring mechanism is published. For a batch scoring scenario, a scoring pipeline is published to the machine learning environment and triggered to produce results. If you want to use a real-time scoring scenario, you can publish a web app or deploy a container.
-* Once a milestone is created and merged into the release branch, the same CI pipeline and model validation CD pipeline are triggered. This time, they run against the code from the release branch.
+- When a pull request (PR) is created from a feature branch, the pipeline runs [code validation tests](#code-validation-tests) to validate the quality of the code via unit tests and code quality tests. To validate quality upstream, the pipeline also runs [basic model validation tests](#basic-model-validation-tests) to validate the end-to-end training and scoring steps with a sample set of mocked data.
+- When the PR is merged into the main branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the artifacts, which include the code and binaries, to run in the machine learning environment.
+- After the artifacts are available, a [model validation CD pipeline](#model-validation-cd-pipeline) is triggered. It runs end-to-end validation on the development machine learning environment. A scoring mechanism is published. For a batch scoring scenario, a scoring pipeline is published to the machine learning environment and triggered to produce results. If you want to use a real-time scoring scenario, you can publish a web app or deploy a container.
+- Once a milestone is created and merged into the release branch, the same CI pipeline and model validation CD pipeline are triggered. This time, they run against the code from the release branch.
 
 You can consider the MLOps process data flow shown above as an archetype framework for projects that make similar architectural choices.
 
@@ -244,14 +244,14 @@ Code validation tests for machine learning focus on validating the quality of th
 
 Model validation typically refers to validating the full end-to-end process steps required to produce a valid machine learning model. It includes steps like:
 
-* **Data validation**: Ensures that the input data is valid.
-* **Training validation**: Ensures that the model can be successfully trained.
-* **Scoring validation**: Ensures that the team can successfully use the trained model for scoring with the input data.
+- **Data validation:** Ensures that the input data is valid.
+- **Training validation:** Ensures that the model can be successfully trained.
+- **Scoring validation:** Ensures that the team can successfully use the trained model for scoring with the input data.
 
 Running this full set of steps on the machine learning environment is expensive and time consuming. As a result, the team did basic model validation tests locally on a development machine. It ran the steps above and used the following:
 
-* **Local testing dataset**: A small dataset, often one that's obfuscated, that's checked in to the repository and consumed as the input data source.
-* **Local flag**: A flag or argument in the model's code that indicates that the code intends the dataset to run locally. The flag tells the code to bypass any call to the machine learning environment.
+- **Local testing dataset:** A small dataset, often one that's obfuscated, that's checked in to the repository and consumed as the input data source.
+- **Local flag:** A flag or argument in the model's code that indicates that the code intends the dataset to run locally. The flag tells the code to bypass any call to the machine learning environment.
 
 This goal of these validation tests isn't to evaluate the performance of the trained model. Rather, it's to validate that the code for the end-to-end process is of good quality. It assures the quality of the code that's pushed upstream, like the incorporation of model validation tests in the PR and CI build. It also makes it possible for engineers and data scientists to put breakpoints into the code for debugging purposes.
 
@@ -275,22 +275,22 @@ The previous sections deal mostly with how to handle code changes from developme
 
 A key requirement for any MLOps process is that it meet the needs of the many users of the process. For design purposes, consider these users as individual personas. For this project, the team identified these personas:
 
-* **Data scientist**: Creates the machine learning model and its algorithms.
-* **Engineer**
-  * **Data engineer**: Handles data conditioning.
-  * **Software engineer**: Handles model integration into the asset package and the CI/CD workflow.
-* **Operations or IT**: Oversees system operations.
-* **Business stakeholder**: Concerned with the predictions made by the machine learning model and how they help the business.
-* **Data end user**: Consumes model output in some way that aids in making business decisions.
+- **Data scientist:** Creates the machine learning model and its algorithms.
+- **Engineer**
+  - **Data engineer:** Handles data conditioning.
+  - **Software engineer:** Handles model integration into the asset package and the CI/CD workflow.
+- **Operations or IT:** Oversees system operations.
+- **Business stakeholder:** Concerned with the predictions made by the machine learning model and how they help the business.
+- **Data end user:** Consumes model output in some way that aids in making business decisions.
 
 The team had to address three key findings from the persona and role studies:
 
-* Data scientists and engineers have a mismatch of approach and skills in their work. Making it easy for the data scientist and the engineer to collaborate is a major consideration for the design of the MLOps process flow. It requires new skill acquisitions by all team members.
-* There's a need to unify all of the principal personas without alienating anyone. A way to do this is to:
-  * Make sure they understand the conceptual model for MLOps.
-  * Agree on the team members that will work together.
-  * Establish working guidelines to achieve common goals.
-* If the business stakeholder and data end user need a way to interact with the data output from the models, a user-friendly UI is the standard solution.
+- Data scientists and engineers have a mismatch of approach and skills in their work. Making it easy for the data scientist and the engineer to collaborate is a major consideration for the design of the MLOps process flow. It requires new skill acquisitions by all team members.
+- There's a need to unify all of the principal personas without alienating anyone. A way to do this is to:
+  - Make sure they understand the conceptual model for MLOps.
+  - Agree on the team members that will work together.
+  - Establish working guidelines to achieve common goals.
+- If the business stakeholder and data end user need a way to interact with the data output from the models, a user-friendly UI is the standard solution.
 
 Other teams will certainly come across similar issues in other machine learning projects as they scale up for production use.
 
@@ -316,10 +316,10 @@ The team devised the architectural design to support a batch data processing sch
 
 Azure Data Factory does the following:
 
-- Triggers an Azure Function to start data ingestion and a run of the Azure Machine Learning pipeline.
+- Triggers an Azure function to start data ingestion and a run of the Azure Machine Learning pipeline.
 - Launches a durable function to poll the Azure Machine Learning pipeline for completion.
 
-Custom dashboards in Power BI display the results. Other Azure dashboards that are connected to SQL Azure, Azure Monitor, and App Insights via OpenCensus Python SDK, track Azure resources. These dashboards provide information about the health of the machine learning system. They also yield data that the client uses for product order forecasting.
+Custom dashboards in Power BI display the results. Other Azure dashboards that are connected to Azure SQL, Azure Monitor, and App Insights via OpenCensus Python SDK, track Azure resources. These dashboards provide information about the health of the machine learning system. They also yield data that the client uses for product order forecasting.
 
 ### Model orchestration
 
@@ -341,12 +341,12 @@ As mentioned, the traditional data science machine learning lifecycle doesn't su
 
 Source control becomes an important part of this process. Git is the version control system that's used to track notebook and model code. It also supports process automation. The basic workflow that's implemented for source control applies the following principles:
 
-* Use formal versioning for code and datasets.
-* Use a branch for new code development until the code is fully developed and validated.
-* After new code is validated, it can be merged into the main branch.
-* For a release, a permanent versioned branch is created that's separate from the main branch.
-* Use versions and source control for the datasets that have been conditioned for training or consumption, so that you can maintain the integrity of each dataset.
-* Use source control to track your Jupyter Notebook experiments.
+- Use formal versioning for code and datasets.
+- Use a branch for new code development until the code is fully developed and validated.
+- After new code is validated, it can be merged into the main branch.
+- For a release, a permanent versioned branch is created that's separate from the main branch.
+- Use versions and source control for the datasets that have been conditioned for training or consumption, so that you can maintain the integrity of each dataset.
+- Use source control to track your Jupyter Notebook experiments.
 
 ### Integration with data sources
 
@@ -354,9 +354,9 @@ Data scientists use many raw data sources and processed datasets to experiment w
 
 In the project, the data scientists conditioned the following data for input into the model:
 
-* Historical weekly shipment data since January 2017
-* Historical and forecasted daily weather data for each zip code
-* Shopper data for each store ID
+- Historical weekly shipment data since January 2017
+- Historical and forecasted daily weather data for each zip code
+- Shopper data for each store ID
 
 ### Integration with source control
 
@@ -372,18 +372,18 @@ The team explored, but did not implement, an option to carry the process forward
 
 The team developed end-user UIs for observability, monitoring, and instrumentation. As mentioned, dashboards visually display the machine learning model data. These dashboards show the following data in a user-friendly format:
 
-* Pipeline steps, including pre-processing the input data.
-* To monitor the health of the machine learning model processing:
-  * What metrics do you collect from your deployed model?
-    * **MAPE**: Mean absolute percentage error, the key metric to track for overall performance. (Target a MAPE value of <= 0.45 for each model.)
-    * **RMSE 0**: Root-mean-square error (RMSE) when the actual target value = 0.
-    * **RMSE All**: RMSE on the entire dataset.
-  * How do you evaluate if your model is performing as expected in production?
-  * Is there a way to tell if production data is deviating too much from expected values?
-  * Is your model performing poorly in production?
-  * Do you have a failover state?
-* Track the quality of the processed data.
-* Display the scoring/predictions produced by the machine learning model.
+- Pipeline steps, including pre-processing the input data.
+- To monitor the health of the machine learning model processing:
+  - What metrics do you collect from your deployed model?
+    - **MAPE:** Mean absolute percentage error, the key metric to track for overall performance. (Target a MAPE value of <= 0.45 for each model.)
+    - **RMSE 0:** Root-mean-square error (RMSE) when the actual target value = 0.
+    - **RMSE All:** RMSE on the entire dataset.
+  - How do you evaluate whether your model is performing as expected in production?
+  - Is there a way to tell if production data is deviating too much from expected values?
+  - Is your model performing poorly in production?
+  - Do you have a failover state?
+- Track the quality of the processed data.
+- Display the scoring/predictions produced by the machine learning model.
 
 The application populates the dashboards according to the nature of the data and how it processes and analyzes the data. As such, the team must design the exact layout of the dashboards for each use case. Here are two sample dashboards:
 
@@ -398,21 +398,21 @@ The dashboards were designed to provide readily usable information for consumpti
 
 ## Components
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-  * [Azure Machine Learning Compute](/azure/machine-learning/concept-compute-instance)
-  * [Azure Machine Learning Pipelines](/azure/machine-learning/concept-ml-pipelines)
-  * [Azure Machine Learning Model Registry](/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere)
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
-* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
-* [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-* [Azure Functions for Python](https://azure.microsoft.com/services/functions)
-* [Azure Monitor](https://azure.microsoft.com/services/monitor)
-  * [Logs](/azure/azure-monitor/log-query/log-query-overview)
-  * [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-* [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards)
-* [Power BI](https://powerbi.microsoft.com)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+  - [Azure Machine Learning Compute](/azure/machine-learning/concept-compute-instance)
+  - [Azure Machine Learning Pipelines](/azure/machine-learning/concept-ml-pipelines)
+  - [Azure Machine Learning Model Registry](/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Azure Functions for Python](https://azure.microsoft.com/services/functions)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+  - [Logs](/azure/azure-monitor/log-query/log-query-overview)
+  - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards)
+- [Power BI](https://powerbi.microsoft.com)
 
 ## Considerations
 
@@ -420,51 +420,51 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 ### Environment considerations
 
-* Data scientists develop most of their machine learning models by using Python, often starting with Jupyter notebooks. It can be a challenge to implement these notebooks as production code. Jupyter notebooks are more of an experimental tool, while Python scripts are more appropriate for production. Teams often need to spend time refactoring model creation code into Python scripts.
-* Make clients who are new to DevOps and machine learning aware that experimentation and production require different rigor, so it's good practice to separate the two.
-* Tools like the [Azure Machine Learning Visual Designer](/azure/machine-learning/concept-designer) or AutoML can be effective in getting basic models off the ground while the client ramps up on standard DevOps practices to apply to the rest of the solution.
-* Azure DevOps has plug-ins that can integrate with Azure Machine Learning to help trigger pipeline steps. The [MLOpsPython repo](https://github.com/microsoft/MLOpsPython) has a few examples of such pipelines.
-* Machine learning often requires powerful GPU machines for training. If the client doesn't already have such hardware available, Azure Machine Learning compute clusters can provide an effective path for quickly provisioning cost-effective powerful hardware that autoscales. If a client has advanced security or monitoring needs, there are other options such as standard VMs, Databricks, or local compute.
-* For a client to be successful, their model building teams (data scientists) and deployment teams (DevOps engineers) need to have a strong communication channel. They can accomplish this with daily stand-up meetings or a formal online chat service. Both approaches help in integrating their development efforts in an MLOps framework.
+- Data scientists develop most of their machine learning models by using Python, often starting with Jupyter notebooks. It can be a challenge to implement these notebooks as production code. Jupyter notebooks are more of an experimental tool, while Python scripts are more appropriate for production. Teams often need to spend time refactoring model creation code into Python scripts.
+- Make clients who are new to DevOps and machine learning aware that experimentation and production require different rigor, so it's good practice to separate the two.
+- Tools like the [Azure Machine Learning Visual Designer](/azure/machine-learning/concept-designer) or AutoML can be effective in getting basic models off the ground while the client ramps up on standard DevOps practices to apply to the rest of the solution.
+- Azure DevOps has plug-ins that can integrate with Azure Machine Learning to help trigger pipeline steps. The [MLOpsPython repo](https://github.com/microsoft/MLOpsPython) has a few examples of such pipelines.
+- Machine learning often requires powerful graphics processing unit (GPU) machines for training. If the client doesn't already have such hardware available, Azure Machine Learning compute clusters can provide an effective path for quickly provisioning cost-effective powerful hardware that autoscales. If a client has advanced security or monitoring needs, there are other options such as standard VMs, Databricks, or local compute.
+- For a client to be successful, their model building teams (data scientists) and deployment teams (DevOps engineers) need to have a strong communication channel. They can accomplish this with daily stand-up meetings or a formal online chat service. Both approaches help in integrating their development efforts in an MLOps framework.
 
 ### Data preparation considerations
 
-* The simplest solution for using Azure Machine Learning is to store data in a supported data storage solution. Tools such as Azure Data Factory are effective for piping data to and from those locations on a schedule.
+- The simplest solution for using Azure Machine Learning is to store data in a supported data storage solution. Tools such as Azure Data Factory are effective for piping data to and from those locations on a schedule.
 
-* It's important for clients to frequently capture additional retraining data to keep their models up to date. If they don't already have a data pipeline, creating one will be an important part of the overall solution. Using a solution such as Datasets in Azure Machine Learning can be useful for versioning data to help with traceability of models.
+- It's important for clients to frequently capture additional retraining data to keep their models up to date. If they don't already have a data pipeline, creating one will be an important part of the overall solution. Using a solution such as Datasets in Azure Machine Learning can be useful for versioning data to help with traceability of models.
 
 ### Model training and evaluation considerations
 
-* It's overwhelming for a client who is just getting started in their machine learning journey to try to implement a full MLOps pipeline. If necessary, they can ease into it by using Azure Machine Learning to track experiment runs and by using Azure Machine Learning compute as the training target. These options might create a lower barrier of entry solution to begin integrating Azure services.
-* Going from a notebook experiment to repeatable scripts is a rough transition for many data scientists. The sooner you can get them writing their training code in Python scripts the easier it will be for them to begin versioning their training code and enabling retraining.
+- It's overwhelming for a client who is just getting started in their machine learning journey to try to implement a full MLOps pipeline. If necessary, they can ease into it by using Azure Machine Learning to track experiment runs and by using Azure Machine Learning compute as the training target. These options might create a lower barrier of entry solution to begin integrating Azure services.
+- Going from a notebook experiment to repeatable scripts is a rough transition for many data scientists. The sooner you can get them writing their training code in Python scripts the easier it will be for them to begin versioning their training code and enabling retraining.
 
   That isn't the only possible method. Databricks supports scheduling notebooks as jobs. But, based on current client experience, this approach is difficult to instrument with full DevOps practices because of testing limitations.
-* It's also important to understand what metrics are being used to consider a model a success. Accuracy alone is often not good enough to determine the overall performance of one model versus another.
+- It's also important to understand what metrics are being used to consider a model a success. Accuracy alone is often not good enough to determine the overall performance of one model versus another.
 
 ### Compute considerations
 
-* Customers should consider using containers to standardize their compute environments. Nearly all Azure Machine Learning compute targets support using [Docker](https://www.docker.com). Having a container handle the dependencies can reduce friction significantly, especially if the team uses many compute targets.
+- Customers should consider using containers to standardize their compute environments. Nearly all Azure Machine Learning compute targets support using [Docker](https://www.docker.com). Having a container handle the dependencies can reduce friction significantly, especially if the team uses many compute targets.
 
 ### Model serving considerations
 
-* The Azure Machine Learning SDK provides an option to deploy directly to Azure Kubernetes Service from a registered model, creating limits on what security/metrics are in place. You can try to find an easier solution for clients to test their model, but it's best to develop a more robust deployment to AKS for production workloads.
+- The Azure Machine Learning SDK provides an option to deploy directly to Azure Kubernetes Service from a registered model, creating limits on what security/metrics are in place. You can try to find an easier solution for clients to test their model, but it's best to develop a more robust deployment to AKS for production workloads.
 
 ## Next steps
 
-* [Learn more about MLOps](/azure/machine-learning/service/concept-model-management-and-deployment)
-* [MLOps on Azure](https://github.com/microsoft/MLOps)
-* [Azure Monitor Visualizations](/azure/azure-monitor/visualizations)
-* [Machine Learning Lifecycle](/shows/AI-Show/MLOps-for-managing-the-end-to-end-life-cycle-with-Azure-Machine-Learning-service?term=MLOpsandlang-en=true)
-* [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
-* [Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
-* [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](/azure/machine-learning/service/how-to-use-event-grid)
-* [Set up model training and deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning)
+- Learn more about [MLOps](/azure/machine-learning/service/concept-model-management-and-deployment)
+- [MLOps on Azure](https://github.com/microsoft/MLOps)
+- [Azure Monitor Visualizations](/azure/azure-monitor/visualizations)
+- [Machine Learning Lifecycle](/shows/AI-Show/MLOps-for-managing-the-end-to-end-life-cycle-with-Azure-Machine-Learning-service?term=MLOpsandlang-en=true)
+- [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
+- [Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
+- [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](/azure/machine-learning/service/how-to-use-event-grid)
+- [Set up model training and deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning)
 
 ## Related resources
 
-* [MLOps maturity model](mlops-maturity-model.yml)
-* [Orchestrate MLOps on Azure Databricks using Databricks Notebook](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
-* [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
-* [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
-* [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-* [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
+- [MLOps maturity model](mlops-maturity-model.yml)
+- [Orchestrate MLOps on Azure Databricks using Databricks Notebook](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
+- [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)

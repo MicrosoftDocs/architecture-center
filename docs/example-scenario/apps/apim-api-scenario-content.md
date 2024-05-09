@@ -29,7 +29,7 @@ In the future, the project team will gradually port functionality to the new API
 ### Components
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 
 ### Alternatives
 

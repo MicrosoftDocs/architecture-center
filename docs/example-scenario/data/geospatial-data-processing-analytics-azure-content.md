@@ -70,7 +70,7 @@ Throughout the process:
 
 - The [Azure Maps visual for Power BI](/azure/azure-maps/power-bi-visual-get-started) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 
 - [GIS data APIs in Azure Maps][Create a data source for Azure Maps] store and retrieve map data in formats like GeoJSON and vector tiles.
 

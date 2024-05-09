@@ -24,12 +24,11 @@ This architecture guide is applicable for both streaming and static data, provid
 
 The remaining architecture, after data ingestion, is equal for both streaming and static data, and consists of the following steps and components:
 
-5. The ingested, aggregated and/or pre-processed data can be stored as documents within [Azure Data Lake Storage][adls] or in tabular form in [Azure Synapse][synapse] or [Azure SQL Database][sql]. This data will then be consumed by Azure Machine Learning.
+5. The ingested, aggregated or pre-processed data can be stored as documents within [Azure Data Lake Storage][adls] or in tabular form in [Azure Synapse][synapse] or [Azure SQL Database][sql]. This data will then be consumed by Azure Machine Learning.
 6. [Azure Machine Learning][amls] is used for training, deploying, and managing machine learning models at scale. In the context of batch scoring, Azure Machine Learning creates a cluster of virtual machines with an automatic scaling option, where jobs are executed in parallel as of Python scripts.
 7. Models are deployed as [Managed Batch Endpoints][m-endpoints], which are then used to do batch inferencing on large volumes of data over a period of time. Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters.
 8. The inference results can be stored as documents within [Azure Data Lake Storage][adls] or in tabular form in [Azure Synapse][synapse] or [Azure SQL Database][sql].
 9. Visualize: The stored model results can be consumed through user interfaces, such as Power BI dashboards, or through custom-built web applications.
-
 
 ### Components
 
@@ -42,7 +41,7 @@ The remaining architecture, after data ingestion, is equal for both streaming an
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Azure Machine Learning Endpoints](/azure/machine-learning/concept-endpoints)
 - [Microsoft Power BI on Azure](https://azure.microsoft.com/services/developer-tools/power-bi/)
-- [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/)
+- [Azure Web Apps](/azure/well-architected/service-guides/app-service-web-apps)
 
 ## Considerations
 
@@ -50,7 +49,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Performance
 
-For standard Python models, it's generally accepted that CPUs are sufficient to handle the workload. This architecture uses CPUs. However, for [deep learning workloads][deep], GPUs generally outperform CPUs by a considerable amount; a sizeable cluster of CPUs is usually needed to get comparable performance.
+For standard Python models, it's generally accepted that CPUs are sufficient to handle the workload. This architecture uses CPUs. However, for [deep learning workloads][deep], graphics processing units (GPUs) generally outperform CPUs by a considerable amount; a sizeable cluster of CPUs is usually needed to get comparable performance.
 
 #### Parallelize across VMs versus cores
 
@@ -65,8 +64,8 @@ For convenience in this scenario, one scoring task is submitted within a single 
 
 ### Management
 
-- **Monitor jobs**. It's important to monitor the progress of running jobs. However, it can be a challenge to monitor across a cluster of active nodes. To inspect the state of the nodes in the cluster, use the [Azure portal][portal] to manage the [Machine Learning workspace][ml-workspace]. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the **Pipelines** section. For richer monitoring, connect logs to [Application Insights][app-insights], or run separate processes to poll for the state of the cluster and its jobs.
-- **Logging**. Machine Learning logs all stdout/stderr to the associated Azure Storage account. To easily view the log files, use a storage navigation tool such as [Azure Storage Explorer][explorer].
+- **Monitor jobs.** It's important to monitor the progress of running jobs. However, it can be a challenge to monitor across a cluster of active nodes. To inspect the state of the nodes in the cluster, use the [Azure portal][portal] to manage the [Machine Learning workspace][ml-workspace]. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the **Pipelines** section. For richer monitoring, connect logs to [Application Insights][app-insights], or run separate processes to poll for the state of the cluster and its jobs.
+- **Logging.** Machine Learning logs all stdout/stderr to the associated Azure Storage account. To easily view the log files, use a storage navigation tool such as [Azure Storage Explorer][explorer].
 
 ### Cost optimization
 
