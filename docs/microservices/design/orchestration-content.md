@@ -8,7 +8,7 @@ In this simple containerized Azure Kubernetes Service (AKS) cluster:
 
 - One Microservice A instance is running in Node 1, another instance in Node 2, and a third instance in Node 3.
 - One instance of Microservice B is running in Node 1, and another instance in Node 3.
-- Containerized [reverse proxy servers](https://www.magalix.com/blog/implemeting-a-reverse-proxy-server-in-kubernetes-using-the-sidecar-pattern) are running in Nodes 1 and 2 to distribute traffic.
+- Containerized [reverse proxy servers](https://komodor.com/learn/kubernetes-sidecar-containers-practical-guide-with-examples/) are running in Nodes 1 and 2 to distribute traffic.
 
 ![Conceptual diagram of a simple containerized microservices architecture.](images/orchestration/multi-container-cluster-with-orchestrator.png)
 
