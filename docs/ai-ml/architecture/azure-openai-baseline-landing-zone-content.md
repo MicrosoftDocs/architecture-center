@@ -127,6 +127,10 @@ An organization might impose requirements on the workload team that mandates the
 
 The organization's governance might add more requirements around container base image maintenance and dependency package tracking than what the workload requirements indicate. Workload teams must ensure the workload's runtime environment, the code deployed to it, and its operations align with these organizational standards.
 
+##### Alternate approach
+
+Instead of hosting the prompt flow code in  Azure Machine Learning runtime, you can hosted it in Azure App Service. The logic itself doesn't change. However, to reach Wikipedia, the App Service instances need internet access. 
+
 ## Networking
 
 In the [baseline architecture](./baseline-openai-e2e-chat.yml#networking), the workload is provisioned in a single virtual network.
