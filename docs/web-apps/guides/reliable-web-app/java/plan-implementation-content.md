@@ -190,7 +190,7 @@ Ensure data reliability by distributing it across Azure's regions and availabili
 
 - *Create a failover plan.* Develop a failover (disaster recovery) plan outlining response strategies to outages, determined by downtime or functionality loss. Specify the recovery time objectives (RTO) for maximum acceptable downtime. Ensure the failover process is quicker than RTO. Decide on automated or manual failover mechanisms for consistency and control, and detail the return to normal operations process. Test the failover plan to ensure effectiveness.
 
-*Example:* For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read-replica in the passive region. Contoso Fiber created a [sample failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md). The Azure Database for PostgreSQL read replica are central to Contoso Fiber's failover plan.
+*Example:* For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read-replica in the passive region.
 
 ## Next step
 

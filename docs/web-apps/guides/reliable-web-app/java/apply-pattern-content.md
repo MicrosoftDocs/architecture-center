@@ -35,13 +35,13 @@ Use [Resilience4j](https://github.com/resilience4j/resilience4j) to implement th
     }
 ```
 
-The reference implementation configures the retry policy including maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`. For more information, see the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3). You can [simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern) in the reference implementation.
+The reference implementation configures the retry policy including maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`. 
 
 ### Use the Circuit Breaker pattern
 
 Pairing the Retry and Circuit Breaker patterns expands an application's capability to handle service disruptions that aren't related to transient faults. The [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) prevents an application from continuously attempting to access a nonresponsive service. The Circuit Breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
-*Example:* The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute. You can [simulate the circuit breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern) in the reference implementation.
+*Example:* The reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
 
 ## Security
 
