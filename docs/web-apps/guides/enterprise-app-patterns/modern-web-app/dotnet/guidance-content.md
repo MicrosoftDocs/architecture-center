@@ -56,25 +56,25 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Implement the Queue-Based Load Leveling pattern
 
-The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system.
+The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
-- The task that is queueing messages should not block waiting for messages to be handled. If the task makes use of the result of the queued operation, have a ‘standby’ code path that can be used until the data is available.
+- *Use non-blocking message queuing.* Ensure that the task queuing messages does not block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a ‘standby’ code path that can be used until the data is available.
 
-  The reference implementation uses Azure Service Bus to establish a messaging queue between a web API and its ticket rendering service. By using the `await` keyword with `messageSender.PublishAsync()`, the web API asynchronously publishes messages without blocking the calling thread. This approach prevents delays in sending messages to the queue and does not require waiting for the rendering service to process the messages. Consequently, the web API remains responsive and can handle incoming web requests without interruption (*see example code*):
+  The reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
 
     ```csharp
-    // Publish a message to request that the ticket be rendered.
+    // Asynchronously publish a message without blocking the calling thread
     await messageSender.PublishAsync(new TicketRenderRequestMessage(Guid.NewGuid(), ticket, null, DateTime.Now), CancellationToken.None);
     ```
 
-- Queued messages that cannot be processed successfully should be retried and, if failures persist, removed from the queue. Azure Service Bus’s built-in retry and dead letter queue features address this need.
+- *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that cannot be processed successfully. If failures persist, these messages should be removed from the queue. For example, Azure Service Bus has built-in retry and dead letter queue features.
 
-- Logic processing messages from the queue must be idempotent in case a message is processed more than once.
+- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases where a message might be processed more than once.
 
-    The reference implementation ticket rendering service pulls messages from Service Bus using `ServiceBusClient.CreateProcessor`, which sets up a dedicated message processing service. It allows the ticket rendering service to pull messages from the messaging service and prevents an overload. `AutoCompleteMessages = true` completes messages post-successful processing and ensures messages are only processed once. The `ReceiveMode = ServiceBusReceiveMode.PeekLock` locks messages for processing without removal from the queue and enables reprocessing on failures, supporting idempotent operations (*see following code*).
+    The reference implementation uses `ServiceBusClient.CreateProcessor` with `AutoCompleteMessages = true` and `ReceiveMode = ServiceBusReceiveMode.PeekLock` to ensure messages are only processed once and can be reprocessed on failure (*see following code*).
   
     ```csharp
-    // Create a processor for the given queue that will process incoming messages
+    // Create a processor for idempotent message processing
     var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
     {
         // Allow the messages to be auto-completed if processing finishes without failure
@@ -91,7 +91,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 ### Implement the Retry Pattern
 
-Update the use of the [Retry pattern](/azure/architecture/patterns/retry) to apply to new services.
+Update the use of the [Retry pattern](/azure/architecture/patterns/retry) to apply to new services. To implement the Retry pattern, follow these recommendations:
 
 - *Configure retry options.* When integrating with a message queue, ensure that the client responsible for interactions with the queue is configured with appropriate retry settings. This involves specifying parameters such as the maximum number of retries, delay between retries, and maximum delay.
 - *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
@@ -125,9 +125,7 @@ services.AddSingleton(sp =>
 
 ## Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Modern Web App pattern applies security best practices to new services extracted from the web app.
-
-### Configure service authentication and authorization
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Modern Web App pattern applies security best practices to new services extracted from the web app. To configure service authentication and authorization, follow these recommendations:
 
 - *Use managed identities for each new service.* Each microservice should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
@@ -184,7 +182,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 ### Autoscaling container
 
-Automatic horizontal scaling adds and removes service instances automatically based on relevant demand metrics. It scales the service to perform more work when demand is high and to save cost when demand is low. By scaling automatically based on metrics relevant to the application’s scenario, scale operations can be performed quickly and without any need for manual intervention.
+Automatic horizontal scaling adds and removes service instances automatically based on relevant demand metrics. It scales the service to perform more work when demand is high and to save cost when demand is low. By scaling automatically based on metrics relevant to the application’s scenario, scale operations can be performed quickly and without any need for manual intervention. To autoscale containers, follow these recommendations:
 
 - *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
 - *Configure autoscaling rules.* Consider [event-based scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#consider-event-based-scaling), such as Kubernetes Event-Driven Autoscaler (KEDA). [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA scalers. Configure the KEDA scalers to scale your deployments based on event metrics. Develop custom KEDA scaler as needed. When deploying to Azure App Service, use [Azure Monitor Autoscaling](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-get-started) to scale based on metrics-based rules or [Azure App Service Automatic Scaling](https://learn.microsoft.com/azure/app-service/manage-automatic-scaling) to scale based on HTTP traffic.
@@ -227,7 +225,7 @@ Moving from the reliable web app pattern to the modern web app pattern includes 
 
 ### Implement the Strangler Fig pattern
 
-The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to separate larger services into more granular services. It allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be intractable if they had to be completed all at once. Dividing a monolithic solution into finer-grained services allows services to version and scale independently. A service-oriented architecture in which each service is self-contained makes it easy for different teams in an organization to own different services and innovate at the pace that makes sense for them. And when load increases, only the services that represent the performance bottleneck need to scale out. The strangler fig pattern is a useful pattern for transitioning gradually into such an architecture.
+The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to separate larger services into more granular services. It allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be intractable if they had to be completed all at once. Dividing a monolithic solution into finer-grained services allows services to version and scale independently. A service-oriented architecture in which each service is self-contained makes it easy for different teams in an organization to own different services and innovate at the pace that makes sense for them. And when load increases, only the services that represent the performance bottleneck need to scale out. The strangler fig pattern is a useful pattern for transitioning gradually into such an architecture. To implement the Strangler Fig pattern, follow these recommendations:
 
 - *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
 - *Use a façade service if necessary.* In some cases, a strangler fig façade service is used to route requests to the various backend solutions while the pattern is being applied. This is particularly useful when you have multiple services running in parallel during the transition period. However, if the extracted service doesn’t have any public-facing APIs, such a façade service might not be necessary.
@@ -238,9 +236,7 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 ### Implement the Health Endpoint Monitoring pattern
 
-The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies.
-
-#### HEM pattern implementation recommendations for .NET developers
+The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
 - *Implement health checks.* Use ASP.NET Core [Health Checks Middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 - *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
@@ -288,9 +284,7 @@ app.MapHealthChecks("/health");
 
 ### Containerize service deployment
 
-This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. An important part of the modern web app pattern is dividing services according to domain boundaries (as discussed in the strangler fig pattern).
-
-#### Containerizing implementations recommendations for .NET developers
+This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. An important part of the modern web app pattern is dividing services according to domain boundaries (as discussed in the strangler fig pattern). To containerize deployment, follow these recommendations:
 
 - *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
 - *Create docker images.* When creating Docker images for your .NET services, use chiseled base images. These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
@@ -337,13 +331,11 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 The Modern Web App uses the Competing Consumers pattern to optimize performance efficiency.
 
-As applications evolve from the Reliable Web App pattern to the Modern Web App pattern, performance benefits from greater service decoupling. This architecture prevents a slowdown in one component from affecting others. Queue-based load leveling, which distributes tasks evenly, is essential for improving both reliability and performance. Additionally, implementing the competing consumers pattern further enhances performance by distributing tasks among multiple workers efficiently.
-
-As applications move from the Reliable Web App pattern to the Modern Web App pattern, it should be possible to improve performance because of increased decoupling of application services. In a modern web app, one component slowing down should not negatively affect the performance of other components. One pattern supporting the pillar of performance that has already been discussed is queue-based load leveling. Queue-based load leveling provides both reliability benefits (for the worker service) and performance benefits (for the calling task). Another related pattern which is often paired with queue-based load leveling which can improve performance in the worker service is the competing consumers pattern.
+As applications move from the Reliable Web App pattern to the Modern Web App pattern, performance benefits from greater service decoupling. This architecture prevents a slowdown in one component from affecting others. Queue-based load leveling helps both reliability and performance efficiency by distributing tasks evenly. Competing consumers pattern further enhances performance by distributing tasks among multiple workers efficiently.
 
 ### Competing Consumers pattern
 
-The [Competing Consumers pattern](https://learn.microsoft.com/azure/architecture/patterns/competing-consumers) allows incoming work to be efficiently handled by multiple parallel workers. This pattern enables handling bursts of demand by temporarily scaling workers horizontally which are designed such that they can all consume work requests from a message queue in parallel. This pattern can be used if your solution is designed so that message ordering doesn’t matter, malformed messages don’t block the queue, and processing is idempotent so that messages that aren’t successfully handled by one worker can be picked up by another without fear of errors due to processing the message more than once.
+The [Competing Consumers pattern](https://learn.microsoft.com/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 - *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they are ready.
@@ -355,7 +347,7 @@ The [Competing Consumers pattern](https://learn.microsoft.com/azure/architecture
 - *Use stateless services.* Consider using stateless services to process requests from a queue. This allows for easy scaling and efficient resource usage.
 - *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting.
 
-The reference implementation uses a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue.
+The reference implementation uses a stateless service running on Azure Container App that processes ticket-rendering requests from an Azure Service Bus queue. It creates a processor for the queue to handle incoming messages. The processor is configured to automatically complete messages if they are processed without failure, use the PeekLock mode for reliable message delivery, and handle one message at a time without prefetching. When a message is received, it logs the message details, deserializes the message body to a specific type, and then handles the message. If the message body is invalid and cannot be deserialized, it logs an error and moves the message to a dead-letter queue. This ensures that problematic messages do not block the processing of other messages. The service can scale at the container level to efficiently process messages from the queue.
 
 ```C#
 // Create a processor for the given queue that will process incoming messages
