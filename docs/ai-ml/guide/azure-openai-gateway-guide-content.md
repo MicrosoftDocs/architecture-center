@@ -1,5 +1,4 @@
 [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) exposes HTTP APIs that let your applications perform embeddings or completions using OpenAI's large language models (LLMs). Intelligent applications call these HTTP APIs either directly from clients or orchestrators. Examples of clients include chat UI code and custom data processing pipelines, while examples of orchestrators include LangChain, Semantic Kernel, and Azure Machine Learning prompt flow. When your workload involves connecting to one or more Azure OpenAI instances, you must decide if these consumers connect directly or through a reverse proxy API gateway.
-
 Use this guide to learn about the key challenges across the five pillars of the [Azure Well-Architected Framework](/azure/well-architected/) that you encounter if your workload design includes direct access from your consumers to the Azure OpenAI data plane APIs. You then learn how introducing a gateway in your architecture can address these direct access challenges, while introducing new challenges you need to further address. This article doesn't cover how the gateway is implemented, rather it covers the architectural pattern.
 
 Because a gateway can be used to solve specific scenarios, not all of which are present in every workload, see [Load balancing or failover between multiple backend instances](./azure-openai-gateway-multi-backend.yml), which looks at that specific use case of a gateway in more depth.
@@ -14,9 +13,9 @@ Here are some examples of specific key architectural challenges you face if your
 
 The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively in client logic and Azure OpenAI service features. When there isn't enough reliability control available in either of those two surfaces, workload reliability is compromised.
 
-- **Redundancy**: Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
+- **Redundancy:** Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
-- **Scale out to handle spikes**: Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances carries greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
+- **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances carries greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
 - **Load balancing/throttling**: Azure OpenAI APIs throttle requests by returning a 429 response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the pay-as-you-go model. They also throttle requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 
@@ -28,7 +27,7 @@ Security controls must protect workload confidentiality, integrity, and availabi
 
 - **Identity management - identity providers**: For clients that can't use identities found in the Microsoft Entra tenant backing the Azure OpenAI instance, clients are left sharing a single full-access API key. API keys have security usefulness limitations and are problematic when multiple clients are involved due to all clients sharing the same identity.
 
-- **Network security**: Depending on client location relative to your Azure OpenAI instances, public internet access to LLM models might be necessary.
+- **Network security:** Depending on client location relative to your Azure OpenAI instances, public internet access to LLM models might be necessary.
 
 - **Data sovereignty** - Data sovereignty in the context of Azure OpenAI refers to the legal and regulatory requirements related to the storage and processing of data within the geographic boundaries of a specific country/region. Your workload needs to ensure regional affinity for clients to comply with data residency and sovereignty laws. Doing so involves multiple Azure OpenAI deployments.
 
@@ -38,7 +37,7 @@ Workloads benefit from ensuring architectures minimize waste and maximize utilit
 
 - **Cost tracking**: Being able to provide a financial perspective on Azure OpenAI usage is limited to data aggregated from Azure OpenAI instance usage telemetry. When required to do charge-back or show-back, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
 
-- **Provisioned throughput utilization**: Your workload wants to avoid waste by fully utilizing the provisioned throughput you paid for. This means that clients must be trusted and coordinated to use PTU-based model deployments before spilling over into any consumption-based model deployments.
+- **Provisioned throughput utilization:** Your workload wants to avoid waste by fully utilizing the provisioned throughput you paid for. This means that clients must be trusted and coordinated to use PTU-based model deployments before spilling over into any consumption-based model deployments.
 
 ### Operational excellence challenges
 

@@ -17,4 +17,4 @@ products:
   - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/orchestrate-mlops-azure-databricks-01-thumb.png
 content: |
-  [!include[](orchestrate-mlops-azure-databricks-content.md)]
+  [!INCLUDE[](orchestrate-mlops-azure-databricks-content.md)]

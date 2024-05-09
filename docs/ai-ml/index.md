@@ -1,7 +1,7 @@
 ---
 title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
-author: martinekuan
+author: RobBagby
 ms.author: robbag
 ms.date: 07/25/2022
 ms.topic: conceptual

@@ -201,6 +201,8 @@ items:
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
+        - name: Vector search
+          href: guide/technology-choices/vector-search.md
       - name: Data movement
         items:
         - name: Pipeline orchestration
