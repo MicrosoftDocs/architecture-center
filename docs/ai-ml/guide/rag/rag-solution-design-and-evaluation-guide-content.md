@@ -37,10 +37,10 @@ The following is a high-level flow for a data pipeline that supplies grounding d
 1. Documents are either pushed or pulled into a data pipeline.
 2. The data pipeline processes each document with the following steps:
 
-    a. Chunks documents - Breaks down the documents into semantically relevant parts that ideally have a single idea or concept.
-    b. Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords.
-    c. Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
-    d. Persists chunks - Stores the chunks in the search index.
+   a. Chunks documents - Breaks down the documents into semantically relevant parts that ideally have a single idea or concept.
+   b. Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords.
+   c. Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
+   d. Persists chunks - Stores the chunks in the search index.
 
 ## RAG design and evaluation considerations
 
