@@ -48,7 +48,7 @@ The gateway can also be used as a single API point of entry that allows the gate
 > [!TIP]
 > Because API keys and Azure role-based access control (RBAC) are applied at the Azure OpenAI instance level, not the model deployment level, adding a gateway in this scenario allows you to shift security to the gateway. The gateway then provides additional segmentation between concurrently deployed models that would be otherwise not possible to control through Azure OpenAI's identity and access management (IAM) or IP firewall.
 
-Using a gateway in this topology allows client-based usage tracking. Unless clients are using distinct Microsoft Entra service principles, the access logs for Azure OpenAI wouldn't be able to distinguish multiple clients. Having a gateway in front of the deployment gives your workload an opportunity to track usage per client across various available model deployments to support chargeback or showback models.
+Using a gateway in this topology allows client-based usage tracking. Unless clients are using distinct Microsoft Entra service principals, the access logs for Azure OpenAI wouldn't be able to distinguish multiple clients. Having a gateway in front of the deployment gives your workload an opportunity to track usage per client across various available model deployments to support chargeback or showback models.
 
 #### Tips for the multiple model deployments topology
 
@@ -58,7 +58,7 @@ Using a gateway in this topology allows client-based usage tracking. Unless clie
 
 - Maintain API compatibility with the Azure OpenAI API to support native SDKs usage with published Azure OpenAI APIs specifications. This is a larger concern when your team isn't authoring all of your workload clients' code. When deciding designing the HTTP API for the gateway, consider the benefits of maintaining Azure OpenAI HTTP API compatibility.
 
-- While this topology technically supports pass-through client credentials (access tokens or API key) for the Azure OpenAI instance, strongly consider implementing credential termination and re-establishment. This way the client is authorized at the gateway, and then the gateway is authorized through Azure role-based access control to the Azure OpenAI instance.
+- While this topology technically supports pass-through client credentials (access tokens or API key) for the Azure OpenAI instance, strongly consider implementing credential termination and reestablishment. This way the client is authorized at the gateway, and then the gateway is authorized through Azure role-based access control to the Azure OpenAI instance.
 
 - If the gateway is designed to use pass-through credentials, ensure clients can't bypass the gateway or any model restrictions based on the client.
 
@@ -171,7 +171,7 @@ In addition to those reasons, adding a gateway in this topology also supports a 
 
 #### Tips for the multiple instances in a single region and multiple subscriptions topology
 
-- Ideally the subscriptions should all be backed with the same Microsoft Entra ID tenant to support consistency in Azure role-based access control (RBAC) and Azure Policy.
+- Ideally the subscriptions should all be backed with the same Microsoft Entra tenant to support consistency in Azure role-based access control (RBAC) and Azure Policy.
 
 - Deploy your gateway in the same region as the Azure OpenAI instance.
 
@@ -185,7 +185,7 @@ All of the [reasons to avoid a gateway for multiple instances in a single region
 
 ## Multiple Azure OpenAI instances across multiple regions
 
-:::image type="complex" source="_images/multiple-regions-before.svg" alt-text="Three architecture diagram clients connecting to Azure OpenAI instances  in different regions." lightbox="_images/multiple-regions-before.svg":::
+:::image type="complex" source="_images/multiple-regions-before.svg" alt-text="Three architecture diagram clients connecting to Azure OpenAI instances in different regions." lightbox="_images/multiple-regions-before.svg":::
    Three architecture diagrams in one image. In the upper left, it shows a client connected to an Azure OpenAI instance in West US and one in East US implying an active-active load balancing situation. Both instances have a gpt-4 (consumption) deployment. In the upper right it's the same situation, only it implies that the West US instance is passive. The gpt-4 instance in East US has the label PTU while the gpt-4 instance in West US has the label Consumption. In the bottom middle there are two regions depicted, East US and Germany West Central. A US Client is shown connected to a PTU gpt-4 model in East US. A Germany client is shown connected to a PTU gpt-model in Germany West Central.
 :::image-end:::
 
@@ -202,7 +202,7 @@ A topology that includes multiple Azure OpenAI instances spread across two or mo
 
 - All the [use cases listed for multiple Azure OpenAI instances in a single region across multiple subscriptions](#topology-use-cases-for-multiple-azure-openai-instances-in-a-single-region-across-multiple-subscriptions)
 - Enables a failover strategy for service availability, such as using [cross-region pairs](/azure/reliability/cross-region-replication-azure#azure-paired-regions)
-- Enables a data residency & compliance design
+- Enables a data residency and compliance design
 - Enables mixed model availability. Some regions have different models and different quotas available for the models
 
 While not technically different Azure regions, this topology is also applicable when you have an AI model exposed in a cross-premsise situation such as on-premises or in another cloud.
@@ -221,7 +221,7 @@ Load-balacing across regions isn't typical, but could be used strategically to c
 
 In this topology, Azure API Management is used specifically for the gateway technology. Here, API Management is deployed into a single region and from that gateway instance you perform active-active load balancing across regions. The policies in your gateway reference all Azure OpenAI instances. The gateway requires network line of sight to each backend across regions, either through cross-region virtual network peering or private endpoints. Calls from this gateway to an Azure OpenAI instances in another region incur additional network latency and egress charges.
 
-Your gateway must honor throttling and availability signals from the Azure OpenAI instances and remove faulted backends from the pool until safe to re-add the faulted or throttled Azure OpenAI instance. The gateway should retry the current request against another backend instance in the pool upon fault, before falling back to returning a gateway error. The gateway's health check should signal unhealthy when no backend Azure OpenAI instances are available.
+Your gateway must honor throttling and availability signals from the Azure OpenAI instances and remove faulted backends from the pool until safe to readd the faulted or throttled Azure OpenAI instance. The gateway should retry the current request against another backend instance in the pool upon fault, before falling back to returning a gateway error. The gateway's health check should signal unhealthy when no backend Azure OpenAI instances are available.
 
 > [!NOTE]
 > This gateway will be introduce a global single point of regional failure in your architecture as any service outage on your gateway instances will render all regions inaccessible. Don't use this topology for business-critical workloads or where client-based load balancing is sufficient.
@@ -246,17 +246,17 @@ To improve the reliability of the prior Azure API Management-based architecture,
 Policies (routing and request handling logic) are replicated to each individual gateway. All policy logic must have conditional logic in the policy to ensure you're calling Azure OpenAI instances in the same region as the current gateway. For more information, see [Route API calls to regional backend services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services). The gateway component then requires network line of sight only to Azure OpenAI instances in its own region, usually through private endpoints.
 
 > [!NOTE]
-> This topology doesn't have a global point of failure of a traffic handling perspective, but the architecture partially suffers from a single point of failure in that the Azure API Management control plane is only in a single region. Evaluate if the control plane limitation might violate your business or mission-critical standards.
+> This topology doesn't have a global point of failure of a traffic handling perspective, but the architecture partially suffers from a single point of failure in that the Azure API Management control plane is only in a single region. Evaluate whether the control plane limitation might violate your business or mission-critical standards.
 
-API Management offers out of the box global FQDN routing based on lowest latency. Use this built-in, performance based functionality for active-active gateway deployments. This built-in functionality helps address both performance and handles a regional gateway outage. Using the built-in global router also supports disaster recovery testing as regions can be simulated down through disabling individual gateways. Ensure clients respect the TTL on the FQDN and have appropriate retry logic to handle a recent DNS failover.
+API Management offers out of the box global FQDN routing based on lowest latency. Use this built-in, performance based functionality for active-active gateway deployments. This built-in functionality helps address both performance and handles a regional gateway outage. Using the built-in global router also supports disaster recovery testing as regions can be simulated down through disabling individual gateways. Ensure clients respect the time to live (TTL) on the FQDN and have appropriate retry logic to handle a recent DNS failover.
 
-If you need to introduce a web application firewall (WAF) into this architecture, you can still use the built-in FQDN routing solution as the backend origin for your global router that implements WAF. The global router would delegate failover responsibility to API Management. Alternatively, you could use the regional gateway FQDNs as the backend pool members. In that latter architecture, use the built-in `/status-0123456789abcdef` endpoint on each regional gateway or another custom health API endpoint to support regional failover. If unsure, start with the single origin backend FQDN approach.
+If you need to introduce a web application firewall into this architecture, you can still use the built-in FQDN routing solution as the backend origin for your global router that implements Azure Web Application Firewall. The global router would delegate failover responsibility to API Management. Alternatively, you could use the regional gateway FQDNs as the backend pool members. In that latter architecture, use the built-in `/status-0123456789abcdef` endpoint on each regional gateway or another custom health API endpoint to support regional failover. If unsure, start with the single origin backend FQDN approach.
 
 This architecture works best if you can treat regions as either fully available or fully unavailable. This means that if either the API Management gateway or Azure OpenAI instance is unavailable, you want client traffic to no longer be routed to the API Management gateway in that region. Unless another provision is made, if the regional gateway still accepts traffic while Azure OpenAI is unavailable, the error must be propagated to the client. To avoid the client error, see an improved approach in [Active-active gateway + active-passive Azure OpenAI variant](#active-active-gateway--active-passive-azure-openai-variant).
 
 If a region is experiencing an API Management gateway outage or is flagged as unhealthy, the remaining available regions need to absorb 100% of the traffic from those other regions. This means you need to over-provision PTU based Azure OpenAI instances to handle the new burst of traffic or use an [active-passive approach for failover](#active-active-gateway--active-passive-azure-openai-variant). Use the [Azure OpenAI Capacity calculator](https://oai.azure.com/portal/calculator) for capacity planning.
 
-Ensure the resource group containing Azure API Management is the same location as the API Management instance itself to reduce the blast radius of a related regional outage impacting your ability to access the resource provider for your gateways.
+Ensure the resource group containing Azure API Management is the same location as the API Management instance itself to reduce the blast radius of a related regional outage affecting your ability to access the resource provider for your gateways.
 
 > [!WARNING]
 > This approach can't be used in scenarios involving data residency compliance if either gateway region spans a geopolitical boundary.
@@ -278,11 +278,11 @@ The previous section addresses the availability of the gateway by providing an a
    An architecture diagram that shows a client connecting to two Gateway compute instances with the Azure Container Apps icon, but through Azure Front Door or through DNS and Traffic Manager. The two gateway instances are each in their own resource groups called rg-gateway-westus and rg-gateway-eastus in the West US and East US region respectively. Each gateway has an arrow pointing to an active Private Endpoint in the same region and a dashed arrow pointing to a passive Private Endpoint in the other region. There are only two private endpoints, so the active endpoint is the other gateway's passive endpoint. The Private Endpoint each point to an active gpt-4 (PTU) model in an Azure OpenAI instance in their own region. The Private Endpoint also points to a passive gpt-4 (consumption) model in its own region.
 :::image-end:::
 
-If your per-gateway routing rules are too complex for your team to consider tenable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale-unit per region. You need to front those deployments with Azure Front Door (Anycast) or Traffic Manager (DNS), typically using latency based routing and appropriate health checks of gateway availability.
+If your per-gateway routing rules are too complex for your team to consider tenable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with Azure Front Door (Anycast) or Traffic Manager (DNS), typically using latency based routing and appropriate health checks of gateway availability.
 
-Use Azure Front Door if you require a WAF and public Internet access. Use Traffic Manager if you don't need a WAF and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that gateway can't be bypassed. Make the gateway instances available only via private endpoint when using Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
+Use Azure Front Door if you require a web application firewall and public Internet access. Use Traffic Manager if you don't need a web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that gateway can't be bypassed. Make the gateway instances available only via private endpoint when using Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
 
-Place per-region resources that are used in your custom gateway in per-region resource groups. This reduces the blast radius of a related regional outage impacting your ability to access the resource provider for your gateway resources in that region.
+Place per-region resources that are used in your custom gateway in per-region resource groups. This reduces the blast radius of a related regional outage affecting your ability to access the resource provider for your gateway resources in that region.
 
 You can also consider fronting your gateway logic implementation with API Management itself, for the other benefits of API Management such as TLS, authentication, health check, or round-robin load balancing. This shifts common "API concerns" out of custom code in your gateway, leaving your gateway to specifically address Azure OpenAI instance and model deployment routing.
 
@@ -290,11 +290,11 @@ For data residency compliance, ensure each geopolitical boundary has its own iso
 
 ### Reasons to avoid a gateway for multiple instances in multiple regions
 
-Don't implement a unified gateway across geopolitical regions when data residency & compliance is required. This would violate the data residency requirements. Use individually addressable gateways per region and follow the guidance in one of the prior sections.
+Don't implement a unified gateway across geopolitical regions when data residency and compliance is required. This would violate the data residency requirements. Use individually addressable gateways per region and follow the guidance in one of the prior sections.
 
 If clients aren't expected to fail over between regions and you have the ability to give clients a specific gateway to use, then instead use multiple gateways, one per region and follow the guidance in one of the prior sections. Don't tie the availability of other regions to the region containing your gateway as a single point of failure.
 
-Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways you need to pick a common model and model version that is available across all involved regions. Refer to [model availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) to learn more. If you can't standardize on model and model version, the benefit of the gateway is limited.
+Don't implement a unified gateway if your model and version isn't available in all regions exposed by the gateway. Clients need to be routed to the same model and the same model version. For multi-region load-balanced and failover gateways you need to pick a common model and model version that is available across all involved regions. Refer to [Model availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) to learn more. If you can't standardize on model and model version, the benefit of the gateway is limited.
 
 ## General recommendations
 
@@ -308,13 +308,13 @@ When clients are using Azure OpenAI's stateful features, such as the Assistant A
 
 There are two health check perspectives that need to be address, regardless of topology.
 
-If your gateway is built around round-robining or strictly performing service availability failover, you'll want a way to take an Azure OpenAI instance (or model) out of availability status. Azure OpenAI doesn't provide any sort of health check endpoint to preemptively know if it's available to handle requests. You could send synthetic transitions through, but that consumes model capacity. Unless you have another reliable signal source for Azure OpenAI instance and model availability, your gateway likely should assume the Azure OpenAI instance is up and then handle `429`, `500`, `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in Azure OpenAI API responses for `429`s in your circuit breaking logic. If you're Azure API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
+If your gateway is built around round-robining or strictly performing service availability failover, you'll want a way to take an Azure OpenAI instance (or model) out of availability status. Azure OpenAI doesn't provide any sort of health check endpoint to preemptively know whether it's available to handle requests. You could send synthetic transitions through, but that consumes model capacity. Unless you have another reliable signal source for Azure OpenAI instance and model availability, your gateway likely should assume the Azure OpenAI instance is up and then handle `429`, `500`, `503` HTTP status codes as a signal to circuit-break for future requests on that instance or model for a period of time. For throttling situations, always honor the data in the `Retry-After` header found in Azure OpenAI API responses for `429`s in your circuit breaking logic. If you're Azure API Management, evaluate using the [built-in circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) functionality.
 
 Your clients or your workload operations team might wish to have a health check exposed on your gateway itself for their own routing or introspection purposes. If you use API Management, the default `/status-0123456789abcdef` might not be detailed enough as it mostly addresses the API Management gateway instance, not your backends. Consider adding a dedicated health check API that can return meaningful data to clients or observability systems on the availability of the gateway or specific routes in the gateway.
 
 ### Safe deployment practices
 
-All of these gateway implementations allow you to orchestrate blue/green deployments of updated models. Azure OpenAI models are updated with new model versions and new models, and you might have new fine tuned models.  After testing the impact of a change in preproduction, evaluate if production clients should be "cut over" to the new model version or instead shift traffic. The gateway pattern described above allows the backend to have both models concurrently deployed and gives the power to the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
+All of these gateway implementations allow you to orchestrate blue/green deployments of updated models. Azure OpenAI models are updated with new model versions and new models, and you might have new fine tuned models. After testing the impact of a change in preproduction, evaluate whether production clients should be "cut over" to the new model version or instead shift traffic. The gateway pattern described above allows the backend to have both models concurrently deployed and gives the power to the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
 
 Even if you don't use blue/green deployments, your workload's APIOps approach needs to be defined and sufficiently automated commiserate with the rate of change of your backend instance and model deployments.
 
