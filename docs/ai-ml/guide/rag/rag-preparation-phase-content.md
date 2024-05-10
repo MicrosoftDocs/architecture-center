@@ -8,14 +8,14 @@ The first step in this process is to clearly define the business requirements fo
 
 ## Gather representative test documents
 
-In this step, you're gathering documents that are the best representation of the entire universe of documents that you use in your production solution. The documents must address the defined use case and be able to answer the questions gathered in the question gathering parallel phase.
+In this step, you're gathering documents that are the best representation of the documents that you use in your production solution. The documents must address the defined use case and be able to answer the questions gathered in the question gathering parallel phase.
 
 ### Considerations
 
-There are four areas to consider when evaluating potential representative test documents:
+Consider these areas when evaluating potential representative test documents:
 
 1. **Pertinence** - The documents must meet the business requirements of the conversational application. For example, if you're building a chat bot tasked with helping customers perform banking operations, the documents should match that requirement, such as documents showing how to open or close a bank account. The documents must be able to address the test questions that are being gathered in the parallel step. If the documents don't have the information relevant to the questions, all the LLM can do is hallucinate.
-2. **Representative** - The documents should be representative of the different types of documents that your solution will use. For example, a car insurance document is different to a health insurance or life insurance document. If the use case requires the solution to support all three, and you only had two car insurance documents, you would fail. You should have at least 2 for each variation.
+2. **Representative** - The documents should be representative of the different types of documents that your solution will use. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents, your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
 3. **Physical document quality** - The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
 4. **Document content quality** - The documents must have high content quality. There should not be misspellings or grammatical errors. LLMs don't perform well if you provide them with poor quality content.
 
@@ -23,7 +23,7 @@ The success factor in this step is being *qualitatively confident* that you have
 
 ### Test document guidance
 
-* Prefer real documents over synthetic. Real documents might need to go through a cleaning process to remove personally identifiable information (PII).
+* Prefer real documents over synthetic. Real documents must to go through a cleaning process to remove personally identifiable information (PII).
 * Consider augmenting your documents with synthetic data to ensure you're handling all kinds of scenarios.
 * If you must use synthetic data, do your best to make it as close to real data as possible.
 * Make sure that the documents can address the questions that are being gathered.
@@ -36,7 +36,7 @@ In this step, you're gathering test queries that you'll use to evaluate your chu
 
 ### Gather test query output
 
-The output of this phase includes content from both the #gather-test-queries step, and the [Gather representative test documents](#gather-representative-test-documents) step. The output is a collection containing the following data:
+The output of this phase includes content from both the [Gather representative test queries](#gather-test-queries) step, and the [Gather representative test documents](#gather-representative-test-documents) step. The output is a collection containing the following data:
 
 * **Query** - The query.
 * **Context** - A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.
@@ -71,7 +71,7 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
 
 ### Unaddressed queries
 
-It's important to gather queries that the documents don't address, for example "negative" queries, along with queries that are addressed. When you test your solution, particularly when you test the LLM, you need to determine how the solution should respond to queries it doesn't have sufficient context to answer. Approaches to responding to queries you can't address include:
+It's important to gather queries that the documents don't address, along with queries that are addressed. When you test your solution, particularly when you test the LLM, you need to determine how the solution should respond to queries it doesn't have sufficient context to answer. Approaches to responding to queries you can't address include:
 
 * Responding that you don't know
 * Responding that you don't know and providing a link where the user might find more information
