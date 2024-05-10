@@ -35,8 +35,8 @@ A topology that includes a single Azure OpenAI instance but contains more than o
 
 ### Introduce a gateway for multiple model deployments
 
-:::image type="complex" source="_images/multiple-models-single-instance-after.svg" alt-text="Architecture diagram of a scenario with clients connecting to more than one model deployment in Azure OpenAI but through a gateway." lightbox="_images/multiple-models-single-instance-after.svg":::
-   A diagram showing two clients labeled A and B directly interfacing with a gateway. The gateway has an arrow pointing to a private endpoint, which has four arrows leading from there into an Azure OpenAI instance in a resource group named rg-aoai-eastus. Three of the arrows are solid and point to three different model deployments labeled gpt-4, gpt-35-turbo, and other labeled gpt-35-turbo. One of the arrows is dashed and is pointing to yet another gpt-35-turbo deployment.
+:::image type="complex" source="_images/multiple-models-single-instance-after.svg" alt-text="Architecture diagram of a scenario that shows clients connecting to more than one model deployment in Azure OpenAI through a gateway." lightbox="_images/multiple-models-single-instance-after.svg":::
+   A diagram that shows two clients labeled A and B directly interfacing with a gateway. The gateway has an arrow that points to a private endpoint, which has four arrows that lead from the private endpoint into an Azure OpenAI instance in a resource group named rg-aoai-eastus. Three of the arrows are solid and point to three different model deployments labeled gpt-4, gpt-35-turbo, and gpt-35-turbo. One of the arrows is dashed and points to yet another gpt-35-turbo deployment.
 :::image-end:::
 
 Introducing a gateway into this topology is primarily meant to abstract clients away from self-selecting a specific model instance among the available deployments on the instance. A gateway allows server-side control to direct a client request to a specific model without needing to redeploy client code or change client configuration.
@@ -361,5 +361,5 @@ Azure doesn't offer a turn-key solution or reference architecture for building s
 
 Having a gateway implementation gives your workload many potential benefits, not just the tactical multiple back end routing benefit presented in this article. Learn about other [key challenges](./azure-openai-gateway-guide.yml#key-challenges) a gateway can solve.
 
-- [Access Azure OpenAI and other large language models (LLMs) through a gateway](./azure-openai-gateway-guide.yml)
+- [Access Azure OpenAI and other language models through a gateway](./azure-openai-gateway-guide.yml)
 - [Implement logging and monitoring for Azure OpenAI models](../openai/architecture/log-monitor-azure-openai.yml)
