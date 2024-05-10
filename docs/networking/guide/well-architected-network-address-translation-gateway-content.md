@@ -2,8 +2,6 @@ This article provides best practices for an Azure NAT gateway. The guidance is b
 
 We assume that you have a working knowledge of Azure NAT Gateway and that you are well-versed with the respective features. As a refresher, review the full set of [Azure NAT Gateway documentation](/azure/virtual-network/nat-gateway).
 
-NAT stands for *network address translation*. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
-
 ## Cost optimization
 
 Access to PaaS services should be through Azure Private Link or service endpoints (including storage), to avoid using a NAT gateway. Private Link and service endpoints do not require traversal of the NAT gateway to access PaaS services. This approach will reduce the charge per GB of data processed, when comparing the costs of a NAT gateway to Private Link or to service endpoints. There are additional security benefits for using Private Link or service endpoints.
