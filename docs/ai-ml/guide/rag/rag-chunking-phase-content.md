@@ -15,45 +15,6 @@ The following are factors to consider when looking at the cost of your overall s
 * **Number of initial documents** - The number of initial documents you need to process to launch your solution.
 * **Number of incremental documents** - The number and rate of new documents that you must process for the system.
 
-## Document analysis
-
-The goal of document analysis is to determine the following three things:
-
-* What in the document you want to ignore or exclude
-* What in the document you want to capture in chunks
-* How you want to chunk the document
-
-The following are some common questions you can ask when analyzing a document type that helps you make those three determinations:
-
-* Does the document contain a table of content?
-* Does the document contain images?
-  * Are they high resolution images?
-  * What kind of data do you have on images?
-  * Are there captions for the images?
-  * Is there text embedded in the images?
-* Does the document have charts with numbers?
-* Does the document contain tables?
-  * Are the tables complex (nested tables) or noncomplex?
-  * Are there captions for the tables?
-* Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
-* How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
-* What languages are in the documents?
-* Does the document contain unicode characters?
-* How are numbers formatted? Are they using commas or decimals?
-* Are there headers and footers? Do you need them?
-* Are there copyrights or disclaimers? Do you need them?
-* What in the document is uniform and what isn't uniform?
-* Is there a header structure where semantic meaning can be extracted?
-* Are there footnotes or endnotes?
-* Are there watermarks?
-* Are there annotations or comments (for example, in PDFs or Word documents)
-* Are there other types of embedded media like videos or audio?
-* What language variant or dialect is present in the document?
-* Are there any mathematical equations/scientific notations in the document?
-* Are there bullets or meaningful indentations?
-
-The answers to these questions helps you identify the document structure, determine your chunking approach, and identify content to chunk and what not to.
-
 ## Chunking approaches
 
 This section gives you an overview of some common chunking approaches. This list isn't meant to be exhaustive, rather some common representative approaches. You can use multiple approaches in implementation, such as combining the use of an LLM to get a text representation of an image with many of the listed approaches.

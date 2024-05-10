@@ -1,4 +1,4 @@
-The first phase of RAG development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of gathering documents and sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The questions must be answerable by content in the documents and the documents must answer relevant questions.
+The first phase of RAG development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of gathering documents and sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The questions must be answerable by content in the documents and the documents must answer relevant questions. While gathering the test documents and queries, you will perform an analysis of your documents to get a better understanding of the structure and content.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -81,6 +81,45 @@ It's important to gather queries that the documents don't address, along with qu
 * Determine if there is a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
 * The customer or SME for the use case should act as a quality gate to determine whether or not the gathered documents, the associated test queries, and the answers to the queries from the documents are comprehensive, representative, and are correct.
 * Reviewing the body of questions and answers should be done periodically to ensure that they continue to accurately reflect the source documents.
+
+## Document analysis
+
+The goal of document analysis is to determine the following three things:
+
+* What in the document you want to ignore or exclude
+* What in the document you want to capture in chunks
+* How you want to chunk the document
+
+The following are some common questions you can ask when analyzing a document type that helps you make those three determinations:
+
+* Does the document contain a table of content?
+* Does the document contain images?
+  * Are they high resolution images?
+  * What kind of data do you have on images?
+  * Are there captions for the images?
+  * Is there text embedded in the images?
+* Does the document have charts with numbers?
+* Does the document contain tables?
+  * Are the tables complex (nested tables) or noncomplex?
+  * Are there captions for the tables?
+* Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
+* How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
+* What languages are in the documents?
+* Does the document contain unicode characters?
+* How are numbers formatted? Are they using commas or decimals?
+* Are there headers and footers? Do you need them?
+* Are there copyrights or disclaimers? Do you need them?
+* What in the document is uniform and what isn't uniform?
+* Is there a header structure where semantic meaning can be extracted?
+* Are there footnotes or endnotes?
+* Are there watermarks?
+* Are there annotations or comments (for example, in PDFs or Word documents)
+* Are there other types of embedded media like videos or audio?
+* What language variant or dialect is present in the document?
+* Are there any mathematical equations/scientific notations in the document?
+* Are there bullets or meaningful indentations?
+
+The answers to these questions helps you identify the document structure, determine your chunking approach, and identify content to chunk and what not to.
 
 ## Contributors
 

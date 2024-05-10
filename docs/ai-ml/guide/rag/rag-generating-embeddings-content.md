@@ -68,11 +68,15 @@ You can use libraries such as t-SNE to plot the vectors for your chunks and your
 :::image-end:::
 *Figure 4. Plotting embeddings*
 
-TODO: Can someone put together a real example with TSNE that we can use to replace this image?
-
 #### Calculating embedding distances
 
 A programmatic means of evaluating how well your embedding model is working with your questions and chunks is to calculate the distance between the question vectors and the chunk vectors. You can use the Euclidean distance or the Manhattan distance.
+
+## Embedding economics
+
+When choosing an embedding model, there is a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. However, the increased performance comes at a cost. Larger vectors require more space to be stored in a vector database, and require more computational resources and time when comparing embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database, and require less compute and time when comparing embeddings.
+
+When designing your system, you should account for the cost of embedding in terms of both storage, compute, and the performance requirements. Validating the performance of the models through experimentation is crucial. The publicly available benchmarks are mainly academic datasets. Most results can’t be directly transposed to business data and use cases. Depending on the requirements, you can favor performance over cost, or accept a trade-off of good-enough performance in exchange for lower cost.
 
 ## Contributors
 
