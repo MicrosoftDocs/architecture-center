@@ -1,11 +1,13 @@
 [!INCLUDE [intro](../includes/mwa-intro.md)]
 
+In a service-oriented architecture, where each service is self-contained, different teams within an organization can take ownership of various services, allowing them to innovate at their own pace. Moreover, when the system experiences increased load, only the services acting as performance bottlenecks need to be scaled out.
+
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use this sample web app to guide your implementation of Reliable Web App pattern.
 
 ## Choose the right services
 
-The Modern Web App pattern introduces containerization, asynchronous communication, and queue-based scaling. The services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. You likely need to adopt new Azure services for the portion of the application that you want to modernize. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
+The Modern Web App pattern introduces a service-oriented architecture. It applies containerization and asynchronous communication to all independent services. The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
 
 ### Choose a container service
 
@@ -39,7 +41,7 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 - *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
 
-- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO. A multi-region, active-active approach requires code updates to synchronize data across regions.
+- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must be less than your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO. Most Azure services support synchronous replication across zones in a single region with minimal application code changes. A multi-region, active-active setup requires near real-time synchronization between regions, potentially needing code adjustments.
 
 - *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
@@ -91,7 +93,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 ### Implement the Retry Pattern
 
-Update the use of the [Retry pattern](/azure/architecture/patterns/retry) to apply to new services. To implement the Retry pattern, follow these recommendations:
+The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and independent services you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
 - *Configure retry options.* When integrating with a message queue, ensure that the client responsible for interactions with the queue is configured with appropriate retry settings. This involves specifying parameters such as the maximum number of retries, delay between retries, and maximum delay.
 - *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
@@ -119,15 +121,19 @@ services.AddSingleton(sp =>
 });
 ```
 
-- *Adopt Standard Resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms, including exponential backoff, circuit breaker patterns, and more, which are crucial for managing communications with external web services.
+- *Adopt Standard Resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms, including exponential backoff, circuit breaker patterns, and more. These are crucial for managing communications with external web services.
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
-- *Use a dead-letter queue.* Implement a mechanism to handle messages that repeatedly fail processing. Move such messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
+- *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
 ## Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Modern Web App pattern applies security best practices to new services extracted from the web app. To configure service authentication and authorization, follow these recommendations:
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Modern Web App pattern applies security best practices to new services added to the architecture to support the service-oriented architecture.
 
-- *Use managed identities for each new service.* Each microservice should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
+### Configure service authentication and authorization
+
+To configure service authentication and authorization on any new Azure services you add to the web app, follow these recommendations:
+
+- *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
 - *Adopt infrastructure as code (IaC).* Use Azure Bicep or similar IaC tools to define and manage your cloud resources. This ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
 - *Update firewall rules.* Update your firewall rules to account for the new network traffic patterns that results from the extraction of the microservice.
@@ -171,26 +177,28 @@ module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' 
 }
 ```
 
-## Configure user authentication and authorization
+### Configure user authentication and authorization
+
+To configure user authentication and authorization, follow these recommendations:
 
 - *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
 ## Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Modern Web App pattern implements independent autoscaling to optimize cost.
+Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Modern Web App pattern implements independent autoscaling on the newly decoupled service.
 
-### Autoscaling container
+### Autoscale decoupled services
 
-Automatic horizontal scaling adds and removes service instances automatically based on relevant demand metrics. It scales the service to perform more work when demand is high and to save cost when demand is low. By scaling automatically based on metrics relevant to the application’s scenario, scale operations can be performed quickly and without any need for manual intervention. To autoscale containers, follow these recommendations:
+The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
 - *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
-- *Configure autoscaling rules.* Consider [event-based scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#consider-event-based-scaling), such as Kubernetes Event-Driven Autoscaler (KEDA). [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA scalers. Configure the KEDA scalers to scale your deployments based on event metrics. Develop custom KEDA scaler as needed. When deploying to Azure App Service, use [Azure Monitor Autoscaling](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-get-started) to scale based on metrics-based rules or [Azure App Service Automatic Scaling](https://learn.microsoft.com/azure/app-service/manage-automatic-scaling) to scale based on HTTP traffic.
+- *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, consider [event-based scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#consider-event-based-scaling), such as Kubernetes Event-Driven Autoscaler (KEDA) often provides granular control, allowing you to scale based on event metrics. [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA. For services that don't support KEDA, such as [Azure App Service](](/azure/app-service/manage-automatic-scaling)), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
 - *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of 1 replica at all times. A cold start is when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when configuring autoscaling.
 - *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
 - *Configure queue-based scaling.* If your application uses a message queue like Azure Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N messages in the queue (rounded up).
 
-The reference implementation uses the [Azure Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the Container App based on the length of the queue with request messages. The `service-bus-queue-length-rule` scales the service based on the length of a specified Azure Service Bus queue. The `messageCount` parameter is set to ‘10’, meaning the scaler will aim to have one replica of the service for every ten messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service, respectively. The `queue-connection-string secret`, which contains the connection string for the Service Bus queue, is retrieved from Key Vault. This secret is used to authenticate the scaler to the Service Bus.
+The reference implementation uses the [Azure Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the Container App based on the length of the queue with request messages. The `service-bus-queue-length-rule` scales the service based on the length of a specified Azure Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every ten messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string secret`, which contains the connection string for the Service Bus queue, is retrieved from Key Vault. This secret is used to authenticate the scaler to the Service Bus.
 
 ```yml
 scaleRules: [
@@ -219,9 +227,7 @@ scaleMinReplicas: 0
 
 ## Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
-
-Moving from the reliable web app pattern to the modern web app pattern includes separating logically independent pieces of the application into their own services. This improves operational efficiency by making it possible for these different services to version and update independently. While making these changes, it’s important to also continue abiding by the reliable web app’s patterns of infrastructure-as-code and automated deployments so that infrastructure design and updates are manageable and environments are easily reproduceable.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Modern Web App pattern introduces the Strangler Fig and Health Endpoint Monitoring patterns.
 
 ### Implement the Strangler Fig pattern
 
