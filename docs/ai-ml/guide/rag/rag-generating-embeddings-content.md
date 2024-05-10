@@ -1,4 +1,17 @@
-An embedding is a vector representation of an object, such as text. Embeddings are used to mathematically compare the semantic similarity of two objects. Since embedding vectors are a mathematical representation of objects, texts that are similar to one another have embedding vector representations similar to one another. The distance between two embedding vectors in high dimensional space determines how similar the text they represent are. In a RAG solution, you might embed the user query and search a vector database containing embeddings for text like chunks to return the most semantically relevant chunks. Those relevant chunks are then passed to the large language model as grounding data.
+An embedding is a mathematical representation of an object, such as text. When a neural network is being trained, many representations of an object are created and each representation has connections to other objects in the network. An embedding is one of the representations of the object that is selected because it captures the semantic meaning of the object.
+
+Because an embedding is a mathematical representation of that object and that representation has connections to representations of other objects, you can compare objects mathematically. A famous example to show how embeddings capture semantic meaning and relationships between each other is:
+
+embedding("king") - embedding("man") + embedding("woman") ≈ embedding ("queen")
+
+Embeddings are compared to one another using the notions of similarity and distance. The following diagram illustrates how embeddings can be compared.
+
+:::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram showing how vectors are compared" border="false":::
+   Diagram showing a two dimensional grid. The sentences "The cat is  on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are 2 vectors that are pointing at each box. The angle between the vectors is small. There is a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
+:::image-end:::
+*Figure 1. Comparing embeddings*
+
+In a RAG solution, you might embed the user query and search a vector database containing embeddings for your chunks to return the most semantically relevant chunks. Those relevant chunks are then passed to the large language model as grounding data.
 
 > [!NOTE]
 > This feature of vectors stresses the importance of cleaning the chunks so mathematical proximity can be tracked more closely with semantic relevancy.
@@ -14,7 +27,7 @@ The vocabulary of an embedding model is important because of how embedding model
 :::image type="complex" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram showing the word histogram being broken down into the following subwords: his, ta, and mine" border="false":::
    Diagram showing the word histogram being broken down into the following subwords: his, ta, and mine
 :::image-end:::
-*Figure 1. Breaking down an unknown word into subwords*
+*Figure 2. Breaking down an unknown word into subwords*
 
 Let's take a fictitious example where the word "histamine" isn't in the embedding model vocabulary. "Histamine" has a semantic meaning as a chemical your body releases, which causes many symptoms of allergies. Because the embedding model doesn't contain "histamine", it might break it down into subwords that are in its vocabulary such as "his", "ta", and "mine". The semantic meanings of these subwords are nowhere close to the meaning of "histamine". The individual or aggregated vector values of the subwords produce worse vector matches than if "histamine" were in the model's vocabulary.
 
@@ -25,7 +38,7 @@ Determining the right embedding model for your use case is a human activity. Emb
 :::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram the flow of choosing an embedding model." border="false":::
    Diagram showing a flow for choosing an embedding model. The first decision is "Domain specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
-*Figure 2. Choosing an embedding model flow*
+*Figure 3. Choosing an embedding model flow*
 
 The first thing you should determine is whether your content is domain specific. For example, are your documents specific to a use case, your organization, or an industry? . A good way to determine domain specificity is to see if the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
 
@@ -53,7 +66,7 @@ You can use libraries such as t-SNE to plot the vectors for your chunks and your
 :::image type="complex" source="./_images/visualize-embeddings.png" lightbox="./_images/visualize-embeddings.png" alt-text="Visualization of an embedding. The image shows a bunch of blue dots plotted on an X-Y scale." border="false":::
    Visualization of an embedding. The image shows a bunch of blue dots plotted on an X-Y scale. It also shows two arrows pointing to plot points near one another and another arrow showing a plot point far away from the other two.
 :::image-end:::
-*Figure 3. Plotting embeddings*
+*Figure 4. Plotting embeddings*
 
 TODO: Can someone put together a real example with TSNE that we can use to replace this image?
 
