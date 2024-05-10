@@ -129,7 +129,7 @@ The organization's governance might add more requirements around container base 
 
 ##### Alternate approach
 
-Instead of hosting the prompt flow code in  Azure Machine Learning runtime, you can hosted it in Azure App Service. The logic itself doesn't change. However, to reach Wikipedia, the App Service instances need internet access. 
+Instead of hosting the prompt flow code in  Azure Machine Learning runtime, you can hosted it in Azure App Service. In this approach, egress traffic is controlled, when compared to AML compute's managed virtual network. The logic itself doesn't change but the App Service instances need internet access. 
 
 ## Networking
 
