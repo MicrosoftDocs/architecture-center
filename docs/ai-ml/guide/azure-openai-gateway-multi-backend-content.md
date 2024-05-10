@@ -30,7 +30,7 @@ These topologies on their own don't necessitate the use of a gateway. The choice
 A topology that includes a single Azure OpenAI instance but contains more than one concurrently deployed model supports the following use cases:
 
 - Expose different model capabilities, such as `gpt-35-turbo`, `gpt-4`, and custom fine-tuned models.
-- Expose different model versions, such as `0613`, `1106`, and custom fine-tuned models to support workload evolution or blue/green deployments.
+- Expose different model versions, such as `0613`, `1106`, and custom fine-tuned models to support workload evolution or blue-green deployments.
 - Expose different quotas assigned (30,000 Token-Per-Minute (TPM), 60,000 TPM) to support consumption throttling across multiple clients.
 
 ### Introduce a gateway for multiple model deployments
@@ -41,18 +41,18 @@ A topology that includes a single Azure OpenAI instance but contains more than o
 
 Introducing a gateway into this topology is primarily meant to abstract clients away from self-selecting a specific model instance among the available deployments on the instance. A gateway allows server-side control to direct a client request to a specific model without needing to redeploy client code or change client configuration.
 
-A gateway is especially beneficial when you don't control the client code. It's also beneficial when deploying client configuration is more complex or risky than deploying changes to gateway routing configuration. You might change which model a client is pointing to based on a blue/green rollout strategy of your model versions, such as in rolling out a new fine-tuned model or going from version *X* to *X+1* of the same model.
+A gateway is especially beneficial when you don't control the client code. It's also beneficial when deploying client configuration is more complex or risky than deploying changes to gateway routing configuration. You might change which model a client is pointing to based on a blue-green rollout strategy of your model versions, such as in rolling out a new fine-tuned model or going from version *X* to *X+1* of the same model.
 
 The gateway can also be used as a single API point of entry that allows the gateway to identify the client. It can then determine which model deployment is used to serve the prompt based on that client's identity or other information in the HTTP request. For example, in a multitenant solution, tenants might be limited to specific throughput, and the implementation of the architecture is a model deployment per tenant with specific quotas. In this case, the routing to the tenant's model would be the responsibility of the gateway based on information found in the HTTP request.
 
 > [!TIP]
-> Because API keys and Azure role-based access control (RBAC) are applied at the Azure OpenAI instance level, not the model deployment level, adding a gateway in this scenario allows you to shift security to the gateway. The gateway then provides additional segmentation between concurrently deployed models that wouldn't otherwise be possible to control through Azure OpenAI's identity and access management (IAM) or IP firewall.
+> Because API keys and Azure role-based access control (RBAC) are applied at the Azure OpenAI instance level and not the model deployment level, adding a gateway in this scenario allows you to shift security to the gateway. The gateway then provides additional segmentation between concurrently deployed models that wouldn't otherwise be possible to control through Azure OpenAI's identity and access management (IAM) or IP firewall.
 
 Using a gateway in this topology allows client-based usage tracking. Unless clients are using distinct Microsoft Entra service principals, the access logs for Azure OpenAI wouldn't be able to distinguish multiple clients. Having a gateway in front of the deployment gives your workload an opportunity to track usage per client across various available model deployments to support chargeback or showback models.
 
 #### Tips for the multiple model deployments topology
 
-- While the gateway is in a position to completely change which model is being used, such as `gpt-35-turbo` to `gpt-4`, that change would likely be considered a breaking change to the client. Don't let new functional capabilities of the gateway distract from always executing [safe deployment practices](#safe-deployment-practices) for this workload.
+- While the gateway is in a position to completely change which model is being used, such as `gpt-35-turbo` to `gpt-4`, that change would likely be considered a breaking change to the client. Don't let new functional capabilities of the gateway distract from always performing [safe deployment practices](#safe-deployment-practices) for this workload.
 
 - This topology is typically straightforward enough to implement through Azure API Management policy instead of a custom code solution.
 
@@ -64,7 +64,7 @@ Using a gateway in this topology allows client-based usage tracking. Unless clie
 
 - Deploy your gateway in the same region as the Azure OpenAI instance.
 
-- Deploy the gateway into a dedicated resource group in the subscription that is separate from the Azure OpenAI instance. Having it isolated from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
+- Deploy the gateway into a dedicated resource group in the subscription that is separate from the Azure OpenAI instance. Isolating the subscription from the back ends can help drive an [APIOps](https://github.com/Azure/apiops) approach through separations of concern.
 
 - Deploy the gateway into a virtual network that contains a subnet for the Azure OpenAI instance's Azure Private Link private endpoint. Apply network security group (NSG) rules to that subnet to only allow the gateway access to that private endpoint. All other data plane access to the Azure OpenAI instances should be disallowed.
 
@@ -314,9 +314,11 @@ Your clients or your workload operations team might wish to have a health check 
 
 ### Safe deployment practices
 
-All of these gateway implementations allow you to orchestrate blue/green deployments of updated models. Azure OpenAI models are updated with new model versions and new models, and you might have new fine-tuned models. After testing the impact of a change in preproduction, evaluate if production clients should be "cut over" to the new model version or instead shift traffic. The gateway pattern described earlier allows the back end to have both models concurrently deployed and gives the power to the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
+You can use gateway implementations to orchestrate blue-green deployments of updated models. Azure OpenAI models are updated with new model versions and new models, and you might have new fine-tuned models.  
 
-Even if you don't use blue/green deployments, your workload's APIOps approach needs to be defined and sufficiently automated commiserate with the rate of change of your back-end instance and model deployments.
+After testing the effects of a change in preproduction, evaluate whether production clients should be "cut over" to the new model version or instead shift traffic. The gateway pattern described earlier allows the back end to have both models concurrently deployed. Deploying models concurrently gives the power to the gateway to redirect traffic based on the workload team's safe deployment practice of incremental rollout.
+
+Even if you don't use blue-green deployments, your workload's APIOps approach needs to be defined and sufficiently automated commiserate with the rate of change of your back-end instance and model deployments.
 
 ### Just enough implementation
 
