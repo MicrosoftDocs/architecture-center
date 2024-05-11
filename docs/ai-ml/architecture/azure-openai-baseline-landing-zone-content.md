@@ -17,7 +17,7 @@ As a workload owner, you can offload the management of shared resources to platf
 |&#9642; [Architecture diagram](#architecture)<br>&#9642; [Workload resources](#workload-team-owned-resources)<br>&#9642; [Federated resources](#platform-team-owned-resources) |&#9642; [Subscription setup](#subscription-setup)<br>&#9642; [Compute](#compute)<br>&#9642; [Networking](#networking)<br>&#9642; [Data scientist access](#data-scientist-and-prompt-flow-authorship-access)<br>&#9642; [Monitoring](#monitoring)<br>&#9642; [Organizational governance](#azure-policy)<br>&#9642; [Change management](#manage-changes-over-time)|&#9642; [Reliability](#reliability)<br>&#9642; [Security](#security)<br>&#9642; [Cost Optimization](#cost-optimization)<br>&#9642; [Operational Excellence](#operational-excellence)<br>&#9642; [Performance Efficiency](#performance-efficiency) |
 
 > [!TIP]
-> :::image type="icon" source="../../_images/github.svg"::: This [reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone) outlines the best practices described in this article. Consider this guidance before you make and implement your design decisions.
+> :::image type="icon" source="../../_images/github.svg"::: This [reference implementation](https://github.com/Azure-Samples/azure-openai-chat-baseline-landing-zone) outlines the best practices described in this article. Review this guidance before you make and implement your design decisions.
 
 The repository artifacts provide a customizable foundation for your environment. The implementation sets up a hub network with shared resources like Azure Firewall for demonstration purposes. You can apply this setup to separate application landing zone subscriptions for distinct workload and platform functions.
 
