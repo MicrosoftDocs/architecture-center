@@ -21,11 +21,8 @@ These topologies on their own don't necessitate the use of a gateway. The choice
 ### Topology details for multiple model deployments
 
 - **Azure OpenAI model deployments**: multiple
-
 - **Azure OpenAI instances**: one
-
 - **Subscriptions**: one
-
 - **Regions**: one
 
 ### Topology use cases for multiple model deployments
@@ -88,11 +85,8 @@ Also, some workload scenarios could benefit from migrating from a multiple model
 ### Topology details for multiple instances in a single region and single subscription
 
 - **Azure OpenAI model deployments**: one or more
-
 - **Azure OpenAI instances**: multiple
-
 - **Subscriptions**: one
-
 - **Regions**: one
 
 ### Topology use cases for multiple instances in a single region and single subscription
@@ -159,11 +153,8 @@ If you have a few clients in the area where you control the code, and the client
 ### Topology details for multiple Azure OpenAI instances in a single region across multiple subscriptions
 
 - **Azure OpenAI model deployments**: one or more
-
 - **Azure OpenAI instances**: multiple
-
 - **Subscriptions**: multiple
-
 - **Regions**: one
 
 ### Topology use cases for multiple Azure OpenAI instances in a single region across multiple subscriptions
@@ -207,11 +198,8 @@ All of the [reasons to avoid a gateway for multiple instances in a single region
 ### Topology details for multiple Azure OpenAI instances across multiple regions
 
 - **Azure OpenAI model deployments**: multiple
-
 - **Azure OpenAI instances**: multiple
-
 - **Subscriptions**: one or more
-
 - **Regions**: multiple
 
 ### Topology use cases for multiple Azure OpenAI instances across multiple regions
