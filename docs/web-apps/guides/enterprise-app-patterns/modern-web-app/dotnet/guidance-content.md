@@ -3,7 +3,7 @@
 In a service-oriented architecture, where each service is self-contained, different teams within an organization can take ownership of various services, allowing them to innovate at their own pace. Moreover, when the system experiences increased load, only the services acting as performance bottlenecks need to be scaled out.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use this sample web app to guide your implementation of Reliable Web App pattern.
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
 
 ## Choose the right services
 
