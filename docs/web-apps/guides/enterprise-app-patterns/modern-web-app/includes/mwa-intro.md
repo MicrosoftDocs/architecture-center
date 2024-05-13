@@ -2,8 +2,8 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 :::row:::
     :::column:::
-        **Objectives**<br>
-        Handle increased demand
+        **Benefits**<br>
+        Improved performance\
         Cost-optimized scaling
     :::column-end:::
 
