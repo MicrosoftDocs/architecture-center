@@ -20,11 +20,12 @@ azureCategories:
   - management-and-governance
 summary: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 products:
-  - azure-arc
-  - azure-monitor
-  - azure-policy
-  - defender-for-cloud
   - azure-stack-hci
+  - azure-arc
+  - azure-key-vault
+  - azure-blob-storage
+  - azure-monitor
+  - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
 content: |
    [!include[](azure-stack-hci-switchless-content.md)]
