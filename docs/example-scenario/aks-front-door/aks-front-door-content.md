@@ -14,7 +14,7 @@ The following diagram illustrates the steps involved in the message flow during 
 
 ![Message Flow](./media/flow.png)
 
-### Deployment Steps
+#### Deployment Steps
 
 The actions carried out during the deployment process are outlined below:
 
