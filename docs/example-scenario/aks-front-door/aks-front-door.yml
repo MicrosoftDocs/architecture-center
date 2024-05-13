@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: End-to-end TLS with Azure Kubernetes Service and Azure Front Door
+  title: Secure Azure Kubernetes Service with Azure Front Door
   titleSuffix: Azure Architecture Center
-  description: Learn how to set up end-to-end TLS encryption using Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
+  description: Learn how to secure Azure Kubernetes Service using end-to-end TLS encryption, Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
   author: paolosalvatori
   ms.author: paolos
   ms.date: 03/15/2024
@@ -14,11 +14,11 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: End-to-end TLS with Azure Kubernetes Service and Azure Front Door
+name: Secure Azure Kubernetes Service with Azure Front Door
 azureCategories:
   - containers
   - networking
-summary: Learn how to set up end-to-end TLS encryption using Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
+summary: Learn how to secure Azure Kubernetes Service using end-to-end TLS encryption, Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
 products:
   - azure-front-door
   - azure-key-vault
