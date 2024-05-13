@@ -63,9 +63,9 @@ The architecture consists of the following components:
   - `SystemSubnet` is used for the agent nodes of the `system` node pool.
   - `UserSubnet` is used for the agent nodes of the `user` node pool.
   - `PodSubnet` is used to allocate private IP addresses to pods dynamically when the AKS cluster is configured to use [Azure CNI](/azure/aks/configure-azure-cni) with [Dynamic IP Allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support).
-  - `ApiServerSubnet`: [API Server VNET Integration](/azure/aks/api-server-vnet-integration) projects the API server endpoint directly into this delegated subnet in the virtual network where the AKS cluster is deployed.
-  - `AzureBastionSubnet`: a subnet for the [Azure Bastion Host](/azure/bastion/bastion-overview).
-  - `VmSubnet`: a subnet for a jump-box virtual machine used to connect to the (private) AKS cluster and for the private endpoints.
+  - `ApiServerSubnet` uses [API Server VNET Integration](/azure/aks/api-server-vnet-integration) to project the API server endpoint directly into this delegated subnet where the AKS cluster is deployed.
+  - `AzureBastionSubnet` is used for the [Azure Bastion Host](/azure/bastion/bastion-overview).
+  - `VmSubnet` is used for the jump-box virtual machine that connects to the (private) AKS cluster and for the private endpoints.
 - [User-assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) is used by the AKS cluster to create additional resources like load balancers and managed disks in Azure.
 - [Azure Virtual Machine](/azure/virtual-machines/overview) is used to  manage a private AKS cluster. The creation of this virtual machine is optional.
 - [Azure Bastion Host](/azure/bastion/bastion-overview) is deployed in the AKS cluster virtual network to provide SSH connectivity to the AKS agent nodes and virtual machines, if any.
