@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Access Azure OpenAI and other large language models (LLMs) through a gateway
-  description: Learn about the challenges of directly accessing Azure OpenAI or other large language models (LLMs) and how injecting a gateway lets you augment model usage with extra capabilities.
+  title: Access Azure OpenAI and other language models through a gateway
+  description: Learn about the challenges of directly accessing Azure OpenAI or other language models and how injecting a gateway lets you augment model usage with extra capabilities.
   author: robbagby
   ms.author: robbag
-  ms.date: 04/30/2024
+  ms.date: 05/09/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
