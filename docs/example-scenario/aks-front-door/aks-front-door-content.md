@@ -91,7 +91,7 @@ The architecture consists of the following components:
   - Azure Network Security Group
   - Azure Container Registry
   - Azure Storage Account
-- [Azure Deployment Script](/azure/azure-resource-manager/bicep/deployment-script-bicep?tabs=CLI) is used to run a Bash script which installs the [httpbin](https://httpbin.org/) web application via YAML templates and the following packages to the AKS cluster via [Helm](https://helm.sh/). For more information on deployment scripts, see [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep)
+- [Deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep) are used to run a Bash script which installs the [httpbin](https://httpbin.org/) web application via YAML templates and the following packages to the AKS cluster via [Helm](https://helm.sh/). 
   - [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/)
   - [Cert-Manager](https://cert-manager.io/docs/)
   - [Prometheus](https://prometheus.io/)
