@@ -33,7 +33,7 @@ Your prompt orchestrator might take a static approach or a dynamic approach mixi
 
 ### Search types
 
-Search platforms generally support full text and vector searches. Some platforms, like Azure AI Search support hybrid searches. To see capabilities of various vector search offerings, review [Choose an Azure service for vector search](../../technology-choices/vector-search.md).
+Search platforms generally support full text and vector searches. Some platforms, like Azure AI Search support hybrid searches. To see capabilities of various vector search offerings, review [Choose an Azure service for vector search](../../../guide/technology-choices/vector-search.md).
 
 #### Vector search
 

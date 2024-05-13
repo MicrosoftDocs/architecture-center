@@ -7,11 +7,11 @@ embedding("king") - embedding("man") + embedding("woman") ≈ embedding("queen")
 Embeddings are compared to one another using the notions of similarity and distance. The following diagram illustrates how embeddings can be compared.
 
 :::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram showing how vectors are compared" border="false":::
-   Diagram showing a two dimensional grid. The sentences "The cat is  on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are 2 vectors that are pointing at each box. The angle between the vectors is small. There is a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
+   Diagram showing a two dimensional grid. The sentences "The cat is  on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are two vectors that are pointing at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 *Figure 1. Comparing embeddings*
 
-In a RAG solution, you often embed the user query using the same embedding model as your chunks and search for relevant vectors from your database to return the most semantically relevant chunks. The original text of the relevant chunks are then passed to the large language model as grounding data.
+In a RAG solution, you often embed the user query using the same embedding model as your chunks and search for relevant vectors from your database to return the most semantically relevant chunks. The original text of the relevant chunks is then passed to the large language model as grounding data.
 
 > [!NOTE]
 > This feature of vectors stresses the importance of cleaning the chunks so mathematical proximity can be tracked more closely with semantic relevancy.
@@ -48,7 +48,7 @@ When you're choosing a general embedding model, a good place to start is the [Hu
 
 ### Domain specific content
 
-For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You consider consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is specifically intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
+For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You should consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
 
 If there are no domain specific models available, or the domain specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
 
@@ -74,7 +74,7 @@ A programmatic means of evaluating how well your embedding model is working with
 
 ## Embedding economics
 
-When choosing an embedding model, there is a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. However, the increased performance comes at a cost. Larger vectors require more space to be stored in a vector database, and require more computational resources and time when comparing embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database, and require less compute and time when comparing embeddings.
+When choosing an embedding model, there's a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. However, the increased performance comes at a cost. Larger vectors require more space to be stored in a vector database, and require more computational resources and time when comparing embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database, and require less compute and time when comparing embeddings.
 
 When designing your system, you should account for the cost of embedding in terms of both storage, compute, and the performance requirements. Validating the performance of the models through experimentation is crucial. The publicly available benchmarks are mainly academic datasets. Most results can’t be directly transposed to business data and use cases. Depending on the requirements, you can favor performance over cost, or accept a trade-off of good-enough performance in exchange for lower cost.
 
