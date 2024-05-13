@@ -1,7 +1,17 @@
 This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 
+The primary focus of this architecture is not the application workload that will be hosted on Azure Stack HCI. Instead, this article provides guidance for configuring and deploying the HCI cluster infrastructure, on which the application will depend upon. These components include physical nodes, storage and networking, in addition to Azure services that will be used for the day to day management and monitoring.
+
+This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure STack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place. These workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI cluster infrastructure, review the five well-architected pillars for guidance on workload design guidelines and recommendations.
+
+## Article layout
+
+| Architecture | Design decision | Well-Architected Framework approach|
+|---|---|---|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; Workload resources <br> &#9642; Supporting resources <br> &#9642; User flows <br> |&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; Disks <br> &#9642; [Networking](#network-layout) <br> &#9642; Monitoring <br> &#9642; Update management|  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
+
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/) demonstrates how to deploy a 3-node Azure Stack HCI cluster using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-3Nodes-Switchless-DualLink) demonstrates how to deploy a 3-node Azure Stack HCI storage switchless cluster using an ARM template and parameter file.
 
 ## Architecture
 
@@ -9,20 +19,11 @@ This reference architecture illustrates how to design infrastructure for highly 
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
+For information about these resources, see Azure product documentation listed in [Related resources](#related-resources).
+
 ### Components
 
-This architecture consists of Azure Stack HCI, Azure Arc and several Azure services that offer supporting resources. The services for each and their roles are described in the following sections.
-
-- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
-- [Azure Monitor](https://azure.microsoft.com/products/monitor)
-- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
-- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
-- [Azure Backup](https://azure.microsoft.com/products/backup)
+This architecture consists of Azure Stack HCI, Azure Arc and several Azure services that offer supporting resources for Azure Stack HCI and optionally the running workload, these services and their roles are described in the following sections.
 
 ### Workflow
 
@@ -59,7 +60,7 @@ Typical use cases for this architecture pattern include the ability to run highl
 - Centralized provisioning capability to deploy workloads to multiple Azure Stack HCI clusters using Azure and Azure Arc, such as portal, command-line-interface (cli) or infrastructure as code (IaC) templates for automation and repeatability.
 - Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
 
-## Network layout switchless storage clusters
+## Network layout
 
 Opening paragraph...
 
@@ -176,6 +177,30 @@ Performance efficiency considerations include:
 > [!IMPORTANT]
 > We recommend using mirroring for most performance-sensitive workloads. If you have three or more servers, we recommend using the default storage configuration (three-way mirroring), instead of two-way mirroring. To learn more about how to balance performance and capacity to meet your workload requirements, see [Plan volumes][s2d-plan-volumes].
 
+## Related resources
+
+See product documentation for details on specific Azure services:
+
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc)
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [Azure Monitor](https://azure.microsoft.com/products/monitor)
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy)
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery)
+- [Azure Backup](https://azure.microsoft.com/products/backup)
+
+Additional information:
+
+- [Hybrid architecture design](hybrid-start-here.md)
+- [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
+- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
+- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
+- [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
+- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
+
 ## Next steps
 
 Product documentation:
@@ -202,15 +227,6 @@ Microsoft Learn modules:
 - [Keep your virtual machines updated](/training/modules/keep-your-virtual-machines-updated)
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your virtual machines by using Azure Backup](/training/modules/protect-virtual-machines-with-azure-backup)
-
-## Related resources
-
-- [Hybrid architecture design](hybrid-start-here.md)
-- [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
-- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
-- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
-- [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
-- [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-switchless.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
