@@ -14,9 +14,9 @@ This section provides examples of specific key architectural challenges that you
 
 The reliability of the workload depends on several factors, including its capacity for self-preservation and self-recovery, which are often implemented through replication and failover mechanisms. Without a gateway, all reliability concerns must be addressed exclusively by using client logic and Azure OpenAI Service features. Workload reliability is compromised when there isn't enough reliability control available in either of those two surfaces.
 
-- **Redundancy:**: Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
+- **Redundancy**: Failing over between multiple Azure OpenAI instances based on service availability is a client responsibility that you need to control through configuration and custom logic.
 
-- **Scale out to handle spikes:**: Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
+- **Scale out to handle spikes**: Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
 - **Load balancing or throttling**: Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the pay-as-you-go model. Azure OpenAI APIs also throttle requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 
@@ -38,7 +38,7 @@ Workloads benefit when architectures minimize waste and maximize utility. Strong
 
 - **Cost tracking**: Being able to provide a financial perspective on Azure OpenAI usage is limited to data aggregated from Azure OpenAI instance usage telemetry. When required to do charge-back or show-back, you need to attribute that usage telemetry with various clients across different departments or even customers for multitenant scenarios.
 
-- **Provisioned throughput utilization:**: Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use PTU-based model deployments before spilling over into any consumption-based model deployments.
+- **Provisioned throughput utilization**: Your workload wants to avoid waste by fully utilizing the provisioned throughput that you paid for. This means that clients must be trusted and coordinated to use PTU-based model deployments before spilling over into any consumption-based model deployments.
 
 ### Operational excellence challenges
 
@@ -67,7 +67,7 @@ Without a gateway, your workload puts responsibility on clients to be individual
 :::image-end:::
 *Figure 1: Conceptual architecture of accessing Azure OpenAI through a gateway*
 
-To address the many challenges listed in [Key challenges](#key-challenges), you can inject a reverse proxy gateway to decouple the intelligent application from Azure OpenAI. This [gateway offloading](../../patterns/gateway-offloading.yml) lets you shift responsibility, complexity, and observability away from clients and gives you an opportunity to augment Azure OpenAI by providing other capabilities that aren't built-in. Some examples are:
+To address the many challenges listed in [Key challenges](#key-challenges), you can inject a reverse proxy gateway to decouple the intelligent application from Azure OpenAI. This [gateway offloading](../../patterns/gateway-offloading.yml) lets you shift responsibility, complexity, and observability away from clients and gives you an opportunity to augment Azure OpenAI by providing other capabilities that aren't built in. Some examples are:
 
 - Potential to implement [federated authentication](../../patterns/federated-identity.yml).
 
