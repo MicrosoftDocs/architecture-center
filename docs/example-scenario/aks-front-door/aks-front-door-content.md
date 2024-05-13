@@ -59,10 +59,10 @@ The architecture consists of the following components:
   - [CNAME](/azure/templates/microsoft.network/dnszones/cname?pivots=deployment-language-bicep): this CNAME record is used to create an alias or pointer from one domain name to another. With this resource, you can configure a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) to redirect DNS queries for the custom domain to the original hostname of the Azure Front Door endpoint.
   - [TXT](/azure/templates/microsoft.network/dnszones/txt?pivots=deployment-language-bicep): this resource represents a Text (TXT) record within a DNS zone. A TXT record allows you to store arbitrary text information associated with a domain. In this project, the TXT record contains the validation token for the custom domain.
 - [Azure Private Link Service](/azure/private-link/private-link-service-overview) is configured to reference the `kubernetes-internal` internal load balancer of the AKS cluster.
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview): a new virtual network with six subnets:
-  - `SystemSubnet`: this subnet is used for the agent nodes of the `system` node pool.
-  - `UserSubnet`: this subnet is used for the agent nodes of the `user` node pool.
-  - `PodSubnet`: this subnet is used to allocate private IP addresses to pods dynamically when the AKS cluster is configured to use [Azure CNI](/azure/aks/configure-azure-cni) with [Dynamic IP Allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support).
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is used to create a single virtual network with six subnets:
+  - `SystemSubnet` is used for the agent nodes of the `system` node pool.
+  - `UserSubnet` is used for the agent nodes of the `user` node pool.
+  - `PodSubnet` is used to allocate private IP addresses to pods dynamically when the AKS cluster is configured to use [Azure CNI](/azure/aks/configure-azure-cni) with [Dynamic IP Allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support).
   - `ApiServerSubnet`: [API Server VNET Integration](/azure/aks/api-server-vnet-integration) projects the API server endpoint directly into this delegated subnet in the virtual network where the AKS cluster is deployed.
   - `AzureBastionSubnet`: a subnet for the [Azure Bastion Host](/azure/bastion/bastion-overview).
   - `VmSubnet`: a subnet for a jump-box virtual machine used to connect to the (private) AKS cluster and for the private endpoints.
