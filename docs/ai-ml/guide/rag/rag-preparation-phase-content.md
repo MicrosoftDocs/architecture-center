@@ -14,10 +14,10 @@ In this step, you're gathering documents that are the best representation of the
 
 Consider these areas when evaluating potential representative test documents:
 
-1. **Pertinence** - The documents must meet the business requirements of the conversational application. For example, if you're building a chat bot tasked with helping customers perform banking operations, the documents should match that requirement, such as documents showing how to open or close a bank account. The documents must be able to address the test questions that are being gathered in the parallel step. If the documents don't have the information relevant to the questions, all the LLM can do is hallucinate.
-2. **Representative** - The documents should be representative of the different types of documents that your solution will use. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents, your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
-3. **Physical document quality** - The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
-4. **Document content quality** - The documents must have high content quality. There should not be misspellings or grammatical errors. LLMs don't perform well if you provide them with poor quality content.
+- **Pertinence** - The documents must meet the business requirements of the conversational application. For example, if you're building a chat bot tasked with helping customers perform banking operations, the documents should match that requirement, such as documents showing how to open or close a bank account. The documents must be able to address the test questions that are being gathered in the parallel step. If the documents don't have the information relevant to the questions, all the LLM can do is hallucinate.
+- **Representative** - The documents should be representative of the different types of documents that your solution will use. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents, your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
+- **Physical document quality** - The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
+- **Document content quality** - The documents must have high content quality. There should not be misspellings or grammatical errors. LLMs don't perform well if you provide them with poor quality content.
 
 The success factor in this step is being *qualitatively confident* that you have a good representation of test documents for your particular domain.
 
@@ -38,7 +38,7 @@ In this step, you're gathering test queries that you'll use to evaluate your chu
 
 The output of this phase includes content from both the [Gather representative test queries](#gather-test-queries) step, and the [Gather representative test documents](#gather-representative-test-documents) step. The output is a collection containing the following data:
 
-* **Query** - The query.
+* **Query** - The question, representing a legitimate user's potential prompt.
 * **Context** - A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.
 * **Answer** - A valid response to the query. The response be content directly from the documents or it might be rephrased from one or more pieces of context.
 
@@ -67,7 +67,7 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
     CONTEXT:
     ```
 
-3. **Verify output** - Verify that the questions are pertinent to the use case and that the answers address the question.  
+3. **Verify output** - Verify that the questions are pertinent to the use case and that the answers address the question. This verification should be performed by a SME.
 
 ### Unaddressed queries
 
@@ -104,7 +104,7 @@ The following are some common questions you can ask when analyzing a document ty
   * Are there captions for the tables?
 * Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
 * How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
-* What languages are in the documents?
+* What languages, language variant, or dialects are in the documents?
 * Does the document contain unicode characters?
 * How are numbers formatted? Are they using commas or decimals?
 * Are there headers and footers? Do you need them?
@@ -115,7 +115,6 @@ The following are some common questions you can ask when analyzing a document ty
 * Are there watermarks?
 * Are there annotations or comments (for example, in PDFs or Word documents)
 * Are there other types of embedded media like videos or audio?
-* What language variant or dialect is present in the document?
 * Are there any mathematical equations/scientific notations in the document?
 * Are there bullets or meaningful indentations?
 
@@ -129,6 +128,7 @@ The answers to these questions helps you identify the document structure, determ
 * [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
 * [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
 * [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
+* [Chad Kittel](https://www.linkedin.com/in/chadkittel/)
 
 ## Next steps
 

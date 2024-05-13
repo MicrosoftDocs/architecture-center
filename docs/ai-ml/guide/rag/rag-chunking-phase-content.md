@@ -29,7 +29,7 @@ This straightforward approach breaks down text documents into chunks made up of 
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose, or full sentences, and your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
-**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel or an essay<br/>
+**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, a novel or an essay
 
 ### Fixed-size parsing (with overlap)
 
@@ -41,7 +41,7 @@ You must choose the fixed size of the chunks and the amount of overlap. Because 
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose or non-prose with complete or incomplete sentences. Your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
-**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal or research notes or lists<br/>
+**Examples**: User-generated content like open-ended feedback from surveys, forum posts, reviews, email messages, personal or research notes or lists
 
 ### Custom code
 
@@ -51,7 +51,7 @@ This approach parses documents using custom code to create chunks. This approach
 **Engineering effort**: Medium<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Semi-structured documents where structure can be inferred<br/>
-**Examples**: Patent filings, research papers, insurance policies, scripts, and screenplays<br/>
+**Examples**: Patent filings, research papers, insurance policies, scripts, and screenplays
 
 ### LLM augmentation
 
@@ -61,9 +61,9 @@ Large Language Models (LLMs) can be used to create chunks. Common use cases are 
 **Engineering effort**: Medium<br/>
 **Processing cost**: High<br/>
 **Use cases**: Images, tables<br/>
-**Examples**: Generate text representations of tables, and images, summarize transcripts from meetings, speeches, interviews, or podcasts<br/>
+**Examples**: Generate text representations of tables, and images, summarize transcripts from meetings, speeches, interviews, or podcasts
 
-### Document Layout Analysis
+### Document layout analysis
 
 Document layout analysis libraries and services combine OCR capabilities with deep learning models to extract both the structure of documents, and text. Structural elements can include headers, footers, titles, section headings, tables and figures. The goal is to provide better semantic meaning to content contained in documents.
 
@@ -76,7 +76,7 @@ Document layout analysis libraries and services expose a model that represents t
 **Engineering effort**: Medium<br/>
 **Processing cost**: Medium<br/>
 **Use cases**: Semi-structured documents<br/>
-**Examples**: News articles, web pages, resumes<br/>
+**Examples**: News articles, web pages, resumes
 
 ### Prebuilt model
 
@@ -86,7 +86,7 @@ There are services, such as Azure AI Document Intelligence, that offer prebuilt 
 **Engineering effort**: Low<br/>
 **Processing cost**: Medium/High<br/>
 **Use cases**: Structured documents where a prebuilt model exists<br/>
-**Specific examples**: Invoices, receipts, health insurance card, W-2 form<br/>
+**Specific examples**: Invoices, receipts, health insurance card, W-2 form
 
 ### Custom model
 
@@ -96,7 +96,7 @@ For highly structured documents where no prebuilt model exists, you might have t
 **Engineering effort**: High<br/>
 **Processing cost**: Medium/High<br/>
 **Use cases**: Structured documents where a prebuilt model doesn't exist<br/>
-**Examples**: Automotive repair and maintenance schedules, academic transcripts, and records, technical manuals, operational procedures, maintenance guidelines<br/>
+**Examples**: Automotive repair and maintenance schedules, academic transcripts, and records, technical manuals, operational procedures, maintenance guidelines
 
 ## Document structure
 
@@ -114,7 +114,7 @@ Structured documents, sometimes referred to as fixed-format documents, have defi
 Fixed format documents might be scanned images of original documents that were hand-filled or have complex layout structures, making them difficult to process with a basic text parsing approach. A common approach to processing complex document structures is to use machine learning models to extract data and apply semantic meaning to that data, where possible.
 
 **Examples**: W-2 form, Insurance card<br/>
-**Common approaches**: Prebuilt models, custom models<br/>
+**Common approaches**: Prebuilt models, custom models
 
 ### Semi-structured documents
 
@@ -123,11 +123,11 @@ Semi-structured documents don't have a fixed format or schema, like the W-2 form
 Like structured documents, semi-structured documents that have complex layout structures are difficult to process with text parsing. For these document types, machine learning models are a good approach. There are prebuilt models for certain domains that have consistent schemas like invoices, contracts, or health insurance. Consider building custom models for complex structures where no prebuilt model exists.
 
 **Examples**: Invoices, receipts, web pages, markdown files<br/>
-**Common approaches**: Document analysis models<br/>
+**Common approaches**: Document analysis models
 
 ### Inferred structure
 
-Some documents have a structure but aren't written in markup. For these documents, the structure must be inferred. A good example is the following EU regulation.
+Some documents have a structure but aren't written in markup. For these documents, the structure must be inferred. A good example is the following EU regulation document.
 
 :::image type="complex" source="./_images/eu-regulation-example.png" lightbox="./_images/eu-regulation-example.png" alt-text="Diagram showing an EU regulation as an example of a document with inferred structure" border="false":::
    The diagram shows an EU regulation. It shows that there's a structure that can be inferred. There are paragraphs numbered 1, 2, and 3. Under 1, there's an a, b, c, and d. Under a, there's i, ii, iii, iv, v, and vi.
@@ -137,14 +137,14 @@ Some documents have a structure but aren't written in markup. For these document
 Because you can clearly understand the structure of the document, and there are no known models for it, you can determine that you can write custom code. A document format such as this might not warrant the effort to create a custom model, depending upon the number of different documents of this type you're working with. For example, if your corpus is all EU regulations or U.S. state laws, a custom model might be a good approach. If you're working with a single document, like the EU regulation in the example, custom code might be more cost effective.
 
 **Examples**: Law documents, scripts, manufacturing specifications<br/>
-**Common approaches**: Custom code, custom models<br/>
+**Common approaches**: Custom code, custom models
 
 ### Unstructured documents
 
 A good approach for documents with little to no structure are sentence-based or fixed-size with overlap approaches.
 
 **Examples**: User-generated content like open-ended feedback from surveys, forum posts, or reviews, email messages, and personal or research notes<br/>
-**Common approaches**: Sentence-based or boundary-based with overlap<br/>
+**Common approaches**: Sentence-based or boundary-based with overlap
 
 ### Experimentation
 
@@ -158,6 +158,7 @@ Although the best fit of each of the chunking approach are listed, in practice, 
 * [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
 * [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
 * [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
+* [Chad Kittel](https://www.linkedin.com/in/chadkittel/)
 
 ## Next steps
 
