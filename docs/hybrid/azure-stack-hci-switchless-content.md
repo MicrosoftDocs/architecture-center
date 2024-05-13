@@ -8,7 +8,7 @@ This architecture serves as a starting point for a [3-node Azure Stack HCI clust
 
 | Architecture | Design decision | Well-Architected Framework approach|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; Workload resources <br> &#9642; Supporting resources <br> &#9642; User flows <br> |&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; Disks <br> &#9642; [Networking](#network-layout) <br> &#9642; Monitoring <br> &#9642; Update management|  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-3Nodes-Switchless-DualLink) demonstrates how to deploy a 3-node Azure Stack HCI storage switchless cluster using an ARM template and parameter file.
@@ -60,7 +60,7 @@ Typical use cases for this architecture pattern include the ability to run highl
 - Centralized provisioning capability to deploy workloads to multiple Azure Stack HCI clusters using Azure and Azure Arc, such as portal, command-line-interface (cli) or infrastructure as code (IaC) templates for automation and repeatability.
 - Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
 
-## Network layout switchless storage clusters
+## Network layout
 
 Opening paragraph...
 
