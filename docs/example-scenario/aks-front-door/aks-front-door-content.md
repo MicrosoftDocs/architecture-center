@@ -30,7 +30,7 @@ The actions carried out during the deployment process are outlined below:
 > [!NOTE]
 > At the end of the deployment, you need approve the private endpoint connection before traffic can pass to the origin privately. For more information, see [Secure your Origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link). You can approve private endpoint connections by using the Azure portal, Azure CLI, or Azure PowerShell. For more information, see [Manage a Private Endpoint connection](/azure/private-link/manage-private-endpoint).
 
-### Runtime
+#### Runtime workflow
 
 During runtime, the message flow for a request initiated by an external client application is as follows:
 
