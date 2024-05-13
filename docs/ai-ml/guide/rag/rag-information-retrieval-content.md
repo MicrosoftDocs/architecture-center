@@ -222,16 +222,17 @@ content of document 6
 Question: user defined question
  
 schema:
-    {
-    "documents" :{
-        "document_1": "Relevance"
-        }
+{
+    "documents": {
+        "document_1": "Relevance",
+        "document_2": "Relevance"
     }
+}
 ```
 
 #### Cross-encoder reranking
 
-The following example from the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py) uses the [CrossEncoder provided by Hugging Face](https://huggingface.co/sentence-transformers) to load the Roberta model. It then iterates over each chunk and uses the model to calculate similarity, giving them a value. We sort results and return the top N.
+The following example from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/reranking/reranker.py) uses the [CrossEncoder provided by Hugging Face](https://huggingface.co/sentence-transformers) to load the Roberta model. It then iterates over each chunk and uses the model to calculate similarity, giving them a value. We sort results and return the top N.
 
 ```python
 from sentence_transformers import CrossEncoder

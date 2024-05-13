@@ -25,7 +25,7 @@ The articles in this guide address all of those considerations.
 
 The following is a high-level flow for a RAG application.
 
-1. The user issues a query in an intelligent application.
+1. The user issues a query in an intelligent application user interface.
 2. The intelligent application makes an API call to an orchestrator. The orchestrator can be implemented with tools or platforms like Semantic Kernel, Azure Machine Learning prompt flow, or LangChain.
 3. The orchestrator determines what search to perform on Azure AI Search and issues the query.
 4. The orchestrator packages the top N results from the query, packages them as context within a prompt, along with the query, and sends the prompt to the LLM. The orchestrator returns the response to the intelligent application for the user to read.
@@ -35,16 +35,16 @@ The following is a high-level flow for a RAG application.
 The following is a high-level flow for a data pipeline that supplies grounding data for a RAG application.
 
 1. Documents are either pushed or pulled into a data pipeline.
-2. The data pipeline processes each document with the following steps:
+2. The data pipeline processes each document individually with the following steps:
 
-    1. Chunks documents - Breaks down the documents into semantically relevant parts that ideally have a single idea or concept.
-    1. Enrich chunks - Adds metadata fields created from the content in the chunks to the chunk field, such as title, summary, and keywords.
+    1. Chunk document - Break down the document into semantically relevant parts that ideally have a single idea or concept.
+    1. Enrich chunks - Adds metadata fields created from the content in the chunks to discrete fields, such as title, summary, and keywords.
     1. Embed chunks - Uses an embedding model to vectorize the chunk and any other metadata fields that are used for vector searches.
     1. Persists chunks - Stores the chunks in the search index.
 
 ## RAG design and evaluation considerations
 
-As mentioned in the introduction, there are a variety of implementation decisions you must make when designing your RAG solution. The following figure illustrates some of those decisions.
+There are a variety of implementation decisions you must make when designing your RAG solution. The following figure illustrates some of those decisions.
 
 :::image type="complex" source="./_images/rag-high-level-architecture-questions.svg" lightbox="./_images/rag-high-level-architecture-questions.svg" alt-text="Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution." border="false":::
    Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution.

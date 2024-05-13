@@ -2,7 +2,7 @@ An embedding is a mathematical representation of an object, such as text. When a
 
 Because an embedding is a mathematical representation of that object and that representation has connections to representations of other objects, you can compare objects mathematically. A famous example to show how embeddings capture semantic meaning and relationships between each other is:
 
-embedding("king") - embedding("man") + embedding("woman") ≈ embedding ("queen")
+embedding("king") - embedding("man") + embedding("woman") ≈ embedding("queen")
 
 Embeddings are compared to one another using the notions of similarity and distance. The following diagram illustrates how embeddings can be compared.
 
@@ -20,7 +20,7 @@ In a RAG solution, you might embed the user query and search a vector database c
 
 ## Importance of the embedding model
 
-The embedding model you choose can have a significant effect on relevancy of your vector search results. One of the key factors you must consider when choosing an embedding model is the vocabulary of the model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of [BERT](https://huggingface.co/docs/transformers/en/model_doc/bert) is around 30,000.
+The embedding model you choose can have a significant effect on relevancy of your vector search results. One of the key factors you must consider when choosing an embedding model is the vocabulary of the model. Every embedding model is trained with a specific vocabulary. For example, the vocabulary size of [BERT](https://huggingface.co/docs/transformers/en/model_doc/bert) is around 30,000 words.
 
 The vocabulary of an embedding model is important because of how embedding models treat words that aren't in their vocabulary. Even though the word isn't in its vocabulary, the model still needs to calculate a vector for it. To do this, many models break down the words into subwords, which they treat as distinct tokens or they aggregate the vectors for the subwords to create a single embedding.
 
@@ -33,14 +33,14 @@ Let's take a fictitious example where the word "histamine" isn't in the embeddin
 
 ## Choosing an embedding model
 
-Determining the right embedding model for your use case is a human activity. Embedding model vocabulary should be a key factor you consider when choosing your embedding model.
+Determining the right embedding model for your use case is a human activity. The overlap with the embedding model's vocabulary with your data's words should be a key factor you consider when choosing your embedding model.
 
 :::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram the flow of choosing an embedding model." border="false":::
    Diagram showing a flow for choosing an embedding model. The first decision is "Domain specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
 *Figure 3. Choosing an embedding model flow*
 
-The first thing you should determine is whether your content is domain specific. For example, are your documents specific to a use case, your organization, or an industry? . A good way to determine domain specificity is to see if the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
+The first thing you should determine is whether your content is domain specific. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to see if the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
 
 ### General or non domain specific content
 
