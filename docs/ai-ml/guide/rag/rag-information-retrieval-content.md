@@ -33,7 +33,7 @@ Your prompt orchestrator might take a static approach or a dynamic approach mixi
 
 ### Search types
 
-Search platforms generally support full text and vector searches. Some platforms, like Azure AI Search support hybrid searches.
+Search platforms generally support full text and vector searches. Some platforms, like Azure AI Search support hybrid searches. To see capabilities of various vector search offerings, review [Choose an Azure service for vector search](../../technology-choices/vector-search.md).
 
 #### Vector search
 
@@ -283,15 +283,6 @@ The following are three well established retrieval evaluation methods you can us
 TODO: Can we provide 1-2 examples - perhaps a positive and a negative
 
 You should test both positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries and average the positive query results and the negative query results to understand how your search results are performing in aggregate.
-
-## Contributors
-
-* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
-* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
-* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
-* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
-* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
-* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
 
 ## Next steps
 

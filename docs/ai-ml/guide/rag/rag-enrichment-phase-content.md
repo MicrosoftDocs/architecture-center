@@ -1,4 +1,8 @@
-Once you’ve broken down your documents down into a collection of chunks, the next step is to enrich each chunk by both cleaning and augmenting the chunks with metadata. Cleaning the chunks allows you to achieve better matches for semantic queries against the vectorized chunks. Adding information allows you to support searches beyond semantic searches of the chunks. Both cleaning and augmenting involve extending the schema for the chunk.
+Once you’ve broken down your documents down into a collection of chunks, the next step is to enrich each chunk by both cleaning and augmenting the chunks with metadata. Cleaning the chunks allows you to achieve better matches for semantic queries in a vector search. Adding information allows you to support searches beyond semantic searches of the chunks. Both cleaning and augmenting involve extending the schema for the chunk.
+
+This article discusses various ways to augment your chunks, including some common cleaning operations you can perform on chunks to improve vector comparisons, and describes some common metadata fields you can add to your chunks to augment your search index.
+
+describes some common metadata fields you can add to augment your chunks.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -9,15 +13,16 @@ Once you’ve broken down your documents down into a collection of chunks, the n
 
 ## Cleaning
 
-The goal of a vector search is to return the closest semantic matches to a query. The goal of cleaning the data that is embedded is to support closeness matches by eliminating potential differences that aren't material to the semantics of the text. The following are some common cleaning procedures.
+Chunking your data supports your workload in its efforts to find the most relevant chunks, typically through vectorizing those chunks and storing them in a vector database. An optimized vector search returns only those rows in that database which have the closest semantic matches to the query. The goal of cleaning the data to support closeness matches by eliminating potential differences that aren't material to the semantics of the text. The following are some common cleaning procedures.
 
-> Note: you will want to return the original, uncleaned chunk as the query result, so you will add an additional field to store the cleaned and vectorized data.
+> [!NOTE]
+> You will want to return the original, uncleaned chunk as the query result, so you will add an additional field to store the cleaned and vectorized data.
 
-* **Lowercasing** - Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match with those same words within a sentence. Embeddings are case-sensitive meaning "Cheetah" and "cheetah" would potentially result in a different vector. For example, for the embedded query: "what is faster, a cheetah or a puma?" The following embedding: "cheetahs are faster than pumas" is a closer match than embedding "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies include just lowercasing the first words in a sentence.
+* **Lowercasing** - Lowercasing allows words that are capitalized, such as words at the beginning of a sentence, to match with those same words within a sentence. Embeddings are case-sensitive meaning "Cheetah" and "cheetah" would typically result in a different vector for the same logical word. For example, for the embedded query: "what is faster, a cheetah or a puma?" The following embedding: "cheetahs are faster than pumas" is a closer match than embedding "Cheetahs are faster than pumas." Some lowercasing strategies lowercase all words, including proper nouns, while other strategies include just lowercasing the first words in a sentence.
 * **Remove stop words** - Stop words are words such as "a", "an" and "the" that commonly occur in sentences. You can remove stop words to reduce the dimensionality of the resulting vector. Removing stop words would allow both "a cheetah is faster than a puma" and "the cheetah is faster than the puma" to both be vectorially equal to "cheetah faster puma." However, it's important to understand that some stop words hold semantic meaning. For example, "not" might be considered a stop word, but would hold significant semantic meaning. It's important to test to see the effect of removing stop words.
-* **Fix spelling mistakes** - A misspelled doesn't match with the correctly spelled word in the embedding model. For example, "cheatah" isn't the same as "cheetah" in the embedding. You should fix spelling mistakes to address this challenge.
+* **Fix spelling mistakes** - A misspelled word doesn't match with the correctly spelled word in the embedding model. For example, "cheatah" (_sic_) isn't the same as "cheetah" in the embedding. You should fix spelling mistakes to address this challenge.
 * **Remove unicode characters** - Removing unicode characters can reduce noise in your chunks and reduce dimensionality. Like stop words, some unicode characters might contain relevant information. It's important to test to understand the impact of removing unicode characters.
-* **Normalization**: Normalizing the text to standards such as expanding abbreviations, converting numbers to words, and expanding contractions like "I'm" to "I am."
+* **Normalization**: Normalizing the text to standards such as expanding abbreviations, converting numbers to words, and expanding contractions like "I'm" to "I am" can help increase the performance of vector searches.
 
 ## Augmenting chunks
 
@@ -28,7 +33,7 @@ Semantic searches against the vectorized chunks work well for some types of quer
 :::image-end:::
 *Figure 2. Use of augmented metadata in search solution*
 
-We can't tell you what metadata columns you should add. Those decisions are specific to your problem domain, including the type of data you have and the types of queries you want to support. You need to analyze the user experience, available data, and result quality you're trying to achieve. From there, you can determine what metadata might help you address your workload’s requirements.
+The metadata columns that you need to add depend on decisions specific to your problem domain. This includes the type of data you have and the types of queries you want to support. You need to analyze the user experience, available data, and result quality you're trying to achieve. From there, you can determine what metadata might help you address your workload’s requirements.
 
 The following are some common metadata fields, along with the original chunk text, some guidance about their potential uses, and tools or techniques that are commonly used to generate the metadata content.
 
@@ -46,15 +51,6 @@ The following are some common metadata fields, along with the original chunk tex
 ## Augmenting economics
 
 The use of LLMs for augmenting chunks can be expensive. You need to calculate the cost of each enrichment you're considering and multiply it by the estimated number of chunks over time. You should use this information, along with your testing of those enriched fields as part of the search to make a good business decision.
-
-## Contributors
-
-* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
-* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
-* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
-* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
-* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
-* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
 
 ## Next steps
 

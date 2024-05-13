@@ -11,7 +11,7 @@ Embeddings are compared to one another using the notions of similarity and dista
 :::image-end:::
 *Figure 1. Comparing embeddings*
 
-In a RAG solution, you might embed the user query and search a vector database containing embeddings for your chunks to return the most semantically relevant chunks. Those relevant chunks are then passed to the large language model as grounding data.
+In a RAG solution, you often embed the user query using the same embedding model as your chunks and search for relevant vectors from your database to return the most semantically relevant chunks. The original text of the relevant chunks are then passed to the large language model as grounding data.
 
 > [!NOTE]
 > This feature of vectors stresses the importance of cleaning the chunks so mathematical proximity can be tracked more closely with semantic relevancy.
@@ -77,15 +77,6 @@ A programmatic means of evaluating how well your embedding model is working with
 When choosing an embedding model, there is a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. However, the increased performance comes at a cost. Larger vectors require more space to be stored in a vector database, and require more computational resources and time when comparing embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database, and require less compute and time when comparing embeddings.
 
 When designing your system, you should account for the cost of embedding in terms of both storage, compute, and the performance requirements. Validating the performance of the models through experimentation is crucial. The publicly available benchmarks are mainly academic datasets. Most results can’t be directly transposed to business data and use cases. Depending on the requirements, you can favor performance over cost, or accept a trade-off of good-enough performance in exchange for lower cost.
-
-## Contributors
-
-* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
-* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
-* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
-* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
-* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
-* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
 
 ## Next steps
 

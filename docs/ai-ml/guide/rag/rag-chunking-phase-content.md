@@ -1,6 +1,8 @@
-Breaking down documents into a collection of right-sized, semantically relevant chunks is a key factor in the success of your RAG implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to an LLM that is irrelevant to the query can lead to hallucinations. You have to determine what parts of a document are relevant and what parts are irrelevant and should be ignored.
+Now that you've gathered your test documents and queries and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized, semantically relevant chunks is a key factor in the success of your RAG implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to an LLM that is irrelevant to the query can lead to hallucinations. You have to determine what parts of a document are relevant and what parts are irrelevant and should be ignored.
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are a various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
+
+This article describes various chunking approaches, and examines how the structure of your documents can influence the chunking approach you choose.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -10,7 +12,7 @@ When determining your overall chunking strategy, you must consider your budget a
 
 The following are factors to consider when looking at the cost of your overall solution:
 
-* **Number of distinct chunking implementations** - Each distinct implementation has both an engineering and maintenance cost. You need to consider the number of distinct document types in your corpus and the cost vs. quality tradeoffs of unique implementations for each.
+* **Number of unique chunking implementations** - Each unique implementation has both an engineering and maintenance cost. You need to consider the number of unique document types in your corpus and the cost vs. quality tradeoffs of unique implementations for each.
 * **Per-document cost of each implementation** - Some chunking approaches might lead to better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a [prebuilt model in Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview#prebuilt-models) likely has a higher per-document cost than a pure text parsing implementation, but might lead to better chunks.
 * **Number of initial documents** - The number of initial documents you need to process to launch your solution.
 * **Number of incremental documents** - The number and rate of new documents that you must process for the system.
@@ -19,7 +21,7 @@ The following are factors to consider when looking at the cost of your overall s
 
 This section gives you an overview of some common chunking approaches. This list isn't meant to be exhaustive, rather some common representative approaches. You can use multiple approaches in implementation, such as combining the use of an LLM to get a text representation of an image with many of the listed approaches.
 
-You find a brief overview of each approach, a list of common tools used for the approach, relative engineering and processing cost of the approach, and a list of some common use cases.
+Each approach is accompanied by a summarized decision-making matrix that highlights the tools, associated costs, and more. The engineering effort and processing costs are subjective and are included for relative comparison.
 
 ### Sentence-based parsing
 
@@ -148,17 +150,7 @@ A good approach for documents with little to no structure are sentence-based or 
 
 ### Experimentation
 
-Although the best fit of each of the chunking approach are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. You should experiment on a various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
-
-## Contributors
-
-* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
-* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
-* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
-* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
-* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
-* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
-* [Chad Kittel](https://www.linkedin.com/in/chadkittel/)
+Although the best fit of each of the chunking approach are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution will be experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
 
 ## Next steps
 

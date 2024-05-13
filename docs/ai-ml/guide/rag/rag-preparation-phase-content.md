@@ -120,16 +120,6 @@ The following are some common questions you can ask when analyzing a document ty
 
 The answers to these questions helps you identify the document structure, determine your chunking approach, and identify content to chunk and what not to.
 
-## Contributors
-
-* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
-* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
-* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
-* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
-* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
-* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
-* [Chad Kittel](https://www.linkedin.com/in/chadkittel/)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
