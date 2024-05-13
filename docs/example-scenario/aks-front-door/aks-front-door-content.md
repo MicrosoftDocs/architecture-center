@@ -119,7 +119,7 @@ The [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-
 
 ### Potential use cases
 
-This scenario addresses the solution for ensuring security and compliance requirements for a web application or REST API running in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes). It focuses on using [Azure Front Door Premium](/azure/frontdoor/front-door-overview), [end-to-end TLS encryption](/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium),  [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), and [Azure Private Link Service](/azure/private-link/private-link-service-overview) to securely expose and protect the AKS-hosted web application.
+This scenario addresses the solution for ensuring security and compliance requirements for a web application or REST API running in AKS. It focuses on using Azure Front Door Premium, end-to-end TLS encryption, Azure Web Application Firewall, and Azure Private Link Service to securely expose and protect the AKS-hosted web application.
 
 ## Considerations
 
