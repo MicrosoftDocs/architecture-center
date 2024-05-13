@@ -158,6 +158,12 @@ items:
           href: guide/mlops-maturity-model.yml
         - name: Upscale ML lifecycle with MLOps
           href: guide/mlops-technical-paper.yml
+      - name: Proxy Azure OpenAI usage
+        items:
+        - name: Use a gateway infront of Azure OpenAI
+          href: guide/azure-openai-gateway-guide.yml
+        - name: A gateway for multiple Azure OpenAI backends
+          href: guide/azure-openai-gateway-multi-backend.yml
       - name: Team Data Science Process
         items:
         - name: Overview
@@ -212,6 +218,12 @@ items:
           href: openai/architecture/log-monitor-azure-openai.yml
       - name: Apply guidance
         items:
+        - name: Proxy Azure OpenAI usage
+          items:
+          - name: Use a gateway infront of Azure OpenAI
+            href: guide/azure-openai-gateway-guide.yml
+          - name: A gateway for multiple Azure OpenAI backends
+            href: guide/azure-openai-gateway-multi-backend.yml        
         - name: Build language model pipelines
           href: openai/guide/language-model-pipelines.yml
         - name: OpenAI GPT-3 summarization
