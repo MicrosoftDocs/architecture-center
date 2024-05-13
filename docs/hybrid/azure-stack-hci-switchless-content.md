@@ -2,7 +2,7 @@ This reference architecture illustrates how to design infrastructure for highly 
 
 The primary focus of this architecture is not the application workload that will be hosted on Azure Stack HCI. Instead, this article provides guidance for configuring and deploying the HCI cluster infrastructure, on which the application will depend upon. These components include physical nodes, storage and networking, in addition to Azure services that will be used for the day to day management and monitoring.
 
-This architecture serves as a starting point for a 3-node Azure Stack HCI cluster using a storage switchless networking design. The workload applications deployed on an Azure STack HCI cluster should also be well-architected, such as deployed with multiple instances (_high-availability_) of any critical services, and with robust business continuity and disaster recovery (_BC/DR_) controls in place, these workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI cluster infrastructure.
+This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure STack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place. These workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI cluster infrastructure, review the five well-architected pillars for guidance on workload design guidelines and recommendations.
 
 ## Article layout
 
@@ -11,7 +11,7 @@ This architecture serves as a starting point for a 3-node Azure Stack HCI cluste
 |&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/) demonstrates how to deploy a 3-node Azure Stack HCI cluster using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-3Nodes-Switchless-DualLink) demonstrates how to deploy a 3-node Azure Stack HCI storage switchless cluster using an ARM template and parameter file.
 
 ## Architecture
 
