@@ -24,13 +24,13 @@ The actions carried out during the deployment process are outlined below:
    - The name and resource group of the existing Azure Key Vault that holds the TLS certificate for the workload hostname and Front Door custom domain.
    - The name of the certificate in the Key Vault.
    - The name and resource group of the DNS zone used for resolving the Front Door custom domain.
-3. The [Deployment Script](/azure/azure-resource-manager/bicep/deployment-script-bicep) creates the [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) and a sample [httpbin](https://httpbin.org/) web application using Helm and YAML manifests. The script defines a `SecretProviderClass` that retrieves the TLS certificate from the specified Azure Key Vault using the user-defined managed identity of the [Azure Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), and creates a Kubernetes `secret`. The `deployment` and `ingress` objects are configured to use the certificate stored in the Kubernetes secret.
+3. The [deployment script](/azure/azure-resource-manager/bicep/deployment-script-bicep) creates the [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) and a sample [httpbin](https://httpbin.org/) web application using Helm and YAML manifests. The script defines a `SecretProviderClass` that retrieves the TLS certificate from the specified Azure Key Vault using the user-defined managed identity of the [Azure Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), and creates a Kubernetes `secret`. The `deployment` and `ingress` objects are configured to use the certificate stored in the Kubernetes secret.
 4. A Front Door [secret](/azure/templates/microsoft.cdn/profiles/secrets?pivots=deployment-language-bicep) resource is used to manage and store the TLS certificate from the Azure Key Vault. This certificate is used by the [custom domain](/azure/templates/microsoft.cdn/profiles/customdomains?pivots=deployment-language-bicep) associated with the Azure Front Door endpoint.
 
 > [!NOTE]
 > At the end of the deployment, you need approve the private endpoint connection before traffic can pass to the origin privately. For more information, see [Secure your Origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link). You can approve private endpoint connections by using the Azure portal, Azure CLI, or Azure PowerShell. For more information, see [Manage a Private Endpoint connection](/azure/private-link/manage-private-endpoint).
 
-### Runtime
+#### Runtime workflow
 
 During runtime, the message flow for a request initiated by an external client application is as follows:
 
@@ -59,15 +59,15 @@ The architecture consists of the following components:
   - [CNAME](/azure/templates/microsoft.network/dnszones/cname?pivots=deployment-language-bicep): this CNAME record is used to create an alias or pointer from one domain name to another. With this resource, you can configure a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) to redirect DNS queries for the custom domain to the original hostname of the Azure Front Door endpoint.
   - [TXT](/azure/templates/microsoft.network/dnszones/txt?pivots=deployment-language-bicep): this resource represents a Text (TXT) record within a DNS zone. A TXT record allows you to store arbitrary text information associated with a domain. In this project, the TXT record contains the validation token for the custom domain.
 - [Azure Private Link Service](/azure/private-link/private-link-service-overview) is configured to reference the `kubernetes-internal` internal load balancer of the AKS cluster.
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview): a new virtual network with six subnets:
-  - `SystemSubnet`: this subnet is used for the agent nodes of the `system` node pool.
-  - `UserSubnet`: this subnet is used for the agent nodes of the `user` node pool.
-  - `PodSubnet`: this subnet is used to allocate private IP addresses to pods dynamically when the AKS cluster is configured to use [Azure CNI](/azure/aks/configure-azure-cni) with [Dynamic IP Allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support).
-  - `ApiServerSubnet`: [API Server VNET Integration](/azure/aks/api-server-vnet-integration) projects the API server endpoint directly into this delegated subnet in the virtual network where the AKS cluster is deployed.
-  - `AzureBastionSubnet`: a subnet for the [Azure Bastion Host](/azure/bastion/bastion-overview).
-  - `VmSubnet`: a subnet for a jump-box virtual machine used to connect to the (private) AKS cluster and for the private endpoints.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is used to create a single virtual network with six subnets:
+  - `SystemSubnet` is used for the agent nodes of the `system` node pool.
+  - `UserSubnet` is used for the agent nodes of the `user` node pool.
+  - `PodSubnet` is used to allocate private IP addresses to pods dynamically when the AKS cluster is configured to use [Azure CNI](/azure/aks/configure-azure-cni) with [Dynamic IP Allocation](/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support).
+  - `ApiServerSubnet` uses [API Server VNET Integration](/azure/aks/api-server-vnet-integration) to project the API server endpoint directly into this delegated subnet where the AKS cluster is deployed.
+  - `AzureBastionSubnet` is used for the [Azure Bastion Host](/azure/bastion/bastion-overview).
+  - `VmSubnet` is used for the jump-box virtual machine that connects to the (private) AKS cluster and for the private endpoints.
 - [User-assigned Managed Identity](/entra/identity/managed-identities-azure-resources/overview) is used by the AKS cluster to create additional resources like load balancers and managed disks in Azure.
-- [Azure Virtual Machine](/azure/virtual-machines/overview) is used to  manage a private AKS cluster. The creation of this virtual machine is optional.
+- [Azure Virtual Machine](/azure/virtual-machines/overview) is used to create an option jumpbox virtual machine in the VMSubnet
 - [Azure Bastion Host](/azure/bastion/bastion-overview) is deployed in the AKS cluster virtual network to provide SSH connectivity to the AKS agent nodes and virtual machines, if any.
 - [Azure Storage Account](/azure/storage/common/storage-account-overview) is used to store the boot diagnostics logs of both the service provider and service consumer virtual machines. Boot Diagnostics is a debugging feature that allows you to view console output and screenshots to diagnose virtual machine status.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is used to build, store, and manage container images and artifacts.
@@ -91,20 +91,20 @@ The architecture consists of the following components:
   - Azure Network Security Group
   - Azure Container Registry
   - Azure Storage Account
-- [Azure Deployment Script](/azure/azure-resource-manager/bicep/deployment-script-bicep?tabs=CLI) is used to run a Bash script which installs the [httpbin](https://httpbin.org/) web application via YAML templates and the following packages to the AKS cluster via [Helm](https://helm.sh/). For more information on deployment scripts, see [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep)
+- [Deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep) are used to run a Bash script which installs the [httpbin](https://httpbin.org/) web application via YAML templates and the following packages to the AKS cluster via [Helm](https://helm.sh/). 
   - [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/)
   - [Cert-Manager](https://cert-manager.io/docs/)
   - [Prometheus](https://prometheus.io/)
 
 ### Alternatives
 
-[Azure Private Link Service (PLS)](/azure/private-link/private-link-service-overview) is an infrastructure component that allows users to privately connect via an [Azure Private Endpoint (PE)](/azure/private-link/private-endpoint-overview) in a virtual network in Azure and a Frontend IP Configuration associated with an internal or public [Azure Load Balancer (ALB)](/azure/load-balancer/load-balancer-overview). With Private Link, users as service providers can securely provide their services to consumers who can connect from within Azure or on-premises without data exfiltration risks.
+[Azure Private Link Service](/azure/private-link/private-link-service-overview) is an infrastructure component that allows users to privately connect via an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) in a virtual network in Azure and a frontend IP configuration associated with an internal or public [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). With Private Link Service, users as service providers can securely provide their services to consumers who can connect from within Azure or on-premises without data exfiltration risks.
 
-Before Private Link Service integration, users who wanted private connectivity from on-premises or other virtual networks to their services in an [Azure Kubernetes Service(AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) cluster were required to create a Private Link Service (PLS) to reference the cluster Azure Load Balancer, like in this sample. The user would then create an [Azure Private Endpoint (PE)](/azure/private-link/private-endpoint-overview) to connect to the PLS to enable private connectivity. With the [Azure Private Link Service Integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) feature, a managed [Azure Private Link Service (PLS)](/azure/private-link/private-link-service-overview) to the AKS cluster load balancer can be created automatically, and the user would only be required to create Private Endpoint connections to it for private connectivity. You can expose a Kubernetes service via a Private Link Service using annotations. For more information, see [Azure Private Link Service Integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/).
+Before Private Link Service integration, users who wanted private connectivity from on-premises or other virtual networks to their services in an Azure Kubernetes Service cluster were required to create a Private Link Service to reference the cluster Azure Load Balancer, like in this sample. The user would then create a private endpoint to connect to the Private Link Service to enable private connectivity. The [Azure Private Link Service Integration](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/) feature creates a managed Private Link Service to the AKS cluster load balancer automatically. The user is only required to create private endpoint connections to it for private connectivity. You can expose a Kubernetes service via a Private Link Service using annotations.
 
 ## Scenario details
 
-To ensure your security and compliance requirements are met, [Azure Front Door](/azure/frontdoor/front-door-overview) offers comprehensive end-to-end TLS encryption. For more information, see [End-to-end TLS with Azure Front Door](/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium) support. With Front Door's TLS/SSL offload capability, the TLS connection is terminated and the incoming traffic is decrypted at the Front Door. The traffic is then re-encrypted before being forwarded to the origin, that in this project is represented by a web application hosted in an [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) cluster. The sample application is exposed via the [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) configured to use a private IP address as a frontend IP configuration of the `kubernetes-internal` internal load balancer. For more information, see [Create an ingress controller using an internal IP address](/azure/aks/ingress-basic?tabs=azure-cli#create-an-ingress-controller-using-an-internal-ip-address).
+To ensure your security and compliance requirements are met, Azure Front Door offers comprehensive [end-to-end TLS encryption](/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium) support. With Front Door's TLS/SSL offload capability, the TLS connection is terminated and the incoming traffic is decrypted at the Front Door. The traffic is re-encrypted before being forwarded to the origin, a web application hosted in an Azure Kubernetes Service cluster. The sample application is exposed via the [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) and configured to use a private IP address as a frontend IP configuration of the `kubernetes-internal` internal load balancer. For more information, see [Create an ingress controller using an internal IP address](/azure/aks/ingress-basic?tabs=azure-cli#create-an-ingress-controller-using-an-internal-ip-address).
 
 To enhance security, HTTPS is configured as the forwarding protocol on Azure Front Door when connecting to the AKS-hosted workload configured as a origin. This practice ensures that end-to-end TLS encryption is enforced for the entire request process, from the client to the origin.
 
@@ -119,7 +119,7 @@ The [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-
 
 ### Potential use cases
 
-This scenario addresses the solution for ensuring security and compliance requirements for a web application or REST API running in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes). It focuses on using [Azure Front Door Premium](/azure/frontdoor/front-door-overview), [end-to-end TLS encryption](/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium),  [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), and [Azure Private Link Service](/azure/private-link/private-link-service-overview) to securely expose and protect the AKS-hosted web application.
+This scenario addresses the solution for ensuring security and compliance requirements for a web application or REST API running in AKS. It focuses on using Azure Front Door Premium, end-to-end TLS encryption, Azure Web Application Firewall, and Azure Private Link Service to securely expose and protect the AKS-hosted web application.
 
 ## Considerations
 
