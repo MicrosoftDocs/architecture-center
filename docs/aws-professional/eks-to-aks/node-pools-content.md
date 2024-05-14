@@ -187,7 +187,7 @@ In the **Virtual node usage** column:
 | kubernetes.azure.com/encrypted-set| `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
 | kubernetes.azure.com/accelerator| `<accelerator>` | `Nvidia` | N/A |
 | kubernetes.azure.com/fips_enabled| `<fips enabled>` | `True` | N/A |
-| kubernetes.azure.com/OS-SKU| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
+| kubernetes.azure.com/os-sku| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
 
 ### Windows node pools
 
