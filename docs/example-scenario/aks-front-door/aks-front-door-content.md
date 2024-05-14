@@ -191,7 +191,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 - Take advantage of Azure cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure Savings Plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview), to monitor and optimize costs. [Azure cost management](https://azure.microsoft.com/en-us/products/cost-management/#overview)
 - Consider using [spot node pools](/azure/aks/spot-node-pool) for cost savings and benefit from unutilized capacity in Azure.
 - Monitor and govern AKS costs using tools like [Kubecost](https://www.kubecost.com/) for cost allocation and optimization.```
-- Use Azure tags to associate AKS resources with specific workloads or tenants for better cost tracking and management. [Azure tags in AKS](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/use-azure-tags-in-azure-kubernetes-service-aks/ba-p/3611583)
+- Use Azure tags to associate AKS resources with specific workloads or tenants for better cost tracking and management.
 
 ## Deploy this scenario
 
