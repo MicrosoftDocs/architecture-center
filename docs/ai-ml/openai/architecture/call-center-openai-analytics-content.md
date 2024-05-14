@@ -101,6 +101,8 @@ The batch speech API is designed for high volumes, but other AI services APIs mi
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+<!-- docutune:ignoredChange ISV -->
+
 Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
@@ -126,4 +128,3 @@ Principal authors:
 - [Deploy a custom speech-to-text solution](/azure/architecture/guide/ai/custom-speech-text-deploy)
 - [Create custom language and acoustic models](/azure/architecture/solution-ideas/articles/speech-services)
 - [Deploy a custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy)
-
