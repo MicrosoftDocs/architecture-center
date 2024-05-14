@@ -120,7 +120,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 ### AI/ML
 
 * [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
-* [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using workspaces.
+* [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818): This blog post describes how Azure Machine Learning pipelines can be designed to support multiple tenants by using Azure Machine Learning workspaces.
 
 ## Community content
 
