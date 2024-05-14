@@ -1,6 +1,7 @@
 The articles in this series describe an approach for designing a disaster recovery (DR) strategy for an Azure-based data platform. 
 
 Every organization's data needs are different, but the guidance provided will act as starting point, enabling the design of a DR strategy that fits your business requirements.  
+
 <!-- docutune:disable -->
 
 ## Key terms glossary
