@@ -27,7 +27,7 @@ Within this foundational structure, Contoso has implemented the following elemen
 [![Diagram that shows architecture for a modern data platform using Azure data services.](../images/azure-analytics-end-to-end.png)](../images/azure-analytics-end-to-end.png#lightbox)
 *Contoso's data platform*
 
-Contoso’s Data Platform - Workflow  
+### Contoso’s Data Platform - Workflow  
 
 The workflow is read left to right, following the flow of data:
 
@@ -48,7 +48,7 @@ For the Data Platform, Contoso has selected the lowest recommended production se
 
 The following sections will provide a baseline understanding of the DR process and levers available to customers to uplift this posture.
 
-## Azure service and component view
+## Azure Service and Component View
 
 The following tables present a breakdown of each Azure service and component used across the Contoso – Data platform, with options for DR uplift.
 >[!NOTE]
@@ -251,7 +251,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR Uplift options: Azure Data Share’s resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share)
 
-- **Microsoft Purview**
+- **Microsoft Purview - Data Governance**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: N/A
