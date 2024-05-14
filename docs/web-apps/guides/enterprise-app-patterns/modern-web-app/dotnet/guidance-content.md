@@ -1,5 +1,7 @@
 This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
+[![Diagram showing the architecture of the reliable web app pattern.](../../../_images/on-prem-to-rwa.svg)](../../../_images/on-prem-to-rwa.svg)
+
 The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. These changes include three design patterns and other key updates to your web app.
 
 :::row:::
@@ -66,7 +68,7 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 - *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
 
-- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must be less than your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO. Most Azure services support synchronous replication across zones in a single region with minimal application code changes. A multi-region, active-active setup requires near real-time synchronization between regions, potentially needing code adjustments.
+- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must be less than your SLO. Determine a recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO. Most Azure services support synchronous replication across zones in a single region with minimal application code changes. A multi-region, active-active setup requires near real-time synchronization between regions, potentially needing code adjustments.
 
 - *Configure private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
@@ -83,7 +85,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Implement the Queue-Based Load Leveling pattern
 
-The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
+The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
 - *Use non-blocking message queuing.* Ensure that the task queuing messages does not block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a ‘standby’ code path that can be used until the data is available.
 
@@ -217,7 +219,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
-- *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like SQL Server.
+- *Use stateless services.* Ensure your services are stateless. If your .NET application contains in-process session state, externalize it to a distributed cache like Redis or a database like Azure SQL Server.
 - *Configure autoscaling rules.* Use the autoscaling configurations that provide the most cost-effective control over your services. For containerized services, consider [event-based scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#consider-event-based-scaling), such as Kubernetes Event-Driven Autoscaler (KEDA) often provides granular control, allowing you to scale based on event metrics. [Azure Container Apps](/azure/container-apps/scale-app) and Azure Kubernetes Service support KEDA. For services that don't support KEDA, such as [Azure App Service](](/azure/app-service/manage-automatic-scaling)), use the autoscaling features provided by the platform itself. These features often include scaling based on metrics-based rules or HTTP traffic.
 - *Configure minimum replicas.* To prevent a cold start, configure autoscaling settings to maintain a minimum of 1 replica at all times. A cold start is when you initialize a service from a stopped state, which often creates a delayed response. If minimizing costs is a priority and you can tolerate cold start delays, set the minimum replica count to 0 when configuring autoscaling.
 - *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
