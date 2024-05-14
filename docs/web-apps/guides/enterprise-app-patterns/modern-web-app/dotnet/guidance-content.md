@@ -1,6 +1,6 @@
 This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
-[![Diagram showing the architecture of the reliable web app pattern.](../../../_images/on-prem-to-rwa.svg)](../../../_images/on-prem-to-rwa.svg)
+[![Diagram showing the architecture of the reliable web app pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
 
 The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. These changes include three design patterns and other key updates to your web app.
 
