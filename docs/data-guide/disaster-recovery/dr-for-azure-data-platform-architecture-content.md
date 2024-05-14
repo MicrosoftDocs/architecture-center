@@ -1,7 +1,7 @@
-## Use case definition
+# Use Case Definition
 To support this worked example, the fictitious firm “Contoso” will be used with an Azure Data Platform based upon Microsoft Reference Architectures.
 
-### Data Service - Component View
+## Data Service - Component View
 Contoso has implemented the following foundational Azure structure, which is a subset of the [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture).
 [![Diagram that shows an example Enterprise Azure landing zone.](../images/dr-for-azure-data-platform-landing-zone-architecture.png)](../images/dr-for-azure-data-platform-landing-zone-architecture.png#lightbox)
 
