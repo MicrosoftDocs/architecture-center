@@ -24,4 +24,4 @@ This article shows you how to implement the Reliable Web App pattern. The Reliab
 
 The first step to implement the Reliable Web App pattern is choosing the right Azure services for your web app. With the right services, you can start to design your web app architecture to meet your availability and recovery metrics. Finally, update your web app code and configurations to align with the pillars of the Well-Architected Framework.
 
-[![Diagram showing the architecture of the reference implementation.](../../../_images/rwa-architecture-guide.png)](../../../_images/rwa-architecture-guide.png)
+[![Diagram showing the architecture of the reference implementation.](../../../_images/rwa-architecture-guide.svg)](../../../_images/rwa-architecture-guide.svg)

@@ -1,6 +1,33 @@
-[!INCLUDE [intro](../includes/mwa-intro.md)]
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
-In a service-oriented architecture, where each service is self-contained, different teams within an organization can take ownership of various services, allowing them to innovate at their own pace. Moreover, when the system experiences increased load, only the services acting as performance bottlenecks need to be scaled out.
+The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. These changes include three design patterns and other key updates to your web app.
+
+:::row:::
+    :::column:::
+        **Benefits**<br>
+        Targeted performance efficiency\
+        Cost-optimized scaling
+    :::column-end:::
+
+    :::column:::
+      **Design patterns**<br>
+        Strangler Fig\
+        Queue-Based Load Leveling\
+        Competing Consumers\
+        Health Endpoint Monitoring
+    :::column-end:::
+
+    :::column:::
+      **Key updates**<br>
+        Decouple components\
+        Containerization\
+        Asynchronous communication\
+        Autoscale independent services\
+        Data autonomy
+    :::column-end:::
+:::row-end:::
+
+The first step is to review the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and apply the guidance. Next, choose the right services that meet the needs of your web app and design your architecture. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
@@ -225,7 +252,9 @@ scaleMinReplicas: 0
 
 ## Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Modern Web App pattern introduces the Strangler Fig and Health Endpoint Monitoring patterns.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
+
+The Modern Web App pattern introduces the Strangler Fig and Health Endpoint Monitoring patterns. In a service-oriented architecture, where each service is self-contained, different teams within an organization can take ownership of various services, allowing them to innovate at their own pace.
 
 ### Implement the Strangler Fig pattern
 
@@ -335,7 +364,7 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 The Modern Web App uses the Competing Consumers pattern to optimize performance efficiency.
 
-As applications move from the Reliable Web App pattern to the Modern Web App pattern, performance benefits from greater service decoupling. This architecture prevents a slowdown in one component from affecting others. Queue-based load leveling helps both reliability and performance efficiency by distributing tasks evenly. Competing consumers pattern further enhances performance by distributing tasks among multiple workers efficiently.
+As applications move from the Reliable Web App pattern to the Modern Web App pattern, performance benefits from greater service decoupling. This architecture prevents a slowdown in one component from affecting others. Queue-based load leveling helps both reliability and performance efficiency by distributing tasks evenly. Competing consumers pattern further enhances performance by distributing tasks among multiple workers efficiently. Moreover, when the system experiences increased load, only the services acting as performance bottlenecks need to be scaled out.
 
 ### Competing Consumers pattern
 
