@@ -97,7 +97,7 @@ There are four high-level options for a [disaster recovery strategy](/azure/arch
 
 ### DR strategy impacts
 
-While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) (KDD) for a DR strategy. There are other important considerations.
+While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision (KDD)](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) for a DR strategy. There are other important considerations.
 
 >[!NOTE]
 >[Cost Optimization](/azure/architecture/framework/cost/) is one of the five pillars of architectural excellence with Azure’s [Well-Architected Framework](/azure/architecture/framework/). Its goal is to reduce unnecessary expenses and improve operational efficiencies

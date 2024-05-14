@@ -127,7 +127,7 @@ CluedIn natively integrates into [Azure Service Health](https://azure.microsoft.
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-CluedIn separates storage from compute, so the processing of data is completely *stateless*. Because it is backed by a streaming service bus, this means that CluedIn can scale up and down, as much or as little as you need, dependent upon your workloads. CluedIn supports the Azure autoscale features inside of [Azure Kubernetes Service](https://azure.microsoft.com/overview/kubernetes-on-azure) (AKS), so that scaling can be automated. To increase performance in the processing of data, you will simply allocate more processing pods to your Kubernetes cluster, which can all be automated.
+CluedIn separates storage from compute, so the processing of data is completely *stateless*. Because it is backed by a streaming service bus, this means that CluedIn can scale up and down, as much or as little as you need, dependent upon your workloads. CluedIn supports the Azure autoscale features inside of [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/overview/kubernetes-on-azure), so that scaling can be automated. To increase performance in the processing of data, you will simply allocate more processing pods to your Kubernetes cluster, which can all be automated.
 
 ### Scalability
 

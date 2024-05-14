@@ -177,7 +177,7 @@ The preamble can hold the header or a schema identifier. Because of the smaller 
 
 ### CBOR
 
-[Concise Binary Object Representation](http://cbor.io) (CBOR) (Specification) is a binary format that offers small encoding size. The advantage of CBOR over MessagePack is that its compliant with IETF in RFC7049.
+[Concise Binary Object Representation (CBOR)](http://cbor.io) (Specification) is a binary format that offers small encoding size. The advantage of CBOR over MessagePack is that its compliant with IETF in RFC7049.
 
 ## Next steps
 
