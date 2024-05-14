@@ -141,7 +141,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 #### Intra-region resiliency
 
-- Consider deploying the node pools of your AKS cluster across all [availability zones](/azure/aks/availability-zones) in a region.
+- Deploy the node pools of your AKS cluster across all [availability zones](/azure/aks/availability-zones) in a region.
 - Enable [zone redundancy in Container Registry](/azure/container-registry/zone-redundancy) for intra-region resiliency and high availability.
 - Use [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints) to control how pods are spread across your AKS cluster among failure domains like regions, availability zones, and nodes.
 - Consider using Uptime SLA for AKS clusters that host mission-critical workloads.
