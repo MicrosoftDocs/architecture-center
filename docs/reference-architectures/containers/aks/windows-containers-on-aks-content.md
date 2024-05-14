@@ -83,7 +83,7 @@ Windows containers cannot be domain joined, so if you require Active Directory a
 
 ## Node and pod scaling
 
-Cluster autoscaler guidance is unchanged for Windows containers. Refer to the [Cluster autoscaler]( /azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-autoscaler) documentation for guidance.
+Cluster autoscaler guidance is unchanged for Windows containers. Refer to the [Cluster autoscaler](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-autoscaler) documentation for guidance.
 
 The baseline cluster documentation describes the manual and autoscaling approaches that are available for pod scaling. Both approaches are available for clusters running Windows containers and the [guidance](./baseline-aks.yml#node-and-pod-scalability) provided in that article generally apply here as well.
 
