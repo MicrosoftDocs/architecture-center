@@ -137,7 +137,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-The availability and reliability considerations here aren't specific to multitenancy in AKS. We believe they're essential requirements for this solution. Consider the following methods for optimizing the availability of your AKS cluster and workloads.
+These recommendations are essential for single-tenant AKS solutions and aren't specific to multitenant AKS solutions, where the reliability targets are higher due to the number of users and workloads relying on the system. Consider the following recommendations for optimizing the availability of your AKS cluster and workloads.
 
 #### Intra-region resiliency
 
