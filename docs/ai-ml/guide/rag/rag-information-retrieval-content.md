@@ -39,9 +39,11 @@ Search platforms generally support full text and vector searches. Some platforms
 
 [Vector searches](/azure/search/vector-search-how-to-query) match on similarity between the vectorized query (prompt) and vector fields.
 
-> IMPORTANT: You should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning) you performed on chunks before embedding the chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
+> [!IMPORTANT]
+> You should perform the same [cleaning operations](./rag-enrichment-phase.yml#cleaning) you performed on chunks before embedding the chunks. For example, if you lowercased every word in your embedded chunk, you should lowercase every word in the query before embedding.
 
-> NOTE: You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information see that section.
+> [!NOTE]
+> You can perform a vector search against multiple vector fields in the same query. In Azure AI Search, that is technically a hybrid search. For more information see that section.
 
 ```python
 embedding = embedding_model.generate_embedding(
@@ -279,8 +281,6 @@ The following are three well established retrieval evaluation methods you can us
 * **Precision at K** - The percentage of correctly identified relevant items out of the total search results. This metric focuses on the accuracy of your search results.
 * **Recall at K** - Recall at K measures the percentage of relevant items in the top K out of the total possible relative items. This metric focuses on search results coverage.
 * **Mean Reciprocal Rank (MRR)** - MRR measures the average of the reciprocal ranks of the first relevant answer in your ranked search results. This metric focuses on where the first relevant result occurs in the search results.
-
-TODO: Can we provide 1-2 examples - perhaps a positive and a negative
 
 You should test both positive and negative examples. For the positive examples, you want the metrics to be as close to 1 as possible. For the negative examples, where your data shouldn't be able to address the queries, you want the metrics to be as close to 0 as possible. You should test all your test queries and average the positive query results and the negative query results to understand how your search results are performing in aggregate.
 

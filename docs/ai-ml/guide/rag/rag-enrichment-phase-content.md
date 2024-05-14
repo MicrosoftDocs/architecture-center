@@ -6,7 +6,7 @@ describes some common metadata fields you can add to augment your chunks.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
-:::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram showing json records with a single field being enriched" border="false":::
+:::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram showing json records with a single field being enriched." border="false":::
    The diagram shows json with two rows. Each row has a single name-value pair called Chunk. The diagram shows how each of those rows is enriched into 2 json rows, each with six fields: Chunk, CleanedChunk, Title, Summary, Keywords and Questions, where Keywords and Questions are arrays and the other fields are name-value pairs.
 :::image-end:::
 *Figure 1. Enriching chunks with metadata*

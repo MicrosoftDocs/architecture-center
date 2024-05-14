@@ -27,7 +27,7 @@ Each approach is accompanied by a summarized decision-making matrix that highlig
 
 This straightforward approach breaks down text documents into chunks made up of complete sentences. The benefits of this approach include that it's inexpensive to implement, it has low processing cost, and it can be applied to any text-based document that is written in prose, or full sentences. A challenge with this approach is that each chunk might not capture the complete context of a thought or meaning. Often, multiple sentences must be taken together to capture the semantic meaning.
 
-**Tools**: [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)
+**Tools**: [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose, or full sentences, and your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
@@ -37,7 +37,7 @@ This straightforward approach breaks down text documents into chunks made up of 
 
 This approach breaks up a document into chunks based on a fixed number of characters or tokens and allows for some overlap of characters between chunks. This approach has many of the same advantages and disadvantages as sentence-based parsing. An advantage this approach has over sentence-based parsing is that it's possible to get chunks with semantic meaning that spans multiple sentences.
 
-You must choose the fixed size of the chunks and the amount of overlap. Because the results differ for different document types, it's best to use a tool like the HuggingFace chunk visualizer to do exploratory analysis. Tools like this allow you to visualize how your documents is chunked, given your decisions. It's best practice to use BERT tokens over character counts when using fixed-sized parsing. BERT tokens are based on meaningful units of language, so they preserve more semantic information than character counts.
+You must choose the fixed size of the chunks and the amount of overlap. Because the results differ for different document types, it's best to use a tool like the HuggingFace chunk visualizer to do exploratory analysis. Tools like this allow you to visualize how your documents are chunked, given your decisions. It's best practice to use BERT tokens over character counts when using fixed-sized parsing. BERT tokens are based on meaningful units of language, so they preserve more semantic information than character counts.
 
 **Tools**:  [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [Hugging Face chunk visualizer](https://huggingface.co/spaces/m-ric/chunk_visualizer)<br/>
 **Engineering effort**: Low<br/>
@@ -92,7 +92,7 @@ There are services, such as Azure AI Document Intelligence, that offer prebuilt 
 
 ### Custom model
 
-For highly structured documents where no prebuilt model exists, you might have to build a custom model. This approach can be a effective for images or documents that are highly structured, making them difficult to use text parsing techniques.
+For highly structured documents where no prebuilt model exists, you might have to build a custom model. This approach can be effective for images or documents that are highly structured, making them difficult to use text parsing techniques.
 
 **Tools**:  [Azure AI Document Intelligence custom models](/azure/ai-services/document-intelligence/overview#custom-models), [Tesseract](https://github.com/tesseract-ocr/tessdoc)<br/>
 **Engineering effort**: High<br/>
@@ -104,7 +104,7 @@ For highly structured documents where no prebuilt model exists, you might have t
 
 Documents vary in the amount of structure they have. Some documents, like government forms have a complex and well-known structure, such as a W-2 U.S. tax document. At the other end of the spectrum are unstructured documents like free-form notes. The degree of structure to a document type is a good starting point for determining an effective chunking approach. While there are no hard and fast rules, this section provides you with some guidelines to follow.
 
-:::image type="complex" source="./_images/chunking-approaches-by-document-structure.png" lightbox="./_images/chunking-approaches-by-document-structure.png" alt-text="Diagram showing chunking approaches by document structure" border="false":::
+:::image type="complex" source="./_images/chunking-approaches-by-document-structure.png" lightbox="_images/chunking-approaches-by-document-structure.png" alt-text="Diagram showing chunking approaches by document structure." border="false":::
    The diagram shows document structure from high to low on the X axis. It ranges from (high) structured, semi-structured, inferred, to unstructured (low). The next line up shows examples with W-2 being between high and structured, Invoice being between structured and semi-structured, web page between semi-structured and inferred, EU regulation between inferred and unstructured and Field notes between unstructured and low. Above the X axis, are six chunking approaches. Each approach has a green shading indicating where it's most effective. The following list the approaches: 1. Prebuilt model - Darkest green over structured. 2. Custom model - darkest green over semi-structured. 3. Document analysis model - darkest green over semi-structured to inferred. 4. Custom code - darkest green over semi-structured to inferred. 5. Boundary based - darkest green over inferred to unstructured. 6. Sentence based - darkest green over unstructured.
 :::image-end:::
 *Figure 1. Chunking approach fits by document structure*
@@ -150,7 +150,7 @@ A good approach for documents with little to no structure are sentence-based or 
 
 ### Experimentation
 
-Although the best fit of each of the chunking approach are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution will be experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
+Although the best fit for each of the chunking approach are listed, in practice, any of the approaches might be appropriate for any document type. For example, sentence-based parsing might be appropriate for highly structured documents, or a custom model might be appropriate for unstructured documents. Part of optimizing your RAG solution will be experimenting with various chunking approaches, taking into account the number of resources you have, the technical skill of your resources, and the volume of documents you have to process. To achieve an optimal chunking strategy, you need to observe the advantages and tradeoffs of each of the approaches you test to ensure you're choosing the appropriate approach for your use case.
 
 ## Next steps
 

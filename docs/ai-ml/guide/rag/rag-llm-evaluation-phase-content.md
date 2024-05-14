@@ -24,7 +24,9 @@ Groundedness, sometimes referred to as faithfulness, measures whether the respon
 * [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness.html)
 * [Mlflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
-**Evaluating** - If groundedness is low, it indicates that the LLM doesn't see the chunks as relevant. You should evaluate if you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
+**Evaluating**
+
+If groundedness is low, it indicates that the LLM doesn't see the chunks as relevant. You should evaluate if you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
 
 ### Completeness
 
@@ -39,7 +41,9 @@ Completeness measures whether the response is answering all parts of the query. 
   3. Calculate the ratio of the intents that have an answer beginning with "Yes".
   4. Square the score to highlight the errors.
 
-**Evaluating** - If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine if you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you are using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
+**Evaluating**
+
+If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine if you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you are using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
 
 ### Utilization
 
@@ -68,7 +72,9 @@ Measures the extent to which the LLM's response is pertinent and related to the 
 * [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance.html)
 * [Mlflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
-**Evaluating** - When relevance is low, evaluate the following:
+**Evaluating**
+
+When relevance is low, evaluate the following:
 
 * Ensure that the chunks provided to the LLM are relevant.
   * Determine if there are viable chunks that are relevant that were not returned. If there are, evaluate your embedding model.
@@ -96,7 +102,7 @@ The following list contains a small sample of common similarity and evaluation m
 * **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several Rouge variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
 * **[METEOR](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
 
-Refer to the following resources for common similarity and evaluation metrics: TODO: Verify and add to list.
+Refer to the following resources for common similarity and evaluation metrics:
 
 * [PyPi textdistance package](https://pypi.org/project/textdistance/)
 * [Wikipedia list of similarity algorithms](https://en.wikipedia.org/wiki/Similarity_measure)
@@ -115,7 +121,7 @@ It is important for you to understand that designing and evaluating your RAG sol
 
 These articles walk you through all the phases and design choices involved in designing and evaluating a RAG solution. The articles focus on what you should do, not how to do it. An engineering team that works with Microsoft's top customers has developed a tool called the [RAG Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator). The RAG Experiment Accelerator is a state-of-the-art experimentation framework designed to optimize and enhance the development of Retrieval Augmented Generation (RAG) solutions. RAG Experiment Accelerator empowers researchers and developers to efficiently explore and fine-tune the critical components that drive RAG performance, ultimately leading to more accurate and coherent text generation.
 
-With it's CLI based interface, you can effortlessly experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development while abstracting away the complexities of hyper-parameter tuning using simple configuration.
+With its CLI based interface, you can effortlessly experiment with various embedding models, refine chunking strategies, and evaluate different search approaches to unlock the full potential of your RAG system. It allows you to focus on the core aspects of RAG development while abstracting away the complexities of hyper-parameter tuning using simple configuration.
 
 Moreover, the framework provides comprehensive support for Language Model (LLM) configuration, enabling you to strike the perfect balance between model complexity and generation quality. This tool allows you to streamline the experimentation process, save valuable time, and significantly improve the performance of your RAG models.
 

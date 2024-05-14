@@ -6,7 +6,7 @@ embedding("king") - embedding("man") + embedding("woman") ≈ embedding("queen")
 
 Embeddings are compared to one another using the notions of similarity and distance. The following diagram illustrates how embeddings can be compared.
 
-:::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram showing how vectors are compared" border="false":::
+:::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram showing how vectors are compared." border="false":::
    Diagram showing a two dimensional grid. The sentences "The cat is  on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are two vectors that are pointing at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 *Figure 1. Comparing embeddings*
@@ -36,21 +36,21 @@ Let's take a fictitious example where the word "histamine" isn't in the embeddin
 Determining the right embedding model for your use case is a human activity. The overlap with the embedding model's vocabulary with your data's words should be a key factor you consider when choosing your embedding model.
 
 :::image type="complex" source="./_images/choose-an-embedding-model.png" lightbox="./_images/choose-an-embedding-model.png" alt-text="Diagram the flow of choosing an embedding model." border="false":::
-   Diagram showing a flow for choosing an embedding model. The first decision is "Domain specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
+   Diagram showing a flow for choosing an embedding model. The first decision is "Domain-specific?". If no, the flow terminates at "Test top ranked general models." If yes, the next decision is "Domain model available?". If no, the flow terminates at "Fine tune general model." If yes, the flow terminates at "Test domain model".
 :::image-end:::
 *Figure 3. Choosing an embedding model flow*
 
-The first thing you should determine is whether your content is domain specific. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to see if the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
+The first thing you should determine is whether your content is domain-specific. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to see if the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
 
-### General or non domain specific content
+### General or non-domain-specific content
 
 When you're choosing a general embedding model, a good place to start is the [Hugging Face leaderboard](https://huggingface.co/spaces/mteb/leaderboard). This site provides an up-to-date ranking of embedding models. Evaluate how the models work with your data, starting with the top-ranking models.
 
-### Domain specific content
+### Domain-specific content
 
-For content that is domain specific, the first step is to determine if there's a domain specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You should consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
+For content that is domain-specific, the first step is to determine if there's a domain-specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You should consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
 
-If there are no domain specific models available, or the domain specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
+If there are no domain-specific models available, or the domain-specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
 
 > [!IMPORTANT]
 > For any model you choose, you need to verify that the license is suitable for your needs and the model provides the necessary language support.

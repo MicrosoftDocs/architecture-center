@@ -16,7 +16,7 @@ The articles in this guide address all of those considerations.
 
 ## RAG Architecture
 
-:::image type="complex" source="./_images/rag-high-level-architecture.svg" lightbox="./_images/rag-high-level-architecture.svg" alt-text="Diagram showing the high level architecture of a RAG solution, including the request flow and the data pipeline." border="false":::
+:::image type="complex" source="./_images/rag-high-level-architecture.svg" lightbox="_images/rag-high-level-architecture.svg" alt-text="Diagram showing the high level architecture of a RAG solution, including the request flow and the data pipeline." border="false":::
    Diagram showing the high level architecture of a RAG solution, including the request flow and the data pipeline.
 :::image-end:::
 *Figure 1. High level RAG architecture*
@@ -46,7 +46,7 @@ The following is a high-level flow for a data pipeline that supplies grounding d
 
 There are a variety of implementation decisions you must make when designing your RAG solution. The following figure illustrates some of those decisions.
 
-:::image type="complex" source="./_images/rag-high-level-architecture-questions.svg" lightbox="./_images/rag-high-level-architecture-questions.svg" alt-text="Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution." border="false":::
+:::image type="complex" source="./_images/rag-high-level-architecture-questions.svg" lightbox="_images/rag-high-level-architecture-questions.svg" alt-text="Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution." border="false":::
    Diagram showing the high level architecture of a RAG solution, including questions that arise when designing the solution.
 :::image-end:::
 *Figure 2. Questions that arise when designing RAG solution*
