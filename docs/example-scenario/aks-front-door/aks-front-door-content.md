@@ -148,7 +148,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 #### Disaster recovery and business continuity
 
-- Consider deploying your solution to at least [two paired Azure regions](/azure/best-practices-availability-paired-regions) within a geography.
+- Consider deploying your solution to two regions and use the [paired Azure region](/azure/best-practices-availability-paired-regions) as the second region.
 - Be sure to script, document, and periodically test any regional failover process in a QA environment.
 - Be sure to test fail-back procedures to validate that they work as expected.
 - Store your container images in [Container Registry](/azure/container-registry/container-registry-intro). Geo-replicate the registry to each AKS region.
