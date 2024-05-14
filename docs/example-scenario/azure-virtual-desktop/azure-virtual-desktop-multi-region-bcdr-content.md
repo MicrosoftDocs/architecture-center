@@ -133,7 +133,7 @@ For diagnostics and monitoring, use the same Log Analytics workspace for both th
     :::image type="content" source="images/azure-compute-gallery-hires.png" alt-text="Diagram that shows Azure Compute Gallery and Image replicas." lightbox="images/azure-compute-gallery-hires.png":::
     
 - The Azure Compute Gallery is not a global resource, then it is recommended to have at least a secondary gallery in the secondary region. Once you have created in the primary region a Gallery, a VM Image Definition and a VM Image Version, you should create the same three objects also in the secondary region. When creating the VM Image Version, there is the possibility to copy the VM Image Version created in the primary region. To achieve this, from the secondary region, you have to specify the Gallery, the VM Image Definition and VM Image Version used in the primary region, and Azure will copy the image and create a local VM Image Version.
-It is possible to execute this operation using the Azure portal or AZ CLI command as outlined below:
+It is possible to execute this operation using the Azure portal or Azure CLI command as outlined below:
 
   [Create an image definition and an image version](https://learn.microsoft.com/azure/virtual-machines/image-version)
   
@@ -304,7 +304,7 @@ The following considerations and recommendations apply:
 
 - Site Recovery failover isn't automatic—an administrator must trigger it by using the Azure portal or [Powershell/API](/azure/site-recovery/azure-to-azure-powershell).
 - You can script and automate the entire Site Recovery configuration and operations by using [PowerShell](/azure/site-recovery/azure-to-azure-powershell).
-- Site Recovery has a declared RTO inside its [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2) (SLA). Most of the time, Site Recovery can fail over VMs within minutes.
+- Site Recovery has a declared RTO inside its [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2). Most of the time, Site Recovery can fail over VMs within minutes.
 - You can use Site Recovery with Azure Backup. For more information, see [Support for using Site Recovery with Azure Backup](/azure/site-recovery/site-recovery-backup-interoperability).
 - You must enable Site Recovery at the VM level, as there's no direct integration in the Virtual Desktop portal experience. You must also trigger failover and failback at the single VM level.
 - Site Recovery provides test failover capability in a separate subnet for general Azure VMs. Don't use this feature for Virtual Desktop VMs, since you would have two identical Virtual Desktop session hosts calling the Virtual Desktop control plane at the same time.
