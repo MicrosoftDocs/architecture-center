@@ -162,6 +162,8 @@ In the **Virtual node usage** column:
 - **Virtual node subnet name** is the subnet that deploys virtual node pods into Azure Container Instances.
 - **Virtual node virtual network** is the virtual network that contains the virtual node subnet.
 
+<!-- docutune:ignoredCasing io/os instance-sku os-sku -->
+
 | Label | Value | Example, options | Virtual node usage |
 | ---- | --- | --- | --- |
 | kubernetes.azure.com/agentpool| `<agent pool name>` | `nodepool1` | Same |
@@ -185,11 +187,11 @@ In the **Virtual node usage** column:
 | kubernetes.azure.com/encrypted-set| `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
 | kubernetes.azure.com/accelerator| `<accelerator>` | `Nvidia` | N/A |
 | kubernetes.azure.com/fips_enabled| `<fips enabled>` | `True` | N/A |
-| kubernetes.azure.com/os-sku| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
+| kubernetes.azure.com/OS-SKU| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
 
 ### Windows node pools
 
-AKS supports creating and using Windows Server container node pools through the [Azure CNI](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
+AKS supports creating and using Windows Server container node pools through the [Azure Container Network Interface (CNI)](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
 
 The following `az aks nodepool add` command adds a node pool that runs Windows Server containers.
 
