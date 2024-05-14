@@ -170,7 +170,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - Use [Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Use [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.
-- Connect your [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to an [Azure Managed Grafana](/azure/managed-grafana/overview) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
+- Connect your Azure Monitor managed service for Prometheus to an [Azure Managed Grafana](/azure/managed-grafana/overview) so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 - Configure all PaaS services, such as Azure Container Registry and Azure Key Vault, to collect diagnostic logs and metrics in an [Azure Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace.
 
 ### Cost optimization
