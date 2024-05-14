@@ -168,7 +168,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Ashish Khandelwal]( https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
 
 Other contributors:
 
