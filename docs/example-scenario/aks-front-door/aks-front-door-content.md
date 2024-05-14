@@ -150,7 +150,7 @@ These recommendations are essential for single-tenant AKS solutions and aren't s
 
 - Consider deploying your solution to two regions and use the [paired Azure region](/azure/best-practices-availability-paired-regions) as the second region.
 - Script, document, and periodically test any regional failover process in a quality assurance (QA) environment.
-- Be sure to test fail-back procedures to validate that they work as expected.
+- Test failback procedures to validate that they work as expected.
 - Store your container images in [Container Registry](/azure/container-registry/container-registry-intro). Geo-replicate the registry to each AKS region.
 - If possible, avoid storing service state in the container. Instead, use an Azure PaaS that supports multiregion replication.
 - If you use Azure Storage, prepare and test a process for migrating your storage from the primary region to the backup region.
