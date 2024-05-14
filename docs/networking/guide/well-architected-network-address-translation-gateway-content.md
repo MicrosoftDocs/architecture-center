@@ -56,7 +56,7 @@ Virtual networks and subnets [span all availability zones in a region](/azure/vi
 
 With NAT gateway, individual virtual machines (or other compute resources) don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs is used for outbound connectivity. Destination firewall rules can be configured based on this predictable IP list.
 
-A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When you deploy a NAT gateway to a subnet with a virtual machine scale set of NVAs, those NVAs use the one or more NAT gateway addresses for outbound connectivity instead of the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).
+A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When you deploy a NAT gateway to a subnet with a virtual machine scale set of NVAs, those NVAs use one or more NAT gateway addresses for outbound connectivity instead of the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).
 
 ![Diagram that shows firewalls with a load balancer sandwich and NAT gateway.](./images/natgw-fw-vmss.svg)
 
