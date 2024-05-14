@@ -138,7 +138,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to route traffic into your AKS cluster.
 - Consider using a [Private AKS cluster](/azure/aks/private-clusters) in your production environment, or at least secure access to the API server, by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in AKS. When you use authorized IP address ranges on a public cluster, allow all the egress IP addresses in the Azure Firewall network rule collection. In-cluster operations consume the Kubernetes API server.
 
-### Availability and reliability
+### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 The availability and reliability considerations here aren't specific to multitenancy in AKS. We believe they're essential requirements for this solution. Consider the following methods for optimizing the availability of your AKS cluster and workloads.
