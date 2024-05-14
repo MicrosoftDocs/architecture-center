@@ -291,7 +291,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Computed Optimized Gen2 
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - Azure Synapse Analytics [automatically takes snapshots](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#database-restore-points) throughout the day to create restore points that are available for seven days
+        - Azure Synapse Analytics [automatically takes snapshots](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#automatic-restore-points) throughout the day to create restore points that are available for seven days
         - Azure Synapse Analytics performs a [standard geo-backup](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse#disaster-recovery) once per day to a paired data center. The RPO for a geo-restore is 24 hours
         - If Self-Hosted Data Pipelines are used, they'll remain the customers responsibility recovery from a disaster
 
