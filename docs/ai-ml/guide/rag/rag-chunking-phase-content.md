@@ -1,4 +1,4 @@
-Now that you've gathered your test documents and queries and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized, semantically relevant chunks is a key factor in the success of your RAG implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to an LLM that is irrelevant to the query can lead to hallucinations. You have to determine what parts of a document are relevant and what parts are irrelevant and should be ignored.
+Now that you've gathered your test documents and queries, and performed a document analysis in the [preparation phase](./rag-preparation-phase.yml), the next phase is chunking. Breaking down documents into a collection of right-sized, semantically relevant chunks is a key factor in the success of your RAG implementation. Passing entire documents or oversized chunks is expensive, might overwhelm the token limits of the model, and doesn't produce the best results. Passing information to an LLM that is irrelevant to the query can lead to hallucinations. You have to determine what parts of a document are relevant and what parts are irrelevant and should be ignored.
 
 Passing chunks that are too small and don't contain sufficient context to address the query also leads to poor results. Relevant context that exists across multiple chunks might not be captured. The art is implementing effective chunking approaches for your specific document types and their structures and content. There are a various chunking approaches to consider, each with their own cost implications and effectiveness, depending on the type and structure of document they're applied to.
 
@@ -13,9 +13,9 @@ When determining your overall chunking strategy, you must consider your budget a
 The following are factors to consider when looking at the cost of your overall solution:
 
 * **Number of unique chunking implementations** - Each unique implementation has both an engineering and maintenance cost. You need to consider the number of unique document types in your corpus and the cost vs. quality tradeoffs of unique implementations for each.
-* **Per-document cost of each implementation** - Some chunking approaches might lead to better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a [prebuilt model in Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview#prebuilt-models) likely has a higher per-document cost than a pure text parsing implementation, but might lead to better chunks.
+* **Per-document cost of each implementation** - Some chunking approaches might lead to better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure AI Document Intelligence likely has a higher per-document cost than a pure text parsing implementation, but might lead to better chunks.
 * **Number of initial documents** - The number of initial documents you need to process to launch your solution.
-* **Number of incremental documents** - The number and rate of new documents that you must process for the system.
+* **Number of incremental documents** - The number and rate of new documents that you must process for ongoing maintenance of the system.
 
 ## Chunking approaches
 

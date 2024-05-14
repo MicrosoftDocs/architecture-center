@@ -1,4 +1,4 @@
-The Retrieval Augmented Generation (RAG) pattern is an industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data that is not already known to the LLM. While the architecture is straightforward, designing and evaluating RAG solutions that fit into this architecture involves many complex considerations that benefits from a rigorous, scientific approach.
+The Retrieval Augmented Generation (RAG) pattern is an industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data that is not already known to the LLM. While the architecture is straightforward, designing, experimenting with, and evaluating RAG solutions that fit into this architecture involves many complex considerations that benefits from a rigorous, scientific approach.
 
 > This guide is presented as a series. Each article in the series covers a specific phase in designing RAG solutions.
 

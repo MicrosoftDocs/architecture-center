@@ -28,7 +28,7 @@ The success factor in this step is being *qualitatively confident* that you have
 * If you must use synthetic data, do your best to make it as close to real data as possible.
 * Make sure that the documents can address the questions that are being gathered.
 * You should have at least two documents for each document variant.
-* You can use LLMs to help evaluate the document quality.
+* You can use LLMs or other tools to help evaluate the document quality.
 
 ## Gather test queries
 
