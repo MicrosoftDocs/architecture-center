@@ -1,6 +1,6 @@
 This article is part of a series that builds on the [Azure OpenAI end-to-end chat baseline architecture](baseline-openai-e2e-chat.yml). You should familiarize yourself with the preceding architecture so that you can understand the changes that you need to make when deploying the architecture in an Azure landing zone application landing zone subscription.
 
-This article describes the architecture of a generative AI workload that deploys the same **baseline chat application** that uses resources outside the scope of the workload team. Those resources are shared among other workload teams and are centrally managed by the platform teams of an organization. Shared resources include networking resources for connecting to or from on-premises locations, identity access management, and policies. It's assumed that the organization uses Azure landing zones to ensure consistent governance and cost efficiency.
+This article describes the architecture of a generative AI workload that deploys the same baseline chat application that uses resources outside the scope of the workload team. Those resources are shared among other workload teams and are centrally managed by the platform teams of an organization. Shared resources include networking resources for connecting to or from on-premises locations, identity access management, and policies. It's assumed that the organization uses Azure landing zones to ensure consistent governance and cost efficiency.
 
 As a workload owner, you can offload the management of shared resources to platform teams so that you can focus on workload development efforts. This article presents the workload team's perspective. Recommendations for the platform team are specified.
 
@@ -47,7 +47,7 @@ The following resources remain mostly unchanged from the [baseline architecture]
   
 - **Azure App Service** is used to host the example web application for the Chat UI. In this architecture, it's also possible to use this service to host the containerized prompt flow for more control over the hosting environment of prompt flow execution. App Service has three instances, each in a different Azure zone.
 
-- **Azure AI Search** is included in the architecture as it's a common service used in the flows behind chat applications. You can use AI Search to retrieve indexed data that is relevant for user queries.
+- **Azure AI Search** is included in the architecture because it's a common service used in the flows behind chat applications. You can use AI Search to retrieve indexed data that is relevant for user queries.
 
 - **Azure Storage** is used to persist the prompt flow source files for prompt flow development.
 
@@ -72,21 +72,21 @@ The workload team maintains and fulfills the following resources and responsibil
 The platform team owns and maintains these centralized resources. This architecture assumes that these resources are pre-provisioned and considers them dependencies.
 
 - **Azure Firewall in the hub network** is used to route, inspect, and restrict egress traffic. Workload egress traffic is traffic that goes to the internet, cross-premises destinations, or to other application landing zones. Compared to the baseline, this component is new in the architecture.
-  
+  >
   > Change from the baseline: This component is new in this architecture. Azure Firewall isn't cost-effective or practical for each workload team to manage their own instance.
-
+  >
 - **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Studio components.
-
+   >
    > Change from the baseline: The workload team owned this component.
-
+   >
 - The **spoke virtual network** is where the workload is deployed.
-
+   >
    > Change from the baseline: The workload team owned this network.
-
+   >
 - **User-defined routes** (UDRs) are used to force tunneling to the hub network.
-
+   >
    > Change from the baseline: This component is new in this architecture.
-
+   >
 - **Azure Policy-based governance constraints** and `DeployIfNotExists` (DINE) policies are part of the workload subscription. These are extra policies that exist over what was described in the baseline. You can apply these policies at both the platform-team owned Management Group level or to the workload's subscription directly.
 
 - **Azure Private DNS zones** to host the `A` records for private endpoints. For more information, see [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale).
@@ -279,7 +279,7 @@ In the baseline architecture, Bastion accessed the jump box, which is managed by
 
 In this architecture, Azure Bastion is deployed within the connectivity subscription as a shared regional resource that's managed by the platform team. To demonstrate that use case in this architecture, Azure Bastion is in the connectivity subscription and no longer deployed by the workload team.
 
-The virtual machine used as the jump box must comply with organizational requirements for virtual machines. These requirements might include items such as corporate identities in Microsoft Entra ID, specific base images, patching regimes, and more.
+The virtual machine used as the jump box must comply with organizational requirements for virtual machines (VMs). These requirements might include items such as corporate identities in Microsoft Entra ID, specific base images, patching regimes, and more.
 
 ## Monitoring resources
 
@@ -308,21 +308,21 @@ Expect the application landing zone subscription to have policies already applie
 
     Complication: This architecture isn't designed solely to handle customer-managed keys. However, it can be extended to use them.
 
-Platform teams might also apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
+Platform teams might apply DINE policies to handle automated deployments into an application landing zone subscription. Preemptively incorporate and test the platform-initiated restrictions and changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
 
 ## Manage changes over time
 
-Platform-provided services and operations are considered external dependencies in this architecture. The platform team continues to apply changes, onboard landing zones, and apply cost controls. The platform team that serves the organization might not prioritize individual workloads. Changes to those dependencies, such as firewall modifications can affect multiple workloads.
+Platform-provided services and operations are considered external dependencies in this architecture. The platform team continues to apply changes, onboard landing zones, and apply cost controls. The platform team that serves the organization might not prioritize individual workloads. Changes to those dependencies, such as firewall modifications, can affect multiple workloads.
 
-Therefore, workload and platform teams must communicate efficiently and timely to manage all external dependencies. It's important to test changes, so that they don't negatively affect workloads.
+Workload and platform teams must communicate in an efficient and timely manner to to manage all external dependencies. It's important to test changes beforehand so that they don't negatively affect workloads.
 
 ### Platform changes that affect this workload
 
-In this architecture, the platform team manages the following resources. Changes to these resources can potentially affect the workload's reliability, security, operations, and performance targets. It's important to have an opportunity to evaluate these changes before the platform team implements them to determine how they affect the workload.
+In this architecture, the platform team manages the following resources. Changes to these resources can potentially affect the workload's reliability, security, operations, and performance targets. It's important to evaluate these changes before the platform team implements them to determine how they affect the workload.
 
 - **Azure policies**: Changes to Azure policies can affect workload resources and their dependencies. For example, there might be direct policy changes or movement of the landing zone into a new management group hierarchy. These changes might go unnoticed until there's a new deployment, so it's important to thoroughly test them.
   
-  *Example:* A policy to no longer allow deploying Azure OpenAI instances with support for API key access.
+  *Example:* A policy to no longer allow deployment of Azure OpenAI instances with support for API key access.
 
 - **Firewall rules**: Modifications to firewall rules can affect the workload's virtual network or rules that apply broadly across all traffic. These modifications can result in blocked traffic and even silent process failures. These potential problems apply to both the egress firewall and Azure Virtual Network Manager-applied NSG rules.
 
@@ -334,17 +334,17 @@ In this architecture, the platform team manages the following resources. Changes
 
 - **Azure Bastion host**: Changes to the Azure Bastion host availability or configuration.
 
-  *Example*: Preventing access to jump boxes and build agent virtual machines.
+  *Example*: Preventing access to jump boxes and build agent VMs.
 
 #### Workload changes that affect the platform
 
-The following examples are workload changes in this architecture that you should communicate to the platform team. It's important that the platform team validates the platform service's reliability, security, operations, and performance targets against the new workload team changes before they go into effect.
+The following examples are workload changes in this architecture that you should communicate to the platform team. It's important that the platform team validates the platform service's reliability, security, operations, and performance targets against the new workload team's changes before they go into effect.
 
 - **Network egress**: Monitor any significant increase in network egress to prevent the workload from becoming a noisy neighbor on network devices. This problem can potentially affect the performance or reliability targets of other workloads. This architecture is mostly self contained and likely won't experience a significant change in outbound traffic patterns.
 
 - **Public access**: Changes in the public access to workload components might require further testing. The platform team might relocate the workload to a different management group.
 
-  *Example:* In this architecture, this happens by removing the Public IP address from Application Gateway and having this be an internal-only application. It can also happen if the browser-based AI portals are changed to be exposed to the internet, which isn't  recommended.
+  *Example:* In this architecture, this happens by removing the public IP address from Application Gateway and making this an internal-only application. It can also happen if the browser-based AI portals are changed to be exposed to the internet, which isn't recommended.
 
 - **Business criticality rating**: If there are changes to the workload's service-level agreements (SLAs), you might need a new collaboration approach between the platform and workload teams.
 
@@ -368,7 +368,7 @@ For this architecture, consider the following workload dependencies in this arch
 
 - **DNS Resolution**: This architecture uses DNS provided by the platform team instead of directly interfacing with Azure DNS. This means that timely updates to DNS records for private endpoints and availability of DNS services are new dependencies.
 
-- **DINE policies**: DINE policies for Azure DNS private DNS zones (or any other platform-provided dependency) are *best effort*, with no SLA on execution. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or Prompt Flow from completing queries.
+- **DINE policies**: DINE policies for Azure DNS private DNS zones, or any other platform-provided dependency, are *best effort*, with no SLA on execution. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or Prompt Flow from completing queries.
 
 - **Management group policies**: Consistent policies among environments are key for reliability. Ensure that preproduction environments are similar to production environments to provide accurate testing and to prevent environment-specific deviations that can block a deployment or scale. For more information, see [Manage application development environments in Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments).
 
@@ -382,7 +382,7 @@ The recommendations in the following sections are based on the [security design 
 
 Isolate your workload from other workload spokes within your organization by using NSGs on your subnets and the nontransitive nature or controls in the regional hub. Construct comprehensive NSGs that only permit the inbound network requirements of your application and its infrastructure. We recommend that you don't solely rely on the nontransitive nature of the hub network for security.
 
-The platform team likely implements Azure policies to ensure that Application Gateway has Web Application Firewall set to *deny mode*, to restrict the number of public IP addresses available to your subscription, and other checks. In addition to those policies, the workload team should take on the responsibility of deploying more workload-centric policies that reinforce the ingress security posture.
+The platform team implements Azure policies to ensure that Application Gateway has Web Application Firewall set to *deny mode*, which restricts the number of public IP addresses available to your subscription, and other checks. In addition to those policies, the workload team should deploy more workload-centric policies that reinforce the ingress security posture.
 
 The following table shows examples of ingress controls in this architecture.
 
@@ -397,37 +397,37 @@ The following table shows examples of ingress controls in this architecture.
 
 ### Egress traffic control
 
-Apply NSG rules that express the required outbound connectivity requirements of your solution and deny everything else. Don't rely only on the hub network controls. As a workload operator, you have the responsibility to stop undesired egress traffic as close to the source as practicable.
+Apply NSG rules that express the required outbound connectivity requirements of your solution and deny access to everything else. Don't rely only on the hub network controls. As a workload operator, you have the responsibility to stop undesired egress traffic as close to the source as practicable.
 
-While you own your workload's subnets within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request. Or you can work with your network team to ensure continuity of least-access egress control.
+While you own your workload's subnets within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request. Work with your network team to ensure continuity of least-access egress control.
 
 The following table shows examples of egress in this architecture.
 
 | Endpoint | Purpose | Workload control | Platform control |
 | :------- | :------ | :---------- | :---------- |
-| *Public internet sources* | Prompt flow might require an internet search to compliment an Azure OpenAI request. | NSG on the prompt flow container host subnet or Machine Learning managed virtual network configuration. | Firewall network rule allowance for the same as the workload control |
-| Azure OpenAI data plane | The compute hosting prompt flow calls to this API for prompt handling | *TCP/443* to the private endpoint subnet from the subnet containing the prompt flow | None |
-| Key Vault | To access secrets from the Chat UI or prompt flow host | *TCP/443* to the private endpoint subnet containing Key Vault | None |
+| Public internet sources | Prompt flow might require an internet search to complement an Azure OpenAI request. | NSG on the prompt flow container host subnet or Machine Learning managed virtual network configuration. | Firewall network rule allowance for the same as the workload control |
+| Azure OpenAI data plane | The compute hosting prompt flow calls to this API for prompt handling | *TCP/443* to the private endpoint subnet from the subnet that contains the prompt flow | None |
+| Key Vault | To access secrets from the Chat UI or prompt flow host | *TCP/443* to the private endpoint subnet that contains Key Vault | None |
 
-For traffic that leaves this architecture's virtual network, controls are best implemented at both the workload, or NSGs, and platform, or Hub network firewall, levels. The NSGs provide initial, broad network traffic rules that are further narrowed down by specific firewall rules in the platform's hub network for added security. There's no expectation that east-west traffic within the workload's components, such as between Machine Learning studio and the storage account in this architecture, should be routed through the hub.
+For traffic that leaves this architecture's virtual network, controls are best implemented at both the workload, or NSGs, and platform, or Hub network firewall, levels. The NSGs provide initial, broad network traffic rules that are further narrowed down by specific firewall rules in the platform's hub network for added security. There's no expectation that east-west traffic within the workload's components, such as between the Machine Learning studio and the storage account in this architecture, should be routed through the hub.
 
 ### DDoS Protection
 
-Determine who should apply the DDoS Protection plan that covers all of your solution's public IP addresses. The platform team might use IP address protection plans or might even use Azure Policy to enforce virtual network protection plans. This architecture should have coverage because it involves a public IP address for ingress from the internet. For more information, see [Recommendations for networking and connectivity](/azure/well-architected/security/networking).
+Determine who should apply the DDoS Protection plan that covers all of your solution's public IP addresses. The platform team might use IP address protection plans, or use Azure Policy to enforce virtual network protection plans. This architecture should have coverage because it involves a public IP address for ingress from the internet. For more information, see [Recommendations for networking and connectivity](/azure/well-architected/security/networking).
 
 ### Identity and access management
 
-Unless otherwise required by your platform team's governance automation, there are no expectations of extra authorization requirements on this architecture due to the platform team involvement. Azure role-based access control (RBAC) should continue to fulfill the principle of least-privilege, granting access to only those who need it, to do just what's needed, and only when needed. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
+Unless otherwise required by your platform team's governance automation, there are no expectations of extra authorization requirements on this architecture because of the platform team's involvement. Azure role-based access control (RBAC) should continue to fulfill the principle of least-privilege (PoLP), which grants access only to those who need it, to do exactly what's needed, and only when needed. For more information, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 ### Certificates and encryption
 
-Typically the workload team is responsible for procuring the TLS certificate for the public IP address on Application Gateway in this architecture. Work with your platform team to understand how the certificate procurement and management processes should align with the organizational expectations.
+The workload team typically procures the TLS certificate for the public IP address on Application Gateway in this architecture. Work with your platform team to understand how the certificate procurement and management processes should align with the organizational expectations.
 
-All of the data storage services in this architecture support both Microsoft-managed or customer-managed encryption keys. Use customer-managed encryption keys, if your workload design wants more control or it's required by the organization. Azure landing zones themselves don't mandate one or the other.
+All of the data storage services in this architecture support encryption keys managed by Microsoft or by customers. Use customer-managed encryption keys if your workload design or organization requires more control. Azure landing zones themselves don't mandate one or the other.
 
 ## Cost optimization
 
-For the workload resources, all of cost optimization strategies in the [baseline architecture](./baseline-openai-e2e-chat.yml#cost-optimization) also apply to this architecture.
+For the workload resources, all of the cost optimization strategies in the [baseline architecture](./baseline-openai-e2e-chat.yml#cost-optimization) also apply to this architecture.
 
 This architecture greatly benefits from Azure landing zone [platform resources](#platform-team-owned-resources). Even if you use those resources via a chargeback model, the added security and cross-premises connectivity are more cost-effective than self-managing those resources. Take advantage of other centralized offerings from your platform team to extend those benefits to your workload without compromising its SLO, recovery time objective (RTO), or recovery point objective (RPO).
 
@@ -446,11 +446,11 @@ Correlated data is often used during incident response. Make sure that the triag
 
 ### Build agents
 
-Many services in this architecture use private endpoints. This design potentially makes build agents a requirement of this architecture, similar to the baseline. Safe and reliable deployment of the build agents is a responsibility of the workload team that does not involve the platform team. However, make sure that the management of the build agents is compliant with the organization. For example, use platform-approved operating system images, patching schedules, compliance reporting, and user authentication methods.
+Many services in this architecture use private endpoints. Similar to the baseline architecture, this design potentially makes build agents a requirement of this architecture. Safe and reliable deployment of the build agents is a responsibility of the workload team that does not involve the platform team. However, make sure that the management of the build agents is compliant with the organization. For example, use platform-approved operating system images, patching schedules, compliance reporting, and user authentication methods.
 
 ## Performance efficiency
 
-The performance efficiency considerations described in the [baseline architecture](./baseline-openai-e2e-chat.yml#performance-efficiency) also apply to this architecture. The supply of the resources used in the demand flows remains in control of the workload team, and not the platform team. Scale the chat UI host, prompt flow host, language models, and others as needed by the workload and allowed by the cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets.
+The performance efficiency considerations described in the [baseline architecture](./baseline-openai-e2e-chat.yml#performance-efficiency) also apply to this architecture. The workload team retains control over the resources used in demand flows, not the platform team. Scale the chat UI host, prompt flow host, language models, and others according to the workload and cost constraints. Depending on the final implementation of your architecture, consider the following factors when you measure your performance against performance targets.
 
 - Egress and cross-premises latency
 - SKU limitations derived from cost containment governance
