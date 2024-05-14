@@ -246,7 +246,7 @@ Although the availability and reliability considerations are not fully pertainin
 
 Although the storage considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution:
 
-- Consider deploying your AKS cluster with [ephemeral OS disks](/azure/aks/cluster-configuration#ephemeral-os) that provide lower read/write latency, along with faster node scaling and cluster upgrades.
+- Consider deploying your AKS cluster with [ephemeral OS disks](/azure/aks/concepts-storage#ephemeral-os-disk) that provide lower read/write latency, along with faster node scaling and cluster upgrades.
 - Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for a network-based storage system, such as [Azure Files](/azure/storage/files/storage-files-introduction), when multiple pods need to concurrently access the same files. For more information, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage).
 - Each node size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth. Plan for your application demands to deploy the appropriate size of nodes.
 - To reduce management overhead and let you scale, don't statically create and assign persistent volumes. Use dynamic provisioning. In your storage classes, define the appropriate reclaim policy to minimize unneeded storage costs, once pods are deleted.

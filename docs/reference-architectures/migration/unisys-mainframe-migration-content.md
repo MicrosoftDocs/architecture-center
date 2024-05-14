@@ -117,7 +117,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar]( /azure/well-architected/reliability/). Follow these reliability recommendations:
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability/). Follow these reliability recommendations:
 - Use [Site Recovery](https://azure.microsoft.com/products/site-recovery/) to mirror the VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
 - Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region.
 - Use [Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure/) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.

@@ -114,7 +114,7 @@ The following `az aks nodepool add` command shows how to add a new node pool to 
         --node-osdisk-size 48
   ```
 
-For more information about ephemeral OS disks, see [Ephemeral OS](/azure/aks/cluster-configuration#ephemeral-os).
+For more information about ephemeral OS disks, see [Ephemeral OS](/azure/aks/concepts-storage#ephemeral-os-disk).
 
 ### Virtual nodes
 
@@ -162,6 +162,8 @@ In the **Virtual node usage** column:
 - **Virtual node subnet name** is the subnet that deploys virtual node pods into Azure Container Instances.
 - **Virtual node virtual network** is the virtual network that contains the virtual node subnet.
 
+<!-- docutune:ignoredCasing io/os instance-sku os-sku -->
+
 | Label | Value | Example, options | Virtual node usage |
 | ---- | --- | --- | --- |
 | kubernetes.azure.com/agentpool| `<agent pool name>` | `nodepool1` | Same |
@@ -189,7 +191,7 @@ In the **Virtual node usage** column:
 
 ### Windows node pools
 
-AKS supports creating and using Windows Server container node pools through the [Azure CNI](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
+AKS supports creating and using Windows Server container node pools through the [Azure container network interface (CNI)](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
 
 The following `az aks nodepool add` command adds a node pool that runs Windows Server containers.
 

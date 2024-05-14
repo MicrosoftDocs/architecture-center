@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/07/2024
+ms.date: 05/13/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -29,12 +29,14 @@ The following new and updated articles have recently been published in the Azure
 
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)
 - [Implement cross-tenant communication by using multitenant applications](./patterns/cross-tenant-communication-using-multitenanted-applications.md)
-- [Access Azure OpenAI and other large language models (LLMs) through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)
+- [Access Azure OpenAI and other language models through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)
 - [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml)
 - [Use HDInsight and Delta Lake to manage event data](./solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml)
 
 ### Updated articles
 
+- [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#2881355c9e](https://github.com/MicrosoftDocs/architecture-center/commit/2881355c9e))
+- [Valet Key pattern](./patterns/valet-key.yml)  ([#392626fa9b](https://github.com/MicrosoftDocs/architecture-center/commit/392626fa9b))
 - [Large-scale custom natural language processing](./ai-ml/idea/large-scale-custom-natural-language-processing.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
 - [Many models machine learning with Azure Machine Learning](./ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
 - [Many models machine learning with Spark](./ai-ml/idea/many-models-machine-learning-azure-spark.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
@@ -93,6 +95,7 @@ The following new and updated articles have recently been published in the Azure
 - [Automate document classification in Azure](./ai-ml/architecture/automate-document-classification-durable-functions.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
 - [Automate document processing with AI Document Intelligence](./ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
 - [Automate PDF forms processing](./ai-ml/architecture/automate-pdf-forms-processing.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
+- [Batch scoring with R models to forecast sales](./ai-ml/architecture/batch-scoring-R-models.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
 - [Batch scoring for deep learning models](./ai-ml/architecture/batch-scoring-deep-learning.yml)  ([#678b1208d7](https://github.com/MicrosoftDocs/architecture-center/commit/678b1208d7))
 - [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#f926f21c96](https://github.com/MicrosoftDocs/architecture-center/commit/f926f21c96))
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#826d234caa](https://github.com/MicrosoftDocs/architecture-center/commit/826d234caa))

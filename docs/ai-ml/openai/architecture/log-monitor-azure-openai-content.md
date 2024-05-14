@@ -141,7 +141,7 @@ The following three sample cost profiles provide estimates based on the amount o
 Principal authors: 
 
 - [Ashish Chauhan](https://www.linkedin.com/in/a69171115/) | Cloud Solution Architect – Data / AI
-- [Jake Wang]( https://www.linkedin.com/in/jake-wang/) | Cloud Solution Architect – AI / Machine Learning
+- [Jake Wang](https://www.linkedin.com/in/jake-wang/) | Cloud Solution Architect – AI / Machine Learning
 
 Other contributors: 
 
