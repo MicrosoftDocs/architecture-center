@@ -24,7 +24,7 @@ The embedding model you choose can have a significant effect on relevancy of you
 
 The vocabulary of an embedding model is important because of how embedding models treat words that aren't in their vocabulary. Even though the word isn't in its vocabulary, the model still needs to calculate a vector for it. To do this, many models break down the words into subwords, which they treat as distinct tokens or they aggregate the vectors for the subwords to create a single embedding.
 
-:::image type="complex" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram showing the word histogram being broken down into the following subwords: his, ta, and mine" border="false":::
+:::image type="complex" source="./_images/word-broken-into-subwords.png" lightbox="./_images/word-broken-into-subwords.png" alt-text="Diagram showing the word histogram being broken down into the following subwords: his, ta, and mine." border="false":::
    Diagram showing the word histogram being broken down into the following subwords: his, ta, and mine
 :::image-end:::
 *Figure 2. Breaking down an unknown word into subwords*
