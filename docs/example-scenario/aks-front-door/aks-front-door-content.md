@@ -184,7 +184,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 - Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements. 
 - Create multiple [node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads, utilizing node labels, node selectors, and affinity rules to optimize resource allocation.
 - Optimize costs by stopping or scaling down AKS clusters or node pools when not in use. [Stop and start AKS clusters](/azure/aks/start-stop-cluster?tabs=azure-cli), [Start and stop node pools](/azure/aks/start-stop-nodepools)
-- Take advantage of Azure cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure Savings Plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview), to monitor and optimize costs. [Azure cost management](https://azure.microsoft.com/en-us/products/cost-management/#overview)
+- Take advantage of Azure cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure Savings Plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview), to monitor and optimize costs.
 - Consider using [spot node pools](/azure/aks/spot-node-pool) for cost savings and benefit from unutilized capacity in Azure.
 - Monitor and govern AKS costs using tools like [Kubecost](https://www.kubecost.com/) for cost allocation and optimization.```
 - Use Azure tags to associate AKS resources with specific workloads or tenants for better cost tracking and management.
