@@ -397,7 +397,7 @@ The following table shows examples of ingress controls in this architecture.
 
 ### Egress traffic control
 
-Apply NSG rules that express the required outbound connectivity requirements of your solution and deny access to everything else. Don't rely only on the hub network controls. As a workload operator, you have the responsibility to stop undesired egress traffic as close to the source as practicable.
+Apply NSG rules that express the required outbound connectivity requirements of your solution and deny everything else. Don't rely only on the hub network controls. As a workload operator, you have the responsibility to stop undesired egress traffic as close to the source as practicable.
 
 While you own your workload's subnets within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request. Work with your network team to ensure continuity of least-access egress control.
 
