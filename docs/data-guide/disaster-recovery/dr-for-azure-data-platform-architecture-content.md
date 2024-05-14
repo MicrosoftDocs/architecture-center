@@ -238,12 +238,12 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: Single Region Write with Periodic backup
     - DR Uplift options:
-        - Single-region accounts may lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](/azure/cosmos-db/high-availability#availability)
-        - It's [recommended](/azure/cosmos-db/high-availability#availability) that Azure Cosmos accounts used for production workloads to enable automatic failover. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity
+        - Single-region accounts may lose availability following a regional outage. Resiliency can be uplifted to a [single write region and at least a second (read) region and enable Service-Managed failover](azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#sla-improvements)
+        - It's [recommended](/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#service-managed-failover) that Azure Cosmos accounts used for production workloads to enable automatic failover. In the absence of this configuration, the account will experience loss of write availability for all the duration of the write region outage, as manual failover won't succeed due to lack of region connectivity
     - Notes
-        - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/cosmos-db/high-availability#durability) - Periodic and Continuous
-        - [Regional failovers](/azure/cosmos-db/high-availability#availability) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application
-        - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage)
+        - To protect against data loss in a region, Azure Cosmos DB provides two [different backup modes](/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#durability) - Periodic and Continuous
+        - [Regional failovers](/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#service-managed-failover) are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application
+        - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#read-and-write-outages)
 
 - **Azure Data Share**
     - Component Recovery Responsibility: Microsoft
