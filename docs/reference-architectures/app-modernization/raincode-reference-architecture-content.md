@@ -59,7 +59,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 7. Azure Blob Storage is a common landing zone for external data sources.
 
-8. An implementation of Active Directory needs to be created or already in place. Raincode provides RACF and Top Secret identity integration using Active Directory extensions.
+8. An implementation of Microsoft Entra ID needs to be created or already in place. Raincode provides RACF and Top Secret identity integration using Microsoft Entra ID extensions.
 
 ### Components
 
