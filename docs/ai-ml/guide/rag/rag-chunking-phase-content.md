@@ -131,7 +131,7 @@ Like structured documents, semi-structured documents that have complex layout st
 
 Some documents have a structure but aren't written in markup. For these documents, the structure must be inferred. A good example is the following EU regulation document.
 
-:::image type="complex" source="./_images/eu-regulation-example.png" lightbox="./_images/eu-regulation-example.png" alt-text="Diagram showing an EU regulation as an example of a document with inferred structure" border="false":::
+:::image type="complex" source="./_images/eu-regulation-example.png" lightbox="./_images/eu-regulation-example.png" alt-text="Diagram showing an EU regulation as an example of a document with inferred structure." border="false":::
    The diagram shows an EU regulation. It shows that there's a structure that can be inferred. There are paragraphs numbered 1, 2, and 3. Under 1, there's an a, b, c, and d. Under a, there's i, ii, iii, iv, v, and vi.
 :::image-end:::
 *Figure 2. EU regulation showing an inferred structure*
