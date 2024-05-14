@@ -26,7 +26,7 @@ Various scenarios can benefit from this solution:
 
 1. A mainframe or midrange application sends a SQL request to the local Db2 subsystem. Db2 configurations reroute the request to the HIS server.
 
-1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA Application Server (AS). In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
+1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA application server. In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
 
 1. The target database handles the request. This solution can configure the following target databases:
 
@@ -52,7 +52,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [HIS][What is HIS] software connects IBM systems with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
 
-- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
 
 ## Contributors
 
