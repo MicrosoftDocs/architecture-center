@@ -128,7 +128,7 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 
 Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
  
-It's good practice to determine if the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a Large Language Model (LLM) to determine if multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
+It's good practice to determine if the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine if multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
 ```text
 Consider the given question to analyze and determine if it falls into one of these categories:
@@ -154,7 +154,7 @@ Example output:
 }
 ```
 
-An LLM can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that converts a complex query into multiple subqueries.
+A large language model can also be used to extract subqueries from a complex query. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that converts a complex query into multiple subqueries.
 
 ```text
 Your task is to take a question as input and generate maximum 3 sub-questions that cover all aspects of the original question. The output should be in strict JSON format, with the sub-questions contained in an array.
@@ -198,11 +198,11 @@ Reranking allows you to run one or more queries, aggregate the results, and rank
 * You performed [manual multiple searches](#manual-multiple) and you want to aggregate the results and rank them.
 * Vector and keyword searches aren't always accurate. You can increase the count of documents returned from your search, potentially including some valid results that would otherwise be ignored, and use reranking to evaluate the results.
 
-You can use an LLM or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
+You can use a large language model or cross-encoder to perform reranking. Some platforms, like Azure AI Search have proprietary methods to rerank results. You can evaluate these options for your data to determine what works best for your scenario. The following sections provide details on these methods.
 
-#### LLM reranking
+#### Large language model reranking
 
-The following is a sample LLM prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that reranks results.
+The following is a sample large language model prompt from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that reranks results.
 
 ```text
 A list of documents is shown below. Each document has a number next to it along with a summary of the document. A question is also provided.
@@ -287,7 +287,7 @@ You should test both positive and negative examples. For the positive examples, 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [LLM end to end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [large language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
 

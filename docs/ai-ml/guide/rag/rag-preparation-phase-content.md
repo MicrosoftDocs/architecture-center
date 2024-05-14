@@ -1,4 +1,4 @@
-The first phase of RAG development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of gathering documents and sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The questions must be answerable by content in the documents and the documents must answer relevant questions. While gathering the test documents and queries, perform an analysis of your documents to get a better understanding of the structure and content.
+The first phase of Retrieval-Augmented Generation (RAG) development and experimentation is the preparation phase. During this phase, you first define the business domain for your solution. Once you have the domain defined, you begin the parallel process of gathering documents and sample questions that are pertinent to the domain. The steps are done in parallel because they're interrelated. The questions must be answerable by content in the documents and the documents must answer relevant questions. While gathering the test documents and queries, perform an analysis of your documents to get a better understanding of the structure and content.
 
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
@@ -17,7 +17,7 @@ Consider these areas when evaluating potential representative test documents:
 - **Pertinence** - The documents must meet the business requirements of the conversational application. For example, if you're building a chat bot tasked with helping customers perform banking operations, the documents should match that requirement, such as documents showing how to open or close a bank account. The documents must be able to address the test questions that are being gathered in the parallel step. If the documents don't have the information relevant to the questions, it cannot produce a valid response.
 - **Representative** - The documents should be representative of the different types of documents that your solution will use. For example, a car insurance document is different to a health insurance or life insurance document. Suppose the use case requires the solution to support all three types, and you only had two car insurance documents, your solution would perform poorly for both health and life insurance. You should have at least 2 for each variation.
 - **Physical document quality** - The documents need to be in a usable shape. Scanned images, for example, might not allow you to extract usable information.
-- **Document content quality** - The documents must have high content quality. There should not be misspellings or grammatical errors. LLMs don't perform well if you provide them with poor quality content.
+- **Document content quality** - The documents must have high content quality. There should not be misspellings or grammatical errors. Large language models don't perform well if you provide them with poor quality content.
 
 The success factor in this step is being *qualitatively confident* that you have a good representation of test documents for your particular domain.
 
@@ -28,7 +28,7 @@ The success factor in this step is being *qualitatively confident* that you have
 * If you must use synthetic data, do your best to make it as close to real data as possible.
 * Make sure that the documents can address the questions that are being gathered.
 * You should have at least two documents for each document variant.
-* You can use LLMs or other tools to help evaluate the document quality.
+* You can use large language models or other tools to help evaluate the document quality.
 
 ## Gather test queries
 
@@ -47,7 +47,7 @@ The output of this phase includes content from both the [Gather representative t
 It's often challenging for the subject matter experts (SMEs) for a particular domain to put together a comprehensive list of questions for the use case. One solution to this challenge is to generate synthetic questions from the representative test documents that were gathered. The following is a real-world approach for generating synthetic questions from representative documents:
 
 1. **Chunk the documents** - Break down the documents into chunks. This chunking step isn't using the chunking strategy for your overall solution. It's a one-off step that will be used for generating synthetic queries. The chunking can be done manually if the number of documents is reasonable.
-2. **Generate queries per chunk** - For each chunk, generate queries either manually or using an LLM. When using an LLM, we generally start by generating two queries per chunk. The LLM can also be used to create the answer. The following example shows a prompt that generates questions and answers for a chunk.
+2. **Generate queries per chunk** - For each chunk, generate queries either manually or using a large language model. When using a large language model, we generally start by generating two queries per chunk. The large language model can also be used to create the answer. The following example shows a prompt that generates questions and answers for a chunk.
 
     ```text
     Please read the following CONTEXT and generate two question and answer json objects in an array based on the CONTEXT provided. The questions should require deep reading comprehension, logical inference, deduction, and connecting ideas across the text. Avoid simplistic retrieval or pattern matching questions. Instead, focus on questions that test the ability to reason about the text in complex ways, draw subtle conclusions, and combine multiple pieces of information to arrive at an answer. Ensure that the questions are relevant, specific, and cover the key points of the CONTEXT.  Provide concise answers to each question, directly quoting the text from provided context. Provide the array output in strict JSON format as shown in output format. Ensure that the generated JSON is 100 percent structurally correct, with proper nesting, comma placement, and quotation marks. There should not be any comma after last element in the array.
@@ -71,7 +71,7 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
 
 ### Unaddressed queries
 
-It's important to gather queries that the documents don't address, along with queries that are addressed. When you test your solution, particularly when you test the LLM, you need to determine how the solution should respond to queries it doesn't have sufficient context to answer. Approaches to responding to queries you can't address include:
+It's important to gather queries that the documents don't address, along with queries that are addressed. When you test your solution, particularly when you test the large language model, you need to determine how the solution should respond to queries it doesn't have sufficient context to answer. Approaches to responding to queries you can't address include:
 
 * Responding that you don't know
 * Responding that you don't know and providing a link where the user might find more information

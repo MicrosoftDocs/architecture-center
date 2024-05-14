@@ -11,7 +11,7 @@ Embeddings are compared to one another using the notions of similarity and dista
 :::image-end:::
 *Figure 1. Comparing embeddings*
 
-In a RAG solution, you often embed the user query using the same embedding model as your chunks and search for relevant vectors from your database to return the most semantically relevant chunks. The original text of the relevant chunks is then passed to the large language model as grounding data.
+In a Retrieval-Augmented Generation (RAG) solution, you often embed the user query using the same embedding model as your chunks and search for relevant vectors from your database to return the most semantically relevant chunks. The original text of the relevant chunks is then passed to the large language model as grounding data.
 
 > [!NOTE]
 > This feature of vectors stresses the importance of cleaning the chunks so mathematical proximity can be tracked more closely with semantic relevancy.

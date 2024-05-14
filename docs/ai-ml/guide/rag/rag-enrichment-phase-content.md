@@ -38,19 +38,19 @@ The metadata columns that you need to add depend on decisions specific to your p
 The following are some common metadata fields, along with the original chunk text, some guidance about their potential uses, and tools or techniques that are commonly used to generate the metadata content.
 
 * **ID** - ID is a key metadata field that is used to uniquely identify a chunk. A unique ID is useful in processing to determine if a chunk already exists in the store or not. An ID can be a hash of some key field. **Tools**: Hashing library
-* **Title** - A title is a useful return value for a chunk. It provides a quick summary of the content in the chunk. The summary can also be useful to query with an indexed search as it can contain keywords for matching. **Tools**: large language model (LLM)
-* **Summary** - The summary is similar to the title in that it's a common return value and can be used in indexed searches. Summaries are generally longer than the title. **Tools**: LLM
-* **Rephrasing of chunk** - Rephrasing of a chunk can be helpful as a vector search field because rephrasing captures variations in language such as synonyms and paraphrasing. **Tools**: LLM
-* **Keywords** - Keyword searches are good for data that is noncontextual, for searching for an exact match, and when a specific term or value is important. For example, an auto manufacturer might have reviews or performance data for each of their models for multiple years. Review for product X for year 2009" is semantically like "Review for product X for 2010" and "Review for product Y for 2009." In this case, you would be better off matching on keywords for the product and year. **Tools**: LLM, RAKE, KeyBERT, MultiRake
+* **Title** - A title is a useful return value for a chunk. It provides a quick summary of the content in the chunk. The summary can also be useful to query with an indexed search as it can contain keywords for matching. **Tools**: large language model
+* **Summary** - The summary is similar to the title in that it's a common return value and can be used in indexed searches. Summaries are generally longer than the title. **Tools**: large language model
+* **Rephrasing of chunk** - Rephrasing of a chunk can be helpful as a vector search field because rephrasing captures variations in language such as synonyms and paraphrasing. **Tools**: large language model
+* **Keywords** - Keyword searches are good for data that is noncontextual, for searching for an exact match, and when a specific term or value is important. For example, an auto manufacturer might have reviews or performance data for each of their models for multiple years. Review for product X for year 2009" is semantically like "Review for product X for 2010" and "Review for product Y for 2009." In this case, you would be better off matching on keywords for the product and year. **Tools**: large language model, RAKE, KeyBERT, MultiRake
 * **Entities** - Entities are specific pieces of information such as people, organizations, and locations. Like keywords, entities are good for exact match searches or when specific entities are important. **Tools**: SpaCy, Stanford Named Entity Recognizer (SNER, Scikit-Learn, Natural Language Toolkit (NLTK).
-* **Cleaned chunk text** - The cleaned chunk text. **Tools**: LLM
-* **Questions that the chunk can answer** - Sometimes, the query that is embedded and the chunk embedded isn't a great match. For example, the query might be small regarding the chunk size. It might be better to formulate the queries that the chunk can answer and do a vector search between the user’s actual query and the preformulated queries. **Tools**: LLM
+* **Cleaned chunk text** - The cleaned chunk text. **Tools**: large language model
+* **Questions that the chunk can answer** - Sometimes, the query that is embedded and the chunk embedded isn't a great match. For example, the query might be small regarding the chunk size. It might be better to formulate the queries that the chunk can answer and do a vector search between the user’s actual query and the preformulated queries. **Tools**: large language model
 * **Source** - The source of the chunk can be valuable as a return for queries. It allows the querier to cite the original source.
 * **Language** - The language of the chunk can be good as a filter in queries.
 
 ## Augmenting economics
 
-The use of LLMs for augmenting chunks can be expensive. You need to calculate the cost of each enrichment you're considering and multiply it by the estimated number of chunks over time. You should use this information, along with your testing of those enriched fields as part of the search to make a good business decision.
+The use of large language models for augmenting chunks can be expensive. You need to calculate the cost of each enrichment you're considering and multiply it by the estimated number of chunks over time. You should use this information, along with your testing of those enriched fields as part of the search to make a good business decision.
 
 ## Next steps
 

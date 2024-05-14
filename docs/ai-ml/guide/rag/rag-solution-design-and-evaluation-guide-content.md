@@ -1,4 +1,4 @@
-The Retrieval Augmented Generation (RAG) pattern is an industry standard approach to building applications that use large language models (LLMs) to reason over specific or proprietary data that is not already known to the LLM. While the architecture is straightforward, designing, experimenting with, and evaluating RAG solutions that fit into this architecture involves many complex considerations that benefits from a rigorous, scientific approach.
+The Retrieval-Augmented Generation (RAG) pattern is an industry standard approach to building applications that use large language models to reason over specific or proprietary data that is not already known to the large language model. While the architecture is straightforward, designing, experimenting with, and evaluating RAG solutions that fit into this architecture involves many complex considerations that benefits from a rigorous, scientific approach.
 
 > This guide is presented as a series. Each article in the series covers a specific phase in designing RAG solutions.
 
@@ -28,7 +28,7 @@ The following is a high-level flow for a RAG application.
 1. The user issues a query in an intelligent application user interface.
 2. The intelligent application makes an API call to an orchestrator. The orchestrator can be implemented with tools or platforms like Semantic Kernel, Azure Machine Learning prompt flow, or LangChain.
 3. The orchestrator determines what search to perform on Azure AI Search and issues the query.
-4. The orchestrator packages the top N results from the query, packages them as context within a prompt, along with the query, and sends the prompt to the LLM. The orchestrator returns the response to the intelligent application for the user to read.
+4. The orchestrator packages the top N results from the query, packages them as context within a prompt, along with the query, and sends the prompt to the large language model. The orchestrator returns the response to the intelligent application for the user to read.
 
 ### RAG data pipeline flow
 
@@ -63,7 +63,7 @@ The series of articles in this guide addresses those considerations and more.
 
 * **Understand chunking economics** - Discusses the factors to consider when looking at the overall cost of your chunking solution for your text corpus
 * **Perform document analysis** - Provides a list of questions you can ask when analyzing a document type that helps you determine what in the document you want to ignore or exclude, what you want to capture in chunks and how you want to chunk
-* **Understand chunking approaches** - Outlines the different approaches to chunking like sentence-based, fixed-size, custom, LLM augmentation, document layout analysis, using machine learning models
+* **Understand chunking approaches** - Outlines the different approaches to chunking like sentence-based, fixed-size, custom, large language model augmentation, document layout analysis, using machine learning models
 * **Understand how document structure affects chunking** - Discusses how the degree of structure a document has influences your choice for a chunking approach
 
 **[Chunk enrichment phase](./rag-enrichment-phase.yml)**
@@ -83,9 +83,9 @@ The series of articles in this guide addresses those considerations and more.
 * **Understanding search options** - Provides an overview of the types of search you can consider such as vector, full text, hybrid, and manual multiple. Provides guidance on splitting a query into subqueries, filtering queries
 * **Evaluate searches** - Provides guidance on evaluating your search solution
 
-**[LLM end to end evaluation phase](./rag-llm-evaluation-phase.yml)**
+**[Large language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)**
 
-* **Understand LLM evaluation metrics** - Provides overview of several metrics you can use to evaluate the LLMs response including groundedness, completeness, utilization, and relevancy
+* **Understand large language model evaluation metrics** - Provides overview of several metrics you can use to evaluate the large language models response including groundedness, completeness, utilization, and relevancy
 * **Understand similarity and evaluation metrics** - Provides a small list of similarity and evaluation metrics you can use when evaluating your RAG solution
 * **Understand importance of documentation, reporting, and aggregation** - Discusses the importance of documenting the hyperparameters along with evaluation results, aggregating results from multiple queries, and visualizing the results
 * **The RAG Experiment Accelerator** - Provides a link to the [Rag Experiment Accelerator](https://github.com/microsoft/rag-experiment-accelerator), which is a tool that is designed to help teams quickly find the best strategies for RAG implementation by running multiple experiments, persisting, and evaluating the results
