@@ -20,7 +20,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
         Decouple components\
         Containerization\
         Asynchronous communication\
-        Independent autoscaling\
+        Independent autoscaling
     :::column-end:::
 :::row-end:::
 
