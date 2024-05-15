@@ -1,8 +1,4 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
-
-[![Diagram showing the architecture of the reliable web app pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
-
-The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. These changes include three design patterns and other key updates to your web app.
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern). The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. These changes include three design patterns and other key updates to your web app.
 
 :::row:::
     :::column:::
@@ -29,10 +25,17 @@ The Modern Web App pattern focuses on optimizing high-demand areas of your appli
     :::column-end:::
 :::row-end:::
 
-The first step is to review the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and apply the guidance. Next, choose the right services that meet the needs of your web app and design your architecture. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
+To implement the Modern Web App pattern:
+
+1. Apply the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern)
+1. Choose the right services.
+1. Design your architecture.
+1. Update web app code and configurations.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
+
+[![Diagram showing the architecture of the reliable web app pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
 
 ## Choose the right services
 
@@ -75,13 +78,6 @@ For more information, see [Choose between Azure messaging services](https://lear
 ## Update the code and configuration
 
 The following sections details essential the code and configuration updates you need to make to your web app. It follows the pillars of the Well-Architected Framework and covers the design patterns and key updates of the Modern Web App pattern.
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Modern Web App pattern uses two design patterns to improve web app reliability:
-
-- *Queue-Based Load Leveling pattern* improves message-based communication.
-- *Retry pattern* improves request-response communication.
 
 #### Implement the Queue-Based Load Leveling pattern
 

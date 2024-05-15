@@ -15,7 +15,7 @@ The Reliable Web App pattern focuses on the essential changes you need to make t
       **Design patterns**<br>
         Retry\
         Circuit-breaker\
-        Cache-aside\
+        Cache-aside
     :::column-end:::
 
     :::column:::
@@ -26,4 +26,8 @@ The Reliable Web App pattern focuses on the essential changes you need to make t
     :::column-end:::
 :::row-end:::
 
-The first step to implement the Reliable Web App pattern is choosing the right Azure services for your web app. With the right services, you can start to design your web app architecture to meet your availability and recovery metrics. Finally, update your web app code and configurations to align with the pillars of the Well-Architected Framework.
+To implement the Reliable Web App Pattern, follow these steps:
+
+1. Choose the right Azure services for your web app.
+1. Design web app architecture.
+1. Update web app code and configurations.
