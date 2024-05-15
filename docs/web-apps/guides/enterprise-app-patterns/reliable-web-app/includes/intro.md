@@ -25,4 +25,4 @@ The Reliable Web App pattern focuses on the essential changes you need to make t
 :::row-end:::
 
 [![Diagram showing the conceptual architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
-*A conceptual architecture of the Reliable Web App pattern (right) that shows how it updates on on-premises web app (left).*
+*A conceptual architecture of the Reliable Web App pattern.*
