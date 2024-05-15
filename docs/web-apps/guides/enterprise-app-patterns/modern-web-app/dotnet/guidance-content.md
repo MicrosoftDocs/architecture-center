@@ -1,4 +1,4 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud by introducing a service-oriented architecture. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern). The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. These changes include three design patterns and other key updates to your web app.
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud by introducing a service-oriented architecture. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern). The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way.
 
 :::row:::
     :::column:::
@@ -24,20 +24,13 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
     :::column-end:::
 :::row-end:::
 
-[![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
+[![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *A conceptual architecture of the Modern Web App pattern (right) that shows how it builds on the Reliable Web App pattern (left).*
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
 
-## Why the Modern Web App pattern?
-
-An important part of the modern web app pattern is dividing services according to domain boundaries.
-
-- Dividing a monolithic solution into finer-grained services allows services to version and scale independently.
-- A service-oriented architecture allows you to align members of the workload team to different services.
-- When load increases, only the services that represent the performance bottleneck need to scale out.
-- Decomposing the architecture allows you to choose the operating system choice per service
+To implement the Modern Web App pattern, follow these steps:
 
 ## Choose the right services
 
