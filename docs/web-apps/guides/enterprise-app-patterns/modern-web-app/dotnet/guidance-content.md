@@ -24,10 +24,27 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
     :::column-end:::
 :::row-end:::
 
-**Implementation steps**: The first step is to review the Reliable Web App pattern and apply the guidance. Next, choose the right services that meet the needs of your web app. Decouple your architecture. Finally, update your web app code and configurations in line with the pillars of the Well-Architected Framework.
-
 [![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
-*Conceptual architecture of the Modern Web App pattern*
+*A conceptual architecture of the Modern Web App pattern (right) that showing how it builds on the Reliable Web App pattern (left).*
+
+## Why the Modern Web App pattern?
+
+An important part of the modern web app pattern is dividing services according to domain boundaries.
+
+- Dividing a monolithic solution into finer-grained services allows services to version and scale independently.
+- A service-oriented architecture allows you to align members of the workload team to different services.
+- When load increases, only the services that represent the performance bottleneck need to scale out.
+- Decomposing the architecture allows you to choose the operating system choice per service
+
+## How to implement the Modern Web App pattern?
+
+The Reliable Web App pattern is a prerequisite to the Modern Web App pattern. Apply the Reliable Web App pattern guidance before proceeding.
+
+- *Choose the right services.*  that meet the needs of your web app.
+- *Decompose your architecture.*
+- *Implement the design patterns.*
+- *Update web app configurations.*
+
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
@@ -62,7 +79,7 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 ## Decompose workload
 
-
+- *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
 
 ## Implement the design patterns
 
@@ -77,18 +94,17 @@ The following sections provide guidance on implementing the design patterns to y
 
 ### Implement the Strangler Fig pattern
 
-The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to separate larger services into more granular services. It allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be intractable if they had to be completed all at once. Dividing a monolithic solution into finer-grained services allows services to version and scale independently. A service-oriented architecture in which each service is self-contained makes it easy for different teams in an organization to own different services and innovate at the pace that makes sense for them. And when load increases, only the services that represent the performance bottleneck need to scale out. The strangler fig pattern is a useful pattern for transitioning gradually into such an architecture. To implement the Strangler Fig pattern, follow these recommendations:
+The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be difficult if they had to be completed all at once. To implement the Strangler Fig pattern, follow these recommendations:
 
-- *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
 - *Use a façade service if necessary.* In some cases, a strangler fig façade service is used to route requests to the various backend solutions while the pattern is being applied. This is particularly useful when you have multiple services running in parallel during the transition period. However, if the extracted service doesn’t have any public-facing APIs, such a façade service might not be necessary.
 - *Unify the API surface area.* If your application exposes an API to callers, consider using a management platform like [Azure API Management](/azure/api-management/api-management-key-concepts). It can help unify the surface area of multiple services which have been extracted from one another, making it easier for clients to consume your services.
 - *Manage feature rollout.* If you want an extracted service to be rolled out gradually, use ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). This allows you to use the new service for only a portion of requests initially, and then increase its usage over time as you gain confidence in its stability and performance.
 
-The reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The Strangler Fig pattern allows for a gradual transition from the old in-process implementation to the new service. The extracted service was also updated to run in a Linux container and shows how services can be upgraded during extraction.
+The reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The extracted service was also updated to run in a Linux container and shows how services can be upgraded during extraction.
 
 ### Implement the Queue-Based Load Leveling pattern
 
-The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate, enhancing the reliability of the system. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
+The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
 - *Use non-blocking message queuing.* Ensure that the task queuing messages does not block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a ‘standby’ code path that can be used until the data is available.
 
@@ -320,7 +336,7 @@ The Modern Web App pattern begins breaking up the monolithic architecture and in
 - *Configure a cooldown period.* Apply an appropriate cooldown period to introduce a delay between scaling events. The goal is to [prevent excessive scaling](/azure/well-architected/cost-optimization/optimize-scaling-costs#optimize-autoscaling) activities triggered by temporary load spikes.
 - *Configure queue-based scaling.* If your application uses a message queue like Azure Service Bus, configure your autoscaling settings to scale based on the length of the queue with request messages. The scaler aims to maintain one replica of the service for every N messages in the queue (rounded up).
 
-The reference implementation uses the [Azure Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the Container App based on the length of the queue with request messages. The `service-bus-queue-length-rule` scales the service based on the length of a specified Azure Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every ten messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string secret`, which contains the connection string for the Service Bus queue, is retrieved from Key Vault. This secret is used to authenticate the scaler to the Service Bus.
+The reference implementation uses the [Azure Service Bus KEDA scaler](/azure/container-apps/scale-app) to scale the Container App based on the length of the queue. The `service-bus-queue-length-rule` scales the service based on the length of a specified Azure Service Bus queue. The `messageCount` parameter is set to 10, so the scaler has one service replica for every ten messages in the queue. The `scaleMaxReplicas` and `scaleMinReplicas` parameters set the maximum and minimum number of replicas for the service. The `queue-connection-string secret`, which contains the connection string for the Service Bus queue, is retrieved from Key Vault. This secret is used to authenticate the scaler to the Service Bus.
 
 ```yml
 scaleRules: [
@@ -349,7 +365,7 @@ scaleMinReplicas: 0
 
 ### Containerize service deployment
 
-This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. An important part of the modern web app pattern is dividing services according to domain boundaries (as discussed in the strangler fig pattern). To containerize deployment, follow these recommendations:
+This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. To containerize deployment, follow these recommendations:
 
 - *Identify domain boundaries.* Start by identifying the domain boundaries within your monolithic application. This helps determine which parts of the application you can extract into separate services.
 - *Create docker images.* When creating Docker images for your .NET services, use chiseled base images. These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
