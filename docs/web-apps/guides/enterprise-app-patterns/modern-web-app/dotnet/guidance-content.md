@@ -25,7 +25,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 :::row-end:::
 
 [![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
-*A conceptual architecture of the Modern Web App pattern (right) that shows how it builds on the Reliable Web App pattern (left).*
+*A conceptual architecture of the Modern Web App pattern.*
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
