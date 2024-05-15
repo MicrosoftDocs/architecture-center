@@ -75,6 +75,49 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align to the pillars of the Well-Architected Framework (*see table*):
 
+:::row:::
+    :::column:::
+        **Design patterns**\
+        Strangler Fig
+    :::column-end:::
+
+    :::column:::
+      **Workload design benefits**\
+        Reliability<br> Cost optimization <br>Operational excellence
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        Queue-Based Load Leveling
+    :::column-end:::
+
+    :::column:::
+        Reliability<br> Cost optimization <br>Performance efficiency
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        Competing Consumer
+    :::column-end:::
+
+    :::column:::
+        Reliability<br> Cost optimization <br>Performance efficiency
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        Health Endpoint Monitoring pattern
+    :::column-end:::
+
+    :::column:::
+        Reliability<br>Operational excellence <br>Performance efficiency
+    :::column-end:::
+:::row-end:::
+
+
 | Design patterns | Workload design benefits |
 | --- | --- |
 | Strangler Fig pattern | Reliability<br> Cost optimization <br>Operational excellence |
