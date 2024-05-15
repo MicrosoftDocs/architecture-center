@@ -23,14 +23,16 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
         Autoscale independent services\
         Data autonomy
     :::column-end:::
+
+    :::column:::
+      **Implementation steps**<br>
+        1. Apply the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern)
+        2. Choose the right services
+        3. Decouple architecture
+        4. Add design patterns
+        5. Update configurations
+    :::column-end:::
 :::row-end:::
-
-To implement the Modern Web App pattern:
-
-1. Apply the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern)
-1. Choose the right services.
-1. Design your architecture.
-1. Update web app code and configurations.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
@@ -269,10 +271,10 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
-- *Implement health checks.* Use ASP.NET Core [Health Checks Middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
+- *Implement health checks.* Use [ASP.NET Core health checks middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 - *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
 
-    The reference implementation uses [ASP.NET Core health check middleware](/aspnet/core/host-and-deploy/health-checks) to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the AspNetCore.Diagnostics.HealthChecks package. Azure Container Apps allow configuration of [health probes](https://learn.microsoft.com/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
+    The reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
 ```C#
 // Add health checks, including health checks for Azure services that are used by this service.
@@ -366,7 +368,7 @@ As applications move from the Reliable Web App pattern to the Modern Web App pat
 
 ### Competing Consumers pattern
 
-The [Competing Consumers pattern](https://learn.microsoft.com/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
+The [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 - *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they are ready.
