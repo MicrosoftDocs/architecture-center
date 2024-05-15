@@ -80,9 +80,9 @@ Azure Services refers to the applications and services that make the Azure Cloud
      - If there are questions about data integrity, the decision could be made to roll back further in time before executing the new processing to bring the platform up to date
    - Having a priority order for processes (based upon business impact) will help in orchestrating the recovery
    - This step should be closed out by technical validation unless business users directly interact with the services. If there is direct access, there will need to be a business validation step
-   - Once validation has been completed, a handover to the individual solution teams to start their own DR recovery process happens
+   - Once validation has been completed, a handover to the individual solution teams to start their own DR recovery process can take place
      - This handover should include confirmation of the current timestamp of the data/processes
-     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this - inbound/outbound flows, for example
+     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this, as it can impact inbound/outbound flows, for example
 
 4. **Recover the individual solutions hosted by the platform**
 
