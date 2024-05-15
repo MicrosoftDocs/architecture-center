@@ -20,7 +20,7 @@ The Reliable Web App pattern focuses on the essential changes you need to make t
       **Key updates**<br>
         Managed identity\
         Private endpoints\
-        Infrastructure as code\
+        Infrastructure as code
     :::column-end:::
 :::row-end:::
 
