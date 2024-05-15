@@ -27,6 +27,9 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 [![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
 *A conceptual architecture of the Modern Web App pattern (right) that shows how it builds on the Reliable Web App pattern (left).*
 
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
+
 ## Why the Modern Web App pattern?
 
 An important part of the modern web app pattern is dividing services according to domain boundaries.
@@ -35,19 +38,6 @@ An important part of the modern web app pattern is dividing services according t
 - A service-oriented architecture allows you to align members of the workload team to different services.
 - When load increases, only the services that represent the performance bottleneck need to scale out.
 - Decomposing the architecture allows you to choose the operating system choice per service
-
-## How to implement the Modern Web App pattern?
-
-The Reliable Web App pattern is a prerequisite to the Modern Web App pattern. Apply the Reliable Web App pattern guidance before proceeding.
-
-- *Choose the right services.*  that meet the needs of your web app.
-- *Decompose your architecture.*
-- *Implement the design patterns.*
-- *Update web app configurations.*
-
-
-> [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
 
 ## Choose the right services
 
