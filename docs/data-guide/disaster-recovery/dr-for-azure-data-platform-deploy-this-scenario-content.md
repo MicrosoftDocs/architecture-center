@@ -88,9 +88,9 @@ Azure Services refers to the applications and services that make the Azure Cloud
 
    ![Diagram showing the recovery of individual platform systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
-   - Each individual solution should have its own DR runbook. The runbooks should at least contain the nominated business stakeholders who will test and confirm that service recovery has been completed
+   - Each individual solution should have its own DR runbook, providing the fine-grain recovery and validate steps for that specific solution. The runbook MVP would contain the nominated business stakeholders who will test, and confirm that service recovery has been completed
    - Depending on resource contention or priority, key solutions/workloads may be prioritized over others - core enterprise processes over ad hoc labs, for example
-   - Once the validation steps have been completed, a handover to the downstream solutions to start their DR recovery process happens
+   - Once the validation steps have been completed, a handover to the downstream solutions to start their DR recovery process is the next step
 
 5. **Handover to downstream, dependent systems**
 
