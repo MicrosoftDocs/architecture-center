@@ -25,7 +25,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 :::row-end:::
 
 [![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/rwa-to-mwa.svg)](../../../_images/rwa-to-mwa.svg)
-*A conceptual architecture of the Modern Web App pattern (right) that showing how it builds on the Reliable Web App pattern (left).*
+*A conceptual architecture of the Modern Web App pattern (right) that shows how it builds on the Reliable Web App pattern (left).*
 
 ## Why the Modern Web App pattern?
 
