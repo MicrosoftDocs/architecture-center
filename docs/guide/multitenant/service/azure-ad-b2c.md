@@ -44,7 +44,7 @@ In multitenant solutions, it's common to combine multiple identity services to a
 - **Customer identities**, which are for end-user accounts. They control how your tenants' users get access to your applications.
 - **Internal identities**, which handle how your own team manages your solution.
 
-These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) (Microsoft Entra ID) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
+These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
 
 Consider an example multitenant solution built by Fabrikam. The solution uses a combination of the two services to meet Fabrikam's requirements:
 
