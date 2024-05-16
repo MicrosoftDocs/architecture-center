@@ -32,7 +32,7 @@ The scope of this article series includes:
 
 The following items are considered out-of-scope for this article series:
 
-- The Fallback process, from the secondary region back to the primary region  
+- The Fallback process, from the secondary region back to the primary region.  
 - Any non-Azure applications, components, or systems – this includes but isn't limited to on-premises, other cloud vendors, third party web services etc.
 - Recovery of any upstream services, such as on-premises networks, gateways, enterprise shared services, etc., that are prerequisites to this process.
 - Recovery of any downstream services, such as on-premises operational systems, third party reporting systems, data modeling or data science applications, etc., that are dependent on this process to recover their own services.
