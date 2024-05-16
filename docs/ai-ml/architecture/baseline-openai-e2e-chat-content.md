@@ -34,7 +34,7 @@ Many of the components of this architecture are the same as the resources in the
 
 - [Container Registry](https://azure.microsoft.com/services/container-registry) lets you build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Container Registry.
 
-- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and Embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks), [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
+- [Azure OpenAI](/azure/well-architected/service-guides/azure-openai) is a fully managed service that provides REST API access to Azure OpenAI's language models, including the GPT-4, GPT-3.5-Turbo, and embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks), [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
 
 - [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). AI Search is included in the architecture because it's a common service used in the flows behind chat applications. AI Search can be used to retrieve and index data that's relevant for user queries. The prompt flow implements the RAG [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) pattern to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
@@ -217,7 +217,7 @@ The following guidance extends the [identity and access management guidance in t
 - Create separate managed identities for the following Machine Learning resources, where applicable:
   - Workspaces for flow authoring and management
   - Compute instances for testing flows
-  - Online endpoint - used by the deployed flow if deployed to a managed online endpoint
+  - Online endpoints in the deployed flow if the flow is deployed to a managed online endpoint
 - Implement identity-access controls for the chat UI by using Microsoft Entra ID
 
 ### Machine Learning role-based access roles
@@ -243,7 +243,7 @@ This architecture follows the principle of least privilege by only assigning rol
 
 There are two services in this architecture that use key-based authentication: Azure OpenAI and the Machine Learning managed online endpoint. Because you use key-based authentication for these services, it's important to:
 
-- Store the key in a secure store, like Azure Key Vault, for on-demand access from authorized clients, such as the Azure Web App hosting the prompt flow container.
+- Store the key in a secure store, like Key Vault, for on-demand access from authorized clients, such as the Azure Web App hosting the prompt flow container.
 
 - Implement a key rotation strategy. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), create a key expiration policy and use Azure Policy to monitor whether the key has been rotated.
 
@@ -287,21 +287,21 @@ Azure OpenAI is a consumption-based service, and as with any consumption-based s
   
   - Optimize prompt input and response length. Longer prompts consume more tokens, raising the cost, yet prompts that are missing sufficient context don't help the models yield good results. Create concise prompts that provide enough context to allow the model to generate a useful response. Likewise, ensure that you optimize the limit of the response length.
   
-- **Azure OpenAI playground** usage should be as-necessary and on preproduction instances, so that those activities aren't incurring production costs.
+- **Azure OpenAI playground** usage should be as necessary and on preproduction instances, so that those activities aren't incurring production costs.
 
-- **Select the right AI model.** Model selection also plays a large role in the overall cost of Azure OpenAI. All models have strengths and weaknesses and are individually priced. Use the correct model for the use case to make sure that you're not overspending on a more expensive model when a less expensive model yields acceptable results. In this chat reference implementation, GPT 3.5-turbo was chosen over GPT-4 to save about an order of magnitude of model deployment costs while achieving sufficient results.
+- **Select the right AI model**. Model selection also plays a large role in the overall cost of Azure OpenAI. All models have strengths and weaknesses and are individually priced. Use the correct model for the use case to make sure that you're not overspending on a more expensive model when a less expensive model yields acceptable results. In this chat reference implementation, GPT 3.5-turbo was chosen over GPT-4 to save about an order of magnitude of model deployment costs while achieving sufficient results.
 
-- **Understand billing breakpoints** - Fine-tuning is charged per-hour. To be the most efficient, you want to use as much of that time available per hour to improve the fine-tuning results while avoiding just slipping into the next billing period. Likewise, the cost for 100 images from image generation is the same as the cost for one image.  Maximize the price break points to your advantage.
+- **Understand billing breakpoints**. Fine-tuning is charged per-hour. To be the most efficient, you want to use as much of that time available per hour to improve the fine-tuning results while avoiding just slipping into the next billing period. Likewise, the cost for 100 images from image generation is the same as the cost for one image.  Maximize the price break points to your advantage.
 
-- **Understand billing models** - Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. After you have predictable usage patterns, consider switching to this prepurchase billing model if it calculates to be more cost effective at your usage volume.
+- **Understand billing models**. Azure OpenAI is also available in a commitment-based billing model through the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) offering. After you have predictable usage patterns, consider switching to this prepurchase billing model if it's more cost effective at your usage volume.
 
-- **Set provisioning limits** - Ensure that all provisioning quota is allocated only to models that are expected to be part of the workload, on a per-model basis. Throughput to already deployed models isn't limited to this provisioned quota while dynamic quota is enabled. Quota doesn't directly map to costs and that cost might vary.
+- **Set provisioning limits**. Ensure that all provisioning quota is allocated only to models that are expected to be part of the workload, on a per-model basis. Throughput to already deployed models isn't limited to this provisioned quota while dynamic quota is enabled. Quota doesn't directly map to costs and that cost might vary.
 
-- **Monitor pay-as-you-go usage** - If you use pay-as-you-go, [monitor usage](/azure/ai-services/openai/how-to/quota?tabs=rest#view-and-request-quota) of Tokens per Minute (TPM) and Requests per Minute (RPM). Use that information to inform architectural design decisions such as what models to use, and optimize prompt sizes.
+- **Monitor pay-as-you-go usage**. If you use pay-as-you-go pricing, [monitor usage](/azure/ai-services/openai/how-to/quota?tabs=rest#view-and-request-quota) of TPM and RPM. Use that information to inform architectural design decisions such as what models to use, and optimize prompt sizes.
 
-- **Monitor provisioned throughput usage** - If you use [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput), monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring) to ensure that you aren't underutilizing the provisioned throughput that you purchased.
+- **Monitor provisioned throughput usage**. If you use [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput), monitor [provision-managed usage](/azure/ai-services/openai/how-to/monitoring) to ensure that you aren't underusing the provisioned throughput that you purchased.
 
-- **Cost management** - Follow the guidance on [using cost management features with OpenAI](/azure/ai-services/openai/how-to/manage-costs) to monitor costs, set budgets to manage costs, and create alerts to notify stakeholders of risks or anomalies.
+- **Cost management**. Follow the guidance on [using cost management features with OpenAI](/azure/ai-services/openai/how-to/manage-costs) to monitor costs, set budgets to manage costs, and create alerts to notify stakeholders of risks or anomalies.
 
 ## Operational excellence
 
@@ -309,11 +309,11 @@ Operational excellence outlines the operations processes that deploy an applicat
 
 ### Machine Learning - built-in prompt flow runtimes
 
-To minimize operational burden the **Automatic Runtime** is a serverless compute option within Machine Learning simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low-maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload-team managed lifecycle of the compute, and should be selected when workload requirements exceed the configuration capabilities of the automatic runtime option.
+To minimize operational burden the **Automatic Runtime** is a serverless compute option within Machine Learning that simplifies compute management and delegates most of the prompt flow configuration to the running application's `requirements.txt` file and `flow.dag.yaml` configuration. This makes this choice low maintenance, ephemeral, and application-driven. Using **Compute Instance Runtime** or externalized compute, such as in this architecture, requires a more workload team-managed lifecycle of the compute, and should be selected when workload requirements exceed the configuration capabilities of the automatic runtime option.
 
 ### Monitoring
 
-Diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics is configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs and AppServicePlatformLogs.
+Diagnostics are configured for all services. All services but Machine Learning and App Service are configured to capture all logs. The Machine Learning diagnostics are configured to capture the audit logs that are all resource logs that record customer interactions with data or the settings of the service. App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs, and AppServicePlatformLogs.
 
 Evaluate building custom alerts for the resources in this architecture such as those found in the Azure Monitor baseline alerts. For example:
 
@@ -321,13 +321,13 @@ Evaluate building custom alerts for the resources in this architecture such as t
 - [Machine Learning and Azure OpenAI alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/CognitiveServices/accounts/)
 - [Azure Web Apps alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Web/serverFarms/)
 
-### Large language model operations (LLMOps)
+### Language model operations
 
-Deployment for Azure OpenAI based chat solutions like this architecture should follow the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for continuous integration and continuous delivery (CI/CD) and network-secured architectures. The following guidance addresses the implementation of Flows and their associated infrastructure based on the LLMOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
+Deployment for Azure OpenAI-based chat solutions like this architecture should follow the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for continuous integration and continuous delivery (CI/CD) and network-secured architectures. The following guidance addresses the implementation of Flows and their associated infrastructure based on the LLMOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
 
 #### Development
 
-Machine Learning prompt flow offers both a browser-based authoring experience in Machine Learning studio or through a [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Machine Learning studio, the files are stored in a Storage Account. When you work in VS Code, the files are stored on your local filesystem.
+Machine Learning prompt flow offers both a browser-based authoring experience in Machine Learning studio or through a [Visual Studio Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When you use Machine Learning studio, the files are stored in a Storage account. When you work in VS Code, the files are stored in your local file system.
 
 In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This approach facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
@@ -337,13 +337,13 @@ For enterprise development, use the [VS Code extension](/azure/machine-learning/
 
 Test the flows used in a chat application just as you test other software artifacts. It's challenging to specify and assert a single "right" answer for language model outputs, but you can use a language model itself to evaluate responses. Consider implementing the following automated evaluations of your language model flows:
 
-- **Classification Accuracy**: Evaluates whether the language model gives a "correct" or "incorrect" score and aggregates the outcomes to produce an accuracy grade.
+- **Classification accuracy**: Evaluates whether the language model gives a "correct" or "incorrect" score and aggregates the outcomes to produce an accuracy grade.
 
 - **Coherence**: Evaluates how well the sentences in a model's predicted answer are written and how they coherently connect with each other.
 
 - **Fluency**: Assesses the model's predicted answer for its grammatical and linguistic accuracy.
 
-- **Groundedness Against Context**: Evaluates how well the model's predicted answers are based on preconfigured context. Even if the language models responses are correct, if they can't be validated against the given context, then such responses aren't grounded.
+- **Groundedness against context**: Evaluates how well the model's predicted answers are based on preconfigured context. Even if the language model responses are correct, if they can't be validated against the given context, then such responses aren't grounded.
 
 - **Relevance**: Evaluates how well the model's predicted answers align with the question asked.
 
@@ -362,9 +362,8 @@ Consider the following guidance when implementing automated evaluations:
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" border="false" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
   The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a PR pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a. CI pipeline and b. CD pipeline.
 :::image-end:::
-*Figure 5: Prompt flow deployment*
 
-1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using Prompt flow for VS Code, periodically committing changes and pushing those changes to the feature branch.
+1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using prompt flow for VS Code, periodically committing changes and pushing those changes to the feature branch.
 
 1. Once local development and experimentation are completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR pipeline. This pipeline runs fast quality checks that should include:
   
@@ -385,7 +384,7 @@ Consider the following guidance when implementing automated evaluations:
 
     b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
 
-      - Deploys the flow from the Machine Learning Registry to a Machine Learning online endpoint
+      - Deploys the flow from the Machine Learning registry to a Machine Learning online endpoint
       - Runs integration tests that target the online endpoint
       - Runs smoke tests that target the online endpoint
 
@@ -400,13 +399,13 @@ Consider the following guidance when implementing automated evaluations:
     - Managing costs
     - Communicating the model's performance to stakeholders
 
-#### Deployment Guidance
+#### Deployment guidance
 
-You can use Machine Learning Endpoints to deploy models in a way that enables flexibility when releasing to production. Consider the following strategies to ensure the best model performance and quality:
+You can use Machine Learning endpoints to deploy models in a way that enables flexibility when releasing to production. Consider the following strategies to ensure the best model performance and quality:
 
 - Blue/green deployments: With this strategy, you can safely deploy your new version of the web service to a limited group of users or requests before directing all traffic over to the new deployment.
 
-- A/B Testing: Not only are Blue/Green deployments effective for safely rolling out changes, they can also be used to deploy new behavior that allows a subset of users to evaluate the impact of the change.
+- A/B testing: Not only are blue/green deployments effective for safely rolling out changes, they can also be used to deploy new behavior that allows a subset of users to evaluate the impact of the change.
 
 - Include linting of Python files that are part of the prompt flow in your pipelines. Linting checks for compliance with style standards, errors, code complexity, unused imports, and variable naming.
 
