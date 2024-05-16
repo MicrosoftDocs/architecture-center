@@ -266,10 +266,10 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR Impact
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
-        - Azure Regional Failure: Contoso should monitor, ensuring there are [enough provisioned RUs](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read & write activities.
+        - Azure Regional Failure: Contoso should monitor, ensuring there are [enough provisioned RUs](/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#outage-detection-notification-and-management) in the remaining regions to support read & write activities.
     - Notes
-        - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
-        - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability).
+        - [Single-region accounts may lose availability](/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#service-managed-failover) following a regional outage. To ensure high availability of your Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover.
+        - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/reliability/reliability-cosmos-db-nosql?toc=%2Fazure%2Fcosmos-db%2Ftoc.json#:~:text=production%20workloads%20to-,enable%20service%2Dmanaged%20failover,-.%20This%20configuration%20enables).
 
 - **Azure AI Search (formerly Cognitive Search)**
     - Contoso SKU selection: Standard S1
