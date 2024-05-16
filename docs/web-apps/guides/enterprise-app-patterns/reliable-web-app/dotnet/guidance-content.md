@@ -23,7 +23,23 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
 
-[!INCLUDE [second section](../includes/update-reliability-retry.md)]
+## Update code 
+
+
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
+
+### Implement the Retry pattern
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Reliability***
+    :::column-end:::
+:::row-end:::
+
+Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
 
 - *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
 
@@ -76,6 +92,9 @@ ms.custom: devx-track-dotnet
     ```
 
 #### Use the Circuit Breaker pattern
+
+|Well-Architected Framework pillar support: | Reliability, Performance Efficiency |
+| --- | --- |
 
 Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
@@ -169,9 +188,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 - *Use shared services.* Centralize and share network resources in a hub virtual network.
 
-- *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types.
-
-    The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
+- *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types. The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
 
 ## Operational excellence
 
