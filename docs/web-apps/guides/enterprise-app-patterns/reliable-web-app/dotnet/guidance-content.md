@@ -6,9 +6,6 @@ ms.custom: devx-track-dotnet
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern. The reference implementation simulates the migration efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
-[![Diagram showing the conceptual architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
-*Figure 1. A conceptual architecture of the Reliable Web App pattern.*
-
 [!INCLUDE [define goals and choose azure services](../includes/goals-services.md)]
 
 | Web app component | Recommendation | Reference implementation | Guidance |
@@ -310,12 +307,15 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
 
-## Deploy the reference implementation
+## Deploy this scenario
 
-Deploy the **[reference implementation](https://aka.ms/eap/rwa/dotnet)** by following the instructions in the GitHub repository.
+[GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. Once deployed, you can observe the patterns described in this document in action. The reference implementation simulates the migration efforts of a fictional company, Relecloud. the reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
-*Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+*Figure 2. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+
+>[!div class="nextstepaction"]
+>[Modern Web App pattern for .NET reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)
 
 ## Next steps
 
