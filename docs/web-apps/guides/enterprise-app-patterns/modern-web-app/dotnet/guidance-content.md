@@ -1,38 +1,45 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud by introducing a service-oriented architecture. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern). The Modern Web App pattern focuses on optimizing high-demand areas of your application in a cost efficient way. To implement the Modern Web App pattern, follow the guidance in the article:
-
-:::row:::
-    :::column:::
-        **Benefits**<br>
-        Targeted performance efficiency\
-        Cost-optimized scaling
-    :::column-end:::
-
-    :::column:::
-      **Design patterns**<br>
-        Strangler Fig\
-        Queue-Based Load Leveling\
-        Competing Consumers\
-        Health Endpoint Monitoring
-    :::column-end:::
-
-    :::column:::
-      **Key updates**<br>
-        Decouple components\
-        Containerization\
-        Asynchronous communication\
-        Independent autoscaling
-    :::column-end:::
-:::row-end:::
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud by introducing a service-oriented architecture. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
 [![Diagram showing conceptual architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. A conceptual architecture of the Modern Web App pattern.*
+
+The Modern Web App pattern focuses on optimizing critical flows your web application. It decouples web app services to introduce a service-oriented architecture. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
+
+| Benefits of the pattern | Key changes | Web app code updates |
+| --- | --- | --- |
+| Optimization of critical flows<br>Cost-optimized scaling<br>Enhance performance of critical flows | Decoupled components<br> Asynchronous communication <br> Independent autoscaling <br> Containerization | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern |
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
 ## Choose the right services
 
-The Modern Web App pattern introduces a service-oriented architecture. It applies containerization and asynchronous communication to all independent services. The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
+The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
+
+:::row:::
+    :::column:::
+        **Benefits**<br>
+        Optimization of critical flows\
+        Cost-optimized scaling\
+        Enhance performance of critical flows
+    :::column-end:::
+
+    :::column:::
+      **Key changes**<br>
+        Decoupled components\
+        Asynchronous communication\
+        Independent autoscaling\
+        Containerization
+    :::column-end:::
+
+    :::column:::
+      **Code updates**<br>
+        Strangler Fig pattern\
+        Queue-Based Load Leveling\
+        Competing Consumers\
+        Health Endpoint Monitoring
+    :::column-end:::
+:::row-end:::
 
 ### Choose a container service
 
@@ -62,7 +69,7 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 - *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
 
-## Implement the design patterns
+## Update web app code
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align to the pillars of the Well-Architected Framework (*see table*):
 
