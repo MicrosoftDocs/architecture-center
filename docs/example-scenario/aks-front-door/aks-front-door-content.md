@@ -18,7 +18,7 @@ The following diagram illustrates the steps involved in the message flow during 
 
 The actions carried out during the deployment process are outlined below:
 
-1. A security engineer generates a certificate for the custom domain used by the workload and saves it in an Azure Key Vault. You can obtain a valid certificate from a well-known [certification authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority), or use a solution like [Key Vault Acmebot](https://github.com/shibayan/keyvault-acmebot) to acquire a certificate from one of the following ACME v2 compliant Certification Authority, such as [Let's Encrypt](https://letsencrypt.org/) and more.
+1. A security engineer generates a certificate for the custom domain used by the workload and saves it in an Azure Key Vault. You can obtain a valid certificate from a well-known [certification authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 2. A platform engineer specifies the necessary information in the `main.bicepparams` Bicep parameters file and deploys the Bicep modules to create the Azure resources. This includes:
    - A prefix for the Azure resources
    - The name and resource group of the existing Azure Key Vault that holds the TLS certificate for the workload hostname and Front Door custom domain.
@@ -35,7 +35,7 @@ The actions carried out during the deployment process are outlined below:
 During runtime, the message flow for a request initiated by an external client application is as follows:
 
 1. The client application sends a request to the web application using its custom domain. The DNS zone associated with the custom domain uses a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) to redirect the DNS query for the custom domain to the original hostname of the Azure Front Door endpoint.
-2. The request is sent to one of the [Azure Front Door points-of-presence](/azure/frontdoor/edge-locations-by-region).
+2. Azure Front Door traffic routing occurs in several stages. Initially, the request is sent to one of the [Azure Front Door points-of-presence](/azure/frontdoor/edge-locations-by-region). Subsequently, the Front Door leverages your configuration to determine the appropriate destination for the traffic. The routing process can be influenced by various factors, such as the Front Door caching, web application firewall (WAF), routing rules, rules engine, and caching configuration. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture?pivots=front-door-standard-premium).
 3. Azure Front Door forwards the incoming request to the [Azure Private Endpoint](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview) connected to the [Azure Private Link Service](/azure/private-link/private-link-service-overview) used to expose the AKS-hosted workload.
 4. The request is sent to the Azure Private Link Service.
 5. The request is forwarded to the `kubernetes-internal` AKS internal load balancer.
