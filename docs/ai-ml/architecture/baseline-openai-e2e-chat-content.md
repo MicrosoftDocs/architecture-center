@@ -19,7 +19,7 @@ The Machine Learning workspace is configured with [managed virtual network isola
 :::image-end:::
 *Figure 1: Baseline end-to-end chat architecture with OpenAI.*
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/openai-end-to-end.vsdx) of this architecture.*
 
 ## Components
 
