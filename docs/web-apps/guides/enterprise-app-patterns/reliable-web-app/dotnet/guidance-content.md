@@ -87,7 +87,8 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
     }
     ```
 
-#### Use the Circuit Breaker pattern
+### Implement the Circuit Breaker pattern
+
 :::row:::
     :::column:::
         ***Well-Architected Framework pillars: Reliability, Performance Efficiency***
@@ -109,6 +110,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 ```
 
 ### Implement the Cache-Aside pattern
+
 :::row:::
     :::column:::
         ***Well-Architected Framework pillars: Reliability, Performance Efficiency***
