@@ -116,7 +116,7 @@ Ultimately, the platform team sets up the subscription for this architecture. Th
 
 ### Workload requirements and fulfillment
 
-For this architecture, the workload team and platform teams need to collaborate on a few topics: management group assignment, including the associated Azure Policy governance, and networking setup. Prepare a checklist of requirements to initiate discussion and negotiation with the platform team. This checklist serves as an example in the context of this architecture.
+For this architecture, the workload team and platform team need to collaborate on a few topics: management group assignment, including the associated Azure Policy governance, and networking setup. Prepare a checklist of requirements to initiate discussion and negotiation with the platform team. This checklist serves as an example in the context of this architecture.
 
 | &nbsp; | Topic | Workload requirement for this architecture |
 |---|---|---|
@@ -299,13 +299,13 @@ The platform team might also have processes that affect your application landing
 
 The [baseline architecture](./baseline-openai-e2e-chat.yml#governance-through-policy) recommends some general policies to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove any more policies. Continue to apply policies to your subscription, resource groups, or resources that help enforce governance and enhance the security of this workload.
 
-Expect the application landing zone subscription to have policies already applied, even before the workload is deployed. Some policies help organizational governance by auditing or blocking specific configurations in deployments. Here are some example policies that might lead to workload deployment complexities:  
+Expect the application landing zone subscription to have policies already applied, even before the workload is deployed. Some policies help organizational governance by auditing or blocking specific configurations in deployments. Here are some example policies that might lead to workload deployment complexities:
 
-- Policy: Secrets [in Key Vault] should have the specified maximum validity period.
+- Policy: "Secrets [in Key Vault] should have the specified maximum validity period."
 
     Complication: Machine Learning manages secrets in the workload's Key Vault, and those secrets don't have an expiry date set.
 
-- Policy: Machine Learning workspaces should be encrypted with a customer-managed key.
+- Policy: "Machine Learning workspaces should be encrypted with a customer-managed key."
 
     Complication: This architecture isn't designed solely to handle customer-managed keys. However, it can be extended to use them.
 
@@ -313,7 +313,7 @@ Platform teams might apply DINE policies to handle automated deployments into an
 
 ## Manage changes over time
 
-Platform-provided services and operations are considered external dependencies in this architecture. The platform team continues to apply changes, onboard landing zones, and apply cost controls. The platform team that serves the organization might not prioritize individual workloads. Changes to those dependencies, such as firewall modifications, can affect multiple workloads.
+Platform-provided services and operations are considered external dependencies in this architecture. The platform team continues to apply changes, onboard landing zones, and apply cost controls. The platform team serving the organization might not prioritize individual workloads. Changes to those dependencies, such as firewall modifications, can affect multiple workloads.
 
 Workload and platform teams must communicate in an efficient and timely manner to manage all external dependencies. It's important to test changes beforehand so that they don't negatively affect workloads.
 
@@ -331,11 +331,11 @@ In this architecture, the platform team manages the following resources. Changes
 
 - **Routing in the hub network**: Changes in the transitive nature of routing in the hub can potentially affect the workload functionality if a workload depends on routing to other virtual networks.
   
-  *Example:* You can't use prompt flow to access a vector store that's operated by another team. Or data science teams can't access browser-based experiences in the AI portals from their workstations.
+  *Example:* Prevents prompt flow to access a vector store that's operated by another team or data science teams from accessing browser-based experiences in the AI portals from their workstations.
 
 - **Azure Bastion host**: Changes to the Azure Bastion host availability or configuration.
 
-  *Example*: You can't access jump boxes and build agent VMs.
+  *Example*: Prevents access jump boxes and build agent VMs.
 
 #### Workload changes that affect the platform
 
@@ -434,11 +434,11 @@ This architecture greatly benefits from Azure landing zone [platform resources](
 
 ## Operational excellence
 
-The workload team is responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, language model operations, quality assurance, and safe deployment practices.
+The workload team is still responsible for all of the operational excellence considerations covered in the [baseline architecture](./baseline-openai-e2e-chat.yml#operational-excellence), such as monitoring, LLMOps, quality assurance, and safe deployment practices.
 
 ### Correlate data from multiple sinks
 
-The workload's logs and metrics and its infrastructure components are stored in the workload's Azure Monitor Logs workspace. However, logs and metrics that centralize services, such as Azure Firewall, DNS Private Resolver, and Azure Bastion, are often stored in a central Azure Monitor Logs workspace. Correlating data from multiple sinks can be a complex task.
+The workload's logs and metrics and its infrastructure components are stored in the workload's Azure Monitor Logs workspace. However, logs and metrics from centralized services, such as Azure Firewall, DNS Private Resolver, and Azure Bastion, are often stored in a central Azure Monitor Logs workspace. Correlating data from multiple sinks can be a complex task.
 
 Correlated data is often used during incident response. Make sure that the triage runbook for this architecture addresses this situation and includes organizational points of contact if the problem extends beyond the workload resources. Workload administrators might require assistance from platform administrators to correlate log entries from enterprise networking, security, or other platform services.
 
@@ -467,12 +467,9 @@ A landing zone deployment for this reference architecture is available on GitHub
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author
+Principal authors
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Azure patterns & practices - Microsoft
-
-Other contributor:
-
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Microsoft Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
