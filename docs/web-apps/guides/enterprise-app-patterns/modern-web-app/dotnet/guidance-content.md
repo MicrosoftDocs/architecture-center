@@ -437,3 +437,6 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 
 [![Diagram showing architecture of the reference implementation](../../../_images/mwa-dotnet-architecture.svg)](../../../_images/mwa-dotnet-architecture.svg)
 *Figure 2. Architecture of the reference implementation.*
+
+>[!div class="nextstepaction"]
+>[Modern Web App pattern for .NET reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)
