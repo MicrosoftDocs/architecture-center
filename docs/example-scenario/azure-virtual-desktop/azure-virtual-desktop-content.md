@@ -79,6 +79,9 @@ By using personal desktop solutions, sometimes called *persistent desktops*, use
 
 Pooled desktop solutions, also called *non-persistent desktops*, assign users to whichever session host is currently available, depending on the load-balancing algorithm. Because users don't always return to the same session host each time they connect, they have limited ability to customize the desktop environment and don't usually have administrator access.
 
+> [!NOTE]
+> Persistent and Non-persistent terminology is used as reference to highlight the load balancing behavior for personal and pooled desktops. It does not imply that the operating system disk resets itself with a reference or golden image on reboot.
+
 ## Windows servicing
 
 There are several options for updating Azure Virtual Desktop instances. Deploying an updated image every month guarantees compliance and state.
