@@ -6,6 +6,10 @@ ms.custom: devx-track-dotnet
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern. The reference implementation simulates the migration efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
+| **Benefits** | **Key updates** | **Design patterns** |
+|--------------|-----------------|---------------------|
+| Cloud-optimized web app<br>Enhanced security<br>Reduced data latency<br>Minimal code changes | Identity-centric security<br>Secure network perimeter<br>Role-based access control<br>Managed identities<br>Private endpoints<br>Infrastructure as code<br>Rightsized environments<br>PaaS solutions | Retry<br>Circuit-breaker<br>Cache-aside |
+
 [!INCLUDE [define goals and choose azure services](../includes/goals-services.md)]
 
 | Web app component | Recommendation | Reference implementation | Guidance |

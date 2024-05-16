@@ -4,30 +4,3 @@ This article shows you how to implement the Reliable Web App pattern. The Reliab
 *Figure 1. A conceptual architecture of the Reliable Web App pattern.*
 
 The Reliable Web App pattern focuses on the essential changes you need to make to be successful in the cloud. These changes include three design patterns and other key updates to your web app.
-
-:::row:::
-    :::column:::
-        **Benefits**<br>
-        Cloud-optimized web app\
-        Enhanced security\
-        Reduced data latency\
-        Minimal code changes
-    :::column-end:::
-    :::column:::
-      **Key updates**<br>
-        Identity-centric security\
-        Secure network perimeter\
-        Role-based access control\
-        Managed identities\
-        Private endpoints\
-        Infrastructure as code\
-        Rightsized environments\
-        PaaS solutions
-    :::column-end:::
-    :::column:::
-      **Design patterns**<br>
-        Retry\
-        Circuit-breaker\
-        Cache-aside
-    :::column-end:::
-:::row-end:::

@@ -16,31 +16,6 @@ The Modern Web App pattern focuses on optimizing critical flows your web applica
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
 
-:::row:::
-    :::column:::
-        **Benefits**<br>
-        Optimization of critical flows\
-        Cost-optimized scaling\
-        Enhance performance of critical flows
-    :::column-end:::
-
-    :::column:::
-      **Key changes**<br>
-        Decoupled components\
-        Asynchronous communication\
-        Independent autoscaling\
-        Containerization
-    :::column-end:::
-
-    :::column:::
-      **Code updates**<br>
-        Strangler Fig pattern\
-        Queue-Based Load Leveling\
-        Competing Consumers\
-        Health Endpoint Monitoring
-    :::column-end:::
-:::row-end:::
-
 ### Choose a container service
 
 For the parts of your application that you want to containerize, you need an application platform that supports containers. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
@@ -72,49 +47,6 @@ For more information, see [Choose between Azure messaging services](https://lear
 ## Update web app code
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align to the pillars of the Well-Architected Framework (*see table*):
-
-:::row:::
-    :::column:::
-        **Design patterns**\
-        Strangler Fig
-    :::column-end:::
-
-    :::column:::
-      **Workload design benefits**\
-        Reliability<br> Cost optimization <br>Operational excellence
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        Queue-Based Load Leveling
-    :::column-end:::
-
-    :::column:::
-        Reliability<br> Cost optimization <br>Performance efficiency
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        Competing Consumer
-    :::column-end:::
-
-    :::column:::
-        Reliability<br> Cost optimization <br>Performance efficiency
-    :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column:::
-        Health Endpoint Monitoring pattern
-    :::column-end:::
-
-    :::column:::
-        Reliability<br>Operational excellence <br>Performance efficiency
-    :::column-end:::
-:::row-end:::
-
 
 | Design patterns | Workload design benefits |
 | --- | --- |
