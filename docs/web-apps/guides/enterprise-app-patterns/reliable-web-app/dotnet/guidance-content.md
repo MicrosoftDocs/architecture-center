@@ -14,12 +14,12 @@ ms.custom: devx-track-dotnet
 | **Identity management** | Microsoft Entra ID | Microsoft Entra ID | [Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
 | **App monitoring** | Application Insights | Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
 | **Cache** | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
-| **Secrets manager** | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
-| **Web application firewall** | Azure Web Application Firewall | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
-| **Configuration storage** | Azure App Configuration | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
+| **Secrets manager** | Azure Key Vault | Azure Key Vault | [Azure Key Vault overview](/azure/key-vault/general/overview) |
+| **Web application firewall** | Azure Web Application Firewall | Azure Web Application Firewall | [Azure Web Application Firewall overview](/azure/web-application-firewall/overview) |
+| **Configuration storage** | Azure App Configuration | Azure App Configuration | [Azure App Configuration overview](/azure/azure-app-configuration/overview) |
 | **Endpoint security** | Azure Private Link | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
 | **Network firewall** | Azure Firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
-| **Remote access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
+| **Bastion host** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
 
 [!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
 
