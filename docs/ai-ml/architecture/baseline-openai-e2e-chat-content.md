@@ -22,7 +22,7 @@ The Machine Learning workspace is configured with [managed virtual network isola
 
 ## Components
 
-Many of the components of this architecture are the same as the resources in the [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) because the method that you use to host the chat UI is the same in both architectures. The components highlighted in this section focus on the components used to build and orchestrate chat flows, data services, and the services that expose the language learning models.
+Many of the components of this architecture are the same as the resources in the [baseline App Service web application architecture](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) because the method that you use to host the chat UI is the same in both architectures. The components highlighted in this section focus on the components used to build and orchestrate chat flows, data services, and the services that expose the language models.
 
 - [Machine Learning](/azure/well-architected/service-guides/azure-machine-learning) is a managed cloud service that you can use to train, deploy, and manage machine learning models. This architecture uses several other features of Machine Learning that are used to develop and deploy executable flows for AI applications that are powered by language models:
 
@@ -222,7 +222,7 @@ The following guidance extends the [identity and access management guidance in t
 
 ### Machine Learning role-based access roles
 
-There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: Machine Learning, Data Scientist, Machine Learning Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an AzureML Learning Workspace Connection Secrets Reader and a Machine Learning Registry User that can grant access to workspace resources such as the workspace secrets and registry.
+There are five [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) that you can use to manage access to your Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there's an AzureML Learning Workspace Connection Secrets Reader and an AzureML Registry User that can grant access to workspace resources such as the workspace secrets and registry.
 
 This architecture follows the principle of least privilege by only assigning roles to the preceding identities where they're required. Consider the following role assignments.
 
