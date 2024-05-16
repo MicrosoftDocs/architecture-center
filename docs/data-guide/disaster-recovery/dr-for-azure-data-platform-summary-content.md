@@ -56,15 +56,15 @@ ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/comm
 
 Principal authors:
 
-- [Hajar Habjaoui](https://www.linkedin.com/in/hajar-habjaoui-36b10b97/) | Cloud Solution Architect
-- [Justice Zisanhi](https://www.linkedin.com/in/justice-zisanhi/) | Cloud Solution Architect
-- [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83) | Cloud Solution Architect
+- [Hajar Habjaoui](https://www.linkedin.com/in/hajar-habjaoui-36b10b97/) | Cloud Solution Architect.
+- [Justice Zisanhi](https://www.linkedin.com/in/justice-zisanhi/) | Cloud Solution Architect.
+- [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83) | Cloud Solution Architect.
 
 Other contributors:
 
-- [Ananth Prakash](https://www.linkedin.com/in/ananthprakashj/) | Senior CSA Manager
-- [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Chief Architect – Customer Success
-- [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect
+- [Ananth Prakash](https://www.linkedin.com/in/ananthprakashj/) | Senior CSA Manager.
+- [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Chief Architect – Customer Success.
+- [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect.
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
