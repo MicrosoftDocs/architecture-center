@@ -124,7 +124,7 @@ For this architecture, the workload team and platform team need to collaborate o
 |&#9744;|**Number of spoke virtual networks and their size.** The platform team needs to know the number of spokes because they create and configure the virtual network and make it a spoke by peering it to the central hub. They also need to make sure that the network is large enough to accommodate future growth. | Only one dedicated virtual network for a spoke is required. All resources are deployed in that network. <br><br> Request /22 contiguous address space to operate at full scale or accommodate situations, such as side-by-side deployments. Most IP address requirements are driven by: <br> - Application Gateway requirements for the subnet size (fixed size). <br>- Private endpoints with single IP addresses for PaaS services (fixed size). <br> - The subnet size for build agents (fixed size).<br> - Blue/green deployments of prompt flow compute (variable size). |
 |&#9744;|**Deployment region.** The platform team uses this information to ensure that they have a hub deployed in the same region as the workload resources.| Availability is limited for Azure OpenAI in certain regions. Communicate the chosen region. Also, communicate the region or regions where the underlying compute resources are deployed. The selected regions should support availability zones. |
 |&#9744;|**Type, volume, and pattern of traffic.** The platform team uses this information to determine the ingress and egress requirements of the shared resources used by your workload. | Provide information about: <br> - How users should consume this workload. <br> - How this workload consumes its surrounding resources. <br> - The configured transport protocol. <br> - The traffic pattern and the expected peak and off-peak hours. When do you expect a high number of concurrent connections to the internet (chatty) and when do you expect the workload to generate minimal network traffic (background noise).|
-|&#9744;|**Firewall configuration.** The platform team uses this information to set rules to allow legitimate egress traffic.| Inform the platform team of specific information that's related to the traffic that leaves the spoke network. <br> - Build agent and jump box machines need regular operating system patching.<br>- The compute sends out operating system telemetry.<br> - In an [alternate approach](#alternate-approach-to-inspecting-incoming-traffic), the prompt flow code hosted by App Service requires internet access. |
+|&#9744;|**Firewall configuration.** The platform team uses this information to set rules to allow legitimate egress traffic.| Inform the platform team of specific information that's related to the traffic that leaves the spoke network. <br> - Build agent and jump box machines need regular operating system patching.<br>- The compute sends out operating system telemetry.<br> - In an [alternate approach](#alternate-approach-to-hosting-the-prompt-flow-code), the prompt flow code hosted by App Service requires internet access. |
 |&#9744;|**Ingress traffic from specialized roles.** The platform team uses this information to enable the specified roles to access the workload, while implementing proper segmentation.|Work with the platform team to determine the best way to allow authorized access for: <br> - Data scientists to access the Machine Learning web UI from their workstations on corporate network connections. <br> - Operators to access the compute layer through the jump box that's managed by the workload team. |
 |&#9744;|**Public internet access to the workload.** The platform team uses this information for risk assessment, which drives decisions about: <br> - The placement of the workload in a management group with appropriate guardrails. <br> - DDoS protection for the public IP address reported by the workload team. <br> - Issuing and managing Transport Layer Security (TLS) certificates.| Inform the platform team about the ingress traffic profile: <br> - Internet-sourced traffic targets the public IP address on Application Gateway. <br> - Fully qualified domain names (FQDNs) associated with the public IP address for TLS certificate procurement. |
 |&#9744;|**Private endpoint usage.** The platform team uses this information to set up Azure private DNS zones for those endpoints and make sure that the firewall in the hub network can do DNS resolution. | Inform the platform team about all resources that use private endpoints, such as: <br> - AI search <br> - Container Registry <br> - Key Vault <br> - Azure OpenAI <br> - Storage accounts <br><br>Have a clear understanding of how DNS resolution is handled in the hub and the workload team's responsibilities for the management of the private DNS zone records.|
@@ -261,9 +261,9 @@ Architectures that use private endpoints for east-west traffic within their work
 In this architecture, the platform team must ensure reliable and timely DNS hosting for the following private link endpoints:
 
 - AI search
+- Azure OpenAI
 - Container Registry
 - Key Vault
-- Azure OpenAI
 - Storage accounts
 
 ## Data scientist and prompt flow authorship access
@@ -338,7 +338,7 @@ In this architecture, the platform team manages the following resources. Changes
 
 - **Azure Bastion host**: Changes to the Azure Bastion host availability or configuration.
 
-  *Example*: Prevents access jump boxes and build agent VMs.
+  *Example*: Prevents access to jump boxes and build agent VMs.
 
 #### Workload changes that affect the platform
 
@@ -394,7 +394,7 @@ The following table shows examples of ingress controls in this architecture.
 | :----- | :------ | :--------------- | :--------------- |
 | Internet | Application traffic flows | Funnels all workload requests through an NSG, a web application firewall, and routing rules before allowing public traffic to transition to private traffic for the chat UI. | None |
 | Internet | Studio access | Deny all through service-level configuration. | None |
-| Internet | Data plane access to all but Application Gateway | Deny all through NSG and SLC configuration. | None |
+| Internet | Data plane access to all but Application Gateway | Deny all through NSG and service-level configuration. | None |
 | Azure Bastion | Jump box and build agent access | NSG on jump box subnet that blocks all traffic to remote access ports, unless it's sourced from the platform's designated Azure Bastion subnet | None |
 | Cross-premises | Studio access | Deny all. Unless jump box isn't used, then only allow workstations from authorized subnets for data scientist access. | Nontransitive routing or Azure Firewall if an Azure Virtual WAN secured hub is used |
 | Other spokes | None | Blocked via NSG rules. | Nontransitive routing or Azure Firewall if a Virtual WAN secured hub is used |
