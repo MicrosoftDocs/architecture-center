@@ -5,9 +5,9 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 The Modern Web App pattern focuses on optimizing critical flows your web application. It decouples web app services to introduce a service-oriented architecture. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
 
-| Benefits of the pattern | Key changes | Web app code updates |
-| --- | --- | --- |
-| Optimization of critical flows<br>Cost-optimized scaling<br>Enhance performance of critical flows | Decoupled components<br> Asynchronous communication <br> Independent autoscaling <br> Containerization | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern |
+| Benefits of the pattern | Web app code updates | Architecture changes | Configuration updates |
+| --- | --- | --- | --- |
+| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows<br>Asynchronous communication | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Decoupled web app serviceds<br> Messaging system | Extend identity-centric security<br> Independent autoscaling <br> Containerization |
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
@@ -40,7 +40,7 @@ A messaging system is an important piece of service-oriented architectures. It d
 
 For more information, see [Choose between Azure messaging services](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services).
 
-## Decompose workload
+## Decouple web app services
 
 - *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
 
