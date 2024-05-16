@@ -24,11 +24,11 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
     :::column-end:::
 :::row-end:::
 
-[![Diagram showing the before and after of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
-*A conceptual architecture of the Modern Web App pattern.*
+[![Diagram showing conceptual architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
+*Figure 1. A conceptual architecture of the Modern Web App pattern.*
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern.
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
 ## Choose the right services
 
@@ -431,6 +431,9 @@ USER $APP_UID
 ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 ```
 
-## Next steps
+## Deploy this scenario
 
-You can deploy the reference implementation by following the instructions in the [modern web app pattern for .NET repository](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment of the reference implementation. Once deployed, you can observe the patterns described in this document in action.
+[GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. Once deployed, you can observe the patterns described in this document in action.The reference implementation simulates the cloud journey of a fictional company, Relecloud. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. the reference implementation is a production-grade web app that allows customers to buy concert tickets online.
+
+[![Diagram showing architecture of the reference implementation](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
+*Figure 2. Architecture of the reference implementation.*
