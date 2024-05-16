@@ -52,7 +52,7 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        *[Well-Architected Framework alignment](/architecture/patterns/strangler-fig#workload-design): Reliability (RE:08 Testing), Cost optimization (CO:07 Component costs, CO:08 Environment costs), Operational excellence (OE:06 Workload development, OE:11 Safe deployment practices)*
+        ***[Well-Architected Framework alignment](/architecture/patterns/strangler-fig#workload-design): Reliability (RE:08 Testing), Cost optimization (CO:07 Component costs, CO:08 Environment costs), Operational excellence (OE:06 Workload development, OE:11 Safe deployment practices)***
     :::column-end:::
 :::row-end:::
 
@@ -64,11 +64,13 @@ The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows y
 
 The reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The extracted service was also updated to run in a Linux container and shows how services can be upgraded during extraction.
 
+---
+
 ### Implement the Queue-Based Load Leveling pattern
 
 :::row:::
     :::column:::
-        *[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06 Scaling, RE:07 Background jobs), Cost Optimization (CO:12 Scaling costs), Performance Efficiency (PE:05 Scaling and partitioning)*
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06 Scaling, RE:07 Background jobs), Cost Optimization (CO:12 Scaling costs), Performance Efficiency (PE:05 Scaling and partitioning)***
     :::column-end:::
 :::row-end:::
 
@@ -104,6 +106,8 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
         PrefetchCount = 0
     });
     ```
+
+---
 
 ### Implement the Competing Consumers pattern
 
@@ -159,6 +163,8 @@ processor.ProcessMessageAsync += async args =>
 };
 ```
 
+---
+
 ### Implement the Health Endpoint Monitoring pattern
 
 :::row:::
@@ -213,6 +219,8 @@ app.MapHealthChecks("/health");
     
     ```
 
+---
+
 ### Extend the Retry Pattern
 
 :::row:::
@@ -252,6 +260,8 @@ services.AddSingleton(sp =>
 - *Adopt Standard Resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms, including exponential backoff, circuit breaker patterns, and more. These are crucial for managing communications with external web services.
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
+
+---
 
 ## Implement key changes
 
@@ -314,6 +324,8 @@ To configure authentication and authorization on users (*user identities*), foll
 
 - *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
+
+---
 
 ### Implement independent autoscaling
 
