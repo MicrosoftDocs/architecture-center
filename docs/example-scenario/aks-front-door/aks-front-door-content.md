@@ -1,6 +1,6 @@
 <!-- Use the aac-browse-header.yml   -->
 
-This article describes how to set up end-to-end TLS encryption with [Azure Front Door Premium](/azure/frontdoor/front-door-overview) and [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) using [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep). It showcases the integration of [Azure Front Door Premium](/azure/frontdoor/front-door-overview), [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview), and [Azure Private Link Service (PLS)](/azure/private-link/private-link-service-overview) to securely expose and protect a workload running in [Azure Kubernetes Service(AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes). The web application is exposed via the [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) configured to use a private IP address as a frontend IP configuration of the [AKS internal load balancer](/azure/aks/internal-lb?tabs=set-service-annotations).
+This article describes how to securely expose and protect a workload running in Azure Kubernetes Service (AKS) with Azure Front Door, Azure Web Application Firewall (WAF), and Azure Private Link Service (PLS). The web application is exposed via the NGINX Ingress Controller configured to use a private IP address as a frontend IP configuration of the AKS internal load balancer. The deployment features end-to-end TLS encryption.
 
 ## Architecture
 
