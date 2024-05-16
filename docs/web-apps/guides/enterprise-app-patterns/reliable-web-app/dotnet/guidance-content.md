@@ -3,7 +3,7 @@ ms.custom: devx-track-dotnet
 ---
 [!INCLUDE [intro](../includes/intro.md)]
 
-[!INCLUDE [define goals and choose azure services](../includes/goals-services.md)]
+[!INCLUDE [choose azure services](../includes/choose-services.md)]
 
 | Web app component | Recommendation | Reference implementation | Guidance |
 | ----------------- | -------------- | ------------------------ | -------- |
