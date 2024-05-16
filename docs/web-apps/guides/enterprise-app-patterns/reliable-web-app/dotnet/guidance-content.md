@@ -23,19 +23,15 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
 
-## Update code 
+## Update web app code
 
-
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see the [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). The Reliable Web App pattern introduces two key design patterns at the code level to enhance reliability: the Retry pattern and the Circuit Breaker pattern.
+The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that support one of more pillars of the Well-Architected Framework.
 
 ### Implement the Retry pattern
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Reliability***
+        ***Well-Architected Framework pillars: Reliability***
     :::column-end:::
 :::row-end:::
 
@@ -92,9 +88,11 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
     ```
 
 #### Use the Circuit Breaker pattern
-
-|Well-Architected Framework pillar support: | Reliability, Performance Efficiency |
-| --- | --- |
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillars: Reliability, Performance Efficiency***
+    :::column-end:::
+:::row-end:::
 
 Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
