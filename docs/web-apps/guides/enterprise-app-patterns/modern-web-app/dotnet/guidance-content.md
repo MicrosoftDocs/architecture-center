@@ -46,13 +46,13 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 ## Update web app code
 
-The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align to the pillars of the Well-Architected Framework (*see table*):
+The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that implement recommendations of the Well-Architected Framework:
 
 ### Implement the Strangler Fig pattern
 
 :::row:::
     :::column:::
-        *[Well-Architected Framework pillar support](/architecture/patterns/strangler-fig#workload-design): Reliability (RE:08 Testing), Cost optimization (CO:07 Component costs, CO:08 Environment costs), Operational excellence (OE:06 Workload development, OE:11 Safe deployment practices)*
+        *[Well-Architected Framework alignment](/architecture/patterns/strangler-fig#workload-design): Reliability (RE:08 Testing), Cost optimization (CO:07 Component costs, CO:08 Environment costs), Operational excellence (OE:06 Workload development, OE:11 Safe deployment practices)*
     :::column-end:::
 :::row-end:::
 
@@ -68,7 +68,7 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 :::row:::
     :::column:::
-        *[Well-Architected Framework pillar support](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06 Scaling, RE:07 Background jobs), Cost Optimization (CO:12 Scaling costs), Performance Efficiency (PE:05 Scaling and partitioning)*
+        *[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06 Scaling, RE:07 Background jobs), Cost Optimization (CO:12 Scaling costs), Performance Efficiency (PE:05 Scaling and partitioning)*
     :::column-end:::
 :::row-end:::
 
@@ -109,7 +109,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework pillar support](/azure/architecture/patterns/competing-consumers#workload-design): Reliability (RE:05 Redundancy, RE:07 Background jobs), Cost Optimization (CO:05 Rate optimization, CO:07 Component cost), Performance Efficiency (PE:05 Scaling and partitioning, PE:07 Code and infrastructure)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability (RE:05 Redundancy, RE:07 Background jobs), Cost Optimization (CO:05 Rate optimization, CO:07 Component cost), Performance Efficiency (PE:05 Scaling and partitioning, PE:07 Code and infrastructure)***
     :::column-end:::
 :::row-end:::
 
@@ -163,7 +163,7 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework pillar support](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability (RE:07 Self-healing and preservation, RE:10 Monitoring and alerting), Operational Excellence (OE:07 Instrument and application), Performance Efficiency (PE:05 Scaling and partitioning)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability (RE:07 Self-healing and preservation, RE:10 Monitoring and alerting), Operational Excellence (OE:07 Instrument and application), Performance Efficiency (PE:05 Scaling and partitioning)***
     :::column-end:::
 :::row-end:::
 
@@ -217,7 +217,7 @@ app.MapHealthChecks("/health");
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework pillar support](/azure/architecture/patterns/retry#workload-design): Reliability (RE:07 Self preservation)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/retry#workload-design): Reliability (RE:07 Self preservation)***
     :::column-end:::
 :::row-end:::
 
@@ -253,17 +253,18 @@ services.AddSingleton(sp =>
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-## Implement key updates
+## Implement key changes
 
-### Configure service authentication and authorization
+
+### Extend identity-centric security
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Security ([SE:05 Identity and access management](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+        ***Well-Architected Framework alignment: Security ([SE:05 Identity and access management](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
     :::column-end:::
 :::row-end:::
 
-To configure service authentication and authorization on any new Azure services you add to the web app, follow these recommendations:
+To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
 
 - *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
@@ -309,15 +310,7 @@ module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' 
 }
 ```
 
-### Configure user authentication and authorization
-
-:::row:::
-    :::column:::
-        ***Well-Architected Framework pillar support: Security ([SE:05 Identity and access management](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
-    :::column-end:::
-:::row-end:::
-
-To configure user authentication and authorization, follow these recommendations:
+To configure authentication and authorization on users (*user identities*), follow these recommendations:
 
 - *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
