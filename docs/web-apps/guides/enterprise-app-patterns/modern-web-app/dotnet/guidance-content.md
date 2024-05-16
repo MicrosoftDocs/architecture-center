@@ -48,14 +48,13 @@ For more information, see [Choose between Azure messaging services](https://lear
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align to the pillars of the Well-Architected Framework (*see table*):
 
-| Design patterns | Workload design benefits |
-| --- | --- |
-| Strangler Fig pattern | Reliability<br> Cost optimization <br>Operational excellence |
-| Queue-Based Load Leveling pattern | Reliability<br> Cost optimization <br>Performance efficiency |
-| Competing Consumers pattern | Reliability<br> Cost optimization <br>Performance efficiency |
-| Health Endpoint Monitoring pattern | Reliability<br>Operational excellence <br>Performance efficiency |
-
 ### Implement the Strangler Fig pattern
+
+:::row:::
+    :::column:::
+        *[Well-Architected Framework pillar support](/architecture/patterns/strangler-fig#workload-design): Reliability (RE:08 Testing), Cost optimization (CO:07 Component costs, CO:08 Environment costs), Operational excellence (OE:06 Workload development, OE:11 Safe deployment practices)*
+    :::column-end:::
+:::row-end:::
 
 The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be difficult if they had to be completed all at once. To implement the Strangler Fig pattern, follow these recommendations:
 
@@ -66,6 +65,12 @@ The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows y
 The reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The extracted service was also updated to run in a Linux container and shows how services can be upgraded during extraction.
 
 ### Implement the Queue-Based Load Leveling pattern
+
+:::row:::
+    :::column:::
+        *[Well-Architected Framework pillar support](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06 Scaling, RE:07 Background jobs), Cost Optimization (CO:12 Scaling costs), Performance Efficiency (PE:05 Scaling and partitioning)*
+    :::column-end:::
+:::row-end:::
 
 The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
@@ -101,6 +106,12 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     ```
 
 ### Implement the Competing Consumers pattern
+
+:::row:::
+    :::column:::
+        ***[Well-Architected Framework pillar support](/azure/architecture/patterns/competing-consumers#workload-design): Reliability (RE:05 Redundancy, RE:07 Background jobs), Cost Optimization (CO:05 Rate optimization, CO:07 Component cost), Performance Efficiency (PE:05 Scaling and partitioning, PE:07 Code and infrastructure)***
+    :::column-end:::
+:::row-end:::
 
 The [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
 
@@ -148,41 +159,13 @@ processor.ProcessMessageAsync += async args =>
 };
 ```
 
-### Implement the Retry Pattern
-
-The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and independent services you extract from the web app. To implement the Retry pattern, follow these recommendations:
-
-- *Configure retry options.* When integrating with a message queue, ensure that the client responsible for interactions with the queue is configured with appropriate retry settings. This involves specifying parameters such as the maximum number of retries, delay between retries, and maximum delay.
-- *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
-- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry functionalities. These are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part.
-
-The reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configures retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout. The Mode property of `ServiceBusRetryOptions` implements an exponential backoff strategy using `ServiceBusRetryMode.Exponential`.
-
-```csharp
-// ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
-services.AddSingleton(sp =>
-{
-    var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
-    var clientOptions = new ServiceBusClientOptions
-    {
-        RetryOptions = new ServiceBusRetryOptions
-        {
-            Mode = ServiceBusRetryMode.Exponential,
-            MaxRetries = options.MaxRetries,
-            Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
-            MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
-            TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
-        }
-    };
-    return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
-});
-```
-
-- *Adopt Standard Resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms, including exponential backoff, circuit breaker patterns, and more. These are crucial for managing communications with external web services.
-- *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
-- *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
-
 ### Implement the Health Endpoint Monitoring pattern
+
+:::row:::
+    :::column:::
+        ***[Well-Architected Framework pillar support](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability (RE:07 Self-healing and preservation, RE:10 Monitoring and alerting), Operational Excellence (OE:07 Instrument and application), Performance Efficiency (PE:05 Scaling and partitioning)***
+    :::column-end:::
+:::row-end:::
 
 The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
@@ -230,11 +213,55 @@ app.MapHealthChecks("/health");
     
     ```
 
-## Update configurations
+### Extend the Retry Pattern
+
+:::row:::
+    :::column:::
+        ***[Well-Architected Framework pillar support](/azure/architecture/patterns/retry#workload-design): Reliability (RE:07 Self preservation)***
+    :::column-end:::
+:::row-end:::
+
+The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and independent services you extract from the web app. To implement the Retry pattern, follow these recommendations:
+
+- *Configure retry options.* When integrating with a message queue, ensure that the client responsible for interactions with the queue is configured with appropriate retry settings. This involves specifying parameters such as the maximum number of retries, delay between retries, and maximum delay.
+- *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
+- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry functionalities. These are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part.
+
+The reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configures retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout. The Mode property of `ServiceBusRetryOptions` implements an exponential backoff strategy using `ServiceBusRetryMode.Exponential`.
+
+```csharp
+// ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
+services.AddSingleton(sp =>
+{
+    var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
+    var clientOptions = new ServiceBusClientOptions
+    {
+        RetryOptions = new ServiceBusRetryOptions
+        {
+            Mode = ServiceBusRetryMode.Exponential,
+            MaxRetries = options.MaxRetries,
+            Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
+            MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
+            TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
+        }
+    };
+    return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
+});
+```
+
+- *Adopt Standard Resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms, including exponential backoff, circuit breaker patterns, and more. These are crucial for managing communications with external web services.
+- *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
+- *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
+
+## Implement key updates
 
 ### Configure service authentication and authorization
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Modern Web App pattern applies security best practices to new services added to the architecture to support the service-oriented architecture.
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Security ([SE:05 Identity and access management](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+    :::column-end:::
+:::row-end:::
 
 To configure service authentication and authorization on any new Azure services you add to the web app, follow these recommendations:
 
@@ -284,12 +311,24 @@ module renderingServiceContainerApp 'br/public:avm/res/app/container-app:0.1.0' 
 
 ### Configure user authentication and authorization
 
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Security ([SE:05 Identity and access management](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+    :::column-end:::
+:::row-end:::
+
 To configure user authentication and authorization, follow these recommendations:
 
 - *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
-### Autoscale decoupled services
+### Implement independent autoscaling
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+    :::column-end:::
+:::row-end:::
 
 The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
@@ -327,6 +366,12 @@ scaleMinReplicas: 0
 ```
 
 ### Containerize service deployment
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Performance Efficiency ([PE:09 Critical flows](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
+    :::column-end:::
+:::row-end:::
 
 This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. To containerize deployment, follow these recommendations:
 
