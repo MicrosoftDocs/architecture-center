@@ -198,11 +198,14 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
     }
     ```
 
-## Security
+## Implement key updates
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern covers role-based access control, managed identities, private endpoints, secrets management, and web application firewall.
 
-### Configure user authentication and authorization
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern recommends role-based access control and managed identities for identity-centric security. 
+
+#### Configure user authentication and authorization
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). It allows developers to build single-tenant, line-of-business (LOB) applications and multi-tenant software-as-a-service (SaaS) applications, so users and customers can sign in to using their Microsoft identities or social accounts.
 
@@ -242,11 +245,11 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Secure secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
-## Cost optimization
+### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
+Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern recommends rightsizing techniques, autoscaling, and efficient resource usage for cost optimization.
 
-### Rightsize environments
+#### Rightsize environments
 
 - *Optimize all environments.* Use the performance tiers (SKUs) of Azure services that meets the needs of [each environment](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments).
 
@@ -280,13 +283,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 ## Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Reliable Web App pattern implements infrastructure as code for infrastructure deployments and monitoring for observability.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Reliable Web App pattern recommends infrastructure as code for deployments and configuring monitoring for observability.
 
 ### Automate deployment
 
-Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource.
-
-The reference implementation uses Bicep to deploy and configure all Azure resources.
+Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource. The reference implementation uses Bicep to deploy and configure all Azure resources.
 
 ### Configure monitoring
 
