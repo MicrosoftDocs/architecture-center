@@ -108,6 +108,96 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 }
 ```
 
+### Implement the Cache-Aside pattern
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillars: Reliability, Performance Efficiency***
+    :::column-end:::
+:::row-end:::
+
+Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
+
+The reference implementation caches upcoming concerts. The `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
+
+```csharp
+private void AddAzureCacheForRedis(IServiceCollection services)
+{
+    if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
+    {
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = Configuration["App:RedisCache:ConnectionString"];
+        });
+    }
+    else
+    {
+        services.AddDistributedMemoryCache();
+    }
+}
+```
+
+For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/performance/caching/distributed) and [AddDistributedMemoryCache method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache).
+
+- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
+
+    The reference implementation caches high-need data that supports the Upcoming Concerts. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
+
+    ```csharp
+    public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
+    {
+        IList<Concert>? concerts;
+        var concertsJson = await this.cache.GetStringAsync(CacheKeys.UpcomingConcerts);
+        if (concertsJson != null)
+        {
+            // There is cached data. Deserialize the JSON data.
+            concerts = JsonSerializer.Deserialize<IList<Concert>>(concertsJson);
+        }
+        else
+        {
+            // There's nothing in the cache. Retrieve data from the repository and cache it for one hour.
+            concerts = await this.database.Concerts.AsNoTracking()
+                .Where(c => c.StartTime > DateTimeOffset.UtcNow && c.IsVisible)
+                .OrderBy(c => c.StartTime)
+                .Take(count)
+                .ToListAsync();
+            concertsJson = JsonSerializer.Serialize(concerts);
+            var cacheOptions = new DistributedCacheEntryOptions {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1)
+            };
+            await this.cache.SetStringAsync(CacheKeys.UpcomingConcerts, concertsJson, cacheOptions);
+        }
+        return concerts ?? new List<Concert>();
+    }
+    ```
+
+- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
+
+    The reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes (*see the following code*).
+
+    ```csharp
+    public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
+    {
+        database.Add(newConcert);
+        await this.database.SaveChangesAsync();
+        this.cache.Remove(CacheKeys.UpcomingConcerts);
+        return CreateResult.SuccessResult(newConcert.Id);
+    }
+    ```
+
+- *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
+
+    The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
+
+    ```csharp
+    public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
+    {
+       database.Update(existingConcert);
+       await database.SaveChangesAsync();
+       this.cache.Remove(CacheKeys.UpcomingConcerts);
+       return UpdateResult.SuccessResult();
+    }
+    ```
+
 ## Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern covers role-based access control, managed identities, private endpoints, secrets management, and web application firewall.
@@ -229,91 +319,6 @@ The reference implementation uses Bicep to deploy and configure all Azure resour
 ## Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The Reliable Web App pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
-
-### Use the Cache-Aside pattern
-
-Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
-
-The reference implementation caches upcoming concerts. The `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
-
-```csharp
-private void AddAzureCacheForRedis(IServiceCollection services)
-{
-    if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
-    {
-        services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = Configuration["App:RedisCache:ConnectionString"];
-        });
-    }
-    else
-    {
-        services.AddDistributedMemoryCache();
-    }
-}
-```
-
-For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/performance/caching/distributed) and [AddDistributedMemoryCache method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache).
-
-- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
-
-    The reference implementation caches high-need data that supports the Upcoming Concerts. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
-
-    ```csharp
-    public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
-    {
-        IList<Concert>? concerts;
-        var concertsJson = await this.cache.GetStringAsync(CacheKeys.UpcomingConcerts);
-        if (concertsJson != null)
-        {
-            // There is cached data. Deserialize the JSON data.
-            concerts = JsonSerializer.Deserialize<IList<Concert>>(concertsJson);
-        }
-        else
-        {
-            // There's nothing in the cache. Retrieve data from the repository and cache it for one hour.
-            concerts = await this.database.Concerts.AsNoTracking()
-                .Where(c => c.StartTime > DateTimeOffset.UtcNow && c.IsVisible)
-                .OrderBy(c => c.StartTime)
-                .Take(count)
-                .ToListAsync();
-            concertsJson = JsonSerializer.Serialize(concerts);
-            var cacheOptions = new DistributedCacheEntryOptions {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1)
-            };
-            await this.cache.SetStringAsync(CacheKeys.UpcomingConcerts, concertsJson, cacheOptions);
-        }
-        return concerts ?? new List<Concert>();
-    }
-    ```
-
-- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
-
-    The reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes (*see the following code*).
-
-    ```csharp
-    public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
-    {
-        database.Add(newConcert);
-        await this.database.SaveChangesAsync();
-        this.cache.Remove(CacheKeys.UpcomingConcerts);
-        return CreateResult.SuccessResult(newConcert.Id);
-    }
-    ```
-
-- *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
-
-    The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
-
-    ```csharp
-    public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
-    {
-       database.Update(existingConcert);
-       await database.SaveChangesAsync();
-       this.cache.Remove(CacheKeys.UpcomingConcerts);
-       return UpdateResult.SuccessResult();
-    }
-    ```
 
 ### Test database performance
 
