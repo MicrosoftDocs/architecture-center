@@ -4490,30 +4490,6 @@
         "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
-      "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/web-apps/guides/reliable-web-app/dotnet/plan-implementation.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/plan-implementation-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/web-apps/guides/reliable-web-app/java/plan-implementation.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/plan-implementation-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/web-apps/guides/reliable-web-app/java/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/java/apply-pattern-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
-      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview#reliable-web-app-pattern",
-=======
       "source_path": "docs/guide/hpc/hpc-deployments.md",
       "redirect_url": "/azure/architecture/topics/high-performance-computing",
       "redirect_document_id": false
@@ -4761,7 +4737,6 @@
     {
       "source_path": "docs/databases/architecture/sql-managed-instance-cmk.yml",
       "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql-mi",
->>>>>>> 21cef339cbe9006ffa159ddc44069521d77210f6
       "redirect_document_id": false
     }
   ] 
