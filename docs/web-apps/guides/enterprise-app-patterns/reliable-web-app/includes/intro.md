@@ -1,7 +1,7 @@
 This article shows you how to implement the Reliable Web App pattern. The Reliable Web App pattern defines how you should modify web apps (replatform) when migrating to the cloud. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/). The Reliable Web App pattern focuses on the high-vaue updates to ensure your web app is successful in the cloud.
 
-[![Diagram showing the conceptual architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
-*Figure 1. A conceptual architecture of the Reliable Web App pattern.*
+[![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
+*Figure 1. Baseline architecture of the Reliable Web App pattern.*
 
 The Reliable Web App pattern recommends platform-as-a-service (PaaS) enhanced security and reduced data latency with minimal code changes. The Reliable Web App pattern has you update your web app code with three design patterns that improve reliability and performance efficiency.
 
