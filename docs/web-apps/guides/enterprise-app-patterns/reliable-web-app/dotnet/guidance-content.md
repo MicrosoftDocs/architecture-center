@@ -123,22 +123,22 @@ Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web 
 
 - *Configure application to use a cache.* Production apps should use the Distributed Redis Cache because it's the most performant. For example, the reference implementation uses distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis (*see the following code*).
 
-```csharp
-private void AddAzureCacheForRedis(IServiceCollection services)
-{
-    if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
+    ```csharp
+    private void AddAzureCacheForRedis(IServiceCollection services)
     {
-        services.AddStackExchangeRedisCache(options =>
+        if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
         {
-            options.Configuration = Configuration["App:RedisCache:ConnectionString"];
-        });
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration["App:RedisCache:ConnectionString"];
+            });
+        }
+        else
+        {
+            services.AddDistributedMemoryCache();
+        }
     }
-    else
-    {
-        services.AddDistributedMemoryCache();
-    }
-}
-```
+    ```
 
 - *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern. For example, the reference implementation caches high-need data that supports the Upcoming Concerts page. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
 

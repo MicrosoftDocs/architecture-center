@@ -16,27 +16,19 @@ The Modern Web App pattern focuses on optimizing critical flows your web applica
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
 
-### Choose a container service
+- *Choose a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
 
-For the parts of your application that you want to containerize, you need an application platform that supports containers. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
+  - *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+  - *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
+  - *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
-- *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-- *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
-- *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
+- *Choose a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
-For more information, see [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service).
+- *Choose a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
 
-### Choose a container repository
-
-When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. For more information, see [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro).
-
-### Choose a messaging system
-
-A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
-
-- *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
-- *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with telemetry and event streams that require real-time processing.
-- *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
+  - *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
+  - *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with telemetry and event streams that require real-time processing.
+  - *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
 
 For more information, see [Choose between Azure messaging services](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services).
 
@@ -52,10 +44,9 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/strangler-fig#workload-design): Reliability, Cost optimization, Operational excellence***
+        ***Well-Architected Framework pillar alignment: Reliability (RE:08), Cost optimization (CO:07, CO:08), Operational excellence (OE:06, OE:11)***
     :::column-end:::
 :::row-end:::
-
 
 The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be difficult if they had to be completed all at once. To implement the Strangler Fig pattern, follow these recommendations:
 
@@ -69,10 +60,9 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability, Cost Optimization, Performance Efficiency***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06, RE:07), Cost Optimization (CO:12), Performance Efficiency (PE:05)***
     :::column-end:::
 :::row-end:::
-
 
 The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
@@ -111,10 +101,9 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability, Cost Optimization, Performance Efficiency***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability (RE:05, RE:07), Cost Optimization (CO:05, CO:07), Performance Efficiency (P:05, PE:07)***
     :::column-end:::
 :::row-end:::
-
 
 The [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
 
@@ -166,10 +155,9 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability, Operational Excellence, Performance Efficiency***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability (RE:07, RE:10), Operational Excellence (OE:07), Performance Efficiency (PE:05)***
     :::column-end:::
 :::row-end:::
-
 
 The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
@@ -221,12 +209,11 @@ app.MapHealthChecks("/health");
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/retry#workload-design): Reliability***
+        ***Well-Architected Framework pillars: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
     :::column-end:::
 :::row-end:::
 
-
-The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and independent services you extract from the web app. To implement the Retry pattern, follow these recommendations:
+The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and decoupled services you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
 - *Configure retry options.* When integrating with a message queue, ensure that the client responsible for interactions with the queue is configured with appropriate retry settings. This involves specifying parameters such as the maximum number of retries, delay between retries, and maximum delay.
 - *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
