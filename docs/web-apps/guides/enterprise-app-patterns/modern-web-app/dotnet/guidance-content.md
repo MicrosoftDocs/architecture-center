@@ -35,6 +35,7 @@ For more information, see [Choose between Azure messaging services](https://lear
 ## Implement architecture changes
 
 - *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
+- *Update firewall rules.* Update your firewall rules to account for the new network traffic patterns that results from the decoupled service.
 
 ## Update web app code
 
@@ -44,7 +45,7 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability (RE:08), Cost optimization (CO:07, CO:08), Operational excellence (OE:06, OE:11)***
+        ***Well-Architected Framework pillar alignment: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
     :::column-end:::
 :::row-end:::
 
@@ -60,7 +61,7 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability (RE:06, RE:07), Cost Optimization (CO:12), Performance Efficiency (PE:05)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 
@@ -101,7 +102,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability (RE:05, RE:07), Cost Optimization (CO:05, CO:07), Performance Efficiency (P:05, PE:07)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))***
     :::column-end:::
 :::row-end:::
 
@@ -117,7 +118,14 @@ The [Competing Consumers pattern](/azure/architecture/patterns/competing-consume
 - *Use stateless services.* Consider using stateless services to process requests from a queue. This allows for easy scaling and efficient resource usage.
 - *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting.
 
-The reference implementation uses a stateless service running on Azure Container App that processes ticket-rendering requests from an Azure Service Bus queue. It creates a processor for the queue to handle incoming messages. The processor is configured to automatically complete messages if they are processed without failure, use the PeekLock mode for reliable message delivery, and handle one message at a time without prefetching. When a message is received, it logs the message details, deserializes the message body to a specific type, and then handles the message. If the message body is invalid and cannot be deserialized, it logs an error and moves the message to a dead-letter queue. This ensures that problematic messages do not block the processing of other messages. The service can scale at the container level to efficiently process messages from the queue.
+For example, the reference implementation uses a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
+
+- *AutoCompleteMessages*: Automatically completes messages if processed without failure.
+- *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
+- *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
+- *PrefetchCount*: Set to 0 to avoid prefetching messages.
+
+The processor logs message details, deserializes the message body, and processes it. If deserialization fails, it logs an error and moves the message to a dead-letter queue. The service scales at the container level.
 
 ```C#
 // Create a processor for the given queue that will process incoming messages
@@ -155,7 +163,7 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability (RE:07, RE:10), Operational Excellence (OE:07), Performance Efficiency (PE:05)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 
@@ -164,7 +172,7 @@ The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-end
 - *Implement health checks.* Use [ASP.NET Core health checks middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 - *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
 
-    The reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
+    For example, the reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
 ```C#
 // Add health checks, including health checks for Azure services that are used by this service.
@@ -186,9 +194,7 @@ builder.Services.AddHealthChecks()
 app.MapHealthChecks("/health");
 ```
 
-- *Configure Azure resources.* Configure the Azure resource to use the app’s health check URLs to confirm liveness and readiness.
-
-    The reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hits the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
+- *Configure Azure resources.* Configure the Azure resource to use the app’s health check URLs to confirm liveness and readiness. For example, the reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hits the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
 
     ```bicep
     probes: [
@@ -217,9 +223,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 
 - *Configure retry options.* When integrating with a message queue, ensure that the client responsible for interactions with the queue is configured with appropriate retry settings. This involves specifying parameters such as the maximum number of retries, delay between retries, and maximum delay.
 - *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
-- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry functionalities. These are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part.
-
-The reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configures retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout. The Mode property of `ServiceBusRetryOptions` implements an exponential backoff strategy using `ServiceBusRetryMode.Exponential`.
+- *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry functionalities. These are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part. For example, the reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configures retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout.
 
 ```csharp
 // ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
@@ -245,9 +249,9 @@ services.AddSingleton(sp =>
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-## Implement configuration changes
+## Implement configuration updates
 
-The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
+The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
 ### Extend security
 
@@ -262,7 +266,6 @@ To configure authentication and authorization on any new Azure services (*worklo
 - *Use managed identities for each new service.* Each independent service should have its own identity and use managed identities for service-to-service authentication. Managed identities eliminate the need to manage credentials in your code and reduce the risk of credential leakage. It helps you avoid putting sensitive information like connection strings in your code or configuration files.
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
 - *Adopt infrastructure as code (IaC).* Use Azure Bicep or similar IaC tools to define and manage your cloud resources. This ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
-- *Update firewall rules.* Update your firewall rules to account for the new network traffic patterns that results from the extraction of the microservice.
 
 The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Azure Container Apps application (`containerRegistryPullRoleId`) (*see following code*).
 
