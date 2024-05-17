@@ -19,7 +19,7 @@ The following guidance provides recommendations for implementing architecture up
 
 - *Implement private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
-## Implement design patterns
+## Implement code updates
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
