@@ -191,7 +191,7 @@ Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web 
 
 ## Implement configuration updates
 
-The following sections provide guidance on implementing the configurations updates. Each section align with one of more pillars of the Well-Architected Framework.
+The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
 
 ### Implement user authentication and authorization
 
@@ -251,13 +251,11 @@ For example, the reference implementation uses the `Authentication` argument in 
     :::column-end:::
 :::row-end:::
 
-Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess.
+Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess. Follow these guidelines to right-size your environments:
 
-- *Cost optimize production environments.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production.
-- *Cost optimize preproduction environments.* [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should  the right balance of lower-cost resources, turning off unneeded services, and applying discounts offered for preproduction usage, such as [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview). Make sure to [balance similarity with production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid creating production risks.
-
-- 
-    The reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
+- *Cost optimize production environments.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Continuously monitor resource usage and adjust SKUs to align with actual performance needs.
+- *Cost optimize preproduction environments.* [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should use lower-cost resources, disable unneeded services, and apply discounts such as [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/#overview). Ensure [preproduction environments are sufficiently similar to production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid introducing risks. This balance ensures that testing remains effective without incurring unnecessary costs.
+- *Define SKUs using infrastructure as code (IaC).* Implement IaC to dynamically select and deploy the correct SKUs based on the environment. This approach enhances consistency and simplifies management. For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
 
     ```bicep
     var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
