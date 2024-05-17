@@ -55,6 +55,7 @@ The following sections provide guidance on implementing the design patterns to y
         ***[Well-Architected Framework alignment](/architecture/patterns/strangler-fig#workload-design): Reliability, Cost optimization, Operational excellence***
     :::column-end:::
 :::row-end:::
+---
 
 The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be difficult if they had to be completed all at once. To implement the Strangler Fig pattern, follow these recommendations:
 
@@ -109,6 +110,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
         ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability, Cost Optimization, Performance Efficiency***
     :::column-end:::
 :::row-end:::
+---
 
 The [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
 
