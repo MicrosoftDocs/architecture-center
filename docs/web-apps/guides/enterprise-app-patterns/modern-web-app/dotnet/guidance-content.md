@@ -50,7 +50,7 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
+        ***Well-Architected Framework pillar alignment:*** Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))
     :::column-end:::
 :::row-end:::
 
@@ -67,15 +67,13 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***Well-Architected Framework pillar alignment: Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 
 Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to implement asynchronous processing to handle tasks that do not need immediate responses. It improves overall system responsiveness and scalability. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
-- *Use non-blocking message queuing.* Ensure that the task queuing messages does not block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a ‘standby’ code path that can be used until the data is available.
-
-  The reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
+- *Use non-blocking message queuing.* Ensure that the task queuing messages does not block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a ‘standby’ code path that can be used until the data is available. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
 
     ```csharp
     // Asynchronously publish a message without blocking the calling thread
@@ -84,9 +82,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 - *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that cannot be processed successfully. If failures persist, these messages should be removed from the queue. For example, Azure Service Bus has built-in retry and dead letter queue features.
 
-- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases where a message might be processed more than once.
-
-    The reference implementation uses `ServiceBusClient.CreateProcessor` with `AutoCompleteMessages = true` and `ReceiveMode = ServiceBusReceiveMode.PeekLock` to ensure messages are only processed once and can be reprocessed on failure (*see following code*).
+- *Configure idempotent message processing.* The logic that processes messages from the queue must be idempotent to handle cases where a message might be processed more than once. For example, the reference implementation uses `ServiceBusClient.CreateProcessor` with `AutoCompleteMessages = true` and `ReceiveMode = ServiceBusReceiveMode.PeekLock` to ensure messages are only processed once and can be reprocessed on failure (*see following code*).
   
     ```csharp
     // Create a processor for idempotent message processing
@@ -108,7 +104,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))***
+        ***Well-Architected Framework pillar alignment: Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))***
     :::column-end:::
 :::row-end:::
 
@@ -169,7 +165,7 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***Well-Architected Framework alignment: Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 
