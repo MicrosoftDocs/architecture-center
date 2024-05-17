@@ -40,7 +40,7 @@ A messaging system is an important piece of service-oriented architectures. It d
 
 For more information, see [Choose between Azure messaging services](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services).
 
-## Decouple web app services
+## Implement architecture changes
 
 - *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
 
@@ -50,8 +50,11 @@ The following sections provide guidance on implementing the design patterns to y
 
 ### Implement the Strangler Fig pattern
 
-|***[Well-Architected Framework alignment](/architecture/patterns/strangler-fig#workload-design): Reliability (RE:08 Testing), Cost optimization (CO:07 Component costs, CO:08 Environment costs), Operational excellence (OE:06 Workload development, OE:11 Safe deployment practices)*** |
-|---|
+:::row:::
+    :::column:::
+        ***[Well-Architected Framework alignment](/architecture/patterns/strangler-fig#workload-design): Reliability, Cost optimization, Operational excellence***
+    :::column-end:::
+:::row-end:::
 
 The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be difficult if they had to be completed all at once. To implement the Strangler Fig pattern, follow these recommendations:
 
@@ -63,11 +66,8 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 ### Implement the Queue-Based Load Leveling pattern
 
-|***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design)|
+|***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability, Cost Optimization, Performance Efficiency***|
 |---|
-|Reliability (RE:06 Scaling, RE:07 Background jobs) |
-|Cost Optimization (CO:12 Scaling costs)|
-|Performance Efficiency (PE:05 Scaling and partitioning)*** |
 
 The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
@@ -106,7 +106,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability (RE:05 Redundancy, RE:07 Background jobs), Cost Optimization (CO:05 Rate optimization, CO:07 Component cost), Performance Efficiency (PE:05 Scaling and partitioning, PE:07 Code and infrastructure)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/competing-consumers#workload-design): Reliability, Cost Optimization, Performance Efficiency***
     :::column-end:::
 :::row-end:::
 
@@ -160,7 +160,7 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability (RE:07 Self-healing and preservation, RE:10 Monitoring and alerting), Operational Excellence (OE:07 Instrument and application), Performance Efficiency (PE:05 Scaling and partitioning)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability, Operational Excellence, Performance Efficiency***
     :::column-end:::
 :::row-end:::
 
@@ -214,7 +214,7 @@ app.MapHealthChecks("/health");
 
 :::row:::
     :::column:::
-        ***[Well-Architected Framework alignment](/azure/architecture/patterns/retry#workload-design): Reliability (RE:07 Self preservation)***
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/retry#workload-design): Reliability***
     :::column-end:::
 :::row-end:::
 
@@ -250,7 +250,8 @@ services.AddSingleton(sp =>
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-## Implement key changes
+## Implement configuration changes
+
 
 
 ### Extend identity-centric security
