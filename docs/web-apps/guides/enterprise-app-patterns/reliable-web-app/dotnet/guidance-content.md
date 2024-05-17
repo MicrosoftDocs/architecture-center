@@ -247,11 +247,11 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Cost optimization (CO:05, CO:06)***
+        ***Well-Architected Framework alignment: Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
     :::column-end:::
 :::row-end:::
 
-Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess. Follow these guidelines to right-size your environments:
+Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess. To right-size your environments, follow these recommendations:
 
 - *Cost optimize production environments.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Continuously monitor resource usage and adjust SKUs to align with actual performance needs.
 - *Cost optimize preproduction environments.* [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should use lower-cost resources, disable unneeded services, and apply discounts such as [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/#overview). Ensure [preproduction environments are sufficiently similar to production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid introducing risks. This balance ensures that testing remains effective without incurring unnecessary costs.
@@ -271,17 +271,19 @@ Use the performance tiers (SKUs) of Azure services that meet the needs of each e
     :::column-end:::
 :::row-end:::
 
-- *Automate scale-out.* Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
+Autoscaling ensures web app remain resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
 
-- *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
+- *Automate scale-out.* Use [Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Configure autoscaling rules to scale out based on key performance metrics, so your application can handle varying loads.
 
-- *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
+- *Refine scaling triggers.* Begin with CPU utilization as your initial scaling trigger if you are unfamiliar with your application’s scaling requirements. Refine your scaling triggers to include other metrics such as RAM, network throughput, and disk I/O to better match your web application's behavior and ensure optimal performance.
+
+- *Provide a scale out buffer.* Set your scaling thresholds to trigger before reaching maximum capacity. For example, configure scaling to occur at 85% CPU utilization rather than waiting until it reaches 100%. This proactive approach helps maintain performance and avoid potential bottlenecks.
 
 ### Implement infrastructure as code
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Operational Excellence***
+        ***Well-Architected Framework pillar support: Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))***
     :::column-end:::
 :::row-end:::
 
@@ -291,13 +293,13 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Operational Excellence, Performance Efficiency***
+        ***Well-Architected Framework pillar support: Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:04](/azure/well-architected/performance-efficiency/collect-performance-data)***
     :::column-end:::
 :::row-end:::
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
+Implement monitoring to enhance the operational excellence and performance efficiency of your web app. To implement monitoring, follow these recommendations:
 
-    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core) (*see the following code*).
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. For example, the reference implementation uses `AddApplicationInsightsTelemetry` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core) (*see the following code*).
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -308,9 +310,7 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
     }
     ```
 
-- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
-
-    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
+- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API. For example, the reference implementation gathers telemetry on events related to cart activity (*see the following code*).
 
     ```csharp
     this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
