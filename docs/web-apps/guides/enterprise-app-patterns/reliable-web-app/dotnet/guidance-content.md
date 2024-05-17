@@ -5,22 +5,6 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [choose azure services](../includes/choose-services.md)]
 
-| Web app component | Recommendation | Reference implementation | Guidance |
-| ----------------- | -------------- | ------------------------ | -------- |
-| **Application platform** | Support current web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
-| **Database** | Support current database engine | Azure SQL Database | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
-| **Load balancer** | Support architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
-| **Storage** | Support storage requirements | Azure Storage | [Storage options](/azure/architecture/guide/technology-choices/storage-options) |
-| **Identity management** | Microsoft Entra ID | Microsoft Entra ID | [Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) |
-| **App monitoring** | Application Insights | Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
-| **Cache** | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
-| **Secrets manager** | Azure Key Vault | Azure Key Vault | [Azure Key Vault overview](/azure/key-vault/general/overview) |
-| **Web application firewall** | Azure Web Application Firewall | Azure Web Application Firewall | [Azure Web Application Firewall overview](/azure/web-application-firewall/overview) |
-| **Configuration storage** | Azure App Configuration | Azure App Configuration | [Azure App Configuration overview](/azure/azure-app-configuration/overview) |
-| **Endpoint security** | Azure Private Link | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
-| **Network firewall** | Azure Firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
-| **Bastion host** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
-
 [!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
 
 ## Update web app code
