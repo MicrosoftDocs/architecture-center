@@ -176,25 +176,25 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
 
     For example, the reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
-```C#
-// Add health checks, including health checks for Azure services that are used by this service.
-// The Blob Storage and Service Bus health checks are provided by AspNetCore.Diagnostics.HealthChecks
-// (a popular open source project) rather than by Microsoft. https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
-builder.Services.AddHealthChecks()
-.AddAzureBlobStorage(options =>
-{
-    // AddAzureBlobStorage will use the BlobServiceClient registered in DI
-    // We just need to specify the container name
-    options.ContainerName = builder.Configuration.GetRequiredConfigurationValue("App:StorageAccount:Container");
-})
-.AddAzureServiceBusQueue(
-    builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:Host"),
-    builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:RenderRequestQueueName"),
-    azureCredentials);
-
-// Further app configuration omitted for brevity
-app.MapHealthChecks("/health");
-```
+    ```C#
+    // Add health checks, including health checks for Azure services that are used by this service.
+    // The Blob Storage and Service Bus health checks are provided by AspNetCore.Diagnostics.HealthChecks
+    // (a popular open source project) rather than by Microsoft. https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
+    builder.Services.AddHealthChecks()
+    .AddAzureBlobStorage(options =>
+    {
+        // AddAzureBlobStorage will use the BlobServiceClient registered in DI
+        // We just need to specify the container name
+        options.ContainerName = builder.Configuration.GetRequiredConfigurationValue("App:StorageAccount:Container");
+    })
+    .AddAzureServiceBusQueue(
+        builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:Host"),
+        builder.Configuration.GetRequiredConfigurationValue("App:ServiceBus:RenderRequestQueueName"),
+        azureCredentials);
+    
+    // Further app configuration omitted for brevity
+    app.MapHealthChecks("/health");
+    ```
 
 - *Configure Azure resources.* Configure the Azure resource to use the app’s health check URLs to confirm liveness and readiness. For example, the reference implementation uses Bicep to configure the health check URLs to confirm the liveness and readiness of the Azure resource. A liveness probe to hits the `/health` endpoint every 10 seconds after an initial delay of 2 seconds.
 
@@ -227,25 +227,25 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 - *Use exponential backoff.* Implement exponential backoff strategy for retry attempts. This means increasing the time between each retry exponentially, which helps reduce the load on the system during periods of high failure rates.
 - *Use SDK Retry functionality.* For services with specialized SDKs, like Azure Service Bus or Azure Blob Storage, use the built-in retry functionalities. These are optimized for the service's typical use cases and can handle retries more effectively with less configuration required on your part. For example, the reference implementation uses the built-in retry functionality of the Azure Service Bus SDK (`ServiceBusClient` and `ServiceBusRetryOptions`). The `ServiceBusRetryOptions` fetches settings from `MessageBusOptions` to configures retry settings such as MaxRetries, Delay, MaxDelay, and TryTimeout.
 
-```csharp
-// ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
-services.AddSingleton(sp =>
-{
-    var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
-    var clientOptions = new ServiceBusClientOptions
+    ```csharp
+    // ServiceBusClient is thread-safe and can be reused for the lifetime of the application.
+    services.AddSingleton(sp =>
     {
-        RetryOptions = new ServiceBusRetryOptions
+        var options = sp.GetRequiredService<IOptions<MessageBusOptions>>().Value;
+        var clientOptions = new ServiceBusClientOptions
         {
-            Mode = ServiceBusRetryMode.Exponential,
-            MaxRetries = options.MaxRetries,
-            Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
-            MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
-            TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
-        }
-    };
-    return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
-});
-```
+            RetryOptions = new ServiceBusRetryOptions
+            {
+                Mode = ServiceBusRetryMode.Exponential,
+                MaxRetries = options.MaxRetries,
+                Delay = TimeSpan.FromSeconds(options.BaseDelaySecondsBetweenRetries),
+                MaxDelay = TimeSpan.FromSeconds(options.MaxDelaySeconds),
+                TryTimeout = TimeSpan.FromSeconds(options.TryTimeoutSeconds)
+            }
+        };
+        return new ServiceBusClient(options.Host, azureCredential ?? new DefaultAzureCredential(), clientOptions);
+    });
+    ```
 
 - *Adopt Standard Resilience Libraries for HTTP Clients.* For HTTP communications, integrate a standard resilience library such as Polly or `Microsoft.Extensions.Http.Resilience`. These libraries offer comprehensive retry mechanisms, including exponential backoff, circuit breaker patterns, and more. These are crucial for managing communications with external web services.
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
