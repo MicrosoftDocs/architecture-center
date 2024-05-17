@@ -18,7 +18,7 @@ categories:
   - web
 ---
 
-# Reliable Web App pattern for .NET (example scenario)
+# Reliable Web App pattern for .NET
 
 This article provides an example scenario for implementing the [Reliable Web App pattern for .NET](./guidance-content.md). It follows the journey of a fictional company called Relecloud and its migration to the cloud.
 
