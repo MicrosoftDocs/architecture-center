@@ -5,27 +5,19 @@ ms.custom: devx-track-dotnet
 
 ## Implement architecture updates
 
-The following guidance shows you how to implement the architecture updates . Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
+The following guidance provides recommendations for implementing architecture updates on your web app.
 
 [!INCLUDE [implement PaaS services](../includes/choose-services.md)]
 
-### Secure ingress
+- *Secure ingress.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
 
-Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
+- *Implement network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
 
-### Implement network topology
+- *Implement infrastructure reliability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
 
-Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
+    Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
 
-### Implement infrastructure reliability
-
-- *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
-
-- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
-
-### Implement private endpoints
-
-Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+- *Implement private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
 ## Implement design patterns
 
@@ -298,20 +290,6 @@ The following sections provide guidance on implementing the configurations updat
     var redisCacheFamilyName = isProd ? 'C' : 'C'
     var redisCacheCapacity = isProd ? 1 : 0
     ```
-
-### Optimize resource usage
-
-:::row:::
-    :::column:::
-        ***Well-Architected Framework pillar support: Cost Optimization (CO:07, CO:08, CO:14)***
-    :::column-end:::
-:::row-end:::
-
-- *Delete unused environments.* Delete nonproduction environments after hours or during holidays to optimize cost. You can use infrastructure as code to delete Azure resources and entire environments. Remove the declaration of the resource that you want to delete from the template.
-
-- *Use shared services.* Centralize and share network resources in a hub virtual network.
-
-- *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types. The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
 
 ### Implement autoscaling
 
