@@ -90,8 +90,6 @@ items:
               href: guides/enterprise-app-patterns/modern-web-app/java/guidance.yml
           - name: Previous
             items:
-            - name: Example scenario
-              href: guides/enterprise-app-patterns/reliable-web-app/dotnet/example-scenario.md
             - name: .NET
               items:
               - name: Plan the implementation
@@ -104,10 +102,6 @@ items:
                 href: guides/enterprise-app-patterns/reliable-web-app/java/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/enterprise-app-patterns/reliable-web-app/java/apply-pattern.yml
-            - name: Plan MWA for .NET apps
-              href: guides/enterprise-app-patterns/modern-web-app/dotnet/plan-implementation.yml
-            - name: Apply MWA for .NET apps
-              href: guides/enterprise-app-patterns/modern-web-app/dotnet/apply-pattern.yml
     - name: Hosting applications
       items:
       - name: WordPress

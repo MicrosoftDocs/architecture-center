@@ -3011,6 +3011,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/web-apps/guides/reliable-web-app/overview.md",
+      "redirect_url": "/azure/architecture/web-apps/guides/enterprise-app-patterns/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/example-scenario/serverless/automation-application-gateway.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/networking/automation-application-gateway",
       "redirect_document_id": true
