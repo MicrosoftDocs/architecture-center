@@ -3,22 +3,39 @@ ms.custom: devx-track-dotnet
 ---
 [!INCLUDE [intro](../includes/intro.md)]
 
-## Implement architecture requirements
+## Implement architecture updates
 
-[!INCLUDE [choose azure services](../includes/choose-services.md)]
+The following guidance shows you how to implement the architecture updates . Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
-[!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
+[!INCLUDE [implement PaaS services](../includes/choose-services.md)]
 
-## Implement code updates
+### Secure ingress
+
+Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
+
+### Implement network topology
+
+Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
+
+### Implement infrastructure reliability
+
+- *Design for availability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
+
+- *Design for resiliency.* Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
+
+### Implement private endpoints
+
+Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+
+## Implement design patterns
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
-| Design pattern | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
-|-----------------------|-------------|----------|-------------------|-----------------------|------------------------|
-| [Retry pattern](#implement-the-retry-pattern) |✔️ |            |                   |                       |                        |
-| [Circuit Breaker pattern](#implement-the-circuit-breaker-pattern) | ✔️ |            |                   |                       | ✔️                    |
-| [Cache-Aside pattern](#implement-the-cache-aside-pattern) | ✔️ |            |                   |                       | ✔️                    |
-
+| Design pattern | Well-Architected Framework alignment |
+|-----------------------|-------------|
+| [Retry pattern](#implement-the-retry-pattern) | Reliability |
+| [Circuit Breaker pattern](#implement-the-circuit-breaker-pattern) | Reliability, Performance Efficiency |
+| [Cache-Aside pattern](#implement-the-cache-aside-pattern) | Reliability, Performance Efficiency |
 
 ### Implement the Retry pattern
 
@@ -195,16 +212,18 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 ## Implement configuration updates
 
-| Configuration update | Well-Architected Framework pillar alignment|
-|---------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| [Configure user authentication and authorization](#configure-user-authentication-and-authorization) | Security, Operational Excellence                                      |
-| [Configure service authentication and authorization](#configure-service-authentication-and-authorization) | Security, Operational Excellence                                      |
-| [Right size environments](#right-size-environments)                                   | Cost Optimization                                                     |
-| [Optimize resource usage](#optimize-resource-usage)                                   | Cost Optimization                                                     |
-| [Implement autoscaling](#implement-autoscaling)                                       | Reliability, Cost Optimization, Performance Efficiency                |
-| [Automate deployment](#automate-deployment)                                           | Operational Excellence                                                |
-| [Configure monitoring](#configure-monitoring)                                         | Operational Excellence, Performance Efficiency                        |
-| [Optimize data performance](#optimize-data-performance)                               | Performance Efficiency                                                |
+The following sections provide guidance on implementing the configurations updates. Each section align with one of more pillars of the Well-Architected Framework. See the following table for an overview and links to the relevant sections.
+
+| Configuration update | Well-Architected Framework alignment|
+|----------------------|--------------------------------------------|
+| [Configure user authentication and authorization](#configure-user-authentication-and-authorization) | Security, Operational Excellence|
+| [Configure service authentication and authorization](#configure-service-authentication-and-authorization) | Security, Operational Excellence|
+| [Right size environments](#right-size-environments)| Cost Optimization |
+| [Optimize resource usage](#optimize-resource-usage)| Cost Optimization  |
+| [Implement autoscaling](#implement-autoscaling)| Reliability, Cost Optimization, Performance Efficiency |
+| [Automate deployment](#automate-deployment) | Operational Excellence |
+| [Configure monitoring](#configure-monitoring)| Operational Excellence, Performance Efficiency|
+| [Optimize data performance](#optimize-data-performance)| Performance Efficiency |
 
 ### Configure user authentication and authorization
 

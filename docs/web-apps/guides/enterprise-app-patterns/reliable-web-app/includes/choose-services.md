@@ -1,4 +1,4 @@
-## Choose Azure services
+### Implement platform-as-a-service solutions
 
 Use platform-as-a-service (PaaS) solutions to achieve cost optimization and operational efficiency by reducing infrastructure management overhead while benefiting from built-in, cloud-optimized features that enhance reliability, security, and performance. To streamline the migration, choose services that support your current web app requirements, such as services that support the same runtime, database engine, data types, and redundancy requirements.
 
