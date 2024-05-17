@@ -195,17 +195,16 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
 
 ## Implement configuration updates
 
-| Design Pattern [link]                                                                 | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
-|---------------------------------------------------------------------------------------|-------------|----------|-------------------|-----------------------|------------------------|
-| [Configure user authentication and authorization](#configure-user-authentication-and-authorization) |             | ✔️       |                   | ✔️                     |                        |
-| [Configure service authentication and authorization](#configure-service-authentication-and-authorization) |             | ✔️       |                   | ✔️                     |                        |
-| [Right size environments](#right-size-environments)                                   |             |          | ✔️                |                       |                        |
-| [Optimize resource usage](#optimize-resource-usage)                                   |             |          | ✔️                |                       |                        |
-| [Implement autoscaling](#implement-autoscaling)                                       | ✔️          |          | ✔️                |                       | ✔️                     |
-| [Automate deployment](#automate-deployment)                                           |             |          |                   | ✔️                     |                        |
-| [Configure monitoring](#configure-monitoring)                                         |             |          |                   | ✔️                     | ✔️                     |
-| [Optimize data performance](#optimize-data-performance)                               |             |          |                   |                       | ✔️                     |
-
+| Configuration update | Well-Architected Framework pillar alignment|
+|---------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [Configure user authentication and authorization](#configure-user-authentication-and-authorization) | Security, Operational Excellence                                      |
+| [Configure service authentication and authorization](#configure-service-authentication-and-authorization) | Security, Operational Excellence                                      |
+| [Right size environments](#right-size-environments)                                   | Cost Optimization                                                     |
+| [Optimize resource usage](#optimize-resource-usage)                                   | Cost Optimization                                                     |
+| [Implement autoscaling](#implement-autoscaling)                                       | Reliability, Cost Optimization, Performance Efficiency                |
+| [Automate deployment](#automate-deployment)                                           | Operational Excellence                                                |
+| [Configure monitoring](#configure-monitoring)                                         | Operational Excellence, Performance Efficiency                        |
+| [Optimize data performance](#optimize-data-performance)                               | Performance Efficiency                                                |
 
 ### Configure user authentication and authorization
 
