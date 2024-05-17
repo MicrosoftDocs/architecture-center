@@ -212,7 +212,7 @@ The cloud can significantly improve the technical performance of business worklo
 
 Cost governance is the process of continuously implementing policies or controls to limit spending and costs. Native Kubernetes tooling and Azure tools both support cost governance with proactive monitoring and underlying infrastructure cost optimization.
 
-- [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that helps you analyze, manage, and optimize your Azure workload costs. Use the suite to help ensure that your organization is taking advantage of the benefits the cloud provides.
+- [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that helps you analyze, manage, and optimize your Azure workload costs. Use the suite to help ensure that your organization is taking advantage of the benefits the cloud provides.
 
 - Review the [Cloud Adoption Framework](/azure/architecture/framework/cost/design-governance) governance best practices for the [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management) to better understand how to manage and govern cloud costs.
 

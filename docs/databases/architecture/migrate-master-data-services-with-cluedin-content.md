@@ -12,7 +12,7 @@ The following diagram demonstrates the CluedIn architectural structure and data 
 
 CluedIn uses the Azure virtual private network (VPN) to allow you to connect to migrate on-premises MDS instances, or to connect directly to a cloud hosted SQL VM with a hosted MDS instance. All CluedIn needs is to point to the Windows Communication Foundation (WCF) service of MDS, and it will automate the process of moving the data, rules, workflows, and everything else into CluedIn or the respective Microsoft service.
 
-With native integration to Azure Cost Management + Billing, you can easily forecast your CluedIn MDM workloads, as you move from MDS to CluedIn. CluedIn utilizes the Azure Autoscale feature, to be able to scale the environment up and down. CluedIn also integrates natively into budgets in Azure, so that you can easily control your spending in the cloud. This integration eliminates the need for time-consuming forecasting and budgeting, because the costs will become obvious within the Azure platform.
+With native integration to Microsoft Cost Management, you can easily forecast your CluedIn MDM workloads, as you move from MDS to CluedIn. CluedIn utilizes the Azure Autoscale feature, to be able to scale the environment up and down. CluedIn also integrates natively into budgets in Azure, so that you can easily control your spending in the cloud. This integration eliminates the need for time-consuming forecasting and budgeting, because the costs will become obvious within the Azure platform.
 
 SSIS packages can be migrated to Azure Data Factory, to move all your ETL pipelines into a cloud-native solution.
 

@@ -185,7 +185,7 @@ For general guidance on designing secure solutions, see the [Azure security docu
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The Emissions Impact Dashboard and Azure Cost Management reports are free. This example is intentionally minimal to save on cost and carbon emissions. You can deploy this architecture by using several alternative Azure services.
+The Emissions Impact Dashboard and Microsoft Cost Management reports are free. This example is intentionally minimal to save on cost and carbon emissions. You can deploy this architecture by using several alternative Azure services.
 
 Use any equivalent service you already have in your application deployment. The following resources provide component pricing information:
 

@@ -208,7 +208,7 @@
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
 					<path d="M1.63 575.84 L0 574.62 L14.88 563.44 a0.70823 0.532098 0 0 1 1.00288 0 L17.01 564.29 a0.70823 0.532098
-								 0 0 1 -7.10543E-15 0.751437 L2.63 575.84 a0.70823 0.532098 0 0 1 -1.00017 0 L1.63 575.84 Z"
+								 0 0 1 -3.55271E-15 0.751437 L2.63 575.84 a0.70823 0.532098 0 0 1 -1.00017 0 L1.63 575.84 Z"
 							class="st8"/>
 				</g>
 			</g>
@@ -6084,7 +6084,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(54000):26"/>
 			</v:userDefs>
 			<title>Sheet.1033</title>
-			<g id="shape73-218" v:mID="73" v:groupContext="shape" transform="translate(3.9968E-14,-7.47492)">
+			<g id="shape73-218" v:mID="73" v:groupContext="shape" transform="translate(3.9968E-14,-5.81663)">
 				<title>Sheet.73</title>
 				<desc>Azure Monitor</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -6100,14 +6100,14 @@
 				<rect x="0" y="560.996" width="59.1056" height="15.0039" class="st14"/>
 				<text x="18.15" y="560.4" class="st23" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
 							x="14.99" dy="1.2em" class="st16">Metrics </tspan><tspan x="14.64" dy="1.2em" class="st16">Advisor</tspan></text>			</g>
-			<g id="shape75-227" v:mID="75" v:groupContext="shape" transform="translate(88.2177,0.825184)">
+			<g id="shape75-227" v:mID="75" v:groupContext="shape" transform="translate(94.8028,0.560306)">
 				<title>Sheet.75</title>
-				<desc>Azure Cost Management and Billing</desc>
+				<desc>Microsoft Cost Management</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
-				<v:textRect cx="37.842" cy="568.498" width="75.69" height="15.0039"/>
-				<rect x="0" y="560.996" width="75.684" height="15.0039" class="st14"/>
-				<text x="16.35" y="560.4" class="st23" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cost <tspan
-							x="11.37" dy="1.2em" class="st16">Management </tspan><tspan x="16.99" dy="1.2em" class="st16">and Billing</tspan></text>			</g>
+				<v:textRect cx="32.5425" cy="568.498" width="65.09" height="15.0039"/>
+				<rect x="0" y="560.996" width="65.0851" height="15.0039" class="st14"/>
+				<text x="13.65" y="560.4" class="st23" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
+							x="23.69" dy="1.2em" class="st16">Cost </tspan><tspan x="6.07" dy="1.2em" class="st16">Management</tspan></text>			</g>
 			<g id="shape183-232" v:mID="183" v:groupContext="shape" transform="translate(153.495,-5.07879)">
 				<title>Sheet.183</title>
 				<desc>Azure Key Vault</desc>
@@ -6116,7 +6116,7 @@
 				<rect x="0" y="560.996" width="59.1056" height="15.0039" class="st14"/>
 				<text x="9.78" y="565.8" class="st23" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Key <tspan
 							x="19.31" dy="1.2em" class="st16">Vault</tspan></text>			</g>
-			<g id="shape191-236" v:mID="191" v:groupContext="shape" transform="translate(200.732,-2.27374E-13)">
+			<g id="shape191-236" v:mID="191" v:groupContext="shape" transform="translate(200.732,-0.889775)">
 				<title>Sheet.191</title>
 				<desc>Azure Active Directory</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -6124,7 +6124,7 @@
 				<rect x="0" y="552.321" width="75.684" height="23.6788" class="st14"/>
 				<text x="13.1" y="561.46" class="st23" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Active<v:newlineChar/><tspan
 							x="19.7" dy="1.2em" class="st16">Directory</tspan></text>			</g>
-			<g id="shape199-240" v:mID="199" v:groupContext="shape" transform="translate(261.447,2.23263)">
+			<g id="shape199-240" v:mID="199" v:groupContext="shape" transform="translate(261.447,0.560306)">
 				<title>Sheet.199</title>
 				<desc>Microsoft Defender for Cloud</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -6132,7 +6132,7 @@
 				<rect x="0" y="560.996" width="59.1056" height="15.0039" class="st14"/>
 				<text x="10.66" y="560.4" class="st23" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft <tspan
 							x="4.33" dy="1.2em" class="st16">Defender for </tspan><tspan x="17.84" dy="1.2em" class="st16">Cloud</tspan></text>			</g>
-			<g id="shape201-245" v:mID="201" v:groupContext="shape" transform="translate(312.447,-5.67879)">
+			<g id="shape201-245" v:mID="201" v:groupContext="shape" transform="translate(312.75,-5.44357)">
 				<title>Sheet.201</title>
 				<desc>Azure DevOps</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -6215,7 +6215,7 @@
 					</v:userDefs>
 					<path d="M18.7 566.25 A14.1492 14.1993 -180 0 0 10.35 562.78 L10.35 569.12 A7.71979 7.74713 0 0 1 14.22 570.71
 								 L18.7 566.25 ZM0 566.25 L4.53 570.8 A7.71979 7.74713 0 0 1 8.4 569.21 L8.4 562.78 A14.1492 14.1993
-								 -180 0 0 0 566.25 ZM15.64 572.12 A8.14992 8.17879 0 0 1 17.25 576 L23.57 576 A13.9454 13.9948 -180
+								 -180 0 0 -0 566.25 ZM15.64 572.12 A8.14992 8.17879 0 0 1 17.25 576 L23.57 576 A13.9454 13.9948 -180
 								 0 0 20.1 567.66 L15.64 572.12 Z" class="st26"/>
 				</g>
 				<g id="shape81-265" v:mID="81" v:groupContext="shape" transform="translate(5.02578,-20.2425)">
@@ -6223,7 +6223,7 @@
 					<v:userDefs>
 						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 					</v:userDefs>
-					<path d="M7.92 572.12 L3.4 567.57 A13.9454 13.9948 -180 0 0 0 576 L6.32 576 A8.14992 8.17879 0 0 1 7.92 572.12
+					<path d="M7.92 572.12 L3.4 567.57 A13.9454 13.9948 -180 0 0 -0 576 L6.32 576 A8.14992 8.17879 0 0 1 7.92 572.12
 								 Z" class="st27"/>
 				</g>
 				<g id="shape82-267" v:mID="82" v:groupContext="shape" transform="translate(20.2616,-18.7431)">
