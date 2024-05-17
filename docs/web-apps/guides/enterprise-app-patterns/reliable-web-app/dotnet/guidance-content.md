@@ -3,13 +3,22 @@ ms.custom: devx-track-dotnet
 ---
 [!INCLUDE [intro](../includes/intro.md)]
 
+## Implement architecture requirements
+
 [!INCLUDE [choose azure services](../includes/choose-services.md)]
 
 [!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
 
-## Update web app code
+## Implement code updates
 
-The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that support one of more pillars of the Well-Architected Framework.
+The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
+
+| Design pattern | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
+|-----------------------|-------------|----------|-------------------|-----------------------|------------------------|
+| [Retry pattern](#implement-the-retry-pattern) |✔️ |            |                   |                       |                        |
+| [Circuit Breaker pattern](#implement-the-circuit-breaker-pattern) | ✔️ |            |                   |                       | ✔️                    |
+| [Cache-Aside pattern](#implement-the-cache-aside-pattern) | ✔️ |            |                   |                       | ✔️                    |
+
 
 ### Implement the Retry pattern
 
@@ -184,14 +193,27 @@ For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/per
     }
     ```
 
-## Implement key updates
+## Implement configuration updates
+
+| Design Pattern [link]                                                                 | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
+|---------------------------------------------------------------------------------------|-------------|----------|-------------------|-----------------------|------------------------|
+| [Configure user authentication and authorization](#configure-user-authentication-and-authorization) |             | ✔️       |                   | ✔️                     |                        |
+| [Configure service authentication and authorization](#configure-service-authentication-and-authorization) |             | ✔️       |                   | ✔️                     |                        |
+| [Right size environments](#right-size-environments)                                   |             |          | ✔️                |                       |                        |
+| [Optimize resource usage](#optimize-resource-usage)                                   |             |          | ✔️                |                       |                        |
+| [Implement autoscaling](#implement-autoscaling)                                       | ✔️          |          | ✔️                |                       | ✔️                     |
+| [Automate deployment](#automate-deployment)                                           |             |          |                   | ✔️                     |                        |
+| [Configure monitoring](#configure-monitoring)                                         |             |          |                   | ✔️                     | ✔️                     |
+| [Optimize data performance](#optimize-data-performance)                               |             |          |                   |                       | ✔️                     |
 
 
-### Security
+### Configure user authentication and authorization
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern recommends role-based access control and managed identities for identity-centric security. 
-
-#### Configure user authentication and authorization
+:::row:::
+    :::column:::
+        ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+    :::column-end:::
+:::row-end:::
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). It allows developers to build single-tenant, line-of-business (LOB) applications and multi-tenant software-as-a-service (SaaS) applications, so users and customers can sign in to using their Microsoft identities or social accounts.
 
@@ -206,6 +228,12 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
 
 ### Configure service authentication and authorization
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+    :::column-end:::
+:::row-end:::
 
 - *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
@@ -231,11 +259,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Secure secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
-### Cost optimization
+### Right size environments
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern recommends rightsizing techniques, autoscaling, and efficient resource usage for cost optimization.
-
-#### Rightsize environments
+:::row:::
+    :::column:::
+        ***Well-Architected Framework alignment: Cost optimization (CO:05, CO:06)***
+    :::column-end:::
+:::row-end:::
 
 - *Optimize all environments.* Use the performance tiers (SKUs) of Azure services that meets the needs of [each environment](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments).
 
@@ -251,15 +281,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
     var redisCacheCapacity = isProd ? 1 : 0
     ```
 
-### Use autoscale
-
-- *Automate scale-out.* Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
-
-- *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
-
-- *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
-
 ### Optimize resource usage
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Cost Optimization (CO:07, CO:08, CO:14)***
+    :::column-end:::
+:::row-end:::
 
 - *Delete unused environments.* Delete nonproduction environments after hours or during holidays to optimize cost. You can use infrastructure as code to delete Azure resources and entire environments. Remove the declaration of the resource that you want to delete from the template.
 
@@ -267,15 +295,37 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 - *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types. The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
 
-## Operational excellence
+### Implement autoscaling
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Reliable Web App pattern recommends infrastructure as code for deployments and configuring monitoring for observability.
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+    :::column-end:::
+:::row-end:::
+
+- *Automate scale-out.* Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
+
+- *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
+
+- *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
 
 ### Automate deployment
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Operational Excellence***
+    :::column-end:::
+:::row-end:::
 
 Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource. The reference implementation uses Bicep to deploy and configure all Azure resources.
 
 ### Configure monitoring
+
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Operational Excellence, Performance Efficiency***
+    :::column-end:::
+:::row-end:::
 
 - *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
 
@@ -303,13 +353,15 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 - *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
-## Performance efficiency
+### Optimize data performance
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The Reliable Web App pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
+:::row:::
+    :::column:::
+        ***Well-Architected Framework pillar support: Performance Efficiency***
+    :::column-end:::
+:::row-end:::
 
-### Test database performance
-
-Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
+- *Test database latency.* Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
 
 ## Deploy this scenario
 
