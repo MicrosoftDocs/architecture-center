@@ -3,7 +3,7 @@
 Use platform-as-a-service (PaaS) solutions to achieve cost optimization and operational efficiency by reducing infrastructure management overhead while benefiting from built-in, cloud-optimized features that enhance reliability, security, and performance. To streamline the migration, choose services that support your current web app requirements, such as services that support the same runtime, database engine, data types, and redundancy requirements.
 
 - *Application platform*: Start with Azure App Service as the default and use the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree) to validate your choice.
-- *Database*: Use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) to guide your decision.
+- *Database*: Keep the same database engine, and use the [data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) to guide your decision.
 - *Load balancer*: Web applications using PaaS solutions should use Azure Front Door (multiple regions), Application Gateway (single region), or both (SSL offloading or app-layer processing per request). Use the [load balancer decision tree](/azure/architecture/guide/technology-choices/load-balancing-overview#decision-tree-for-load-balancing-in-azure) to pick the right load balancer(s).
 - *Storage*: Review the Azure [storage options](/azure/architecture/guide/technology-choices/storage-options) to pick the right storage solution based on your requirements.
 - *Identity and access management*: Use [Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) for all identity and access management needs.
