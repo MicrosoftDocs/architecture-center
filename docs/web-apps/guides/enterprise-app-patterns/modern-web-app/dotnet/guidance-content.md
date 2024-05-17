@@ -50,7 +50,7 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment:*** Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))
+        ***Well-Architected Framework pillar alignment: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
     :::column-end:::
 :::row-end:::
 
