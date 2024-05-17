@@ -247,6 +247,8 @@ services.AddSingleton(sp =>
 
 ## Implement configuration changes
 
+The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
+
 ### Extend security
 
 :::row:::
