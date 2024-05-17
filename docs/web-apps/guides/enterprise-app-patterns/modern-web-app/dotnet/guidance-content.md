@@ -67,8 +67,12 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 ### Implement the Queue-Based Load Leveling pattern
 
-|***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability, Cost Optimization, Performance Efficiency***|
-|---|
+:::row:::
+    :::column:::
+        ***[Well-Architected Framework alignment](/azure/architecture/patterns/queue-based-load-leveling#workload-design): Reliability, Cost Optimization, Performance Efficiency***
+    :::column-end:::
+:::row-end:::
+---
 
 The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
@@ -165,6 +169,7 @@ processor.ProcessMessageAsync += async args =>
         ***[Well-Architected Framework alignment](/azure/architecture/patterns/health-endpoint-monitoring#workload-design): Reliability, Operational Excellence, Performance Efficiency***
     :::column-end:::
 :::row-end:::
+---
 
 The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
@@ -219,6 +224,7 @@ app.MapHealthChecks("/health");
         ***[Well-Architected Framework alignment](/azure/architecture/patterns/retry#workload-design): Reliability***
     :::column-end:::
 :::row-end:::
+---
 
 The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and independent services you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
@@ -260,9 +266,10 @@ services.AddSingleton(sp =>
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Security ([SE:05 Identity and access management](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+        ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
     :::column-end:::
 :::row-end:::
+---
 
 To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
 
@@ -322,6 +329,7 @@ To configure authentication and authorization on users (*user identities*), foll
         ***Well-Architected Framework pillar support: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
+---
 
 The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
@@ -362,9 +370,10 @@ scaleMinReplicas: 0
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Performance Efficiency ([PE:09 Critical flows](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03 Selecting services](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
+        ***Well-Architected Framework pillar support: Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
     :::column-end:::
 :::row-end:::
+---
 
 This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. To containerize deployment, follow these recommendations:
 
