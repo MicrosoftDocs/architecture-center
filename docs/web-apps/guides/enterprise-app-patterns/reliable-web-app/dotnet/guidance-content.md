@@ -1,6 +1,7 @@
 ---
 ms.custom: devx-track-dotnet
 ---
+
 [!INCLUDE [intro](../includes/intro.md)]
 
 ## Implement architecture updates
@@ -22,12 +23,6 @@ The following guidance provides recommendations for implementing architecture up
 ## Implement code updates
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
-
-| Design pattern | Well-Architected Framework alignment |
-|-----------------------|-------------|
-| [Retry pattern](#implement-the-retry-pattern) | Reliability |
-| [Circuit Breaker pattern](#implement-the-circuit-breaker-pattern) | Reliability, Performance Efficiency |
-| [Cache-Aside pattern](#implement-the-cache-aside-pattern) | Reliability, Performance Efficiency |
 
 ### Implement the Retry pattern
 
@@ -196,17 +191,7 @@ Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web 
 
 ## Implement configuration updates
 
-The following sections provide guidance on implementing the configurations updates. Each section align with one of more pillars of the Well-Architected Framework. See the following table for an overview and links to the relevant sections.
-
-| Configuration update | Well-Architected Framework alignment|
-|----------------------|--------------------------------------------|
-| [Configure user authentication and authorization](#configure-user-authentication-and-authorization) | Security, Operational Excellence|
-| [Configure service authentication and authorization](#configure-service-authentication-and-authorization) | Security, Operational Excellence|
-| [Right size environments](#right-size-environments)| Cost Optimization |
-| [Implement autoscaling](#implement-autoscaling)| Reliability, Cost Optimization, Performance Efficiency |
-| [Automate deployment](#automate-deployment) | Operational Excellence |
-| [Configure monitoring](#configure-monitoring)| Operational Excellence, Performance Efficiency|
-| [Optimize data performance](#optimize-data-performance)| Performance Efficiency |
+The following sections provide guidance on implementing the configurations updates. Each section align with one of more pillars of the Well-Architected Framework.
 
 ### Implement user authentication and authorization
 
@@ -238,7 +223,7 @@ The following sections provide guidance on implementing the configurations updat
 
 Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-The reference implementation uses the `Authentication` argument in the SQL database connection string so App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`. It uses the `DefaultAzureCredential` to allow the web API to connect to Key Vault using a managed identity (*see the following code*).
+For example, the reference implementation uses the `Authentication` argument in the SQL database connection string so App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`. It uses the `DefaultAzureCredential` to allow the web API to connect to Key Vault using a managed identity (*see the following code*).
 
 ```csharp
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -266,12 +251,12 @@ The reference implementation uses the `Authentication` argument in the SQL datab
     :::column-end:::
 :::row-end:::
 
-- *Optimize all environments.* Use the performance tiers (SKUs) of Azure services that meets the needs of [each environment](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments).
+Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess.
 
-- *Optimize production.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production.
+- *Cost optimize production environments.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production.
+- *Cost optimize preproduction environments.* [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should  the right balance of lower-cost resources, turning off unneeded services, and applying discounts offered for preproduction usage, such as [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview). Make sure to [balance similarity with production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid creating production risks.
 
-- [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should b the right balance of lower-cost resources, turning off unneeded services, and applying discounts offered for preproduction usage, such as [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview). Make sure to [balance similarity with production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid creating production risks.
-
+- 
     The reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
 
     ```bicep
