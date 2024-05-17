@@ -11,7 +11,7 @@ Diagram showing how data flows between three parties in a healthcare setting. Th
 The diagram outlines the architecture. Throughout the system:
 
 - Network communication is TLS encrypted in transit.
-- [Azure Monitor](/azure/azure-monitor) tracks component performance, and [Azure Container Registry](/azure/container-registry) (ACR) manages the solution's containers.
+- [Azure Monitor](/azure/azure-monitor) tracks component performance, and [Azure Container Registry (ACR)](/azure/container-registry) manages the solution's containers.
 
 ### Workflow
 

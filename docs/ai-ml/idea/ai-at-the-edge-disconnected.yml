@@ -36,4 +36,4 @@ products:
   - azure-stack-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected-thumbnail.png
 content: |
-  [!include[](ai-at-the-edge-disconnected-content.md)]
+  [!INCLUDE[](ai-at-the-edge-disconnected-content.md)]

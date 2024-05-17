@@ -4,7 +4,7 @@ Customer Churn Prediction uses Azure AI platform to predict churn probability, a
 
 ## Architecture
 
-[ ![Architecture diagram: predicting customer churn with machine learning.](_images/customer-churn-prediction.png)](_images/customer-churn-prediction.png#lightbox)
+[ ![Architecture diagram: predicting customer churn with machine learning](_images/customer-churn-prediction.png)](_images/customer-churn-prediction.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/customer-churn-prediction.vsdx) of this architecture.*
 
@@ -14,7 +14,7 @@ Customer Churn Prediction uses Azure AI platform to predict churn probability, a
 
 1. Process real-time data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). Stream Analytics can output processed data into [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) . This allows customers to combine existing and historical data to create dashboards and reports in Power BI.
 
-1. Ingest historical data at scale into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) using [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) or another ETL tool.
+1. Ingest historical data at scale into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) using [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) or another extract, transform, and load (ETL) tool.
 
 1. Use [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) to combine streaming data with historical data for reporting or experimentation in [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning).
 
@@ -24,12 +24,12 @@ Customer Churn Prediction uses Azure AI platform to predict churn probability, a
 
 ### Components
 
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is an event ingestion service that can process millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time analytics engine designed to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents more-easily and cost-effectively. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast and reliable data warehouse with limitless analytics that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources and serve data for immediate BI and machine learning needs.
-* [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
-* [Power BI](https://powerbi.microsoft.com) is a suite of tools that delivers powerful insights to organizations. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is an event ingestion service that can process millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time analytics engine designed to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents more-easily and cost-effectively. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast and reliable data warehouse with limitless analytics that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources and serve data for immediate BI and machine learning needs.
+- [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
+- [Power BI](https://powerbi.microsoft.com) is a suite of tools that delivers powerful insights to organizations. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
 
 ## Scenario details
 
@@ -59,23 +59,23 @@ The snapshot below shows an example Power BI dashboard that gives insights into 
 
 ## Next steps
 
-* [About Azure Event Hubs](/azure/event-hubs/event-hubs-about)
-* [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-* [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
-* [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-* [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
-* [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [About Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources
 
 Architecture guides:
 
-* [Artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md)
-* [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-* [Machine learning operations (MLOps) framework](../../ai-ml/guide/mlops-technical-paper.yml)
+- [Artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md)
+- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
+- [Machine learning operations (MLOps) framework](../../ai-ml/guide/mlops-technical-paper.yml)
 
 Reference architectures:
 
-* [Batch scoring for deep learning models](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
-* [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
-* [Build a speech-to-text transcription pipeline](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
+- [Batch scoring for deep learning models](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
+- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
+- [Build a speech to text transcription pipeline](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)

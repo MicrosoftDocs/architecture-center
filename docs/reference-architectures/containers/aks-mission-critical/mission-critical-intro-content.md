@@ -20,9 +20,9 @@ Many factors can affect the reliability of an application, such as the ability t
 
 - **Redundancy in layers**
 
-    - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
+    - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic.
 
-    - Utilize _Availability Zones (AZs)_ for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
+    - Utilize *availability zones* for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
 
     - Choose resources that support _global distribution_.
 

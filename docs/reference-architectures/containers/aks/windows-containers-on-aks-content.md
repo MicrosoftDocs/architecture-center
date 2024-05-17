@@ -7,7 +7,7 @@ Refer to the [AKS Windows baseline GitHub project](https://github.com/Azure/aks-
 The network design used in this architecture is based off of the [design](./baseline-aks.yml#network-topology) used in the AKS Baseline architecture and therefore shares all of the core components with that design except for the following changes.
 
 - Active Directory domain controllers have been added to support the Windows-based workloads.
-- The ingress solution in this architecture makes use of [Azure Front Door](/azure/frontdoor/front-door-overview) (AFD) and [Microsoft Entra application proxy](/azure/active-directory/app-proxy/what-is-application-proxy) (AAP) rather than Azure App Gateway, which is used in the AKS Baseline architecture.
+- The ingress solution in this architecture makes use of [Azure Front Door (AFD)](/azure/frontdoor/front-door-overview) and [Microsoft Entra application proxy](/azure/active-directory/app-proxy/what-is-application-proxy) (AAP) rather than Azure App Gateway, which is used in the AKS Baseline architecture.
 
 >[!NOTE]
 >  Migrating windows workloads into AKS usually does not include major refactoring efforts, and as such the workloads might be using features that were relatively easy to implement on-premises, but pose a challenge on Azure. One example would be an application that uses gMSA and Kerberos authentication.  This is a common use case, and as such, this architecture leads with components that address those workloads' needs. Specifically, using AAP fronted by AFD as part of ingress path.  If your workload doesn't need this support, you can follow the same [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources) as in the AKS baseline for ingress. 
@@ -16,7 +16,7 @@ The network design used in this architecture is based off of the [design](./base
 
 Components:
 
-- **Azure Front Door with WAF**: AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks internal app traffic to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
+- **Azure Front Door with WAF**: AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks internal app traffic to private networking, providing the highest level of security. [Web Application Firewall (WAF)](/azure/web-application-firewall/afds/afds-overview) protects against common web application exploits and vulnerabilities.
 - **Microsoft Entra application proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Microsoft Entra ID enabled for pre-authentication of users and uses a [conditional access policy](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#other-applications) to prevent unauthorized IP ranges (AAP sees the originating client IP, which it compares to the conditional access policy) and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
 - **Internal load balancer**: Managed by AKS. This load balancer exposes the ingress controller through a private static IP address. It serves as a single point of contact that receives inbound HTTP requests.
 - No in-cluster ingress controllers (like Nginx) are used in this architecture.
@@ -83,7 +83,7 @@ Windows containers cannot be domain joined, so if you require Active Directory a
 
 ## Node and pod scaling
 
-Cluster autoscaler guidance is unchanged for Windows containers. Refer to the [Cluster autoscaler]( /azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-autoscaler) documentation for guidance.
+Cluster autoscaler guidance is unchanged for Windows containers. Refer to the [Cluster autoscaler](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-autoscaler) documentation for guidance.
 
 The baseline cluster documentation describes the manual and autoscaling approaches that are available for pod scaling. Both approaches are available for clusters running Windows containers and the [guidance](./baseline-aks.yml#node-and-pod-scalability) provided in that article generally apply here as well.
 

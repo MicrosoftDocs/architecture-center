@@ -19,8 +19,8 @@ products:
   - azure-databricks
   - azure-hdinsight
   - azure-synapse-analytics
-name: Large-scale custom natural language processing
+name: Large-scale custom natural language processing (NLP)
 summary: Implement a custom natural language processing (NLP) solution in Azure. Use Spark NLP for tasks like topic and sentiment detection and analysis.
 thumbnailUrl: /azure/architecture/browse/thumbs/large-scale-custom-natural-language-processing-thumbnail.png
 content: |
-  [!include[](large-scale-custom-natural-language-processing-content.md)]
+  [!INCLUDE[](large-scale-custom-natural-language-processing-content.md)]

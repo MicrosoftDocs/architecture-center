@@ -32,11 +32,11 @@ The following dataflow corresponds to the above diagram:
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (ADF) provides fully managed, serverless data integration and orchestration service capable of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. In this scenario ADF is used to ingest data and orchestrate the data flows.  
+- [Azure Data Factory (ADF)](https://azure.microsoft.com/products/data-factory/) provides fully managed, serverless data integration and orchestration service capable of visually integrating data sources with more than 90+ built-in, maintenance-free connectors at no added cost. In this scenario ADF is used to ingest data and orchestrate the data flows.  
   
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) (ADLS) provides a scalable secure data lake for high-performance analytics. In this scenario ADLS is used as a scalable, cost-effective data storage layer.  
+- [Azure Data Lake (ADLS)](https://azure.microsoft.com/solutions/data-lake/) provides a scalable secure data lake for high-performance analytics. In this scenario ADLS is used as a scalable, cost-effective data storage layer.  
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (AML) services accelerate the end-to-end LOS prediction machine learning lifecycle by:
+- [Azure Machine Learning (AML)](https://azure.microsoft.com/services/machine-learning/) services accelerate the end-to-end LOS prediction machine learning lifecycle by:
   - Empowering data scientists and developers with a wide range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
   - Accelerating time to market with industry-leading MLOps—machine learning operations, or DevOps for machine learning. 
   - Innovating on a secure, trusted platform, designed for responsible machine learning. 

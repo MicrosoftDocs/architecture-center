@@ -2,6 +2,8 @@ The articles in this series describe an approach for designing a disaster recove
 
 Every organization's data needs are different, but the guidance provided will act as starting point, enabling the design of a DR strategy that fits your business requirements.  
 
+<!-- docutune:disable -->
+
 ## Key terms glossary
 
 **Term**|**Definition**|**Notes**
@@ -49,6 +51,8 @@ VM|Virtual Machine|[Virtual Machines (VMs) for Linux and Windows](https://azure.
 VNET|Azure – Virtual Network|[Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 WRT|Work Recovery Time|The maximum acceptable amount of time that is required to update the platform data/processing from the recovery point to the current period, enabling the business/solutions to use the service as BAU.
 ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region)
+
+<!-- docutune:enable -->
 
 ## Contributors
 

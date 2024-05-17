@@ -2,19 +2,19 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 ## Architecture
 
-[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services.](_images/architecture-customer-lifetime-churn.svg)](_images/architecture-customer-lifetime-churn.svg#lightbox)
+[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services](_images/architecture-customer-lifetime-churn.svg)](_images/architecture-customer-lifetime-churn.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-customer-lifetime-churn.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. **Ingestion and orchestration**: Ingest historical, transactional, and third-party data for the customer from on-premises data sources. Use Azure Data Factory and store the results in Azure Data Lake Storage.
+1. **Ingestion and orchestration:** Ingest historical, transactional, and third-party data for the customer from on-premises data sources. Use Azure Data Factory and store the results in Azure Data Lake Storage.
 
-1. **Data processing**: Use Azure Databricks to pick up and clean the raw data from the Data Lake Storage. Store the data in the *silver layer* in Azure Data Lake Storage.
+1. **Data processing:** Use Azure Databricks to pick up and clean the raw data from the Data Lake Storage. Store the data in the *silver layer* in Azure Data Lake Storage.
 
-1. **Feature engineering**: With Azure Databricks, load data from the silver layer of Data Lake Storage. Use [PySpark](https://spark.apache.org/docs/latest/api/python/index.html) to enrich the data. After preparation, use feature engineering to provide a better representation of data. Feature engineering can also improve the performance of the machine learning algorithm.
+1. **Feature engineering:** With Azure Databricks, load data from the silver layer of Data Lake Storage. Use [PySpark](https://spark.apache.org/docs/latest/api/python/index.html) to enrich the data. After preparation, use feature engineering to provide a better representation of data. Feature engineering can also improve the performance of the machine learning algorithm.
 
-1. **Model training**: In model training, the silver tier data is the model training dataset. You can use MLflow to manage machine learning experiments. MLflow keeps track of all metrics you need to evaluate your machine learning experiment.
+1. **Model training:** In model training, the silver tier data is the model training dataset. You can use MLflow to manage machine learning experiments. MLflow keeps track of all metrics you need to evaluate your machine learning experiment.
 
    MLflow parameters stores model-related parameters, such as training hyperparameters. MLflow metrics stores model performance metrics. The machine learning model iteratively retrains using Azure Data Factory pipelines. The model retraining pipeline gets updated training data from the Azure Data Lake Storage and retrains the model. The model retraining pipeline kicks off in the following conditions:
 
@@ -22,9 +22,9 @@ This scenario shows a solution for creating predictive models of [customer lifet
    - When calendar triggers, based on the customer defined rules, are reached.
    - When data drift is detected.
 
-1. **Machine learning registry**: An Azure Data Factory pipeline registers the best machine learning model in the Azure Machine Learning Service according to the metrics chosen. The machine learning model is deployed by using the [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service).
+1. **Machine learning registry:** An Azure Data Factory pipeline registers the best machine learning model in the Azure Machine Learning Service according to the metrics chosen. The machine learning model is deployed by using the [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service).
 
-1. **Serving phase**: In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analyses Services.
+1. **Serving phase:** In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analyses Services.
 
 ### Components
 
@@ -32,7 +32,7 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) provides a data integration and transformation layer that works across your digital transformation initiatives.
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud platform.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) includes a range of experiences to build, train, and deploy machine learning models and foster team collaboration.
 
@@ -80,11 +80,11 @@ Azure components offer availability through redundancy and as specified in servi
 
 - For information about Data Factory pipelines, see [SLA for Data Factory](https://azure.microsoft.com/support/legal/sla/data-factory/v1_2).
 - For information about Azure Databricks, see [Azure Databricks](https://azure.microsoft.com/services/databricks).
-- Data Lake Storage offers availability through redundancy. See [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
+- Data Lake Storage offers availability through redundancy. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 ### Scalability
 
-This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gbps). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
+This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gb/s). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
 
 This scenario uses Azure Databricks clusters, which enable autoscaling by default. Autoscaling enables Databricks during runtime to dynamically reallocate resources. With autoscaling, you don't need to start a cluster to match a workload, which makes it easier to achieve high cluster usage.
 

@@ -1,4 +1,4 @@
-This article describes how [Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The Avanade AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS or Linux OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure as a service (IaaS) and platform as a service (PaaS) environments.
+This article describes how [Avanade's Automated Migration Technology (AMT)](https://www.avanade.com/solutions/cloud-and-application-services/amt) migrates an IBM z/OS mainframe system to the Azure cloud. The Avanade AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS or Linux OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure as a service (IaaS) and platform as a service (PaaS) environments.
 
 ## Architecture
 
@@ -140,7 +140,7 @@ Principal author:
 
 - For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 - Visit the [Avanade website](https://www.avanade.com).
-- Review [the CIO’s guide to mainframe modernization](https://www.avanade.com/solutions/cloud-and-application-services/mainframe-modernization-guide).
+- Review [the CIO’s guide to mainframe modernization](https://www.avanade.com/en/solutions/cloud-and-application-services/mainframe-modernization-guide).
 - Learn about [MIPS equivalent sizing for IBM CICS COBOL applications](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
 
 ## Related resources

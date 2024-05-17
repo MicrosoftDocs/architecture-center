@@ -91,12 +91,6 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 
 ## Related resources
 
-These architectures use database technologies.
-
-- [SQL Managed Instance with customer-managed keys](../databases/architecture/sql-managed-instance-cmk.yml)
-
-Here are some other resources:
-
 - [Adatum Corporation scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum)
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
