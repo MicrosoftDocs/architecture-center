@@ -16,7 +16,7 @@ The Modern Web App pattern focuses on optimizing critical flows your web applica
 
 Systematically decouple services from your monolithic codebase and implement a service-oriented architecture that enhances performance, scalability, and maintainability.
 
-### Implement 
+### Implement platform-as-a-service solutions
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
