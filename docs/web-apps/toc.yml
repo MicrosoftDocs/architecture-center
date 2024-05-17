@@ -82,12 +82,6 @@ items:
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
             - name: Java
               href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml
-            - name: Example scenarios
-              items:
-              - name: .NET scenario
-                href: guides/enterprise-app-patterns/reliable-web-app/dotnet/example-scenario.md
-              - name: Java scenario
-                href: guides/enterprise-app-patterns/reliable-web-app/java/example-scenario.md
           - name: Modern Web App pattern
             items:
             - name: .NET
