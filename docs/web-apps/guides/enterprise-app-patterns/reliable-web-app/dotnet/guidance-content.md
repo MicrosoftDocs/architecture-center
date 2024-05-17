@@ -208,7 +208,7 @@ The following sections provide guidance on implementing the configurations updat
 | [Configure monitoring](#configure-monitoring)| Operational Excellence, Performance Efficiency|
 | [Optimize data performance](#optimize-data-performance)| Performance Efficiency |
 
-### Configure user authentication and authorization
+### Implement user authentication and authorization
 
 :::row:::
     :::column:::
@@ -228,7 +228,7 @@ The following sections provide guidance on implementing the configurations updat
 
 - *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
 
-### Configure service authentication and authorization
+### Implement managed identities
 
 :::row:::
     :::column:::
@@ -236,13 +236,11 @@ The following sections provide guidance on implementing the configurations updat
     :::column-end:::
 :::row-end:::
 
-- *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
+Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-    The reference implementation uses the `Authentication` argument in the SQL database connection string so App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`
+The reference implementation uses the `Authentication` argument in the SQL database connection string so App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`. It uses the `DefaultAzureCredential` to allow the web API to connect to Key Vault using a managed identity (*see the following code*).
 
-    The reference implementation uses the `DefaultAzureCredential` to allow the web API to connect to Key Vault using a managed identity (*see the following code*).
-
-    ```csharp
+```csharp
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
          options
@@ -254,11 +252,11 @@ The following sections provide guidance on implementing the configurations updat
                 kv.SetCredential(new DefaultAzureCredential());
             });
     });
-    ```
+```
 
-- *Configure service authentication.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
+- *Configure least privileges.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
 
-- *Secure secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
+- *Secure remaining secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 ### Right size environments
 
@@ -296,7 +294,7 @@ The following sections provide guidance on implementing the configurations updat
 
 - *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
 
-### Automate deployment
+### Implement infrastructure as code
 
 :::row:::
     :::column:::
@@ -306,7 +304,7 @@ The following sections provide guidance on implementing the configurations updat
 
 Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource. The reference implementation uses Bicep to deploy and configure all Azure resources.
 
-### Configure monitoring
+### Implement monitoring
 
 :::row:::
     :::column:::
@@ -339,16 +337,6 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
     ```
 
 - *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
-
-### Optimize data performance
-
-:::row:::
-    :::column:::
-        ***Well-Architected Framework pillar support: Performance Efficiency***
-    :::column-end:::
-:::row-end:::
-
-- *Test database latency.* Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
 
 ## Deploy this scenario
 
