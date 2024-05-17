@@ -165,7 +165,7 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***Well-Architected Framework pillar alignment: Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 
@@ -217,7 +217,7 @@ app.MapHealthChecks("/health");
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillars: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
+        ***Well-Architected Framework pillar alignment: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
     :::column-end:::
 :::row-end:::
 
