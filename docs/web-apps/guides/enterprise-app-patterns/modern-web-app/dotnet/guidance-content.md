@@ -14,30 +14,35 @@ The Modern Web App pattern focuses on optimizing critical flows your web applica
 
 ## Implement architecture updates
 
-The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an application platform that supports containerization and a container image repository. You need a messaging system to support asynchronous messaging.
+Systematically decouple services from your monolithic codebase and implement a service-oriented architecture that enhances performance, scalability, and maintainability.
 
-- *Choose a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
+### Implement 
 
-  - *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-  - *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
-  - *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
+The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
-- *Choose a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
-
-- *Choose a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
+- *Implement a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
 
   - *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
   - *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with telemetry and event streams that require real-time processing.
   - *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
 
-For more information, see [Choose between Azure messaging services](https://learn.microsoft.com/azure/service-bus-messaging/compare-messaging-services).
+- *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
 
-## Implement architecture changes
+  - *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+  - *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
+  - *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
-- *Identify services to extract.* Start by identifying the services that can be extracted according to domain boundaries. These services should be logically separate pieces of functionality that can benefit from independent scaling, versioning, or deployment. For example, in an e-commerce application, services like user management, product catalog, and order processing can be identified as separate domains.
-- *Update firewall rules.* Update your firewall rules to account for the new network traffic patterns that results from the decoupled service.
+- *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
-## Update web app code
+### Decouple web app services
+
+- *Identify service boundaries* Apply DDD principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Map the key business capabilities of your application. Services that represent distinct business functions are good candidates for decoupling. Examine the dependencies between different parts of your application. Services with fewer dependencies on other parts of the system are easier to decouple.
+- *Evaluate service impact.* Focus on services that will benefit most from independent scaling. For instance, a high-traffic service like order processing in an e-commerce application may require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these allows for independent deployment and reduces the risk of affecting other parts of the application. Target services that are critical to performance. Decoupling these can help optimize and manage performance more effectively.
+- *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how data is managed and shared across services. Decoupled services should manage their own data and minimize direct database access across service boundaries. Ensure your existing infrastructure can support the decoupling process, including the necessary containerization and messaging systems.
+- *Extract services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity.
+- *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
+
+## Implement design patterns
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that implement recommendations of the Well-Architected Framework:
 
@@ -49,8 +54,9 @@ The following sections provide guidance on implementing the design patterns to y
     :::column-end:::
 :::row-end:::
 
-The [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern allows you to move specific logical components to new services. The strangler fig pattern is useful for making incremental progress on large modernization tasks that would be difficult if they had to be completed all at once. To implement the Strangler Fig pattern, follow these recommendations:
+Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new microservices using the Strangler Fig pattern. Build new services around the existing system and slowly replacing parts of the monolith. Follow these recommendations:
 
+- *Set up a routing layer* Implement a routing layer that directs traffic to either the monolith or the new microservices based on the endpoint. This allows for a seamless transition and testing.
 - *Use a façade service if necessary.* In some cases, a strangler fig façade service is used to route requests to the various backend solutions while the pattern is being applied. This is particularly useful when you have multiple services running in parallel during the transition period. However, if the extracted service doesn’t have any public-facing APIs, such a façade service might not be necessary.
 - *Unify the API surface area.* If your application exposes an API to callers, consider using a management platform like [Azure API Management](/azure/api-management/api-management-key-concepts). It can help unify the surface area of multiple services which have been extracted from one another, making it easier for clients to consume your services.
 - *Manage feature rollout.* If you want an extracted service to be rolled out gradually, use ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). This allows you to use the new service for only a portion of requests initially, and then increase its usage over time as you gain confidence in its stability and performance.
@@ -65,7 +71,7 @@ The reference implementation extracts the ticket rendering functionality from a 
     :::column-end:::
 :::row-end:::
 
-The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) improves the reliability of code by separating tasks and services with a queue. Unlike synchronous methods, such as HTTP, this pattern prevents the workload spikes from directly affecting services. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
+Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to implement asynchronous processing to handle tasks that do not need immediate responses. It improves overall system responsiveness and scalability. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
 - *Use non-blocking message queuing.* Ensure that the task queuing messages does not block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a ‘standby’ code path that can be used until the data is available.
 
@@ -106,7 +112,7 @@ The [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     :::column-end:::
 :::row-end:::
 
-The [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) distributes incoming tasks across multiple parallel workers. It handles demand surges by scaling the number of workers horizontally. Workers simultaneously retrieve and process tasks from a shared message queue. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
+Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) to distribute incoming tasks across multiple multiple instances of your decoupled services to process messages from the queue. This allows for load balancing and increases the system's ability to handle concurrent requests. Set up auto-scaling policies for the decoupled services to dynamically adjust the number of instances based on the workload. This pattern is suitable when the order of messages is not critical, malformed messages do not disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 - *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they are ready.
@@ -167,7 +173,7 @@ processor.ProcessMessageAsync += async args =>
     :::column-end:::
 :::row-end:::
 
-The [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) is useful for tracking the health of application endpoints. This is especially important in services that are managed by an orchestrator such as those deployed in Azure Kubernetes Service or Azure Container Apps. These orchestrators can poll health endpoints to make sure services are running properly and restart instances that are not healthy. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data, including checking the health of key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
+Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) to track the health of application endpoints. Implement health endpoints for each decoupled service to ensure they function correctly. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
 - *Implement health checks.* Use [ASP.NET Core health checks middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 - *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
