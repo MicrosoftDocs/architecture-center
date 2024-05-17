@@ -115,7 +115,7 @@ The solution uses the following components.
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Microsoft Cost Management][Microsoft Cost Management] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Scenario details
 
