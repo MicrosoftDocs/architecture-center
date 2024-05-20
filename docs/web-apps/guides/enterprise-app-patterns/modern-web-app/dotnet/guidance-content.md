@@ -1,4 +1,4 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF). The baseline architecture builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and adds the required web app components.
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
 | Benefits of the pattern | Architecture updates | Code updates | Configuration updates |
 | --- | --- | --- | --- |
@@ -20,7 +20,7 @@ Use the following architecture, code, and configuration guidance to implement th
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
 
-Use the Reliable Web App pattern foundational architecture and add to it as needed (*see figure 1*). The foundational architecture identities the essential components of the Reliable Web App pattern, and the following guidance shows you how to customize the architecture to meet you specific web app needs. To implement the architecture updates, follow these recommendations.
+The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. To implement the architecture updates, follow these recommendations.
 
 #### Select the right platform-as-a-service (PaaS) solutions
 

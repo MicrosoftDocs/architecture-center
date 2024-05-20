@@ -7,16 +7,16 @@ ms.custom: devx-track-dotnet
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [***reference implementation***](reference-implementation) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern. The reference implementation shows the end state of the Reliable Web App pattern. The example web app allows customers to buy concert tickets online.
 
-## Architecture updates
+### Architecture updates
 
 [![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
 *Figure 1. Foundational architecture of the Reliable Web App pattern.*
 
-Use the Reliable Web App pattern foundational architecture and add to it as needed (*see figure 1*). The foundational architecture identities the essential components of the Reliable Web App pattern, and the following guidance shows you how to customize the architecture to meet you specific web app needs. To implement the architecture updates, follow these recommendations:
+The foundational architecture identifies the essential web components needed to support the Reliable Web App pattern implementation (*see figure 1*). The foundational architecture requires a network perimeter to protect the web app from malicious inbound traffic. The web app hosting platform connects to supporting cloud services through private endpoints to improve security. The cache supports the implementation of the Cache-Aside pattern to reduce data latency in the web app. To implement the architecture updates, follow these recommendations:
 
 [!INCLUDE [implement PaaS services](../includes/choose-services.md)]
 
-- *Secure the ingress.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
+- *Filter inbound traffic.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
 
 - *Implement network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
 
