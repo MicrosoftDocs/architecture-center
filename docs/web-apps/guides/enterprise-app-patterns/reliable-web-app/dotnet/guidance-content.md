@@ -30,6 +30,8 @@ Update your web app code with the prescribed design patterns. Each design patter
 [![Diagram showing the where the design patterns role in the Reliable Web App pattern architecture.](../../../_images/rwa-design-patterns.svg)](../../../_images/rwa-design-patterns.svg)
 *Figure 2. Design patterns role in the web app architecture.*
 
+The Retry pattern and Circuit-Breaker pattern applies to all requests from the web app to Azure services. The Cache-Aside pattern applies to requests to the database.
+
 #### Implement the Retry pattern
 
 :::row:::

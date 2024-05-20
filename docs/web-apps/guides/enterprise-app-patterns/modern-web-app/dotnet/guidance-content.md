@@ -61,9 +61,9 @@ The following sections provide guidance on implementing the design patterns to y
 :::row-end:::
 ---
 
-Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new microservices using the Strangler Fig pattern. Build new services around the existing system and slowly replacing parts of the monolith. Follow these recommendations:
+Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services using the Strangler Fig pattern. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. Follow these recommendations:
 
-- *Set up a routing layer* Implement a routing layer that directs traffic to either the monolith or the new microservices based on the endpoint. This allows for a seamless transition and testing.
+- *Set up a routing layer* Implement a routing layer that directs traffic to either the monolith or the new microservices based on the endpoint. This layer allows for a seamless transition and testing.
 - *Use a façade service if necessary.* In some cases, a strangler fig façade service is used to route requests to the various backend solutions while the pattern is being applied. This is particularly useful when you have multiple services running in parallel during the transition period. However, if the extracted service doesn’t have any public-facing APIs, such a façade service might not be necessary.
 - *Unify the API surface area.* If your application exposes an API to callers, consider using a management platform like [Azure API Management](/azure/api-management/api-management-key-concepts). It can help unify the surface area of multiple services which have been extracted from one another, making it easier for clients to consume your services.
 - *Manage feature rollout.* If you want an extracted service to be rolled out gradually, use ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). This allows you to use the new service for only a portion of requests initially, and then increase its usage over time as you gain confidence in its stability and performance.
