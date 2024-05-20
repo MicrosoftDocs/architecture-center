@@ -7,7 +7,7 @@ embedding("king") - embedding("man") + embedding("woman") ≈ embedding("queen")
 Embeddings are compared to one another using the notions of similarity and distance. The following diagram illustrates how embeddings can be compared.
 
 :::image type="complex" source="./_images/embedding-similarity.svg" lightbox="./_images/embedding-similarity.svg" alt-text="Diagram showing how vectors are compared." border="false":::
-   Diagram showing a two dimensional grid. The sentences "The cat is  on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are two vectors that are pointing at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
+   Diagram showing a two-dimensional grid. The sentences "The cat is on the mat" and "The cat is sitting on the mat" are in boxes in the upper right hand quadrant of the grid, close to one another. There are two vectors that are pointing at each box. The angle between the vectors is small. There's a box in the lower right quadrant with the text "It is currently sunny in Phoenix" with a vector pointing at that box. The angle between that vector and the vector for "The cat is sitting on the mat" is large.
 :::image-end:::
 *Figure 1. Comparing embeddings*
 
@@ -40,7 +40,7 @@ Determining the right embedding model for your use case is a human activity. The
 :::image-end:::
 *Figure 3. Choosing an embedding model flow*
 
-The first thing you should determine is whether your content is domain-specific. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to see if the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
+The first thing you should determine is whether your content is domain-specific. For example, are your documents specific to a use case, your organization, or an industry? A good way to determine domain specificity is to see whether the entities and keywords in your content is generally available or findable on the internet. If they are, it's likely that a general embedding model does.
 
 ### General or non-domain-specific content
 
@@ -48,7 +48,7 @@ When you're choosing a general embedding model, a good place to start is the [Hu
 
 ### Domain-specific content
 
-For content that is domain-specific, the first step is to determine if there's a domain-specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You should consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
+For content that is domain-specific, the first step is to determine whether there's a domain-specific model available that you can use. Imagine, for example, that your data is in the biomedical domain. You should consider using the [BioGPT model](https://github.com/microsoft/BioGPT), which is a language model that was pretrained on a large corpus of biomedical literature. This model is intended for biomedical text mining and generation. If domain models are available, start by evaluating how these models work with your data.
 
 If there are no domain-specific models available, or the domain-specific models don't perform well, the next option is to fine-tune a general embedding model with your domain-specific vocabulary.
 
@@ -76,7 +76,7 @@ A programmatic means of evaluating how well your embedding model is working with
 
 When choosing an embedding model, there's a trade-off between performance and cost. Larger embedding models usually have better performance on benchmarking datasets. However, the increased performance comes at a cost. Larger vectors require more space to be stored in a vector database, and require more computational resources and time when comparing embeddings. Smaller embedding models usually have lower performance on the same benchmarks. They require less space in your vector database, and require less compute and time when comparing embeddings.
 
-When designing your system, you should account for the cost of embedding in terms of both storage, compute, and the performance requirements. Validating the performance of the models through experimentation is crucial. The publicly available benchmarks are mainly academic datasets. Most results can’t be directly transposed to business data and use cases. Depending on the requirements, you can favor performance over cost, or accept a trade-off of good-enough performance in exchange for lower cost.
+When designing your system, you should account for the cost of embedding in terms of both storage, compute, and the performance requirements. Validating the performance of the models through experimentation is crucial. The publicly available benchmarks are mainly academic datasets. Most results can't be directly transposed to business data and use cases. Depending on the requirements, you can favor performance over cost, or accept a trade-off of good-enough performance in exchange for lower cost.
 
 ## Next steps
 
@@ -85,5 +85,5 @@ When designing your system, you should account for the cost of embedding in term
 
 ## Related resources
 
-* [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
-* [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings)
+- [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
+- [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings)

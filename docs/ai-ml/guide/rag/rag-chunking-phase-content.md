@@ -12,10 +12,10 @@ When determining your overall chunking strategy, you must consider your budget a
 
 The following are factors to consider when looking at the cost of your overall solution:
 
-* **Number of unique chunking implementations** - Each unique implementation has both an engineering and maintenance cost. You need to consider the number of unique document types in your corpus and the cost vs. quality tradeoffs of unique implementations for each.
-* **Per-document cost of each implementation** - Some chunking approaches might lead to better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure AI Document Intelligence likely has a higher per-document cost than a pure text parsing implementation, but might lead to better chunks.
-* **Number of initial documents** - The number of initial documents you need to process to launch your solution.
-* **Number of incremental documents** - The number and rate of new documents that you must process for ongoing maintenance of the system.
+- **Number of unique chunking implementations** - Each unique implementation has both an engineering and maintenance cost. You need to consider the number of unique document types in your corpus and the cost vs. quality tradeoffs of unique implementations for each.
+- **Per-document cost of each implementation** - Some chunking approaches might lead to better quality chunks but have a higher financial and temporal cost to generate those chunks. For example, using a prebuilt model in Azure AI Document Intelligence likely has a higher per-document cost than a pure text parsing implementation, but might lead to better chunks.
+- **Number of initial documents** - The number of initial documents you need to process to launch your solution.
+- **Number of incremental documents** - The number and rate of new documents that you must process for ongoing maintenance of the system.
 
 ## Chunking approaches
 
@@ -67,7 +67,7 @@ Large language models can be used to create chunks. Common use cases are to use 
 
 ### Document layout analysis
 
-Document layout analysis libraries and services combine OCR capabilities with deep learning models to extract both the structure of documents, and text. Structural elements can include headers, footers, titles, section headings, tables and figures. The goal is to provide better semantic meaning to content contained in documents.
+Document layout analysis libraries and services combine optical character recognition (OCR) capabilities with deep learning models to extract both the structure of documents, and text. Structural elements can include headers, footers, titles, section headings, tables and figures. The goal is to provide better semantic meaning to content contained in documents.
 
 Document layout analysis libraries and services expose a model that represents the content, both structural and text, of the document. You still have to write code that interacts with the model.
 
@@ -105,7 +105,7 @@ For highly structured documents where no prebuilt model exists, you might have t
 Documents vary in the amount of structure they have. Some documents, like government forms have a complex and well-known structure, such as a W-2 U.S. tax document. At the other end of the spectrum are unstructured documents like free-form notes. The degree of structure to a document type is a good starting point for determining an effective chunking approach. While there are no hard and fast rules, this section provides you with some guidelines to follow.
 
 :::image type="complex" source="./_images/chunking-approaches-by-document-structure.png" lightbox="_images/chunking-approaches-by-document-structure.png" alt-text="Diagram showing chunking approaches by document structure." border="false":::
-   The diagram shows document structure from high to low on the X axis. It ranges from (high) structured, semi-structured, inferred, to unstructured (low). The next line up shows examples with W-2 being between high and structured, Invoice being between structured and semi-structured, web page between semi-structured and inferred, EU regulation between inferred and unstructured and Field notes between unstructured and low. Above the X axis, are six chunking approaches. Each approach has a green shading indicating where it's most effective. The following list the approaches: 1. Prebuilt model - Darkest green over structured. 2. Custom model - darkest green over semi-structured. 3. Document analysis model - darkest green over semi-structured to inferred. 4. Custom code - darkest green over semi-structured to inferred. 5. Boundary based - darkest green over inferred to unstructured. 6. Sentence based - darkest green over unstructured.
+   The diagram shows document structure from high to low on the X axis. It ranges from (high) structured, semi-structured, inferred, to unstructured (low). The next line up shows examples with W-2 being between high and structured, Invoice being between structured and semi-structured, web page between semi-structured and inferred, European Union (EU) regulation between inferred and unstructured and Field notes between unstructured and low. Above the X axis, are six chunking approaches. Each approach has a green shading indicating where it's most effective. The following list the approaches: 1. Prebuilt model - Darkest green over structured. 2. Custom model - darkest green over semi-structured. 3. Document analysis model - darkest green over semi-structured to inferred. 4. Custom code - darkest green over semi-structured to inferred. 5. Boundary based - darkest green over inferred to unstructured. 6. Sentence based - darkest green over unstructured.
 :::image-end:::
 *Figure 1. Chunking approach fits by document structure*
 
@@ -120,7 +120,7 @@ Fixed format documents might be scanned images of original documents that were h
 
 ### Semi-structured documents
 
-Semi-structured documents don't have a fixed format or schema, like the W-2 form, but they do offer consistency regarding format and/or schema. For example, all invoices aren't laid out the same, however, in general they have a consistent schema. You can expect an invoice to have an `invoice number` and some form of `bill to` and `ship to` name and address, among other data. A web page may not have schema consistencies, but they have similar structural or layout elements, such as `body`, `title`, `H1`, and `p` that can be used to add semantic meaning to the surrounding text.
+Semi-structured documents don't have a fixed format or schema, like the W-2 form, but they do offer consistency regarding format or schema. For example, all invoices aren't laid out the same, however, in general they have a consistent schema. You can expect an invoice to have an `invoice number` and some form of `bill to` and `ship to` name and address, among other data. A web page might not have schema consistencies, but they have similar structural or layout elements, such as `body`, `title`, `H1`, and `p` that can be used to add semantic meaning to the surrounding text.
 
 Like structured documents, semi-structured documents that have complex layout structures are difficult to process with text parsing. For these document types, machine learning models are a good approach. There are prebuilt models for certain domains that have consistent schemas like invoices, contracts, or health insurance. Consider building custom models for complex structures where no prebuilt model exists.
 
@@ -132,7 +132,7 @@ Like structured documents, semi-structured documents that have complex layout st
 Some documents have a structure but aren't written in markup. For these documents, the structure must be inferred. A good example is the following EU regulation document.
 
 :::image type="complex" source="./_images/eu-regulation-example.png" lightbox="./_images/eu-regulation-example.png" alt-text="Diagram showing an EU regulation as an example of a document with inferred structure." border="false":::
-   The diagram shows an EU regulation. It shows that there's a structure that can be inferred. There are paragraphs numbered 1, 2, and 3. Under 1, there's an a, b, c, and d. Under a, there's i, ii, iii, iv, v, and vi.
+   The diagram shows an EU regulation. It shows that there's a structure that can be inferred. There are paragraphs numbered 1, 2, and 3. Under 1, there's a, b, c, and d. Under a, there's i, ii, iii, iv, v, and vi.
 :::image-end:::
 *Figure 2. EU regulation showing an inferred structure*
 
@@ -159,5 +159,5 @@ Although the best fit for each of the chunking approach are listed, in practice,
 
 ## Related resources
 
-* [Chunking large documents for vector search solutions in Azure AI Search](/azure/search/vector-search-how-to-chunk-documents)
-* [Integrated data chunking and embedding in Azure AI Search](/azure/search/vector-search-integrated-vectorization)
+- [Chunking large documents for vector search solutions in Azure AI Search](/azure/search/vector-search-how-to-chunk-documents)
+- [Integrated data chunking and embedding in Azure AI Search](/azure/search/vector-search-integrated-vectorization)
