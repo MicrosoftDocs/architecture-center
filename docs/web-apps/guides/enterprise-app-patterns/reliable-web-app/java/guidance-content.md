@@ -8,77 +8,45 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
 
-### Code updates
+### Update code
 
+[!INCLUDE [Code updates](../includes/code-updates.md)]
 
+#### Implement the Retry pattern
 
-[!INCLUDE [second section](../includes/update-reliability-retry.md)]
+[!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
-- *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation.
+Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight, fault-tolerance library, to implement the Retry pattern in Java. For example, the reference implementation adds the Retry pattern by decorating the Service Plan Controller's *listServicePlans* method with Retry annotations. The code retries the call to a list of service plans from the database if the initial call fails. The reference implementation configures the retry policy including maximum attempts, wait duration, and which exceptions should be retried. The retry policy is configured in `application.properties`.
 
-    The reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
-
-    ```csharp
-    services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sqlDatabaseConnectionString,
-        sqlServerOptionsAction: sqlOptions =>
-        {
-            sqlOptions.EnableRetryOnFailure(
-            maxRetryCount: 5,
-            maxRetryDelay: TimeSpan.FromSeconds(3),
-            errorNumbersToAdd: null);
-        }));
-    ```
-
-- *Use programming libraries.* For services that don't have built-in support for the Retry pattern, use programming libraries that support the Retry pattern, such as [Polly](https://github.com/App-vNext/Polly)
-
-    The reference implementation uses Polly to enforce the Retry pattern every time the code constructs an object that calls the `IConcertSearchService` object (*see the following code*).
-
-    ```csharp
-    private void AddConcertSearchService(IServiceCollection services)
-    {
-        var baseUri = Configuration["App:RelecloudApi:BaseUri"];
-        if (string.IsNullOrWhiteSpace(baseUri))
-        {
-            services.AddScoped<IConcertSearchService, MockConcertSearchService>();
-        }
-        else
-        {
-            services.AddHttpClient<IConcertSearchService, RelecloudApiConcertSearchService>(httpClient =>
-            {
-                httpClient.BaseAddress = new Uri(baseUri);
-                httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-                httpClient.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "Relecloud.Web");
-            })
-            .AddPolicyHandler(GetRetryPolicy())
-            .AddPolicyHandler(GetCircuitBreakerPolicy());
-        }
+```java
+    @GetMapping("/list")
+    @PreAuthorize("hasAnyAuthority('APPROLE_AccountManager')")
+    @CircuitBreaker(name = SERVICE_PLAN)
+    @Retry(name = SERVICE_PLAN)
+    public String listServicePlans(Model model) {
+        List<serviceplandto> servicePlans = planService.getServicePlans();
+        model.addAttribute("servicePlans", servicePlans);
+        return "pages/plans/list";
     }
-    
-    private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-    {
-        var delay = Backoff.DecorrelatedJitterBackoffV2(TimeSpan.FromMilliseconds(500), retryCount: 3);
-        return HttpPolicyExtensions
-          .HandleTransientHttpError()
-          .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
-          .WaitAndRetryAsync(delay);
-    }
-    ```
-
-### Use the Circuit Breaker pattern
-
-Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
-
-The reference implementation applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time (*see the following code*).
-
-```csharp
-private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
-{
-    return HttpPolicyExtensions
-        .HandleTransientHttpError()
-        .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
-        .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
-}
 ```
+
+#### Implement the Circuit Breaker pattern
+
+[!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)] 
+
+Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3) to implement the Circuit-Breaker pattern. For example, the reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
+
+#### Implement the Cache-Aside pattern
+
+[!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
+
+- *Configure application to use a cache.* Production apps should use the Distributed Redis Cache because it's the most performant.
+
+- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
+
+- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
+
+- *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
 ## Security
 

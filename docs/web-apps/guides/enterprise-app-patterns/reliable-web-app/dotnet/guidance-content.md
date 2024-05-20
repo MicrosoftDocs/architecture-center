@@ -8,20 +8,13 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
 
-### Code updates
+### Update code
 
 [!INCLUDE [Code updates](../includes/code-updates.md)]
 
 #### Implement the Retry pattern
 
-:::row:::
-    :::column:::
-        ***Well-Architected Framework pillars: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
-    :::column-end:::
-:::row-end:::
----
-
-Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
+[!INCLUDE [Retry pattern intro](../includes/retry.md)]
 
 - *Use built-in retry mechanisms.* Use the [built-in retry mechanism](/azure/architecture/best-practices/retry-service-specific) that most Azure services have to expedite the implementation. For example, the reference implementation uses the [connection resiliency in Entity Framework Core](/ef/core/miscellaneous/connection-resiliency) to apply the Retry pattern in requests to [Azure SQL Database](/azure/architecture/best-practices/retry-service-specific#sql-database-using-entity-framework-core) (*see the following code*).
 
@@ -71,14 +64,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
 
 #### Implement the Circuit Breaker pattern
 
-:::row:::
-    :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:03](/azure/well-architected/reliability/failure-mode-analysis), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Performance Efficiency ([PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure), [PE:11](/azure/well-architected/performance-efficiency/respond-live-performance-issues))***
-    :::column-end:::
-:::row-end:::
----
-
-Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
+[!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
 
 For example, the reference implementation applies the Circuit Breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time (*see the following code*).
 
@@ -94,14 +80,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 #### Implement the Cache-Aside pattern
 
-:::row:::
-    :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:05](/azure/well-architected/reliability/redundancy)), Performance Efficiency ([PE:08](/azure/well-architected/performance-efficiency/optimize-data-performance), [PE:12](/azure/well-architected/performance-efficiency/continuous-performance-optimize))***
-    :::column-end:::
-:::row-end:::
----
-
-Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
+[!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
 - *Configure application to use a cache.* Production apps should use the Distributed Redis Cache because it's the most performant. For example, the reference implementation uses distributed Redis cache. The [`AddAzureCacheForRedis` method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache) configures the application to use Azure Cache for Redis (*see the following code*).
 
