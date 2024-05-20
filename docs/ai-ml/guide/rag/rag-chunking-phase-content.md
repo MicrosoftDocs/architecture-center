@@ -27,7 +27,7 @@ Each approach is accompanied by a summarized decision-making matrix that highlig
 
 This straightforward approach breaks down text documents into chunks made up of complete sentences. The benefits of this approach include that it's inexpensive to implement, it has low processing cost, and it can be applied to any text-based document that is written in prose, or full sentences. A challenge with this approach is that each chunk might not capture the complete context of a thought or meaning. Often, multiple sentences must be taken together to capture the semantic meaning.
 
-**Tools**: [SpaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
+**Tools**: [spaCy sentence tokenizer](https://spacy.io/api/tokenizer), [LangChain recursive text splitter](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter/), [NLTK sentence tokenizer](https://www.nltk.org/api/nltk.tokenize.html)<br/>
 **Engineering effort**: Low<br/>
 **Processing cost**: Low<br/>
 **Use cases**: Unstructured documents written in prose, or full sentences, and your corpus of documents contains a prohibitive number of different document types to build individual chunking strategies for<br/>
