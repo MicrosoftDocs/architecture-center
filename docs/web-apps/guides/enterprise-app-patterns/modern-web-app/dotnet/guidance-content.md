@@ -1,22 +1,22 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF).
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
 
 ## Why the Modern Web App pattern?
 
-The Modern Web App pattern allow you to improve the peformance and cost efficiency of your web app with targeted improvements. The pattern shows you how to optimize the most critical flow(s) in your web application so that you can manage and scale each critical flow independetly.
+The Modern Web App pattern optimizes the critical flows in your web application. It shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a ***[reference implementation](https://aka.ms/eap/rwa/dotnet)*** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
 ## How to implement the Modern Web App pattern?
 
-The Modern Web App pattern moves toward a service-oriented architecture by decoupling critial flows in your web application. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
+The Modern Web App pattern moves toward a service-oriented architecture by decoupling critical services in your web application. Follow the architecture updates to To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
 
 | Benefits of the pattern | Architecture updates | Code updates | Configuration updates |
 | --- | --- | --- | --- |
-| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Decoupled service<br> Container service <br> Container registry <br> Messaging system | | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Extend security<br> Independent autoscaling <br> Containerization |
+| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Select PaaS solutions<br>Decouple web app | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Extend security<br> Independent autoscaling <br> Containerization |
 
 ## Architecture updates
 
@@ -40,7 +40,7 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
-### Decouple web app services
+### Decouple web app
 
 - *Identify service boundaries* Apply DDD principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Map the key business capabilities of your application. Services that represent distinct business functions are good candidates for decoupling. Examine the dependencies between different parts of your application. Services with fewer dependencies on other parts of the system are easier to decouple.
 - *Evaluate service impact.* Focus on services that will benefit most from independent scaling. For instance, a high-traffic service like order processing in an e-commerce application may require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these allows for independent deployment and reduces the risk of affecting other parts of the application. Target services that are critical to performance. Decoupling these can help optimize and manage performance more effectively.
