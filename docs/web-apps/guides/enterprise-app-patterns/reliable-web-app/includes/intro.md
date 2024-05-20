@@ -8,6 +8,9 @@ This article shows you how to implement the Reliable Web App pattern. The Reliab
 
 The Reliable Web App pattern shows you how optimize monolithic web apps for the cloud. It focuses on the high-value updates you need to make and minimal code changes to improve reliability, security, performance, and operational excellence.
 
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [***reference implementation***](reference-implementation) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern. The reference implementation shows the end state of the Reliable Web App pattern. The example web app allows customers to buy concert tickets online.
+
 ## How to implement the Reliable Web App pattern?
 
 The Reliable Web App pattern outlines how to select the right cloud services and design a secure architecture that meets your business requirements. The Reliable Web App pattern has you update your web app code with three design patterns that improve the reliability and performance efficiency of your web app.

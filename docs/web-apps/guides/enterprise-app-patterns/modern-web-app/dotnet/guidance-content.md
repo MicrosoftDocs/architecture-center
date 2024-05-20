@@ -15,7 +15,7 @@ The Modern Web App pattern optimizes the critical flows in your web application.
 
 Use the following architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the architecture section to decouple web app services and select the right platform-as-a-service solutions to support newly decouple services. Use code updates to implement four design patterns to the web app code that support the optimization of the newly decoupled service. Use the configuration updates to extend the security configurations of the Reliable Web App pattern and implement autoscaling and containerization on the newly decoupled service.
 
-### Architecture updates
+### Update architecture
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
@@ -261,7 +261,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-### Configurations updates
+### Updates configurations
 
 The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
