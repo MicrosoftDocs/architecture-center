@@ -48,17 +48,105 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 - *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-## Security
+### Update configurations
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). The Reliable Web App pattern covers role-based access control, managed identities, private endpoints, secrets management, and web application firewall.
+The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
 
-### Configure user authentication and authorization
+#### Configure user authentication and authorization
 
-- *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). It allows developers to build single-tenant, line-of-business (LOB) applications and multi-tenant software-as-a-service (SaaS) applications, so users and customers can sign in to using their Microsoft identities or social accounts.
+[!INCLUDE [User authN and authZ](../includes/user-auth.md)]
 
-- *Use platform features.* Where possible, enable user identity authentication using platform features. For example, [App Service](/azure/app-service/overview-authentication-authorization) provides built-in authentication support, so you can sign in users and access data by writing minimal or no code in your web app.
+- *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports both single-tenant and multi-tenant applications, allowing users to sign in with their Microsoft identities or social accounts.
 
-- *Enforce authorization in the application.* Use RBAC to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Assess your application's needs to define a set of roles that cover all user actions without overlap. Map each user to the most appropriate role. Ensure they receive access only to what's necessary for their duties.
+    The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process, utilizing [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot for easy setup. It offers varied authentication flows, automatic token management, and customizable authorization policies, along with integration capabilities with Spring Cloud components. This enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
+
+    For example, the reference implementation uses the Microsoft identity platform (Microsoft Entra ID) as the identity provider for the web app. It uses the OAuth 2.0 authorization code grant to sign in a user with a Microsoft Entra account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Microsoft Entra authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+
+    ```xml
+    <dependency>
+        <groupid>com.azure.spring</groupid>
+        <artifactid>spring-cloud-azure-starter-active-directory</artifactid>
+    </dependency>
+    <dependency>
+        <groupid>org.springframework.boot</groupid>
+        <artifactid>spring-boot-starter-oauth2-client</artifactid>
+    </dependency>
+    ```
+
+- *Create an app registration.* Microsoft Entra ID requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. For example, the reference implementation uses Terraform to create an Microsoft Entra ID app registration along with an app specific Account Manager role.
+
+    ```terraform
+    resource "azuread_application" "app_registration" {
+      display_name     = "${azurecaf_name.app_service.result}-app"
+      owners           = [data.azuread_client_config.current.object_id]
+      sign_in_audience = "AzureADMyOrg"  # single tenant
+    
+      app_role {
+        allowed_member_types = ["User"]
+        description          = "Account Managers"
+        display_name         = "Account Manager"
+        enabled              = true
+        id                   = random_uuid.account_manager_role_id.result
+        value                = "AccountManager"
+      }
+    }
+    ```
+
+- *Enforce authorization in the application.* Use role-based access controls (RBAC) to assign least privileges to [application roles](/entra/identity-platform/custom-rbac-for-developers). Define specific roles for different user actions to avoid overlap and ensure clarity. Map users to the appropriate roles and ensure they only have access to necessary resources and actions. Configure Spring Security to use Spring Boot Starter for Microsoft Entra ID. This library allows integration with Microsoft Entra ID and helps you ensure that users are authenticated securely. Configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features. These features include token caching and automatic token refreshing.
+
+    For example, the reference implementation creates app roles reflecting the types of user roles in Contoso Fiber's account management system. Roles translate into permissions during authorization. Examples of app-specific roles in CAMS include the account manager, Level one (L1) support representative, and Field Service representative. The Account Manager role has permissions to add new app users and customers. A Field Service representative can create support tickets. The `PreAuthorize` attribute restricts access to specific roles.
+
+    ```java
+        @GetMapping("/new")
+        @PreAuthorize("hasAnyAuthority('APPROLE_AccountManager')")
+        public String newAccount(Model model) {
+            if (model.getAttribute("account") == null) {
+                List<ServicePlan> servicePlans = accountService.findAllServicePlans();
+                ServicePlan defaultServicePlan = servicePlans.stream().filter(sp -> sp.getIsDefault() == true).findFirst().orElse(null);
+                NewAccountRequest accountFormData = new NewAccountRequest();
+                accountFormData.setSelectedServicePlanId(defaultServicePlan.getId());
+                model.addAttribute("account", accountFormData);
+                model.addAttribute("servicePlans", servicePlans);
+            }
+            model.addAttribute("servicePlans", accountService.findAllServicePlans());
+            return "pages/account/new";
+        }
+        ...
+    ```
+
+    To [integrate with Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure5x#access-a-web-application), the reference implementation uses the [OAuth 2.0 authorization](/azure/active-directory/develop/v2-oauth2-auth-code-flow) code grant flow. This flow enables a user to sign in with a Microsoft account. The following code snippet shows you how to configure the `SecurityFilterChain` to use Microsoft Entra ID for authentication and authorization.
+
+    ```java
+    @Configuration(proxyBeanMethods = false)
+    @EnableWebSecurity
+    @EnableMethodSecurity
+    public class AadOAuth2LoginSecurityConfig {
+        @Bean
+        SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+            http.apply(AadWebApplicationHttpSecurityConfigurer.aadWebApplication())
+                .and()
+                    .authorizeHttpRequests()
+                .requestMatchers(EndpointRequest.to("health")).permitAll()
+                .anyRequest().authenticated()
+                .and()
+                    .logout(logout -> logout
+                                .deleteCookies("JSESSIONID", "XSRF-TOKEN")
+                                .clearAuthentication(true)
+                                .invalidateHttpSession(true));
+            return http.build();
+        }
+    }
+    ...
+    ```
+
+For more information, see:
+
+- [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app)
+- [AppRoles attribute](/azure/active-directory/develop/reference-app-manifest#approles-attribute)
+- [Spring Boot Starter for Microsoft Entra developer's guide](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide)
+- [Add sign-in with Microsoft Entra account to a Spring web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
+- [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Configurable token lifetimes in the Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 
 - *Prefer temporary access to storage.* Use temporary permissions to safeguard against unauthorized access and breaches, such as [shared access signatures (SASs)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Use User Delegation SASs to maximize security when granting temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
 
@@ -66,31 +154,15 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
 
-### Configure service authentication and authorization
+#### Implement managed identities
+
+[!INCLUDE [Managed identity intro](../includes/managed-id.md)]
 
 - *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
-    The reference implementation uses the `Authentication` argument in the SQL database connection string so App Service can [connect to the SQL database](/azure/app-service/tutorial-connect-msi-sql-database) with a managed identity: `Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-database;Authentication=Active Directory Default`
+- *Configure least privileges.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
 
-    The reference implementation uses the `DefaultAzureCredential` to allow the web API to connect to Key Vault using a managed identity (*see the following code*).
-
-    ```csharp
-    builder.Configuration.AddAzureAppConfiguration(options =>
-    {
-         options
-            .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
-            .ConfigureKeyVault(kv =>
-            {
-                // Some of the values coming from Azure App Configuration are stored Key Vault. Use
-                // the managed identity of this host for the authentication.
-                kv.SetCredential(new DefaultAzureCredential());
-            });
-    });
-    ```
-
-- *Configure service authentication.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
-
-- *Secure secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
+- *Secure remaining secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 ## Cost optimization
 
