@@ -4,13 +4,16 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [intro](../includes/intro.md)]
 
-## Implement architecture updates
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [***reference implementation***](reference-implementation) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern. The reference implementation shows the end state of the Reliable Web App pattern. The example web app allows customers to buy concert tickets online.
 
-The following guidance provides recommendations for implementing architecture updates on your web app.
+## Architecture updates
+
+The following guidance provides recommendations for building the right architecture for your web app in the cloud.
 
 [!INCLUDE [implement PaaS services](../includes/choose-services.md)]
 
-- *Secure ingress.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
+- *Secure the ingress.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
 
 - *Implement network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
 
@@ -20,7 +23,7 @@ The following guidance provides recommendations for implementing architecture up
 
 - *Implement private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
-## Implement code updates
+## Code updates
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
@@ -189,7 +192,7 @@ Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web 
     }
     ```
 
-## Implement configuration updates
+## Configuration updates
 
 The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
 
@@ -366,3 +369,5 @@ The following tools and resources can help you migrate on-premises resources to 
 - [Azure Database Migration Guides](/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
 - [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) provides guidance for hardening and scaling App Service deployments.
 - [Azure Migrate application and code assessment](/azure/migrate/appcat/dotnet)
+
+[reference-implementation]: https://aka.ms/eap/rwa/dotnet

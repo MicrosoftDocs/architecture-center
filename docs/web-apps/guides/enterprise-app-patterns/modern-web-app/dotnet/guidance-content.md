@@ -1,22 +1,22 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud by introducing a service-oriented architecture. It aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
 
-The Modern Web App pattern focuses on optimizing critical flows your web application. It decouples web app services to introduce a service-oriented architecture. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
+*Why the Modern Web App pattern?* The Modern Web App pattern allow you to improve the peformance and cost efficiency of your web app with targeted improvements. The pattern shows you how to optimize the most critical flow(s) in your web application so that you can manage and scale each critical flow independetly. It decouples web app services to introduce a service-oriented architecture. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
 
-| Benefits of the pattern | Code updates | Architecture updates | Configuration updates |
+| Benefits of the pattern | Code updates | Configuration updates | Architecture updates  |
 | --- | --- | --- | --- |
-| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows<br>Asynchronous communication | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Decoupled service<br> Container service <br> Container registry <br> Messaging system | Extend security<br> Independent autoscaling <br> Containerization |
+| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows<br>Asynchronous communication | Decoupled service<br> Container service <br> Container registry <br> Messaging system | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Extend security<br> Independent autoscaling <br> Containerization |
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
-## Implement architecture updates
+## Architecture updates
 
 Systematically decouple services from your monolithic codebase and implement a service-oriented architecture that enhances performance, scalability, and maintainability.
 
-### Implement platform-as-a-service solutions
+### Select the right platform-as-a-service (PaaS) solutions
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
@@ -42,7 +42,7 @@ The Azure services you selected for the implementation of the Reliable Web App p
 - *Extract services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity.
 - *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
-## Implement design patterns
+## Update code
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that implement recommendations of the Well-Architected Framework:
 
@@ -50,9 +50,10 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
+        ***WAF pillar alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
     :::column-end:::
 :::row-end:::
+---
 
 Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new microservices using the Strangler Fig pattern. Build new services around the existing system and slowly replacing parts of the monolith. Follow these recommendations:
 
@@ -70,6 +71,7 @@ The reference implementation extracts the ticket rendering functionality from a 
         ***Well-Architected Framework pillar alignment: Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
+---
 
 Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to implement asynchronous processing to handle tasks that do not need immediate responses. It improves overall system responsiveness and scalability. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
@@ -168,6 +170,7 @@ processor.ProcessMessageAsync += async args =>
         ***Well-Architected Framework pillar alignment: Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
+---
 
 Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) to track the health of application endpoints. Implement health endpoints for each decoupled service to ensure they function correctly. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
@@ -220,6 +223,7 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
         ***Well-Architected Framework pillar alignment: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
     :::column-end:::
 :::row-end:::
+---
 
 The [Retry pattern](/azure/architecture/patterns/retry) allows applications recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and decoupled services you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
@@ -251,7 +255,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-## Implement configuration updates
+## Configurations updates
 
 The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
@@ -262,6 +266,7 @@ The following sections provide guidance on implementing the configuration update
         ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
     :::column-end:::
 :::row-end:::
+---
 
 To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
 
@@ -320,6 +325,7 @@ To configure authentication and authorization on users (*user identities*), foll
         ***Well-Architected Framework pillar support: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
+---
 
 The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
@@ -363,7 +369,7 @@ scaleMinReplicas: 0
         ***Well-Architected Framework pillar support: Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
     :::column-end:::
 :::row-end:::
-
+---
 
 This means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts including, in the case of the reference implementation, Azure Container Apps. To containerize deployment, follow these recommendations:
 
