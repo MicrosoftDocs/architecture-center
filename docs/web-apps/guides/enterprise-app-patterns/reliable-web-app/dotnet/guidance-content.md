@@ -26,11 +26,11 @@ The foundational architecture identifies the essential web components needed to 
 
 - *Implement private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
 
-## Code updates
+### Code updates
 
 Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework. To update your code, follow this guidance:
 
-### Implement the Retry pattern
+#### Implement the Retry pattern
 
 :::row:::
     :::column:::
@@ -91,7 +91,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
     }
     ```
 
-### Implement the Circuit Breaker pattern
+#### Implement the Circuit Breaker pattern
 
 :::row:::
     :::column:::
@@ -114,7 +114,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 }
 ```
 
-### Implement the Cache-Aside pattern
+#### Implement the Cache-Aside pattern
 
 :::row:::
     :::column:::
@@ -198,11 +198,11 @@ Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web 
     }
     ```
 
-## Configuration updates
+### Configuration updates
 
 The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
 
-### Implement user authentication and authorization
+#### Implement user authentication and authorization
 
 :::row:::
     :::column:::
@@ -225,7 +225,7 @@ When migrating web applications to Azure, configure user authentication and auth
 
 - *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
 
-### Implement managed identities
+#### Implement managed identities
 
 :::row:::
     :::column:::
@@ -256,7 +256,7 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 - *Secure remaining secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
-### Right size environments
+#### Right size environments
 
 :::row:::
     :::column:::
@@ -277,7 +277,7 @@ Use the performance tiers (SKUs) of Azure services that meet the needs of each e
     var redisCacheCapacity = isProd ? 1 : 0
     ```
 
-### Implement autoscaling
+#### Implement autoscaling
 
 :::row:::
     :::column:::
@@ -294,7 +294,7 @@ Autoscaling ensures web app remain resilient, responsive, and capable of handlin
 
 - *Provide a scale out buffer.* Set your scaling thresholds to trigger before reaching maximum capacity. For example, configure scaling to occur at 85% CPU utilization rather than waiting until it reaches 100%. This proactive approach helps maintain performance and avoid potential bottlenecks.
 
-### Implement infrastructure as code
+#### Implement infrastructure as code
 
 :::row:::
     :::column:::
@@ -305,7 +305,7 @@ Autoscaling ensures web app remain resilient, responsive, and capable of handlin
 
 Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource. The reference implementation uses Bicep to deploy and configure all Azure resources.
 
-### Implement monitoring
+#### Implement monitoring
 
 :::row:::
     :::column:::
