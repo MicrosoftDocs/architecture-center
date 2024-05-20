@@ -27,6 +27,9 @@ The foundational architecture identifies the essential web components needed to 
 
 Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework. To update your code, follow this guidance:
 
+[![Diagram showing the where the design patterns role in the Reliable Web App pattern architecture.](../../../_images/rwa-design-patterns.svg)](../../../_images/rwa-design-patterns.svg)
+*Figure 2. Design patterns role in the web app architecture.*
+
 #### Implement the Retry pattern
 
 :::row:::
