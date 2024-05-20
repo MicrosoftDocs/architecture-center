@@ -25,7 +25,7 @@ As a workload owner, you can offload the management of shared resources to platf
 ## Architecture
 
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone.svg" alt-text="Architecture diagram of the workload, including select platform subscription resources." border="false":::
-    Architecture diagram that's broken up into two primary sections. The blue section is labeled application landing zone subscription. The bottom section is yellow and is labeled platform landing zone subscription. The top box contains both workload-created resources and subscription-vending resources. The workload resources consist of Application Gateway and web application firewall, App Service and its integration subnet, private endpoints for platform as a service (PaaS) solutions such as Azure Storage, Azure Key Vault, Azure AI Search, Azure OpenAI Service, and Container Registry. The workload resources also have Machine Learning workspace and monitoring resources. Azure App Service shows three instances, each in a different Azure zone. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a grayed-out VPN Gateway and ExpressRoute. There's virtual network peering between a virtual network in the application landing zone and the hub virtual network.
+    Architecture diagram that's broken up into two primary sections. The blue section is labeled application landing zone subscription. The bottom section is yellow and is labeled platform landing zone subscription. The top box contains both workload-created resources and subscription-vending resources. The workload resources consist of Application Gateway and web application firewall, App Service and its integration subnet, private endpoints for platform as a service (PaaS) solutions such as Azure Storage, Azure Key Vault, Azure AI Search, Azure OpenAI Service, and Container Registry. The workload resources also have Machine Learning workspace and monitoring resources. Azure App Service shows three instances, each in a different Azure zone. The platform subscription contains a hub virtual network, Azure Firewall, Azure Bastion, and a grayed-out VPN gateway and ExpressRoute. There's virtual network peering between a virtual network in the application landing zone and the hub virtual network.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
@@ -45,7 +45,7 @@ The following resources remain mostly unchanged from the [baseline architecture]
 - **Azure Machine Learning** is used to develop and deploy [prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) logic used in this workload.
 
 - **Managed online endpoints** are used as a platform as a service (PaaS) endpoint for the chat UI application, which invokes the prompt flows hosted by Machine Learning.
-
+  
 - **Azure App Service** is used to host the example web application for the chat UI. In this architecture, it's also possible to use this service to host the containerized prompt flow for more control over the hosting environment that runs prompt flow. App Service has three instances, each in a different Azure zone.
 
 - **AI Search** is a common service that's used in the flows behind chat applications. You can use AI Search to retrieve indexed data that's relevant for user queries.
@@ -75,7 +75,7 @@ The platform team owns and maintains these centralized resources. This architect
 - **Azure Firewall in the hub network** is used to route, inspect, and restrict egress traffic. Workload egress traffic goes to the internet, cross-premises destinations, or to other application landing zones.
 
   *Change from the baseline:* This component is new in this architecture. Azure Firewall isn't cost-effective or practical for each workload team to manage their own instance.
-
+  
 - **Azure Bastion in the hub network** provides secure operational access to workload components and also allows access to Azure AI Studio components.
 
   *Change from the baseline:* The workload team owns this component in the baseline architecture.
@@ -84,7 +84,7 @@ The platform team owns and maintains these centralized resources. This architect
 
   *Change from the baseline:* The workload team owns this network in the baseline architecture.
 
-- **User-defined routes** (user-defined routes (UDRs)) are used to force tunneling to the hub network.
+- **User-defined routes** (UDRs) are used to force tunneling to the hub network.
 
   *Change from the baseline:* This component is new in this architecture.
 
@@ -97,7 +97,7 @@ The platform team owns and maintains these centralized resources. This architect
   *Change from the baseline:* This component is moved to the hub and is platform managed.
 
 - **DNS resolution service** for spoke virtual networks and cross-premises workstations. That service usually takes the form of Azure Firewall as a DNS proxy or Azure DNS Private Resolver. In this architecture, this service resolves private endpoint DNS records for all DNS requests that originate in the spoke.
-
+  
 - **Azure DDoS Protection** is used to protect public IP addresses against distributed attacks.
 
   *Change from the baseline:* The workload team purchases DDoS Protection in the baseline architecture.
@@ -126,8 +126,8 @@ For this architecture, the workload team and platform team need to collaborate o
 |&#9744;|**Type, volume, and pattern of traffic.** The platform team uses this information to determine the ingress and egress requirements of the shared resources used by your workload. | Provide information about: <br> - How users should consume this workload. <br> - How this workload consumes its surrounding resources. <br> - The configured transport protocol. <br> - The traffic pattern and the expected peak and off-peak hours. When do you expect a high number of concurrent connections to the internet (chatty) and when do you expect the workload to generate minimal network traffic (background noise).|
 |&#9744;|**Firewall configuration.** The platform team uses this information to set rules to allow legitimate egress traffic.| Inform the platform team of specific information that's related to the traffic that leaves the spoke network. <br> - Build agent and jump box machines need regular operating system patching.<br>- The compute sends out operating system telemetry.<br> - In an [alternate approach](#alternate-approach-to-hosting-the-prompt-flow-code), the prompt flow code hosted by App Service requires internet access. |
 |&#9744;|**Ingress traffic from specialized roles.** The platform team uses this information to enable the specified roles to access the workload, while implementing proper segmentation.|Work with the platform team to determine the best way to allow authorized access for: <br> - Data scientists to access the Machine Learning web UI from their workstations on corporate network connections. <br> - Operators to access the compute layer through the jump box that's managed by the workload team. |
-|&#9744;|**Public internet access to the workload.** The platform team uses this information for risk assessment, which drives decisions about: <br> - The placement of the workload in a management group with appropriate guardrails. <br> - DDoS Protection for the public IP address reported by the workload team. <br> - Issuing and managing Transport Layer Security (TLS) certificates.| Inform the platform team about the ingress traffic profile: <br> - Internet-sourced traffic targets the public IP address on Application Gateway. <br> - Fully qualified domain names (FQDNs) associated with the public IP address for TLS certificate procurement. |
-|&#9744;|**Private endpoint usage.** The platform team uses this information to set up Azure Private DNS zones for those endpoints and make sure that the firewall in the hub network can do DNS resolution. | Inform the platform team about all resources that use private endpoints, such as: <br> - AI search <br> - Container Registry <br> - Key Vault <br> - Azure OpenAI <br> - Storage accounts <br><br>Have a clear understanding of how DNS resolution is handled in the hub and the workload team's responsibilities for the management of the private DNS zone records.|
+|&#9744;|**Public internet access to the workload.** The platform team uses this information for risk assessment, which drives decisions about: <br> - The placement of the workload in a management group with appropriate guardrails. <br> - DDoS protection for the public IP address reported by the workload team. <br> - Issuing and managing Transport Layer Security (TLS) certificates.| Inform the platform team about the ingress traffic profile: <br> - Internet-sourced traffic targets the public IP address on Application Gateway. <br> - Fully qualified domain names (FQDNs) associated with the public IP address for TLS certificate procurement. |
+|&#9744;|**Private endpoint usage.** The platform team uses this information to set up Azure private DNS zones for those endpoints and make sure that the firewall in the hub network can do DNS resolution. | Inform the platform team about all resources that use private endpoints, such as: <br> - AI search <br> - Container Registry <br> - Key Vault <br> - Azure OpenAI <br> - Storage accounts <br><br>Have a clear understanding of how DNS resolution is handled in the hub and the workload team's responsibilities for the management of the private DNS zone records.|
 
 > [!IMPORTANT]
 > We recommend a subscription vending process for the platform team that involves a series of questions designed to capture information from the workload team. These questions might vary from one organization to another, but the intent is to gather the requirements to implement subscriptions. For more information, see [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
@@ -156,9 +156,9 @@ In the [baseline architecture](./baseline-openai-e2e-chat.yml#networking), the w
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
 
-- **Hub virtual network:** A regional hub that contains centralized, and often shared, services that communicate with workload resources in the same region. The hub is located in the [connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). The platform team owns the resources in this network.
+- **Hub virtual network**: A regional hub that contains centralized, and often shared, services that communicate with workload resources in the same region. The hub is located in the [connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). The platform team owns the resources in this network.
 
-- **Spoke virtual network:** In this architecture, the single virtual network from the baseline architecture essentially becomes the spoke network. The virtual network is peered to the hub network by the platform team. The platform team owns and manages this spoke network, its peering, and DNS configuration. This network contains many of the [workload resources](#workload-team-owned-resources). The workload team owns the resources in this network, including its subnets.
+- **Spoke virtual network**: In this architecture, the single virtual network from the baseline architecture essentially becomes the spoke network. The virtual network is peered to the hub network by the platform team. The platform team owns and manages this spoke network, its peering, and DNS configuration. This network contains many of the [workload resources](#workload-team-owned-resources). The workload team owns the resources in this network, including its subnets.
 
 Because of this management and ownership split, make sure that you clearly [communicate the workload's requirements](#subscription-setup) to the platform team.
 
@@ -205,7 +205,7 @@ The workload components in this architecture get configured with DNS in the foll
 
 No DNS settings are configured for the remaining components in the architecture because no outbound communication occurs from those services. No DNS resolution is required for those components.
 
-Many of these components require appropriate DNS records in the hub's DNS servers to resolve this workload's many private endpoints. For more information, see [Azure Private DNS zones](#private-dns-zones). For components where hub-based DNS resolution can't occur, you're faced with the following limitations:
+Many of these components require appropriate DNS records in the hub's DNS servers to resolve this workload's many private endpoints. For more information, see [Private DNS zones](#private-dns-zones). For components where hub-based DNS resolution can't occur, you're faced with the following limitations:
 
 - The platform team can't log DNS requests, which might be an organizational security team requirement.
 
@@ -220,7 +220,7 @@ In the baseline architecture, internet egress control is available only through 
 *Change from the baseline:* The egress controls are further augmented. All traffic that leaves the spoke virtual network is rerouted through the peered hub network via an egress firewall. Traffic that originates inside the managed virtual network for Machine Learning computes isn't subject to this egress route.
 
 :::image type="complex" source="./_images/azure-openai-baseline-landing-zone-networking-egress.svg" alt-text="Architecture diagram that focuses mostly on network egress flows." border="false":::
-    The top section of this architecture diagram is labeled application landing zone subscription and contains a spoke virtual network box and a Machine Learning box. The Machine Learning box contains private endpoints for Storage, Container Registry, AI Search, and Azure OpenAI. The spoke virtual network box contains five subnets: snet-appGateway,  snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. All of the subnets, except for snet-appGateway, have a dashed line leading from them to Azure Firewall, which is in the bottom box. The bottom box is labeled "Connectivity subscription." Azure Firewall has the same style line that points to the internet represented as a cloud. The Machine Learning box has the same dashed line style that points from it to the internet cloud as well. The top box reads Where possible all workload-originated, internet-bound traffic flows through the hub due to the 0.0.0.0/0 UDR. The hub virtual network in the bottom box and the spoke virtual network in the top box are connected with a line that reads virtual network peering.
+    The top section of this architecture diagram is labeled application landing zone subscription and contains a spoke virtual network box and a Machine Learning box. The Machine Learning box contains private endpoints for Storage, Container Registry, AI Search, and Azure OpenAI. The spoke virtual network box contains five subnets: snet-appGateway,  snet-agents, snet-jumpbox, snet-appServicePlan, and snet-privateEndpoints. All of the subnets, except for snet-appGateway, have a dashed line leading from them to Azure Firewall, which is in the bottom box. The bottom box is labeled "connectivity subscription." Azure Firewall has the same style line that points to the internet represented as a cloud. The Machine Learning box has the same dashed line style that points from it to the internet cloud as well. The top box reads Where possible all workload-originated, internet-bound traffic flows through the hub due to the 0.0.0.0/0 UDR. The hub virtual network in the bottom box and the spoke virtual network in the top box are connected with a line that reads virtual network peering.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-chat-baseline-alz.vsdx) of this architecture.*
@@ -229,7 +229,7 @@ East-west client communication to the private endpoints for Container Registry, 
 
 #### Route internet traffic to the firewall
 
-A route is attached to all of the possible subnets in the spoke network that directs all traffic headed to the internet (*0.0.0.0/0*) first to the hub's Azure Firewall.
+A route is attached to all of the possible subnets in the spoke network that directs all traffic headed to the internet (*0.0.0.0/0*) first to the hub's Azure firewall.
 
 | Component | Mechanism to force internet traffic through the hub |
 | :-------- | :---------------- |
@@ -252,15 +252,13 @@ Apply the platform-provided internet route to all subnets, even if the subnet is
 
 When you apply this route configuration to the architecture, all outbound connections from App Service, a Machine Learning workspace, or any other services that originated on the workload's virtual network are scrutinized and controlled.
 
-<a name='private-dns-zones'></a>
-
-### Azure Private DNS zones
+### Private DNS zones
 
 Architectures that use private endpoints for east-west traffic within their workload need DNS zone records in the configured DNS provider. This architecture requires many DNS zone records to function properly: Key Vault, Azure OpenAI, and more to support Private Link.
 
 *Change from the baseline:* The workload team is directly responsible for the private DNS zones in the baseline architecture. In the landing zone architecture, the platform team typically maintains private DNS zones. They might use another technology, but for this architecture, it's private DNS zone records. The workload team must clearly understand the platform team's requirements and expectations for the management of those private DNS zone records.
 
-In this architecture, the platform team must ensure reliable and timely DNS hosting for the following Private Link endpoints:
+In this architecture, the platform team must ensure reliable and timely DNS hosting for the following private link endpoints:
 
 - AI search
 - Azure OpenAI
@@ -272,7 +270,7 @@ In this architecture, the platform team must ensure reliable and timely DNS host
 
 Like the [baseline architecture](./baseline-openai-e2e-chat.yml#ingress-to-machine-learning), public ingress access to the Machine Learning workspace and other browser-based experiences are disabled. The baseline architecture deploys a jump box to provide a browser with a source IP address from the virtual network that's used by various workload roles.
 
-When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see whether private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN Gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
+When your workload is connected to an Azure landing zone, more options are available to your team for this access. Work with your platform team to see if private access to the various browser-based AI studios can instead be achieved without the need to manage and govern a virtual machine (VM). This access might be accomplished through transitive access from an already-established ExpressRoute or VPN gateway connection. Native workstation-based access requires cross-premises routing and DNS resolution, which the platform team can help provide. Make this requirement known in your subscription vending request.
 
 Providing native workstation-based access to these portals is a productivity enhancement over the baseline and can be simpler to maintain than VM jump boxes.
 
@@ -292,17 +290,17 @@ The Azure landing zone platform provides shared observability resources as part 
 
 The workload team provisions the monitoring resources, which include:
 
-- Application Insights as the application performance management (APM) service for the workload team. This feature is configured in the chat UI and prompt flow code.
+- Application Insights as the application performance monitoring (APM) service for the workload team. This feature is configured in the chat UI and prompt flow code.
 
 - The Azure Monitor Logs workspace as the unified sink for all logs and metrics that are collected from workload-owned Azure resources.
 
-Similar to the baseline, all resources are configured to send Azure Diagnostics logs to the Azure Monitor Logs workspace that the workload team provisions as part of the infrastructure as code (IaC) deployment of the resources. You might also need to send logs to a central Azure Monitor Logs workspace. In Azure landing zones, that workspace is typically in the management subscription.
+Similar to the baseline, all resources are configured to send Azure diagnostics logs to the Azure Monitor Logs workspace that the workload team provisions as part of the infrastructure as code (IaC) deployment of the resources. You might also need to send logs to a central Azure Monitor Logs workspace. In Azure landing zones, that workspace is typically in the management subscription.
 
 The platform team might also have processes that affect your application landing zone resources. For example, they might use DINE policies to configure diagnostics and send logs to their centralized management subscriptions. Or they might use [Monitor baseline alerts](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/deploy/Introduction-to-deploying-the-ALZ-Pattern/) applied through policy. It's important to ensure that your implementation doesn't restrict the extra log and alerting flows.
 
 ## Azure Policy
 
-The [baseline architecture](./baseline-openai-e2e-chat.yml#governance-through-policy) recommends some general policies to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove anymore policies. Continue to apply policies to your subscription, resource groups, or resources that help enforce governance and enhance the security of this workload.
+The [baseline architecture](./baseline-openai-e2e-chat.yml#governance-through-policy) recommends some general policies to help govern the workload. When you deploy this architecture into an application landing zone, you don't need to add or remove any more policies. Continue to apply policies to your subscription, resource groups, or resources that help enforce governance and enhance the security of this workload.
 
 Expect the application landing zone subscription to have policies already applied, even before the workload is deployed. Some policies help organizational governance by auditing or blocking specific configurations in deployments. Here are some example policies that might lead to workload deployment complexities:
 
@@ -326,19 +324,19 @@ Workload and platform teams must communicate in an efficient and timely manner t
 
 In this architecture, the platform team manages the following resources. Changes to these resources can potentially affect the workload's reliability, security, operations, and performance targets. It's important to evaluate these changes before the platform team implements them to determine how they affect the workload.
 
-- **Azure policies:** Changes to Azure policies can affect workload resources and their dependencies. For example, there might be direct policy changes or movement of the landing zone into a new management group hierarchy. These changes might go unnoticed until there's a new deployment, so it's important to thoroughly test them.
-
+- **Azure policies**: Changes to Azure policies can affect workload resources and their dependencies. For example, there might be direct policy changes or movement of the landing zone into a new management group hierarchy. These changes might go unnoticed until there's a new deployment, so it's important to thoroughly test them.
+  
   *Example:* A policy no longer allows the deployment of Azure OpenAI instances that support API key access.
 
-- **Firewall rules:** Modifications to firewall rules can affect the workload's virtual network or rules that apply broadly across all traffic. These modifications can result in blocked traffic and even silent process failures. These potential problems apply to both the egress firewall and Azure Virtual Network Manager-applied NSG rules.
+- **Firewall rules**: Modifications to firewall rules can affect the workload's virtual network or rules that apply broadly across all traffic. These modifications can result in blocked traffic and even silent process failures. These potential problems apply to both the egress firewall and Azure Virtual Network Manager-applied NSG rules.
 
   *Example:* Blocked vendor update servers lead to failed operating system updates on the jump box or build agents.
 
-- **Routing in the hub network:** Changes in the transitive nature of routing in the hub can potentially affect the workload functionality if a workload depends on routing to other virtual networks.
-
+- **Routing in the hub network**: Changes in the transitive nature of routing in the hub can potentially affect the workload functionality if a workload depends on routing to other virtual networks.
+  
   *Example:* Prevents prompt flow to access a vector store that's operated by another team or data science teams from accessing browser-based experiences in the AI portals from their workstations.
 
-- **Azure Bastion host:** Changes to the Azure Bastion host availability or configuration.
+- **Azure Bastion host**: Changes to the Azure Bastion host availability or configuration.
 
   *Example*: Prevents access to jump boxes and build agent VMs.
 
@@ -346,13 +344,13 @@ In this architecture, the platform team manages the following resources. Changes
 
 The following examples are workload changes in this architecture that you should communicate to the platform team. It's important that the platform team validates the platform service's reliability, security, operations, and performance targets against the new workload team's changes before they go into effect.
 
-- **Network egress:** Monitor any significant increase in network egress to prevent the workload from becoming a noisy neighbor on network devices. This problem can potentially affect the performance or reliability targets of other workloads. This architecture is mostly self-contained and likely won't experience a significant change in outbound traffic patterns.
+- **Network egress**: Monitor any significant increase in network egress to prevent the workload from becoming a noisy neighbor on network devices. This problem can potentially affect the performance or reliability targets of other workloads. This architecture is mostly self-contained and likely won't experience a significant change in outbound traffic patterns.
 
-- **Public access:** Changes in the public access to workload components might require further testing. The platform team might relocate the workload to a different management group.
+- **Public access**: Changes in the public access to workload components might require further testing. The platform team might relocate the workload to a different management group.
 
   *Example:* In this architecture, if you remove the public IP address from Application Gateway and make this application internal only, the workload's exposure to the internet changes. Another example is if the browser-based AI portals are changed to be exposed to the internet, which isn't recommended.
 
-- **Business criticality rating:** If there are changes to the workload's service-level agreements (SLAs), you might need a new collaboration approach between the platform and workload teams.
+- **Business criticality rating**: If there are changes to the workload's service-level agreements (SLAs), you might need a new collaboration approach between the platform and workload teams.
 
   *Example:* Your workload can transition from low to high business critically with increased adoption and workload success.
 
@@ -370,13 +368,13 @@ View all functionality that the workload performs in the platform and applicatio
 
 For this architecture, consider the following workload dependencies:
 
-- **Egress firewall:** The centralized egress firewall, shared by multiple workloads, undergoes changes unrelated to the workload.
+- **Egress firewall**: The centralized egress firewall, shared by multiple workloads, undergoes changes unrelated to the workload.
 
-- **DNS resolution:** This architecture uses DNS provided by the platform team instead of directly interfacing with Azure DNS. This means that timely updates to DNS records for private endpoints and availability of DNS services are new dependencies.
+- **DNS resolution**: This architecture uses DNS provided by the platform team instead of directly interfacing with Azure DNS. This means that timely updates to DNS records for private endpoints and availability of DNS services are new dependencies.
 
-- **DINE policies:** DINE policies for Azure DNS private DNS zones, or any other platform-provided dependency, are *best effort*, with no SLA when you apply them. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or prompt flow from completing queries.
+- **DINE policies**: DINE policies for Azure DNS private DNS zones, or any other platform-provided dependency, are *best effort*, with no SLA when you apply them. For example, a delay in DNS configuration for this architecture's private endpoints can cause delays in the readiness of the chat UI to handle traffic or prompt flow from completing queries.
 
-- **Management group policies:** Consistent policies among environments are key for reliability. Ensure that preproduction environments are similar to production environments to provide accurate testing and to prevent environment-specific deviations that can block a deployment or scale. For more information, see [Manage application development environments in Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments).
+- **Management group policies**: Consistent policies among environments are key for reliability. Ensure that preproduction environments are similar to production environments to provide accurate testing and to prevent environment-specific deviations that can block a deployment or scale. For more information, see [Manage application development environments in Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments).
 
 Many of these considerations might exist without Azure landing zones, but the workload and platform teams need to collaboratively address these problems to ensure that needs are met. For more information, see [Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
 
