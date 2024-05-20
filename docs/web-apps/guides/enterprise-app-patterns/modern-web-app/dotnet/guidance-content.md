@@ -55,9 +55,7 @@ Update your web app code with the prescribed design patterns. Each design patter
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg)
 *Figure 2. The role of the design patterns in the web app architecture.*
 
-The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern buffers incoming requests to the decoupled service from the message queue and smooth out load. The Competing Consumers pattern 
-
-To update your code, follow this guidance:
+The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern alllows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
 
 #### Implement the Strangler Fig pattern
 
