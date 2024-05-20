@@ -3,7 +3,9 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
 
-*Why the Modern Web App pattern?* The Modern Web App pattern allow you to improve the peformance and cost efficiency of your web app with targeted improvements. The pattern shows you how to optimize the most critical flow(s) in your web application so that you can manage and scale each critical flow independetly. It decouples web app services to introduce a service-oriented architecture. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
+*Why the Modern Web App pattern?* The Modern Web App pattern allow you to improve the peformance and cost efficiency of your web app with targeted improvements. The pattern shows you how to optimize the most critical flow(s) in your web application so that you can manage and scale each critical flow independetly.
+
+*How to implement the Modern Web App pattern? The Modern Web App pattern moves toward a service-oriented architecture by decoupling critial flows in your web application. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
 
 | Benefits of the pattern | Code updates | Configuration updates | Architecture updates  |
 | --- | --- | --- | --- |
@@ -50,7 +52,7 @@ The following sections provide guidance on implementing the design patterns to y
 
 :::row:::
     :::column:::
-        ***WAF pillar alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
+        ***WAF alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
     :::column-end:::
 :::row-end:::
 ---
@@ -68,7 +70,7 @@ The reference implementation extracts the ticket rendering functionality from a 
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***WAF alignment - Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 ---
@@ -106,7 +108,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))***
+        ***WAF alignment - Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))***
     :::column-end:::
 :::row-end:::
 
@@ -167,7 +169,7 @@ processor.ProcessMessageAsync += async args =>
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***WAF alignment - Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 ---
@@ -220,7 +222,7 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
+        ***WAF alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
     :::column-end:::
 :::row-end:::
 ---
@@ -263,7 +265,7 @@ The following sections provide guidance on implementing the configuration update
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+        ***WAF alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
     :::column-end:::
 :::row-end:::
 ---
@@ -322,7 +324,7 @@ To configure authentication and authorization on users (*user identities*), foll
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***WAF alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 ---
@@ -366,7 +368,7 @@ scaleMinReplicas: 0
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
+        ***WAF alignment - Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
     :::column-end:::
 :::row-end:::
 ---
