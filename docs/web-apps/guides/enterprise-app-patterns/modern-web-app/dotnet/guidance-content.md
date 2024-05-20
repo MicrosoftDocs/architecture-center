@@ -50,7 +50,14 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 ### Update code
 
-The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that implement recommendations of the Well-Architected Framework:
+Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
+
+[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg)
+*Figure 2. The role of the design patterns in the web app architecture.*
+
+The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern buffers incoming requests to the decoupled service from the message queue and smooth out load. The Competing Consumers pattern 
+
+To update your code, follow this guidance:
 
 #### Implement the Strangler Fig pattern
 
