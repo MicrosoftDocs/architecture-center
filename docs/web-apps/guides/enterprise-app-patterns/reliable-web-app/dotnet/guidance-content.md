@@ -4,33 +4,13 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [intro](../includes/intro.md)]
 
-### Architecture updates
+### Update architecture
 
-[![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
-*Figure 1. Foundational architecture of the Reliable Web App pattern.*
-
-The foundational architecture identifies the essential web components needed to support the Reliable Web App pattern implementation (*see figure 1*). The foundational architecture requires a network perimeter to protect the web app from malicious inbound traffic. The web app hosting platform connects to supporting cloud services through private endpoints to improve security. The cache supports the implementation of the Cache-Aside pattern to reduce data latency in the web app. All the Azure services behind the network perimeter use managed identities to authenticate without managing secrets. To implement the architecture updates, follow these recommendations:
-
-[!INCLUDE [implement PaaS services](../includes/choose-services.md)]
-
-- *Filter inbound traffic.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
-
-- *Implement network topology.* Choose the right network topology for your web and networking requirements. A [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) is standard configuration in Azure. It provides cost, management, and security benefits with hybrid connectivity options to on-premises networks.
-
-- *Implement infrastructure reliability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO.
-
-    Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
-
-- *Implement private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+[!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
 
 ### Code updates
 
-Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
-
-[![Diagram showing the role of design patterns in the Reliable Web App pattern architecture.](../../../_images/rwa-design-patterns.svg)](../../../_images/rwa-design-patterns.svg)
-*Figure 2. The role of the design patterns in the web app architecture.*
-
-The Retry pattern and Circuit-Breaker pattern applies to all requests from the web app to Azure services. The Cache-Aside pattern applies to requests to the database. To update your code with these design patterns, follow this guidance:
+[!INCLUDE [Code updates](../includes/code-updates.md)]
 
 #### Implement the Retry pattern
 

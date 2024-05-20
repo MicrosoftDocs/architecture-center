@@ -1,30 +1,16 @@
 ---
 ms.custom: devx-track-dotnet
 ---
+
 [!INCLUDE [intro](../includes/intro.md)]
 
-> [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [reference implementation](https://aka.ms/eap/rwa/java) of the Reliable Web App pattern, which features a production grade web app on Azure. Use the reference implementation to assist your application of the Reliable Web App pattern.
+### Update architecture
 
-[!INCLUDE [Choose azure services](../includes/choose-services.md)]
+[!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
 
-| Web app component | Recommendation | Reference implementation | Guidance |
-| ----------------- | -------------- | ---------------------------------- | ----------------- |
-| **Application platform** | Support current web app | Azure App Service | [Compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree)|
-| **Database** | Support current database engine | Azure Database for PostgreSQL | [Data store decision tree](/azure/architecture/guide/technology-choices/data-store-decision-tree) |
-| **Load balancer** | Support architecture requirements | Azure Front Door | [Load balancer options](/azure/architecture/guide/technology-choices/load-balancing-overview) |
-| **Storage** | Support storage requirements | Azure Storage | [Storage options](/azure/architecture/guide/technology-choices/storage-options) |
-| **Identity management** | Microsoft Entra ID | Microsoft Entra ID | [Microsoft Entra ID](/entra/fundamentals/whatis) |
-| **App monitoring** | Application Insights | Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview) |
-| **Cache** | Azure Cache for Redis | Azure Cache for Redis | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
-| **Secrets manager** | Azure Key Vault | Azure Key Vault | [Azure Key Vault](/azure/key-vault/general/overview) |
-| **Web application firewall** | Azure Web Application Firewall | Azure Web Application Firewall | [Azure Web Application Firewall](/azure/web-application-firewall/overview) |
-| **Configuration storage** | Azure App Configuration | Azure App Configuration | [Azure App Configuration](/azure/azure-app-configuration/overview) |
-| **Endpoint security** | Azure Private Link | Azure Private Link | [Azure Private Link](/azure/private-link/private-link-overview) |
-| **Network firewall** | Azure Firewall | Azure Firewall | [Azure Firewall](/azure/firewall/overview) |
-| **Remote access** | Azure Bastion | Azure Bastion | [Azure Bastion](/azure/bastion/bastion-overview) |
+### Code updates
 
-[!INCLUDE [web app architecture](../includes/design-web-app-architecture.md)]
+
 
 [!INCLUDE [second section](../includes/update-reliability-retry.md)]
 
@@ -345,3 +331,5 @@ The following tools and resources can help you migrate on-premises resources to 
 - [Azure Database Migration Guides](/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
 - [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) provides guidance for hardening and scaling App Service deployments.
 - [Azure Migrate application and code assessment](/azure/migrate/appcat/dotnet)
+
+[reference implementation]: https://aka.ms/eap/rwa/java
