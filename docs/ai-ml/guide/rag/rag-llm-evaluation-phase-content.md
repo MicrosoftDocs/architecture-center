@@ -19,14 +19,14 @@ Groundedness, sometimes referred to as faithfulness, measures whether the respon
 
 **Calculating**
 
-* [Azure AI Content Safety Service (AACS) based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses Natural Language Inference (NLI) to determine whether claims, in this case chunks, are entailed or not entailed by a source document.
-* [Large language model based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a large language model to determine the level of groundedness of the response.
-* [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness.html)
-* [Mlflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
+- [Azure AI Content Safety Service (AACS) based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#aacs-based-groundedness) is a custom model that uses Natural Language Inference (NLI) to determine whether claims, in this case chunks, are entailed or not entailed by a source document.
+- [Large language model based groundedness](/azure/ai-studio/concepts/evaluation-metrics-built-in#prompt-only-based-groundedness) uses a large language model to determine the level of groundedness of the response.
+- [Ragas faithfulness library](https://docs.ragas.io/en/latest/concepts/metrics/faithfulness.html)
+- [MLflow faithfulness calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
 
-If groundedness is low, it indicates that the large language model doesn't see the chunks as relevant. You should evaluate if you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
+If groundedness is low, it indicates that the large language model doesn't see the chunks as relevant. You should evaluate whether you need to add data to your corpus, adjust your chunking strategy or chunk size, or fine tune your prompt.
 
 ### Completeness
 
@@ -34,8 +34,8 @@ Completeness measures whether the response is answering all parts of the query. 
 
 **Calculating**
 
-* [AI-assisted: Retrieval Score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score)
-* A large language model can help you measure the quality of the large language model response. You need the question, context, and generated answer to do this. The following outlines the high level process:
+- [AI-assisted: Retrieval Score prompting](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-retrieval-score)
+- A large language model can help you measure the quality of the large language model response. You need the question, context, and generated answer to do this. The following outlines the high level process:
   1. Use the large language model to rephrase, summarize, or simplify the question. This identifies the intent.
   2. Ask the model to check if the intent or the answer to the intent is found or can be derived from retrieved documents where the answer can be "No", or "Yes" for each document. Answers that start with "Yes" indicate that the retrieved documents are relevant to the intent or answer to the intent.
   3. Calculate the ratio of the intents that have an answer beginning with "Yes".
@@ -43,7 +43,7 @@ Completeness measures whether the response is answering all parts of the query. 
 
 **Evaluating**
 
-If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine if you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you are using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
+If completeness is low, start by evaluating your embedding model. Compare the vocabulary in your content with the vocabulary in your chosen embedding model. Determine whether you need a domain specific embedding model or you need to fine-tune an existing model. As a next step, evaluate your chunking strategy. If you are using fixed length, consider increasing your chunk size. You can also evaluate whether your test data has enough data to completely address the question.
 
 ### Utilization
 
@@ -60,7 +60,7 @@ The following table provides guidance, taking both completeness and utilization 
 | | High utilization | Low utilization |
 | --- | --- | --- |
 | **High completeness** | No action needed | In this case, the data returned is able to address the question, but irrelevant chunks were returned. Consider reducing the top-k parameter value to yield more probable/deterministic results. |
-| **Low completeness** | In this case, the chunks you are providing are being used, but are not fully addressing the question. Consider the following:<br /><ul><li>Review your chunking strategy to increase the context within the chunks</li><li>Increase the number of chunks by increasing the top-k parameter value</li><li>Evaluate whether you have chunks that were not returned that can increase the completeness. If so, investigate why they were not returned.</li><li>Follow the guidance in [the completeness section](#completeness)</li></ul> | In this case, you are not fully answering the question and the chunks you are providing are not being well utilized. Consider the following to address these issues:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you are using fixed size chunking, consider increasing the chunk sizes.</li><li>Tune your prompts to improve responses</li></ul> |
+| **Low completeness** | In this case, the chunks you are providing are being used, but are not fully addressing the question. Consider the following:<br /><ul><li>Review your chunking strategy to increase the context within the chunks</li><li>Increase the number of chunks by increasing the top-k parameter value</li><li>Evaluate whether you have chunks that were not returned that can increase the completeness. If so, investigate why they were not returned.</li><li>Follow the guidance in the [completeness section](#completeness)</li></ul> | In this case, you are not fully answering the question and the chunks you are providing are not being well utilized. Consider the following to address these issues:<br /><ul><li>Review your chunking strategy to increase the context within the chunks. If you are using fixed size chunking, consider increasing the chunk sizes.</li><li>Tune your prompts to improve responses</li></ul> |
 
 ### Relevance
 
@@ -68,20 +68,20 @@ Measures the extent to which the large language model's response is pertinent an
 
 **Calculating**
 
-* [AI-assisted: Relevance in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance) - You can use Azure AI Studio to perform the calculations, or use the guidance in this article to calculate relevance for yourself.
-* [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance.html)
-* [Mlflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
+- [AI-assisted: Relevance in Azure AI Studio](/azure/ai-studio/concepts/evaluation-metrics-built-in#ai-assisted-relevance) - You can use Azure AI Studio to perform the calculations, or use the guidance in this article to calculate relevance for yourself.
+- [Ragas answer relevancy library](https://docs.ragas.io/en/latest/concepts/metrics/answer_relevance.html)
+- [MLflow relevance calculation](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html#metrics-with-llm-as-the-judge)
 
 **Evaluating**
 
 When relevance is low, evaluate the following:
 
-* Ensure that the chunks provided to the large language model are relevant.
-  * Determine if there are viable chunks that are relevant that were not returned. If there are, evaluate your embedding model.
-  * If there are not viable chunks, look to see if relevant data exists. If it does, evaluate your chunking strategy.
-* If relevant chunks were returned, evaluate your prompt.
+- Ensure that the chunks provided to the large language model are relevant.
+  - Determine whether there are viable chunks that are relevant that were not returned. If there are, evaluate your embedding model.
+  - If there are not viable chunks, look to see whether relevant data exists. If it does, evaluate your chunking strategy.
+- If relevant chunks were returned, evaluate your prompt.
 
-Other evaluation methods like [completeness](#completeness) should be calculated and should yield similar scores to the ones observed in the relevance measure.
+Other evaluation methods like [Completeness](#completeness) should be calculated and should yield similar scores to the ones observed in the relevance measure.
 
 ## Similarity and evaluation metrics
 
@@ -91,21 +91,21 @@ The data scientist determines what it is you want to measure and what metric or 
 
 The following list contains a small sample of common similarity and evaluation metrics. Notice that the similarity metrics listed are described as token based, sequence based, or edit based, illustrating how they use vastly different approaches to calculating similarity. Also note that the list contains three algorithms for evaluating the quality of text translation from one language to another.
 
-* **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** - Sequence based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by either the number of characters of the smaller or larger input string.
-* **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** - Sequence based algorithm that finds the longest subsequence between two strings. LCS doesn't require the subsequences to be in consecutive order.
-* **[Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)** - Token based algorithm that calculates the cosine of the angle between the two vectors.
-* **[Jaro Winkler](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)** - Edit based algorithm that counts the minimum number of steps to transform one string into another.
-* **[Hamming](https://en.wikipedia.org/wiki/Hamming_distance)** - Edit based algorithm that measures the minimum number of substitutions that are required to transform one string to another.
-* **[Jaccard](https://en.wikipedia.org/wiki/Jaccard_index)** - Token based algorithm that calculates similarity by dividing the intersection of two strings by the union of those strings.
-* **[Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance)** - Edit based algorithm that calculates similarity by determining the minimum number of single character edits required to transform one string to another.
-* **[BLEU](https://en.wikipedia.org/wiki/BLEU)** - Evaluates the quality of text that is the result of machine translation from one language to another. Bleu calculates the overlap of n-grams between a machine translation and a human quality translation to make this evaluation.
-* **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several Rouge variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
-* **[METEOR](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
+- **[Longest common substring](https://en.wikipedia.org/wiki/Longest_common_substring)** - Sequence based algorithm that finds the longest common substring between two strings. The longest common substring percentage takes the longest common substring and divides it by either the number of characters of the smaller or larger input string.
+- **[Longest common subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)** - Sequence based algorithm that finds the longest subsequence between two strings. LCS doesn't require the subsequences to be in consecutive order.
+- **[Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)** - Token based algorithm that calculates the cosine of the angle between the two vectors.
+- **[Jaro Winkler](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)** - Edit based algorithm that counts the minimum number of steps to transform one string into another.
+- **[Hamming](https://en.wikipedia.org/wiki/Hamming_distance)** - Edit based algorithm that measures the minimum number of substitutions that are required to transform one string to another.
+- **[Jaccard](https://en.wikipedia.org/wiki/Jaccard_index)** - Token based algorithm that calculates similarity by dividing the intersection of two strings by the union of those strings.
+- **[Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance)** - Edit based algorithm that calculates similarity by determining the minimum number of single character edits required to transform one string to another.
+- **[BLEU](https://en.wikipedia.org/wiki/BLEU)** - Evaluates the quality of text that is the result of machine translation from one language to another. Bleu calculates the overlap of n-grams between a machine translation and a human quality translation to make this evaluation.
+- **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several rogue variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
+- **[METEOR](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
 
 Refer to the following resources for common similarity and evaluation metrics:
 
-* [PyPi textdistance package](https://pypi.org/project/textdistance/)
-* [Wikipedia list of similarity algorithms](https://en.wikipedia.org/wiki/Similarity_measure)
+- [PyPi textdistance package](https://pypi.org/project/textdistance/)
+- [Wikipedia list of similarity algorithms](https://en.wikipedia.org/wiki/Similarity_measure)
 
 ## Documentation, reporting, and aggregation
 
@@ -129,12 +129,12 @@ Whether you are a seasoned researcher pushing the boundaries of natural language
 
 ## Contributors
 
-* [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
-* [Rob Bagby](https://www.linkedin.com/in/robbagby/)
-* [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
-* [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
-* [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
-* [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
+- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/)
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/)
+- [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/)
+- [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/)
+- [Randy Thurman](https://www.linkedin.com/in/randy-thurman-2917549/)
+- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/)
 
 ## Next steps
 
@@ -143,4 +143,4 @@ Whether you are a seasoned researcher pushing the boundaries of natural language
 
 ## Related resources
 
-* [Develop an evaluation flow in Azure AI Studio](/azure/ai-studio/how-to/flow-develop-evaluation)
+- [Develop an evaluation flow in Azure AI Studio](/azure/ai-studio/how-to/flow-develop-evaluation)
