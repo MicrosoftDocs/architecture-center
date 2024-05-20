@@ -3,7 +3,7 @@ title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 04/29/2024
+ms.date: 05/20/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -33,7 +33,7 @@ Most commonly, API Management is deployed as a shared component, with a single i
 
 Typically, the way you use API Management is similar regardless of the isolation models. This section focuses on the differences in cost and complexity between the isolation models, and the differences in how each approach routes requests to your backend API applications.
 
-| Consideration | Shared instance, single-tenant backends | Shared instance, multitenant backend | Instance per tenant |
+| Consideration | Shared instance, single-tenant backends | Shared instance, shared multitenant backend | Instance per tenant |
 |---|---|---|---|---|
 | Number of tenants supported | Many | Almost unbounded | One per instance |
 | Cost | Lower | Lower | Higher |
@@ -51,13 +51,7 @@ If you deploy distinct backend applications for each tenant, you can deploy a si
 
 Because of the additional lookup required, this approach might not scale to large numbers of tenants sharing a single API Management instance. There might also be some performance overhead when looking up the tenant backend to route to, although the size of this overhead varies depending on how you design such a lookup.
 
-#### Sharded tenant backend applications
-
-Some multitenant solutions are designed with sharded backends. For example, tenants A, B, and C might share backend application 1, while tenants D, E, and F share backend application 2.
-
-As with the [single-tenant backend application model](#single-tenant-backend-application), this approach requires a way for API Management to look up a backend application for a tenant, so the same considerations generally apply.
-
-#### Multitenant backend application
+#### Shared multitenant backend application
 
 In scenarios where your tenants share a common backend application, API Management's routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to effectively achieve unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there's no performance impact from customized routing decisions.
 
@@ -84,9 +78,9 @@ Consider how you'll identify tenants based on incoming requests. In a multitenan
 
 API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you'll map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
 
-Alternatively, you can identify the tenant through other methods. Each of these methods may require additional work to extract the token, and then to map the request to the tenant. Here are some example custom approaches:
+Alternatively, you can identify the tenant through other methods. Each of these methods may require additional work to extract the token, and then to map the request to the tenant. Here are some example custom approaches, each of which runs within a policy that you'd define within a policy:
 
-- **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier, or in the URL `https://tenant1.contoso.com/products` you might extract the first part of the domain. To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
+- **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the first part of the domain (`tenant1`). To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 - **Use a request header.** For example, your client applications might add a custom `X-TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
 - **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in the JWTs issued by your identity provider. To use this approach, use the [`validate-jwt` policy](/azure/api-management/validate-jwt-policy) and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
 - **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create completely custom logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
@@ -101,6 +95,8 @@ API Management supports [named values](/azure/api-management/api-management-howt
 ### Authenticate incoming requests
 
 API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients). Consider which types of credentials you should support, and whether credentials should be validated by API Management, your backend applications, or in both places.
+
+For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview)
 
 > [!NOTE]
 > If you use a subscription key (API key), we recommend also using another method of authentication.
@@ -122,7 +118,7 @@ API Management has a powerful cache feature, which can be used to cache entire H
 
 API Management enables you to use your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple custom domains.
 
-You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, it's common for Azure Front Door to handle custom domains and TLS certificates, and for it to communicate with API Management by using a single domain name.
+You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, it's common for Azure Front Door to handle custom domains and TLS certificates, and for it to communicate with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header.
 
 ### Rate limiting
 
@@ -138,7 +134,9 @@ The API Management documentation [provides extensive guidance on monetizing APIs
 
 An API Management instance supports a certain amount of [capacity](/azure/api-management/api-management-capacity). When you use complex policies or deploy more APIs to the instance, more capacity is consumed. You can manage the capacity of an instance in several ways, including by purchasing more units. You can also dynamically scale the capacity of your instance.
 
-Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your capacity if you see your use increase.
+Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your capacity if you see your use increase. You should also consider testing the performance of your solution to understand your capacity needs ahead of time.
+
+For more information about scaling API Management, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale)
 
 ### Multi-region deployments
 
