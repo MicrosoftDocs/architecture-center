@@ -9,6 +9,7 @@ ms.subservice: azure-guide
 products: azure-machine-learning
 categories: ai-machine-learning
 ms.topic: product-comparison
+ms.collection: ce-skilling-ai-copilot
 ms.date: 03/28/2024
 ---
 
