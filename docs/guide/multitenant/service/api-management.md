@@ -49,7 +49,7 @@ It's common to share an API Management instance between multiple tenants, which 
 
 If you deploy distinct backend applications for each tenant, you can deploy a single API Management instance and route traffic to the correct tenant for each request. This approach requires that API Management be configured with the backend hostnames for each tenant, or is otherwise able to map an incoming request to the correct tenant's backend.
 
-Because of the additional lookup required, this approach might not scale to large numbers of tenants sharing a single API Management instance. There might also be some performance overhead when looking up the tenant backend to route to, although the size of this overhead varies depending on how you design such a lookup.
+Because of the extra lookup required, this approach might not scale to large numbers of tenants sharing a single API Management instance. There might also be some performance overhead when looking up the tenant backend to route to, although the size of this overhead varies depending on how you design such a lookup.
 
 #### Shared multitenant backend application
 
@@ -57,26 +57,24 @@ In scenarios where your tenants share a common backend application, API Manageme
 
 ### Instance per tenant
 
-In some situations, you might deploy an instance of API Management for each tenant. This approach is generally only advisable if you have a small number of tenants, or if you have strict compliance requirements that mean you can't share any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, you probably need to deploy a dedicated API Management instance for each tenant, too.
+In some situations, you might deploy an instance of API Management for each tenant. This approach is only advisable if you have a small number of tenants, or if you have strict compliance requirements that restrict you from sharing any infrastructure between tenants. For example, if you deploy a dedicated virtual network for each tenant, you probably need to deploy a dedicated API Management instance for each tenant, too.
 
 > [!TIP]
 > If your only reason for deploying multiple instances is to support users in multiple geographic regions, consider whether the [multi-region deployment](#multi-region-deployments) capability in API Management might suit your needs instead.
 
 When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
 
-For single-tenant instances, there's typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decision. 
-
-However, you'll typically incur a higher resource cost than if you were deploying a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) might enable you to reuse tenant-specific compute resources that you already deploy.
+For single-tenant instances, there's typically minimal routing configuration because all requests are sent to the same backend. In this scenario, there's no added performance impact from custom routing decision. However, you typically incur a higher resource cost than if you were deploying a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) might enable you to reuse tenant-specific compute resources that you already deploy.
 
 ## Features of API Management that support multitenancy
 
-API Management enables flexibility through its use of [policies](/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. Many of the capabilities related to multitenant solutions are enabled by policies.
+API Management enables flexibility through its use of [policies](/azure/api-management/api-management-howto-policies). By using policies, you can customize how requests are validated, routed, and processed. When you design a multitenant solution with API Management, you implement many of the capabilities by using policies.
 
 ### Identify tenants on incoming requests
 
-Consider how you'll identify tenants based on incoming requests. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
+Consider how you can identify the appropriate tenant within each incoming request. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
 
-API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you'll map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
+API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you can map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
 
 Alternatively, you can identify the tenant through other methods. Each of these methods may require additional work to extract the token, and then to map the request to the tenant. Here are some example custom approaches, each of which runs within a policy that you'd define within a policy:
 
@@ -96,7 +94,7 @@ API Management supports [named values](/azure/api-management/api-management-howt
 
 API requests made to the API Management gateway usually need to be authenticated. API Management provides several methods of authenticating incoming requests to the gateway, including OAuth 2.0 and [client certificates](/azure/api-management/api-management-howto-mutual-certificates-for-clients). Consider which types of credentials you should support, and whether credentials should be validated by API Management, your backend applications, or in both places.
 
-For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview)
+For more information, see [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview).
 
 > [!NOTE]
 > If you use a subscription key (API key), we recommend also using another method of authentication.
@@ -136,11 +134,11 @@ An API Management instance supports a certain amount of [capacity](/azure/api-ma
 
 Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your capacity if you see your use increase. You should also consider testing the performance of your solution to understand your capacity needs ahead of time.
 
-For more information about scaling API Management, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale)
+For more information about scaling API Management, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
 ### Multi-region deployments
 
-API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource and have it shared across multiple Azure regions without needing to replicate configuration. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, allowing for low latency request processing, and manage them as a single logical instance.
+API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, allowing for low latency request processing, and manage them as a single logical instance.
 
 ## Contributors
 
