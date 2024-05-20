@@ -12,7 +12,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 *How to implement the Modern Web App pattern?* The Modern Web App pattern moves toward a service-oriented architecture by decoupling critial flows in your web application. To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a **[reference implementation](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
+> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a [***reference implementation***](https://aka.ms/eap/rwa/dotnet)** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
 ## Architecture updates
 
