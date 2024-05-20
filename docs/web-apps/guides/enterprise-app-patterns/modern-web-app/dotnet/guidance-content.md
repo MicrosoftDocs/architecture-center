@@ -1,8 +1,5 @@
 This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF). The baseline architecture builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and adds the required web app components 
 
-[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
-*Figure 1. Baseline architecture of the Modern Web App pattern.*
-
 ## Why the Modern Web App pattern?
 
 The Modern Web App pattern optimizes the critical flows in your web application. It shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
@@ -20,7 +17,10 @@ The Modern Web App pattern moves toward a service-oriented architecture by decou
 
 ## Architecture updates
 
-Systematically decouple services from your monolithic codebase and implement a service-oriented architecture that enhances performance, scalability, and maintainability.
+[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
+*Figure 1. Baseline architecture of the Modern Web App pattern.*
+
+Use the Reliable Web App pattern foundational architecture and add to it as needed (*see figure 1*). The foundational architecture identities the essential components of the Reliable Web App pattern, and the following guidance shows you how to customize the architecture to meet you specific web app needs. To implement the architecture updates, follow these recommendations.
 
 ### Select the right platform-as-a-service (PaaS) solutions
 

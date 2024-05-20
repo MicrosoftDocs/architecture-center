@@ -10,9 +10,9 @@ ms.custom: devx-track-dotnet
 ## Architecture updates
 
 [![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
-*Figure 1. Baseline architecture of the Reliable Web App pattern.*
+*Figure 1. Foundational architecture of the Reliable Web App pattern.*
 
-The baseline architecture for the Reliable Web App pattern To implement the architecture updates, follow these recommendations:
+Use the Reliable Web App pattern foundational architecture and add to it as needed (*see figure 1*). The foundational architecture identities the essential components of the Reliable Web App pattern, and the following guidance shows you how to customize the architecture to meet you specific web app needs. To implement the architecture updates, follow these recommendations:
 
 [!INCLUDE [implement PaaS services](../includes/choose-services.md)]
 
@@ -28,7 +28,7 @@ The baseline architecture for the Reliable Web App pattern To implement the arch
 
 ## Code updates
 
-The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
+Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework. To update your code, follow this guidance:
 
 ### Implement the Retry pattern
 
@@ -37,6 +37,7 @@ The following sections provide guidance on implementing the design patterns to y
         ***Well-Architected Framework pillars: Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
     :::column-end:::
 :::row-end:::
+---
 
 Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
 
@@ -97,6 +98,7 @@ Add the [Retry pattern](/azure/architecture/patterns/retry) to your application 
         ***Well-Architected Framework pillar alignment: Reliability ([RE:03](/azure/well-architected/reliability/failure-mode-analysis), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Performance Efficiency ([PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure), [PE:11](/azure/well-architected/performance-efficiency/respond-live-performance-issues))***
     :::column-end:::
 :::row-end:::
+---
 
 Use the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker) to handle service disruptions that aren't transient faults. The Circuit Breaker pattern prevents an application from continuously attempting to access a nonresponsive service. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users.
 
@@ -119,6 +121,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
         ***Well-Architected Framework pillar alignment: Reliability ([RE:05](/azure/well-architected/reliability/redundancy)), Performance Efficiency ([PE:08](/azure/well-architected/performance-efficiency/optimize-data-performance), [PE:12](/azure/well-architected/performance-efficiency/continuous-performance-optimize))***
     :::column-end:::
 :::row-end:::
+---
 
 Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
 
@@ -203,9 +206,10 @@ The following sections provide guidance on implementing the configurations updat
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+        ***WAF alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
     :::column-end:::
 :::row-end:::
+---
 
 When migrating web applications to Azure, configure user authentication and authorization mechanisms. Follow these recommendations:
 
@@ -225,9 +229,10 @@ When migrating web applications to Azure, configure user authentication and auth
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+        ***WAF alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
     :::column-end:::
 :::row-end:::
+---
 
 Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
 
@@ -255,9 +260,10 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment: Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
+        ***WAF alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
     :::column-end:::
 :::row-end:::
+---
 
 Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess. To right-size your environments, follow these recommendations:
 
@@ -275,9 +281,10 @@ Use the performance tiers (SKUs) of Azure services that meet the needs of each e
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***WAF alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
+---
 
 Autoscaling ensures web app remain resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
 
@@ -291,9 +298,10 @@ Autoscaling ensures web app remain resilient, responsive, and capable of handlin
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))***
+        ***WAF alignment - Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))***
     :::column-end:::
 :::row-end:::
+---
 
 Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource. The reference implementation uses Bicep to deploy and configure all Azure resources.
 
@@ -301,9 +309,10 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar support: Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:04](/azure/well-architected/performance-efficiency/collect-performance-data)***
+        ***WAF alignment - Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:04](/azure/well-architected/performance-efficiency/collect-performance-data)***
     :::column-end:::
 :::row-end:::
+---
 
 Implement monitoring to enhance the operational excellence and performance efficiency of your web app. To implement monitoring, follow these recommendations:
 
