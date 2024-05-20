@@ -9,7 +9,10 @@ ms.custom: devx-track-dotnet
 
 ## Architecture updates
 
-The following guidance provides recommendations for building the right architecture for your web app in the cloud.
+[![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
+*Figure 1. Baseline architecture of the Reliable Web App pattern.*
+
+The baseline architecture for the Reliable Web App pattern To implement the architecture updates, follow these recommendations:
 
 [!INCLUDE [implement PaaS services](../includes/choose-services.md)]
 
