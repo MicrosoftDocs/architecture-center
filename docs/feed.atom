@@ -2,12 +2,76 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-05-13T18:10:30.615Z</updated>
+    <updated>2024-05-20T17:08:08.102Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure OpenAI chat baseline architecture in an Azure landing zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/architecture/azure-openai-baseline-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/architecture/azure-openai-baseline-landing-zone"/>
+        <updated>2024-05-16T20:12:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build on the Azure OpenAI chat baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Chunking phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-chunking-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-chunking-phase"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Chunk enrichment phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-enrichment-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-enrichment-phase"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the importance of augmenting chunks with metadata like title, summary, keywords, entities, and more. Learn common cleaning operations you can perform on chunks that might improve vector matches.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Generate embeddings phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-generating-embeddings</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-generating-embeddings"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about why your choice of embedding model can affect your vector search results and read guidance on how to choose an embedding model.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Information retrieval phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-information-retrieval</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-information-retrieval"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about key decision points when you're configuring a search index. Learn about the various types of search you can perform such as vector, full text, hybrid, and hybrid manual. Finally, learn about breaking queries into subqueries, and why and how to rerank queries.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - LLM end to end evaluation phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-llm-evaluation-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-llm-evaluation-phase"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn about evaluating your RAG solution from end to end using key LLM and similarity metrics.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Developing a RAG solution - Preparation phase]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-preparation-phase</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-preparation-phase"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn what you should consider when gathering test documents and queries. You use these artifacts to test and validate your chunking, information retrieval, and prompt engineering strategies.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guide to designing and developing a RAG solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/guide/rag/rag-solution-design-and-evaluation-guide"/>
+        <updated>2024-05-14T19:55:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn what you should consider when designing an LLM RAG solution, including determining what test documents and queries to use during evaluation, choosing a chunking strategy, determining what and how you should enrich the chunks, choosing the right embedding model, how to configure the search index, determining what searches you want to perform, and how to evaluate each step.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Choose an Azure service for vector search]]></title>
         <id>https://learn.microsoft.com/azure/architecturecl/guide/technology-choices/vector-search</id>
@@ -47,6 +111,46 @@
         <updated>2024-05-01T19:51:38.000Z</updated>
         <summary type="html"><![CDATA[Ingest and process millions of streaming events per second with Apache Kafka, Apache Spark Structured Streaming, and Delta Lake.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline OpenAI end-to-end chat reference architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/ai-ml/architecture/baseline-openai-e2e-chat</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/ai-ml/architecture/baseline-openai-e2e-chat"/>
+        <updated>2024-05-16T20:12:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about proven practices for building and deploying enterprise chat applications with Azure OpenAI, Azure Machine Learning, and Azure App Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Related resources for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/guide/multitenant/related-resources</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/guide/multitenant/related-resources"/>
+        <updated>2024-05-14T23:34:52.000Z</updated>
+        <summary type="html"><![CDATA[This article provides a set of links and resources for architects and developers of multitenant solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/guide/multitenant/service/aks</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/guide/multitenant/service/aks"/>
+        <updated>2024-05-14T19:36:43.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Kubernetes Service (AKS) that are useful when working with multitenanted systems. It links to guidance and examples for how to use AKS in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High availability and disaster recovery for IaaS apps]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/example-scenario/infrastructure/iaas-high-availability-disaster-recovery</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/example-scenario/infrastructure/iaas-high-availability-disaster-recovery"/>
+        <updated>2024-05-14T19:19:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI]]></title>
+        <id>https://learn.microsoft.com/azure/architecturecl/hybrid/hybrid-cross-cluster-scaling</id>
+        <link href="https://learn.microsoft.com/azure/architecturecl/hybrid/hybrid-cross-cluster-scaling"/>
+        <updated>2024-05-14T00:17:07.000Z</updated>
+        <summary type="html"><![CDATA[Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[AKS day-2 guide: Patch and upgrade guidance]]></title>
