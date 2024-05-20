@@ -1,28 +1,28 @@
-This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF). The baseline architecture builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and adds the required web app components 
+This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF). The baseline architecture builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern) and adds the required web app components.
+
+| Benefits of the pattern | Architecture updates | Code updates | Configuration updates |
+| --- | --- | --- | --- |
+| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Select PaaS solutions<br>Decouple web app | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Extend security<br> Independent autoscaling <br> Containerization |
 
 ## Why the Modern Web App pattern?
 
-The Modern Web App pattern optimizes the critical flows in your web application. It shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
+The Modern Web App pattern optimizes the critical flows in your web application. The pattern shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) This article is backed by a ***[reference implementation](https://aka.ms/eap/rwa/dotnet)*** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
 
 ## How to implement the Modern Web App pattern?
 
-The Modern Web App pattern moves toward a service-oriented architecture by decoupling critical services in your web application. Follow the architecture updates to To the decoupled service(s), the pattern applies asynchronous communication and independent autoscaling to optimize performance and cost. The Modern Web App pattern updates the web app code with four new design patterns to implement the key changes.
+Use the following architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the architecture section to decouple web app services and select the right platform-as-a-service solutions to support newly decouple services. Use code updates to implement four design patterns to the web app code that support the optimization of the newly decoupled service. Use the configuration updates to extend the security configurations of the Reliable Web App pattern and implement autoscaling and containerization on the newly decoupled service.
 
-| Benefits of the pattern | Architecture updates | Code updates | Configuration updates |
-| --- | --- | --- | --- |
-| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Select PaaS solutions<br>Decouple web app | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Extend security<br> Independent autoscaling <br> Containerization |
-
-## Architecture updates
+### Architecture updates
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
 
 Use the Reliable Web App pattern foundational architecture and add to it as needed (*see figure 1*). The foundational architecture identities the essential components of the Reliable Web App pattern, and the following guidance shows you how to customize the architecture to meet you specific web app needs. To implement the architecture updates, follow these recommendations.
 
-### Select the right platform-as-a-service (PaaS) solutions
+#### Select the right platform-as-a-service (PaaS) solutions
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
@@ -40,7 +40,7 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
-### Decouple web app
+#### Decouple web app
 
 - *Identify service boundaries* Apply DDD principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Map the key business capabilities of your application. Services that represent distinct business functions are good candidates for decoupling. Examine the dependencies between different parts of your application. Services with fewer dependencies on other parts of the system are easier to decouple.
 - *Evaluate service impact.* Focus on services that will benefit most from independent scaling. For instance, a high-traffic service like order processing in an e-commerce application may require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these allows for independent deployment and reduces the risk of affecting other parts of the application. Target services that are critical to performance. Decoupling these can help optimize and manage performance more effectively.
@@ -48,11 +48,11 @@ The Azure services you selected for the implementation of the Reliable Web App p
 - *Extract services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity.
 - *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
-## Update code
+### Update code
 
 The following sections provide guidance on implementing the design patterns to your code. Each design pattern provides workload design benefits that implement recommendations of the Well-Architected Framework:
 
-### Implement the Strangler Fig pattern
+#### Implement the Strangler Fig pattern
 
 :::row:::
     :::column:::
@@ -70,7 +70,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 The reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The extracted service was also updated to run in a Linux container and shows how services can be upgraded during extraction.
 
-### Implement the Queue-Based Load Leveling pattern
+#### Implement the Queue-Based Load Leveling pattern
 
 :::row:::
     :::column:::
@@ -108,7 +108,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     });
     ```
 
-### Implement the Competing Consumers pattern
+#### Implement the Competing Consumers pattern
 
 :::row:::
     :::column:::
@@ -169,7 +169,7 @@ processor.ProcessMessageAsync += async args =>
 };
 ```
 
-### Implement the Health Endpoint Monitoring pattern
+#### Implement the Health Endpoint Monitoring pattern
 
 :::row:::
     :::column:::
@@ -222,7 +222,7 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
     
     ```
 
-### Extend the Retry Pattern
+#### Implement the Retry Pattern
 
 :::row:::
     :::column:::
@@ -261,11 +261,11 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-## Configurations updates
+### Configurations updates
 
 The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
-### Extend security
+#### Extend security
 
 :::row:::
     :::column:::
@@ -324,7 +324,7 @@ To configure authentication and authorization on users (*user identities*), foll
 - *Grant least privilege to users.* Just like with services, ensure that users are given only the permissions they need to perform their tasks. Regularly review and adjust these permissions.
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
-### Implement independent autoscaling
+#### Implement independent autoscaling
 
 :::row:::
     :::column:::
@@ -368,7 +368,7 @@ scaleMaxReplicas: 5
 scaleMinReplicas: 0
 ```
 
-### Containerize service deployment
+#### Containerize service deployment
 
 :::row:::
     :::column:::
