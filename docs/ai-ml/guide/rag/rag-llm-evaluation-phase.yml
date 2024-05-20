@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Developing a RAG solution - LLM end to end evaluation phase 
+  title: Developing a RAG solution - LLM end to end evaluation phase
   description: Learn about evaluating your RAG solution from end to end using key LLM and similarity metrics.
   author: robbagby
   ms.author: robbag
@@ -15,8 +15,8 @@ products:
   - azure-cognitive-search
   - azure-openai
   - azure-machine-learning
-name: LLM end to end evaluation 
+name: LLM end to end evaluation
 summary: Learn about evaluating your RAG solution from end to end using key LLM and similarity metrics.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
-  [!include[](rag-llm-evaluation-phase-content.md)]
+  [!INCLUDE[](rag-llm-evaluation-phase-content.md)]
