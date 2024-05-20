@@ -338,10 +338,10 @@ Implement monitoring to enhance the operational excellence and performance effic
 
 ## Deploy the reference implementation
 
-![GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. Once deployed, you can observe the patterns described in this document in action. The reference implementation simulates the migration efforts of a fictional company, Relecloud. the reference implementation is a production-grade web app that allows customers to buy concert tickets online.
+![GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
-*Figure 2. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+*Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for .NET reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)
