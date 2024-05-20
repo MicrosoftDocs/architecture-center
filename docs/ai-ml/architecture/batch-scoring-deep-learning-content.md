@@ -63,7 +63,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 #### GPU versus CPU
 
-For deep learning workloads, graphics processing units (GPUs) generally out-perform CPUs by a considerable amount, to the extent that a sizeable cluster of CPUs is typically needed to get comparable performance. Although you can use only CPUs in this architecture, GPUs provide a much better cost/performance profile. We recommend using the latest [NCv3 series][vm-sizes-gpu] of GPU optimized VMs.
+For deep learning workloads, GPUs generally out-perform CPUs by a considerable amount, to the extent that a sizeable cluster of CPUs is typically needed to get comparable performance. Although you can use only CPUs in this architecture, GPUs provide a much better cost/performance profile. We recommend using the latest [NCv3 series][vm-sizes-gpu] of GPU optimized VMs.
 
 GPUs aren't enabled by default in all regions. Make sure to select a region with GPUs enabled. In addition, subscriptions have a default quota of zero cores for GPU-optimized VMs. You can raise this quota by opening a support request. Make sure that your subscription has enough quota to run your workload.
 
