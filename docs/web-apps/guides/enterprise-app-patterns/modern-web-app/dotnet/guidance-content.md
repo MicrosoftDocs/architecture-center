@@ -271,6 +271,12 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 
 The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
+|Configuration|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
+|---|---|---|---|---|---|
+|[Configure authentication and authorization](#configure-authentication-and-authorization)||✔||✔||
+|[Implement independent autoscaling](#implement-independent-autoscaling)|✔||✔||✔|
+|[Containerize service deployment](#containerize-service-deployment)|||✔||✔|
+
 #### Configure authentication and authorization
 
 :::row:::
