@@ -72,7 +72,7 @@ items:
           href: guides/monitoring/app-monitoring.yml
       - name: Application development guidance for web apps
         items:
-        - name: Enterprise app patterns
+        - name: Enterprise Web App Patterns
           items:
           - name: Overview
             href: guides/enterprise-app-patterns/overview.md
