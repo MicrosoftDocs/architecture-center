@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modern web app pattern for .NET
+  title: Modern Web App pattern for .NET
   titleSuffix: Azure Reference Architectures
-  description: Modern web app pattern for .NET to your web app.
+  description: Implement the Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
   author: coderandhiker
   ms.author: chrisrt
   ms.reviewer: ssumner
@@ -22,8 +22,8 @@ products:
   - azure-front-door
   - azure-cache-redis
   - dotnet
-name: Modern web app pattern for .NET
-summary: Modern web app pattern for .NET.
+name: Modern Web App pattern for .NET
+summary: Modern Web App pattern for .NET. Modernize web apps in the cloud with prescriptive architecture, code, and configuration guidance.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](guidance-content.md)]
