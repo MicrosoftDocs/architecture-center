@@ -163,12 +163,10 @@ The following sections provide guidance on implementing the configurations updat
 |---|---|---|---|---|---|
 |[Configure user authentication and authorization](#configure-user-authentication-and-authorization)||✔||✔||
 |[Implement managed identities](#implement-managed-identities)||✔||✔||
-|[Secure remaining secrets](#secure-remaining-secrets)||✔||||
 |[Right size environments](#right-size-environments)|||✔|||
 |[Implement autoscaling](#implement-autoscaling)|✔||✔||✔|
 |[Implement infrastructure as code](#implement-infrastructure-as-code)|||||✔|
 |[Implement monitoring](#implement-monitoring)|||✔|✔|✔|
-
 
 #### Configure user authentication and authorization
 
