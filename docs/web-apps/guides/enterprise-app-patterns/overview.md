@@ -20,7 +20,7 @@ categories:
 
 # Enterprise Web App Patterns
 
-Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into two sub-patterns that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars). Each represents a step towards a more advanced, efficient, and intelligent web application. These patterns serve as a roadmap, providing prescriptive guidance to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value.
+Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into web app patterns. Each represents a step towards a more advanced, efficient, and intelligent web application and provides prescriptive guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars). These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value.
 
 [![Diagram showing the principles of the Reliable Web App](../_images/eap-overview.svg)](../_images/eap-overview.svg#lightbox)
 
