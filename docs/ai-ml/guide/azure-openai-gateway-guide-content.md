@@ -152,7 +152,7 @@ Azure doesn't offer a turn-key solution designed specifically to proxy Azure Ope
 
 [Azure API Management](/azure/api-management/api-management-key-concepts) is a platform-managed service designed to offload cross-cutting concerns for HTTP-based APIs. It's configuration driven and supports customization through its inbound and outbound request processing policy system. It supports highly available, zone-redundant, and even multi-region replicas by using a single control plane.
 
-Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) and custom policies. Some example custom policies can be found at the [Azure OpenAI API Management policies](https://github.com/CrewAakash/aoai-apim-policies) community GitHub repository.
+Most of the gateway routing and request handling logic must be implemented in the policy system of API Management. You can combine [built-in policies](/azure/api-management/api-management-policies) and custom policies. Some example custom policies and scenarios can be found at the [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit) community GitHub repository.
 
 Use the [Well-Architected Framework service guide for API Management](/azure/well-architected/service-guides/api-management/reliability) when designing a solution that involves Azure API Management.
 
@@ -186,5 +186,6 @@ Learn ways to [Implement logging and monitoring for Azure OpenAI models](../open
 ## Related resources
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
+- [API Management Landing Zone Accelerator covering GenAI scenarios](https://aka.ms/apim-genai-lza)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
-- [Azure OpenAI API Management policies](https://github.com/CrewAakash/aoai-apim-policies)
+- [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
