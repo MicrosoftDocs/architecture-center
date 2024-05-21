@@ -8,6 +8,7 @@ categories:
   - analytics
 ms.date: 06/01/2023
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
