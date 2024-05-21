@@ -1,6 +1,6 @@
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:03](/azure/well-architected/reliability/failure-mode-analysis), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Performance Efficiency ([PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure), [PE:11](/azure/well-architected/performance-efficiency/respond-live-performance-issues))***
+        ***Well-Architected Framework pillar - Reliability ([RE:03](/azure/well-architected/reliability/failure-mode-analysis), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Performance Efficiency ([PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure), [PE:11](/azure/well-architected/performance-efficiency/respond-live-performance-issues))***
     :::column-end:::
 :::row-end:::
 ---

@@ -1,6 +1,6 @@
 :::row:::
     :::column:::
-        ***Well-Architected Framework pillar alignment: Reliability ([RE:05](/azure/well-architected/reliability/redundancy)), Performance Efficiency ([PE:08](/azure/well-architected/performance-efficiency/optimize-data-performance), [PE:12](/azure/well-architected/performance-efficiency/continuous-performance-optimize))***
+        ***Well-Architected Framework alignment - Reliability ([RE:05](/azure/well-architected/reliability/redundancy)), Performance Efficiency ([PE:08](/azure/well-architected/performance-efficiency/optimize-data-performance), [PE:12](/azure/well-architected/performance-efficiency/continuous-performance-optimize))***
     :::column-end:::
 :::row-end:::
 ---
