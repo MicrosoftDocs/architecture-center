@@ -9,7 +9,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 The Modern Web App pattern optimizes the critical flows in your web application. The pattern shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) This article is backed by a ***[reference implementation](https://aka.ms/eap/rwa/dotnet)*** of the Modern Web App pattern. It features all the code and architecture updates discussed in this article. Deploy and use the reference implementation to guide your application of the Modern Web App pattern. The reference implementation simulates the modernization efforts of a fictional company, Relecloud. The reference implementation is a production-grade web app that allows customers to buy concert tickets online.
+> ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation](reference-implementation)*** (example app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
 ## Implement the Modern Web App pattern
 
@@ -468,3 +468,5 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for .NET reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)
+
+[reference-implementation]: https://aka.ms/eap/mwa/dotnet
