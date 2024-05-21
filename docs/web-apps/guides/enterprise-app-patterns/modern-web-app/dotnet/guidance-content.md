@@ -2,7 +2,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 | Benefits of the pattern | Architecture updates | Code updates | Configuration updates |
 | --- | --- | --- | --- |
-| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Select PaaS solutions<br>Decouple web app | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Extend security<br> Independent autoscaling <br> Containerization |
+| Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Select PaaS solutions<br>Decouple web app | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Authentication and authorization<br> Independent autoscaling <br> Containerization |
 
 ## Why the Modern Web App pattern?
 
@@ -266,11 +266,11 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 - *Handle message locking.* For message-based systems, implement message handling strategies that support retries without data loss, such as using "peek-lock" modes where available. Ensure that failed messages are retried effectively and moved to a dead-letter queue after repeated failures.
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-### Updates configurations
+### Update configurations
 
 The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
-#### Extend security
+#### Configure authentication and authorization
 
 :::row:::
     :::column:::
