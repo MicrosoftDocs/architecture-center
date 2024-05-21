@@ -214,7 +214,7 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 :::row:::
     :::column:::
-        ***WAF alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
+        ***Well-Architected Framework alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
     :::column-end:::
 :::row-end:::
 ---
@@ -235,7 +235,7 @@ Use the performance tiers (SKUs) of Azure services that meet the needs of each e
 
 :::row:::
     :::column:::
-        ***WAF alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        ***Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
     :::column-end:::
 :::row-end:::
 ---
@@ -252,7 +252,7 @@ Autoscaling ensures web app remain resilient, responsive, and capable of handlin
 
 :::row:::
     :::column:::
-        ***WAF alignment - Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))***
+        ***Well-Architected Framework alignment - Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))***
     :::column-end:::
 :::row-end:::
 ---
@@ -263,7 +263,7 @@ Use [infrastructure as code](/azure/well-architected/operational-excellence/infr
 
 :::row:::
     :::column:::
-        ***WAF alignment - Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:04](/azure/well-architected/performance-efficiency/collect-performance-data)***
+        ***Well-Architected Framework alignment - Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:04](/azure/well-architected/performance-efficiency/collect-performance-data)***
     :::column-end:::
 :::row-end:::
 ---
