@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/20/2024
+ms.date: 05/22/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
