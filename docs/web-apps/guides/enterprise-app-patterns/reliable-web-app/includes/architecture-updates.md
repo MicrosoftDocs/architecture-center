@@ -1,5 +1,5 @@
 [![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg)
-*Figure 1. Foundational architecture of the Reliable Web App pattern.*
+*Figure 1. Baseline architecture of the Reliable Web App pattern.*
 
 The foundational architecture identifies the essential web components needed to support the Reliable Web App pattern implementation (*see figure 1*). The foundational architecture requires a network perimeter to protect the web app from malicious inbound traffic. The web app hosting platform connects to supporting cloud services through private endpoints to improve security. The cache supports the implementation of the Cache-Aside pattern to reduce data latency in the web app. All the Azure services behind the network perimeter use managed identities to authenticate without managing secrets. To implement the architecture updates, follow these recommendations:
 
