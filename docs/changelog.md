@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/13/2024
+ms.date: 05/22/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,14 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Azure OpenAI chat baseline architecture in an Azure landing zone](./ai-ml/architecture/azure-openai-baseline-landing-zone.yml)
+- [Developing a RAG solution - Chunking phase](./ai-ml/guide/rag/rag-chunking-phase.yml)
+- [Developing a RAG solution - Chunk enrichment phase](./ai-ml/guide/rag/rag-enrichment-phase.yml)
+- [Developing a RAG solution - Generate embeddings phase](./ai-ml/guide/rag/rag-generating-embeddings.yml)
+- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.yml)
+- [Developing a RAG solution - LLM end to end evaluation phase](./ai-ml/guide/rag/rag-llm-evaluation-phase.yml)
+- [Developing a RAG solution - Preparation phase](./ai-ml/guide/rag/rag-preparation-phase.yml)
+- [Guide to designing and developing a RAG solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)
 - [Choose an Azure service for vector search](./guide/technology-choices/vector-search.md)
 - [Implement cross-tenant communication by using multitenant applications](./patterns/cross-tenant-communication-using-multitenanted-applications.md)
 - [Access Azure OpenAI and other language models through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)
@@ -35,6 +43,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#21cef339cb](https://github.com/MicrosoftDocs/architecture-center/commit/21cef339cb))
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#1e1a375e82](https://github.com/MicrosoftDocs/architecture-center/commit/1e1a375e82))
+- [Azure Kubernetes Service (AKS) considerations for multitenancy](./guide/multitenant/service/aks.yml)  ([#ebe4aa4348](https://github.com/MicrosoftDocs/architecture-center/commit/ebe4aa4348))
+- [High availability and disaster recovery for IaaS apps](./example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)  ([#c79bfc3da7](https://github.com/MicrosoftDocs/architecture-center/commit/c79bfc3da7))
+- [Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI](./hybrid/hybrid-cross-cluster-scaling.yml)  ([#4338479d91](https://github.com/MicrosoftDocs/architecture-center/commit/4338479d91))
 - [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#2881355c9e](https://github.com/MicrosoftDocs/architecture-center/commit/2881355c9e))
 - [Valet Key pattern](./patterns/valet-key.yml)  ([#392626fa9b](https://github.com/MicrosoftDocs/architecture-center/commit/392626fa9b))
 - [Large-scale custom natural language processing](./ai-ml/idea/large-scale-custom-natural-language-processing.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
