@@ -77,7 +77,7 @@ Consider how you can identify the appropriate tenant within each incoming reques
 
 API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you can map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, we recommend using subscriptions to identify tenants.
 
-Alternatively, you can identify the tenant through other methods. Here are some example custom approaches, each of which runs within a policy that you'd define within a policy:
+Alternatively, you can identify the tenant through other methods. Here are some example custom approaches, each of which runs within a custom policy that you'd define:
 
 - **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the first part of the domain (`tenant1`). To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 - **Use a request header.** For example, your client applications might add a custom `X-TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
@@ -100,7 +100,7 @@ For more information, see [Authentication and authorization to APIs in Azure API
 > [!NOTE]
 > If you use a subscription key (API key), we recommend also using another method of authentication.
 >
-> On its own, a subscription key isn't a strong form of authentication, but the subscription key is be useful for many scenarios, such as for tracking individual customers' API usage.
+> On its own, a subscription key isn't a strong form of authentication, but the subscription key is be useful for many scenarios, such as for tracking an individual tenant's API usage.
 
 ### Route to tenant-specific backends
 
@@ -140,6 +140,8 @@ For more information about scaling API Management, see [Upgrade and scale an Azu
 ### Multi-region deployments
 
 API Management [supports multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which means that you can deploy a single logical API Management resource across multiple Azure regions without needing to replicate its configuration onto separate resources. This capability is especially helpful when you distribute or replicate your solution globally. You can effectively deploy a fleet of API Management instances across multiple regions, allowing for low latency request processing, and manage them as a single logical instance.
+
+However, if you need fully isolated API Management instances, you might also choose to deploy independent API Management resources into different regions. By following this approach, the management plane of the API Management instances is separated for each instance.
 
 ## Contributors
 
