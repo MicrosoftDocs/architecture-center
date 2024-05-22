@@ -136,7 +136,7 @@
 			<rect x="0" y="257.011" width="152.64" height="51.84" class="st16"/>
 			<text x="25.61" y="265.53" class="st17" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st18">Similar sentences</tspan><v:newlineChar/><v:paragraph
 						v:horizAlign="1"/><tspan x="9.45" dy="1.25em" class="st19">The angle between the two </tspan><tspan
-						x="10.34" dy="1.2em" class="st19">embedding vectors is small</tspan><v:newlineChar/></text>		</g>
+						x="10.34" dy="1.2em" class="st19">embedding vectors is small.</tspan><v:newlineChar/></text>		</g>
 		<g id="shape26-38" v:mID="26" v:groupContext="shape" transform="translate(39.85,-22.2804)">
 			<title>Sheet.26</title>
 			<desc>Dissimilar sentences The angle between the two embedding vect...</desc>
@@ -145,7 +145,7 @@
 			<rect x="0" y="257.011" width="152.64" height="51.84" class="st16"/>
 			<text x="17.2" y="272.73" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/><tspan class="st18">Dissimilar sentences</tspan><v:newlineChar/><v:paragraph
 						v:horizAlign="1"/><tspan x="9.45" dy="1.25em" class="st19">The angle between the two </tspan><tspan
-						x="15.75" dy="1.2em" class="st19">embedding vectors is big</tspan></text>		</g>
+						x="15.75" dy="1.2em" class="st19">embedding vectors is big.</tspan></text>		</g>
 		<g id="shape27-44" v:mID="27" v:groupContext="shape" transform="translate(564.051,18.5) rotate(90)">
 			<title>Straight Line.27</title>
 			<v:userDefs>
