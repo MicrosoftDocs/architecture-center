@@ -127,10 +127,10 @@ az aks maintenanceconfiguration show -g <ResourceGroupName> --cluster-name <AKSC
 
 If a cluster maintenance window isn't configured, node image updates occur biweekly. As much as possible, AKS maintenance occurs within the configured window, but the time of maintenance isn't guaranteed.
 
-> [!note]
-> If you have a node pool with more than 200 nodes but not configured with [node surge](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade), the auto upgrade event may not trigger. This is because Microsoft will only upgrade the node image while the estimated upgrade time is within 24 hours, and if the estimated upgrade time is over 24 hours, your node image will be stuck in old version.  
+> [!IMPORTANT]
+> If you have a node pool with a large number of nodes but it is not configured with [node surge](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade), the auto upgrade event might not trigger. Node images in a node pool will only be upgraded while the estimated total upgrade time is within 24 hours.
 >
-> In this situation, you can consider split nodes in different node pools, if your vCPU quota is almost full and you cannot increase the vCPU quota; Or consider configuring [node surge](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade) to decrease the estimated upgrade time, if your vCPU quota is enough.  
+> In this situation, you can consider spliting nodes into different node pools, if your vCPU quota is almost full and you cannot increase the vCPU quota; or consider configuring node surge to decrease the estimated upgrade time, if your vCPU quota is enough.
 
 You can check the status of upgrade events through your [Azure activity logs](/azure/azure-monitor/essentials/activity-log), or by reviewing the [resource logs](/azure/aks/monitor-aks-reference#resource-logs) on your cluster.
 
