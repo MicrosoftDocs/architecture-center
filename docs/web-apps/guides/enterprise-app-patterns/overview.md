@@ -20,32 +20,23 @@ categories:
 
 # Enterprise Web App Patterns
 
-Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into web app patterns. Each represents a step towards a more advanced, efficient, and intelligent web application and provides prescriptive guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars). These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value.
+Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into web app patterns. Each represents a step towards a more advanced, efficient, and intelligent web application and provides prescriptive architecture, code, and configuration guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars). These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value. The guidance provided by the Enterprise Web App patterns is instrumental in ensuring a smooth and successful transition through the cloud journey.
 
 [![Diagram showing the principles of the Reliable Web App](../_images/eap-overview.svg)](../_images/eap-overview.svg#lightbox)
 
 ## Reliable Web App pattern
 
-The Reliable Web App pattern details implementation techniques for replatforming your web application to ensure a successful migration to the cloud. It assumes your organization has worked through Cloud Adoption Framework and established a [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/). The Reliable Web App pattern aims provides guidance for migrating web application to the cloud.
+The Reliable Web App pattern facilitates the initial migration of applications to the cloud with minimal changes. It shows you how to cloud-optimize and replatform on-premises, monolithic web apps moving to the cloud. It details the high-value updates to quickly harness the benefits of the cloud with minimal effort. This pattern assumes your organization has an established [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) for the web app, providing a solid foundation for cloud deployment.
 
 >[!div class="nextstepaction"]
->[Reliable web app pattern for .NET](./reliable-web-app/dotnet/plan-implementation.yml)
+>[Reliable web app pattern for .NET](./reliable-web-app/dotnet/guidance.yml)
 
 >[!div class="nextstepaction"]
->[Reliable web app pattern for Java](./reliable-web-app/java/plan-implementation.yml)
+>[Reliable web app pattern for Java](./reliable-web-app/java/guidance.yml)
 
-## Modern web app pattern
+## Modern Web App pattern
 
-The modern web app pattern provides guidance for modernizing web apps in the cloud. It is a follow-up to the reliable web app pattern and provides guidance for the next steps in optimizing applications for cloud environments. Whereas the reliable web app pattern focuses on moving applications from on-premises to the cloud with minimal code changes, the modern web app pattern focuses on guidance for subsequent transformations to more fully realize the value of running applications in the cloud and move towards a micro-service architecture. The modern web app pattern uses the strangler fig pattern to move separable pieces of the solution into stand-alone services that can be versioned and scaled independently. By revisiting application architecture, the modern web app pattern provides improved flexibility and value.
-
-### Why the Modern Web App pattern?
-
-An important part of the modern web app pattern is dividing services according to domain boundaries.
-
-- Dividing a monolithic solution into finer-grained services allows services to version and scale independently.
-- A service-oriented architecture allows you to align members of the workload team to different services.
-- When load increases, only the services that represent the performance bottleneck need to scale out.
-- Decomposing the architecture allows you to choose the operating system choice per service
+The Modern Web App pattern provides a clear strategy for targeted modernization of web apps in the cloud. It focuses on optimizing and transforming high-demand areas by gradually decoupling them into stand-alone services, allowing for independent versioning and scaling. This approach enables performance optimization in a cost-efficient manner and serves as an intermediate step between monolithic and microservices architectures. By supporting independent development and flexible deployments, the pattern accelerates development cycles and enhances overall application performance.
 
 >[!div class="nextstepaction"]
 >[Modern web app pattern for .NET](./modern-web-app/dotnet/plan-implementation.yml)
