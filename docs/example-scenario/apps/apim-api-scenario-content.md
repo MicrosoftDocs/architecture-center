@@ -31,6 +31,9 @@ In the future, the project team will gradually port functionality to the new API
 - [Azure API Management](https://azure.microsoft.com/services/api-management)
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 
+> [!NOTE]
+> API Management now offers new "V2" tiers with additional capabilities [for more information see the overview here](https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview).
+
 ### Alternatives
 
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
