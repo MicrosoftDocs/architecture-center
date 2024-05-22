@@ -1,10 +1,10 @@
-This article provides best practices for an Azure NAT gateway. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+This article describes best practices for an Azure NAT gateway. The guidance is based on the five pillars of architectural excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-As a prerequisite to this guidance, you should have a working knowledge of Azure NAT Gateway and understand the respective features. As a refresher, you can review the [Azure NAT Gateway documentation](/azure/virtual-network/nat-gateway).
+As a prerequisite to this guidance, you should have a working knowledge of Azure NAT Gateway and understand its respective features. For more information, see [Azure NAT Gateway documentation](/azure/virtual-network/nat-gateway).
 
 ## Cost optimization
 
-Configure access to platform as a service (PaaS) solutions through Azure Private Link or service endpoints, including storage, so you don't have to use a NAT gateway. Private Link and service endpoints don't require traversal of the NAT gateway to access PaaS services. This approach reduces the cost per gigabyte (GB) of processed data, compared to the cost of using a NAT gateway. Private Link and service endpoints also provide security benefits.
+Configure access to platform as a service (PaaS) solutions through Azure Private Link or service endpoints, including storage, so that you don't have to use a NAT gateway. Private Link and service endpoints don't require traversal of the NAT gateway to access PaaS services. This approach reduces the cost per gigabyte (GB) of processed data, compared to the cost of using a NAT gateway. Private Link and service endpoints also provide security benefits.
 
 ## Performance efficiency
 
@@ -16,7 +16,7 @@ Each NAT gateway public IP address provides 64,512 Source Network Address Transl
 
 Consider the following guidance to help prevent SNAT exhaustion:
 
-- NAT gateway resources have a default TCP idle timeout of four minutes. You can configure the timeout up to 120 minutes. If you change this setting to a higher value than the default, NAT gateway holds on to flows longer, which can create unnecessary pressure on the SNAT port inventory.
+- NAT gateway resources have a default TCP idle timeout of four minutes. You can configure the timeout for up to 120 minutes. If you change this setting to a higher value than the default, NAT gateway holds on to flows longer, which can create unnecessary pressure on the SNAT port inventory.
 
 - Atomic requests (one request per connection) limit scale, reduce performance, and reduce reliability. Instead of atomic requests, you can reuse HTTP or HTTPS connections to reduce the number of connections and associated SNAT ports. When you reuse connections, the application can scale better. Application performance improves due to reduced handshakes, overhead, and cryptographic operation costs when you use Transport Layer Security (TLS).
 - If you don't cache DNS resolver's results, Domain Name System (DNS) lookups can introduce many individual flows at volume. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS is the naming system that maps domain names to IP addresses for resources that are connected to the internet or to a private network.
@@ -27,12 +27,12 @@ Consider the following guidance to help prevent SNAT exhaustion:
 
 Review the following guidance to improve the scale and reliability of your service:
 
-- Consider the effect of reducing the TCP idle timeout to a lower value. A default idle timeout of four minutes can preemptively free up SNAT port inventory.
+- Consider the effects of reducing the TCP idle timeout to a lower value. A default idle timeout of four minutes can preemptively free up SNAT port inventory.
 - Consider asynchronous polling patterns for long-running operations to free up your connection resources for other operations.
 
-- Consider using TCP keepalives or application-layer keepalives for long-lived TCP flows, such as reused TCP connections, to avoid intermediate systems timing out. You should only increase the idle timeout as a last resort, and it might not resolve the root cause. A long timeout can cause low rate failures when the timeout expires. It can also introduce a delay and unnecessary failures. You can enable TCP keepalives from one side of a connection to keep a connection alive from both sides.
-- Consider using UDP keepalives for long-lived UDP flows to avoid intermediate systems timing out. When you enable UDP keepalives on one side of the connection, only one side of the connection remains active. You must enable UDP keepalives on both sides of a connection to keep a connection alive.
-- Consider graceful retry patterns to avoid aggressive retries and bursts during transient failure or failure recovery. For the antipattern, *atomic connections*, you create a new TCP connection for every HTTP operation. Atomic connections prevent your application from scaling well, and they waste resources.
+- Consider using TCP keepalives or application-layer keepalives for long-lived TCP flows, such as reused TCP connections, to prevent intermediate systems from timing out. You should only increase the idle timeout as a last resort, and it might not resolve the root cause. A long timeout can cause low rate failures when the timeout expires. It can also introduce a delay and unnecessary failures. You can enable TCP keepalives from one side of a connection to keep a connection alive from both sides.
+- Consider using UDP keepalives for long-lived UDP flows to prevent intermediate systems from timing out. When you enable UDP keepalives on one side of the connection, only one side of the connection remains active. You must enable UDP keepalives on both sides of a connection to keep a connection alive.
+- Consider graceful retry patterns to avoid aggressive retries and bursts during transient failure or failure recovery. For the antipattern *atomic connections*, you create a new TCP connection for every HTTP operation. Atomic connections waste resources and prevent your application from scaling well.
 
   To increase transaction speed and decrease resource costs for your application, always pipeline multiple operations into the same connection. When your application uses transport layer encryption, for example TLS, new connection processing increases cost. For more best practice patterns, see [Azure cloud design patterns](/azure/architecture/patterns).
 
@@ -58,7 +58,7 @@ To provide availability zone isolation, each subnet must have resources only wit
 - Align the zonal VMs with matching zonal NAT gateways.
 - Build separate zonal stacks.
 
-For example, in the following diagram, a VM in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet.
+In the following diagram, a VM in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet.
 
 :::image type="content" source="./images/az-directions.png" alt-text="Diagram that demonstrates the directional flow of a zonal stack." border="false" lightbox="./images/az-directions.png":::
 
