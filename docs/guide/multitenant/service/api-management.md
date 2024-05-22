@@ -29,7 +29,7 @@ Azure API Management is a comprehensive API gateway and reverse proxy for APIs. 
 
 ## Isolation models
 
-Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your needs [tenancy model](../considerations/tenancy-models.yml). This article assumes you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
+Most commonly, API Management is deployed as a shared component, with a single instance serving requests for multiple tenants. However, there are multiple different ways you can deploy API Management depending on your [tenancy model](../considerations/tenancy-models.yml). This article assumes you deploy your solution by using [deployment stamps](../approaches/overview.yml#deployment-stamps-pattern).
 
 Typically, the way you use API Management is similar regardless of the isolation models. This section focuses on the differences in cost and complexity between the isolation models, and the differences in how each approach routes requests to your backend API applications.
 
