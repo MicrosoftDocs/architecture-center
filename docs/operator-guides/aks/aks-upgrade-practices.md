@@ -130,7 +130,9 @@ If a cluster maintenance window isn't configured, node image updates occur biwee
 > [!IMPORTANT]
 > If you have a node pool with a large number of nodes but it is not configured with [node surge](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade), the auto upgrade event might not trigger. Node images in a node pool will only be upgraded while the estimated total upgrade time is within 24 hours.
 >
-> In this situation, you can consider spliting nodes into different node pools, if your vCPU quota is almost full and you cannot increase the vCPU quota; or consider configuring node surge to decrease the estimated upgrade time, if your vCPU quota is enough.
+> In this situation, you can consider one of the following:
+> - splitting nodes into different node pools if your vCPU quota is almost full and you cannot increase the vCPU quota
+> - configuring node surge to decrease the estimated upgrade time if your vCPU quota is enough
 
 You can check the status of upgrade events through your [Azure activity logs](/azure/azure-monitor/essentials/activity-log), or by reviewing the [resource logs](/azure/aks/monitor-aks-reference#resource-logs) on your cluster.
 
