@@ -11,6 +11,6 @@ The Reliable Web App pattern shows you how optimize monolithic web apps for the 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***](reference-implementation) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
 
-## Implement the Reliable Web App pattern
+## How to implement the Reliable Web App pattern
 
 Use the following architecture, code, and configuration guidance to implement the Reliable Web App pattern. The architecture section shows you how to select the right cloud services and design an architecture that meets your business requirements. The code section shows you how to implement three design patterns that improve the reliability and performance efficiency of your web app in the cloud. The configuration section details additional recommendations for cloud-optimizing your web app.

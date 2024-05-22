@@ -11,7 +11,7 @@ The Modern Web App pattern optimizes the critical flows in your web application.
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation](reference-implementation)*** (example app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
-## How to implement the Modern Web App pattern?
+## How to implement the Modern Web App pattern
 
 Use the following architecture, code, and configuration guidance to implement the Modern Web App pattern. The architecture section shows you how to decouple web app services and select the right platform-as-a-service solutions to support newly decouple services. The code section details shows you how to implement four design patterns to the web app code that support the optimization of the newly decoupled service. The configuration sections provide details to extend the security configurations of the Reliable Web App pattern and implement autoscaling and containerization on the newly decoupled service.
 
