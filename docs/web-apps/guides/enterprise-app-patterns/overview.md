@@ -20,9 +20,9 @@ categories:
 
 # Enterprise Web App Patterns
 
-Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into web app patterns. Each represents a step towards a more advanced, efficient, and intelligent web application and provides prescriptive architecture, code, and configuration guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars). 
+Enterprise Web App patterns provide a structured approach to guide developers and architects through the cloud journey, specifically focusing on web application. It divides into web app patterns. Each represents a step towards a more advanced, efficient, and intelligent web application and provides prescriptive architecture, code, and configuration guidance that align with the principles of the [Well-Architected Framework](/azure/well-architected/pillars).
 
-These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value. The guidance provided by the Enterprise Web App patterns is instrumental in ensuring a smooth and successful transition through the cloud journey.
+These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value. The guidance provided by the Enterprise Web App patterns is instrumental in ensuring a smooth and successful transition through the cloud journey. There are articles for .NET and Java web apps.
 
 [![Diagram showing the principles of the Reliable Web App](../_images/eap-overview.svg)](../_images/eap-overview.svg#lightbox)
 
@@ -31,10 +31,10 @@ These patterns serve as a roadmap to help you transform legacy web apps into clo
 The Reliable Web App pattern facilitates the initial migration of applications to the cloud with minimal changes. It shows you how to cloud-optimize and replatform on-premises, monolithic web apps moving to the cloud. It details the high-value updates to quickly harness the benefits of the cloud with minimal effort. This pattern assumes your organization has an established [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) for the web app, providing a solid foundation for cloud deployment.
 
 >[!div class="nextstepaction"]
->[Reliable web app pattern for .NET](./reliable-web-app/dotnet/guidance.yml)
+>[Reliable Web App pattern for .NET](./reliable-web-app/dotnet/guidance.yml)
 
 >[!div class="nextstepaction"]
->[Reliable web app pattern for Java](./reliable-web-app/java/guidance.yml)
+>[Reliable Web App pattern for Java](./reliable-web-app/java/guidance.yml)
 
 ## Modern Web App pattern
 
