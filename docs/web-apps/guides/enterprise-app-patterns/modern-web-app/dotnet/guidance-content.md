@@ -11,36 +11,40 @@ The Modern Web App pattern optimizes the critical flows in your web application.
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation](reference-implementation)*** (example app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
-## Implement the Modern Web App pattern
+## How to implement the Modern Web App pattern?
 
 Use the following architecture, code, and configuration guidance to implement the Modern Web App pattern. The architecture section shows you how to decouple web app services and select the right platform-as-a-service solutions to support newly decouple services. The code section details shows you how to implement four design patterns to the web app code that support the optimization of the newly decoupled service. The configuration sections provide details to extend the security configurations of the Reliable Web App pattern and implement autoscaling and containerization on the newly decoupled service.
 
-### Update architecture
+## Update architecture
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
 *Figure 1. Baseline architecture of the Modern Web App pattern.*
 
 The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. To implement the architecture updates, follow these recommendations.
 
-#### Select the right platform-as-a-service (PaaS) solutions
+### Select the right platform-as-a-service (PaaS) solutions
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need an messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
 - *Implement a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
 
   - *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
+  
   - *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with telemetry and event streams that require real-time processing.
+  
   - *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
 
 - *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principle container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
 
   - *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+  
   - *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
+  
   - *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
-#### Decouple web app
+### Decouple web app
 
 - *Identify service boundaries* Apply DDD principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Map the key business capabilities of your application. Services that represent distinct business functions are good candidates for decoupling. Examine the dependencies between different parts of your application. Services with fewer dependencies on other parts of the system are easier to decouple.
 
@@ -52,7 +56,7 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 - *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
-### Update code
+## Update code
 
 Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
@@ -61,7 +65,7 @@ Update your web app code with the prescribed design patterns. Each design patter
 
 The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern alllows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
 
-#### Implement the Strangler Fig pattern
+### Implement the Strangler Fig pattern
 
 :::row:::
     :::column:::
@@ -80,7 +84,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 - *Manage feature rollout.* If you want an extracted service to be rolled out gradually, use ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). This allows you to use the new service for only a portion of requests initially, and then increase its usage over time as you gain confidence in its stability and performance. For example, the reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The extracted service was also updated to run in a Linux container and shows how services can be upgraded during extraction.
 
-#### Implement the Queue-Based Load Leveling pattern
+### Implement the Queue-Based Load Leveling pattern
 
 :::row:::
     :::column:::
@@ -118,7 +122,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     });
     ```
 
-#### Implement the Competing Consumers pattern
+### Implement the Competing Consumers pattern
 
 :::row:::
     :::column:::
@@ -147,13 +151,13 @@ Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-con
 
 - *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting. For example, the reference implementation uses a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
 
-    - *AutoCompleteMessages*: Automatically completes messages if processed without failure.
-    - *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
-    - *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
-    - *PrefetchCount*: Set to 0 to avoid prefetching messages.
-    
+  - *AutoCompleteMessages*: Automatically completes messages if processed without failure.
+  - *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
+  - *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
+  - *PrefetchCount*: Set to 0 to avoid prefetching messages.
+
     The processor logs message details, deserializes the message body, and processes it. If deserialization fails, it logs an error and moves the message to a dead-letter queue. The service scales at the container level.
-    
+
     ```C#
     // Create a processor for the given queue that will process incoming messages
     var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
@@ -186,7 +190,7 @@ Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-con
     };
     ```
 
-#### Implement the Health Endpoint Monitoring pattern
+### Implement the Health Endpoint Monitoring pattern
 
 :::row:::
     :::column:::
@@ -240,7 +244,7 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
     
     ```
 
-#### Implement the Retry Pattern
+### Implement the Retry Pattern
 
 :::row:::
     :::column:::
@@ -283,7 +287,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications reco
 
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-### Update configurations
+## Update configurations
 
 The following sections provide guidance on implementing the configuration updates. Each section align with one or more pillars of the Well-Architected Framework.
 
@@ -293,7 +297,7 @@ The following sections provide guidance on implementing the configuration update
 |[Implement independent autoscaling](#implement-independent-autoscaling)|✔||✔||✔|
 |[Containerize service deployment](#containerize-service-deployment)|||✔||✔|
 
-#### Configure authentication and authorization
+### Configure authentication and authorization
 
 :::row:::
     :::column:::
@@ -355,7 +359,7 @@ To configure authentication and authorization on users (*user identities*), foll
 
 - *Conduct regular security audits.* Regularly review and audit your security setup. Look for any misconfigurations or unnecessary permissions and rectify them immediately.
 
-#### Implement independent autoscaling
+### Configure independent autoscaling
 
 :::row:::
     :::column:::
@@ -402,7 +406,7 @@ scaleMaxReplicas: 5
 scaleMinReplicas: 0
 ```
 
-#### Containerize service deployment
+### Containerize service deployment
 
 :::row:::
     :::column:::
