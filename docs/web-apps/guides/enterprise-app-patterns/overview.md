@@ -41,4 +41,4 @@ The Reliable Web App pattern facilitates the initial migration of applications t
 The Modern Web App pattern provides a clear strategy for targeted modernization of web apps in the cloud. It focuses on optimizing and transforming high-demand areas by gradually decoupling them into stand-alone services, allowing for independent versioning and scaling. This approach enables performance optimization in a cost-efficient manner and serves as an intermediate step between monolithic and microservices architectures. By supporting independent development and flexible deployments, the pattern accelerates development cycles and enhances overall application performance.
 
 >[!div class="nextstepaction"]
->[Modern web app pattern for .NET](./modern-web-app/dotnet/plan-implementation.yml)
+>[Modern Web App pattern for .NET](./modern-web-app/dotnet/plan-implementation.yml)
