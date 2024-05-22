@@ -1,6 +1,6 @@
 This article provides best practices for an Azure NAT gateway. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have a working knowledge of Azure NAT Gateway and that you are familiar with the respective features. As a refresher, you can review the [Azure NAT Gateway documentation](/azure/virtual-network/nat-gateway).
+As a prerequisite to this guidance, you should have a working knowledge of Azure NAT Gateway and understand the respective features. As a refresher, you can review the [Azure NAT Gateway documentation](/azure/virtual-network/nat-gateway).
 
 ## Cost optimization
 
@@ -14,13 +14,15 @@ Each NAT gateway public IP address provides 64,512 Source Network Address Transl
 
 ### SNAT exhaustion
 
+Consider the following guidance to help prevent SNAT exhaustion:
+
 - NAT gateway resources have a default TCP idle timeout of four minutes. You can configure the timeout up to 120 minutes. If you change this setting to a higher value than the default, NAT gateway holds on to flows longer, which can create unnecessary pressure on the SNAT port inventory.
 
-- Atomic requests (one request per connection) limit scale, reduce performance, and reduce reliability. Instead of atomic requests, you can reuse HTTP or HTTPS connections to reduce the number of connections and associated SNAT ports. When you reuse connections, the application can scale better. Application performance improves due to reduced handshakes, overhead, and cryptographic operation costs when you use TLS.
+- Atomic requests (one request per connection) limit scale, reduce performance, and reduce reliability. Instead of atomic requests, you can reuse HTTP or HTTPS connections to reduce the number of connections and associated SNAT ports. When you reuse connections, the application can scale better. Application performance improves due to reduced handshakes, overhead, and cryptographic operation costs when you use Transport Layer Security (TLS).
 - If you don't cache DNS resolver's results, Domain Name System (DNS) lookups can introduce many individual flows at volume. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS is the naming system that maps domain names to IP addresses for resources that are connected to the internet or to a private network.
 - UDP flows, such as DNS lookups, use SNAT ports during the idle timeout. The UDP idle timeout timer is fixed at four minutes.
 - Use connection pools to shape your connection volume.
-- Don't silently abandon TCP flows or rely on TCP timers to clean up flows. If you don't let TCP explicitly close a connection, the TCP connection remains open. Intermediate systems and endpoints keep this connection in use, which makes the SNAT port unavailable for other connections. This antipattern can trigger application failures and SNAT exhaustion.
+- To clean up flows, don't silently abandon TCP flows or rely on TCP timers. If you don't let TCP explicitly close a connection, the TCP connection remains open. Intermediate systems and endpoints keep this connection in use, which makes the SNAT port unavailable for other connections. This antipattern can trigger application failures and SNAT exhaustion.
 - Don't change OS-level TCP-close related timer values unless you know the implications. If the endpoints of a connection have mismatched expectations, the TCP stack can recover, but it might negatively affect your application performance. You typically have an underlying design problem if you need to change timer values. And if the underlying application has other antipatterns and you alter timer values, you might also accelerate SNAT exhaustion.
 
 Review the following guidance to improve the scale and reliability of your service:
@@ -32,7 +34,7 @@ Review the following guidance to improve the scale and reliability of your servi
 - Consider using UDP keepalives for long-lived UDP flows to avoid intermediate systems timing out. When you enable UDP keepalives on one side of the connection, only one side of the connection remains active. You must enable UDP keepalives on both sides of a connection to keep a connection alive.
 - Consider graceful retry patterns to avoid aggressive retries and bursts during transient failure or failure recovery. For the antipattern, *atomic connections*, you create a new TCP connection for every HTTP operation. Atomic connections prevent your application from scaling well, and they waste resources.
 
-  Always pipeline multiple operations into the same connection to increase transaction speed and decrease resource costs for your application. When your application uses transport layer encryption, for example TLS, processing new connections increases cost. For more best practice patterns, see [Azure cloud design patterns](/azure/architecture/patterns).
+  To increase transaction speed and decrease resource costs for your application, always pipeline multiple operations into the same connection. When your application uses transport layer encryption, for example TLS, new connection processing increases cost. For more best practice patterns, see [Azure cloud design patterns](/azure/architecture/patterns).
 
 ## Operational excellence
 
@@ -58,7 +60,7 @@ To provide availability zone isolation, each subnet must have resources only wit
 
 For example, in the following diagram, a VM in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet.
 
-:::image type="content" source="./images/az-directions.png" alt-text="Diagram that demonstrates the directional flow of a zonal stack." border="false" lightbox="./images/az-directions.pn":::
+:::image type="content" source="./images/az-directions.png" alt-text="Diagram that demonstrates the directional flow of a zonal stack." border="false" lightbox="./images/az-directions.png":::
 
 Virtual networks and subnets [span all availability zones in a region](/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zones). You don't need to divide them by availability zones to accommodate zonal resources.
 
@@ -66,7 +68,7 @@ Virtual networks and subnets [span all availability zones in a region](/azure/vi
 
 With a NAT gateway, individual VMs or other compute resources don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that you use a contiguous set of IPs for outbound connectivity. You can configure destination firewall rules based on this predictable IP list.
 
-A common approach is to design an outbound-only network virtual appliance (NVA) scenario with non-Microsoft firewalls or with proxy servers. When you deploy a NAT gateway to a subnet with a VM scale set of NVAs, those NVAs use one or more NAT gateway addresses for outbound connectivity instead of a load balancer IP or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure standard load balancer](/azure/firewall/integrate-lb).
+A common approach is to design an outbound-only network virtual appliance (NVA) scenario with non-Microsoft firewalls or with proxy servers. When you deploy a NAT gateway to a subnet with a virtual machine scale set of NVAs, those NVAs use one or more NAT gateway addresses for outbound connectivity instead of a load balancer IP or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure standard load balancer](/azure/firewall/integrate-lb).
 
 :::image type="content" source="./images/natgw-fw-vmss.svg" alt-text="Diagram that shows firewalls with a load balancer sandwich and NAT gateway." border="false" lightbox="./images/natgw-fw-vmss.svg":::
 
