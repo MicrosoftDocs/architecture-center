@@ -593,7 +593,7 @@ AKS can be used as a free service, but that tier doesn't offer a financially bac
 
 ### Tradeoff
 
-There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Azure Container Registry, are available in premium SKUs, which is more expensive. The cost will also increase because bandwidth charges that are applied when traffic moves across zones and regions.
+There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Azure Container Registry, are available in premium SKUs, which is more expensive. For multi-region deployments, the cost will also increase because bandwidth charges that are applied when traffic moves across regions.
 
 Also, expect additional network latency in node communication between zones or regions. Measure the impact of this architectural decision on your workload.
 
