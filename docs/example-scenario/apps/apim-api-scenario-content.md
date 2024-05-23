@@ -83,7 +83,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Cost optimization
 
-Cost optimization is about finding ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For detailed guidance on the differences in these tiers, see the [Azure API Management pricing guidance][apim-pricing].
 
@@ -93,12 +93,6 @@ You can scale API Management by adding and removing units. Each unit has capacit
 > You can use the Developer tier for evaluation of the API Management features. Don't use it for production.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure pricing calculator][pricing-calculator].
-
-## Deploy this scenario
-
-To get started, [create an Azure API Management instance in the portal][apim-create].
-
-Alternatively, you can choose from an existing Azure Resource Manager [quickstart template][azure-quickstart-templates-apim] that aligns to your specific use case.
 
 ## Contributors
 
