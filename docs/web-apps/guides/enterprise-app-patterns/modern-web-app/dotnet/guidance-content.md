@@ -294,7 +294,7 @@ The following sections provide guidance on implementing the configuration update
 |Configuration|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
 |---|---|---|---|---|---|
 |[Configure authentication and authorization](#configure-authentication-and-authorization)||✔||✔||
-|[Implement independent autoscaling](#implement-independent-autoscaling)|✔||✔||✔|
+|[Implement independent autoscaling](#configure-independent-autoscaling)|✔||✔||✔|
 |[Containerize service deployment](#containerize-service-deployment)|||✔||✔|
 
 ### Configure authentication and authorization
