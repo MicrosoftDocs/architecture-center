@@ -21,7 +21,7 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
     - Is hosted in Web Apps with secure transport (HTTPS or SSL) turned on.
     - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and OAuth 2.
 5. The new browser-based web application depends on the Azure API Management instance for *both* the existing HTTP API and the new API.
-6. The travel e-commerce company can now direct some users to the new UI (for preview or testing) whilst preserving the old UI and existing functionality side-by-side
+6. The travel e-commerce company can now direct some users to the new UI (for preview or testing) whilst preserving the old UI and existing functionality side-by-side.
 
 The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs.
 
@@ -29,7 +29,7 @@ In the future, the project team will gradually port functionality to the new API
 
 ### Components
 
-- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario the re-composition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a facade for the new client application to consume consistently and using modern standards. Because API Management facades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management facade in an iterative way and with minimal to zero impact on the new front end development.
+- [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario the re-composition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a [façade](/azure/architecture/patterns/strangler-fig) for the new client application to consume consistently and using modern standards. Because API Management facades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management façade in an iterative way and with minimal to zero impact on the new front end development.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a turn-key Platform as a Service (PaaS) service for web hosting which provides out of the box features such as security, load balancing, autoscaling, and automated management. Azure App Service is a great choice for the new APIs being developed for this solution because it provides flexible turn-key hosting enabling the DevOps team to focus on delivering features.
 
 > [!NOTE]
