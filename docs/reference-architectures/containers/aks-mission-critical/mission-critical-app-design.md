@@ -115,11 +115,11 @@ Using well-known design patterns, such as [Queue-Based Load leveling pattern](/a
 
 Write operations, such as *post rating and post comment* are processed asynchronously. The API first sends a message with all relevant information, such as type of action and comment data, to the message queue and immediately returns `HTTP 202 (Accepted)` with additional `Location` header of the to-be-created object.
 
-Messages in the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue. The scale out limit of processor instances is defined by the [maximum number of Event Hubs partitions](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers) (which is 32 for Basic and Standard tiers, 100 for Premium tier and 1024 for Dedicated tier).
+Messages in the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue. The scale-out limit of processor instances is defined by the [maximum number of Event Hubs partitions](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers) (which is 32 for Basic and Standard tiers, 100 for Premium tier and 1024 for Dedicated tier).
 
 ![Diagram showing the asynchronous nature of the post rating feature in the implementation.](./images/application-design-operations-2.png)
 
-The Azure EventHub Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and to track progress using checkpoints. **Writing the checkpoints to the blob storage does not occur after every event** because this would add a prohibitively expensive delay for every message. Instead, the checkpoint writing occurs on a timer-loop (configurable duration with a current setting of 10 seconds):
+The Azure Event Hubs Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and to track progress using checkpoints. **Writing the checkpoints to the blob storage does not occur after every event** because this would add a prohibitively expensive delay for every message. Instead, the checkpoint writing occurs on a timer-loop (configurable duration with a current setting of 10 seconds):
 
 ```csharp
 while (!stoppingToken.IsCancellationRequested)
