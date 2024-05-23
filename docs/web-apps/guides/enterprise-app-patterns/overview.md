@@ -24,7 +24,8 @@ Enterprise Web App patterns provide a structured approach to guide developers an
 
 These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value. The guidance provided by the Enterprise Web App patterns is instrumental in ensuring a smooth and successful transition through the cloud journey. There are articles for .NET and Java web apps.
 
-[![Diagram showing the principles of the Reliable Web App](../_images/eap-overview.svg)](../_images/eap-overview.svg#lightbox)
+[![Diagram showing the stages of the Enterprise Web App patterns](../_images/ewap-overview.svg)](../_images/eap-overview.svg#lightbox)
+*Figure 1. Overview of the Enterprise Web App patterns.
 
 ## Reliable Web App pattern
 
