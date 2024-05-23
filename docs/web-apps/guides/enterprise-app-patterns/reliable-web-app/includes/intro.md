@@ -2,7 +2,7 @@ This article shows you how to implement the Reliable Web App pattern. The Reliab
 
 | Benefits | Architecture updates | Code updates<br>(design patterns) | Configuration updates |
 |----------|--------------|--------------|---------------|
-| Cloud-optimized web app <br> High-value updates <br>Minimal code changes | PaaS solutions<br>Secure ingress<br>Network topology<br>Infrastructure reliability<br>Private endpoints | Retry pattern<br>Circuit-breaker pattern<br>Cache-aside pattern | <br>User authentication and authorization<br>Managed identities <br>Rightsized environments <br>Infrastructure as code <br> Monitoring|
+| • Cloud-optimized web app <br> • High-value updates <br>• Minimal code changes | • PaaS solutions<br>• Secure ingress<br>• Network topology<br>• Infrastructure reliability<br>• Private endpoints | • Retry pattern<br>• Circuit-breaker pattern<br>• Cache-aside pattern | • User authentication and authorization<br>• Managed identities <br>• Rightsized environments <br>• Infrastructure as code <br>• Monitoring|
 
 *Why the Reliable Web App pattern?* The Reliable Web App pattern shows you how optimize monolithic web apps for the cloud. It focuses on the high-value updates you need to make and minimal code changes to improve reliability, security, performance, and operational excellence.
 
