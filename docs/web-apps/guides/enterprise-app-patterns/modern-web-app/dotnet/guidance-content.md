@@ -4,21 +4,21 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 | --- | --- | --- | --- |
 | Optimization of critical flows<br>Cost-optimized scaling<br>Enhanced performance of critical flows |  Select PaaS solutions<br>Decouple web app | Strangler Fig pattern<br>Queue-Based Load Leveling pattern<br>Competing Consumers pattern<br> Health Endpoint Monitoring pattern | Authentication and authorization<br> Independent autoscaling <br> Containerization |
 
-## Why the Modern Web App pattern?
+*Why use the Modern Web App pattern?* The Modern Web App pattern optimizes the critical flows in your web application. The pattern shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
 
-The Modern Web App pattern optimizes the critical flows in your web application. The pattern shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
+*How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern: 
+
+- [Architecture guidance](#architecture-design): The architecture guidance shows you how to decouple web app services and select the right platform-as-a-service solutions to support newly decoupled services.
+- [Code guidance](#code-updates): The code guidance shows you how to implement four design patterns to the web app code that support the optimization of the newly decoupled service. 
+- [Configuration guidance](#configurations): The configuration section  and implement autoscaling and containerization on the newly decoupled service.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation](reference-implementation)*** (example app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
-## How to implement the Modern Web App pattern
-
-Use the following architecture, code, and configuration guidance to implement the Modern Web App pattern. The architecture section shows you how to decouple web app services and select the right platform-as-a-service solutions to support newly decoupled services. The code section shows you how to implement four design patterns to the web app code that support the optimization of the newly decoupled service. The configuration sections provide details to extend the security configurations of the Reliable Web App pattern and implement autoscaling and containerization on the newly decoupled service.
-
-## Update architecture
+## Architecture guidance
 
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
-*Figure 1. Baseline architecture of the Modern Web App pattern.*
+*Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
 The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. To implement the architecture updates, follow these recommendations.
 
@@ -56,7 +56,7 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 - *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
-## Update code
+## Code guidance
 
 Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
@@ -287,7 +287,7 @@ The [Retry pattern](/azure/architecture/patterns/retry) allows applications to r
 
 - *Use a dead-letter queue.* Implement a mechanism to handle messages that fail processing. Move failed messages to a dead-letter queue to prevent them from blocking the main processing queue. Regularly review messages in the dead-letter queue to identify and address underlying issues.
 
-## Update configurations
+## Configuration guidance
 
 The following sections provide guidance on implementing the configuration updates. Each section aligns with one or more pillars of the Well-Architected Framework.
 
