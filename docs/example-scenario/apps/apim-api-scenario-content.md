@@ -21,6 +21,7 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
     - Is hosted in Web Apps with secure transport (HTTPS or SSL) turned on.
     - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and OAuth 2.
 5. The new browser-based web application depends on the Azure API Management instance for *both* the existing HTTP API and the new API.
+6. The travel e-commerce company can now direct some users to the new UI (for preview or testing) whilst preserving the old UI and existing functionality side-by-side
 
 The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs.
 
