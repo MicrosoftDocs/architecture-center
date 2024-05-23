@@ -32,6 +32,9 @@ In the future, the project team will gradually port functionality to the new API
 - [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario the re-composition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a facade for the new client application to consume consistently and using modern standards. Because API Management facades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management facade in an iterative way and with minimal to zero impact on the new front end development.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a turn-key Platform as a Service (PaaS) service for web hosting which provides out of the box features such as security, load balancing, autoscaling, and automated management. Azure App Service is a great choice for the new APIs being developed for this solution because it provides flexible turn-key hosting enabling the DevOps team to focus on delivering features.
 
+> [!NOTE]
+> [API Management now has "V2" tiers][apim-v2] designed to be accessible to a broader set of customers and offer flexible options for a wider variety of scenarios
+
 ### Alternatives
 
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
@@ -42,9 +45,6 @@ In the future, the project team will gradually port functionality to the new API
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization couldn't move downstream database dependencies that are in scope for this project to the cloud. If that's the case, the organization can still take advantage of API Management locally by using a [self-hosted gateway][apim-sh-gw].
 
   The self-hosted gateway is a containerized deployment of the API Management gateway that connects back to Azure on an outbound socket. The first prerequisite is that self-hosted gateways can't be deployed without a parent resource in Azure, which carries an additional charge. Second, the Premium tier of API Management is required.
-
-> [!NOTE]
-> For general information on connecting API Management to a virtual network, see [this article][apim-vnet].
 
 ## Scenario details
 
@@ -137,6 +137,7 @@ Learn modules:
 [apim-vnet-internal]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
 [apim-vnet]: /azure/api-management/api-management-using-with-vnet
 [apim-vnet-concepts]: /azure/api-management/virtual-network-concepts
+[apim-v2]: /azure/api-management/v2-service-tiers-overview
 [azure-hybrid]: ../../reference-architectures/hybrid-networking/index.yml
 [azure-er]: /azure/expressroute/expressroute-introduction
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
