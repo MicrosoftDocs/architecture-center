@@ -6,9 +6,7 @@ This article shows you how to implement the Reliable Web App pattern. The Reliab
 
 *Why the Reliable Web App pattern?* The Reliable Web App pattern shows you how optimize monolithic web apps for the cloud. It focuses on the high-value updates you need to make and minimal code changes to improve reliability, security, performance, and operational excellence.
 
-*How to implement the Reliable Web App pattern*
-
-This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need: 
+*How to implement the Reliable Web App pattern* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need: 
 
 - [***Architecture guidance***](#architecture-guidance): The architecture guidance shows you how to select the right cloud services and design an architecture that meets your business requirements.
 
