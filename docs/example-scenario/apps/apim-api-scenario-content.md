@@ -36,7 +36,7 @@ In the future, the project team will gradually port functionality to the new API
 
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
 - If the organization had decided to keep the existing endpoints private and not expose them publicly, the organization's API Management instance could be linked to an [Azure virtual network][azure-vnet]:
-  - In an [Azure "lift and shift" scenario][azure-vm-lift-shift] linked to a deployed Azure virtual network, the organization could directly address the back-end service through private IP addresses.
+  - When [API Management is linked to an Azure virtual network][apim-vnet-concepts], the organization could directly address the back-end service through private IP addresses.
   - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er]. This scenario would then become a [hybrid of Azure and on-premises][azure-hybrid].
 - The organization can keep the API Management instance private by deploying it in internal mode. The organization can then use deployment with [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Integrate API Management in an internal virtual network with Application Gateway][apim-vnet-internal].
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization couldn't move downstream database dependencies that are in scope for this project to the cloud. If that's the case, the organization can still take advantage of API Management locally by using a [self-hosted gateway][apim-sh-gw].
@@ -136,6 +136,7 @@ Learn modules:
 [azure-appgw]: /azure/application-gateway/application-gateway-introduction
 [apim-vnet-internal]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
 [apim-vnet]: /azure/api-management/api-management-using-with-vnet
+[apim-vnet-concepts]: /azure/api-management/virtual-network-concepts
 [azure-hybrid]: ../../reference-architectures/hybrid-networking/index.yml
 [azure-er]: /azure/expressroute/expressroute-introduction
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
