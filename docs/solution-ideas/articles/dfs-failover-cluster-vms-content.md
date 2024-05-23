@@ -52,7 +52,7 @@ This solution uses a quorum system that's based on a quorum disk. Another approa
 
 Azure assigns IP addresses to VMs dynamically when it creates the VMs. The DHCP service is automatically provided by Azure for each subnet, so you don't need to run a DHCP service on a VM. 
 
-Running a DHCP service in a virtual network [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). Therefore, you need to assign an IP address for the role. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
+Running a DHCP service in a virtual network to issue IPs to Azure VMs [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-in-virtual-networks). Therefore, you need to assign an IP address for the role. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
 
 ### Potential use cases
  
@@ -72,7 +72,7 @@ For scenarios where Universal Naming Convention (UNC) paths need to be kept, see
  
 Principal author:
  
-- [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | CSA-E Azure Core
+- [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | Cloud Solution Architect
 
 Other contributor:
 
