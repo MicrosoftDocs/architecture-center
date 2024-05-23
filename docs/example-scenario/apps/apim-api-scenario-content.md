@@ -74,12 +74,14 @@ You can use this scenario to:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that help improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Availability and scalability
+### Reliability
 
-- You can [scale out][apim-scaleout] Azure API Management by choosing a pricing tier and then adding units.
-- Scaling can also happen [automatically with autoscaling][apim-autoscale].
-- [Deploying across multiple regions][apim-multi-regions] enables failover options and can be done in the [Premium tier][apim-pricing].
-- Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
+
+- Consider deploying your Azure API Management instance with [Availability zones enabled][apim-ha]. The option to deploy API Management into Availability zones is only available in the Premium service tier.
+- Availability zones can be used in conjunction with [additional gateway instances deployed to different regions][apim-multi-regions]. This improves service availability if one region goes offline. Multi-region deployment is also only available in the Premium service tier.
+- Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring. For example, the capacity metric can be used to determine the overall load on the API Management resource and whether [additional scale-out units are required][apim-scaleout]. Tracking the resource capacity and health improves reliability.
+- Ensure that downstream dependencies, for example the backend services hosting the APIs that API Management facades are also resilient.
 
 ### Cost optimization
 
@@ -127,7 +129,7 @@ Learn modules:
 [architecture]: ./media/architecture-apim-api-scenario.png
 [apim-create]: /azure/api-management/get-started-create-service-instance
 [apim-multi-regions]: /azure/api-management/api-management-howto-deploy-multi-region
-[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
+[apim-ha]: /azure/api-management/high-availability
 [apim-scaleout]: /azure/api-management/upgrade-and-scale
 [azure-apim-ai]: /azure/api-management/api-management-howto-app-insights
 [azure-mon]: /azure/monitoring-and-diagnostics/monitoring-overview
