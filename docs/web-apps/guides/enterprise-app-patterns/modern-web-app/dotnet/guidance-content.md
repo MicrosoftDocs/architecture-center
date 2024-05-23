@@ -6,7 +6,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 *Why use the Modern Web App pattern?* The Modern Web App pattern optimizes the critical flows in your web application. The pattern shows you how to decouple these high-demand areas of your web app so you optimize the performance of these services in most cost efficient way. The Modern Web App pattern provides an intermediate step between a monolithic and microservices.
 
-*How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following: 
+*How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need:
 
 - [***Architecture guidance***](#architecture-guidance): The architecture guidance shows you how to decouple web app services and select the right platform-as-a-service solutions to support newly decoupled services.
 

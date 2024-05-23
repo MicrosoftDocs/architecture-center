@@ -4,11 +4,11 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [intro](../includes/intro.md)]
 
-## Architecture design
+## Architecture guidance
 
 [!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
 
-## Code updates
+## Code guidance
 
 [!INCLUDE [Code updates](../includes/code-updates.md)]
 
@@ -155,7 +155,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
     }
     ```
 
-## Configurations
+## Configuration guidance
 
 The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
 
