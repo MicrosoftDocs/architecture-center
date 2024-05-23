@@ -72,7 +72,7 @@ For scenarios where Universal Naming Convention (UNC) paths need to be kept, see
  
 Principal author:
  
-- [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | CSA-E Azure Core
+- [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | Cloud Solution Architect
 
 Other contributor:
 
