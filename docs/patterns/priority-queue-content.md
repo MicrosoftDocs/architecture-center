@@ -93,8 +93,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 The PriorityQueue example on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) implements the priority queue pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-service-bus.png)
-*Figure 3
-
+*Architecture of the PriorityQueue example on GitHub example*
 
 The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. `PriorityQueueSender` uses a time-triggered Azure function that posts messages to a Service Bus topic every 30 seconds. The function binds to an Service Bus topic named "messages". `IAsyncCollector` is an interface provided by Azure Functions SDK that allows for the asynchronous collection of ServiceBusMessage objects. The `collector` parameter acts as a container that accumulates messages to be sent to the specified Service Bus topic. Within the function, messages are created and added to the collector using its `AddAsync` method.
 
