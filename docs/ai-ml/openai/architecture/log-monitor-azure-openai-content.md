@@ -15,9 +15,9 @@ This solution provides comprehensive logging and monitoring and enhanced securit
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
 3. Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
-   a. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
-   b. Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
-   c. Monitoring provides detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
+   1. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
+   1. Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
+   1. Monitoring provides detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
 4. API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
 5. Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
 
