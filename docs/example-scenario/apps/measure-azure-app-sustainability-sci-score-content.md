@@ -56,7 +56,7 @@ For a tutorial about how to set up Application Insights for the metrics, see [Ap
 
 You can add more variables to the equation, such as:
 
-- infrastructure and edge services carbon emissions
+- Infrastructure and edge services carbon emissions
 - Time when users connect, because electricity production and demand vary with time
 - Any other peculiar metric of the application that can explain how its performance changes over time
 
