@@ -32,8 +32,8 @@ This architecture and the implementation are focused on infrastructure and not t
 
 |Requirement|Responsibility|
 |---|---|
-|[Requirement 4.1](#requirement-41)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
-|[Requirement 4.2](#requirement-42)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).|
+|[Requirement 4.1](#requirement-41)|Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, and so on) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:|
+|[Requirement 4.2](#requirement-42)|Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, and so on).|
 |[Requirement 4.3](#requirement-43)|Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.|
 
 ### Requirement 3.1
@@ -260,7 +260,7 @@ This architecture and the implementation aren't designed to do on-premises or co
 
 #### Requirement 4.2
 
-Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
+Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, and so on).
 
 ##### Your responsibilities
 
