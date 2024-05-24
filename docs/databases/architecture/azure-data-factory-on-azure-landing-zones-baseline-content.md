@@ -2,7 +2,7 @@ This reference architecture describes how to implement a [medallion lakehouse](/
 
 The solution uses a hub and spoke network topology with landing zones following the Cloud Adoption Framework (CAF) best practices.
 
-## Context and Key-Design-Decisions
+## Context and key design decisions
 
 This design covers an illustrative customer, Contoso, a mid-large organization on the journey to Azure cloud, enabled by automation.
 
@@ -14,7 +14,7 @@ This initial use case involves the following scenarios:
 - Data is copied to the cloud for analytical use cases
 - Contoso establishes an enterprise data science capability.
 
-### Key Requirements
+### Key requirements
 
 - The Solution is an analytical and reporting system, primarily used by the Finance department and other corporate functions.
 - The on-premises source system has the following properties:
@@ -48,7 +48,7 @@ This initial use case involves the following scenarios:
   - Solution performance.
   - Maintainability.
 
-### The Key Design Decisions (KDDs)
+### The key design decisions (KDDs)
 
 - The [Modern analytics with Azure Databricks architecture](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture) is the chosen basis for the solution design.
   - This design is a natural extension of the Azure landing zone enterprise architecture. It reuses many foundational components from that architecture, like Microsoft Entra ID, Azure Monitoring, and others, requiring only solution-specific configuration updates.
@@ -246,7 +246,7 @@ This architecture addresses performance efficiency with:
 ## Deploy this scenario
 
 To deploy this architecture, follow the step-by-step instructions in
-To deploy a self-hosted runtime integraion on an Azure VM, use the [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime)
+To deploy a self-hosted runtime integration on an Azure VM, use the [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime)
 
 ## Next steps
 
