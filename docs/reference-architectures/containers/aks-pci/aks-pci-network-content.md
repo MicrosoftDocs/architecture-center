@@ -140,10 +140,10 @@ Documentation of business justification and approval for use of all services, pr
 
 Have detailed documentation that describes the services, protocols, and ports used in the network controls. Deny all except for explicitly allowed ports. Document business justification and documented security features if the use of insecure protocols can't be avoided. Here are some examples from the reference implementation for Azure Firewall. Firewall rules must be scoped exclusively to their related resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Here are some cases to allow traffic.
 
-|Rule|Protocol:Port|Source|Destination|Justification
+|Rule|Protocol:Port|Source|Destination|Justification|
 |---|---|---|---|---|
 |Allow secure communication between the nodes and the control plane.|HTTPS:443|Authorized IP address ranges assigned to the cluster node pools| List of FQDN targets in the AKS control plane. This is specified with the `AzureKubernetesService` FQDN tag.|The nodes need access to the control plane for management tools, state and configuration information, and information about which nodes can be scaled.|
-|Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|github.com,api.github.com|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
+|Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|`github.com`, `api.github.com`|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
 
 #### Requirement 1.1.7
 

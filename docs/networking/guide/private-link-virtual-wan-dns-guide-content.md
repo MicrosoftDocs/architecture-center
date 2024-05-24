@@ -57,7 +57,7 @@ When you use Virtual WAN hubs, it seems intuitive that you'd link private DNS zo
 
 Given the complexity that results from enabling DNS proxy on the regional firewalls, let's review the reasons for enabling it.
 
-- Azure Firewall network rules support FQDN-based limits in order to more precisely control egress traffic that application rules don't handle. This feature requires that DNS proxy is enabled. A common use is limiting Network Time Protocol (NTP) traffic to known endpoints, such as time.windows.com.
+- Azure Firewall network rules support FQDN-based limits in order to more precisely control egress traffic that application rules don't handle. This feature requires that DNS proxy is enabled. A common use is limiting Network Time Protocol (NTP) traffic to known endpoints, such as `time.windows.com`.
 - Security teams can benefit from DNS request logging. Azure Firewall has built-in support for DNS request logging, so requiring that all spoke resources use Azure Firewall as their DNS provider ensures broad logging coverage.
 
 To illustrate the challenges, the following sections describe two configurations. There's a simple example that works, and a more complex one that doesn't, but its failure is instructive.
@@ -86,8 +86,8 @@ The diagram shows a virtual network, Azure DNS, a private DNS zone, and an Azure
              DNS Servers: 168.63.129.16    
     ```
 
-1. The private DNS zone privatelink.blob.core.windows.net is linked to Workload VNet, so Azure DNS incorporates records from Workload VNet in its response.
-1. Because an A record exists in the private DNS zone that maps the FQDN, stgworkload00.privatelink.blob.core.windows.net, to the private IP of the private endpoint, the private IP address 10.1.2.4 is returned.
+1. The private DNS zone `privatelink.blob.core.windows.net` is linked to Workload VNet, so Azure DNS incorporates records from Workload VNet in its response.
+1. Because an A record exists in the private DNS zone that maps the FQDN, `stgworkload00.privatelink.blob.core.windows.net`, to the private IP of the private endpoint, the private IP address 10.1.2.4 is returned.
 
     Running the following command from the VM resolves the FQDN of the storage account to the private IP address of the private endpoint.
 
@@ -132,7 +132,7 @@ The following example is a naive attempt to use private endpoints in the startin
     ```
 
 1. The firewall has DNS Proxy enabled with the default setting to forward requests to Azure DNS. The request is forwarded to Azure DNS.
-1. Azure DNS can't resolve stgworkload00.blob.core.windows.net to the private IP address of the private endpoint because:
+1. Azure DNS can't resolve `stgworkload00.blob.core.windows.net` to the private IP address of the private endpoint because:
 
    1. A private DNS zone can't be linked to a Virtual WAN hub.
    1. Azure DNS isn't aware of a private DNS zone that's linked to the workload virtual network, because the configured DNS server for the workload virtual network is Azure Firewall.
