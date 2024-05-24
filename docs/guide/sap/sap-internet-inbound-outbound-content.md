@@ -206,7 +206,7 @@ For Linux operating systems, you can access the following repositories if you ob
 
 #### High-availability cluster management
 
-Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under management.azure.com, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
+Highly available systems like clustered SAP ASCS/SCS or databases might use a cluster manager with Azure fence agent as a STONITH device. These systems depend on reaching Azure Resource Manager. Resource Manager is used for status queries about Azure resources and for operations to stop and start VMs. Because Resource Manager is a public endpoint, available under `management.azure.com`, VM outbound communication needs to be able to reach it. This architecture relies on a central firewall with user-defined rules routing traffic from SAP virtual networks. For alternatives, see the preceding sections.
 
 ## Contributors
 
