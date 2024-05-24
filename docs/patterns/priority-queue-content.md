@@ -1,14 +1,17 @@
-The priority queue pattern allows a workload to process high-priority tasks more quickly than lower-priority tasks. It uses messages sent to one or more queues This pattern is useful in applications that offer different service level guarantees to individual clients.
+The priority queue pattern enables a workload to process high-priority tasks more quickly than lower-priority tasks. This pattern uses messages sent to one or more queues and is useful in applications that offer different service level guarantees to individual clients.
 
 ## Context and problem
 
-Workloads must manage and process tasks with varying levels of importance and urgency. Some tasks require immediate attention, while others can wait. To efficiently handle tasks based on their priority, workloads need a mechanism to prioritize and execute tasks accordingly.
+Workloads often need to manage and process tasks with varying levels of importance and urgency. Some tasks require immediate attention, while others can wait. To handle tasks efficiently based on their priority, workloads need a mechanism to prioritize and execute tasks accordingly.
 
-Typically, workloads process tasks in the order they arrive, using a first-in, first-out (FIFO) queue structure. In a FIFO queue, workload consumers process tasks in the same order they're received. However, this approach doesn't account for the varying importance of tasks.
+Typically, workloads process tasks in the order they arrive, using a first-in, first-out (FIFO) queue structure. In a FIFO queue, workload consumers process tasks in the same order they're received. However, this approach does not account for the varying importance of tasks.
 
 ## Solution
 
-Priority queues allow workloads to process tasks based on their priority rather than their arrival order. The application sending a message to the queue assigns a priority to the message, and consumers process the messages by priority. There are two main approaches to this solution. You can use a single queue or multiple queues, one for each message priority.
+Priority queues allow workloads to process tasks based on their priority rather than their arrival order. The application sending a message to the queue assigns a priority to the message, and consumers process the messages by priority. There are two main approaches to implementing this solution:
+
+- *Single queue*: All messages are sent to one queue, with each message assigned a priority.
+- *Multiple queues*: Separate queues are used for each message priority.
 
 ### Single queue
 
