@@ -1,6 +1,6 @@
-Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. This pattern is useful in applications that offer different service level guarantees to individual clients.
+The priority queue pattern allows a workload to process high-priority tasks more quickly than lower-priority tasks. It uses messages sent to one or more queues This pattern is useful in applications that offer different service level guarantees to individual clients.
 
-## Context and problem priority queues solve
+## Context and problem
 
 Workloads must manage and process tasks with varying levels of importance and urgency. Some tasks require immediate attention, while others can wait. To efficiently handle tasks based on their priority, workloads need a mechanism to prioritize and execute tasks accordingly.
 
@@ -8,68 +8,34 @@ Typically, workloads process tasks in the order they arrive, using a first-in, f
 
 ## Solution
 
- Priority queues address allow workloads to process tasks based on their priority rather than their arrival order. The application sending a message to the queue assigns a priority to the message, and consumers process the messages by priority.
+Priority queues address allow workloads to process tasks based on their priority rather than their arrival order. The application sending a message to the queue assigns a priority to the message, and consumers process the messages by priority. There are two main approaches to this solution. You can use a single queue or multiple queues, one for each message priority.
 
-There are two main approaches to this solution. You can use a single-queue solution with one priority queue. Or you can use a multiple-queue solution with dedicated queues for each message priority.
+### Single queue
 
-| Condition                                                         | Single Queue Solution | Multiple Queue Solution |
-|-------------------------------------------------------------------|------------------------|-------------------------|
-| Built-in priority queue functionality <br>&<br>A single queue meets messaging needs | X                    |                      |
-| No built-in priority queue functionality | | X|
-| Messaging needs exceeds single queue limits | | X|
-| Need to fine-tune consumer performance| | X |
-| Need message isolation | | X |
-
-### Single-queue solution
-
-In a single-queue solution, the workload uses one queue. The sending application assigns a priority to each message and sends it to the queue. The queue orders messages by priority, ensuring that consumers process higher-priority messages before lower-priority ones (*see figure 1*).
+With a single queue, the sending application assigns a priority to each message, and sends it to the queue. The queue orders messages by priority, ensuring that consumers process higher-priority messages before lower-priority ones.
 
 ![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-pattern.png)
-*Figure 1. Single queue solution for the priority queue pattern*
+*Architecture of a single queue and single consumer pool.*
 
->[!NOTE]
-> Most message queue implementations support multiple consumers. (See the [Competing Consumers pattern](./competing-consumers.yml).) The number of consumer processes can be scaled up and down based on demand.
+### Multiple queues
 
-Use a single-queue solution if ***all*** of the following apply:
+Multiple queues allows you to use separate queues for different task priority levels. The sending application assigns a priority to each message and directs it to the appropriate queue, and consumers process the messages. A multiple queue solution uses either a single consumer pool or multiple consumer pools.
 
-- *Native priority queue support*: Your chosen queue service natively supports message prioritization within a single queue
-- *Capacity needs met.* A single queue can support the capacity needs of your workload without exceeding the volume and scaling limits of the queue service.
+#### Multiple consumer pools
 
-### Multiple-queue solution
-
-A multiple-queue solution involves using separate queues for different task priority levels. The sending application assigns a priority to each message and directs it to the appropriate queue, and consumers process the messages.
-
-Use multiple queues if ***any*** of the following apply:
-
-- *No native priority queue capability*: Your queue service does not natively support message prioritization within a single queue.
-- *Message volume exceeds single queue capacity*: A single queue cannot handle the capacity needs of your workload without exceeding its volume and scaling limits.
-- *Need to fine-tune consumer performance*: You need to allocate resources differently based on task priority, such as dedicating more resources to higher-priority tasks.
-- *Need message isolation*: You need to ensure high-priority tasks are isolated from lower-priority ones, minimizing the risk of delays.
-
-A multiple queue solution uses either multiple consumer pools or a single consumer pool.
-
-**Multiple consumer pools**: With multiple consumer pools, each queue has its own designated consumers. Higher priority queues use more consumers or higher performance tiers to process messages more quickly. Lower priority queues receive less dedicated capacity and consumers process messages more slowly than the high-priority queue.
+With multiple consumer pools, each queue has its own designated consumers. Higher priority queues use more consumers or higher performance tiers to process messages more quickly. Lower priority queues receive less dedicated capacity and consumers process messages more slowly than the high-priority queue.
 
 Use multiple consumer when you need guaranteed low-priority processing, queue isolation, dedicated resource allocation, scalability, and performance fine-tuning.
 
 ![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-separate.png)
+*Architecture of multiple queues and multiple consumer pools.*
 
-**Single consumer pool**: With a single consumer pool, all queues share a single pool of consumers. Consumers process messages from the highest priority queue first and only process messages from lower priority queues when there are no high priority messages. As a result, the single consumer pool always processes higher priority messages before lower priority ones. This setup could lead to lower priority messages being continually delayed and potentially never processed.
+#### Single consumer pool
 
-Use a single consumer pool if you need:
+With a single consumer pool, all queues share a single pool of consumers. Consumers process messages from the highest priority queue first and only process messages from lower priority queues when there are no high priority messages. As a result, the single consumer pool always processes higher priority messages before lower priority ones. This setup could lead to lower priority messages being continually delayed and potentially never processed.
 
-- Strict prioritization: High-priority messages must always be processed first.
-- Resource efficiency: Shared resources among queues optimize overall utilization and reduce idle time.
-- Variable load handling: Workload varies, allowing lower priority tasks to be processed when high-priority queues are idle.
-- Simple management: Simplified setup with one consumer pool for all queues.
-
-Use multiple consumer pools if you need:
-
-- Guaranteed low-priority processing: Ensure low-priority messages are processed, avoiding indefinite delays.
-- Queue isolation: Strict isolation between high and low-priority tasks to prevent interference.
-- Dedicated resource allocation: Allocate more resources to high-priority queues for faster processing.
-- Scalability and capacity management: Scale independently based on the demand of each priority queue.
-- Performance fine-tuning: Provide specialized handling for different priority levels.
+>[!NOTE]
+> The [Competing Consumers pattern](./competing-consumers.yml) is relevant here as it allows you to scale the number of consumer based on demand. Most message queue implementations support multiple consumers. Multiple instances of a consumer application compete to process messages from the same queue. The Competing Consumers pattern helps balance the load and improve processing efficiency.
 
 ## Considerations for the priority queue pattern
 
@@ -103,43 +69,13 @@ Consider the following recommendations when you decide how to implement the prio
 
 - *Minimize costs.*  Process critical tasks immediately available consumers while less critical background tasks can be scheduled during less busy times.
 
-### Old content
-
-**Benefits of priority queues**: Using a priority-queuing mechanism can provide the following advantages:
-
-- It allows applications to meet business requirements that require the prioritization of availability or performance, such as offering different levels of service to different groups of customers.
-
-- It can help to minimize operational costs. If you use the single-queue approach, you can scale back the number of consumers if you need to. High priority messages are still processed first (although possibly more slowly), and lower priority messages might be delayed for longer. If you implement the multiple message queue approach with separate pools of consumers for each queue, you can reduce the pool of consumers for lower priority queues. You can even suspend processing for some very low priority queues by stopping all the consumers that listen for messages on those queues.
-
-- The multiple message queue approach can help maximize application performance and scalability by partitioning messages based on processing requirements. For example, you can prioritize critical tasks so that they're handled by receivers that run immediately, and less important background tasks can be handled by receivers that are scheduled to run at times that are less busy.
-
-**Other misc**
-
-- Define the priorities in the context of the solution. For example, a *high priority* message could be defined as a  message that should be processed within 10 seconds. Identify the requirements for handling high priority items, and the resources that need to be allocated to meet your criteria.
-
-- Decide whether all high priority items must be processed before any lower priority items. If the messages are processed by a single pool of consumers, you have to provide a mechanism that can preempt and suspend a task that's handling a low priority message if a higher priority message enters the queue.
-
-- In the multiple queue approach, when you use a single pool of consumer processes that listen on all queues rather than a dedicated consumer pool for each queue, the consumer must apply an algorithm that ensures it always services messages from higher priority queues before messages from lower priority queues.
-
-- Monitor the processing speed on high and low priority queues to ensure that messages in those queues are processed at the expected rates.
-
-- If you need to guarantee that low priority messages will be processed, implement the multiple message queue approach with multiple pools of consumers. Alternatively, in a queue that supports message prioritization, you can dynamically increase the priority of a queued message as it ages. However, this approach depends on the message queue providing this feature.
-
-- The strategy of using separate queues based on message priority is recommended for systems that have a few well-defined priorities.
-
-- The system can logically determine message priorities. For example, rather than having explicit high and low priority messages, you could designate messages as "paying customer" or "non-paying customer." Your system could then allocate more resources to processing messages from paying customers.
-
-- There might be a financial and processing cost associated with checking a queue for a message. For instance, some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages. This cost increases when you check multiple queues.
-
-- You can dynamically adjust the size of a pool of consumers based on the length of the queue that the pool is servicing. For more information, see [Autoscaling guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
-
 ## When to use the priority queue pattern
 
-This pattern is useful in scenarios where:
+- *Varying task urgency and importance*: When tasks have different levels of urgency and importance, and you need to ensure that more critical tasks are processed before less critical ones.
 
-- The system must handle multiple tasks that have different priorities.
+- *Service level agreements*: When offering different service level guarantees to individual clients, ensuring that high-priority clients receive better performance and availability.
 
-- Different users or tenants should be served with different priorities.
+- *Workload management*: When workloads must manage tasks that require immediate attention while allowing less urgent tasks to wait, facilitating efficient task processing based on priority.
 
 ## Workload design
 
@@ -154,34 +90,13 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-Azure doesn't provide a queuing mechanism that natively supports automatic prioritization of messages via sorting. However, it does provide Azure Service Bus topics, Service Bus subscriptions that support a queuing mechanism that provides message filtering, and a range of flexible capabilities that make Azure ideal for most priority-queue implementations.
-
-An Azure solution can implement a Service Bus topic that an application can post messages to, just as it would post them to a queue. Messages can contain metadata in the form of application-defined custom properties. You can associate Service Bus subscriptions with the topic, and the subscriptions can filter messages based on their properties. When an application sends a message to a topic, the message is directed to the appropriate subscription, where a consumer can read it. Consumer processes can retrieve messages from a subscription by using the same semantics that they would use with a message queue. (A subscription is a logical queue.) This diagram shows how to implement a priority queue by using Service Bus topics and subscriptions:
+The PriorityQueue example on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) implements the priority queue pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-service-bus.png)
+*Figure 3
 
-In the preceding diagram, the application creates several messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. The application posts these messages to a topic. The topic has two associated subscriptions that filter messages based on the `Priority` property. One subscription accepts messages with the `Priority` property set to `High`. The other accepts messages with the `Priority` property set to `Low`. A pool of consumers reads messages from each subscription. The high priority subscription has a larger pool, and these consumers might be running on more powerful computers that have more available resources than the computers for the low priority pool.
 
-There's nothing special about the designation of high and low priority messages in this example. They're simply labels that are specified as properties in each message. They're used to direct messages to a specific subscription. If additional priorities are needed, it's relatively easy to create more subscriptions and pools of consumer processes to handle those priorities.
-
-The PriorityQueue solution on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) is based on this approach. This solution contains Azure Function projects named `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`. These Azure Function projects integrate with Service Bus via triggers and bindings. They connect to different subscriptions that are defined in `ServiceBusTrigger` and react to the incoming messages.
-
-```csharp
-public static class PriorityQueueConsumerHighFn
-{
-    [FunctionName("HighPriorityQueueConsumerFunction")]
-    public static void Run(
-      [ServiceBusTrigger("messages", "highPriority", Connection = "ServiceBusConnection")]string highPriorityMessage,
-      ILogger log)
-    {
-        log.LogInformation($"C# ServiceBus topic trigger function processed message: {highPriorityMessage}");
-    }
-}
-```
-
-As an administrator, you can configure how many instances the functions on Azure App Service can scale out to. You can do that by configuring the **Enforce Scale Out Limit** option from the Azure portal, setting a maximum scale-out limit for each function. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high priority messages are read from the queue more quickly than low priority messages.
-
-Another project, `PriorityQueueSender`, contains a time-triggered Azure function that's configured to run every 30 seconds. This function integrates with Service Bus via an output binding and sends batches of low and high priority messages to an `IAsyncCollector` object. When the function posts messages to the topic that's associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown here:
+The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. `PriorityQueueSender` uses a time-triggered Azure function that posts messages to a Service Bus topic every 30 seconds. The function binds to an Service Bus topic named "messages". `IAsyncCollector` is an interface provided by Azure Functions SDK that allows for the asynchronous collection of ServiceBusMessage objects. The `collector` parameter acts as a container that accumulates messages to be sent to the specified Service Bus topic. Within the function, messages are created and added to the collector using its `AddAsync` method.
 
 ```csharp
 public static class PriorityQueueSenderFn
@@ -208,6 +123,23 @@ public static class PriorityQueueSenderFn
     }
 }
 ```
+
+The example uses two Service Bus subscriptions. It uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from the Service Bus subscription. `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions integrate with Azure Service Bus via triggers and bindings. For example, in the `PriorityQueueConsumerHigh`, the `ServiceBusTrigger` configures the function to trigger when a new message is received in the `highPriority` subscription of the messages topic.
+
+```csharp
+public static class PriorityQueueConsumerHighFn
+{
+    [FunctionName("HighPriorityQueueConsumerFunction")]
+    public static void Run(
+      [ServiceBusTrigger("messages", "highPriority", Connection = "ServiceBusConnection")]string highPriorityMessage,
+      ILogger log)
+    {
+        log.LogInformation($"C# ServiceBus topic trigger function processed message: {highPriorityMessage}");
+    }
+}
+```
+
+You can configure how many instances the functions on Azure App Service can scale out to. You can do that by configuring the *Enforce Scale Out Limit* option from the Azure portal. Set a maximum scale-out limit for each function. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high priority messages are read from the queue more quickly than low priority messages.
 
 ## Next steps
 
