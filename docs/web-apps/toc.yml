@@ -76,13 +76,13 @@ items:
           items:
           - name: Overview
             href: guides/enterprise-app-patterns/overview.md
-          - name: Reliable Web App pattern (replatform)
+          - name: Reliable Web App pattern
             items:
             - name: .NET
               href: guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance.yml
             - name: Java
               href: guides/enterprise-app-patterns/reliable-web-app/java/guidance.yml
-          - name: Modern Web App pattern (refactor)
+          - name: Modern Web App pattern
             items:
             - name: .NET
               href: guides/enterprise-app-patterns/modern-web-app/dotnet/guidance.yml
