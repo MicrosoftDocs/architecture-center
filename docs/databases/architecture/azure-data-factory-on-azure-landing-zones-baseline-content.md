@@ -125,7 +125,7 @@ The typical workflow of accessing and landing data through the architecture:
 
 Alternatives for the storage processing layer:
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/): Discounted due to Azure Databricks functional match, maturity, and skilling available in the market.
+- [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described here due to Azure Databricks functional match, maturity, and skilling available in the market.
 
 Alternatives for the storage modeling layer:
 
