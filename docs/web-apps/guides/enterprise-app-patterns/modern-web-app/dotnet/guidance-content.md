@@ -5,9 +5,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 *How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need:
 
 - [***Architecture guidance***](#architecture-guidance): Learn how to modularize web app components and select appropriate platform-as-a-service (PaaS) solutions.
-
 - [***Code guidance***](#code-guidance): Implement four design patterns to optimize the decoupled components.
-
 - [***Configuration guidance***](#configuration-guidance): Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
 > [!TIP]
