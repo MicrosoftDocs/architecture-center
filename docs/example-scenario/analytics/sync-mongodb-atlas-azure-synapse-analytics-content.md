@@ -91,7 +91,7 @@ The Atlas function code triggers the Azure function that's associated with the A
 
 You need to replace the `<Azure function URL endpoint>` placeholder with the actual Azure function URL endpoint.
 
-```
+```javascript
 exports =  function(changeEvent) {
 
     // Invoke Azure function that inserts the change stream into Data Lake Storage.
@@ -113,7 +113,7 @@ The Azure function uses a storage key for authentication. You can also use Micro
 
 For a delete operation, `fullDocumentBeforeChange` is used instead of `fullDocument`. `fullDocument` doesn't have any value in a delete operation, so the code fetches the document that was deleted, which is captured in `fullDocumentBeforeChange`. Note that `fullDocumentBeforeChange` is only populated when the **Document Preimage** setting is set to on, as shown in the previous screenshot.
 
-```
+```javascript
 import json
 import logging
 import os
