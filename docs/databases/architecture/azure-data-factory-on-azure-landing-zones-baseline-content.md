@@ -6,7 +6,7 @@ The solution uses a hub and spoke network topology with landing zones following 
 
 This design covers an illustrative customer, Contoso, a mid-large organization on the journey to Azure cloud, enabled by automation.
 
-Contoso has an established Azure cloud foundation with an [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) and leadership is now looking to take their first data workloads to the cloud, guided by Microsoft’s [Well-Architected Framework](/azure/well-architected/). 
+Contoso has an established Azure cloud foundation with an [enterprise landing zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) and leadership is now looking to take their first data workloads to the cloud, guided by Microsoft’s [Well-Architected Framework](/azure/well-architected/). 
 
 This initial use case involves the following scenarios:
 
@@ -18,11 +18,11 @@ This initial use case involves the following scenarios:
 
 - The Solution is an analytical and reporting system, primarily used by the Finance department and other corporate functions.
 - The on-premises source system has the following properties:
-  - Currently estimated to be 1 terabyte (TB) with a 5% forecasted growth.
+  - Currently estimated to be 1 terabyte (TB) with a 5% annual forecasted growth.
   - Has a batch update process that is scheduled each night, typically finishing before 3am (unless end of financial year updates are required).
   - The solution MUST minimize its impact on the source system.
-- Financial users SHOULD have the ability to view data as "it was" at a point in time.
-- The initial use case targets analytical and management reporting, with the ability to self-serve. This solution design SHOULD also create the data foundation to enable an enterprise data science capability.
+- Financial users SHOULD have the ability to view data as "it was" at any given point in time.
+- The initial use case targets analytical and management reporting, with the ability to self-serve. This solution design SHOULD also serve as the foundation to build an enterprise data science capability upon.
 - The data is classified "Company Confidential," so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
 - Contoso has an enterprise data model that the finance data is a subset of. The key data elements MUST be cleansed, modeled, and conformed to the various reporting hierarchies before being served for reporting.  
 - Ingested source data that isn’t currently mapped to the enterprise model MUST be retained and made available for future analysis and use cases. 
@@ -38,10 +38,10 @@ This initial use case involves the following scenarios:
    - Only Contoso employees can access the solution. This control explicitly excludes any direct access by 3rd parties or externals. 
 - The Solution MUST have:
   - End-to-end monitoring and audit trails.
-  - Configurable alerting across functions, SLAs and cost.
+  - Alerting enabled for reliability, performance, and cost metrics.
 - The Solution SHOULD strongly prefer:
   - Reuse of existing skills and capabilities over new, reducing complexity, risk, and cost.
-  - Modern cloud service tiers: For example, it should use PaaS services whenever practical to reduce management burden, risk, and below the line cost.
+  - Modern cloud service tiers: For example, it should use PaaS services whenever practical to reduce management burden, risk, and to help control costs.
   - Use of components that are mature in the market and easy to find. Contoso plans to up-skill engineers across the software development lifecycle (SDLC).
 - The Solution SHOULD be optimized for the nonfunctional requirements (NFRs) (in order):
   - Minimize the cost to build and run.
@@ -51,7 +51,7 @@ This initial use case involves the following scenarios:
 ### The Key Design Decisions (KDDs)
 
 - The [Modern analytics with Azure Databricks architecture](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture) is the chosen basis for the solution design.
-  - This design is a natural extension of the Azure Landing Zone enterprise architecture. It reuses many foundational components from that architecture, like Microsoft Entra ID, Azure Monitoring, and others, requiring only solution-specific configuration updates.
+  - This design is a natural extension of the Azure landing zone enterprise architecture. It reuses many foundational components from that architecture, like Microsoft Entra ID, Azure Monitoring, and others, requiring only solution-specific configuration updates.
   - Easily accommodate the forecasted volume and processing requirements, including auto-scale requirements.
   - Delta Lake supports the "point in time" requirements, along with enhanced data versioning, schema enforcement, time travel, and provides ACID guarantees.
   - Mature in market offering, high levels of skill availability, and strong up-skilling/training offering available.
@@ -118,7 +118,7 @@ The typical workflow of accessing and landing data through the architecture:
 ## Callouts
 
 - The use of Databricks Delta Lake means that Archive tier Storage Accounts can't be used, as that tier is effectivity off-line storage. This design choice is a trade-off between functionality and cost.
-- When creating a new Azure Databricks workspace, the default redundancy for the managed storage account (Databricks filesystem or DBFS root) is set as Geo-redundant storage (GRS). You can change the redundancy to Locally redundant storage (LRS).
+- When creating a new Azure Databricks workspace, the default redundancy for the managed storage account (Databricks filesystem or DBFS root) is set as Geo-redundant storage (GRS). You can change the redundancy to Locally redundant storage (LRS) if geo-redundancy isn't needed.
 - As a general rule, data warehouses of less than 1 TB perform better on Azure SQL Database than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5 TB.  This performance difference is the main factor for selecting [Azure SQL over Synapse](https://learn.microsoft.com/en-us/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
 
 ## Alternatives
@@ -129,9 +129,9 @@ Alternatives for the storage processing layer:
 
 Alternatives for the storage modeling layer:
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/): Discounted due to data volumes and functional overlap with Databricks.
-- [SQL Managed Instance](/azure/azure-sql/managed-instance/?view=azuresql): Discounted due to the lack of migration requirement and OPEX cost.
-- [Azure PostgresSQL](/azure/postgresql/): Discounted due to Contoso’s existing skill-sets and desire to introduce as few new technologies as required, reducing cost and complexity. 
+- [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described here due to data volumes and functional overlap with Databricks.
+- [SQL Managed Instance](/azure/azure-sql/managed-instance/?view=azuresql): This service isn't a good match for the scenario described here due to the lack of migration requirement and OPEX cost.
+- [Azure PostgresSQL](/azure/postgresql/): This service isn't a good match for the scenario described here due to Contoso’s existing skill-sets and desire to introduce as few new technologies as required, reducing cost and complexity. 
 
 
 ## Considerations
@@ -255,6 +255,6 @@ To deploy a self-hosted runtime integraion on an Azure VM, use the [quick start 
 
 ## Related resources
 
-- [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/)
+- [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
 - [Decide between a savings plan and a reservation](/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation#choose-a-reservation)
