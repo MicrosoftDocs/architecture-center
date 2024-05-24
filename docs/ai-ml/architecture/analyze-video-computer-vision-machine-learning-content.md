@@ -70,7 +70,7 @@ A reliable workload is one that's both resilient and available. *Resiliency* is 
 
 For the availability guarantees of the Azure services in this solution, see these resources:
 
-- [service-level agreement (SLA) for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5)
+- [Service-level agreement (SLA) for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5)
 - [SLA for Azure Machine Learning](https://azure.microsoft.com/support/legal/sla/machine-learning-service/v1_0)
 - [SLA for Azure AI services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1)
 - [SLA for Logic Apps](https://azure.microsoft.com/support/legal/sla/logic-apps/v1_0)

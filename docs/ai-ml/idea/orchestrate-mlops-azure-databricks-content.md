@@ -20,7 +20,7 @@ This solution provides a robust MLOps process that uses Azure Databricks. All el
 
 In the development environment, data scientists and engineers develop machine learning pipelines.
 
-1. **Exploratory data analysis (EDA)**: Data scientists explore data in an interactive, iterative process. This ad hoc work might not be deployed to staging or production. Tools might include [Databricks SQL](/azure/databricks/sql/get-started), [dbutils.data.summarize](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize), and [AutoML](/azure/databricks/applications/machine-learning/automl).
+1. **Exploratory data analysis (EDA)**: Data scientists explore data in an interactive, iterative process. This ad hoc work might not be deployed to staging or production. Tools might include [Databricks SQL](/azure/databricks/sql/get-started), [`dbutils.data.summarize`](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize), and [AutoML](/azure/databricks/applications/machine-learning/automl).
 
 1. [**Model training**](/azure/databricks/applications/machine-learning/train-model) **and other machine learning pipelines**: Machine learning pipelines are developed as modular code in notebooks and/or IDEs. For example, the model training pipeline reads data from the Feature Store and other Lakehouse tables. Training and tuning log model parameters and metrics to the [MLflow tracking server](/azure/databricks/applications/mlflow/tracking). The [Feature Store API](/azure/databricks/applications/machine-learning/feature-store/python-api) logs the final model. These logs link the model, its inputs, and the training code.
 

@@ -513,8 +513,8 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 #### Encryption
 
 - **Data in transit**. User traffic between users and the Application Gateway public IP is encrypted using the external certificate. Traffic between the application gateway and the front-end VMs, and between the front-end and back-end VMs is encrypted using an internal certificate. Both certificates are stored in [Key Vault](/azure/key-vault/general/overview):
-    - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public internet traffic.
-    - ***.workload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
+  - `app.contoso.com`: An external certificate used by clients and Application Gateway for secure public internet traffic.
+  - `*.workload.contoso.com`: A wildcard certificate used by the infrastructure components for secure internal traffic.
 
 - **Data at rest**. Log data is stored in a managed disk attached to VMs. That data is automatically encrypted by using platform-provided encryption on Azure.
 

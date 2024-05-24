@@ -73,7 +73,7 @@ To improve the quality of your Azure solutions, follow the recommendations and g
 To create a design that respects these recommendations, consider the following services:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Identity services, single sign-on, and multifactor authentication across Azure workloads.
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Secure credential and certificate management.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Collection, analysis, and display of telemetry from your Azure resources. Use Monitor to proactively identify problems to maximize performance and reliability.
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.

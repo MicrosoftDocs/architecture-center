@@ -16,7 +16,7 @@ The following workflow sections describe two configurations: a public internet w
 
 *Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns-host-public.vsdx) of this architecture.*
 
-1. Customers send a request for the *app.contoso.com* application via the public internet.
+1. Customers send a request for the `app.contoso.com` application via the public internet.
 
 1. An [Azure DNS zone](/azure/dns/dns-zones-records) is configured for the *contoso.com* domain. The appropriate [canonical name (CNAME) entries](/azure/frontdoor/front-door-custom-domain#create-a-cname-dns-record) are configured for the Azure Front Door endpoints.
 1. External customers access the web application via Azure Front Door, which functions as a global load balancer and a web application firewall (WAF).
@@ -45,7 +45,7 @@ The following workflow sections describe two configurations: a public internet w
 
 *Download a [Visio file](https://arch-center.azureedge.net/split-brain-dns-host-private.vsdx) of this architecture.*
 
-1. Customers initiate a request for the *app.contoso.com* application from an on-premises environment.
+1. Customers initiate a request for the `app.contoso.com` application from an on-premises environment.
 
 1. Application FQDNs are configured on the on-premises DNS provider. This DNS provider can be on-premises Windows Server Active Directory DNS servers or other partner solutions. The DNS entries for each of the application FQDNs are configured to point to the private IP address of the Application Gateway instance.
 1. An [Azure ExpressRoute circuit](/azure/expressroute/expressroute-circuit-peerings) or a [site-to-site VPN](/azure/vpn-gateway/design#s2smulti) facilitates access to Application Gateway.

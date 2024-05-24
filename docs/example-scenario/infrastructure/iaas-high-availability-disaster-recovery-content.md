@@ -106,7 +106,7 @@ If your app supports Azure Site Recovery, you can provide a regional DR solution
 
 ### Cost optimization
 
-There's no additional cost for VMs deployed in availability zones. There might be additional inter-availability zone VM-to-VM data transfer charges. For more information, see the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth).
+There's no additional cost for VMs deployed in availability zones, including inter-availability zone bandwidth.
 
 ## Contributors
 
@@ -114,7 +114,7 @@ There's no additional cost for VMs deployed in availability zones. There might b
 
 Principal author:
 
-* [Shaun Croucher](https://uk.linkedin.com/in/shaun-croucher-64b251185) | Senior Consultant
+- [Shaun Croucher](https://uk.linkedin.com/in/shaun-croucher-64b251185) | Senior Consultant
 
 ## Next steps
 
