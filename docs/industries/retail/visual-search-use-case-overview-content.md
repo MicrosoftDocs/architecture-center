@@ -15,7 +15,7 @@ Therefore, the image recognition market will be worth more than $25 billion by 2
 
 The technology has already taken hold with major e-commerce brands, who have also contributed significantly to its development. The most prominent early adopters are probably:
 
-- EBay with their Image Search and "Find It on eBay" tools in their app (this is currently only a mobile experience).
+- eBay with their Image Search and "Find It on eBay" tools in their app (this is currently only a mobile experience).
 - Pinterest with their Lens visual discovery tool.
 - Microsoft with Bing Visual Search.
 
