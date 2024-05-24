@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory baseline architecture
 titleSuffix: Azure Architecture Center
-description: Learn how to deploy a reference architecture for Azure Data Factory on Azure Landing Zones.
+description: Learn how to deploy a reference architecture for Azure Data Factory on Azure landing zones.
 author: claytonsiemens77
 ms.author: csiemens
 ms.date: 12/31/2023
@@ -24,7 +24,7 @@ products:
 
 The [medallion lakehouse](/azure/databricks/lakehouse/medallion) architecture is a popular enterprise data design pattern. It logically organizes raw data in its native form, within a large, centralized repository. Data is then incrementally enriched as it flows through each layer of the architecture, improving the structure, quality, and insight that can be derived from it. 
 
-[Azure Data Factory](/azure/data-factory) is Azure's cloud ETL (extract, transform, and load) service for scale-out serverless data integration and data transformation. Within the medallion lakehouse, it performs the extraction, transformation, and loading processes required across the various components to generate value from the raw data source.  
+[Azure Data Factory](/azure/data-factory) is Azure's platform-as-a-service (PaaS) solution for scale-out serverless data integration and data transformation. Within the medallion lakehouse, it performs the (ETL) extraction, transformation, and loading processes required across the various components to generate value from the raw data source.  
 
 This series of designs follows a typical path for an enterprise implementation from an initial implementation, followed by enterprise-wide adoption, and finally mission-critical expansion for specific solutions. This guidance is intended to support customers starting a similar journey. 
 
@@ -61,7 +61,7 @@ Refer to the baseline architecture that deploys Azure Data Factory instances for
 
 In order to comply with common enterprise security and governance nonfunctional requirements, the baseline architecture should be expanded upon for production workloads using enterprise hardening patterns. An example of a NFR might be that the solution is required to use federated resources managed by central teams. Effective communication of your requirements with those teams is crucial to avoid disruptions. 
 
-Refer to this architecture that deploys an enterprise hardened implementation, extending the ["Hub and spoke"](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) topology according to the principles of [Azure Landing Zones](/azure/cloud-adoption-framework/ready/landing-zone/).  
+Refer to this architecture that deploys an enterprise hardened implementation, extending the ["Hub and spoke"](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture) topology according to the principles of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).  
 
 Some sample requirements that should be communicated with central teams are annotated with "Platform team" notes. 
 
