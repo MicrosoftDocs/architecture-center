@@ -147,17 +147,17 @@ You need to further configure the components deployed using the preceding Resour
 6. Create API Management service: `apim-internal`
 7. Configure the service to connect to internal VNet on Subnet: `apimsubnet`. After the deployment is complete, perform the following additional steps:
    - Configure custom domains for APIM Services using TLS
-     - API portal (api.contoso.org)
-     - Dev Portal (portal.contoso.org)
+     - API portal (`api.contoso.org`)
+     - Dev Portal (`portal.contoso.org`)
      - In the APIs section, configure the ASE Apps using ASE's DNS name added Policy for HOST Header for the Web app
      - Use the preceding created test VM to test the API Management service internal on the Virtual Network
 
     > [!NOTE]
-    > Testing the APIM APIs from the Azure portal won't work, because api.contoso.org isn't able to be publicly resolved.*
+    > Testing the APIM APIs from the Azure portal won't work, because `api.contoso.org` isn't able to be publicly resolved.*
 
 8. Configure the Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the Application Gateway and corresponding health probes and http settings. Also configure the Rules and Listeners to use the TLS cert.
 
-Once the preceding steps are successfully completed, configure the DNS entries in the web registrar CNAME entries of api.contoso.org and portal.contoso.org with the Application Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
+Once the preceding steps are successfully completed, configure the DNS entries in the web registrar CNAME entries of `api.contoso.org` and `portal.contoso.org` with the Application Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
 
 > [!NOTE]
 > It's not a good practice to use the same URL for internal and external endpoints for the APIM services (though in this demo, both URLs are the same). If you choose to have different URLs for internal and external endpoints, you can make use of Application Gateway WAF v2, which supports http redirection and much more.

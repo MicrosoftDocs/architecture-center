@@ -133,7 +133,7 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 Deploying this scenario involves the following high-level steps:
 
-- Get access to the PySpark base image that's used in this scenario from SCONE's container registry: see **registry.scontain.com:5050** on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
+- Get access to the PySpark base image that's used in this scenario from SCONE's container registry: see `registry.scontain.com:5050` on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
   
@@ -145,7 +145,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Build the encrypted image with SCONE confidential computing software and push it to your own Azure Container Registry. The repo has a demo application that counts the number of lines in New York City's [Yellow Taxi trip records](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets), an open dataset of times, locations, fares, and other data that's related to taxi trips. You can adapt this to your specific needs.
 
-- Deploy the Spark application by running the command **spark-submit**. This deploys a driver pod and a configurable number of executor pods (the demo uses three) that run the tasks and report the analysis results to the driver. All communication is encrypted.
+- Deploy the Spark application by running the command `spark-submit`. This deploys a driver pod and a configurable number of executor pods (the demo uses three) that run the tasks and report the analysis results to the driver. All communication is encrypted.
 
 Alternatively, SCONE Confidential PySpark on Kubernetes, a VM, includes the same demo that you can reproduce in a local [minikube](https://minikube.sigs.k8s.io/docs/start) cluster. For more information, see the official documentation: [SCONE PySpark virtual machine](https://sconedocs.github.io/azure/scone-pyspark).
 
