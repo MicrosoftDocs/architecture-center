@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Secure Azure Kubernetes Service with Azure Front Door
+  titleSuffix: Azure Architecture Center
+  description: Learn how to secure Azure Kubernetes Service using end-to-end TLS encryption, Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
+  author: paolosalvatori
+  ms.author: paolos
+  ms.date: 03/15/2024
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - containers
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Secure Azure Kubernetes Service with Azure Front Door
+azureCategories:
+  - containers
+  - networking
+summary: Learn how to secure Azure Kubernetes Service using end-to-end TLS encryption, Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
+products:
+  - azure-front-door
+  - azure-key-vault
+  - azure-dns
+  - azure-private-link
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-bastion
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-agic.png
+content: |
+   [!include[](aks-front-door-content.md)]
