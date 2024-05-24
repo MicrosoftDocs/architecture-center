@@ -163,9 +163,9 @@ This architecture addresses security via configuration of the infrastructure sel
 - Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, enabling consistent RBAC control.
 - Azure [Key Vault](/azure/key-vault/) stores application secrets and certificates securely.
 - The use of component-specific [built-in roles](/azure/role-based-access-control/built-in-roles), enabling a granular control for authorization at the control plane level.
-  - Due to scope, these specific roles are preferred over the [general roles]( https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
-  - [Custom Roles](/azure/role-based-access-control/tutorial-custom-role-powershell) are explicitly excluded due ongoing lifecycle management requirements.
-- Access to data across the solution is controlled via a set of domain-specific Microsoft Entra ID groups, reflecting Contoso’s data classification framework. Individual solution components use these groups to apply data level controls. For example, SQL Server [dynamic data masking](https://learn.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16) and Power BI [RLS](https://learn.microsoft.com/power-bi/enterprise/service-admin-rls) both support this design.
+  - Due to scope, these specific roles are preferred over the [general roles](/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
+  - [Custom Roles](/azure/role-based-access-control/tutorial-custom-role-powershell) are explicitly excluded due to ongoing lifecycle management requirements.
+- Access to data across the solution is controlled via a set of domain-specific Microsoft Entra ID groups, reflecting Contoso’s data classification framework. Individual solution components use these groups to apply data level controls. For example, SQL Server [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16) and Power BI [row level security (RLS)](/power-bi/enterprise/service-admin-rls) both support this design.
   - This design makes it possible to grant access to a component, while disallowing the ability to view the data within. To get access to data, the user must also have component access.
   - Creating the groups at the domain level, like Finance, enables reuse. Representing the data classification framework limits the sprawl of solution-specific groups.
 
