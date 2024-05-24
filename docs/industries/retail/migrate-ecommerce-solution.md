@@ -1,5 +1,4 @@
 ---
-# required metadata
 title: Migrate your e-commerce solution to Azure
 author: robbagby
 ms.author: robbag

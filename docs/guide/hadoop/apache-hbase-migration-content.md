@@ -326,8 +326,7 @@ Considerations for deployment of an MIT Kerberos domain controller:
 
 #### Monitor the HBase deployment
 
-For a lift and shift migration to Azure IaaS, you can use the same monitoring techniques that you used on the source system. For other migrations,
-there are several options available for monitoring a full HBase stack on Azure IaaS:
+For a lift and shift migration to Azure IaaS, you can use the same monitoring techniques that you used on the source system. For other migrations, there are several options available for monitoring a full HBase stack on Azure IaaS:
 
 - [Apache Ambari for monitoring the Hadoop and HBase stack](#apache-ambari-for-monitoring-the-hadoop-and-hbase-stack)
 - [Java Management Extensions (JMX) monitoring and Azure Monitor](#java-management-extensions-jmx-monitoring-and-azure-monitor)
@@ -402,7 +401,7 @@ curl -XGET http://<HBase_master>:16010/jmx?qry=Hadoop:service=hbase,name=Master,
 curl -XGET http://<HBase_master>:16010/jmx?qry=Hadoop:service=hbase,name=Master,sub=FileSystem
 ```
 
-After it's configured, a source appears under the Custom Logs blade. In the snippet above, we use the name oms.api.metrics_regionservers for the input. Log Analytics uses the following format for displaying the custom table name with a suffix_CL.
+After it's configured, a source appears under the Custom Logs blade. In the snippet above, we use the name `oms.api.metrics_regionservers` for the input. Log Analytics uses the following format for displaying the custom table name with a suffix_CL.
 
 ![Screenshot that shows a list of the custom logs.](images/hbase-monitoring-logging-CL-screenshot.png)
 

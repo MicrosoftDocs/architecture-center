@@ -15,7 +15,7 @@ Therefore, the image recognition market will be worth more than $25 billion by 2
 
 The technology has already taken hold with major e-commerce brands, who have also contributed significantly to its development. The most prominent early adopters are probably:
 
-- eBay with their Image Search and "Find It on eBay" tools in their app (this is currently only a mobile experience).
+- EBay with their Image Search and "Find It on eBay" tools in their app (this is currently only a mobile experience).
 - Pinterest with their Lens visual discovery tool.
 - Microsoft with Bing Visual Search.
 
@@ -99,7 +99,7 @@ Also, you may find that different networks are applicable to different categorie
 
 Pre-trained neural networks are relatively easy to use but may not be as efficient as a custom model trained on your image catalog. Those pre-trained networks are typically designed for classification of benchmark datasets rather than search on your specific collection of images.
 
-You may want to modify and retrain them so they produce both a category prediction and a dense (i.e. smaller, not sparse) vector, which will be very useful to restrict the search space, reduce memory and storage requirements. Binary vectors can be used and are often referred to as " [semantic hash](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)" – a term derived from document encoding and retrieval techniques. The binary representation simplifies further calculations.
+You may want to modify and retrain them so they produce both a category prediction and a dense (that is, smaller, not sparse) vector, which will be very useful to restrict the search space, reduce memory and storage requirements. Binary vectors can be used and are often referred to as " [semantic hash](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)" – a term derived from document encoding and retrieval techniques. The binary representation simplifies further calculations.
 
  ![](./images/visual-search-use-case-overview/resnet-modifications.png)
 
@@ -147,7 +147,7 @@ Implementing visual search need not be complex. You can use Bing or build your o
 ### Develop
 
 - To begin creating a customized service, see [Bing Visual Search API Overview](/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
-- To create your first request, see the quickstarts: [C#](/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](/azure/cognitive-services/bing-visual-search/quickstarts/java) | [node.js](/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](/azure/cognitive-services/bing-visual-search/quickstarts/python)
+- To create your first request, see the quickstarts: [C#](/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](/azure/cognitive-services/bing-visual-search/quickstarts/java) | [Node.js](/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](/azure/cognitive-services/bing-visual-search/quickstarts/python)
 - Familiarize yourself with the [Visual Search API Reference](/bing/search-apis/bing-visual-search/overview).
 
 ### Background
