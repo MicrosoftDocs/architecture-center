@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-05-22T19:30:55.905Z</updated>
+    <updated>2024-05-27T16:35:50.023Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -121,6 +121,86 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Apache Sqoop migration to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hadoop/apache-sqoop-migration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hadoop/apache-sqoop-migration"/>
+        <updated>2024-05-24T14:53:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Apache Sqoop and about ways to migrate a Sqoop implementation to Azure by using Azure services like VMs, HDInsight and Data Factory.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure DNS Private Resolver]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/architecture/azure-dns-private-resolver</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/architecture/azure-dns-private-resolver"/>
+        <updated>2024-05-24T14:45:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure DNS Private Resolver to simplify hybrid recursive domain name system (DNS) resolution for on-premises and Azure workloads.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes node and node pool management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/node-pools</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/node-pools"/>
+        <updated>2024-05-24T14:42:15.000Z</updated>
+        <summary type="html"><![CDATA[Understand Kubernetes nodes and node pools, how to handle Azure Kubernetes Service (AKS) nodes and node pools, and node pool options for Amazon EKS and AKS.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics"/>
+        <updated>2024-05-24T14:42:15.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build the second layer of defense with Microsoft Defender XDR Security services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/microsoft-365-defender-build-second-layer-defense"/>
+        <updated>2024-05-24T03:06:25.000Z</updated>
+        <summary type="html"><![CDATA[Add additional security to your IT environment by using Microsoft 365 security service in addition to Azure security. This article is part of a series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Securely managed web applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/fully-managed-secure-apps</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/fully-managed-secure-apps"/>
+        <updated>2024-05-24T02:57:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Blue-green deployment of AKS clusters]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/blue-green-deployment-for-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/blue-green-deployment-for-aks"/>
+        <updated>2024-05-24T02:57:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy AKS clusters using a blue-green strategy.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Recover from loss of an Azure region]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region</id>
+        <link href="https://learn.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region"/>
+        <updated>2024-05-23T22:00:01.000Z</updated>
+        <summary type="html"><![CDATA[Design resilient, highly available, fault-tolerant applications and plan for disaster recovery.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS day-2 guide: Patch and upgrade guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices"/>
+        <updated>2024-05-23T17:38:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Well-Architected Framework review of an Azure NAT gateway]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/well-architected-network-address-translation-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/well-architected-network-address-translation-gateway"/>
+        <updated>2024-05-22T20:01:52.000Z</updated>
+        <summary type="html"><![CDATA[Learn about best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework five pillars of architectural excellence.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Related resources for multitenancy]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/related-resources</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/related-resources"/>
@@ -150,14 +230,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling"/>
         <updated>2024-05-14T00:17:07.000Z</updated>
         <summary type="html"><![CDATA[Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS day-2 guide: Patch and upgrade guidance]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-upgrade-practices"/>
-        <updated>2024-05-08T23:02:45.000Z</updated>
-        <summary type="html"><![CDATA[Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
