@@ -25,7 +25,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 1. Data Engineers and Data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store often-used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning (ML) plugins.
 
 1. R&D engineers and Data Scientists use notebooks to analyze data and build test & validation use cases.
-    1. The R&D engineers use [KQL Query Sets](/real-time-intelligence/kusto-query-se) to perform interactive data analysis, using the [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
+    1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-se) to perform interactive data analysis, using the [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
     1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can run analytics using Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git.
 
 1. R&D Engineers and Data Scientists can use Power BI with Dynamic Query or Real-Time Analytics Dashboards to create visualizations to share with business users. These visualizations apply the user-defined functions for ease of maintenance.
@@ -56,11 +56,11 @@ The vehicle telemetry lands in raw tables. You can use the following functions t
 1. The **Signals Downsampled** materialized view aggregates signals by using predefined bins such as *hourly* and *daily* to simplify reporting across the fleet.
 
 1. Create user defined functions that provide anomaly detection or root cause analysis
-    - Use time-series functions for [anomaly detection and forecasting](/data-explorer/kusto/query/anomaly-detection) to detect potential problems and predict failures.
+    - Use time-series functions for [anomaly detection and forecasting](/azure/data-explorer/kusto/query/anomaly-detection) to detect potential problems and predict failures.
     - Use the [scan operator](/azure/data-explorer/kusto/query/scan-operator) to scan, match, and build sequences from the data. The scan operator enables engineers to detect sequences such as "If A happens, then B must happen within X seconds"
     - ML plugins like [autocluster](/azure/data-explorer/kusto/query/autocluster-plugin) find common patterns of discrete attributes.
 
-1. Perform geospatial analytics with user defined functions. Use the [Geospatial Analytics](/kusto/query/geospatial-grid-systems) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
+1. Perform geospatial analytics with user defined functions. Use the [Geospatial Analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
 
 1. The fleet metadata table reflects changes on the vehicle metadata and configuration. The **Fleet metadata last known values** materialized view shows the latest state of the vehicle fleet.
 
@@ -193,9 +193,9 @@ Other contributors:
 
 ## Next steps
 
-- Learn how to connect vehicles and devices to the cloud using the [MQTT broker feature in Azure Event Grid](azure/event-grid/mqtt-overview).
-- Connect your [datastream to a KQL destination](fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities).
-- Ingest recordings from [OneLake into a KQL database](fabric/real-time-intelligence/get-data-onelake). 
+- Learn how to connect vehicles and devices to the cloud using the [MQTT broker feature in Azure Event Grid](/azure/event-grid/mqtt-overview).
+- Connect your [datastream to a KQL destination](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities).
+- Ingest recordings from [OneLake into a KQL database](/fabric/real-time-intelligence/get-data-onelake). 
 - Take a look to [materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview) to learn how to create materialized views, such as the last-known value tables.
 - Create a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your vehicle data.
 - Create a [Power BI Report](/fabric/real-time-intelligence/create-powerbi-report) for business users using Direct Query.
@@ -206,5 +206,5 @@ Other contributors:
 The following reference architectures are related to the automotive fleet test and validation scenario:
 
 - [Automotive messaging, data, and analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) covers more automotive and device messaging scenarios using the Event Grid MQTT broker.
-- [Software-defined vehicle DevOps toolchain](azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture) covers scenarios to develop, build, deploy, and test automotive software stacks for software-defined vehicles (SDV).
+- [Software-defined vehicle DevOps toolchain](/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture) covers scenarios to develop, build, deploy, and test automotive software stacks for software-defined vehicles (SDV).
 - [Autonomous vehicle operations design guide](../../guide/machine-learning/avops-design-guide.md) contains the approach for the development and model training of autonomous vehicle fleets.
