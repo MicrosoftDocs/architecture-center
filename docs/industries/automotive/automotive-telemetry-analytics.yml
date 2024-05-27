@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: See an example data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
   author: msmarioo
-  ms.author: mciget-sdv-pm
+  ms.author: fredch_org_fte
   ms.date: 08/23/2022
   ms.topic: example-scenario
   ms.service: architecture-center

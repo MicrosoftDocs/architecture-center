@@ -25,7 +25,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 1. Data Engineers and Data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store often-used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning (ML) plugins.
 
 1. R&D engineers and Data Scientists use notebooks to analyze data and build test & validation use cases.
-    1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-se) to perform interactive data analysis, using the [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
+    1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-set) to perform interactive data analysis, using the [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
     1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can run analytics using Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git.
 
 1. R&D Engineers and Data Scientists can use Power BI with Dynamic Query or Real-Time Analytics Dashboards to create visualizations to share with business users. These visualizations apply the user-defined functions for ease of maintenance.
