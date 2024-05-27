@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture. 
 author: arsenvlad
 ms.author: arsenv
-ms.date: 04/26/2023
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -85,12 +85,12 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 Principal authors:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Bohdan Cherchyk](http://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
+- [Bohdan Cherchyk](https://linkedin.com/in/cherchyk/) | Senior Customer Engineer
 
 Other contributor:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
