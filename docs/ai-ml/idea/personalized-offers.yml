@@ -33,4 +33,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-offers.png
 content: |
-  [!include[](personalized-offers-content.md)]
+  [!INCLUDE[](personalized-offers-content.md)]
