@@ -119,7 +119,7 @@ When you work with platform services, the specific service you use determines wh
 
 ### Agents
 
-If you need to enable your tenants to receive messages that are initiated by your solution, or if you need to access data that exists in tenants' own networks, then consider providing an agent (sometimes called an _on-premises gateway_) that they can deploy within their network. This approach can work whether your tenants' networks are in Azure, in another cloud provider, or on premises.
+If you need to enable your tenants to receive messages that are initiated by your solution, or if you need to access data that exists in tenants' own networks, then consider providing an agent (sometimes called an *on-premises gateway*) that they can deploy within their network. This approach can work whether your tenants' networks are in Azure, in another cloud provider, or on premises.
 
 The agent initiates an outbound connection to an endpoint that you specify and control, and either keeps long-running connections alive or polls intermittently. Consider using [Azure Relay](/azure/azure-relay/relay-what-is-it) to establish and manage connections from your agent to your service. When the agent establishes the connection, it authenticates and includes some information about the tenant identifier so that your service can map the connection to the correct tenant.
 

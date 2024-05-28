@@ -78,7 +78,7 @@ The following sections illustrate one approach to detecting a potential retry st
 
 [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) records telemetry from applications and makes the data available for querying and visualization. Outbound connections are tracked as dependencies, and information about them can be accessed and charted to identify when a client is making a large number of outbound requests to the same service.
 
-The following graph was taken from the Metrics tab within the Application Insights portal, and displaying the _Dependency failures_ metric split by _Remote dependency name_. This illustrates a scenario where there were a large number (over 21,000) of failed connection attempts to a dependency within a short time.
+The following graph was taken from the Metrics tab within the Application Insights portal, and displaying the *Dependency failures* metric split by *Remote dependency name*. This illustrates a scenario where there were a large number (over 21,000) of failed connection attempts to a dependency within a short time.
 
 ![Screenshot of Application Insights showing 21k dependency failures to a single dependency within a 30-minute period](_images/client-application-insights.png)
 

@@ -92,7 +92,7 @@ Some Azure services provide features that allow other methods of attribution of 
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -104,7 +104,7 @@ Other contributors:
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
