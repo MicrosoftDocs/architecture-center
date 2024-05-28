@@ -241,9 +241,9 @@ Figure 3 Potential future exposure for MSFT equity forward
 
 ## Using Azure Batch with R
 
-The R solution described above can be connected to Azure Batch and use the cloud for risk calculations. This takes little extra effort for a parallel calculation such as ours. The tutorial, [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely), provides detailed information on connecting R to Azure Batch. Below we show the code and summary of the process to connect to Azure Batch and how to take advantage of the extension to the cloud in a simplified PFE calculation.
+The R solution described previously can be connected to Azure Batch and use the cloud for risk calculations. This takes little extra effort for a parallel calculation such as ours. The tutorial, [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely), provides detailed information on connecting R to Azure Batch. Below we show the code and summary of the process to connect to Azure Batch and how to take advantage of the extension to the cloud in a simplified PFE calculation.
 
-This example tackles the same model described earlier. As we've seen before, this calculation can run on our personal computer. Increases to the number of Monte Carlo paths or use of smaller time steps will result in much longer execution times. Almost all of the R code will remain unchanged. We'll highlight the differences in this section.
+This example tackles the same model described earlier. As we've seen before, this calculation can run on our personal computer. Increases to the number of Monte Carlo paths or use of smaller time steps will result in longer execution times. Almost all of the R code will remain unchanged. We'll highlight the differences in this section.
 
 Each path of the Monte Carlo simulation runs in Azure. We can do this because each path is independent of the others, giving us a calculation that's easily parallelized.
 
@@ -306,7 +306,7 @@ rownames(exposure_mc) <- c()
 
 Each Monte Carlo simulation is submitted as a task to Azure Batch. The task executes in the cloud. Results are merged before being sent back to the analyst workbench. The heavy lifting and computations execute in the cloud to take full advantage of scaling and the underlying infrastructure required by the requested calculations.
 
-After the calculations have finished, the extra resources can easily be shut-down by invoking the following a single instruction:
+After the calculations have finished, the extra resources can easily be shut down by invoking the following a single instruction:
 
 ```R
 # Stop the cloud cluster
