@@ -19,7 +19,7 @@ ms.custom:
 
 # Monitor workload deployments
 
-*This article is part of a series. Start with the [overview](aks-triage-practices.md).&
+*This article is part of a series. Start with the [overview](aks-triage-practices.md).*
 
 It's important to monitor the health and performance of your Kubernetes workloads to ensure that they run optimally. Azure Kubernetes Service (AKS) has several tools that you can use to check the health and performance of your deployments, `DaemonSet` features, and services.
 
