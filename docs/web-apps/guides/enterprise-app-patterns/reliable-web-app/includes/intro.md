@@ -11,6 +11,36 @@ This article provides guidance on implementing the Reliable Web App pattern. Thi
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***](reference-implementation) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
 
-| Benefits | Architecture updates | Code updates<br>(design patterns) | Configuration updates |
-|----------|--------------|--------------|---------------|
-| • Cloud-optimized web app <br> • High-value updates <br>• Minimal code changes | • PaaS solutions<br>• Secure ingress<br>• Network topology<br>• Infrastructure reliability<br>• Private endpoints | • Retry pattern<br>• Circuit-breaker pattern<br>• Cache-aside pattern | • User authentication and authorization<br>• Managed identities <br>• Rightsized environments <br>• Infrastructure as code <br>• Monitoring|
+:::row:::
+    :::column:::
+        **Benefits**\
+        • Cloud-optimized web app\
+        • High-value updates\
+        • Minimal code changes
+    :::column-end:::
+    :::column:::
+        **Architecture updates**\
+        • PaaS solutions\
+        • Secure ingress\
+        • Network topology\
+        • Infrastructure reliability\
+        • Private endpoints
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Code updates**\
+        • Retry pattern\
+        • Circuit-breaker pattern\
+        • Cache-aside pattern
+    :::column-end:::
+    :::column:::
+        **Configuration updates**\
+        • User authentication and authorization\
+        • Managed identities\
+        • Rightsized environments\
+        • Infrastructure as code\
+        • Monitoring
+    :::column-end:::
+:::row-end:::
+---
