@@ -300,7 +300,7 @@ Implement monitoring to enhance the operational excellence and performance effic
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Modern Web App pattern for .NET reference implementation](https://github.com/azure/modern-web-app-pattern-dotnet)
+>[Reliable Web App pattern for .NET reference implementation](reference-implementation)
 
 ## More resources
 
