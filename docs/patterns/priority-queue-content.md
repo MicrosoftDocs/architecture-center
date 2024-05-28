@@ -37,9 +37,6 @@ Use multiple consumers when you need guaranteed low-priority processing, queue i
 
 With a single consumer pool, all queues share a single pool of consumers. Consumers process messages from the highest priority queue first and only process messages from lower priority queues when there are no high priority messages. As a result, the single consumer pool always processes higher priority messages before lower priority ones. This setup could lead to lower priority messages being continually delayed and potentially never processed.
 
->[!NOTE]
-> The [Competing Consumers pattern](./competing-consumers.yml) is relevant here as it allows you to scale the number of consumer based on demand. Most message queue implementations support multiple consumers. Multiple instances of a consumer application compete to process messages from the same queue. The Competing Consumers pattern helps balance the load and improve processing efficiency.
-
 ## Considerations for the priority queue pattern
 
 Consider the following recommendations when you decide how to implement the priority queue pattern:
@@ -51,8 +48,6 @@ Consider the following recommendations when you decide how to implement the prio
 - *Adjust consumer pools dynamically.* Scale the size of consumer pools based on the queue length they're servicing.
 
 - *Prioritize service levels.* Implement priority queues to meet business needs that require prioritized availability or performance. Different customer groups can receive varying levels of service, ensuring high-priority customers experience better performance and availability.
-
-- *Determine priorities logically.* Use logical criteria to set message priorities. For instance, designate messages as "paying customer" or "nonpaying customer" and allocate more resources to processing messages from paying customers.
 
 - *Ensure low-priority processing.* In queues that support message prioritization, dynamically increase the priority of aged messages if the system allows it, ensuring they eventually get processed.
 
