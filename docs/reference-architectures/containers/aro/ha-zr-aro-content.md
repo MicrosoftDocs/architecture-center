@@ -8,7 +8,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 :::image type="content" source="./images/openshift-zonal-architecture.png" alt-text="Diagram that shows the architecture for a web application with high availability." lightbox="./images/openshift-zonal-architecture.png" border="false":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -207,7 +207,7 @@ To deploy this architecture, see the [Azure Red Hat OpenShift landing zone accel
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -219,7 +219,7 @@ Other contributors:
 * [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | FastTrack for Azure Customer Engineer
 * [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
