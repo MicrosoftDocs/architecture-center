@@ -212,15 +212,13 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 ### Right size environments
 
-[!INCLUDE [Right size environments intro](../includes/rightsize.md)]
-
-For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
-
-```bicep
-    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-    var redisCacheFamilyName = isProd ? 'C' : 'C'
-    var redisCacheCapacity = isProd ? 1 : 0
-```
+[!INCLUDE [Right size environments intro](../includes/rightsize.md)] For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
+    
+    ```bicep
+        var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
+        var redisCacheFamilyName = isProd ? 'C' : 'C'
+        var redisCacheCapacity = isProd ? 1 : 0
+    ```
 
 ### Implement autoscaling
 

@@ -170,13 +170,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
 
 ### Right size environments
 
-[!INCLUDE [Right size environments intro](../includes/rightsize.md)]
+[!INCLUDE [Right size environments intro](../includes/rightsize.md)] For example, the reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs.
 
-For example, the reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs. The following code shows this environment parameter.
-
-```azurecli
-azd env set APP_ENVIRONMENT prod
-```
+    ```azurecli
+    azd env set APP_ENVIRONMENT prod
+    ```
 
 ### Use autoscale
 
