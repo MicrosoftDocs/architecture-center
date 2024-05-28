@@ -99,7 +99,7 @@ For databases, you can move your database from a VM to a service. Azure supports
 
 ## Rebuild
 
-Up until this point, we tried to minimize changes to the ecommerce systems—we left working systems alone. Now, let's discuss how to really take advantage of the cloud. This stage means to revise the existing application by aggressively adopting PaaS or even SaaS services and architecture. The process encompasses major revisions to add new functionality or to rearchitect the application for the cloud.  _Managed APIs_ is a new concept that takes advantage of cloud systems. We can make our system easier to update, by creating APIs for communication between services.  A second benefit is the ability to gain insights on the data we have. We do this by moving to a _microservice plus API_ architecture and use machine learning and other tools to analyze data.
+Up until this point, we tried to minimize changes to the ecommerce systems—we left working systems alone. Now, let's discuss how to really take advantage of the cloud. This stage means to revise the existing application by aggressively adopting PaaS or even SaaS services and architecture. The process encompasses major revisions to add new functionality or to rearchitect the application for the cloud.  *Managed APIs* is a new concept that takes advantage of cloud systems. We can make our system easier to update, by creating APIs for communication between services.  A second benefit is the ability to gain insights on the data we have. We do this by moving to a *microservice plus API* architecture and use machine learning and other tools to analyze data.
 
 ### Microservices + APIs
 
@@ -142,7 +142,7 @@ Moving your ecommerce system into Azure takes analysis, planning and a defined a
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 

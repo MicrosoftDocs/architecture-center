@@ -307,7 +307,7 @@ IBM offers specialist services to help you with installation. Contact your IBM t
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
