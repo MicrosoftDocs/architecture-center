@@ -212,24 +212,15 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 ### Right size environments
 
-:::row:::
-    :::column:::
-        ***Well-Architected Framework alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
-    :::column-end:::
-:::row-end:::
----
+[!INCLUDE [Right size environments intro](../includes/rightsize.md)]
 
-Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess. To right-size your environments, follow these recommendations:
+For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment.
 
-- *Cost optimize production environments.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. Continuously monitor resource usage and adjust SKUs to align with actual performance needs.
-- *Cost optimize preproduction environments.* [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should use lower-cost resources, disable unneeded services, and apply discounts such as [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/#overview). Ensure [preproduction environments are sufficiently similar to production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid introducing risks. This balance ensures that testing remains effective without incurring unnecessary costs.
-- *Define SKUs using infrastructure as code (IaC).* Implement IaC to dynamically select and deploy the correct SKUs based on the environment. This approach enhances consistency and simplifies management. For example, the reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
-
-    ```bicep
+```bicep
     var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
     var redisCacheFamilyName = isProd ? 'C' : 'C'
     var redisCacheCapacity = isProd ? 1 : 0
-    ```
+```
 
 ### Implement autoscaling
 

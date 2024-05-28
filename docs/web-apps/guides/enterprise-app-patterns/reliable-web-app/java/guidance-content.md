@@ -168,21 +168,15 @@ The following sections provide guidance on implementing the configurations updat
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
-### Rightsize environments
+### Right size environments
 
-- *Optimize all environments.* Use the performance tiers (SKUs) of Azure services that meets the needs of [each environment](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments).
+[!INCLUDE [Right size environments intro](../includes/rightsize.md)]
 
-- *Optimize production.* Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production.
+For example, the reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs. The following code shows this environment parameter.
 
-- [Prepoduction environments](/azure/well-architected/cost-optimization/optimize-environment-costs#optimize-preproduction-environments) should b the right balance of lower-cost resources, turning off unneeded services, and applying discounts offered for preproduction usage, such as [Azure Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview). Make sure to [balance similarity with production](/azure/well-architected/cost-optimization/optimize-environment-costs#balance-similarity-with-production) to avoid creating production risks.
-
-    The reference implementation uses Bicep parameters to deploy more expensive tiers (SKUs) to the production environment (*see the following code*).
-
-    ```bicep
-    var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
-    var redisCacheFamilyName = isProd ? 'C' : 'C'
-    var redisCacheCapacity = isProd ? 1 : 0
-    ```
+```azurecli
+azd env set APP_ENVIRONMENT prod
+```
 
 ### Use autoscale
 
