@@ -421,7 +421,7 @@ Use external storage instead of on-node (in-cluster) storage where possible. Kee
 
 #### Requirement 2.2.2
 
-Enable only necessary services, protocols, daemons, and so on. as required for the function of the system.
+Enable only necessary services, protocols, daemons, etc., as required for the function of the system.
 
 ##### Your responsibilities
 
