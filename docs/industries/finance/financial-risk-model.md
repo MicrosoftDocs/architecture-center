@@ -325,7 +325,7 @@ Cloud-based services can deliver the required functionality and support risk ana
 - The most common risk calculations required by the regulator must be implemented by everyone under the regulation. By using services from a specialized service provider, the analyst benefits from ready to use, regulator-compliant risk calculations. Such services may include market risk calculations, counterparty risk calculations, X-Value Adjustment (XVA), and even Fundamental Review of Trading Book (FRTB) caculations.
 - These services expose their interfaces through web services. The existing risk infrastructure can be enhanced by these other services.
 
-In our example, we want to invoke a cloud-based service for FRTB calculations. Several of these can be found on [AppSource](https://appsource.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely). For this article we chose a trial option from [Vector Risk](http://www.vectorrisk.com). We'll continue to modify our system. This time, we use a service to calculate the risk figure of interest. This process consists of the following steps:
+In our example, we want to invoke a cloud-based service for FRTB calculations. Several of these can be found on [AppSource](https://appsource.microsoft.com/en-us/product/web-apps/numerix.32502914-857f-402f-a0b0-3cd948b4a5ba?tab=Overview). For this article we chose a trial option from [Vector Risk](http://www.vectorrisk.com). We'll continue to modify our system. This time, we use a service to calculate the risk figure of interest. This process consists of the following steps:
 
 1. Call the relevant risk service with the right parameters.
 1. Wait until the service finishes the calculation.
