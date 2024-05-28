@@ -2,8 +2,8 @@
 title: Microsoft mixed reality architecture overview
 titleSuffix: Azure Architecture Center
 description: See an overview of Microsoft mixed-reality concepts, training, best practices, architectures, and Azure services.
-author: martinekuan
-ms.author: martinek
+author: Varnauld
+ms.author: vanesa
 ms.date: 08/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -127,7 +127,6 @@ Solution ideas:
 
 - [Design review with mixed reality](../../solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)
 - [Facilities management with mixed reality and IoT](../../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-- [Training and procedural guidance with mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
 
 > [!div class="nextstepaction"]
 > [Mixed reality samples and apps](/windows/mixed-reality/develop/features-and-samples?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
@@ -135,6 +134,3 @@ Solution ideas:
 ## Stay current with mixed reality
 
 Mixed reality is changing fast. Explore the expanding world of mixed reality applications with the Mixed Reality Toolkit (MRTK), Windows Mixed Reality, Unity, Unreal, and more for HoloLens and Windows Immersive Headsets.
-
-> [!div class="nextstepaction"]
-> [Mixed reality documentation](/windows/mixed-reality)
