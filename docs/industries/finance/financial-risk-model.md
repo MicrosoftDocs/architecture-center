@@ -241,7 +241,7 @@ Figure 3 Potential future exposure for MSFT equity forward
 
 ## Using Azure Batch with R
 
-The R solution described previously can be connected to Azure Batch and use the cloud for risk calculations. This takes little extra effort for a parallel calculation such as ours. The tutorial, [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely), provides detailed information on connecting R to Azure Batch. Below we show the code and summary of the process to connect to Azure Batch and how to take advantage of the extension to the cloud in a simplified PFE calculation.
+The R solution described previously can be connected to Azure Batch, and you can use the cloud for risk calculations. This takes little extra effort for a parallel calculation such as ours. The tutorial, [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely), provides detailed information on connecting R to Azure Batch. Below we show the code and summary of the process to connect to Azure Batch and how to take advantage of the extension to the cloud in a simplified PFE calculation.
 
 This example tackles the same model described earlier. As we've seen before, this calculation can run on our personal computer. Increases to the number of Monte Carlo paths or use of smaller time steps will result in longer execution times. Almost all of the R code will remain unchanged. We'll highlight the differences in this section.
 
@@ -325,7 +325,7 @@ Cloud-based services can deliver the required functionality and support risk ana
 - The most common risk calculations required by the regulator must be implemented by everyone under the regulation. By using services from a specialized service provider, the analyst benefits from ready to use, regulator-compliant risk calculations. Such services might include market risk calculations, counterparty risk calculations, X-Value Adjustment (XVA), and even Fundamental Review of Trading Book (FRTB) calculations.
 - These services expose their interfaces through web services. The existing risk infrastructure can be enhanced by these other services.
 
-In our example, we want to invoke a cloud-based service for FRTB calculations. Several of these can be found on [AppSource](https://appsource.microsoft.com/en-us/product/web-apps/numerix.32502914-857f-402f-a0b0-3cd948b4a5ba?tab=Overview). For this article we chose a trial option from [Vector Risk](http://www.vectorrisk.com). We'll continue to modify our system. This time, we use a service to calculate the risk figure of interest. This process consists of the following steps:
+In our example, we want to invoke a cloud-based service for FRTB calculations. Several of these can be found on [AppSource](https://appsource.microsoft.com/product/web-apps/numerix.32502914-857f-402f-a0b0-3cd948b4a5ba). For this article we chose a trial option from [Vector Risk](http://www.vectorrisk.com). We'll continue to modify our system. This time, we use a service to calculate the risk figure of interest. This process consists of the following steps:
 
 1. Call the relevant risk service with the right parameters.
 1. Wait until the service finishes the calculation.
