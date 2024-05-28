@@ -7,6 +7,7 @@ metadata:
   ms.author: msunda
   ms.date: 09/20/2022
   ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -32,4 +33,4 @@ products:
   - azure-stream-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-offers.png
 content: |
-  [!include[](personalized-offers-content.md)]
+  [!INCLUDE[](personalized-offers-content.md)]

@@ -1,6 +1,6 @@
 This solution uses confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers with data from Azure Data Lake and Azure SQL Database. Confidential computing is provided by Intel Software Guard Extensions and AMD EPYC<sup>TM</sup> processors with Secure Encrypted Virtualization-Secure Nested Paging. For more information on provisioning an AKS cluster with AMD SEV-SNP confidential VMs, see [Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs](/azure/confidential-computing/confidential-node-pool-aks). For more information about deploying an AKS cluster with confidential computing Intel SGX agent nodes, see [Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 
-_Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks._
+*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -28,7 +28,7 @@ You can easily extend this pattern to include any data sources that Spark's larg
 
 4. With the help of the SCONE confidential computing software, the data engineer builds a confidential Docker image that contains the encrypted analytics code and a secure version of PySpark. SCONE works within an AKS cluster that has Intel SGX enabled (see [Create an AKS cluster with a system node pool](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started#create-an-aks-cluster-with-a-system-node-pool)), which allows the container to run inside an enclave. PySpark provides evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment (TEE)—which means that no humans, no processes, and no logs have access to the plaintext data or the application code.
 
-5. The PySpark application is deployed to the remote AKS cluster. It starts and sends its attestation evidence to the attestation provider. If the evidence is valid, an _attestation token_ is returned. The remote infrastructure accepts the attestation token and verifies it with a public certificate that's found in the Azure Attestation service. If the token is verified, there's near certainty that the enclave is safe and that neither the data nor the app code have been opened outside the enclave. The configuration in the security policy (environment variables, command-line arguments, and secrets) is then injected into PySpark enclaves.
+5. The PySpark application is deployed to the remote AKS cluster. It starts and sends its attestation evidence to the attestation provider. If the evidence is valid, an *attestation token* is returned. The remote infrastructure accepts the attestation token and verifies it with a public certificate that's found in the Azure Attestation service. If the token is verified, there's near certainty that the enclave is safe and that neither the data nor the app code have been opened outside the enclave. The configuration in the security policy (environment variables, command-line arguments, and secrets) is then injected into PySpark enclaves.
 
 6. You can horizontally scale the PySpark execution across several Kubernetes nodes. All PySpark instances communicate over an encrypted channel, and all the files are encrypted that need to be written to their local file systems (for example, shuffle files).
 
@@ -60,12 +60,12 @@ The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.
 
 There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights from regulated data if the data is processed in a compliant manner. Confidential computing is especially helpful in scenarios where the scale that's provided by cloud computing is needed to process the data confidentially.
 
-Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or _attested_. Confidential computing prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. It also helps to keep data protected throughout its lifecycle—while the data is at rest, in transit, and also now while it's in use.
+Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or *attested*. Confidential computing prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. It also helps to keep data protected throughout its lifecycle—while the data is at rest, in transit, and also now while it's in use.
 
 [Confidential containers](/azure/confidential-computing/confidential-nodes-aks-overview) on Azure Kubernetes Service (AKS) provide the necessary infrastructure for customers to use popular applications, such as [Apache Spark](https://spark.apache.org), to perform data cleansing and machine learning training. This article presents a solution that Azure confidential computing offers for running an Apache Spark application on an AKS cluster by using node pools with Intel Software Guard Extensions (Intel SGX). The data from that processing is safely stored in Azure SQL Database by using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15).
 
 > [!NOTE]
-> Confidential data analytics in this context is meant to imply _run analytics on sensitive data with peace of mind against data exfiltration_. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise).
+> Confidential data analytics in this context is meant to imply *run analytics on sensitive data with peace of mind against data exfiltration*. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise).
 > 
 > Confidential data analytics helps to meet the highest needs of security and confidentiality by removing from computation the untrusted parties, such as the cloud operator and service or guest admins. This method helps to meet data compliance needs through hardware-backed guarantees.
 
@@ -113,13 +113,13 @@ Kubernetes admins, or any privileged user with the highest level of access (for 
 
 #### Attestation
 
-_Attestation_ is a mechanism that provides to a client, or _party_, cryptographic evidence that the environment where an app is running is trustworthy, including both its hardware and software, before exchanging data. _Remote attestation_ ensures that your workload hasn't been tampered with when deployed to an untrusted host, such as a VM instance or a Kubernetes node that runs in the cloud. In this process, attestation evidence provided by Intel SGX hardware is analyzed by an attestation provider. 
+*Attestation* is a mechanism that provides to a client, or *party*, cryptographic evidence that the environment where an app is running is trustworthy, including both its hardware and software, before exchanging data. *Remote attestation* ensures that your workload hasn't been tampered with when deployed to an untrusted host, such as a VM instance or a Kubernetes node that runs in the cloud. In this process, attestation evidence provided by Intel SGX hardware is analyzed by an attestation provider. 
 
 To perform remote attestation on a SCONE application (such as Spark Driver and Executor pods), two services are required:
 
 - **Local attestation service (LAS)**: A local service that runs on the untrusted host (AKS node pool VM) and gathers the attestation evidence that's provided by Intel SGX about the application being attested. Because of SCONE's method of app deployment, this evidence is signed and forwarded to the configuration and attestation service (CAS).
 
-- **CAS**: A central service that manages security policies (called _SCONE sessions_), configuration, and secrets. CAS compares the attestation evidence that's gathered by LAS against the application's security policies (which are defined by the application owner) to decide whether the enclave is trustworthy. If it is, CAS allows the enclave to run, and SCONE securely injects configuration and secrets into it. To learn more about CAS and its features, such as secret generation and access control, see [SCONE Configuration and Attestation Service](https://sconedocs.github.io/CASOverview).
+- **CAS**: A central service that manages security policies (called *SCONE sessions*), configuration, and secrets. CAS compares the attestation evidence that's gathered by LAS against the application's security policies (which are defined by the application owner) to decide whether the enclave is trustworthy. If it is, CAS allows the enclave to run, and SCONE securely injects configuration and secrets into it. To learn more about CAS and its features, such as secret generation and access control, see [SCONE Configuration and Attestation Service](https://sconedocs.github.io/CASOverview).
 
 This scenario uses a [public CAS](https://sconedocs.github.io/public-CAS) provided by SCONE for demonstration and simplicity, and it deploys the [LAS](https://sconedocs.github.io/LASIntro) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset) on each AKS node.
 
@@ -133,7 +133,7 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 Deploying this scenario involves the following high-level steps:
 
-- Get access to the PySpark base image that's used in this scenario from SCONE's container registry: see **registry.scontain.com:5050** on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
+- Get access to the PySpark base image that's used in this scenario from SCONE's container registry: see `registry.scontain.com:5050` on [SCONE curated images](https://sconedocs.github.io/SCONE_Curated_Images).
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
   
@@ -145,7 +145,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Build the encrypted image with SCONE confidential computing software and push it to your own Azure Container Registry. The repo has a demo application that counts the number of lines in New York City's [Yellow Taxi trip records](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets), an open dataset of times, locations, fares, and other data that's related to taxi trips. You can adapt this to your specific needs.
 
-- Deploy the Spark application by running the command **spark-submit**. This deploys a driver pod and a configurable number of executor pods (the demo uses three) that run the tasks and report the analysis results to the driver. All communication is encrypted.
+- Deploy the Spark application by running the command `spark-submit`. This deploys a driver pod and a configurable number of executor pods (the demo uses three) that run the tasks and report the analysis results to the driver. All communication is encrypted.
 
 Alternatively, SCONE Confidential PySpark on Kubernetes, a VM, includes the same demo that you can reproduce in a local [minikube](https://minikube.sigs.k8s.io/docs/start) cluster. For more information, see the official documentation: [SCONE PySpark virtual machine](https://sconedocs.github.io/azure/scone-pyspark).
 

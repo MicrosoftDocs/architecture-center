@@ -32,7 +32,7 @@ Many database systems can run code. Examples include stored procedures and trigg
 
 - The database server may spend too much time processing, rather than accepting new client requests and fetching data.
 - A database is usually a shared resource, so it can become a bottleneck during periods of high use.
-- Runtime costs may be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units][dtu] (DTUs).
+- Runtime costs may be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units (DTUs)][dtu].
 - Databases have finite capacity to scale up, and it's not trivial to scale a database horizontally. Therefore, it may be better to move processing into a compute resource, such as a VM or App Service app, that can easily scale out.
 
 This antipattern typically occurs because:

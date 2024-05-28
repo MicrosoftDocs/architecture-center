@@ -189,7 +189,7 @@ The following Azure services have been used in the architecture:
 - [Azure Data Share](https://azure.microsoft.com/services/data-share)
 - [Microsoft Power BI](https://powerbi.microsoft.com)
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
-- [Azure Cost Management](https://azure.microsoft.com/services/cost-management)
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
@@ -258,7 +258,7 @@ In order to improve the quality of your Azure solutions, follow the recommendati
 Following these recommendations, the services below should be considered as part of the design:
 
 1. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
-1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
+1. [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
 1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
 1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): strengthen and monitor the security posture of your Azure workloads.

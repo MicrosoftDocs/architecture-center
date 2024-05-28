@@ -137,6 +137,8 @@ Follow these steps to back up persistent data:
 
 **Principal authors**:
 
+<!-- docutune:ignoredChange ISV -->
+
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
 - [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer, ISV DN CoE
 

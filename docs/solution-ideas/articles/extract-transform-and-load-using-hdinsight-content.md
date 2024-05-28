@@ -16,7 +16,7 @@ The data flows through the architecture as follows:
 
 1. Load data from source systems into Azure data lake with the [Copy Data tool](/azure/data-factory/quickstart-create-data-factory-copy-data-tool#start-the-copy-data-tool).
 
-1. Azure Data Factory is able to create an on-demand HDInsight cluster. Start by creating an [On-Demand HDInsight Linked Service](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-an-on-demand-hdinsight-linked-service). Next, [create a pipeline](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-a-pipeline) and use the appropriate HDInsight activity depending on the Hadoop framework being used (that is, Hive, MapReduce, Spark, etc.).
+1. Azure Data Factory is able to create an on-demand HDInsight cluster. Start by creating an [On-Demand HDInsight Linked Service](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-an-on-demand-hdinsight-linked-service). Next, [create a pipeline](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-a-pipeline) and use the appropriate HDInsight activity depending on the Hadoop framework being used (that is, Hive, MapReduce, Spark, and so on).
 
 1. Trigger the pipeline in Azure Data Factory. The architecture assumes Azure Data Lake store is used as the file system in the Hadoop script executed by the HDInsight activity which was created in Step 3. The script will be executed by an on-demand HDInsight cluster that will write data to a curated area of the data lake.
 

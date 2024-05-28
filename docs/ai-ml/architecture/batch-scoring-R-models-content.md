@@ -93,8 +93,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The compute resources used in this reference architecture are the most costly components. For this scenario, a cluster of fixed size is created whenever the job is triggered and then shut down after the job has completed. Cost is incurred only while the cluster nodes are starting, running, or shutting down. This approach is suitable for a scenario where the compute resources required to generate the forecasts remain relatively constant from job to job.
 
-In scenarios where the amount of compute required to complete the job isn't known in advance, it might be more suitable to use automatic scaling. With this approach, the size of the cluster is scaled up or down depending on the size of the job. Azure Batch supports a range of autoscale formulas, which you can set when defining the cluster using the
-[doAzureParallel][doAzureParallel] API.
+In scenarios where the amount of compute required to complete the job isn't known in advance, it might be more suitable to use automatic scaling. With this approach, the size of the cluster is scaled up or down depending on the size of the job. Azure Batch supports a range of autoscale formulas, which you can set when defining the cluster using the [`doAzureParallel`][doAzureParallel] API.
 
 For some scenarios, the time between jobs might be too short to shut down and start up the cluster. In these cases, keep the cluster running between jobs if appropriate.
 

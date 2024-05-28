@@ -18,13 +18,13 @@ In this solution, you can't use the Azure public DNS service to resolve on-premi
 
 1. A client VM sends a name resolution request for azsql1.database.windows.net to an on-premises internal DNS server.
 
-1. A conditional forwarder is configured on the internal DNS server. It forwards the DNS query for database.windows.net to 10.5.0.254, which is the address of a DNS forwarder VM.
+1. A conditional forwarder is configured on the internal DNS server. It forwards the DNS query for `database.windows.net` to 10.5.0.254, which is the address of a DNS forwarder VM.
 
 1. The DNS forwarder VM sends the request to 168.63.129.16, the IP address of the Azure internal DNS server.
 
 1. The Azure DNS server sends a name resolution request for azsql1.database.windows.net to the Azure recursive resolvers. The resolvers respond with the canonical name (CNAME) azsql1.privatelink.database.windows.net.
 
-1. The Azure DNS server sends a name resolution request for azsql1.privatelink.database.windows.net to the private DNS zone privatelink.database.windows.net. The private DNS zone responds with the private IP address 10.5.0.5.
+1. The Azure DNS server sends a name resolution request for azsql1.privatelink.database.windows.net to the private DNS zone `privatelink.database.windows.net`. The private DNS zone responds with the private IP address 10.5.0.5.
 
 1. The response that associates the CNAME azsql1.privatelink.database.windows.net with the record 10.5.0.5 arrives at the DNS forwarder.
 
@@ -58,10 +58,10 @@ The solution that uses DNS Private Resolver contains the following components:
 
   | Domain name | IP address | Record type |
   | --- | --- | ---|
-  | App1.onprem.company.com | 192.168.0.8 | Address mapping |
-  | App2.onprem.company.com | 192.168.0.9 | Address mapping |
-  | blob.core.windows.net | 10.0.0.8 | DNS forwarder |
-  | azure-api.net | 10.0.0.8 | DNS forwarder |
+  | `App1.onprem.company.com` | 192.168.0.8 | Address mapping |
+  | `App2.onprem.company.com` | 192.168.0.9 | Address mapping |
+  | `blob.core.windows.net` | 10.0.0.8 | DNS forwarder |
+  | `azure-api.net` | 10.0.0.8 | DNS forwarder |
 
 - A hub network.
 
@@ -86,7 +86,7 @@ The solution that uses DNS Private Resolver contains the following components:
 
   - VMs are hosted in all spoke networks for testing and validating DNS resolution.
   - All Azure spoke virtual networks use the default Azure DNS server at the IP address 168.63.129.16. And all spoke virtual networks are peered with the hub virtual networks. All traffic, including traffic to and from DNS Private Resolver, is routed through the hub.
-  - The spoke virtual networks are linked to private DNS zones. This configuration makes it possible to resolve the names of private endpoint link services like privatelink.blob.core.windows.net.
+  - The spoke virtual networks are linked to private DNS zones. This configuration makes it possible to resolve the names of private endpoint link services like `privatelink.blob.core.windows.net`.
 
 #### Traffic flow for an on-premises DNS query
 
@@ -96,9 +96,9 @@ The following diagram shows the traffic flow that results when an on-premises se
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-dns-private-resolver.pptx) of this architecture.*
 
-1. An on-premises server queries an Azure private DNS service record, such as blob.core.windows.net. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2. All on-premises computers point to the local DNS server.
+1. An on-premises server queries an Azure private DNS service record, such as `blob.core.windows.net`. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2. All on-premises computers point to the local DNS server.
 
-1. A conditional forwarder on the local DNS server for blob.core.windows.net forwards the request to the DNS resolver at IP address 10.0.0.8.
+1. A conditional forwarder on the local DNS server for `blob.core.windows.net` forwards the request to the DNS resolver at IP address 10.0.0.8.
 
 1. The DNS resolver queries Azure DNS and receives information about an Azure private DNS service virtual network link.
 
@@ -156,7 +156,7 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 1. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2.
 
-1. A conditional forwarder on the local DNS server for blob.core.windows.net forwards the request to the DNS resolver at IP address 10.0.0.8.
+1. A conditional forwarder on the local DNS server for `blob.core.windows.net` forwards the request to the DNS resolver at IP address 10.0.0.8.
 
 1. The DNS resolver queries Azure DNS and receives information about an Azure private DNS service virtual network link.
 

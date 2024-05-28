@@ -2879,7 +2879,7 @@ items:
         maintainContext: true
       - name: Inbound and outbound internet connections for SAP on Azure
         href: guide/sap/sap-internet-inbound-outbound.yml
-      - name: SAP workload configurations with AZs
+      - name: SAP workload configurations with availability zones
         href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
         maintainContext: true
       - name: Supported scenarios for HLI

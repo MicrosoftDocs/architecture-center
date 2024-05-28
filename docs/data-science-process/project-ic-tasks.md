@@ -8,6 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
@@ -21,7 +22,7 @@ categories:
 
 # Individual contributor tasks in the Team Data Science Process
 
-This article outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.yml) (TDSP). The individual contributor works in a collaborative team environment that standardizes on the TDSP. The TDSP helps improve collaboration and team learning. For more information, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process (TDSP)](overview.yml). The individual contributor works in a collaborative team environment that standardizes on the TDSP. The TDSP helps improve collaboration and team learning. For more information, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 ## Major roles of the individual contributor
 

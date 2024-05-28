@@ -18,7 +18,7 @@ ms.custom:
 
 # Verify the connection to the container registry
 
-_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
+*This article is part of a series. Start with the [overview](aks-triage-practices.md).*
 
 To successfully deploy containerized applications in your Azure Kubernetes Service (AKS) cluster, it's essential to verify the connectivity between the cluster and the container registry. This step guarantees that your worker nodes have the necessary permissions to pull the required container images from the registry.
 

@@ -3,9 +3,9 @@ metadata:
   title: Hub-spoke network topology with Azure Virtual WAN
   titleSuffix: Azure Architecture Center
   description: A hub-spoke reference architecture.
-  author: martinekuan
+  author: yemrea
   ms.author: yemrea
-  ms.date: 04/12/2023
+  ms.date: 05/24/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
