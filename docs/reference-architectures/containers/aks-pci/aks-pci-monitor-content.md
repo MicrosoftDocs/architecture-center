@@ -205,7 +205,7 @@ Review logs and security events for all system components to identify anomalies 
     - All security events
     - Logs of all system components that store, process, or transmit CHD and/or SAD
     - Logs of all critical system components
-    - Logs of all servers and system components that perform security functions (for example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers, e-commerce redirection servers, and so on)."
+    - Logs of all servers and system components that perform security functions (for example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers, e-commerce redirection servers, etc.)."
 - 10.6.2 Review logs of all other system components periodically based on the organization's policies and risk management strategy, as determined by the organization's annual risk assessment.
 - 10.6.3 Follow up exceptions and anomalies identified during the review process.
 
