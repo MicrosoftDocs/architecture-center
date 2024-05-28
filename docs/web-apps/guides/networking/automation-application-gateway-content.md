@@ -70,7 +70,7 @@ This architecture works best for:
 
 The preceding scenario updates a backend pool for Application Gateway. As an alternative, you could use an Azure private DNS zone as a target backend for Application Gateway and use Azure functions to update a record instead of making changes on Application Gateway. This alternative would reduce deployment time. On the other hand, Application Gateway metrics wouldn't be able to identify the host count because it would be abstracted by DNS. So this automation would need to be triggered through an application monitoring solution like Application Insights or Azure Monitor directly.
 
-Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes) , [Azure App Service](/azure/app-service/quickstart-custom-container) and [Azure Container Apps](/azure/container-apps/overview).
+Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Azure App Service](/azure/app-service/quickstart-custom-container), and [Azure Container Apps](/azure/container-apps/overview).
 
 Azure Kubernetes Service provides advanced container orchestration and network capabilities like the [Service resource](https://kubernetes.io/docs/concepts/services-networking/service), which isn't available in Container Instances. This reference architecture addresses this requirement.
 
