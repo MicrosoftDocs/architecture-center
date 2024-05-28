@@ -17,7 +17,7 @@ Priority queues allow workloads to process tasks based on their priority rather 
 
 With a single queue, the sending application assigns a priority to each message, and sends it to the queue. The queue orders messages by priority, ensuring that consumers process higher-priority messages before lower-priority ones.
 
-![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-pattern.png)
+![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-pattern.png)<br>
 *Architecture of a single queue and single consumer pool.*
 
 ### Multiple queues
@@ -30,7 +30,7 @@ With multiple consumer pools, each queue has its own designated consumers. Highe
 
 Use multiple consumers when you need guaranteed low-priority processing, queue isolation, dedicated resource allocation, scalability, and performance fine-tuning.
 
-![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-separate.png)
+![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-separate.png)<br>
 *Architecture of multiple queues and multiple consumer pools.*
 
 #### Single consumer pool
@@ -90,7 +90,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The PriorityQueue example on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) implements the priority queue pattern using Azure Service Bus.
 
-![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-service-bus.png)
+![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-service-bus.png)<br>
 *Architecture of the PriorityQueue example on GitHub*
 
 The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. `PriorityQueueSender` uses a time-triggered Azure function that posts messages to a Service Bus topic every 30 seconds. The function binds to an Service Bus topic named "messages". `IAsyncCollector` is an interface provided by Azure Functions SDK that allows for the asynchronous collection of ServiceBusMessage objects. The `collector` parameter acts as a container that accumulates messages to be sent to the specified Service Bus topic. Within the function, messages are created and added to the collector using its `AddAsync` method.
