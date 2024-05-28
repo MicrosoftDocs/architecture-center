@@ -5,15 +5,11 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 *How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need:
 
 - [***Architecture guidance***](#architecture-guidance): Learn how to modularize web app components and select appropriate platform-as-a-service (PaaS) solutions.
-- [***Code guidance***](#code-guidance): Implement four design patterns to optimize the decoupled components.
+- [***Code guidance***](#code-guidance): Implement four design patterns to optimize the decoupled components: Strangler Fig, Queue-Based Load Leveling, Competing Consumers, and Health Endpoint Monitoring patterns.
 - [***Configuration guidance***](#configuration-guidance): Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
 > [!TIP]
 > ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation](reference-implementation)*** (example app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
-
-| Benefits | Architecture updates | Code updates<br>(design patterns) | Configuration updates |
-| --- | --- | --- | --- |
-| • Optimization of high-demand areas<br>• Cost-optimized scaling<br>• Enhanced performance |  • Decouple web app <br>• Select PaaS solutions | • Strangler Fig pattern<br>• Queue-Based Load Leveling pattern<br>• Competing Consumers pattern<br>• Health Endpoint Monitoring pattern | • Authentication and authorization<br>• Independent autoscaling <br>• Containerization |
 
 ## Architecture guidance
 
