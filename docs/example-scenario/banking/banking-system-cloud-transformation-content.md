@@ -26,7 +26,7 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
 1. A new EFT starts with an HTTP request received by the Channel Holder service.
 
-    The service provides synchronous responses to requesters using a _publish-subscribe_ pattern through an Azure Cache for Redis and waits for a backend response.
+    The service provides synchronous responses to requesters using a *publish-subscribe* pattern through an Azure Cache for Redis and waits for a backend response.
 
 1. The solution validates this initial request using the EFT Pilot Password service.
 
@@ -60,7 +60,7 @@ The solution involves three major capabilities:
 
 #### Horizontal Pod Autoscaler for Channel Holder
 
-In this solution, the team used a Kubernetes/OpenShift HPA mechanism. HPA automatically scales the number of pods based on a selected metric. Doing so provides an efficient _scale in and out_ mechanism for containers. Given the CPU-bound nature of the Channel Holder REST API, the team opted for using HPA with CPU so that the service replicas can grow as new EFTs occur.
+In this solution, the team used a Kubernetes/OpenShift HPA mechanism. HPA automatically scales the number of pods based on a selected metric. Doing so provides an efficient *scale in and out* mechanism for containers. Given the CPU-bound nature of the Channel Holder REST API, the team opted for using HPA with CPU so that the service replicas can grow as new EFTs occur.
 
 This component runs a service called Channel Holder on Azure Red Hat OpenShift. It carries out pod autoscaling tests on this service. The component had to achieve the following capabilities:
 

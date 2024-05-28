@@ -41,7 +41,7 @@ The solution was set up in this way to:
 - [Azure Application Insights](https://azure.microsoft.com/services/monitor) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
 - [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) load balances between geo locations.
-- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either _Standard_  or _Advanced_  mode.
+- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either *Standard*  or *Advanced*  mode.
 
 ### Alternatives
 
@@ -82,7 +82,7 @@ In Advanced mode, the hearing aid professional uses the fitting software to push
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, etc.) globally using a content delivery network (CDN) to improve speed through caching.
+We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, and so on) globally using a content delivery network (CDN) to improve speed through caching.
 
 ### Deployment
 

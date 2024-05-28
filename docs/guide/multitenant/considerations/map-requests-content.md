@@ -40,7 +40,7 @@ When using this approach, you should consider the following questions:
 
 ### Token claims
 
-Many applications use claims-based authentication and authorization protocols, such as OAuth 2.0 or SAML. These protocols provide authorization tokens to the client. A token contains a set of _claims_, which are pieces of information about the client application or user. Claims can be used to communicate information like a user's email address. Your system can then include the user's email address, look up the user-to-tenant mapping, and then forward the request to the appropriate deployment. Or, you might even include the tenant mapping in your identity system, and add a tenant ID claim to the token.
+Many applications use claims-based authentication and authorization protocols, such as OAuth 2.0 or SAML. These protocols provide authorization tokens to the client. A token contains a set of *claims*, which are pieces of information about the client application or user. Claims can be used to communicate information like a user's email address. Your system can then include the user's email address, look up the user-to-tenant mapping, and then forward the request to the appropriate deployment. Or, you might even include the tenant mapping in your identity system, and add a tenant ID claim to the token.
 
 If you are using claims to map requests to tenants, you should consider the following questions:
 
@@ -50,7 +50,7 @@ If you are using claims to map requests to tenants, you should consider the foll
 
 ### API keys
 
-Many applications expose APIs. These might be for internal use within your organization, or for external use by partners or customers. A common method of authentication for APIs is to use an _API key_. API keys are provided with each request, and they can be used to look up the tenant.
+Many applications expose APIs. These might be for internal use within your organization, or for external use by partners or customers. A common method of authentication for APIs is to use an *API key*. API keys are provided with each request, and they can be used to look up the tenant.
 
 API keys can be generated in several ways. A common approach is to generate a cryptographically random value and store it in a lookup table, alongside the tenant ID. When a request is received, your system finds the API key in the lookup table, and it then matches it to a tenant ID. Another approach is to create a meaningful string with a tenant ID included inside it, and then you would digitally sign the key, by using an approach like [HMAC](https://en.wikipedia.org/wiki/HMAC). When you process each request, you verify the signature and then extract the tenant ID.
 
@@ -69,7 +69,7 @@ Consider the following questions:
 
 ### Client certificates
 
-Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide _attributes_ that can be used to determine the tenant. For example, the _subject_ of the certificate may contain the email address of the user, which can be used to look up the tenant.
+Client certificate authentication, sometimes called mutual TLS (mTLS), is commonly used for service-to-service communication. Client certificates provide a secure way to authenticate clients. Similarly to tokens and claims, client certificates provide *attributes* that can be used to determine the tenant. For example, the *subject* of the certificate may contain the email address of the user, which can be used to look up the tenant.
 
 When planning to use client certificates for tenant mapping consider the following:
 
@@ -93,10 +93,10 @@ The following common reverse proxies are used in Azure:
 
 ## Request validation
 
-It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the _audience_ and _scope_ claims.
+It is important that your application validates that any requests that it receives are authorized for the tenant. For example, if your application uses a custom domain name to map requests to the tenant, then your application must still check that each request received by the application is authorized for that tenant. Even though the request includes a domain name or other tenant identifier, it doesn't mean you should automatically grant access. When you use OAuth 2.0, you perform the validation by inspecting the *audience* and *scope* claims.
 
 > [!NOTE]
-> This is part of the _assume zero trust_ security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
+> This is part of the *assume zero trust* security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
 
 When implementing request validation, you should consider the following:
 
@@ -109,7 +109,7 @@ Tenant mapping logic likely runs on every request to your application. Consider 
 
 ### Session affinity
 
-One approach to reducing the performance overhead of tenant mapping logic is to use _session affinity_. Rather than perform the mapping on every request, consider computing the information only on the first request for each session. Your application then provides a _session cookie_ to the client. The client passes the session cookie back to your service with all subsequent client requests within that session.
+One approach to reducing the performance overhead of tenant mapping logic is to use *session affinity*. Rather than perform the mapping on every request, consider computing the information only on the first request for each session. Your application then provides a *session cookie* to the client. The client passes the session cookie back to your service with all subsequent client requests within that session.
 
 > [!NOTE]
 > Many networking and application services in Azure can issue session cookies and natively route requests by using session affinity.
@@ -128,7 +128,7 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -140,7 +140,7 @@ Other contributors:
 - [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -6,7 +6,7 @@ This article provides a set of proven practices for improving the security of in
 
 [![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-main.svg)](media/sap-internet-communication-architecture-main.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article.*
 
 This solution illustrates a common production environment. You can reduce the size and scope of the configuration to fit your requirements. This reduction might apply to the SAP landscape: fewer virtual machines (VMs), no high availability, or embedded SAP Web Dispatchers instead of discrete VMs. It can also apply to alternatives to the network design, as described later in this article.
 
@@ -65,7 +65,7 @@ To address the recommendations in this article but limit the drawbacks, you can 
 
 [![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-simplified.svg)](media/sap-internet-communication-architecture-simplified.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article.*
 
 For deployments that are smaller in size and scope, the simplified architecture might be a better fit, and it still adheres to the principles of the more complex architecture. This article, unless otherwise noted, refers to the more complex architecture.
 

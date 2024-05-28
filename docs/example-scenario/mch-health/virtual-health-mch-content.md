@@ -4,7 +4,7 @@ This article discusses a potential solution for scheduling and following up on v
 
 [![Architecture for virtual visit using Microsoft Cloud for Healthcare](./images/virtual-health-solution.png)](./images/virtual-health-solution.png#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/virtual-health-solution.vsdx) that contains this architecture diagram._
+*Download a [Visio file](https://arch-center.azureedge.net/virtual-health-solution.vsdx) that contains this architecture diagram.*
 
 In this architecture diagram, the blue-lined boxes represent the Microsoft services that are either the underlying services or add-ons required for [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare?rtc=1), each of which must be licensed separately. These components together help speed up development of integrated healthcare solutions for patient engagement, health team collaboration, and improvement of clinical and operational data insights.
 

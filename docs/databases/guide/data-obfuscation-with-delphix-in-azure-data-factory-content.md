@@ -155,7 +155,7 @@ For optimal performance for datasets larger than 1 TB in size, [Delphix Hypersca
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 

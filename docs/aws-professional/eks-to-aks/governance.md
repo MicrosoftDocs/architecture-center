@@ -59,7 +59,7 @@ Kyverno uses `kustomize`-style overlays for validation, supports JSON patch and 
 
 Kyverno, unlike Gatekeeper or Azure Policy for AKS, can generate new Kubernetes objects with policies, not just validate or mutate existing resources. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
 
-For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation). For a list of ready-to-use or customizable policies, see the Kyverno [Policies](https://kyverno.io/policies) library. For troubleshooting reference (*eg. APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
+For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation). For a list of ready-to-use or customizable policies, see the Kyverno [Policies](https://kyverno.io/policies) library. For troubleshooting reference (such as *APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
 
 Optionally, you can deploy Kyverno's implementation of the [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards) as [Kyverno policies](https://artifacthub.io/packages/helm/kyverno/kyverno-policies). The PSS controls provide a starting point for general Kubernetes cluster operational security.
 

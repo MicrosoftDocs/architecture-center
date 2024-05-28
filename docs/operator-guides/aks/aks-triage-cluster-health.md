@@ -18,7 +18,7 @@ ms.custom:
 
 # Evaluate AKS cluster health
 
-_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
+*This article is part of a series. Start with the [overview](aks-triage-practices.md).*
 
 To begin your triage practice, evaluate the overall health of the cluster and networking.
 
@@ -28,11 +28,11 @@ There are many tools and features that you can use to diagnose and solve problem
 
 In the Azure portal, select your AKS cluster resource. These tools and features are in the navigation pane.
 
-- [_Diagnose and solve problems_](/azure/aks/aks-diagnostics): You can use this tool to help identify and resolve issues within your cluster.
+- [*Diagnose and solve problems*](/azure/aks/aks-diagnostics): You can use this tool to help identify and resolve issues within your cluster.
 
-- [_Resource health_](/azure/service-health/resource-health-overview): You can use this tool to help diagnose and obtain support for service problems that might affect your Azure resources. This tool provides information about your resources' current and past health status.
-- _Advisor recommendations_: [Azure Advisor](/azure/advisor/advisor-overview) acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. You can use Advisor to analyze your resource configuration and usage telemetry. Advisor suggests solutions so you can enhance cost-effectiveness, performance, reliability, and security.
-- _Logs_: Use this feature to access the cluster logs and metrics that are stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. You can monitor and analyze your cluster's logs and metrics to provide insight and improve troubleshooting.
+- [*Resource health*](/azure/service-health/resource-health-overview): You can use this tool to help diagnose and obtain support for service problems that might affect your Azure resources. This tool provides information about your resources' current and past health status.
+- *Advisor recommendations*: [Azure Advisor](/azure/advisor/advisor-overview) acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. You can use Advisor to analyze your resource configuration and usage telemetry. Advisor suggests solutions so you can enhance cost-effectiveness, performance, reliability, and security.
+- *Logs*: Use this feature to access the cluster logs and metrics that are stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. You can monitor and analyze your cluster's logs and metrics to provide insight and improve troubleshooting.
 
 Use these tools and features so you can effectively diagnose and resolve issues, optimize your AKS cluster deployment, and monitor the health and performance of your Azure resources.
 
@@ -51,7 +51,7 @@ To check the cluster health, you might choose:
 
 Use the [resource health](/azure/service-health/resource-health-overview) feature to identify and get support for cluster issues and service problems that can affect your cluster's health. Set up a resource alert so you can easily monitor the health of your cluster. The resource health feature provides a report on the current and past health of your cluster. There are four health statuses:
 
-- **Available**: This status indicates that there are no events detected that affect the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, a _recently resolved_ notification appears.
+- **Available**: This status indicates that there are no events detected that affect the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, a *recently resolved* notification appears.
 
 - **Unavailable**: This status indicates that an ongoing platform or nonplatform event that affects the health of the cluster has been detected.
 - **Unknown**: This status indicates that the feature hasn't received any information about the resource for over 10 minutes. This status usually appears when a virtual machine is deallocated. This status isn't a definitive indication of the resource's state, but it can be a useful data point for troubleshooting.
@@ -85,21 +85,21 @@ You can choose predefined queries to analyze cluster health.
 Use built-in queries to query logs and metrics collected in the Log Analytics workspace. The following list describes the functions of some of the queries in the availability, container logs, and diagnostics categories.
 
 - **Availability**
-  - _Readiness status per node_ query: View the count of all nodes in the cluster by the readiness status.
+  - *Readiness status per node* query: View the count of all nodes in the cluster by the readiness status.
   
-  - _List all the pods count with phase_ query: View the count of all pods by the phase, such as failed, pending, unknown, running, or succeeded.
+  - *List all the pods count with phase* query: View the count of all pods by the phase, such as failed, pending, unknown, running, or succeeded.
 
 - **Container logs**
-  - _Find a value in Container Logs Table_ query: Find rows in the ContainerLogs table where LogEntry has a specified string parameter.
+  - *Find a value in Container Logs Table* query: Find rows in the ContainerLogs table where LogEntry has a specified string parameter.
   
-  - _List container logs per namespace_ query: View container logs from the namespaces in the cluster.
+  - *List container logs per namespace* query: View container logs from the namespaces in the cluster.
 - **Diagnostics**
-  - _Cluster Autoscaler logs_ query: Query for logs from the cluster autoscaler. This query can provide information about why the cluster unexpectedly scales up or down.
+  - *Cluster Autoscaler logs* query: Query for logs from the cluster autoscaler. This query can provide information about why the cluster unexpectedly scales up or down.
   
-  - _Kubernetes API server logs_ query: Query for logs from the Kubernetes API server.
-  - _Image inventory_ query: List all container images and their status.
-  - _Prometheus disk read per second per node_ query: View Prometheus disk read metrics from the default Kubernetes namespace as a timechart.
-  - _Instances Avg CPU usage growth from last week_ query: Show the average CPU growth by instance in the past week, in descending order.
+  - *Kubernetes API server logs* query: Query for logs from the Kubernetes API server.
+  - *Image inventory* query: List all container images and their status.
+  - *Prometheus disk read per second per node* query: View Prometheus disk read metrics from the default Kubernetes namespace as a timechart.
+  - *Instances Avg CPU usage growth from last week* query: Show the average CPU growth by instance in the past week, in descending order.
 
 ## Contributors
 

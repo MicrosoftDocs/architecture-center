@@ -27,7 +27,7 @@ This solution migrates an Oracle database and its applications to Azure. We use 
 
 ### Alternatives
 
-If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
+If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial *bulk* data transfer, which provides a minimal downtime migration.
 
 #### SQL Server Migration Assistant for Oracle
 

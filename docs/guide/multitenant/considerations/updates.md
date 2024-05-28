@@ -75,7 +75,7 @@ Another approach can be to allow tenants to initiate their own updates, at a tim
 > [!WARNING]
 > Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it will require significant development and testing effort to deliver and maintain.
 
-Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
+Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called *live-site incidents*) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
 
 ## Communicate with your customers
 
@@ -132,7 +132,7 @@ You can determine how many rings to create and what each ring means for your own
 
 - **Canary:** A canary ring includes your own test tenants and customers who want to have updates as soon as they are available, with the understanding that they may receive more frequent updates, and that updates might not have been through as comprehensive a validation process as in the other things.
 - **Early adopter:** An early adopter ring contains tenants who are slightly more risk-averse, but who are still prepared to receive regular updates.
-- **Users:** Most of your tenants will belong to the _users_ ring, which receives less frequent and more highly tested updates.
+- **Users:** Most of your tenants will belong to the *users* ring, which receives less frequent and more highly tested updates.
 
 ### API versions
 

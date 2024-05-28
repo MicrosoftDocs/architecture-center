@@ -2,7 +2,7 @@
 metadata:
   title: Keyword search and speech to text
   titleSuffix: Azure Architecture Center
-  description: Identify speech in static video files and manage it as standard content with this speech-to-text solution. Jump to video points that contain specific phrases.
+  description: Identify speech in static video files and manage it as standard content with this speech to text solution. Jump to video points that contain specific phrases.
   author: IngridAtMicrosoft
   ms.author: inhenkel
   ms.date: 07/26/2022
