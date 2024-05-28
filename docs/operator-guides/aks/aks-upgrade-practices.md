@@ -69,10 +69,10 @@ To ensure the smooth operation of your AKS cluster during maintenance, follow th
 
 Microsoft creates a new node image for AKS nodes approximately once per week. A node image contains up-to-date OS security patches, OS kernel updates, Kubernetes security updates, updated versions of binaries like kubelet, and component version updates that are listed in the [release notes](https://github.com/Azure/AKS/releases).
 
-When a node image is updated, a _cordon and drain_ action is triggered on the target node pool's nodes:
+When a node image is updated, a *cordon and drain* action is triggered on the target node pool's nodes:
 
 - A node with the updated image is added to the node pool. The number of nodes added at a time is governed by the surge value.
-- One of the existing nodes is _cordoned_ and _drained_. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
+- One of the existing nodes is *cordoned* and *drained*. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
 - After the node is fully drained, it's removed from the node pool. The updated node added by the surge replaces it.
 - This process is repeated for each node that needs to be updated in the node pool.
 

@@ -3,7 +3,7 @@ Consume third-party software artifacts in your supply chain only when it's verif
 
 ## Context and problem
 
-Cloud solutions often rely on third-party software obtained from external sources. Open-source binaries, public container images, vendor OS images are some examples of these types of artifacts. All such external artifacts must be treated as _untrusted_.
+Cloud solutions often rely on third-party software obtained from external sources. Open-source binaries, public container images, vendor OS images are some examples of these types of artifacts. All such external artifacts must be treated as *untrusted*.
 
 In a typical workflow, the artifact is retrieved from a store outside the solution's scope and then integrated into the deployment pipeline. There are some potential issues in this approach. The source might not be trusted, the artifact might contain vulnerabilities, or it might not be suitable in some other way for the developer environment.
 
@@ -13,7 +13,7 @@ Some of those security issues can be avoided by adding checks to each artifact.
 
 ## Solution
 
-Have a process that validates the software for security before introducing it in your workload. During the process, each artifact undergoes thorough operational rigor that verifies it against specific conditions. Only after the artifact satisfies those conditions, the process marks it as _trusted_.
+Have a process that validates the software for security before introducing it in your workload. During the process, each artifact undergoes thorough operational rigor that verifies it against specific conditions. Only after the artifact satisfies those conditions, the process marks it as *trusted*.
 
 > The process of quarantining is a security measure, which consists of a series of checkpoints that are employed before an artifact is consumed. Those security checkpoints make sure that an artifact transitions from an untrusted status to a trusted status.
 
@@ -104,31 +104,31 @@ The workload environment uses Azure Policy for Kubernetes to enforce governance.
 
 1. A request for an external image is made by the workload team through a custom application hosted on Azure Web Apps. The application collects the required information only from authorized users.
 
-    _Security checkpoint: The identity of requestor, the destination container registry, and the requested image source, are verified._
+    *Security checkpoint: The identity of requestor, the destination container registry, and the requested image source, are verified.*
 
 2. The request is stored in Azure Cosmos DB.
 
-    _Security checkpoint: An audit trail is maintained in the database, keeping track of lineage and validations of the image. This trail is also used for historical reporting_.
+    *Security checkpoint: An audit trail is maintained in the database, keeping track of lineage and validations of the image. This trail is also used for historical reporting.*
 
 3. The request is handled by a workflow orchestrator, which is a durable Azure Function. The orchestrator uses a scatter-gather approach for running all validations.
 
-    _Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks._
+    *Security checkpoint: The orchestrator has a managed identity with just-enough access to perform the validation tasks.*
 
 4. The orchestrator makes a request to import the image into the quarantine Azure Container Registry (ACR) that is deemed as an untrusted store.
 
 5. The import process on the quarantine registry gets the image from the untrusted external repository. If the import is successful, the quarantine registry has local copy of the image to execute validations.
 
-    _Security checkpoint: The quarantine registry protects against tampering and workload consumption during the validation process_.
+    *Security checkpoint: The quarantine registry protects against tampering and workload consumption during the validation process*.
 
 6. The orchestrator runs all validation tasks on the local copy of the image. Tasks include checks such as, Common Vulnerabilities and Exposures (CVE) detection, software bill of material (SBOM) evaluation, malware detection, image signing, and others.
 
     The orchestrator decides the type of checks, the order of execution, and the time of execution. In this example, it uses Azure Container Instance as task runners and results are in the Cosmos DB audit database. All tasks can take significant time.
 
-    _Security checkpoint: This step is the core of the quarantine process that performs all the validation checks. The type of checks could be custom, open-sourced, or vendor-purchased solutions._
+    *Security checkpoint: This step is the core of the quarantine process that performs all the validation checks. The type of checks could be custom, open-sourced, or vendor-purchased solutions.*
 
 7. The orchestrator makes a decision. If the image passes all validations, the event is noted in the audit database, the image is pushed to the trusted registry, and the local copy is deleted from the quarantine registry. Otherwise, the image is deleted from the quarantine registry to prevent its inadvertent use.
 
-    _Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource locations._
+    *Security checkpoint: The orchestrator maintains segmentation between trusted and untrusted resource locations.*
 
     > [!NOTE]
     > Instead of the orchestrator making the decision, the workload team can take on that responsibility. In this alternative, the orchestrator publishes the validation results through an API and keeps the image in the quarantine registry for a period of time.
