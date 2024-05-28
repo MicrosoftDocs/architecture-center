@@ -51,7 +51,7 @@ Here are some considerations:
 Define access needs for each role, including:
 
 - System components and data resources that each role needs to access for their job function
-- Level of privilege required (for example, user, administrator, and so on) for accessing resources.
+- Level of privilege required (for example, user, administrator, etc.) for accessing resources.
 
 ##### Your responsibilities
 
@@ -231,7 +231,7 @@ Because of AKS and Microsoft Entra integration, you can take advantage of ID man
 |[Requirement 8.3](#requirement-83)|Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.|
 |[Requirement 8.4](#requirement-84)|Document and communicate authentication procedures and policies and procedures to all users including:|
 |[Requirement 8.5](#requirement-85)| Do not use group, shared, or generic IDs, passwords, or other authentication methods as follows:|
-|[Requirement 8.6](#requirement-86)| Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, and so on), use of these mechanisms must be assigned as follows:|
+|[Requirement 8.6](#requirement-86)| Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:|
 |[Requirement 8.7](#requirement-87)| All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:|
 |[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
 
@@ -362,7 +362,7 @@ Disable root users in the CDE. Disable usage of Kubernetes local accounts so tha
 
 ### Requirement 8.6
 
-Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, and so on), use of these mechanisms must be assigned as follows:
+Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:
 
 - Authentication mechanisms must be assigned to an individual account and not shared among multiple accounts.
 - Physical and/or logical controls must be in place to ensure only the intended account can use that mechanism to gain access.
