@@ -23,7 +23,8 @@ This initial use case involves the following scenarios:
   - The solution MUST minimize its impact on the source system.
 - Financial users SHOULD have the ability to view data as "it was" at any given point in time.
 - The initial use case targets analytical and management reporting, with the ability to self-serve. This solution design SHOULD also serve as the foundation to build an enterprise data science capability upon.
-- The data is classified "Company Confidential," so the solution MUST have effective security controls and monitoring to both the components and data accessed/used. 
+- The data is classified "Company Confidential," so the solution MUST have effective security controls and monitoring to both the components and data accessed/used.
+    - All data should be secured with strong encryption at rest and in transit.
 - Contoso has an enterprise data model that the finance data is a subset of. The key data elements MUST be cleansed, modeled, and conformed to the various reporting hierarchies before being served for reporting.  
 - Ingested source data that isn’t currently mapped to the enterprise model MUST be retained and made available for future analysis and use cases. 
 - The Solution MUST be updated daily, based on source feeds availability with elastic compute optionality targeting sub-90 minutes for an end-to-end solution update. 
@@ -59,7 +60,7 @@ This initial use case involves the following scenarios:
   - Efficient medium-sized data storage and processing with Azure Data Lake Storage Gen2 and Azure Databricks.
   - Easily support the requirements for performance, reliability, and service resiliency.
 - The selection of PaaS services offloading much of the operational burden to Microsoft, accepting the trade-off of less control.
-- Given the initial solution release, Power BI [Pro licensing](https://learn.microsoft.com/power-bi/fundamentals/service-features-license-type#pro-license) is the chosen SKU. This choice has an explicit trade-off of OPEX cost vs Power BI [Premium performance](https://learn.microsoft.com/power-bi/enterprise/service-premium-what-is). 
+- Given the initial solution release, Power BI [Pro licensing](/power-bi/fundamentals/service-features-license-type#pro-license) is the chosen SKU. This choice has an explicit trade-off of OPEX cost vs Power BI [Premium performance](/power-bi/enterprise/service-premium-what-is). 
 - The key changes for this solution:
   - Azure SQL is used for the data modeling capability due to expected data volumes, reduction in new components introduced and reuse of existing skills. 
   - As the solution is batch-based, Azure Data Factory (ADF) is used based upon functional match, cost, and simplicity.
@@ -92,17 +93,17 @@ The typical workflow of accessing and landing data through the architecture:
   
 3.	Azure SQL Server is used to support the Enterprise data modeling requirements, including hierarchical conformance.
 
-4.	[Power BI](https://learn.microsoft.com/power-bi/fundamentals/power-bi-overview) is used to create management information dashboards from the enterprise model, providing a consistent, standardized and performant view of data. Power BI can also enable analysis work directly from the [Delta Lake via Databricks](/azure/databricks/partners/bi/power-bi).
+4.	[Power BI](/power-bi/fundamentals/power-bi-overview) is used to create management information dashboards from the enterprise model, providing a consistent, standardized and performant view of data. Power BI can also enable analysis work directly from the [Delta Lake via Databricks](/azure/databricks/partners/bi/power-bi).
   
 5.	The solution adds two additional components to the foundational Azure services, which enable collaboration, governance, reliability, and security:
 
-- [Microsoft Purview Data Governance](https://learn.microsoft.com/purview/governance-home) is added to provide data discovery services, a data catalog, and governance insights across the platform.
+- [Microsoft Purview Data Governance](/purview/governance-home) is added to provide data discovery services, a data catalog, and governance insights across the platform.
 
 - [Azure Site Recovery](/azure/site-recovery/) is added to support the backup and recovery of the VMs, which provide the compute to the ADF – SHIR, required to ingest data from on-premises.
 - The following foundation services require extension to support this solution:
   - [Azure DevOps](/azure/devops/?view=azure-devops) offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
   - [Azure Key Vault](/azure/key-vault/general/) securely manages secrets, keys, and certificates.
-  - [Microsoft Microsoft Entra ID](https://learn.microsoft.com/entra/identity/) provides single sign-on (SSO) across the stack, including Azure Databricks and Power BI users. 
+  - [Microsoft Microsoft Entra ID](/entra/identity/) provides single sign-on (SSO) across the stack, including Azure Databricks and Power BI users. 
   - [Azure Monitor](/azure/azure-monitor/) collects and analyzes Azure resource telemetry, providing audit and alerting. By proactively identifying problems, this service maximizes performance and reliability.
   - [Microsoft Cost Management and Billing](/azure/cost-management-billing/) provide financial governance services for Azure workloads.
 
@@ -119,7 +120,7 @@ The typical workflow of accessing and landing data through the architecture:
 
 - The use of Databricks Delta Lake means that Archive tier Storage Accounts can't be used, as that tier is effectivity off-line storage. This design choice is a trade-off between functionality and cost.
 - When creating a new Azure Databricks workspace, the default redundancy for the managed storage account (Databricks filesystem or DBFS root) is set as Geo-redundant storage (GRS). You can change the redundancy to Locally redundant storage (LRS) if geo-redundancy isn't needed.
-- As a general rule, data warehouses of less than 1 TB perform better on Azure SQL Database than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5 TB.  This performance difference is the main factor for selecting [Azure SQL over Synapse](https://learn.microsoft.com/en-us/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
+- As a general rule, data warehouses of less than 1 TB perform better on Azure SQL Database than on Azure Synapse. Synapse starts to show performance gains when the data warehouse is more than 1-5 TB.  This performance difference is the main factor for selecting [Azure SQL over Synapse](/answers/questions/976202/azure-sql-server-vs-synapse-dedicated-sql-pool).
 
 ## Alternatives
 
@@ -131,8 +132,7 @@ Alternatives for the storage modeling layer:
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described here due to data volumes and functional overlap with Databricks.
 - [SQL Managed Instance](/azure/azure-sql/managed-instance/?view=azuresql): This service isn't a good match for the scenario described here due to the lack of migration requirement and OPEX cost.
-- [Azure PostgresSQL](/azure/postgresql/): This service isn't a good match for the scenario described here due to Contoso’s existing skill-sets and desire to introduce as few new technologies as required, reducing cost and complexity. 
-
+- [Azure PostgresSQL](/azure/postgresql/): This service isn't a good match for the scenario described here due to Contoso’s existing skill-sets and desire to introduce as few new technologies as required, reducing cost and complexity.
 
 ## Considerations
 
@@ -145,10 +145,10 @@ The following considerations provide guidance for implementing the pillars of th
 Given the reliability targets for a BI analytical/reporting system:
 
 - The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution meet the requirements, so no high-availability or multi-regional uplift is required.
-- Given the low service criticality of the solution and the use of PaaS services, a [Wait for Microsoft](https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations#dr-strategy-impacts) disaster recovery strategy is the preferred design choice.
+- Given the low service criticality of the solution and the use of PaaS services, a [Wait for Microsoft](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations#dr-strategy-impacts) disaster recovery strategy is the preferred design choice.
 - Data backups are addressed with the following native functionality:
   - Databricks [Delta Lake table history](/azure/databricks/delta/history).
-  - SQL Server [default backups](https://learn.microsoft.com/azure/azure-sql/database/automated-backups-overview?view=azuresql#backup-frequency).
+  - SQL Server [default backups](/azure/azure-sql/database/automated-backups-overview?view=azuresql#backup-frequency).
   - All source data ingested is stored in the Delta Lake – Bronze layer, in an append-only format. This functionality enables a full replay of the solution without re-ingestion from the source system.
 
 > [!IMPORTANT] 
@@ -160,7 +160,7 @@ Given the reliability targets for a BI analytical/reporting system:
 
 This architecture addresses security via configuration of the infrastructure selected and the control and data plane controls implemented. These design choices are based upon the [zero-trust model](/azure/security/fundamentals/zero-trust) and [least privilege access](/entra/identity-platform/secure-least-privileged-access) principles. The security controls natively supported include:
 
-- Solution components use [managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, enabling consistent RBAC control.
+- Solution components use [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication and authorization, enabling consistent RBAC control.
 - Azure [Key Vault](/azure/key-vault/) stores application secrets and certificates securely.
 - The use of component-specific [built-in roles](/azure/role-based-access-control/built-in-roles), enabling a granular control for authorization at the control plane level.
   - Due to scope, these specific roles are preferred over the [general roles](/azure/role-based-access-control/built-in-roles#:~:text=ID-,General,-Contributor).
@@ -208,7 +208,7 @@ Azure Databricks offers robust functionality for monitoring custom application m
 
 Suggested alerting baseline:
 
-- Based upon the solution financial modeling having cost and budget alerting in place, particularly targeting the Databricks computer cluster, ADF SHIRs and SQL server processing.
+- Cost and budget alerting for the Databricks compute cluster, the ADF SHIRs and SQL server.
 - Long running processes across the solution.
 - SQL Server connections refused.
 - Power BI usage.
@@ -233,8 +233,8 @@ This architecture addresses performance efficiency with:
 - Apply guidance available in the following [optimization guides](/azure/well-architected/performance-efficiency/optimize-data-performance) across the solution, such as:
   - [Databricks](/azure/databricks/optimizations/).
   - ADF [Data flows](/azure/data-factory/concepts-data-flow-performance) and [SHIR](/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide?tabs=data-factory).
-  - [SQL Server](https://learn.microsoft.com/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?view=sql-server-ver16).
-  - [Power BI](https://learn.microsoft.com/power-bi/guidance/power-bi-optimization).
+  - [SQL Server](/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?view=sql-server-ver16).
+  - [Power BI](/power-bi/guidance/power-bi-optimization).
 - Understanding that the performance of data solutions generally degrades over time, establish the capacity for [continuous performance optimization](/azure/well-architected/performance-efficiency/continuous-performance-optimize), along with proactive technical reviews of the solution, ensuring it remains ["fit for purpose"](/azure/well-architected/performance-efficiency/principles).
 
 ## Anti-Patterns
