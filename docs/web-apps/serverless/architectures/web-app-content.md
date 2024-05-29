@@ -10,8 +10,8 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 The term serverless has two distinct but related meanings:
 
-- **Backend as a service** (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
-- **Functions as a service** (FaaS). In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
+- **Backend as a service (BaaS)**. Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
+- **Functions as a service (FaaS)**. In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
 
 Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:
 
@@ -45,7 +45,7 @@ If you don't need all of the functionality provided by API Management, another o
 
 **Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client.
 
-**Microsoft Entra ID** (Microsoft Entra ID). Users sign into the web application by using their [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
+**Microsoft Entra ID**. Users sign into the web application by using their [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
 
 **Azure Monitor**. [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. It also collected application logs.
 
