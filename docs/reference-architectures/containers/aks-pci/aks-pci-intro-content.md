@@ -1,6 +1,6 @@
 This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a sensitive workload. The guidance is tied to the regulatory requirements of the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1).
 
-It's _not_ our goal to replace your demonstration of your compliance with this series. The intent is to assist merchants get started on the architectural design by addressing the applicable DSS control objectives as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services.
+It's *not* our goal to replace your demonstration of your compliance with this series. The intent is to assist merchants get started on the architectural design by addressing the applicable DSS control objectives as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services.
 
 > [!IMPORTANT]
 >

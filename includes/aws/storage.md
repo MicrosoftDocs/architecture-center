@@ -36,8 +36,8 @@ ms.service: architecture-center
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [AWS Storage Gateway: S3 File Gateway](https://aws.amazon.com/storagegateway/file/s3/) | [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview), [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) | Provides on-premises, locally cached NFS and SMB file shares that are cloud-backed. |
-| [AWS Storage Gateway: Tape Gateway](https://aws.amazon.com/storagegateway/vtl/) | _none_ | Replaces on-premises physical tapes with on-premises, cloud-backed virtual tapes. |
-| [AWS Storage Gateway: Volume Gateway](https://aws.amazon.com/storagegateway/volume/) | _none_ | Provides on-premises iSCSI based block storage that is cloud-backed. |
+| [AWS Storage Gateway: Tape Gateway](https://aws.amazon.com/storagegateway/vtl/) | *None* | Replaces on-premises physical tapes with on-premises, cloud-backed virtual tapes. |
+| [AWS Storage Gateway: Volume Gateway](https://aws.amazon.com/storagegateway/volume/) | *None* | Provides on-premises iSCSI based block storage that is cloud-backed. |
 | [DataSync](https://aws.amazon.com/datasync/) | [File Sync](/azure/storage/file-sync/file-sync-introduction) | Azure Files can be deployed in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync.|
 
 ### Bulk data transfer
