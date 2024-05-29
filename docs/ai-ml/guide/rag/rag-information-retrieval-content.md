@@ -11,7 +11,7 @@ The search index in your store has a column for every field in your data. Search
 
 The following are some key decisions you must make for the [vector search configuration](/azure/search/vector-search-how-to-create-index#add-a-vector-search-configuration) that are applied to vector fields:
 
-* **[Vector search algorithm](/azure/search/vector-search-ranking)** - The algorithm used to search for relative matches. Azure AI Search has a brute-force algorithm option that scans the entire vector space called exhaustive KNN, and a more performant algorithm option that performs an [approximate nearest neighbor (ANN)](/azure/search/vector-search-overview#approximate-nearest-neighbors) search called Hierarchical Navigable Small World (ANSW).
+* **[Vector search algorithm](/azure/search/vector-search-ranking)** - The algorithm used to search for relative matches. Azure AI Search has a brute-force algorithm option that scans the entire vector space called exhaustive KNN, and a more performant algorithm option that performs an [approximate nearest neighbor (ANN)](/azure/search/vector-search-overview#approximate-nearest-neighbors) search called Hierarchical Navigable Small World (HNSW).
 * **[metric](/azure/search/vector-search-ranking#similarity-metrics-used-to-measure-nearness)** - This configuration is the similarity metric used to calculate nearness by the algorithm. The options in Azure AI Search are cosine, dotProduct, and Euclidean. If you're using Azure OpenAI embedding models, choose `cosine`.
 * **efConstruction** - Parameter used during Hierarchical Navigable Small Worlds (HNSW) index construction that sets the number of nearest neighbors that are connected to a vector during indexing. A larger efConstruction value results in a better-quality index than a smaller number. The tradeoff is that a larger value requires more time, storage, and compute. efConstruction should be higher for a large number of chunks and lower for a low number of chunks. Determining the optimal value requires experimentation with your data and expected queries.
 * **efSearch** - Parameter that is used at query time to set the number of nearest neighbors (that is, similar chunks) used during search.
@@ -113,7 +113,7 @@ results = client.search(
 )
 ```
 
-The sample code performs a full text search against the title, content, and summary fields and vector searches against the contentVector and questionVector fields. The Azure AI Search platform runs all the queries in parallel, rerank the results, and return the top retrieve_num_of_documents documents.
+The sample code performs a full text search against the title, content, and summary fields and vector searches against the contentVector and questionVector fields. The Azure AI Search platform runs all the queries in parallel, reranks the results, and returns the top retrieve_num_of_documents documents.
 
 #### Manual multiple
 
