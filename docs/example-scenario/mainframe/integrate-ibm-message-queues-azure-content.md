@@ -33,7 +33,7 @@ When using Azure as a modern data platform, you have your choice of platform as 
 [Logic Apps MQ connector](/azure/connectors/connectors-create-api-mq) connects your Logic Apps workflows to an IBM MQ server on-premises or on Azure. Workflows receive and send messages stored in your MQ server. A Microsoft MQ client is also included for communicating with a remote MQ server across a TCP/IP network. You can use the client to connect to IBM WebSphere MQ 7.5, MQ
 8.0, and MQ 9.0, 9.1, and 9.2.
 
-[Host Integration Server](/host-integration-server/core/data-for-host-files) (HIS) can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. A client and server adapter exchange messages between IBM MQ and BizTalk Server. HIS also serves as an MQ listener and can poll the MQ server for messages at intervals you specify.
+[Host Integration Server (HIS)](/host-integration-server/core/data-for-host-files) can serve as a message integrator through the WebSphere MQ adapter in Microsoft BizTalk Server. A client and server adapter exchange messages between IBM MQ and BizTalk Server. HIS also serves as an MQ listener and can poll the MQ server for messages at intervals you specify.
 
 [.NET](/dotnet/core/introduction) is a free, open-source development platform used in this example to create an app to pull the data through HIS to the data storage layer. It can also be used to access IBM WebSphere MQ Servers directly through the Microsoft Client for MQ.
 

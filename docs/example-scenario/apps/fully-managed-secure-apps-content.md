@@ -62,16 +62,16 @@ Make self-signed or internally issued SSL cert work if you want to make secure c
 
 While provisioning the App Service Environment, consider the following limitations when choosing a domain name for the environment. Domain names can't be:
 
-- net
-- azurewebsites.net
-- p.azurewebsites.net
-- nameofthease.p.azurewebsites.net
+- `net`
+- `azurewebsites.net`
+- `p.azurewebsites.net`
+- `nameofthease.p.azurewebsites.net`
 
 Additionally, the custom domain name used for apps and the domain name used by the ILB App Service Environment can't overlap. For an ILB App Service Environment with the domain name contoso.com, you can't use custom domain names for your apps like:
 
-- www\.contoso.com
-- abcd.def.contoso.com
-- abcd.contoso.com
+- `www.contoso.com`
+- `abcd.def.contoso.com`
+- `abcd.contoso.com`
 
 Choose a domain for the ILB App Service Environment that won't conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your environment for this example, because that won't conflict with custom domain names that end in .contoso.com.
 

@@ -136,6 +136,8 @@ This solution provides value to organizations in industries like pharmaceutical 
 
 Principal authors:
 
+<!-- docutune-ignoredChange ISV -->
+
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
 - [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer, ISV DN CoE
 

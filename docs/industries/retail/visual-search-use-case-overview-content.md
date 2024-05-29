@@ -91,7 +91,7 @@ Other applicable technologies are a combination of Azure SQL Database (if fixed 
 
 The encoding process extracts salient features from pictures in the database and maps each of them to a sparse "feature" vector (a vector with many zeros) that can have thousands of components. This vector is a numerical representation of the features (such as edges and shapes) that characterize the picture. It's akin to a code.
 
-Feature extraction techniques typically use _transfer learning mechanisms_. This occurs when you select a pre-trained neural network, run each image through it and store the feature vector  produced back in your image database. In that way, you "transfer" the learning from whoever trained the network. Microsoft has developed and published several pre-trained networks that have been widely used for image recognition tasks, such as [ResNet50](https://github.com/onnx/models/tree/main/validated/vision/classification/resnet).
+Feature extraction techniques typically use *transfer learning mechanisms*. This occurs when you select a pre-trained neural network, run each image through it and store the feature vector  produced back in your image database. In that way, you "transfer" the learning from whoever trained the network. Microsoft has developed and published several pre-trained networks that have been widely used for image recognition tasks, such as [ResNet50](https://github.com/onnx/models/tree/main/validated/vision/classification/resnet).
 
 Depending on the neural network, the feature vector will be more or less long and sparse, hence the memory and storage requirements will vary.
 
@@ -99,7 +99,7 @@ Also, you may find that different networks are applicable to different categorie
 
 Pre-trained neural networks are relatively easy to use but may not be as efficient as a custom model trained on your image catalog. Those pre-trained networks are typically designed for classification of benchmark datasets rather than search on your specific collection of images.
 
-You may want to modify and retrain them so they produce both a category prediction and a dense (i.e. smaller, not sparse) vector, which will be very useful to restrict the search space, reduce memory and storage requirements. Binary vectors can be used and are often referred to as " [semantic hash](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)" – a term derived from document encoding and retrieval techniques. The binary representation simplifies further calculations.
+You may want to modify and retrain them so they produce both a category prediction and a dense (that is, smaller, not sparse) vector, which will be very useful to restrict the search space, reduce memory and storage requirements. Binary vectors can be used and are often referred to as " [semantic hash](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)" – a term derived from document encoding and retrieval techniques. The binary representation simplifies further calculations.
 
  ![](./images/visual-search-use-case-overview/resnet-modifications.png)
 
@@ -147,7 +147,7 @@ Implementing visual search need not be complex. You can use Bing or build your o
 ### Develop
 
 - To begin creating a customized service, see [Bing Visual Search API Overview](/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
-- To create your first request, see the quickstarts: [C#](/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](/azure/cognitive-services/bing-visual-search/quickstarts/java) | [node.js](/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](/azure/cognitive-services/bing-visual-search/quickstarts/python)
+- To create your first request, see the quickstarts: [C#](/azure/cognitive-services/bing-visual-search/quickstarts/csharp) | [Java](/azure/cognitive-services/bing-visual-search/quickstarts/java) | [Node.js](/azure/cognitive-services/bing-visual-search/quickstarts/nodejs) | [Python](/azure/cognitive-services/bing-visual-search/quickstarts/python)
 - Familiarize yourself with the [Visual Search API Reference](/bing/search-apis/bing-visual-search/overview).
 
 ### Background

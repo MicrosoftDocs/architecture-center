@@ -72,7 +72,7 @@ Here are some pre-processing steps that can help condition your raw data. You mi
 
 ### Summarizer
 
-OpenAI's text-completion API endpoint is called the *completions endpoint*. To start the text-completion process, it requires a prompt. *Prompt engineering* is a process used in large language models. The first part of the prompt includes natural language instructions or examples of the specific task requested (in this scenario, summarization). Prompts allow developers to provide some context to the API, which can help it generate more relevant and accurate text completions. The model then completes the task by predicting the most probable next text. This technique is known as *in-context* learning.
+OpenAI's text-completion API endpoint is called the *completions endpoint*. To start the text-completion process, it requires a prompt. *Prompt engineering* is a process used in consuming language models. The first part of the prompt includes natural language instructions or examples of the specific task requested (in this scenario, summarization). Prompts allow developers to provide some context to the API, which can help it generate more relevant and accurate text completions. The model then completes the task by predicting the most probable next text. This technique is known as *in-context* learning.
 
 > [!NOTE]
 > *Extractive summarization* attempts to identify and extract salient information from a text and group it to produce a concise summary without understanding the meaning or context.

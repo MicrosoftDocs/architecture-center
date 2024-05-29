@@ -8,7 +8,7 @@ The following diagram shows SAP NetWeaver in a Windows environment.
 
 :::image type="content" source="media/sap-netweaver.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver.png" border="false":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-windows.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-windows.vsdx) of this architecture.*
 
 > [!NOTE]
 > To deploy this architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -193,7 +193,7 @@ In this distributed installation of the SAP application, the base installation i
 
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
-For internet-facing communications, we recommend a stand-alone solution in the perimeter network, which is also known as _DMZ_, to satisfy security concerns.
+For internet-facing communications, we recommend a stand-alone solution in the perimeter network, which is also known as *DMZ*, to satisfy security concerns.
 
 [Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is a special option. If you use this option, consider proper sizing because of the extra workload on ASCS.
 
@@ -210,7 +210,7 @@ High availability of the Central Services is implemented with a Windows server f
 
   For implementation details, see [Clustering SAP ASCS on Azure with SIOS](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898).
 
-If you use Standard Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid needing to configure load-balancing rules for multiple SAP ports. Also, when you set up Azure load balancers, enable Direct Server Return (DSR), which is also called _Floating IP_. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you enable DSR for the ASCS and database clusters.
+If you use Standard Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid needing to configure load-balancing rules for multiple SAP ports. Also, when you set up Azure load balancers, enable Direct Server Return (DSR), which is also called *Floating IP*. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. We recommend that you enable DSR for the ASCS and database clusters.
 
 ### Application services in the application servers tier
 

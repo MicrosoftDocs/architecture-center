@@ -157,7 +157,7 @@ Scalability allows applications to handle increases and decreases in demand whil
 - Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
 - Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
 - Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
-- Choose the right [Azure App Service plan]( /azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
+- Choose the right [Azure App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
 - [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
 - Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
 

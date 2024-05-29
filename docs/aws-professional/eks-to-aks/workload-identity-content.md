@@ -95,7 +95,7 @@ The example workload runs a frontend and a backend service on an AKS cluster. Th
 
 #### Prerequisites
 
-1. Set up an AKS cluster with the [OIDC issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) enabled.
+1. Set up an AKS cluster with the [OIDC issuer](/azure/aks/use-oidc-issuer) enabled.
 1. Install the [mutating admission webhook](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
 1. Create a Kubernetes service account for the workloads.
 1. Create a Microsoft Entra application as shown in the [quickstart](https://azure.github.io/azure-workload-identity/docs/quick-start.html).
@@ -107,7 +107,7 @@ The example workload runs a frontend and a backend service on an AKS cluster. Th
 
 #### Microsoft Entra Workload ID message flow
 
-AKS applications get security tokens for their service account from the [OIDC issuer](/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster. Microsoft Entra Workload ID exchanges the security tokens with security tokens issued by Microsoft Entra ID, and the applications use the Microsoft Entra ID-issued security tokens to access Azure resources.
+AKS applications get security tokens for their service account from the [OIDC issuer](/azure/aks/use-oidc-issuer) of the AKS cluster. Microsoft Entra Workload ID exchanges the security tokens with security tokens issued by Microsoft Entra ID, and the applications use the Microsoft Entra ID-issued security tokens to access Azure resources.
 
 The following diagram shows how the frontend and backend applications acquire Microsoft Entra security tokens to use Azure platform as a service (PaaS) services.
 

@@ -1,5 +1,4 @@
 ---
-# required metadata
 title: Migrate your e-commerce solution to Azure
 author: robbagby
 ms.author: robbag
@@ -92,7 +91,7 @@ The refactoring effort changes very little code and configuration. You'll focus 
 
 While many of the Azure services can be used, we will focus on the most common services used in the refactor phase: containers, app services, and database services. Why do we look at refactoring? Refactoring provides a strong code foundation that lowers long-term costs by keeping code debt within reason.
 
-Containers provide a way to bundle applications. Because of the way a container virtualizes the operating system, you can pack multiple containers into a single VM. You can move an application to a container with zero to few code changes; you may need configuration changes. This effort also leads to writing scripts that bundle applications into a container. Your development teams will spend their refactoring time writing and testing these scripts. Azure supports containerization through the [Azure Kubernetes Service](/azure/aks/?WT.mc_id=retailecomm-docs-scseely) (AKS) and the related [Azure Container Registry](https://azure.microsoft.com/services/container-registry/?WT.mc_id=retailecomm-docs-scseely) which you can use to manage the container images.
+Containers provide a way to bundle applications. Because of the way a container virtualizes the operating system, you can pack multiple containers into a single VM. You can move an application to a container with zero to few code changes; you may need configuration changes. This effort also leads to writing scripts that bundle applications into a container. Your development teams will spend their refactoring time writing and testing these scripts. Azure supports containerization through the [Azure Kubernetes Service (AKS)](/azure/aks/?WT.mc_id=retailecomm-docs-scseely) and the related [Azure Container Registry](https://azure.microsoft.com/services/container-registry/?WT.mc_id=retailecomm-docs-scseely) which you can use to manage the container images.
 
 For app services, you can take advantage of various Azure services. For example, your existing infrastructure may handle a customer order by placing messages into a queue like [RabbitMQ](https://www.rabbitmq.com/). (For example, one message is to charge the customer, a second is to ship the order.) When rehosting, you put RabbitMQ in a separate VM. During refactoring, you can add a [Service Bus](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely) queue or topic to the solution. At this point, you can rewrite your RabbitMQ code and stop using the VMs that served the queuing functionality. If it's not feasible to rewrite all your code at once, you can use patterns such as the [messaging bridge](/azure/architecture/patterns/messaging-bridge) to bridge the gap between messaging queues. This allows you to migrate your endpoints one-by-one rather than all at once. Either way, when all the endpoints have been ultimately moved to Azure Service Bus, this replaces a set of VMs with an always-on message queue service for a lower cost. Other app services can be found in the Azure portal. 
 
@@ -100,7 +99,7 @@ For databases, you can move your database from a VM to a service. Azure supports
 
 ## Rebuild
 
-Up until this point, we tried to minimize changes to the ecommerce systems—we left working systems alone. Now, let's discuss how to really take advantage of the cloud. This stage means to revise the existing application by aggressively adopting PaaS or even SaaS services and architecture. The process encompasses major revisions to add new functionality or to rearchitect the application for the cloud.  _Managed APIs_ is a new concept that takes advantage of cloud systems. We can make our system easier to update, by creating APIs for communication between services.  A second benefit is the ability to gain insights on the data we have. We do this by moving to a _microservice plus API_ architecture and use machine learning and other tools to analyze data.
+Up until this point, we tried to minimize changes to the ecommerce systems—we left working systems alone. Now, let's discuss how to really take advantage of the cloud. This stage means to revise the existing application by aggressively adopting PaaS or even SaaS services and architecture. The process encompasses major revisions to add new functionality or to rearchitect the application for the cloud.  *Managed APIs* is a new concept that takes advantage of cloud systems. We can make our system easier to update, by creating APIs for communication between services.  A second benefit is the ability to gain insights on the data we have. We do this by moving to a *microservice plus API* architecture and use machine learning and other tools to analyze data.
 
 ### Microservices + APIs
 
@@ -143,7 +142,7 @@ Moving your ecommerce system into Azure takes analysis, planning and a defined a
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 

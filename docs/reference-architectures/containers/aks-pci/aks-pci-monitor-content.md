@@ -169,7 +169,7 @@ Note: One example of time synchronization technology is Network Time Protocol (N
 
 #### Your responsibilities
 
-AKS uses NTP from the underlying Azure hosts and doesn't require any outbound network traffic allowances to support NTP. Other VMs you add to your CDE might use external NTP servers such as ntp.ubuntu.org (and its pool) as their time synchronization source. Additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
+AKS uses NTP from the underlying Azure hosts and doesn't require any outbound network traffic allowances to support NTP. Other VMs you add to your CDE might use external NTP servers such as `ntp.ubuntu.org` (and its pool) as their time synchronization source. Additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
 
 ### Requirement 10.5
 

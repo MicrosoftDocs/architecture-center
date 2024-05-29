@@ -40,7 +40,7 @@ This image shows the automatic workflow for certificate renewal within the Azure
 
 1. **Key Vault configuration:** The initial phase of the renewal process entails storing the certificate object in the designated Certificates section of the key vault.
   
-    While not mandatory, you can set up custom email notifications by tagging the certificate with the recipient's email address. Tagging the certificate ensures timely notifications when the renewal process completes. If multiple recipients are necessary, separate their email addresses by a comma or a semicolon. The tag name for this purpose is _Recipient_, and its value is one or more email addresses of the designated administrators.
+    While not mandatory, you can set up custom email notifications by tagging the certificate with the recipient's email address. Tagging the certificate ensures timely notifications when the renewal process completes. If multiple recipients are necessary, separate their email addresses by a comma or a semicolon. The tag name for this purpose is *Recipient*, and its value is one or more email addresses of the designated administrators.
 
     When you use tags instead of [built-in certificate notifications](/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#get-notified-about-certificate-expiration), you can apply notifications to a specific certificate with a designated recipient. Built-in certificate notifications apply indiscriminately to all certificates within the key vault and use the same recipient for all.
   

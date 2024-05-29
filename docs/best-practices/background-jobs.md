@@ -89,7 +89,7 @@ You can host background tasks by using a range of different Azure platform servi
 - [**Azure Functions**](#azure-functions). You can use functions for background jobs that don't run for a long time. Another use case is if your workload is already hosted on App Service plan and is underutilized.
 - [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 - [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
-- [**Azure Kubernetes Service**](#azure-kubernetes-service) (AKS). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure.
+- [**Azure Kubernetes Service (AKS)**](#azure-kubernetes-service). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure.
 - [**Azure Container Apps**](#azure-container-apps). Azure Container Apps enables you to build serverless microservices based on containers.
 
 The following sections describe these options in more detail, and include considerations to help you choose the appropriate option.

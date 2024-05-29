@@ -239,7 +239,7 @@ Both Container Apps and Web App for Containers provide out-of-the-box solutions 
 | **Managed TLS for Azure FQDNs** | Out of the box | N/A | Out of the box |
 | **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | Out of the box or BYO |
 
-AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS does not offer managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
+AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS does not offer managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager](https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
 
 ### Mutual TLS
 
