@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases
-  description: Learn how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office use cases.
-  author: martinekuan
-  ms.author: pnp
+  title: Azure Stack HCI switchless storage for retail, manufacturing or remote office scenarios
+  description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
+  author: neilbird
+  ms.author: nebird
   ms.date: 07/26/2022
   ms.topic: reference-architecture
   ms.service: architecture-center
@@ -14,17 +14,18 @@ metadata:
   ms.custom:
     - fcp
     - e2e-hybrid
-name: Azure Stack HCI switchless storage for retail, manufacturing or remote office use cases
+name: Azure Stack HCI switchless storage for retail, manufacturing or remote office scenarios
 azureCategories:
   - hybrid
   - management-and-governance
-summary: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office use cases.
+summary: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 products:
-  - azure-arc
-  - azure-monitor
-  - azure-policy
-  - defender-for-cloud
   - azure-stack-hci
+  - azure-arc
+  - azure-key-vault
+  - azure-blob-storage
+  - azure-monitor
+  - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
 content: |
    [!include[](azure-stack-hci-switchless-content.md)]
