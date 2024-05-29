@@ -81,7 +81,7 @@ Index creation:
 
 1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used.
 1. If the document is in a nonsearchable format, like a PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text.
-1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure AI Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
+1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure AI Search index via a [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
 
 Query and retrieval:
 

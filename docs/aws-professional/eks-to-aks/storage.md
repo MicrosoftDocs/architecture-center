@@ -40,7 +40,7 @@ By adding drivers and storage classes, you can use storage services such as:
 
 - Amazon Elastic File System (Amazon EFS) , which provides Network File System (NFS) access to external file systems that can be shared across instances. The equivalent Azure solution is Azure Files and Azure Files Premium with both Server Message Block (SMB) 3.0 and NFS access.
 
-- Lustre, an open-source file system commonly used in high performance computing (HPC). In Azure, you can use Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
+- Lustre, an open-source file system commonly used in high-performance computing (HPC). In Azure, you can use Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
 
 - NetApp ONTAP, fully managed ONTAP shared storage in Amazon Web Services (AWS). Azure NetApp Files is a similar Azure file storage service built on NetApp technology.
 
@@ -88,7 +88,7 @@ If you choose Ultra Disk Storage, be aware of its [limitations](/azure/virtual-m
 
 ### Azure Files
 
-Disk Storage can't provide concurrent access to a volume, but you can use [Azure Files](https://azure.microsoft.com/services/storage/files) to connect by using the SMB protocol, and then mount a shared volume that's backed by Azure Storage. This process provides a network attached storage that's similar to Amazon EFS. As with Disk Storage, there are two options:
+Disk Storage can't provide concurrent access to a volume, but you can use [Azure Files](https://azure.microsoft.com/services/storage/files) to connect by using the SMB protocol, and then mount a shared volume that's backed by Azure Storage. This process provides a network-attached storage that's similar to Amazon EFS. As with Disk Storage, there are two options:
 
 - Azure Files Standard storage is backed by regular hard disk drives (HDDs).
 - Azure Files Premium storage backs the file share with high-performance SSD drives. The minimum file share size for Premium is 100 GB.
@@ -127,7 +127,7 @@ This solution is based on infrastructure as a service (IaaS) rather than platfor
 Like Amazon EKS, AKS is a Kubernetes implementation, and you can integrate third-party Kubernetes storage solutions. Here are some examples of third-party storage solutions for Kubernetes:
 
 - [Rook](https://rook.io/) turns distributed storage systems into self-managing storage services by automating storage administrator tasks. Rook delivers its services via a Kubernetes operator for each storage provider.
-- [GlusterFS](https://www.gluster.org/) is a free and open-source scalable network filesystem that uses common off-the-shelf hardware to create large, distributed storage solutions for data-heavy and bandwidth-intensive tasks.
+- [GlusterFS](https://www.gluster.org/) is a free and open-source scalable Network File System that uses common off-the-shelf hardware to create large, distributed storage solutions for data-heavy and bandwidth-intensive tasks.
 - [Ceph](https://www.ceph.com/en/) provides a reliable and scalable unified storage service with object, block, and file interfaces from a single cluster built from commodity hardware components.
 - [MinIO](https://min.io/) multicloud object storage lets enterprises build AWS S3-compatible data infrastructure on any cloud, providing a consistent, portable interface to your data and applications.
 - [Portworx](https://portworx.com/) is an end-to-end storage and data management solution for Kubernetes projects and container-based initiatives. Portworx offers container-granular storage, disaster recovery, data security, and multicloud migrations.

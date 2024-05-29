@@ -50,7 +50,7 @@ Similar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/ser
 
 ## VPC Peering, Azure VNet Peering
 
-In AWS, a VPC peering connection is a networking connection between two VPCs, which enables you to route traffic between them using private IPv4 addresses or IPv6 addresses.
+In AWS, a VPC peering connection is a networking connection between two VPCs, which enables you to route traffic between them using private Internet Protocol version 4 (IPv4) addresses or Internet Protocol version 6 (IPv6) addresses.
 
 [Azure virtual network (VNet) peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
 
