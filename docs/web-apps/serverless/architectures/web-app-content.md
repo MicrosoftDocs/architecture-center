@@ -27,7 +27,7 @@ The architecture consists of the following components:
 
 **Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There's no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
 
-**CDN**. Use [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) (CDN) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
+**Content Delivery Network**. Use [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
 
 **Function Apps**. [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
 
@@ -314,7 +314,7 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 Product documentation:
 
 - [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
-- [Azure Content Delivery Network](/azure/cdn/cdn-overview) (CDN)
+- [Azure Content Delivery Network](/azure/cdn/cdn-overview)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [About API Management][apim] 
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
