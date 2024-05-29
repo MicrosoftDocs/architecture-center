@@ -26,7 +26,7 @@ The architecture has the following components.
 
 - **Network security groups (NSGs)**. Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
-- **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [Azure DDoS Network Protection][ddos], which has enhanced DDoS mitigation features. See the [Security](#security) considerations.
+- **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial-of-service (DDoS) attacks, we recommend using [Azure DDoS Network Protection][ddos], which has enhanced DDoS mitigation features. See the [Security](#security) considerations.
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
@@ -36,7 +36,7 @@ The architecture has the following components.
 
 - **OpsCenter**. Deploy a monitoring solution such as [DataStax OpsCenter](https://docs.datastax.com/en/opscenter/6.1/opsc/about_c.html) to monitor the Cassandra cluster.
 
-- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
+- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (Remote Desktop Protocol (RDP)) traffic.
 
 ## Recommendations
 
@@ -48,7 +48,7 @@ For recommendations on configuring the VMs, see [Run a Linux VM on Azure](../../
 
 ### Virtual network
 
-When you create the virtual network, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a network address range large enough for the required IP addresses, using [CIDR] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
+When you create the virtual network, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a network address range large enough for the required IP addresses, using [classless inter-domain routing (CIDR)] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
 Choose an address range that doesn't overlap with your on-premises network, in case you need to set up a gateway between the VNet and your on-premises network later. Once you create the VNet, you can't change the address range.
 
@@ -71,7 +71,7 @@ Use NSG rules to restrict traffic between tiers. For example, in the three-tier 
 1. Deny all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.)
 2. Allow inbound traffic from the business tier subnet.
 3. Allow inbound traffic from the database tier subnet itself. This rule allows communication between the database VMs, which is needed for database replication and failover.
-4. Allow ssh traffic (port 22) from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
+4. Allow SSH traffic (port 22) from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
 
 Create rules 2 &ndash; 4 with higher priority than the first rule, so they override it.
 
@@ -90,11 +90,11 @@ The deployment scripts for this architecture use name resolution to initialize t
 
 ### Jumpbox
 
-Don't allow ssh access from the public Internet to the VMs that run the application workload. Instead, all ssh access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows ssh traffic from the Internet, but only from known, safe IP addresses.
+Don't allow SSH access from the public Internet to the VMs that run the application workload. Instead, all SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows SSH traffic from the Internet, but only from known, safe IP addresses.
 
 The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
 
-To secure the jumpbox, add an NSG rule that allows ssh connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow ssh traffic from the management subnet.
+To secure the jumpbox, add an NSG rule that allows SSH connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow SSH traffic from the management subnet.
 
 ## Considerations
 
@@ -182,7 +182,7 @@ For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
 #### Load balancers
 
-You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
+You are charged only for the number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 

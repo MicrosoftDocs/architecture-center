@@ -92,7 +92,7 @@ Because of a well-known high failure rate to such initiatives, the ability to ra
 
 - **An ML toolkit for all skill levels**
   - Supports no-code to fully coded ML development
-  - Has a flexible, low-code GUI
+  - Has a flexible, low-code graphical user interface (GUI)
   - Enables users to rapidly source and prep data
   - Enables users to rapidly build and deploy models
   - Has advanced, automated ML capabilities for ML algorithm development
@@ -133,7 +133,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 **Azure pricing:** First-party infrastructure as a service (IaaS) and platform as a service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
-**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are SaaS applications and have their own pricing models, including per app plan and per user.
+**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software as a service (SaaS) applications and have their own pricing models, including per app plan and per user.
 
 ## Deploy this scenario
 

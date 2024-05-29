@@ -45,7 +45,7 @@ Vantage provides what Teradata calls Pervasive Data Intelligence. Users across y
 
 ### Data Factory
 
-Data Factory is a serverless cloud extract, transform, and load (ETL) service. You can use it to orchestrate and automate data movement and transformation. It provides a code-free user interface for data ingestion and intuitive authoring and single-pane-of-glass monitoring and management.
+Data Factory is a serverless cloud extract, transform, load (ETL) service. You can use it to orchestrate and automate data movement and transformation. It provides a code-free user interface for data ingestion and intuitive authoring and single-pane-of-glass monitoring and management.
 
 You can use Data Factory to create and schedule data-driven workflows (called *pipelines*) that can ingest data from various data stores. You can create complex ETL processes that visually transform data by using dataflows that run on Spark or compute services like Azure Batch, Azure Machine Learning, Apache Spark, SQL, Azure HDInsight with Hadoop, and Azure Databricks. Working with Data Factory involves the following layers, listed from the highest level of abstraction to the software that's closest to the data.
 

@@ -94,7 +94,7 @@ To get all the logs and information of the process, set up Azure Log Analytics a
 
 The steps to set up performance tuning for a big data system are as follows:
 
-1. In the Azure portal, [create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Copy and save the Azure subscription ID (a GUID), resource group name, Databricks workspace name, and workspace portal URL for later use.
+1. In the Azure portal, [create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Copy and save the Azure subscription ID (a globally unique identifier (GUID)), resource group name, Databricks workspace name, and workspace portal URL for later use.
 1. In a web browser, go to the Databricks workspace URL and [generate a Databricks personal access token](/azure/databricks/dev-tools/api/latest/authentication#--generate-a-personal-access-token). Copy and save the token string that appears (which begins with `dapi` and a 32-character hexadecimal value) for later use.
 1. Clone the [mspnp/spark-monitoring](https://github.com/mspnp/spark-monitoring) GitHub repository onto your local computer. This repository has the source code for the following components:
     - The Azure Resource Manager (ARM) template for creating an Azure Log Analytics workspace, which also installs prebuilt queries for collecting Spark metrics
@@ -124,7 +124,7 @@ The prebuilt query names for retrieving Spark metrics are listed below.
     :::column:::
         - % CPU Time Per Executor
         - % Deserialize Time Per Executor
-        - % JVM Time Per Executor
+        - % Java virtual machine (JVM) Time Per Executor
         - % Serialize Time Per Executor
         - Disk Bytes Spilled
         - Error Traces (Bad Record Or Bad Files)
