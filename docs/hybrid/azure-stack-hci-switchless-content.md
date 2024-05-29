@@ -4,7 +4,7 @@ The primary focus of this architecture pattern is not the application workload t
 
 For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under "Azure Stack HCI workloads".
 
-This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure STack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place. These workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI infrastructure (_platform_). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
+This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure Stack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place. These workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI infrastructure (_platform_). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
 
 ## Article layout
 
@@ -44,7 +44,7 @@ The architecture incorporates the following capabilities:
 
 ### Cluster design choices
 
-When designing an Azure Stack HCI cluster is is important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:
+When designing an Azure Stack HCI cluster it is important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:
 
 - CPU, memory, and storage input/output operations per second (IOPS)
 - Processors architecture
@@ -60,21 +60,48 @@ Typical use cases for this architecture pattern include the ability to run highl
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - Lower total cost of ownership (TCO) through Microsoft-certified solutions, cloud-based deployment, centralized management, monitoring and alerting.
 - Centralized provisioning capability to deploy workloads to multiple Azure Stack HCI clusters using Azure and Azure Arc, such as portal, command-line-interface (cli) or infrastructure as code (IaC) templates for automation and repeatability.
-- Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
+- Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI has a hardened security posture configured "by default", using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability to integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
 
-## Network layout
+## Network design
 
-Opening paragraph...
+The network design refers to the overall arrangement of components within the network. In the case of a 3-node "storage switchless" configuration for Azure Stack HCI, we have three physical nodes (_servers_) that are directly connected to each other without the use of an external switch for the storage traffic. This direct connection simplifies the network design and reduces complexity, however the maximum number of supported nodes in this configuration is three nodes.
 
 ### Physical network topology
 
-Physical network topology description
+The physical network topology show the actual physical connections between nodes and networking components. Below is what this looks like for a 3-node storage switchless Azure Stack HCI deployment:
+
+- Three nodes (Servers):
+  - Each node is a physical server running Azure Stack HCI OS.
+  - These nodes are interconnected using a single (_or dual_) dedicated physical network interface cards (NICs), that is directly connected to the other nodes using ethernet cables, forming a mesh network for storage.
+- Dual Top-of-Rack (ToR) Switches:
+  - Although this configuration is switchless for storage traffic, it requires links to the ToR switches for external connectivity (_north/south traffic_) for the cluster "management" intent and workload "compute" intent.
+  - These switches connect to the nodes using ethernet cables.
+  - Using dual ToR switches is recommended to provide redundancy and load balancing for external communication.
+- External Connectivity:
+  - The dual ToR switches connect to the external network, such as the internal corporate LAN or to the internet.
+  - They handle traffic going in and out of the Azure Stack HCI cluster.
+- Storage Traffic:
+  - Within the HCI cluster, nodes communicate directly with each other for storage replication traffic (_east/west traffic_).
+  - This direct communication avoids the requirement to use additional switch ports and configuration for SMBDirect (_RDMA_) traffic.
 
 [![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
 
 ### Logical network topology
 
-Logical network topology description. Network ATC and Intents
+The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a 3-node storage switchless Azure Stack HCI cluster:
+
+- Storage traffic:
+  - The nodes communicate with each other directly for storage traffic.
+  - Each node can access shared storage spaces, virtual disks, and volumes.
+  - This direct communication ensures efficient data transfer for storage-related operations.
+- External communication:
+  - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
+  - The ToR switches handle routing and provide connectivity beyond the cluster to the edge border device (_firewall or router_).
+- Network ATC and Intents:
+  - Azure Stack HCI leverages network automation and intent-based network configuration.
+  - The NetworkATC service that ensures optimal networking configuration and traffic flow using network "_Intents_".
+  - Intent-based policies define how the physical network interface cards (_pNICs_)should behave and which network traffic classes should be used on which pNICs, such as the "Storage", "Management" and "Compute" intents, that are associated with pNICs as part of the Azure Stack HCI cloud deployment process.
+
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
 ## Recommendations
@@ -83,7 +110,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Azure Stack HCI switchless storage for retail, manufacturing or remote office scenarios
 
-For retail, manufacturing or remote office scenarios, a primary business concern is minimizing costs, yet the workloads that power these business scenarios are of utmost criticality, with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering high levels of resiliency, and a cost-effective and scalable solution. Deploying Azure Stack HCI using multiple cluster nodes, provides built-in [storage fault tolerance and efficiency using Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly available compute, storage, and network infrastructure for containerized and virtualized workloads. For cost-effectiveness, you can scale deployments from a single node cluster, up to two or three nodes, with only four data disks and 64 gigabytes (GB) of memory per node. To further minimize costs, it is possible to use a "switchless storage design", which interconnects each physical node directly with one or more links, thereby eliminating the requirement for dedicated switches for storage. For maximum storage reliability and workload resiliency, it is recommended to deploy a minimum of 3-nodes in the HCI cluster and use the default configuration of a [3-way mirror for the infrastructure and user volumes](/azure-stack/hci/concepts/fault-tolerance#three-way-mirror).
+For retail, manufacturing or remote office scenarios, a primary business concern is minimizing costs, yet the workloads that power these business scenarios are of utmost criticality, with very little tolerance for downtime. Azure Stack HCI offers the optimal solution by offering high levels of resiliency, and a cost-effective and scalable solution. Deploying Azure Stack HCI using multiple cluster nodes, provides built-in [storage fault tolerance and efficiency using Storage Spaces Direct][s2d-resiliency] and [Failover Clustering][failover-clustering] technologies to implement highly available compute, storage, and network infrastructure for containerized and virtualized workloads. For cost-effectiveness, you can scale deployments from a single node cluster, up to two or three nodes using the storage switchless design, with a minimum of only two 500GB data disks and 32 gigabytes (GB) of memory per node. To further minimize costs, the "switchless storage design" uses direct interconnects between each physical node with one or more network links for storage, thereby eliminating the requirement for dedicated switches for storage traffic. For maximum storage reliability and workload resiliency, it is recommended to deploy a minimum of 3-nodes in the HCI cluster and use the default configuration of a [3-way mirror for the infrastructure and user volumes](/azure-stack/hci/concepts/fault-tolerance#three-way-mirror).
 
 ### Azure Stack HCI directly integrates with Azure using Azure Arc, lowering the total cost of ownership (TCO) and operational overheads
 
@@ -91,11 +118,9 @@ Azure Stack HCI 23H2 (and above) is deployed and managed from Azure, providing  
 
 To minimize the Azure Stack HCI cluster and workload operational management costs, consider using the Azure services below, which provide the following capabilities:
 
-- [Azure Monitor][azs-hci-monitor] to collect diagnostic logs and telemetry generated by HCI clusters and the Arc VM or Arc AKS workload for the purposes of monitoring, analytics, and alerting.
+- [Azure Monitor][azs-hci-monitor] to collect diagnostic logs and telemetry generated by HCI clusters and the Arc-enabled VM or Arc-enabled AKS workload for the purposes of monitoring, analytics, and alerting.
 - [Azure Update Management][azure-update-management] to manage updates for Azure Stack HCI clusters and Virtual Machines, to automate the deployment and reporting processes for security updates.
-- [Azure Automation][azure-automation]. Azure Automation delivers a cloud-based automation, and configuration service that supports consistent management across your Azure and non-Azure environments.
-- [Azure Automation, Change Tracking, and Inventory feature][az-auto-ct-and-inv]. Track Azure Stack HCI VM configuration changes, this can be enable using Azure Arc.
-- [Azure Automation DSC][az-auto-vm-dsc-hybrid-worker]. Automate a desired state configuration of Azure Stack HCI VMs.
+- [Change Tracking and Inventory][az-auto-ct-and-inv]. Track Azure Stack HCI VM configuration changes, this can be enable using Azure Arc.
 - [Azure Backup][azs-hci-vm-backup]. Manage the backup of Azure Stack HCI VMs and their workloads.
 - [Azure Site Recovery][azs-hci-vm-dr]. Implement and orchestrate disaster recovery for Azure Stack HCI VMs.
 - [Azure File Sync][az-file-sync]. Synchronize and tier file shares that are hosted on Azure Stack HCI clusters.
@@ -128,18 +153,18 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Reliability considerations include:
 
-- Improved Storage Spaces Direct volume repair speed (also referred to as *resync*). Storage Spaces Direct provides automatic resync following events that affect availability of storage pool disks, such as shutting down a cluster node or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at much finer granularity than Windows Server 2019 and significantly reduces the resync operation time. This minimizes potential impact of multiple overlapping hardware failures.
-- Failover Clustering witness selection. The lightweight, Cloud Witness&ndash;based witness eliminates dependencies in setting up a separate server or maintain additional infrastructure such as file share witness. The use of cloud witness for quorum is easier to manage and reduces operational overhead.
+- Improved Storage Spaces Direct volume repair speed (also referred to as _resync_). Storage Spaces Direct provides automatic resync following events that affect availability of storage pool disks, such as shutting down a cluster node or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at much finer granularity than Windows Server 2019 and significantly reduces the resync operation time. This minimizes potential impact of multiple overlapping hardware failures.
+- Failover Clustering witness selection. A cloud Witness eliminates dependencies in setting up a separate server or maintain additional infrastructure such as file share witness. The use of cloud witness for quorum is easier to manage and reduces operational overhead.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the misuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Security considerations include:
 
 - [Azure Stack HCI basic security][azs-hci-basic-security]. Utilize Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Azure role-based access control][azure-rbac] to delegate management tasks by following the principle of least privilege.
 - [Azure Stack HCI security default][azs-hci-security-default]. Apply default security settings for your Azure Stack HCI cluster during deployment to keep the nodes in a known good state. You can use the security default settings to manage cluster security, drift control, and Secured core server settings on your cluster.
-[Azure Stack HCI advanced security][azs-hci-advanced-security] You can use [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
+You can sue [Azure Stack HCI advanced security][azs-hci-advanced-security] to further harden servers running Azure Stack HCI operating system and [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
 
 ### Cost optimization
 
@@ -159,8 +184,8 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Operational excellence considerations include:
 
-- Simplified provisioning and management experience integrated with Azure. The [**Cloud Based Deployment** in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. Similarly, [Azure Portal simplifies the process of managing Azure Stack HCI Clusters and Azure Arc VMs][azs-hci-manage-cluster-at-scale] and [azs-hci-manage-arc-vms]. The portal based deployment of Azure Stack HCI cluster can be [automated using ARM template][azs-hci-deploy-via-template]
-- Automation capabilities for Virtual Machines. Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as Virtual Machines, with the [automated deployment of Arc VMs using Azure CLI, ARM or Bicep Template][azs-hci-automate-arc-vms], with Virtual Machine OS updates using Azure Arc Extension for Updates and Azure Update Manager[azs-update-manager]. Azure Stack HCI also offers support for [Azure Arc VM management][azs-hci-vm-automate-cli] by using Azure CLI and [Non-Azure Arc VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of additional automation scenarios for [virtual machine][arc-vm-extensions] workloads through Azure Arc extensions.
+- Simplified provisioning and management experience integrated with Azure. The [**Cloud Based Deployment** in Azure][azs-hci-deploy-via-portal] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. Similarly, [Azure Portal simplifies the process of managing Azure Stack HCI Clusters and Azure Arc VMs][azs-hci-manage-cluster-at-scale] and [Azure Arc VM Management](/azure-stack/hci/manage/azure-arc-vm-management-overview). The portal based deployment of Azure Stack HCI cluster can be [automated using ARM template][azs-hci-deploy-via-template]
+- Automation capabilities for Virtual Machines. Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as Virtual Machines, with the [automated deployment of Arc VMs using Azure CLI, ARM or Bicep Template][azs-hci-automate-arc-vms], with Virtual Machine OS updates using Azure Arc Extension for Updates and [Azure Update Manager](azs-update-manager) to update each Azure Stack HCI cluster. Azure Stack HCI also offers support for [Azure Arc VM management][azs-hci-vm-automate-cli] by using Azure CLI and [Non-Azure Arc VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of additional automation scenarios for [virtual machine][arc-vm-extensions] workloads through Azure Arc extensions.
 - Automation capabilities for Containers on AKS (Azure Kubernetes Service). Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as containers on AKS, with the [automated deployment of AKS clusters using Azure CLI][azs-hci-automate-arc-aks], with AKS workload cluster updates using Azure Arc Extension for [Kubernetes Updates][azs-hci-automate-aks-update]. Azure Stack HCI also offers support for [Azure Arc AKS management][azs-hci-aks-automate-cli] by using Azure CLI. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with Azure Arc facilitates a wide range of additional automation scenarios for [containerized][azs-hci-k8s-gitops] workloads through Azure Arc extensions.
 - Decreased management complexity. Switchless interconnect eliminates the risk of switch device failures and the need for their configuration and management.
 
@@ -171,9 +196,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 Performance efficiency considerations include:
 
 - [Storage resiliency][s2d-resiliency] versus usage efficiency, versus performance. Planning for Azure Stack HCI volumes involves identifying the optimal balance between resiliency, usage efficiency, and performance. This challenge results from the fact that maximizing one of these characteristics typically has a negative impact on at least one of the other two. For example, increasing resiliency reduces the usable capacity, while the resulting performance might vary depending on the resiliency type selected. When resiliency and performance matters most, and when using three or more nodes, the default storage configuration during Azure Stack HCI cloud deployment will be a three-way mirror for the infrastructure and user volumes.
-- [Storage Spaces Direct][s2d-disks] supports multiple physical disk types that vary is performance and capacity; spinning hard disk drives (HDDs), solid-state drives (SSDs) and NVMe drives (aka "flash drives"), and [Persistent memory (PMem) storage](/azure-stack/hci/concepts/deploy-persistent-memory), often referred to as "storage-class memory" or SCM. The selected physical drive types directly impact storage performance due to differences in performance characteristics between each type, and the caching mechanism, which is an integral part of any Storage Spaces Direct configuration. Depending on the Azure Stack HCI workloads and budget constraints, you can choose to [maximize performance][s2d-drive-max-performance], [maximize capacity][s2d-drive-max-capacity], or implement a drive configuration that provides a [balance between performance and capacity][s2d-drive-balance-performance-capacity].
+- [Storage Spaces Direct][s2d-disks] supports multiple physical disk types that vary in performance and capacity; spinning hard disk drives (HDDs), solid-state drives (SSDs) and NVMe drives (aka "flash drives"), and [Persistent memory (PMem) storage](/azure-stack/hci/concepts/deploy-persistent-memory), often referred to as "storage-class memory" or SCM. The selected physical drive types directly impact storage performance due to differences in performance characteristics between each type, and the caching mechanism, which is an integral part of any Storage Spaces Direct configuration. Depending on the Azure Stack HCI workloads and budget constraints, you can choose to [maximize performance][s2d-drive-max-performance], [maximize capacity][s2d-drive-max-capacity], or implement a drive configuration that provides a [balance between performance and capacity][s2d-drive-balance-performance-capacity].
 - Storage caching optimization. Storage Spaces Direct provides a [built-in, persistent, real-time, read and write, server-side cache][s2d-cache] that maximizes storage performance. The cache should be sized and configured to accommodate the [working set of your applications and workloads][s2d-cache-sizing]. In addition, Azure Stack HCI is compatible with the Cluster Shared Volume (CSV) in-memory read cache. Using system memory to cache reads can [improve Hyper-V performance][azs-hci-csv-cache].
-- Compute performance optimization in Azure Stack HCI and be achieved through the use of graphics processing unit (GPU) acceleration, such as requirements for data insights or inferencing for [high-performance AI/ML workloads][azs-hci-gpu-acceleration] that require deployment at edge locations due to data gravity and/or security requirements.
+- Compute performance optimization in Azure Stack HCI can be achieved through the use of graphics processing unit (GPU) acceleration, such as requirements for data insights or inferencing for [high-performance AI/ML workloads][azs-hci-gpu-acceleration] that require deployment at edge locations due to data gravity and/or security requirements.
 - Networking performance optimization. As part of your design, be sure to include projected [network traffic bandwidth allocation][azs-hci-network-bandwidth-allocation] when determining your [optimal network hardware configuration][azs-hci-networking]. This includes provisions to address [switchless interconnect minimum bandwidth requirements for storage traffic][azs-hci-switchless-interconnects-reqs], such as implementions with two (or more) physical network interface adapters (NICs) for the storage Network ATC intent, which provides additional bandwidth and resiliency for high storage performance and/or business-critical scenarios.
 
 > [!IMPORTANT]
