@@ -33,7 +33,7 @@ After the batch pipeline is complete, the ***real-time, asynchronous*** ***pipel
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service) provides REST API access to OpenAI's powerful language models, including the GPT-3, GPT-3.5, GPT-4, and embeddings model series. You can easily adapt these models to your specific task, such as content generation, summarization, semantic search, converting text to semantically powerful embeddings vectors, and natural-language-to-code translation.
 
-- [LangChain](https://python.langchain.com/en/latest/index.html) is a third-party, open-source framework that you can use to develop applications that are powered by language models. LangChain makes the complexities of working and building with AI models easier by providing the pipeline orchestration framework and helper utilities to run powerful, multiple-model pipelines.
+- [LangChain](https://python.langchain.com/v0.1/docs/get_started/introduction/) is a third-party, open-source framework that you can use to develop applications that are powered by language models. LangChain makes the complexities of working and building with AI models easier by providing the pipeline orchestration framework and helper utilities to run powerful, multiple-model pipelines.
 
 - Memory refers to capturing information. By default, language modeling chains (or pipelines) and agents operate in a stateless manner. They handle each incoming query independently, just like the underlying language models and chat models that they use. But in certain applications, such as chatbots, it's crucial to retain information from past interactions in the short term and the long term. This area is where the concept of "memory" comes into play. LangChain provides convenient utility tools to manage and manipulate past chat messages. These utilities are designed to be modular regardless of their specific usage. LangChain also offers seamless methods to integrate these utilities into the memory of chains by using [language models](https://python.langchain.com/docs/modules/memory/).
 
@@ -73,7 +73,7 @@ Other contributor:
 - [ChatGPT](https://chat.openai.com)
 - [Enterprise search with OpenAI architecture](https://github.com/MSUSAzureAccelerators/Knowledge-Mining-with-OpenAI)
 - [Generative AI for developers: Exploring new tools and APIs in Azure OpenAI Service](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/generative-ai-for-developers-exploring-new-tools-and-apis-in/ba-p/3817003)
-- [LangChain](https://python.langchain.com/en/latest/index.html)
+- [LangChain](https://python.langchain.com/v0.1/docs/get_started/introduction/)
 - [Memory with language models](https://python.langchain.com/docs/modules/memory/)
 - [Quickstart: Get started generating text using Azure OpenAI Service](/azure/cognitive-services/openai/quickstart?pivots=programming-language-studio&tabs=command-line)
 - [Redis on Azure OpenAI](https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases/redis)
