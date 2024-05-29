@@ -22,7 +22,7 @@ The solution involves the following steps:
 1. The hospital's web app client requests that an attestation service (Azure Attestation) validates this evidence, and receives a signed *attestation token* for other apps to verify.
 1. If the Web API requires additional components (like a Redis cache), it can pass along the attestation token to verify that the data and app code have so far remained in a safe enclave (see step 6 for verification).
 1. The Web API can even consume remote services, such as an ML model hosted by a third-party diagnostics provider. When doing so, it continues to pass along any attestation tokens for evidence that required enclaves are safe. The Web API could also attempt to receive and verify attestation tokens for the diagnostic provider's infrastructure.
-1. The remote infrastructure accepts the attestation token from the medical platform's web api and verifies it with a public certificate found in the Azure Attestation service. If the token is verified, there is near certainty that the enclave is safe and neither the data or app code have been opened outside of the enclave.
+1. The remote infrastructure accepts the attestation token from the medical platform's web API and verifies it with a public certificate found in the Azure Attestation service. If the token is verified, there is near certainty that the enclave is safe and neither the data or app code have been opened outside of the enclave.
 1. The diagnostics provider, confident that the data has not been exposed, sends it into its own enclave in an Open Neural Network Exchange (ONNX) runtime server. An AI model interprets the medical imagery and returns its diagnosis results back to the medical platform's confidential Web API app. From here, the software can then interact with patient records and/or contact other hospital staff.
 
 ### Components
@@ -77,7 +77,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 
-A [sample cost profile](https://azure.com/e/5e776a5dbebf4f20974ebbfa0e247747) is available for the Contoso Medical SaaS Platform, as pictured in the diagram. It includes the following components:
+A [sample cost profile](https://azure.com/e/5e776a5dbebf4f20974ebbfa0e247747) is available for the Contoso Medical software as a service (SaaS) Platform, as pictured in the diagram. It includes the following components:
 
 - System node pool and SGX node pool: no disks, all ephemeral
 - AKS Load Balancer

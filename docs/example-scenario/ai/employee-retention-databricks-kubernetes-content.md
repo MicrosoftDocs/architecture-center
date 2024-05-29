@@ -16,7 +16,7 @@ At a high level, this solution design addresses each stage of the machine-learni
 
 - *Model development*, which includes core components of the process of model development, such as experiment tracking and model registration by using [MLflow](/azure/databricks/applications/mlflow).
 
-- *Model deployment*, which includes implementing a continuous integration/continuous delivery (CI/CD) pipeline to containerize machine-learning models as API services. These services are deployed to Azure Kubernetes clusters for end users to consume.
+- *Model deployment*, which includes implementing a continuous integration and continuous delivery (CI/CD) pipeline to containerize machine-learning models as API services. These services are deployed to Azure Kubernetes clusters for end users to consume.
 
 - *Model monitoring*, which includes monitoring the API performance and model data drift by analyzing log telemetry with Azure Monitor.
 
@@ -96,7 +96,7 @@ A proof-of-concept implementation of this scenario is available on GitHub at [Em
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architecture.*
 
-This proof-of-concept illustrates:
+This proof of concept (POC) illustrates:
 
 - How to train an MLflow model for employee attrition on Azure Databricks.
 - How to package models as a web service by using open-source tools.

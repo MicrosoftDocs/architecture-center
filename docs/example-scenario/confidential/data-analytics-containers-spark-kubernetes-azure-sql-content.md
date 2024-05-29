@@ -117,11 +117,11 @@ Kubernetes admins, or any privileged user with the highest level of access (for 
 
 To perform remote attestation on a SCONE application (such as Spark Driver and Executor pods), two services are required:
 
-- **Local attestation service (LAS)**: A local service that runs on the untrusted host (AKS node pool VM) and gathers the attestation evidence that's provided by Intel SGX about the application being attested. Because of SCONE's method of app deployment, this evidence is signed and forwarded to the configuration and attestation service (CAS).
+- **Local attestation service (LAS)**: A local service that runs on the untrusted host (AKS node pool VM) and gathers the attestation evidence that's provided by Intel SGX about the application being attested. Because of SCONE's method of app deployment, this evidence is signed and forwarded to the configuration and attestation service (CAs).
 
-- **CAS**: A central service that manages security policies (called *SCONE sessions*), configuration, and secrets. CAS compares the attestation evidence that's gathered by LAS against the application's security policies (which are defined by the application owner) to decide whether the enclave is trustworthy. If it is, CAS allows the enclave to run, and SCONE securely injects configuration and secrets into it. To learn more about CAS and its features, such as secret generation and access control, see [SCONE Configuration and Attestation Service](https://sconedocs.github.io/CASOverview).
+- **CAS**: A central service that manages security policies (called *SCONE sessions*), configuration, and secrets. CAs compares the attestation evidence that's gathered by LAS against the application's security policies (which are defined by the application owner) to decide whether the enclave is trustworthy. If it is, CAs allows the enclave to run, and SCONE securely injects configuration and secrets into it. To learn more about CAs and its features, such as secret generation and access control, see [SCONE Configuration and Attestation Service](https://sconedocs.github.io/CASOverview).
 
-This scenario uses a [public CAS](https://sconedocs.github.io/public-CAS) provided by SCONE for demonstration and simplicity, and it deploys the [LAS](https://sconedocs.github.io/LASIntro) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset) on each AKS node.
+This scenario uses a [public CAs](https://sconedocs.github.io/public-CAS) provided by SCONE for demonstration and simplicity, and it deploys the [LAS](https://sconedocs.github.io/LASIntro) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset) on each AKS node.
 
 ### Cost optimization
 

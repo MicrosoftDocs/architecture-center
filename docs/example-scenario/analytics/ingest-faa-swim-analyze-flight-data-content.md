@@ -39,7 +39,7 @@ For ingestion, the solution uses Apache Kafka in a single VM. This design config
 - [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
 - [Apache Kafka for Confluent Cloud](/azure/partner-solutions/apache-kafka-confluent-cloud/overview)
 
-Both are managed services and offer multiple benefits, like SLAs, simplified configuration, and scalability. They're also more expensive.
+Both are managed services and offer multiple benefits, like service-level agreements (SLAs), simplified configuration, and scalability. They're also more expensive.
 
 As an alternative to Power BI, you can use Tableau or another visualization option.
 

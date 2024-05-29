@@ -101,7 +101,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Azure Synapse, Data Lake Storage, and Key Vault are managed platform as a service (PaaS) services that have built-in high availability and resiliency. You can use redundant nodes to make the self-hosted integration runtime and NAT VMs in the architecture highly available.
-- For SLA information, see [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1).
+- For service-level agreement (SLA) information, see [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1).
 - For business continuity and disaster recovery recommendations for Azure Synapse, see [Database-restore points for Azure Synapse Analytics](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse).
 
 ### Security

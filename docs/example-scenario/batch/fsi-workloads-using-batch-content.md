@@ -67,7 +67,7 @@ The resources deployed on the spoke network are as follows:
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) can be used instead of Azure Batch service for a similar configuration for containerized applications.
 
-- [Azure CycleCloud](/azure/cyclecloud) can be used to manage HPC clusters on Azure. Such HPC clusters can be set up to run workloads similar to the ones targeted by this article.
+- [Azure CycleCloud](/azure/cyclecloud) can be used to manage high-performance computing (HPC) clusters on Azure. Such HPC clusters can be set up to run workloads similar to the ones targeted by this article.
 
 ## Scenario details
 
@@ -86,7 +86,7 @@ This architecture can be used to run a wide variety of FSI workloads. Some examp
 
 ### Network topology
 
-This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, vpn gateways, and jumpboxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
+This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jumpboxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
 
 Here are some highlights of the network topology:
 
