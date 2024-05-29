@@ -1798,14 +1798,6 @@ items:
           href: hybrid/azure-arc-hybrid-config.yml
         - name: Optimize SQL Server with Azure Arc
           href: hybrid/azure-arc-sql-server.yml
-      - name: AKS on Azure Stack HCI (AKS hybrid)
-        items:
-        - name: AKS on Azure Stack HCI baseline architecture
-          href: example-scenario/hybrid/aks-baseline.yml
-        - name: AKS on Azure Stack HCI network architecture
-          href: example-scenario/hybrid/aks-network.yml
-        - name: Deploy apps with AKS hybrid on Azure Stack ACI
-          href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
       - name: Azure Automation solutions
         items:
         - name: Azure Automation hybrid environment
@@ -1824,12 +1816,24 @@ items:
         href: hybrid/azure-functions-hybrid.yml
       - name: Azure Stack HCI solutions
         items:
-        - name: Azure Stack HCI stretched clusters for DR
-          href: hybrid/azure-stack-hci-dr.yml
-        - name: Azure Stack HCI switchless storage
-          href: hybrid/azure-stack-hci-switchless.yml
-        - name: Azure Stack HCI Hybrid cross cluster scaling
-          href: hybrid/hybrid-cross-cluster-scaling.yml
+        - name: Azure Stack HCI platform
+          items:
+          - name: Azure Stack HCI 3 node switchless storage
+            href: hybrid/azure-stack-hci-switchless.yml
+          - name: Azure Stack HCI stretched clusters for DR
+            href: hybrid/azure-stack-hci-dr.yml
+        - name: Azure Stack HCI workloads
+          items:
+          - name: AKS on Azure Stack HCI (AKS hybrid)
+            items:
+            - name: AKS on Azure Stack HCI baseline architecture
+              href: example-scenario/hybrid/aks-baseline.yml
+            - name: AKS on Azure Stack HCI network architecture
+              href: example-scenario/hybrid/aks-network.yml
+            - name: Deploy apps with AKS hybrid on Azure Stack ACI
+              href: example-scenario/hybrid/aks-hybrid-stack-hci.yml
+          - name: Azure Stack HCI Hybrid cross cluster scaling
+            href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Azure Stack Hub solutions
         items:
         - name: AI-based footfall detection
