@@ -30,7 +30,7 @@ Consider the following points when deciding whether to implement this pattern:
 
 -   The [Azure IoT Hub Device Provisioning Service (Azure DPS) client SDKs](/azure/iot-hub/iot-hub-devguide-sdks) do not support SAS token authentication. The [Azure DPS REST  API](/rest/api/iot-dps/) *does* support SAS token authentication. Therefore, to use the Azure DPS with a third-party token service for SAS authentication, a device application must implement the device DPS process using the Azure DPS REST API.
 
--   This consists of making an initial registration request operation, and then polling the operational status API until the DPS process succeeds or fails. On success, the device provisioning details can be obtained by requesting them from the [Azure DPS REST API Runtime Registration](/rest/api/iot-dps/device/device-registration-state).
+-   This consists of making an initial registration request operation, and then polling the operational status API until the DPS process succeeds or fails. On success, the device provisioning details can be obtained by requesting them from the [Azure DPS REST API Runtime Registration](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup).
 
 ## When to use this pattern
 
