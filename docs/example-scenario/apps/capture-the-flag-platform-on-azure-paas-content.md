@@ -13,7 +13,7 @@ This scenario covers an open-source capture-the-flag solution based on CTFd in w
 1. A CTFd Docker image is pulled from Azure Container Registry and ready to serve customers.
 2. CTF administrators and participants navigate to the Capture-the-flag web application from any device.
 3. The web application is provided by [CTFd](https://github.com/CTFd/CTFd) platform as a Docker container that runs on an Azure App Service Web App for Containers.
-4. The CTFd data is maintained in an Azure Database for MariaDB that includes users, challenges, flags, and game plays.
+4. The CTFd data is maintained in an Azure Database for MySQL that includes users, challenges, flags, and game plays.
 5. The state, user sessions, and other CTFd values are held in Azure Cache for Redis. This configuration makes it suitable for supporting scaling out to multiple CTFd instances.
 6. The keys for both the database and cache are maintained in Azure Key Vault. Access to the secrets is granted only to the web application.
 7. A virtual network connects Azure resources to each other and provides logical isolation. In this architecture, the web application communicates through the network with the database, cache, and key vault.
@@ -28,11 +28,11 @@ The template supports two network configurations: the preceding one and a simple
 ### Components
 
 - [Azure App Service Web App for Container](https://azure.microsoft.com/products/app-service/containers/) hosts containerized web applications allowing autoscale and high availability without managing infrastructure.
-- [Azure Database for MariaDB](https://azure.microsoft.com/products/mariadb/) is a cloud-based relational database service. This service is based on the [MariaDB](https://mariadb.org) community edition database engine.
+- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql/) is a cloud-based relational database service. This service is based on the [MySQL](https://www.mysql.com/) community edition database engine.
 - [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) improves the performance and scalability of systems that rely heavily on backend data stores. It does this by temporarily copying frequently accessed data to fast storage that's close to the application.
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) provides secure credential and certificate management.
 - [Azure Log Analytics](https://azure.microsoft.com/products/monitor/), an Azure Monitor Logs tool, can be used for diagnostic or logging information and for querying this data to sort, filter, or visualize it. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
-- [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides various networking capabilities in Azure, and the networks can peer with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MariaDB](/azure/mariadb/concepts-data-access-security-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Azure Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure all the data is flowing only through the Azure virtual network.
+- [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides various networking capabilities in Azure, and the networks can peer with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MySQL](/azure/mysql/flexible-server/concepts-networking-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Azure Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure all the data is flowing only through the Azure virtual network.
 
 ### Alternatives
 
@@ -65,8 +65,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Review the security considerations in the appropriate [App Service web application reference architecture](/azure/architecture/web-apps/app-service/architectures/basic-web-app#security).
-- All data in Azure Database for MariaDB is automatically [encrypted](/azure/mariadb/concepts-security) and backed up. You can configure Microsoft Defender for Cloud for further mitigation of threats. For more information, see [Enable Microsoft Defender for open-source relational databases and respond to alerts](/azure/defender-for-cloud/defender-for-databases-usage).
-- Access to Azure Database for MariaDB over TLS helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. It requires the root certificate to be available in the Docker image. This solution uses a custom Docker image that fetches the certificate at build time. The custom image is managed in an Azure Container Registry.
+- All data in Azure Database for MySQL is automatically [encrypted](/azure/mysql/flexible-server/overview#enterprise-grade-security-compliance-and-privacy) and backed up. You can configure Microsoft Defender for Cloud for further mitigation of threats. For more information, see [Enable Microsoft Defender for open-source relational databases and respond to alerts](/azure/defender-for-cloud/defender-for-databases-usage).
+- Access to Azure Database for MySQL over TLS helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. It requires the root certificate to be available in the Docker image. This solution uses a custom Docker image that fetches the certificate at build time. The custom image is managed in an Azure Container Registry.
 - [Managed identities for Azure resources](/azure/app-service/app-service-managed-service-identity) provide access to other internal resources to your account. This solution uses a managed identity to authorize the web application in Azure App Service to read secrets from Azure Key Vault.
 - Credentials such as database or cache connection strings are stored in Azure Key Vault as secrets. Azure App Service is configured to access the Key Vault with its managed identities to avoid storing secrets in application settings or code.
 - Network security is considered throughout the design. All traffic from the publicly available web application to the internal services is routed through the Virtual Network, and all back-end services (database, cache, and key vault) do not allow public network access.
@@ -93,7 +93,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - This solution requires at least the Basic tier, because lower tiers do not support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
 - The CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
 - For information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/web-apps/app-service/architectures/basic-web-app#scaling-the-app-service-app).
-- You can [scale up](/azure/mariadb/concepts-pricing-tiers) Azure Database for MariaDB to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
+- You can [scale up](/azure/mysql/flexible-server/concepts-service-tiers-storage) Azure Database for MySQL to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
 
 ## Deploy this scenario
 
@@ -107,7 +107,7 @@ The easiest way to deploy the solution to your subscription is to use the **Depl
 
 Principal author:
 
-- [Avishay Balter](https://www.linkedin.com/in/avishay-balter-67913138) | Senior Software Engineer
+- [Avishay Balter](https://www.linkedin.com/in/avishay-balter) | Principal Software Engineering Lead
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
