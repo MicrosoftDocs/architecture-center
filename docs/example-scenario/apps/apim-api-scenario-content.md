@@ -32,9 +32,6 @@ In the future, the project team will gradually port functionality to the new API
 - [Azure API Management](/azure/well-architected/service-guides/api-management/reliability) abstracts backend APIs as well as adding cross cutting functionality and discovery for developers and applications. In this scenario the re-composition of existing legacy backend APIs and the addition of new API functionality is made possible by using API Management as a [façade](/azure/architecture/patterns/strangler-fig) for the new client application to consume consistently and using modern standards. Because API Management facades both the existing and new APIs it's possible for the developers to modernize the legacy backends behind the API Management façade in an iterative way and with minimal to zero impact on the new front end development.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a turn-key Platform as a Service (PaaS) service for web hosting which provides out of the box features such as security, load balancing, autoscaling, and automated management. Azure App Service is a great choice for the new APIs being developed for this solution because it provides flexible turn-key hosting enabling the DevOps team to focus on delivering features.
 
-> [!NOTE]
-> [API Management now has "V2" tiers][apim-v2] designed to be accessible to a broader set of customers and offer flexible options for a wider variety of scenarios
-
 ### Alternatives
 
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
