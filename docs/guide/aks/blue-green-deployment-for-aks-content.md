@@ -208,12 +208,12 @@ Here's the situation after the blue cluster is destroyed:
 
 ### Components
 
-- [Application Gateway](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-application-gateway) is a gateway and load balancer for the AKS clusters.
-- [AKS](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service?wt.mc_id=techcomm_wablog_blog_azuremktg) provides managed Kubernetes clusters.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a gateway and load balancer for the AKS clusters.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) provides managed Kubernetes clusters.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores and distributes container images and artifacts, such as Helm charts, in the AKS clusters.
 - [Monitor](https://azure.microsoft.com/services/monitor) monitors the AKS clusters. We strongly recommend that you use it, because of its integration with AKS and its ability to provide logging, monitoring, and alerting capabilities that can be used to manage the stage transitions.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards the secrets and certificates that the Azure resources and the applications use.
-- [Azure Front Door](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-front-door) is used in this solution when there are public-facing endpoints, and apps that are hosted on AKS and other Azure compute services. In this solution it has the critical responsibility to manage the traffic switch between the blue and green clusters.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is used in this solution when there are public-facing endpoints, and apps that are hosted on AKS and other Azure compute services. In this solution it has the critical responsibility to manage the traffic switch between the blue and green clusters.
 - [Azure DNS](https://azure.microsoft.com/services/dns) manages the host names that are used in the solution, and it plays an important role in the traffic switches, particularly for private endpoints.
 
 ### Alternatives
