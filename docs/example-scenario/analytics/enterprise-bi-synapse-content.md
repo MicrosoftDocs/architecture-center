@@ -55,7 +55,7 @@ When you run an automated extract-transform-load (ETL) or extract-load-transform
 Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables), which are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a `FOR SYSTEM_TIME` clause to a query. Internally, the database engine queries the history table, but it's transparent to the application.
 
 > [!NOTE]
-> For earlier versions of SQL Server, you can use [change data capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
+> For earlier versions of SQL Server, you can use [change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp.
 
 Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the AdventureWorks Data Warehouse, the `SalesLT.*` tables have a `LastModified` field.
 

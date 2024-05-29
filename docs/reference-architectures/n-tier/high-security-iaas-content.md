@@ -6,7 +6,7 @@ Also see [Azure virtual machines security overview](/azure/security/fundamentals
 
 ## Azure VMs
 
-Azure's compute platform is based on machine virtualization. A *hypervisor* runs on the physical hardware of each Azure node or network endpoint, and creates a variable number of guest [Hyper-V virtual machines](/virtualization/hyper-v-on-windows/about/) (VMs) in the node. All user code executes on the VMs. For basic Azure VM deployment instructions, see [Run a Linux VM on Azure](./linux-vm.yml) or [Run a Windows VM on Azure](./windows-vm.yml). Most deployment processes are the same for the two operating systems (OSs), but OS-specific tools like disk encryption may differ.
+Azure's compute platform is based on machine virtualization. A *hypervisor* runs on the physical hardware of each Azure node or network endpoint, and creates a variable number of guest [Hyper-V virtual machines (VMs)](/virtualization/hyper-v-on-windows/about/) in the node. All user code executes on the VMs. For basic Azure VM deployment instructions, see [Run a Linux VM on Azure](./linux-vm.yml) or [Run a Windows VM on Azure](./windows-vm.yml). Most deployment processes are the same for the two operating systems (OSs), but OS-specific tools like disk encryption may differ.
 
 You can use [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) for VM patch management and to deploy and monitor [antimalware tools](/azure/security-center/security-center-install-endpoint-protection). Alternatively, you can manage your own or third-party patching and antimalware tools, which is common when extending or migrating existing infrastructures to Azure.
 
