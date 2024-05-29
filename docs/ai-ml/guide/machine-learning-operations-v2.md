@@ -5,6 +5,7 @@ author: sdonohoo
 ms.author: robbag
 ms.date: 08/04/2022
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:

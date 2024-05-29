@@ -100,7 +100,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
 
-In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, the class is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic.
+In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, the class is specified for execution by the Databricks cluster. Here, the `main` method of the `com.microsoft.pnp.TaxiCabReader` class contains the data processing logic.
 
 #### Reading the stream from the two event hub instances
 
@@ -128,7 +128,7 @@ val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
 
 The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While these coordinates are useful, they are not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile).
 
-The shapefile format is binary and not easily parsed, but the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates.
+The shapefile format is binary and not easily parsed, but the [GeoTools](http://geotools.org) library provides tools for geospatial data that use the shapefile format. This library is used in the `com.microsoft.pnp.GeoFinder` class to determine the neighborhood name based on the pick up and drop off coordinates.
 
 ```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
@@ -245,7 +245,7 @@ In code, secrets are accessed via the Azure Databricks [secrets utilities](https
 
 Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytics following the article [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
-As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
+As the `com.microsoft.pnp.TaxiCabReader` class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The `com.microsoft.pnp.TaxiCabReader` class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
 ```scala
     @transient val appMetrics = new AppMetrics(spark.sparkContext)

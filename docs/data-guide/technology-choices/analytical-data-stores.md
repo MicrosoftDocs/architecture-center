@@ -1,8 +1,8 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: martinekuan
-ms.author: martinek
+author: raunakjhawar
+ms.author: rajhawar
 ms.date: 03/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -20,7 +20,7 @@ ms.custom:
 
 In a [big data](../big-data/index.yml) architecture, there is often a need for an analytical data store that serves processed data in a structured format that can be queried using analytical tools. Analytical data stores that support querying of both hot-path and cold-path data are collectively referred to as the serving layer, or data serving storage.
 
-The serving layer deals with processed data from both the hot path and cold path. In the [lambda architecture](../big-data/index.yml#lambda-architecture), the serving layer is subdivided into a _speed serving_ layer, which stores data that has been processed incrementally, and a _batch serving_ layer, which contains the batch-processed output. The serving layer requires strong support for random reads with low latency. Data storage for the speed layer should also support random writes, because batch loading data into this store would introduce undesired delays. On the other hand, data storage for the batch layer does not need to support random writes, but batch writes instead.
+The serving layer deals with processed data from both the hot path and cold path. In the [lambda architecture](../big-data/index.yml#lambda-architecture), the serving layer is subdivided into a *speed serving* layer, which stores data that has been processed incrementally, and a *batch serving* layer, which contains the batch-processed output. The serving layer requires strong support for random reads with low latency. Data storage for the speed layer should also support random writes, because batch loading data into this store would introduce undesired delays. On the other hand, data storage for the batch layer does not need to support random writes, but batch writes instead.
 
 There is no single best data management choice for all data storage tasks. Different data management solutions are optimized for different tasks. Most real-world cloud apps and big data processes have a variety of data storage requirements and often use a combination of data storage solutions.
 

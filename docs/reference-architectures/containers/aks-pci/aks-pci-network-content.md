@@ -140,10 +140,10 @@ Documentation of business justification and approval for use of all services, pr
 
 Have detailed documentation that describes the services, protocols, and ports used in the network controls. Deny all except for explicitly allowed ports. Document business justification and documented security features if the use of insecure protocols can't be avoided. Here are some examples from the reference implementation for Azure Firewall. Firewall rules must be scoped exclusively to their related resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Here are some cases to allow traffic.
 
-|Rule|Protocol:Port|Source|Destination|Justification
+|Rule|Protocol:Port|Source|Destination|Justification|
 |---|---|---|---|---|
 |Allow secure communication between the nodes and the control plane.|HTTPS:443|Authorized IP address ranges assigned to the cluster node pools| List of FQDN targets in the AKS control plane. This is specified with the `AzureKubernetesService` FQDN tag.|The nodes need access to the control plane for management tools, state and configuration information, and information about which nodes can be scaled.|
-|Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|github.com,api.github.com|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
+|Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|`github.com`, `api.github.com`|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
 
 #### Requirement 1.1.7
 
@@ -294,7 +294,7 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy.
 - Prevent addition of public IP addresses to the networks within the CDE unless by subnets explicitly authorized, such as the Firewall subnets.
 - Use an HTTP proxy, in addition to Azure Firewall, to limit outbound (egress) traffic from the AKS cluster to the internet.
-- Use [Azure Monitor Private Link Service](/azure/azure-monitor/logs/private-link-security) (AMPLS) to have logs from Container insights sent over a secure, private connection to Azure Monitor. Understand the impact of [enabling AMPLS](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
+- Use [Azure Monitor Private Link Service (AMPLS)](/azure/azure-monitor/logs/private-link-security) to have logs from Container insights sent over a secure, private connection to Azure Monitor. Understand the impact of [enabling AMPLS](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
 
 > [!NOTE]
 > You can use Kubernetes `NetworkPolicies` to restrict ingress and egress traffic to and from the pods.
@@ -513,7 +513,7 @@ Shared hosting providers must protect each entity's hosted environment and cardh
 
 Azure provides security assurances for any hosted environment components that are shared. It's highly recommended that you treat your AKS nodes as a dedicated host for this workload. That is, all compute should be in a single tenant model and not shared with other workloads you may operate.
 
-If complete compute isolation is desired at the Azure infrastructure level, you can [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts). This offering provides _physical_ servers dedicated to your workload, allowing you to place AKS nodes directly into these provisioned hosts. This architectural choice has significant cost & capacity planning impact and is not typical for most scenarios.
+If complete compute isolation is desired at the Azure infrastructure level, you can [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts). This offering provides *physical* servers dedicated to your workload, allowing you to place AKS nodes directly into these provisioned hosts. This architectural choice has significant cost & capacity planning impact and is not typical for most scenarios.
 
 ## Next steps
 

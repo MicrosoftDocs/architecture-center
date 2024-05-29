@@ -114,7 +114,7 @@ The following `az aks nodepool add` command shows how to add a new node pool to 
         --node-osdisk-size 48
   ```
 
-For more information about ephemeral OS disks, see [Ephemeral OS](/azure/aks/cluster-configuration#ephemeral-os).
+For more information about ephemeral OS disks, see [Ephemeral OS](/azure/aks/concepts-storage#ephemeral-os-disk).
 
 ### Virtual nodes
 
@@ -162,34 +162,36 @@ In the **Virtual node usage** column:
 - **Virtual node subnet name** is the subnet that deploys virtual node pods into Azure Container Instances.
 - **Virtual node virtual network** is the virtual network that contains the virtual node subnet.
 
+<!-- docutune:ignoredCasing io/os instance-sku os-sku -->
+
 | Label | Value | Example, options | Virtual node usage |
 | ---- | --- | --- | --- |
-| kubernetes.azure.com/agentpool| `<agent pool name>` | `nodepool1` | Same |
-| kubernetes.io/arch | amd64 | `runtime.GOARCH` | N/A |
-| kubernetes.io/os| `<OS Type>` | `Linux` or `Windows` | `Linux` |
-| node.kubernetes.io/instance-type| `<VM size>` | `Standard_NC6` | `Virtual` |
-| topology.kubernetes.io/region| `<Azure region>` | `westus2` | Same |
-| topology.kubernetes.io/zone| `<Azure zone>` | `0` | Same |
-| kubernetes.azure.com/cluster| `<MC_RgName>` | `MC_aks_myAKSCluster_westus2` | Same |
-| kubernetes.azure.com/mode| `<mode>` | `User` or `System` | `User` |
-| kubernetes.azure.com/role | agent | `Agent` | Same |
-| kubernetes.azure.com/scalesetpriority| `<scale set priority>` | `Spot` or `Regular` | N/A |
-| kubernetes.io/hostname| `<hostname>` | `aks-nodepool-00000000-vmss000000` | Same |
-| kubernetes.azure.com/storageprofile| `<OS disk storage profile>` | `Managed` | N/A |
-| kubernetes.azure.com/storagetier| `<OS disk storage tier>` | `Premium_LRS` | N/A |
-| kubernetes.azure.com/instance-sku| `<SKU family>` | `Standard_N` | `Virtual` |
-| kubernetes.azure.com/node-image-version| `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
-| kubernetes.azure.com/subnet| `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
-| kubernetes.azure.com/vnet| `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
-| kubernetes.azure.com/ppg | `<nodepool ppg name>` | `ppgName` | N/A |
-| kubernetes.azure.com/encrypted-set| `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
-| kubernetes.azure.com/accelerator| `<accelerator>` | `Nvidia` | N/A |
-| kubernetes.azure.com/fips_enabled| `<fips enabled>` | `True` | N/A |
-| kubernetes.azure.com/os-sku| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
+| `kubernetes.azure.com/agentpool` | `<agent pool name>` | `nodepool1` | Same |
+| `kubernetes.io/arch` | `amd64` | `runtime.GOARCH` | N/A |
+| `kubernetes.io/os` | `<OS Type>` | `Linux` or `Windows` | `Linux` |
+| `node.kubernetes.io/instance-type` | `<VM size>` | `Standard_NC6` | `Virtual` |
+| `topology.kubernetes.io/region` | `<Azure region>` | `westus2` | Same |
+| `topology.kubernetes.io/zone` | `<Azure zone>` | `0` | Same |
+| `kubernetes.azure.com/cluster` | `<MC_RgName>` | `MC_aks_myAKSCluster_westus2` | Same |
+| `kubernetes.azure.com/mode` | `<mode>` | `User` or `System` | `User` |
+| `kubernetes.azure.com/role` | `agent` | `Agent` | Same |
+| `kubernetes.azure.com/scalesetpriority` | `<scale set priority>` | `Spot` or `Regular` | N/A |
+| `kubernetes.io/hostname` | `<hostname>` | `aks-nodepool-00000000-vmss000000` | Same |
+| `kubernetes.azure.com/storageprofile` | `<OS disk storage profile>` | `Managed` | N/A |
+| `kubernetes.azure.com/storagetier` | `<OS disk storage tier>` | `Premium_LRS` | N/A |
+| `kubernetes.azure.com/instance-sku` | `<SKU family>` | `Standard_N` | `Virtual` |
+| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
+| `kubernetes.azure.com/subnet` | `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
+| `kubernetes.azure.com/vnet` | `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
+| `kubernetes.azure.com/ppg` | `<nodepool ppg name>` | `ppgName` | N/A |
+| `kubernetes.azure.com/encrypted-set` | `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
+| `kubernetes.azure.com/accelerator` | `<accelerator>` | `Nvidia` | N/A |
+| `kubernetes.azure.com/fips_enabled` | `<fips enabled>` | `True` | N/A |
+| `kubernetes.azure.com/os-sku` | `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
 
 ### Windows node pools
 
-AKS supports creating and using Windows Server container node pools through the [Azure CNI](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
+AKS supports creating and using Windows Server container node pools through the [Azure container network interface (CNI)](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
 
 The following `az aks nodepool add` command adds a node pool that runs Windows Server containers.
 

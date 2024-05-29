@@ -3,10 +3,11 @@ metadata:
   title: Customer support and feedback analysis
   titleSuffix: Azure Solution Ideas
   description: Use knowledge mining to help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.
-  author: martinekuan
-  ms.author: pnp
+  author: gallogiulia
+  ms.author: giuliagallo
   ms.date: 11/23/2022
   ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

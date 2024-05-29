@@ -14,7 +14,7 @@ Use an on-premises Unisys mainframe and emulated MCP resources to migrate to cos
 
 :::image type="content" source="./media/unisys-components.svg" alt-text="Diagram that shows Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe components." lightbox="./media/unisys-components.svg" border="false":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/unisys-components.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/unisys-components.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -40,7 +40,7 @@ H. A printer subsystem manages on-premises printers.
 
 :::image type="content" source="./media/avanade-unisys-migration.svg" alt-text="Diagram that shows how Unisys mainframe components can map to Azure capabilities." lightbox="./media/avanade-unisys-migration.svg" border="false":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/avanade-unisys-migration.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/avanade-unisys-migration.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -107,9 +107,9 @@ Avanade AMT Transform automates the migration of the complete mainframe ecosyste
 
 The AMT framework supports several options to move client workloads to Azure:
 
-- _Whole system conversion_: One migration method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. You should carefully consider and manage this approach because all processes, such as application conversion, data migration, and testing, must align for a smooth transition.
-- _Phased application transition_: A second methodology is to move applications from the mainframe to Azure using a phased approach with complete transition as the ultimate goal. You can save money on individual applications. You can also learn about the conversion for each application and apply those lessons to subsequent conversions.
-- _Resource optimization with phased transition_: If the goal is to release resources on the mainframe, the phased method can provide more processing cycles on the mainframe because you convert and migrate applications to Azure. This method results in a more complex migration due to varying factors, including setting up temporary interfaces to the mainframe and decoupling complex code. You can retire the mainframe after all migration phases are complete.
+- *Whole system conversion*: One migration method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. You should carefully consider and manage this approach because all processes, such as application conversion, data migration, and testing, must align for a smooth transition.
+- *Phased application transition*: A second methodology is to move applications from the mainframe to Azure using a phased approach with complete transition as the ultimate goal. You can save money on individual applications. You can also learn about the conversion for each application and apply those lessons to subsequent conversions.
+- *Resource optimization with phased transition*: If the goal is to release resources on the mainframe, the phased method can provide more processing cycles on the mainframe because you convert and migrate applications to Azure. This method results in a more complex migration due to varying factors, including setting up temporary interfaces to the mainframe and decoupling complex code. You can retire the mainframe after all migration phases are complete.
 
 ## Considerations
 
@@ -117,7 +117,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar]( /azure/well-architected/reliability/). Follow these reliability recommendations:
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/well-architected/reliability/). Follow these reliability recommendations:
 - Use [Site Recovery](https://azure.microsoft.com/products/site-recovery/) to mirror the VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
 - Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region.
 - Use [Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure/) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.

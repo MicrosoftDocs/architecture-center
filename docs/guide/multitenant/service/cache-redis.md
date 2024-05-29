@@ -44,7 +44,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 You might consider deploying a single cache, with a single Redis database, and using it to store cached data for all of your tenants. This approach is commonly used when you have a single application tier that all of your tenants share.
 
-To isolate tenant-specific data within each cache, consider using key prefixes to prepend the tenant ID. Your application can then access specific data for a specific tenant. Alternatively, you can consider using Redis data structures, like [sets](https://redis.io/docs/manual/data-types/#sets) or [hashes](https://redis.io/docs/manual/data-types/#hashes), for each tenant's data. Both sets and hashes support a large number of keys, so this approach can scale to many tenants.
+To isolate tenant-specific data within each cache, consider using key prefixes to prepend the tenant ID. Your application can then access specific data for a specific tenant. Alternatively, you can consider using Redis data structures, like [sets](https://redis.io/docs/latest/develop/data-types/#sets) or [hashes](https://redis.io/docs/latest/develop/data-types/#hashes), for each tenant's data. Both sets and hashes support a large number of keys, so this approach can scale to many tenants.
 
 When you use a single cache instance, the application needs to be authorized to access the entire cache. Azure Cache for Redis doesn't provide granular access control within a cache.
 

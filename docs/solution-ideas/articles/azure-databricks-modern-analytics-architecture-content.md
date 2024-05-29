@@ -69,7 +69,7 @@ This solution outlines a modern data architecture. Azure Databricks forms the co
      - Removing users and denying them access.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
+   - Microsoft Cost Management provides financial governance services for Azure workloads.
 
 ### Components
 
@@ -115,7 +115,7 @@ The solution uses the following components.
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Azure Cost Management and Billing][Azure Cost Management and Billing] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Scenario details
 
@@ -163,7 +163,7 @@ To learn about related solutions, see this information:
 - [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
-[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
+[Microsoft Cost Management]: https://azure.microsoft.com/services/cost-management
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage Gen2]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Azure Databricks]: https://azure.microsoft.com/services/databricks

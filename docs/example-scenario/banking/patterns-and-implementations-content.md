@@ -32,7 +32,7 @@ For more information, see [Pattern: Saga](https://microservices.io/patterns/data
 
 [Saga](../../reference-architectures/saga/saga.yml) is a pattern suitable for distributed transaction management, commonly applied to financial services. A new scenario has emerged where operations are distributed across applications and databases. In the new scenario, customers will need a new architecture and implementation design to ensure data consistency on financial transactions.
 
-The traditional _atomicity, consistency, isolation, and durability (ACID)_ properties approach is no longer suitable. It's because the data of operations are now spanned into isolated databases. Using a saga pattern addresses this challenge by coordinating a workflow through a message-driven sequence of local transactions to ensure data consistency.
+The traditional *atomicity, consistency, isolation, and durability (ACID)* properties approach is no longer suitable. It's because the data of operations are now spanned into isolated databases. Using a saga pattern addresses this challenge by coordinating a workflow through a message-driven sequence of local transactions to ensure data consistency.
 
 ### KEDA architecture
 

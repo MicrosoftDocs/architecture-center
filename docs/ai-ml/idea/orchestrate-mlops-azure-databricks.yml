@@ -7,6 +7,7 @@ metadata:
   ms.author: pnp
   ms.date: 08/24/2022
   ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
 name: Orchestrate MLOps by using Azure Databricks
@@ -17,4 +18,4 @@ products:
   - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/orchestrate-mlops-azure-databricks-01-thumb.png
 content: |
-  [!include[](orchestrate-mlops-azure-databricks-content.md)]
+  [!INCLUDE[](orchestrate-mlops-azure-databricks-content.md)]

@@ -267,8 +267,8 @@ You can link a private DNS zone to a virtual network to resolve specific domains
 
 The Terraform snippet in [Private Link and Azure Private Endpoint](#private-link-and-azure-private-endpoint) creates two private DNS zones by using the zone names that are recommended in [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration):
 
-- privatelink.api.azureml.ms
-- privatelink.notebooks.azure.net
+- `privatelink.api.azureml.ms`
+- `privatelink.notebooks.azure.net`
 
 #### Virtual Network peering
 
@@ -398,7 +398,7 @@ sudo ./svc.sh start
 
 There are some prerequisites for securing an Azure Machine Learning workspace in a virtual network. For more information, see [Prerequisites](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe%2Ccli#prerequisites). Container Registry is a required service when you use an Azure Machine Learning workspace to train and deploy the models.
 
-In this example scenario, to ensure the self-hosted agent can access the container registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, privatelink.azurecr.io, to Azure Bastion virtual network. The following Terraform snippet shows the implementation.
+In this example scenario, to ensure the self-hosted agent can access the container registry in the virtual network, we use virtual network peering and add a virtual network link to link the private DNS zone, `privatelink.azurecr.io`, to Azure Bastion virtual network. The following Terraform snippet shows the implementation.
 
 ```terraform
 # Azure Machine Learning Container Registry is for private access 

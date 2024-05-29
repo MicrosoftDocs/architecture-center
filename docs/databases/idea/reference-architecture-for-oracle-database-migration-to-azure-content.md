@@ -27,7 +27,7 @@ This solution migrates an Oracle database and its applications to Azure. We use 
 
 ### Alternatives
 
-If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
+If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial *bulk* data transfer, which provides a minimal downtime migration.
 
 #### SQL Server Migration Assistant for Oracle
 
@@ -116,7 +116,7 @@ Learn more about the various architectural components:
 * [Introduction to Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 * [Oracle Data Guard Broker Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
 * [Configuring Oracle GoldenGate for Active-Active High Availability](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
-* [Oracle Active Data Guard Far Sync Zero Data Loss at Any Distance](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)
+* [Oracle Active Data Guard Far Sync Zero Data Loss at Any Distance](https://www.oracle.com/docs/tech/database/disaster-recovery.pdf)
 * [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager)
 * [Azure Proximity Placement Groups](/azure/virtual-machines/co-location#proximity-placement-groups)
 * [Oracle Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)

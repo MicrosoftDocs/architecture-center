@@ -8,6 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
@@ -21,7 +22,7 @@ categories:
 
 # Group manager tasks in the Team Data Science Process
 
-This article describes the tasks for a *group manager* in a data science organization. In an enterprise, the group manager manages the entire data science unit. A data science unit might have several teams that each work on many data science projects in distinct business areas. The group manager's objective is to establish a collaborative group environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP).
+This article describes the tasks for a *group manager* in a data science organization. In an enterprise, the group manager manages the entire data science unit. A data science unit might have several teams that each work on many data science projects in distinct business areas. The group manager's objective is to establish a collaborative group environment that standardizes on the [Team Data Science Process (TDSP)](overview.yml).
 
 Group managers can delegate their tasks to surrogates, but the tasks that are associated with the group manager role don't change. For an outline of all personnel roles and tasks for a data science team that uses the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 

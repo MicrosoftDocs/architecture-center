@@ -123,6 +123,8 @@ For details of what should be checked and considered, see:
 - [Asset protection](/azure/cloud-adoption-framework/secure/asset-protection)
 - [Innovation security](/azure/cloud-adoption-framework/secure/innovation-security)
 
+<!-- docutune:ignoredCasing "when designing" -->
+
 ### Network and asset protection plan
 
 One of the key security principles in the Cloud Adoption Framework is the [Zero Trust principle](/azure/cloud-adoption-framework/secure/#guiding-principles): when designing security for any component or system, reduce the risk of attackers expanding their access by assuming that other resources in the organization are compromised.

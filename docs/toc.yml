@@ -201,6 +201,8 @@ items:
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
+        - name: Vector search
+          href: guide/technology-choices/vector-search.md
       - name: Data movement
         items:
         - name: Pipeline orchestration
@@ -983,6 +985,8 @@ items:
         href: solution-ideas/articles/logical-data-warehouse.yml
       - name: Manage data across the Azure SQL estate
         href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
+      - name: Manage event data with HDInsight and Delta Lake
+        href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Oil and Gas tank level forecasting
@@ -1910,6 +1914,8 @@ items:
       - name: Microsoft Entra architecture
         href: /azure/active-directory/fundamentals/active-directory-architecture
         maintainContext: true
+      - name: Cross-tenant communication
+        href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Identity and access management in Azure
         href: /security/compass/identity
         maintainContext: true
@@ -2875,7 +2881,7 @@ items:
         maintainContext: true
       - name: Inbound and outbound internet connections for SAP on Azure
         href: guide/sap/sap-internet-inbound-outbound.yml
-      - name: SAP workload configurations with AZs
+      - name: SAP workload configurations with availability zones
         href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
         maintainContext: true
       - name: Supported scenarios for HLI

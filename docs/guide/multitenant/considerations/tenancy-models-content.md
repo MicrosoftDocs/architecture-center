@@ -9,7 +9,7 @@ First, you need to define a *tenant* for your organization. Consider who your cu
 - **Business to business (B2B)**. If your customers are other organizations, you're likely to map your tenants to those customers. However, consider whether your customers have divisions (teams or departments) and whether they have a presence in multiple countries/regions. You might need to map a single customer to multiple tenants if there are different requirements for these subgroups. Similarly, a customer might want to maintain two instances of your service so they can keep their development and production environments separated from each other. Generally, a single tenant has multiple users. For example, all of your customer's employees will be users within a single tenant.
 - **Business to consumer (B2C)**. If your customers are consumers, it's often more complicated to relate customers, tenants, and users. In some scenarios, each consumer might be a separate tenant. However, consider whether your solution might be used by families, groups of friends, clubs, associations, or other groups that might need to access and manage their data together. For example, a music streaming service might support both individual users and families, and it might treat each of these account types differently when it separates them into tenants.
 
-Your definition of _tenant_ will affect some of the things that you need to consider or emphasize when you architect your solution. For example, consider these types of tenants:
+Your definition of *tenant* will affect some of the things that you need to consider or emphasize when you architect your solution. For example, consider these types of tenants:
 
 - If your tenants are individual people or families, you might need to be particularly concerned about how you handle personal data, and the about data sovereignty laws within each jurisdiction that you serve.
 - If your tenants are businesses, you might need to be mindful of your customers' requirements for regulatory compliance, the isolation of their data, and ensuring that you meet a specified service-level objective (SLO), like uptime or service availability.
@@ -38,7 +38,7 @@ In contrast, consider a company that creates cloud software for legal firms. You
 
 A key difference between tenants and deployments is how isolation is enforced. When multiple tenants share a single deployment (a set of infrastructure), you typically rely on your application code and a tenant identifier that's in a database to keep each tenant's data separate. When you have tenants with their own dedicated deployments, they have their own infrastructure, so it might be less important for your code to be aware that it's operating in a multitenant environment.
 
-Deployments are sometimes referred to as _supertenants_ or _stamps_.
+Deployments are sometimes referred to as *supertenants* or *stamps*.
 
 When you receive a request for a specific tenant, you need to map it to the deployment that holds that tenant's data, as shown here:
 
@@ -84,7 +84,7 @@ In an automated single-tenant deployment model, you deploy a dedicated set of in
 
 Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically, solutions that use this model use infrastructure as code (IaC) or the Azure Resource Manager APIs extensively. You might use this approach when you need to provision entirely separate infrastructures for each of your customers. Consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) when you plan your deployment.
 
-**Benefits:** A key benefit of this approach is that data for each tenant is isolated, which reduces the risk of accidental leakage. This safeguard can be important to some customers that have high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, an issue that's sometimes called the _noisy neighbor_ problem. Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage.
+**Benefits:** A key benefit of this approach is that data for each tenant is isolated, which reduces the risk of accidental leakage. This safeguard can be important to some customers that have high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, an issue that's sometimes called the *noisy neighbor* problem. Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage.
 
 **Risks:** If you use this approach, cost efficiency is low, because you don't share infrastructure among your tenants. If a single tenant requires a certain infrastructure cost, 100 tenants probably require 100 times that cost. Additionally, ongoing maintenance (like applying new configuration or software updates) will probably be time-consuming. Consider automating your operational processes, and consider applying changes progressively through your environments. You should also consider other cross-deployment operations, like reporting and analytics across your whole estate. Likewise, be sure to plan for how you can query and manipulate data across multiple deployments.
 
