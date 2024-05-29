@@ -126,8 +126,8 @@ Azure OpenAI Service embeddings rely on cosine similarity to compute similarity 
 
 | Built-in vector comparison calculation | Azure Cosmos DB for PostgreSQL | Azure Cosmos DB for NoSQL | Azure Cosmos DB for MongoDB (vCore) | Azure Database for PostgreSQL (Flex) | Azure AI Search | Azure SQL Database |
 | ---- | ---- | ---- | ---- | ---- | ---- | --- |
-| Cosine similarity | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e1"><sup>1</sup></a> |
-| Euclidean distance (L2 distance) | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e1"><sup>1</sup></a> |
+| Cosine similarity | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> |
+| Euclidean distance (L2 distance) | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> |
 | Dot product | Yes | Yes<a href="#e1"><sup>1</sup></a> | Yes | Yes | Yes | Yes <a href="#e2"><sup>2</sup></a> |
 
 1. <span id="e1">[Vector Distance Calculation](/azure/cosmos-db/nosql/query/vectordistance) for Azure Cosmos DB for NoSQL. </span>
