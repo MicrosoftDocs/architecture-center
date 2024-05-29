@@ -76,7 +76,7 @@ Azure Kubernetes Service provides advanced container orchestration and network c
 
 App Service can also host container workloads, and [App Service Environment](/azure/app-service/environment/intro) allows developers to deploy App Service in Azure Virtual Network. The pricing structure of Container Instances, as compared to App Service, makes it compelling for small workloads.
 
-Azure Container Apps is a serverless platform based on Kubernetes. Developers can offload the complexity of managing Kubernetes to Azure and focus on creating containerized application, instead of creating YAML script to manage the underlying infrastructure.
+Azure Container Apps is a serverless container platform based on Kubernetes. It allows developers to build Kubernetes-style application who doesn't require direct access to all the native Kubernetes APIs and cluster management. Azure Container Apps provides fully managed experience based on best-practices.
 
 ## Considerations
 
