@@ -2,8 +2,6 @@ Once you've broken down your documents down into a collection of chunks, the nex
 
 This article discusses various ways to augment your chunks, including some common cleaning operations you can perform on chunks to improve vector comparisons, and describes some common metadata fields you can add to your chunks to augment your search index.
 
-describes some common metadata fields you can add to augment your chunks.
-
 > This article is part of a series. Read the [introduction](./rag-solution-design-and-evaluation-guide.yml).
 
 :::image type="complex" source="./_images/enriching-chunks.png" lightbox="./_images/enriching-chunks.png" alt-text="Diagram showing json records with a single field being enriched." border="false":::
