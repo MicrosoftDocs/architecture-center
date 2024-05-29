@@ -134,7 +134,6 @@ Learn modules:
 [apim-vnet-internal]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
 [apim-vnet]: /azure/api-management/api-management-using-with-vnet
 [apim-vnet-concepts]: /azure/api-management/virtual-network-concepts
-[apim-v2]: /azure/api-management/v2-service-tiers-overview
 [azure-hybrid]: ../../reference-architectures/hybrid-networking/index.yml
 [azure-er]: /azure/expressroute/expressroute-introduction
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
