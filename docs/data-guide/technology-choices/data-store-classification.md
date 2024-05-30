@@ -13,6 +13,12 @@ azureCategories:
   - analytics
   - databases
   - datastores
+products:
+  - fabric
+  - azure-synapse-analytics
+  - azure-databricks
+  - azure-sql-database
+  - azure-cosmos-db
 ms.custom:
   - guide
   - engagement-fy24
@@ -21,13 +27,13 @@ ai-usage: ai-assisted
 
 # Choosing a Data Store - Classification
 
-Storage for **IoT (Internet of things)** scenarios is intentionally not covered in this document. For more information on IoT related storage, please see [Azure IoT](https://azure.microsoft.com/en-us/solutions/iot) and [IoT Architectures](../../reference-architectures/iot/iot-architecture-overview.md).
+Storage for **IoT (Internet of things)** scenarios is intentionally not covered in this document. For more information on IoT related storage, please see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT Architectures](../../reference-architectures/iot/iot-architecture-overview.md).
 
 We can generally divide Azure storage into two general categories (unofficial classification, for the purposes of architecture only): **Database/Analytics storage** and more **simple storage** options.
 
-**Simple storage options** include products like [Blob storage](/azure/storage/files/storage-files-introduction) (excluding Data Lake), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [queue storage](/azure/storage/queues/) and [Table storage](/azure/storage/tables/). These are good options for use cases where you need to store large amounts of data that don’t necessarily need [ACID](https://learn.microsoft.com/en-us/windows/win32/cossdk/acid-properties) (Atomicity, Consistency, Isolation, Durability) capabilities and usually have lower costs than databases/analytics services. Examples of these use cases are files shares, data that doesn’t require as much structured querying or transactional capabilities, and long-term file retention.
+**Simple storage options** include products like [Blob storage](/azure/storage/files/storage-files-introduction) (excluding Data Lake), [Azure Files](/azure/storage/files/storage-files-introduction), [Azure disks](/azure/virtual-machines/managed-disks-overview), [queue storage](/azure/storage/queues/) and [Table storage](/azure/storage/tables/). These are good options for use cases where you need to store large amounts of data that don’t necessarily need [ACID](/windows/win32/cossdk/acid-properties) (Atomicity, Consistency, Isolation, Durability) capabilities and usually have lower costs than databases/analytics services. Examples of these use cases are files shares, data that doesn’t require as much structured querying or transactional capabilities, and long-term file retention.
 
-![Diagram that contrasts relational database management system and big data solutions.](../images/AzureStorageOptions.png)
+![Diagram that explains data store classifications in Azure.](../images/AzureStorageOptions.png)
 
 Databases in Azure can be divided into 2 different groups: **Analytics databases/datastores** and **transactional databases/datastores**.
 
@@ -44,6 +50,3 @@ Databases in Azure can be divided into 2 different groups: **Analytics databases
 ![Diagram that contrasts relational database management system and big data solutions.](../images/choosedatastore.png)
 
 You might have cases where you need a hybrid database/datastore in terms of analytics vs transactional. These uses cases are usually called **HTAP (Hybrid Transactional/Analytical Processing)**. Products like [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) or [Azure SQL Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) are good choices for these use cases.
-
-
-# 
