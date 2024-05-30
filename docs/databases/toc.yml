@@ -30,7 +30,7 @@ items:
         items:
         - name: DataOps for modern data warehouse
           href: architecture/dataops-mdw.yml
-        - name: Azure Data Factory on Azure Landing Zones
+        - name: Azure Data Factory on Azure landing zones
           href: architecture/azure-data-factory-on-azure-landing-zones.yml
       - name: Master data management
         items:
