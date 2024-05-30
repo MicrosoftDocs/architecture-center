@@ -208,13 +208,13 @@ Here's the situation after the blue cluster is destroyed:
 
 ### Components
 
-- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a gateway and load balancer for the AKS clusters.
-- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) provides managed Kubernetes clusters.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores and distributes container images and artifacts, such as Helm charts, in the AKS clusters.
-- [Monitor](https://azure.microsoft.com/services/monitor) monitors the AKS clusters. We strongly recommend that you use it, because of its integration with AKS and its ability to provide logging, monitoring, and alerting capabilities that can be used to manage the stage transitions.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards the secrets and certificates that the Azure resources and the applications use.
-- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) is used in this solution when there are public-facing endpoints, and apps that are hosted on AKS and other Azure compute services. In this solution it has the critical responsibility to manage the traffic switch between the blue and green clusters.
-- [Azure DNS](https://azure.microsoft.com/services/dns) manages the host names that are used in the solution, and it plays an important role in the traffic switches, particularly for private endpoints.
+- [Application Gateway](/azure/well-architected/service-guides/azure-application-gateway) is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. In this solution it is used as gatewat in front of the AKS Clusters.
+- [AKS](/azure/well-architected/service-guides/azure-kubernetes-service) Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. it is the main component of this pattern.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) Azure Container Registry is a managed registry service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your container images and related artifacts. In this solution is used to store and distribute container images and artifacts, such as Helm charts, in the AKS clusters.
+- [Monitor](https://azure.microsoft.com/services/monitor) Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. It provide the core monitoring features required to execute the blue green deployment. We strongly recommend that you use it, because of its integration with AKS and its ability to provide logging, monitoring, and alerting capabilities that can be used to manage the stage transitions.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) helps solve the following problems:Secrets Management, Key Management and Certificate Management; it is used to store and manage the secrets and certificates required at platfomr and application level for this solution.
+- [Azure Front Door](/azure/well-architected/service-guides/azure-front-door) enables internet-facing application to:Build and operate modern internet-first architectures, Accelerate and deliver your app and content globally and Intelligently secure your digital estate. It is used in this solution when there are public-facing endpoints, and apps that are hosted on AKS and other Azure compute services. In this solution it has the critical responsibility to manage the traffic switch between the blue and green clusters.
+- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. It manages the host names that are used in the solution for the blue and green clusters, and it plays an important role in the traffic switches, particularly for private endpoints.
 
 ### Alternatives
 
@@ -227,6 +227,7 @@ Here's the situation after the blue cluster is destroyed:
 - A single Application Gateway in front of the AKS clusters, with the main purpose to reduce costs and operation effort.
 - A possible alternative to Container Registry is Harbor.
 - In some circumstances it's possible to use different load balancing and DNS services to do the traffic switches, instead of Azure Front Door and Azure DNS.
+- This solution is based on standard Ingress Controller K8S APIs, as recently announced there is the introduction of the [Gateway API](https://gateway-api.sigs.k8s.io/); so an alternative solution is to use [Application Gateway For Containers](https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/) as Load balancer and Ingress traffic management between Application Gateway and the PODs. In this scenario the solution is still valid as it is but wit hte advantage that the application gateway setting are automatically managed via Application Gateway for Containers.
 
 ## Scenario details
 
@@ -269,7 +270,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - Consider a situation in which the AKS clusters are shared resources for multiple applications that are managed by different business units. In such cases it's common that the AKS platform itself is managed by a dedicated team that's responsible for the overall operation and lifecycle of the clusters, and that there are endpoints in the clusters for admin and ops purposes. We suggest that these endpoints have a dedicated ingress controller in the AKS clusters for proper separation of concerns and for reliability.
 - Blue-green deployment is useful for implementing and testing business continuity and disaster recovery (BC/DR) solutions for AKS and related workloads. In particular, it provides the fundamental structures for managing multiple clusters, including cases in which the clusters are spread among multiple regions.
 - Success with blue-green deployment relies on applying all aspects of the implementation, like automation, monitoring, and validation, not only to the AKS platform, but also to the workloads and apps that are deployed on the platform. Doing this helps you get maximum benefit from blue-green deployment.
-- To have an extended support for the new [Gateway API](https://gateway-api.sigs.k8s.io/) of K8S, is recommended to look into the new product [Application Gateway for Containers](https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/overview).
 - In the proposed solution there are two App Gateway to extend the blue green patter to the app gateway component itself; in this way is possible to update/upgrade app gateway without affecting the current data plane.
 
 ### Reliability
@@ -300,7 +300,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 For an implemented example of a blue-green deployment described in this guide, see [AKS Landing Zone Accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
 
-This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration. As additional supported scenario there is the new [Application Gateway for Containers](https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/overview)
+This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
 > [!IMPORTANT]
 > For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance is available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
@@ -322,7 +322,7 @@ There are prerequisites for deploying into the same region:
 
 There are different approaches to the deployment of the ingress controller and external load balancers:
 
-- You can have a single ingress controller with a dedicated external load balancer, like the reference implementation of the architecture described in this guide. [AGIC](https://learn.microsoft.com/en-us/azure/application-gateway/ingress-controller-overview) is a Kubernetes application that makes it possible to use the Application Gateway L7 load balancer to expose cloud software to the internet. In certain scenarios, there are admin endpoints in the AKS clusters in addition to the application endpoints. The admin endpoints are for doing operational tasks on the applications or for configuration tasks like updating configuration maps, secrets, network policies, and manifests.
+- You can have a single ingress controller with a dedicated external load balancer, like the reference implementation of the architecture described in this guide. [AGIC](/azure/application-gateway/ingress-controller-overview) is a Kubernetes application that makes it possible to use the Application Gateway L7 load balancer to expose cloud software to the internet. In certain scenarios, there are admin endpoints in the AKS clusters in addition to the application endpoints. The admin endpoints are for doing operational tasks on the applications or for configuration tasks like updating configuration maps, secrets, network policies, and manifests.
 - You can have a single external load balancer that serves multiple ingress controllers that are deployed on the same cluster or on multiple clusters. This approach isn't covered in the reference implementation. In this scenario we recommend that you have separate application gateways for public facing endpoints and for private ones.
 - The resulting architecture that's proposed and depicted in this guide is based on a standard ingress controller that's deployed as part of the AKS cluster, like [NGINX](https://github.com/kubernetes/ingress-nginx) and [Envoy](https://gateway.envoyproxy.io/) based ones. In the reference implementation we use AGIC, which means that there's a direct connection between the application gateway and the AKS pods, but this doesn’t affect the overall blue-green architecture.
 
