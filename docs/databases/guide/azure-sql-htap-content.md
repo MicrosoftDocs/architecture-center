@@ -1,4 +1,4 @@
-This article outlines a solution for a hybrid transaction/analytical processing (hybrid transactional/analytical processing (HTAP)) architecture. To process transactions, most systems use low-latency, high-volume operational workloads. For analytics, higher-latency, lower-volume workloads are more typical. HTAP architectures offer a solution for both workload types. By using in-memory databases, HTAP consolidates technologies to optimize queries on large volumes of data.
+This article outlines a solution for a hybrid transactional/analytical processing (HTAP) architecture. To process transactions, most systems use low-latency, high-volume operational workloads. For analytics, higher-latency, lower-volume workloads are more typical. HTAP architectures offer a solution for both workload types. By using in-memory databases, HTAP consolidates technologies to optimize queries on large volumes of data.
 
 ## Architecture
 
