@@ -2,7 +2,7 @@ This reference architecture illustrates how to design Azure Stack HCI infrastruc
 
 The primary focus of this architecture pattern is not the application workload that will run on Azure Stack HCI. Instead, this article provides guidance for configuring and deploying the HCI cluster infrastructure, to provide a platform on which the workload and applications will deploy to and depend upon. These components include physical nodes, storage and networking, in addition to Azure services that will be used for the day to day management and monitoring.
 
-For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_HCI workloads_" navigation menu.
+For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_Azure Stack HCI workloads_" navigation menu.
 
 This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure Stack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place. These workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI infrastructure (_platform_). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
 
@@ -44,12 +44,15 @@ The architecture incorporates the following capabilities:
 
 ### Cluster design choices
 
-When designing an Azure Stack HCI cluster it is important to have a baseline performance expectation. Several characteristics influence the decision-making process, including:
+When designing an Azure Stack HCI cluster it is important to understand the workload performance and resiliency requirements, such as the RTO / RPO times and compute (CPU), memory and storage requirements for all of the workload that is planned to run on the Azure Stack HCI cluster. Several characteristics of the workload influence the decision-making process, including:
 
-- CPU, memory, and storage input/output operations per second (IOPS)
-- Processors architecture
-- Number of cluster nodes
-- Update
+- Processor (_CPU_) architecture capabilities, and number of cores per socket
+- Graphics processing unit (_GPU_) requirements of the workload
+- Memory per node, the quantity of physical memory required to run the workload
+- Storage capacity and performance requirements (_input/output operations per second (IOPs) and block size = through-put_)
+- Number of HCI cluster nodes in the cluster, 1 to 16 nodes in scale
+  - Resiliency for Storage: Recommend deploying three (_or more_) nodes to provide "_three-way mirror_" capability for the infrastructure and user volumes.
+  - Resiliency for Compute: Requires reservation of "_N+1 nodes worth of capacity_", as the minimum required to be able to drain a node to perform updates.
 
 ## Scenario details
 
