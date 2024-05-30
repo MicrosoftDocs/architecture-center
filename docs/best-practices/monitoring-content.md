@@ -606,7 +606,7 @@ The following list summarizes best practices for capturing and storing logging i
 
 - The monitoring agent or data-collection service should run as an out-of-process service and should be simple to deploy.
 
-- All output from the monitoring agent or data-collection service should be an agnostic format that's independent of the machine, operating system, or network protocol. For example, emit information in a self-describing format such as JSON, MessagePack, or Protobuf rather than extract, transform, load (ETL)/ETW. Using a standard format enables the system to construct processing pipelines; components that read, transform, and send data in the agreed format can be easily integrated.
+- All output from the monitoring agent or data-collection service should be an agnostic format that's independent of the machine, operating system, or network protocol. For example, emit information in a self-describing format such as JSON, MessagePack, or Protobuf rather than ETL/ETW. Using a standard format enables the system to construct processing pipelines; components that read, transform, and send data in the agreed format can be easily integrated.
 
 - The monitoring and data-collection process must be fail-safe and must not trigger any cascading error conditions.
 
