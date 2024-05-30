@@ -130,7 +130,7 @@ Learn more about these key services:
 
 ## Related resources
 
-* [high-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [High-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 * [Enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)
 * [high-availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 * [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)
