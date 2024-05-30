@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea illustrates how to deploy Azure Virtual Desktop rapidly in a *minimum viable product (MVP)* (minimum viable product (MVP)) or a *proof of concept (POC)* (proof of concept (POC)) environment with the use of [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview). Use this idea to both extend on-premises multi-forest AD DS identities to Azure without private connectivity and support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
+This solution idea illustrates how to deploy Azure Virtual Desktop rapidly in a *minimum viable product (MVP)* or a *proof of concept (POC)* environment with the use of [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview). Use this idea to both extend on-premises multi-forest AD DS identities to Azure without private connectivity and support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
 
 ## Potential use cases
 
