@@ -36,7 +36,7 @@ The architecture has the following components.
 
 - **OpsCenter**. Deploy a monitoring solution such as [DataStax OpsCenter](https://docs.datastax.com/en/opscenter/6.1/opsc/about_c.html) to monitor the Cassandra cluster.
 
-- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (Remote Desktop Protocol (RDP)) traffic.
+- **Jump box**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jump box has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit Remote Desktop Protocol (RDP) traffic.
 
 ## Recommendations
 
