@@ -89,7 +89,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider using the following security resources in this architecture:
 
-- [Secure cluster connectivity (No public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity)
+- [Secure cluster connectivity (No Public IP (NPIP)](/azure/databricks/security/secure-cluster-connectivity)
 - [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Azure Databricks Premium](https://azure.microsoft.com/pricing/details/databricks)
