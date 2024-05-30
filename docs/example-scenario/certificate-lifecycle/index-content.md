@@ -222,8 +222,8 @@ Detailed information about the parameters needed for the deployment can be found
 
 > [!IMPORTANT]
 > > You can deploy a full lab environment to demonstrate the entire automatic certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
-> > - **Active Directory Domain Services** (AD DS) within a domain controller VM.
-> > - **Active Directory Certificate Services** (AD CS) within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
+> > - **Active Directory Domain Services (AD DS)** within a domain controller VM.
+> > - **Active Directory Certificate Services (AD CS)** within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
 > > - A **Windows SMTP server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
 > > - The **Key Vault extension** installed on the VM of the domain controller for retrieving the renewed certificates from the Key Vault extension.
 > >

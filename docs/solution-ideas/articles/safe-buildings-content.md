@@ -10,7 +10,7 @@ By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other
 
 ### Dataflow
 
-1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, IR sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
+1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, infrared sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
 
 1. The server feeds the data to the Azure IoT Hub, Azure Data Factory, and Azure Blob storage.
 

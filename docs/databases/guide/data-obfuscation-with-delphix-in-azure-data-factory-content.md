@@ -1,4 +1,4 @@
-The following architecture outlines the use of Delphix Continuous Compliance in an Azure Data Factory (ADF) [extract, transform, and load](/azure/architecture/data-guide/relational-data/etl) (ETL) pipeline to identify and mask sensitive data.
+The following architecture outlines the use of Delphix Continuous Compliance in an Azure Data Factory (ADF) [extract, transform, load (ETL)](/azure/architecture/data-guide/relational-data/etl) pipeline to identify and mask sensitive data.
 
 ## Architecture
 

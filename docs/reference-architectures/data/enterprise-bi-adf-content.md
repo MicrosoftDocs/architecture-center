@@ -41,9 +41,9 @@ The architecture consists of the following services and components.
 
 #### Authentication
 
-**Microsoft Entra ID** (Microsoft Entra ID) authenticates users who connect to the Analysis Services server through Power BI.
+**Microsoft Entra ID** authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). 
+Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI).
 
 ### Components
 
