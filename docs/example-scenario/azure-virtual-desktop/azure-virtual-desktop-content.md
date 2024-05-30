@@ -1,4 +1,4 @@
-[Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
+[Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (virtual desktop infrastructure (VDI)) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
 
 ## Architecture
 
@@ -24,7 +24,7 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 ### Components
 
-[Azure Virtual Desktop](/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services](/windows-server/remote/remote-desktop-services/welcome-to-rds). Although Microsoft manages the infrastructure and brokering components, enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
+[Azure Virtual Desktop](/azure/virtual-desktop/overview) service architecture is similar to [Windows Server Remote Desktop Services (RDS)](/windows-server/remote/remote-desktop-services/welcome-to-rds). Although Microsoft manages the infrastructure and brokering components, enterprise customers manage their own desktop host virtual machines (VMs), data, and clients.
 
 #### Components that Microsoft manages
 

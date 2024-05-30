@@ -45,7 +45,7 @@ Also, [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) unifies you
 
 ![Diagram that shows how Microsoft Fabric pushes data to OneLake.](media/microsoft-fabric.png)
 
-In Fabric, you can directly reference data that's pushed to Data Lake Storage by using [OneLake shortcuts](/fabric/onelake/onelake-shortcuts), without any ETL.
+In Fabric, you can directly reference data that's pushed to Data Lake Storage by using [OneLake shortcuts](/fabric/onelake/onelake-shortcuts), without any extract, transform, load (ETL).
 
 You can push the data to Power BI to create reports and visualizations for BI reporting.
 

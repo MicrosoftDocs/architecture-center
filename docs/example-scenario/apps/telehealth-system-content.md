@@ -45,7 +45,7 @@ The solution was set up in this way to:
 
 ### Alternatives
 
-On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service.
+On the database side, any other platform as a service (PaaS) database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service.
 
 ## Scenario details
 
@@ -150,7 +150,7 @@ More information about how WebRTC provides real-time communication capabilities 
 
 Turn servers:
 
-Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (tcp, udp, p2p) between the two clients (fitting software and application on the phone). The client library:
+Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (TCP, UDP, p2p) between the two clients (fitting software and application on the phone). The client library:
 
 - Creates the streaming channel
 - Establishes the connections

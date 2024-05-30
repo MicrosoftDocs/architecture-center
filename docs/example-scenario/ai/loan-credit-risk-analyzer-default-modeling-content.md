@@ -13,7 +13,7 @@ This article describes an architecture that uses Azure Machine Learning to predi
 The following dataflow corresponds to the preceding diagram:
 
 1.	Storage: Data is stored in a database like an Azure Synapse Analytics pool if it's structured. Older SQL databases can be integrated into the system. Semi-structured and unstructured data can be loaded into a data lake.
-2.	Ingestion and pre-processing: Azure Synapse Analytics processing pipelines and ETL processing can connect to data stored in Azure or third-party sources via built-in connectors. Azure Synapse Analytics supports multiple analysis methodologies that use SQL, Spark, Azure Data Explorer, and Power BI. You can also use existing Azure Data Factory orchestration for the data pipelines. 
+2.	Ingestion and pre-processing: Azure Synapse Analytics processing pipelines and extract, transform, load (ETL) processing can connect to data stored in Azure or third-party sources via built-in connectors. Azure Synapse Analytics supports multiple analysis methodologies that use SQL, Spark, Azure Data Explorer, and Power BI. You can also use existing Azure Data Factory orchestration for the data pipelines. 
 3.	Processing: Azure Machine Learning is used to develop and manage the machine learning models.
     1.	Initial processing: During this stage, raw data is processed to create a curated dataset that will train a machine learning model. Typical operations include data type formatting, imputation of missing values, feature engineering, feature selection, and dimensionality reduction.
 
@@ -77,7 +77,7 @@ Data needs to be encrypted at rest, in transit, and during processing via secure
 
 **Processing.** This model requires high computational power for analysis, contextualizing, and model training and deployment. Model scoring is validated against random samples to ensure that credit decisions don't include any race, gender, ethnic, or geographic-location bias. The decision model needs to be documented and archived for future reference. Every factor that's involved in the decision outcomes is stored.
 
-Data processing requires high CPU usage. It includes SQL processing of structured data in DB and JSON format, Spark processing of the data frames, or big data analytics on terabytes of information in various document formats. Data ELT/ETL jobs are scheduled or triggered at regular intervals or in real time, depending on the value of most recent data.
+Data processing requires high CPU usage. It includes SQL processing of structured data in DB and JSON format, Spark processing of the data frames, or big data analytics on terabytes of information in various document formats. Data extract, load, transform (ELT)/ETL jobs are scheduled or triggered at regular intervals or in real time, depending on the value of most recent data.
 
 **Compliance and regulatory framework.** Every detail of loan processing needs to be documented, including the submitted application, the features used in model scoring, and the result set of the model. Model training information, data used for training, and training results should be registered for future reference and audit and compliance requests.
 

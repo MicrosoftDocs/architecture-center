@@ -120,7 +120,7 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 ### Reliability
 
 - The architecture uses Site Recovery to mirror VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
-- The auto-failover groups feature of SQL Database provides data protection by managing database replication and failover to the secondary region. For more information, see [Auto-failover groups overview & best practices (Azure SQL Database)](/azure/azure-sql/database/auto-failover-group-sql-db).
+- The auto-failover groups feature of SQL Database provides data protection by managing database replication and failover to the secondary region. For more information, see [Auto-failover groups overview and best practices (Azure SQL Database)](/azure/azure-sql/database/auto-failover-group-sql-db).
 - Resiliency is built into this solution by using Load Balancer. If one presentation or transaction server fails, other servers run the workloads.
 - We recommend that you create availability sets for your VMs to increase availability. For more information, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 - We recommend that you use geo-replication to increase reliability. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).

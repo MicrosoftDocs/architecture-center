@@ -50,7 +50,7 @@ Microsoft Azure provides advanced analytics tools in the areas of data ingestion
 
 ### System integrator
 
-You can save time when you implement this solution by hiring a trained system integrator (SI). The SI can help you develop a proof of concept and can help deploy and integrate the solution.
+You can save time when you implement this solution by hiring a trained system integrator. The system integrator can help you develop a proof of concept and can help deploy and integrate the solution.
 
 ### Potential use cases
 

@@ -177,7 +177,7 @@ For more information, see:
 
 ### Azure Batch
 
-Consider [Azure Batch](/azure/batch) if you need to run large, parallel high performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
+Consider [Azure Batch](/azure/batch) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.
 
 The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
 
@@ -227,7 +227,7 @@ For more information, see:
 Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
 
 - Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
-- Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
+- Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
 - Supports Kubernetes-style apps and microservices with features like [service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
 - Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
 - Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).

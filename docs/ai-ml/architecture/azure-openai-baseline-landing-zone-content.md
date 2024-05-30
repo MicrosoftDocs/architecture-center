@@ -84,7 +84,7 @@ The platform team owns and maintains these centralized resources. This architect
 
   *Change from the baseline:* The workload team owns this network in the baseline architecture.
 
-- **User-defined routes** (UDRs) are used to force tunneling to the hub network.
+- **User-defined routes (UDRs)** are used to force tunneling to the hub network.
 
   *Change from the baseline:* This component is new in this architecture.
 
@@ -290,7 +290,7 @@ The Azure landing zone platform provides shared observability resources as part 
 
 The workload team provisions the monitoring resources, which include:
 
-- Application Insights as the application performance monitoring (APM) service for the workload team. This feature is configured in the chat UI and prompt flow code.
+- Application Insights as the application performance management (APM) service for the workload team. This feature is configured in the chat UI and prompt flow code.
 
 - The Azure Monitor Logs workspace as the unified sink for all logs and metrics that are collected from workload-owned Azure resources.
 
