@@ -5,7 +5,7 @@ This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azu
 
 ## Context and Key-Design-Decisions
 
-As described in the [enterprise hardened architecture](./azure-data-factory-hardened), Consoto has implemented a [medallion lakehouse architecture](/azure/databricks/lakehouse/medallion) supporting their enterprise analytical data needs and enabling business users via a domain model. With Consoto expanding across the globe, the Finance department has developed a deal fraud model using Azure Machine Learning which is now required to be further refined to function as a mission critical, operational service.
+As described in the [enterprise hardened architecture](./azure-data-factory-hardened), Contoso has implemented a [medallion lakehouse architecture](/azure/databricks/lakehouse/medallion) supporting their enterprise analytical data needs and enabling business users via a domain model. With Contoso expanding across the globe, the Finance department has developed a deal fraud model using Azure Machine Learning which is now required to be further refined to function as a mission critical, operational service.
 
 ### Key Requirements
 
@@ -21,9 +21,9 @@ As described in the [enterprise hardened architecture](./azure-data-factory-hard
 
 - The cost and complexity of rearchitecting the platform to mission critical specifications is not justified by the requirement. Instead, the ML model should be containerized and then deployed to a mission critical solution. This minimizes cost and complexity, isolating to the model service and follows [mission critical guidance](/azure/well-architected/mission-critical/mission-critical-application-platform#containerization).
   - This design requires the model to be developed on the platform and then containerized for deployment.
-- Once the model has been containerized, it can be served out via a API using a [scale-unit architecture](azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture), in US, European, and South American Azure regions.
+- Once the model has been containerized, it can be served out via an API using a [scale-unit architecture](azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture), in US, European, and South American Azure regions.
   - Only regions which are [paired and have availability zones](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies) will be considered, supporting redundancy requirements.
-- Given the nature of a simple, single API service, [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) is the chosen app hosting service. This is a trade off for simplicity versus control and the steep learning curve of [Azure Kubernetes Service (AKS)](/azure/well-architected/mission-critical/mission-critical-application-platform#design-considerations-and-recommendations-for-azure-app-service).  
+- Given the nature of a simple, single API service, [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) is the chosen app hosting service. This is a trade-off for simplicity versus control and the steep learning curve of [Azure Kubernetes Service (AKS)](/azure/well-architected/mission-critical/mission-critical-application-platform#design-considerations-and-recommendations-for-azure-app-service).  
 - The model will be deployed via a [MLOps framework](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2), and Azure Data Factory (ADF) will be used to move data in and out of the mission critical implementation.
 - As part of the containerization, the following work will be required:
   - an API front-end to serve the model results.
@@ -62,7 +62,7 @@ The design callouts for the mission critical architecture are:
 - Depending on the nature of the ML model, there may be regional data compliance requirements, which require the ML model to adhere to sovereignty regulations. This design will support these.
 - Each regional deployment will come with its own monitoring and storage stack, providing isolation from the rest of solution.
    
-7.	The [Scale unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) of the solution, contains the following elements:
+7.	The [scale unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) of the solution contains the following elements:
 
 - [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) hosting the ML model and serving its outputs.
   -  As the core service component in this solution, Web App for Containers [scale limits](/azure/container-apps/scale-app?pivots=azure-cli) are the key constraints to be aware of. If these don't support the solutions requirements, then AKS should be reconsidered. 
@@ -90,7 +90,7 @@ Further guidance for mission critical - [Networking and connectivity](/azure/wel
 
 ## Callouts
 
-- The preferred approach would shift the ML workload into the operational system/domain. The Data Platform targets analytical workloads and their related SLA's and capabilities. This should be investigated before committing to standing up a mission critical solution.
+- The preferred approach would shift the ML workload into the operational system/domain. The Data Platform targets analytical workloads and their related SLAs and capabilities. This should be investigated before committing to standing up a mission critical solution.
 
 ## Alternatives
 
@@ -124,16 +124,18 @@ The delta this architecture provides, includes:
 
 [Cost optimization](/azure/well-architected/cost-optimization/) provides guidance in your architecture to sustain and improve your return on investment (ROI).
 
-Mission critical by its nature is [expensive](/azure/well-architected/mission-critical/mission-critical-design-principles#cost-optimization), making it critical to implement;
-- Aligning the component SKU selection to the solution [scale-unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) boundaries, avoiding over-spec'ing. 
-- The various OPEX saving benefits, such as [Azure Reservations](azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, and Log Analytics [Commitment tiers](/azure/azure-monitor/logs/cost-logs).
+Mission critical by its nature is [expensive](/azure/well-architected/mission-critical/mission-critical-design-principles#cost-optimization), making it critical to implement controls like:
+
+- Aligning the component SKU selection to the solution [scale-unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) boundaries to avoiding overprovisioning.
+- Available and practical operating expenses (OpEx) saving benefits, such as [Azure Reservations](azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, and Log Analytics [Commitment tiers](/azure/azure-monitor/logs/cost-logs).
 - Cost and budget alerting via [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending).
 
 ### Operational efficiency
 
 [Operational excellence](/azure/well-architected/operational-excellence/) ensures workload quality through standardized processes and team cohesion. 
 
-The delta this architecture provides, includes:
+The delta this architecture provides includes:
+
 - Following the guidance from the mission critical [operational excellence](/azure/well-architected/mission-critical/mission-critical-design-principles#operational-excellence) design considerations.
 - Separating out global and regional monitoring resources to avoid a single of point failure in [observability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#unified-data-sink).
 - Implementing the [Deployment and testing guidance](/azure/well-architected/mission-critical/mission-critical-deployment-testing) and [Operational procedures](/azure/well-architected/mission-critical/mission-critical-operational-procedures) from the mission critical reference architecture.  
@@ -150,7 +152,7 @@ The delta this architecture provides, includes:
 
 ## Anti-Patterns
 
-- **The "shopping list" approach** - Business stakeholders are often presented with a "shopping list" of features and service levels, without the context of cost or complexity. It is strongly recommended that any solution is based upon validated requirements and solution design is supported by financial modelling with options. This will allow stakeholders to make informed decisions and pivot if required.    
+- **The "shopping list" approach** - Business stakeholders are often presented with a "shopping list" of features and service levels, without the context of cost or complexity. It is strongly recommended that any solution is based upon validated requirements and solution design is supported by financial modeling with options. This will allow stakeholders to make informed decisions and pivot if required.    
 - **Not challenging the requirements** - Mission critical can be very expensive and complex to implement and maintain. Business stakeholders should be challenged on their requirements to ensure "mission critical" is actually required.
 - **Deploy and forget** - The model is deployed without continuous monitoring, updates, or support mechanisms in place. Once deployed, there's little to no ongoing maintenance, and the model is left to operate in isolation. This neglect can lead to performance degradation, drift in model accuracy, and vulnerabilities to emerging data patterns. Ultimately, it undermines the reliability and effectiveness of the model in serving its intended purpose.
    
@@ -160,4 +162,4 @@ The delta this architecture provides, includes:
 - [Azure Well-Architected Framework Mission Critical guidance](/azure/well-architected/mission-critical/)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
 - [ADF Baseline architecture](./azure-data-factory-on-azure-landing-zones-baseline)
-- [Enterprise hardening](TO_BE_ADDED)
+- [Enterprise hardened architecture](./azure-data-factory-enterprise-hardened)
