@@ -17,9 +17,9 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
 4. The new API:
     - Is surfaced only through the API Management instance, which provides the API facade. The new API isn't accessed directly.
     - Is developed and published as an [Azure PaaS Web API app][azure-api-apps].
-    - Is configured (via [settings for the Web Apps feature of Azure App Service][azure-appservice-ip-restrict]) to accept only the [API Management virtual IP][apim-faq-vip].
+    - Is configured (via [settings for the Web Apps feature of Azure App Service][azure-appservice-ip-restrict]) to accept only the [API Management virtual IP (VIP)][apim-faq-vip].
     - Is hosted in Web Apps with secure transport (HTTPS or SSL) turned on.
-    - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and OAuth 2.
+    - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and Open Authorization (OAuth) 2.
 5. The new browser-based web application depends on the Azure API Management instance for *both* the existing HTTP API and the new API.
 6. The travel e-commerce company can now direct some users to the new UI (for preview or testing) while preserving the old UI and existing functionality side-by-side.
 
@@ -37,7 +37,7 @@ In the future, the project team will gradually port functionality to the new API
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
 - If the organization had decided to keep the existing endpoints private and not expose them publicly, the organization's API Management instance could be linked to an [Azure virtual network][azure-vnet]:
   - When [API Management is linked to an Azure virtual network][apim-vnet-concepts], the organization could directly address the back-end service through private IP addresses.
-  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er]. This scenario would then become a [hybrid of Azure and on-premises][azure-hybrid].
+  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site Internet Protocol Security (IPSec) VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er]. This scenario would then become a [hybrid of Azure and on-premises][azure-hybrid].
 - The organization can keep the API Management instance private by deploying it in internal mode. The organization can then use deployment with [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Integrate API Management in an internal virtual network with Application Gateway][apim-vnet-internal].
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization couldn't move downstream database dependencies that are in scope for this project to the cloud. If that's the case, the organization can still take advantage of API Management locally by using a [self-hosted gateway][apim-sh-gw].
 
@@ -45,7 +45,7 @@ In the future, the project team will gradually port functionality to the new API
 
 ## Scenario details
 
-An e-commerce company in the travel industry is modernizing its legacy browser-based software stack. Although the existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. The company is considering the creation of additional revenue streams to monetize some of the internal intellectual property that it has developed.
+An e-commerce company in the travel industry is modernizing its legacy browser-based software stack. Although the existing stack is mostly monolithic, some [Simple Object Access Protocol (SOAP)-based HTTP services][soap] exist from a recent project. The company is considering the creation of additional revenue streams to monetize some of the internal intellectual property that it has developed.
 
 Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
 

@@ -130,7 +130,7 @@ AI and data science development activities should be carried out in production e
 
 #### Encryption
 
-IT systems accessing, storing, and processing sensitive business data are required to implement specific requirements on encryption keys management, like FIPS 140-2 level 2 or level 3 policies, with Customer-Managed Keys (CMK) integration. Protected data must always be encrypted at rest and in transit, using TLS 1.2 or higher protocols.
+IT systems accessing, storing, and processing sensitive business data are required to implement specific requirements on encryption keys management, like FIPS 140-2 level 2 or level 3 policies, with customer-managed keys (CMKs) integration. Protected data must always be encrypted at rest and in transit, using TLS 1.2 or higher protocols.
 
 During architecture design, a careful analysis of the support and integration of Azure services to an organization's CMK infrastructure is required. Any exceptions to data encryption must be documented. Support for hardware security module (HSM) vendors is always being expanded, and additional information can be found at [Azure Key Vault Managed Hardware Security Module](/azure/storage/common/customer-managed-keys-overview).
 
@@ -156,7 +156,7 @@ Role-based access control uses security groups in Microsoft Entra ID.
 
 #### Multifactor authentication
 
-Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high-business impact. Multifactor authentication can be enforced using Microsoft Entra multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
+Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high business impact. Multifactor authentication can be enforced using Microsoft Entra multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
 
 Multifactor authentication must be enforced to all users, including Azure service managers, data engineers, and data scientists.
 
@@ -173,7 +173,7 @@ All Azure services must ingest their security events into an organization's Secu
 - Changes to security policy
 - Changes to admin user groups, users, or roles
 - Sensitive data transfers to external locations, if applicable
-- Activation and deactivation of protection systems, such as ABAC controls
+- Activation and deactivation of protection systems, such as attribute-based access control (ABAC) controls
 - Updated access to logs and interruption to logging
 
 Azure security logs can be ingested into SOC through different patterns:
@@ -192,7 +192,7 @@ Azure environments and data science development follow iterative processes, anch
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-To scale AI and machine learning in regulated environments, and drive rapid adoption across organization's business areas, we recommend you design and put in place an adoption framework to measure, monitor, and evaluate the value created by the Azure services. From our life sciences and healthcare industry example, the following business value levers and key performance indicators (KPI) were evaluated:
+To scale AI and machine learning in regulated environments, and drive rapid adoption across organization's business areas, we recommend you design and put in place an adoption framework to measure, monitor, and evaluate the value created by the Azure services. From our life sciences and healthcare industry example, the following business value levers and key performance indicators (KPIs) were evaluated:
 
 **Scalability** – To ensure Azure architecture can scale alongside business requirements, no matter the scale point, the following KPIs are suggested:
 
