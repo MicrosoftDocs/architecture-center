@@ -292,7 +292,7 @@ Principal author:
 
 Architecture guides:
 
-- [extract, transform, load (ETL)](../../data-guide/relational-data/etl.yml)
+- [Extract, transform, load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Choose a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 
 Reference architectures:
