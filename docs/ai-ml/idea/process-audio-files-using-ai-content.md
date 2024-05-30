@@ -112,5 +112,3 @@ Other contributors:
 
 - [Azure Samples](https://github.com/Azure-Samples/podcast-synopsis-generation-openai)
 - [Techhub community blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/automating-podcast-synopsis-generation-with-azure-openai-gpt/ba-p/3810308)
-
-
