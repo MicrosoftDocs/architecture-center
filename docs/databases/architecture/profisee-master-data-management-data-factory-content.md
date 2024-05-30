@@ -112,7 +112,7 @@ Source data loads into the MDM solution from source systems, including lineage i
 
 | Source Name | Source Address | Source State | Source Phone | Source ID | Standard Address | Standard State | Standard Name | Standard Phone | Similarity |
 | --------------- | ------------------------- | ----------------- | ----------------------- | -------------------- | --------------------- | ------------------- | ------------------ | ------------------- | -------------- |
-| Alana  Bosh     | 123  Main Street          | general availability (GA)                | 7708434125              | CRM-100              |                       |                     |                    |                     |                |
+| Alana  Bosh     | 123  Main Street          | GA                | 7708434125              | CRM-100              |                       |                     |                    |                     |                |
 | Bosch,  Alana   | 123  Main St.              | Georgia           | 404-854-7736            | CRM-121              |                       |                     |                    |                     |                |
 | Alana  Bosch    |                           | (404)  854-7736   | ERP-988                 |                      |                       |                     |                    |                     |                |
 
