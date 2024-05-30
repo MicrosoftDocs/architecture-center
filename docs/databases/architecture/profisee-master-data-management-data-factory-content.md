@@ -258,7 +258,7 @@ Principal author:
 
 ### Architecture guides
 
-- [extract, transform, load (ETL)](../../data-guide/relational-data/etl.yml)
+- [Extract, transform, load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 
