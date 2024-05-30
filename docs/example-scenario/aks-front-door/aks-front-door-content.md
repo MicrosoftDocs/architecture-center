@@ -1,6 +1,6 @@
 <!-- Use the aac-browse-header.yml   -->
 
-This article describes how to securely expose and protect a workload running in Azure Kubernetes Service (AKS) with Azure Front Door, Azure Web Application Firewall, and Azure Private Link service. The web application is exposed via the NGINX Ingress Controller configured to use a private IP address as a frontend IP configuration of the AKS internal load balancer. The deployment features end-to-end TLS encryption.
+This article describes how to securely expose and protect a workload that runs in Azure Kubernetes Service (AKS) with Azure Front Door, Azure Web Application Firewall, and Azure Private Link service. A web application is exposed via the NGINX Ingress Controller configured to use a private IP address as a frontend IP configuration of the AKS internal load balancer. The deployment features end-to-end TLS encryption.
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This article describes how to securely expose and protect a workload running in 
 
 The following diagram shows the steps for the message flow during deployment and runtime.
 
-:::image type="content" source="./media/flow.png" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.png border="false":::
+:::image type="content" source="./media/flow.png" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.png" border="false":::
 
 #### Deployment workflow
 
