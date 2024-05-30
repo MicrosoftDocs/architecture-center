@@ -95,15 +95,15 @@ The example on [GitHub](priority-queues) demonstrates how Azure facilitates an i
 
 - *Application (producer)*: The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. `PriorityQueueSender` uses a time-triggered Azure function that posts messages to a Service Bus topic every 30 seconds.
 
-- *Multiple queues*: The example uses Azure Service Bus as the message queue service. To implement multiple queues, it uses two Azure Service Bus subscriptions, one for each message priority (`High` and `Low`). The application (producer) sends messages to the correct Azure Service Bus Subscription based on the message priority.
+- *Multiple queues*: The example uses Azure Service Bus as the message queue service. To implement multiple queues, it uses two Azure Service Bus queues, one for each message priority (`High` and `Low`). The application (producer) sends messages to the correct Azure Service Bus Subscription based on the message priority.
 
 - *Multiple consumer pools*: The example uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from the each of Azure Service Bus subscriptions. `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions running on Azure App Service. They integrate with Azure Service Bus via triggers and bindings. You can configure how many instances the functions on Azure App Service can scale out to. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high priority messages are read from the queue more quickly than low priority messages.
 
 | Role in architecture | Azure service | Name in example |
 | --- | --- | --- |
 | Application | Azure Functions app | [PriorityQueueSender](app) |
-| Message queue service | Azure Service Bus | <service_bus_namespace> |
-| Message queues | Azure Service Bus queues | <queue-names> |
+| Message queue service | Azure Service Bus | <*service_bus_namespace*> |
+| Message queues | Azure Service Bus queues | <*queue_names*> |
 | Consumers | Azure Functions app | [PriorityQueueConsumerHigh](high)<br>[PriorityQueueConsumerLow](low) |
 
 ## Related resources
