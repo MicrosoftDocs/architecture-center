@@ -120,6 +120,8 @@ The steps to set up performance tuning for a big data system are as follows:
 
 The prebuilt query names for retrieving Spark metrics are listed below.
 
+<!-- docutune:disable -->
+
 :::row:::
     :::column:::
         - % CPU Time Per Executor
@@ -167,6 +169,8 @@ The prebuilt query names for retrieving Spark metrics are listed below.
         - Tasks Per Stage
     :::column-end:::
 :::row-end:::
+
+<!-- docutune:enable -->
 
 #### Write custom queries
 
