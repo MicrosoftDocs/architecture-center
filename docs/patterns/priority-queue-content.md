@@ -88,7 +88,7 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-The example on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue) demonstrates how Azure facilitates an implementation of the Priority Queue pattern.
+The example on [GitHub](priority-queues) demonstrates how Azure facilitates an implementation of the Priority Queue pattern.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-service-bus.png)<br>
 *Architecture of the PriorityQueue example on GitHub*
@@ -99,9 +99,12 @@ The example on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/mast
 
 - *Multiple consumer pools*: The example uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from the each of Azure Service Bus subscriptions. `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions running on Azure App Service. They integrate with Azure Service Bus via triggers and bindings. You can configure how many instances the functions on Azure App Service can scale out to. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high priority messages are read from the queue more quickly than low priority messages.
 
-| Application producer | Message queue service | --- |
-| --- | --- |
-| Function | Azure Service Bus
+| Role in architecture | Azure service | Name in example |
+| --- | --- | --- |
+| Application | Azure Functions app | [PriorityQueueSender](app) |
+| Message queue service | Azure Service Bus | <service_bus_namespace> |
+| Message queues | Azure Service Bus queues | <queue-names> |
+| Consumers | Azure Functions app | [PriorityQueueConsumerHigh](high)<br>[PriorityQueueConsumerLow](low) |
 
 ## Related resources
 
@@ -110,3 +113,9 @@ The following patterns might be helpful to you when you implement this pattern:
 - [Competing Consumers pattern](./competing-consumers.yml): This pattern involves implementing multiple consumers that listen to the same queue and process tasks in parallel to increase throughput. Each message is processed by only one consumer. The article provides detailed information on the advantages and disadvantages of this approach.
 
 - [Throttling pattern](./throttling.yml): This pattern can be implemented using queues to manage request rates. By utilizing priority messaging, requests from critical applications or high-value customers can be prioritized over less important ones.
+
+<!-- links -->
+[priority-queues]: https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue
+[app]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueSender
+[high]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerHigh
+[low]: https://github.com/mspnp/cloud-design-patterns/tree/main/priority-queue/PriorityQueueConsumerLow
