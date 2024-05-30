@@ -40,7 +40,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - [Log Analytics][Log Analytics tutorial] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 - [Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
-- [Microsoft Entra ID][Azure Active Directory (Azure AD)] is a cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Microsoft Entra ID] is a cloud-based identity service that controls access to Azure and other cloud apps.
 
 ### Alternatives
 
@@ -953,7 +953,7 @@ For more information, see the following resources:
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Application Gateway health monitoring overview]: /azure/application-gateway/application-gateway-probe-overview
 [Availability Zones]: /azure/availability-zones/az-overview#availability-zones
-[Azure Active Directory (Azure AD)]: https://azure.microsoft.com/services/active-directory
+[Microsoft Entra ID]: https://azure.microsoft.com/services/active-directory
 [Azure Application Gateway documentation]: /azure/application-gateway
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Azure DevOps]: https://azure.microsoft.com/services/devops

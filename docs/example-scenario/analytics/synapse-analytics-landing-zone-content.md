@@ -80,7 +80,7 @@ Following are some recommendations for Azure Synapse networking topology:
 
 ### Identity and access management
 
-Enterprises typically use a least-privileged approach for operational access. They use Microsoft Entra ID, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions for access management. 
+Enterprises typically use a least-privileged approach for operational access. They use Microsoft Entra ID, [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview), and custom role definitions for access management.
 
 - Implement fine-grained access controls in Azure Synapse by using Azure roles, Azure Synapse roles, SQL roles, and Git permissions. For more information about Azure Synapse workspace access control, see [this overview](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
 - [Azure Synapse roles](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac-roles) provide sets of permissions that you can apply at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.

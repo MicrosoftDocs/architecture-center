@@ -84,7 +84,7 @@ The platform team owns and maintains these centralized resources. This architect
 
   *Change from the baseline:* The workload team owns this network in the baseline architecture.
 
-- **User-defined routes** (UDRs) are used to force tunneling to the hub network.
+- **User-defined routes (UDRs)** are used to force tunneling to the hub network.
 
   *Change from the baseline:* This component is new in this architecture.
 
