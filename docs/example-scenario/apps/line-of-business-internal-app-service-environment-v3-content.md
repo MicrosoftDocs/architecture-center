@@ -117,7 +117,7 @@ Principal authors:
 
 * [Security in Azure App Service](/azure/app-service/overview-security)
 * [Networking for App Service](/azure/app-service/networking-features)
-* [landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
+* [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
 
 Learn more about these key services:
 * [Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)
