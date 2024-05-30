@@ -100,7 +100,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-- See the availability service level agreements (SLAs) for each component Azure service:
+- See the availability service-level agreements (SLAs) for each component Azure service:
 
   - Azure Form Recognizer - [SLA for Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0).
   - Azure Cognitive Service for Language - [SLA for Azure Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1).
@@ -108,7 +108,7 @@ Reliability ensures your application can meet the commitments you make to your c
   - Azure Kubernetes Service - [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1).
   - Azure Storage - [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-- For configuration options to design high availability applications with Azure storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
+- For configuration options to design high-availability applications with Azure storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 
 #### Resiliency
 

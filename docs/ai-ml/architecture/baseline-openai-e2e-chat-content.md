@@ -129,6 +129,8 @@ Each subnet has a network security group (NSG) that limits both inbound and outb
 
 All other traffic is explicitly denied.
 
+<!-- docutune:ignoredChange "public IP address" -->
+
 Consider the following points when implementing virtual network segmentation and security.
 
 - Enable [DDoS protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that's part of an application gateway with a public IP address.
@@ -360,7 +362,7 @@ Consider the following guidance when implementing automated evaluations:
 #### Deployment Flow
 
 :::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" border="false" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
-  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a PR pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a CI pipeline and b. CD pipeline.
+  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a pull request (PR) pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a CI pipeline and b. CD pipeline.
 :::image-end:::
 
 1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using prompt flow for VS Code, periodically committing changes and pushing those changes to the feature branch.

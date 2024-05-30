@@ -100,7 +100,7 @@ Clearly, this is complex query. As we'll see later, it turns out to use signific
 
 ## How to fix the problem
 
-Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in an RDBMS.
+Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in a relational database management system (RDBMS).
 
 For example, the previous Transact-SQL code can be replaced with a statement that simply retrieves the data to be processed.
 
