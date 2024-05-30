@@ -86,7 +86,7 @@ This architecture can be used to run a wide variety of FSI workloads. Some examp
 
 ### Network topology
 
-This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jumpboxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
+This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jump boxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
 
 Here are some highlights of the network topology:
 
