@@ -124,7 +124,7 @@ The prebuilt query names for retrieving Spark metrics are listed below.
     :::column:::
         - % CPU Time Per Executor
         - % Deserialize Time Per Executor
-        - % Java virtual machine (JVM) Time Per Executor
+        - % JVM Time Per Executor
         - % Serialize Time Per Executor
         - Disk Bytes Spilled
         - Error Traces (Bad Record Or Bad Files)
