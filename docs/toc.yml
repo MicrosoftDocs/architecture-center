@@ -1816,13 +1816,13 @@ items:
         href: hybrid/azure-functions-hybrid.yml
       - name: Azure Stack HCI solutions
         items:
-        - name: Azure Stack HCI platform
+        - name: HCI infrastructure platform designs
           items:
           - name: Azure Stack HCI 3 node switchless storage
             href: hybrid/azure-stack-hci-switchless.yml
           - name: Azure Stack HCI stretched clusters for DR
             href: hybrid/azure-stack-hci-dr.yml
-        - name: Azure Stack HCI workloads
+        - name: HCI workload patterns and designs
           items:
           - name: AKS on Azure Stack HCI (AKS hybrid)
             items:
