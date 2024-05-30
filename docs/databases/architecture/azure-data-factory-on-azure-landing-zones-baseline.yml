@@ -23,4 +23,4 @@ name: Azure Data Factory on Azure landing zones baseline architecture
 summary: Learn how to design a baseline architecture for Azure Data Factory on Azure Landing Zones.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-baseline.png
 content: |
-  [!include[](azure-data-factory-on-azure-landing-zones-content.md)]
+  [!include[](azure-data-factory-on-azure-landing-zones-baseline-content.md)]
