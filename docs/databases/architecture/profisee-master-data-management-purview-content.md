@@ -221,7 +221,7 @@ Product data is often spread across multiple enterprise applications, such as en
 
 In the context of analytics, reference data exists as numerous lists of data. These lists are often used to further describe other sets of master data. For example, reference data includes lists of countries/regions, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms are:
 
-- Multiple representations of the same value. For example, the state of Georgia is listed as *general availability (GA)* and *Georgia*, which makes it difficult to consistently aggregate and drill down into data.
+- Multiple representations of the same value. For example, the state of Georgia is listed as *GA* and *Georgia*, which makes it difficult to consistently aggregate and drill down into data.
 - Difficulty streamlining data across systems due to an inability to *crosswalk*, or map, reference data values between systems. For example, the color red is represented by *R* in the ERP system and *Red* in the PLM system.
 - Difficulty tying numbers across organizations due to differences in established reference data values that are used for data categorization.
 
