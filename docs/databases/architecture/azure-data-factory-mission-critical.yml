@@ -24,4 +24,4 @@ name: Azure Data Factory mission-critical architecture
 summary: Learn how to design a mission-critical workload for Azure Data Factory on Azure Landing Zones.
 thumbnailUrl: /azure/architecture/browse/thumbs/ADF-ALZ-Medallion-Initial.png
 content: |
-  [!include[](azure-data-mission-critical-content.md)]
+  [!include[](azure-data-factory-mission-critical-content.md)]
