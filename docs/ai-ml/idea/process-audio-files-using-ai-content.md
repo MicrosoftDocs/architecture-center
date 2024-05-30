@@ -6,7 +6,7 @@ This article provides an example design of a pipeline for processing audio files
 
 :::image type="content" source="_images/podcast-abstract-architecture.svg" alt-text="Diagram that shows the architecture for processing audio files using Open AI for analysis." lightbox=""_images/podcast-abstract-architecture.svg" border="false":::
 
-_Download a_[Visio file](https://arch-center.azureedge.net/podcast-abstract-architecture.vsdx) _of this architecture.*_
+*Download a [Visio file](https://arch-center.azureedge.net/podcast-abstract-architecture.vsdx) of this architecture.*
 
 # Workflow
 
