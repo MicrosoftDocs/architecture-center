@@ -2,7 +2,7 @@
 
 At a high-level the data service topology for Contoso’s data platform can be illustrated as:
 ![Diagram of the high-level Contoso data service topology.](../images/dr-for-azure-data-contoso-service-topology.png)
-This logical diagram abstracts the key functions of the Contoso data ecosystem into a simplified, high-level view. This abstracted view supports the sections covering the scenario deployments, in line with the DR strategy selection and the segregation of responsibilities in a service recovery process.
+This logical diagram abstracts the key functions of the Contoso data ecosystem into a simplified, high-level view. This abstracted view supports the sections covering the scenario deployments, in line with the disaster recovery (DR) strategy selection and the segregation of responsibilities in a service recovery process.
 
 ## DR Impact vs Customer Activity 
 The following sections present a breakdown of Contoso activity necessary across DR events of varying impacts.
@@ -73,7 +73,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure Regional Failure: N/A
 
 - **Recovery Services Vault**
-    - Contoso SKU selection: Default (GRS)
+    - Contoso SKU selection: Default (geo-redundant storage (GRS))
     - DR Impact
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
@@ -81,7 +81,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes 
         - [Cross Region Restore](/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore) will enable DR drills and the customer failing over to the secondary region
   
-- **Virtual Networks, including Subnets, UDR & NSGs**
+- **Virtual Networks, including Subnets, user-defined route (UDR) & network security groups (NSG)**
     - Contoso SKU selection: N/A
     - DR Impact
         - Azure Data Center Failure: N/A
@@ -156,14 +156,14 @@ The following sections present a breakdown of Contoso activity necessary across 
 ### Area: Data Platform components
 
 - **Storage Account – Azure Data Lake Gen2**
-    - Contoso SKU selection: LRS
+    - Contoso SKU selection: locally redundant storage (LRS)
     - DR Impact
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: Contoso would need to validate availability and redeploy if necessary
         - Azure Regional Failure: Contoso would need to redeploy the Data Platform Storage Accounts and rehydrate them with data in the secondary region
     - Notes 
         - Storage Accounts have a broad range of [data redundancy](/azure/storage/common/storage-redundancy) options from primary region redundancy up to secondary region redundancy
-        - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region may result in data loss if the primary region can't be recovered. Azure Storage typically has an RPO of less than 15 minutes
+        - For Secondary region redundancy data is replicated to the [secondary region asynchronously](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region). A failure that affects the primary region may result in data loss if the primary region can't be recovered. Azure Storage typically has a recovery point objective (RPO) of less than 15 minutes
         - In the case of a regional outage, Storage accounts which, are geo-redundant, would be available in the secondary region as LRS. Additional configuration would need to be applied to uplift these components in the secondary region to be geo-redundant
 
 - **Azure Synapse - Pipelines**
@@ -266,7 +266,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR Impact
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
-        - Azure Regional Failure: Contoso should monitor, ensuring there are [enough provisioned RUs](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read & write activities
+        - Azure Regional Failure: Contoso should monitor, ensuring there are [enough provisioned request units (RUs)](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage) in the remaining regions to support read & write activities
     - Notes
         - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability)
