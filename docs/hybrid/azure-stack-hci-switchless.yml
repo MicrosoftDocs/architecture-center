@@ -4,7 +4,7 @@ metadata:
   description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
   author: neilbird
   ms.author: nebird
-  ms.date: 07/26/2022
+  ms.date: 05/30/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
