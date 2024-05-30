@@ -60,7 +60,7 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications.
 
-- [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Azure Active Directory (Azure AD) B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
 ## Scenario details
 

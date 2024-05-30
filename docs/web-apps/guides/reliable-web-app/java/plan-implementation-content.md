@@ -128,9 +128,9 @@ Choose the best load balancer for your web app. Azure has several load balancers
 
 ### Web application firewall
 
-Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) (WAF) is Azure's web application firewall and provides centralized protection of from common web exploits and vulnerabilities.
+Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) is Azure's web application firewall (WAF) and provides centralized protection of from common web exploits and vulnerabilities.
 
-*Example:* Contoso Fiber chose the Web Application Firewall for the following benefits:
+*Example:* Contoso Fiber chose Web Application Firewall for the following benefits:
 
 - *Global protection.* It provides increased global web app protection without sacrificing performance.
 
