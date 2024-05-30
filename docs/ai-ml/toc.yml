@@ -24,6 +24,8 @@ items:
           href: idea/vision-classifier-model-with-custom-vision.yml
       - name: Audio processing
         items:
+        - name: Process audio files using AI
+          href: idea/process-audio-files-using-ai.yml
         - name: Keyword digital text processing
           href: idea/digital-media-speech-text.yml
       - name: Predictive analytics

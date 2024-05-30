@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Process audio files using AI
+  titleSuffix: Azure Architecture Center
+  description: Learn how to create a podcast synopsis and localize it into multiple languages using AI and the infrastructure it takes to automate the required processes.
+  author: 
+  ms.author: 
+  ms.date: 05/30/2024
+  ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+    - media
+  ms.custom:
+    - acom-architecture
+    - speech
+    - ai-machine-learning
+name: Process audio files using Azure OpenAI
+azureCategories:
+  - ai-machine-learning
+  - media
+summary: Create a podcast synopsis and localize it into multiple languages using AI and the infrastructure it takes to automate the required processes.
+products:
+  - azure-cognitive-search
+  - azure-app-service
+thumbnailUrl: /azure/architecture/browse/thumbs/podcast-abstract-architecture.png
+content: |
+  [!INCLUDE[(process-audio-files-using-ai.md)]
