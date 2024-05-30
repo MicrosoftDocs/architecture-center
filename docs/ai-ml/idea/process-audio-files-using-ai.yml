@@ -25,6 +25,6 @@ summary: Create a podcast synopsis and localize it into multiple languages using
 products:
   - azure-cognitive-search
   - azure-app-service
-thumbnailUrl: /docs/ai-ml/idea/_images/podcast-abstract-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/podcast-abstract-architecture
 content: |
   [!INCLUDE[(process-audio-files-using-ai.md)]
