@@ -49,10 +49,11 @@ When designing an Azure Stack HCI cluster it is important to understand the work
 - Processor (_CPU_) architecture capabilities, and number of cores per socket
 - Graphics processing unit (_GPU_) requirements of the workload
 - Memory per node, the quantity of physical memory required to run the workload
-- Storage capacity and performance requirements (_input/output operations per second (IOPs) and block size = through-put_)
-- Number of HCI cluster nodes in the cluster, 1 to 16 nodes in scale
-  - Resiliency for Storage: Recommend deploying three (_or more_) nodes to provide "_three-way mirror_" capability for the infrastructure and user volumes.
-  - Resiliency for Compute: Requires reservation of "_N+1 nodes worth of capacity_", as the minimum required to be able to drain a node to perform updates.
+- Storage capacity and performance requirements
+  - Total required usable storage after fault tolerance (copies) taken into consideration, and the input/output operations per second (_IOPs_) x block size = through-put requirements
+- Number of HCI cluster nodes in the cluster, one to sixteen nodes in scale (_three nodes maximum for storage switchless design_)
+  - Resiliency for Storage: Recommend deploying three (_or more_) nodes to provide "_three-way mirror_" capability for the infrastructure and user volumes
+  - Resiliency for Compute: Requires reservation of "_N+1 nodes worth of capacity_", as the minimum required to be able to drain a node to perform updates
 
 ## Scenario details
 
