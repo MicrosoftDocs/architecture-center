@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Medallion lakehouse with Azure Data Factory
+  titleSuffix: Azure Architecture Center
+  description: Learn how to design a medallion lakehouse workload for Azure Data Factory on Azure Landing Zones.
+  author: claytonsiemens77
+  ms.author: csiemens
+  ms.date: 05/30/2024
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - databases
+  - storage
+  - networking
+  - security
+products:
+  - azure-data-factory
+name: Medallion lakehouse with Azure Data Factory
+summary: Learn how to design a medallion lakehouse workload for Azure Data Factory on Azure Landing Zones.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-baseline.png
+content: |
+  [!include[](azure-data-factory-on-azure-landing-zones-index-content.md)]

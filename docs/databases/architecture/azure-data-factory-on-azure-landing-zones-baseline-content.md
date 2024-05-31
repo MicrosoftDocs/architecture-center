@@ -250,8 +250,8 @@ To deploy a self-hosted runtime integration on an Azure VM, use the [quick start
 
 ## Next steps
 
-- [Azure Data Factory Enterprise Hardening](TO_BE_ADDED) 
-- [Azure Data Factory Mission Critical](TO_BE_ADDED) 
+- [Azure Data Factory enterprise hardened architecture](azure-data-factory-enterprise-hardened.yml) 
+- [Azure Data Factory Mission Critical](azure-data-factory-mission-critical.yml) 
 
 ## Related resources
 
