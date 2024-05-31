@@ -1,4 +1,4 @@
-This reference architecture describes how to deliver a mission-critical advanced analytical solution with Azure Data Factory, and is an extension of the [baseline architecture](./azure-data-factory-on-azure-landing-zones-baseline) and the [enterprise hardened architecture](azure-data-factory-hardened.yml). The guidance presented in this article reflects only the changes recommended to be made to operate the workload as a mission-critical workload.
+This reference architecture describes how to deliver a mission-critical advanced analytical solution with Azure Data Factory, and is an extension of the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) and the [enterprise hardened architecture](azure-data-factory-hardened.yml). The guidance presented in this article reflects only the changes recommended to be made to operate the workload as a mission-critical workload.
 
 This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for best practice and guidance, and the guidance for [mission-critical](/azure/well-architected/mission-critical/) workloads. 
 
@@ -127,7 +127,7 @@ The delta this architecture provides includes:
 Mission-critical designs are [expensive](/azure/well-architected/mission-critical/mission-critical-design-principles#cost-optimization) nature, making it important to implement controls like:
 
 - Aligning the component SKU selection to the solution [scale-unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) boundaries to avoiding overprovisioning.
-- Available and practical operating expenses (OpEx) saving benefits, such as [Azure Reservations](azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, and Log Analytics [Commitment tiers](/azure/azure-monitor/logs/cost-logs).
+- Available and practical operating expenses (OpEx) saving benefits, such as [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) for stable workloads and [Savings plans](/azure/cost-management-billing/savings-plan/scope-savings-plan) for dynamic workloads, and Log Analytics [Commitment tiers](/azure/azure-monitor/logs/cost-logs).
 - Cost and budget alerting via [Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending).
 
 ### Operational efficiency

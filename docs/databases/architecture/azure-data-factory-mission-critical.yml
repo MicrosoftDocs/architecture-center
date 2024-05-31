@@ -22,6 +22,6 @@ products:
   - azure-container-apps
 name: Azure Data Factory mission-critical architecture
 summary: Learn how to design a mission-critical workload for Azure Data Factory on Azure Landing Zones.
-thumbnailUrl: /azure/architecture/browse/thumbs/ADF-ALZ-Medallion-Initial.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-mission-critical.png
 content: |
   [!include[](azure-data-factory-mission-critical-content.md)]
