@@ -224,7 +224,6 @@ Here's the situation after the blue cluster is destroyed:
   - Cookies
 - Another alternative that provides greater protection from problems caused by changes is to have ring-based deployments. Instead of just blue and green clusters, it's possible to have more clusters, called rings. Each ring is large enough for the number of users that have access to the new version of AKS. As for the blue-green deployment that's described here, the rings can be removed to have the proper cost optimization and control.
 - Possible alternatives to Application Gateway are NGINX and HAProxy.
-- A single Application Gateway in front of the AKS clusters, with the main purpose to reduce costs and operation effort.
 - A possible alternative to Container Registry is Harbor.
 - In some circumstances it's possible to use different load balancing and DNS services to do the traffic switches, instead of Azure Front Door and Azure DNS.
 - This solution is based on the standard ingress controller Kubernetes APIs. If your solution would benefit instead from the [Gateway API](https://gateway-api.sigs.k8s.io/), then use [Application Gateway for Containers](/azure/application-gateway/for-containers/). It can help manage load balancing and handle ingress traffic management between Application Gateway and the pods. Application Gateway for Containers controls the settings of the application gateways.
