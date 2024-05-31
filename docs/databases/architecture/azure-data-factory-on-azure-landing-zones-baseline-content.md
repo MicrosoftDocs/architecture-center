@@ -124,6 +124,8 @@ The typical workflow of accessing and landing data through the architecture:
 
 ## Alternatives
 
+[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) has ADF, Azure Databricks, and Power BI built-in as a single solution. As a relatively new service, there may be some functionality that is not currently available to match that of the services used in this scenario, and there may be a learning curve for operators.
+
 Alternatives for the storage processing layer:
 
 - [Azure Synapse Analytics](/azure/synapse-analytics/): This service isn't a good match for the scenario described here due to Azure Databricks functional match, maturity, and skilling available in the market.
