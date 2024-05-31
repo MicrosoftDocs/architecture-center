@@ -172,9 +172,17 @@ Virtual network peering is a nontransitive relationship between two virtual netw
 
 ### Cost optimization
 
-A customer-managed hub infrastructure introduces management cost to underlying Azure resources. To achieve a transitive connectivity with a predictable latency, you must have a Network Virtual Appliance (NVA) or Azure Firewall deployed in each hub. Using Azure Firewall with either choice will lower the cost compared to an NVA. Azure Firewall costs are the same for both options. There is an extra cost for Azure Virtual WAN; however, it is much less costly than managing your own hub infrastructure.
+Use the [Azure Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/virtual-wan/) to understand and estimate the most cost effective solution for your network topology. Azure Virtual WAN pricing involves several key cost factors:
 
-For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan).
+1. *Deployment hours*: Charges for the deployment and use of Virtual WAN hubs.
+2. *Scale unit*: Fees based on the bandwidth capacity (Mbps/Gbps) for scaling VPN (S2S, P2S) and ExpressRoute gateways.
+3. *Connection unit*: Costs for each connection to VPN, ExpressRoute, or remote users.
+4. *Data processed unit*: Charges per GB for data processed through the hub.
+5. *Routing infrastructure unit*: Costs for the routing capabilities in the hub.
+6. *Azure Firewall with Secured Virtual Hub*: Recommended and adds an additional cost per deployment unit and data processed unit.
+7. *Hub-to-hub data transfer*: Costs for transferring data between hubs subject to inter-region (intra/inter-continental) charges as detailed in the [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+For pricing aligned to common networking scenarios, see [About virtual WAN pricing](/azure/virtual-wan/pricing-concepts#pricing).
 
 ## Contributors
 
