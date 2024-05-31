@@ -27,4 +27,4 @@ products:
   - azure-openai
 thumbnailUrl: ../../browse/thumbs/podcast-abstract-architecture.png
 content: |
-  [!INCLUDE[(process-audio-files-using-ai-content.md)]
+  [!INCLUDE[](process-audio-files-using-ai-content.md)]
