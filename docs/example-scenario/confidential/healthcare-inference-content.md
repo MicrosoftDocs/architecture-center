@@ -47,6 +47,8 @@ The solution involves the following steps:
 
 - You can use [Fortanix](https://www.fortanix.com) instead of SCONE to deploy confidential containers to use with your containerized application. Fortanix provides the flexibility you need to run and manage the broadest set of applications: existing applications, new enclave-native applications, and pre-packaged applications.
 
+- You can use [Occlum](https://occlum.io/) instead of SCONE to run within the AKS cluster that has SGX enabled. Occlum enables legacy applications to run with little to no modifications in an isolated environment.
+
 - [Graphene](https://gramine.readthedocs.io/en/stable/) is a lightweight, open-source guest OS. Graphene can run a single Linux application in an isolated environment with benefits comparable to running a complete OS. It has good tooling support for converting existing Docker container applications to Graphene Shielded Containers (GSC).
 
 ## Scenario details
