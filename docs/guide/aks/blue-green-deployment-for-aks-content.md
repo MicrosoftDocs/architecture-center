@@ -227,7 +227,7 @@ Here's the situation after the blue cluster is destroyed:
 - A single Application Gateway in front of the AKS clusters, with the main purpose to reduce costs and operation effort.
 - A possible alternative to Container Registry is Harbor.
 - In some circumstances it's possible to use different load balancing and DNS services to do the traffic switches, instead of Azure Front Door and Azure DNS.
-- This solution is based on standard Ingress Controller K8S APIs, as recently announced there is the introduction of the [Gateway API](https://gateway-api.sigs.k8s.io/); so an alternative solution is to use [Application Gateway For Containers](https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/) as Load balancer and Ingress traffic management between Application Gateway and the PODs. In this scenario the solution is still valid as it is but wit hte advantage that the application gateway setting are automatically managed via Application Gateway for Containers.
+- This solution is based on the standard ingress controller Kubernetes APIs. If your solution would benefit instead from the [Gateway API](https://gateway-api.sigs.k8s.io/), then use [Application Gateway for Containers](/azure/application-gateway/for-containers/). It can help manage load balancing and handle ingress traffic management between Application Gateway and the pods. Application Gateway for Containers controls the settings of the application gateways.
 
 ## Scenario details
 
