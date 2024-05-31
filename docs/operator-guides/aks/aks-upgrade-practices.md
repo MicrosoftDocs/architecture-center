@@ -87,7 +87,7 @@ Available channels include the following:
 - `None`. No updates are automatically applied.
 - `Unmanaged`. Ubuntu and Azure Linux updates are applied by the OS on a nightly basis. Reboots must be managed separately. AKS is neither able to test this nor control the cadence of this. 
 - `SecurityPatch`. OS security patches which are AKS-tested, fully managed, and applied with safe deployment practices. It does not contain any OS bug fixes just security updates. 
-- `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safe deployment practices. For real time information on currently deployed node images, please refer to [AKS Node images section in the Release tracker][release-tracker].
+- `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safe deployment practices. For real time information on currently deployed node images, please refer to [AKS Node Images section in the Release tracker](/azure/aks/release-tracker#aks-node-image-updates).
 
 To understand the default cadences without a maintenance window established, please refer to [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule).
 
