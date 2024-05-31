@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This article provides an example design of a pipeline for processing audio files by using Azure OpenAI. The pipeline uses Azure Cognitive Services for speech-to-text (STT) and Azure OpenAI for analysis. The architecture consists of a static web application that provides an operational dashboard and three Azure Functions that orchestrate and process the media files. This solution is designed for media workloads that require automated and scalable AI analysis.
 
 # Architecture
