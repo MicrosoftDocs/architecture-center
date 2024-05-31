@@ -39,13 +39,13 @@ The architecture consists of:
 
 -   **Virtual WAN hub**. The [Virtual WAN](/azure/virtual-wan/virtual-wan-about) is used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network, and a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
 
--   **Secured virtual hub**. A Virtual WAN hub with associated security and routing policies configured by Azure Firewall Manager. A secured virtual hub comes with a built-in routing so there is no need to configure user-defined routes.
+-   **Secured virtual hub**. A Virtual WAN hub with associated security and routing policies configured by Azure Firewall Manager. A secured virtual hub comes with a built-in routing so there's no need to configure user-defined routes.
 
 -   **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
 -   **Spoke virtual networks**. One or more virtual networks that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own virtual networks and are managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
--   **Virtual network peering**. Two virtual networks can be connected using a VNet peering connection. Peering connections are nontransitive, low-latency connections between virtual networks. Once peered, virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which is not possible solely using peering.
+-   **Virtual network peering**. Two virtual networks can be connected using a VNet peering connection. Peering connections are nontransitive, low-latency connections between virtual networks. Once peered, virtual networks exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use virtual network peering to connect the hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which isn't possible solely using peering.
 
 ### Components
 
@@ -116,7 +116,7 @@ For more information about setting up the gateway, see the following reference a
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 
-A hub-spoke topology cannot be used without a gateway, even if you don't need connectivity with your on-premises network.
+A hub-spoke topology can't be used without a gateway, even if you don't need connectivity with your on-premises network.
 
 ### Virtual network peering
 
@@ -142,7 +142,7 @@ To support network-wide shared services like DNS resources, custom NVAs, Azure B
 
 ### Operations
 
-Azure VWAN is a managed service provided by Microsoft. From a technology standpoint, it is not completely different from a customer-managed hub infrastructure. Azure Virtual WAN simplifies overall network architecture by offering a mesh network topology with transitive network connectivity among spokes. Monitoring of Azure VWAN can be achieved using Azure Monitor. Site-to-site configuration and connectivity between on-premises networks and Azure can be fully automated.
+Azure VWAN is a managed service provided by Microsoft. From a technology standpoint, it isn't completely different from a customer-managed hub infrastructure. Azure Virtual WAN simplifies overall network architecture by offering a mesh network topology with transitive network connectivity among spokes. Monitoring of Azure VWAN can be achieved using Azure Monitor. Site-to-site configuration and connectivity between on-premises networks and Azure can be fully automated.
 
 ### Reliability
 
@@ -154,7 +154,7 @@ With the help of Azure Virtual WAN, lower latency among spokes and across region
 
 ### Scalability
 
-Azure Virtual WAN provides a full mesh connectivity among spokes by preserving the ability to restrict traffic based on needs. With this architecture it is possible to have large-scale site-to-site performance. Moreover, you can create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
+Azure Virtual WAN provides a full mesh connectivity among spokes by preserving the ability to restrict traffic based on needs. With this architecture it's possible to have large-scale site-to-site performance. Moreover, you can create a global transit network architecture by enabling any-to-any connectivity between globally distributed sets of cloud workloads.
 
 ### Security
 
