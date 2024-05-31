@@ -2,7 +2,7 @@ This reference architecture describes how to deliver a mission-critical advanced
 
 This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for best practice and guidance, and the guidance for [mission-critical](/azure/well-architected/mission-critical/) workloads. 
 
-## Context and Key-Design-Decisions
+## Context and key design decisions
 
 As described in the [enterprise hardened architecture](azure-data-factory-hardened.yml), Contoso has implemented a [medallion lakehouse architecture](/azure/databricks/lakehouse/medallion) supporting their enterprise analytical data needs and enabling business users via a domain model. With Contoso expanding across the globe, the Finance department has developed a deal fraud model using Azure Machine Learning which is now required to be further refined to function as a mission-critical, operational service.
 
@@ -80,16 +80,16 @@ The design callouts for the mission-critical architecture are:
 ![Diagram showing Medlallion architecture Network design.](_images/azure-data-factory-mission-critical-network.png)
 
 - A next generation firewall, like [Azure Firewall](/azure/firewall/overview), should be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
-- Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure. It's recommended to deploy the VM in Azure as part of the shared support resource landing zone to simplify governance and security. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
+- Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure. Consider deploying the VM in Azure as part of the shared support resource landing zone to simplify governance and security. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
 - ML-assisted data labeling doesn't support default storage accounts as they're secured behind a virtual network. First create a storage account for ML-assisted data labeling, apply the labeling and secure it behind the virtual network.
 
-**[Private Endpoints](/azure/private-link/private-endpoint-overview):** provide a private IP address from your VNet to an Azure service, effectively bringing the service into your VNet. This makes the service accessible only from your VNet or connected networks, ensuring a more secure and private connection. Private Endpoints use Azure Private Link, which secures the connection to the PaaS service. If your workload uses any resources that don't support Private Endpoints, you may be able to use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). Private Endpoints are the recommended solution for mission-critical workloads, so default to using them whenever possible and practical.
+**[Private Endpoints](/azure/private-link/private-endpoint-overview):** provide a private IP address from your VNet to an Azure service, effectively bringing the service into your VNet. This functionality makes the service accessible only from your VNet or connected networks, ensuring a more secure and private connection. Private Endpoints use Azure Private Link, which secures the connection to the PaaS service. If your workload uses any resources that don't support Private Endpoints, you may be able to use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). Private Endpoints are the recommended solution for mission-critical workloads, so default to using them whenever possible and practical.
 
 Further guidance for mission-critical - [Networking and connectivity](/azure/well-architected/mission-critical/mission-critical-networking-connectivity)
 
 ## Callouts
 
-- The preferred approach would shift the ML workload into the operational system/domain. The Data Platform targets analytical workloads and their related SLAs and capabilities. This should be investigated before committing to standing up a mission-critical solution.
+In your own use case, be sure to determine whether the use is operational in nature, like the one used for this scenario, or related to the data platform. If your use case is related to the data platform, like a data science or analytics use case, it may not meet the criteria to treat it as mission-critical. Mission-critical workloads require a significant amount of resources to support them and should only be defined as such if they justify the resource investments.
 
 ## Alternatives
 
@@ -152,7 +152,7 @@ The delta this architecture provides includes:
 
 ## Anti-patterns
 
-- **The "shopping list" approach** - Business stakeholders are often presented with a "shopping list" of features and service levels, without the context of cost or complexity. It's recommended that any solution is based upon validated requirements and solution design is supported by financial modeling with options. This approach allows stakeholders to make informed decisions and pivot if required.
+- **The "shopping list" approach** - Business stakeholders are often presented with a "shopping list" of features and service levels, without the context of cost or complexity. It's important to ensure that any solution is based upon validated requirements and the solution design is supported by financial modeling with options. This approach allows stakeholders to make informed decisions and pivot if required.
 - **Not challenging the requirements** - Mission-critical designs can be very expensive and complex to implement and maintain. Business stakeholders should be challenged on their requirements to ensure "mission-critical" is actually required.
 - **Deploy and forget** - The model is deployed without continuous monitoring, updates, or support mechanisms in place. Once deployed, there's little to no ongoing maintenance, and the model is left to operate in isolation. This neglect can lead to performance degradation, drift in model accuracy, and vulnerabilities to emerging data patterns. Ultimately, it undermines the reliability and effectiveness of the model in serving its intended purpose.
 
