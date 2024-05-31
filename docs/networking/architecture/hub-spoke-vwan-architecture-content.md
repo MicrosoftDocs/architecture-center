@@ -172,7 +172,7 @@ Virtual network peering is a nontransitive relationship between two virtual netw
 
 ### Cost optimization
 
-Use the [Azure Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/virtual-wan/) to understand and estimate the most cost effective solution for your network topology. Azure Virtual WAN pricing involves several key cost factors:
+Use the [Azure Virtual WAN pricing page](https://azure.microsoft.com/pricing/details/virtual-wan/) to understand and estimate the most cost-effective solution for your network topology. Azure Virtual WAN pricing involves several key cost factors:
 
 1. *Deployment hours*: Charges for the deployment and use of Virtual WAN hubs.
 2. *Scale unit*: Fees based on the bandwidth capacity (Mbps/Gbps) for scaling VPN (S2S, P2S) and ExpressRoute gateways.
