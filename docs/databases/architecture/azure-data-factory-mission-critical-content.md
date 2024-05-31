@@ -1,10 +1,10 @@
-This reference architecture describes how to deliver a mission-critical advanced analytical solution with Azure Data Factory, and is an extension of the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) and the [enterprise hardened architecture](azure-data-factory-hardened.yml). The guidance presented in this article reflects only the changes recommended to be made to operate the workload as a mission-critical workload.
+This reference architecture describes how to deliver a mission-critical advanced analytical solution with Azure Data Factory, and is an extension of the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) and the [enterprise hardened architecture](azure-data-factory-enterprise-hardened.yml). The guidance presented in this article reflects only the changes recommended to be made to operate the workload as a mission-critical workload.
 
 This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for best practice and guidance, and the guidance for [mission-critical](/azure/well-architected/mission-critical/) workloads. 
 
 ## Context and key design decisions
 
-As described in the [enterprise hardened architecture](azure-data-factory-hardened.yml), Contoso has implemented a [medallion lakehouse architecture](/azure/databricks/lakehouse/medallion) supporting their enterprise analytical data needs and enabling business users via a domain model. With Contoso expanding across the globe, the Finance department has developed a deal fraud model using Azure Machine Learning which is now required to be further refined to function as a mission-critical, operational service.
+As described in the [enterprise hardened architecture](azure-data-factory-enterprise-hardened.yml), Contoso has implemented a [medallion lakehouse architecture](/azure/databricks/lakehouse/medallion) supporting their enterprise analytical data needs and enabling business users via a domain model. With Contoso expanding across the globe, the Finance department has developed a deal fraud model using Azure Machine Learning which is now required to be further refined to function as a mission-critical, operational service.
 
 ### Key Requirements
 

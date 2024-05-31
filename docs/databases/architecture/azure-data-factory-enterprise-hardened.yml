@@ -23,4 +23,4 @@ name: Azure Data Factory enterprise hardened architecture
 summary: Learn how to design an enterprise hardened workload for Azure Data Factory on Azure Landing Zones.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-data-factory-hardened.png
 content: |
-  [!include[](azure-data-factory-mission-critical-content.md)]
+  [!include[](azure-data-factory-enterprise-hardened-content.md)]
