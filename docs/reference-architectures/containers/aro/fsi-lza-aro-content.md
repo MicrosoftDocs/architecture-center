@@ -4,8 +4,8 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 ## Architecture
 
-[![Diagram that shows the ARO Hybrid architecture FSI scenario.](./images/fsi-architecture.png)](./media/fsi-architecture.png#lightbox)
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+[![Diagram that shows the ARO Hybrid architecture FSI scenario.](./images/fsi-architecture.png)](./images/fsi-architecture.png#lightbox)
+<!-- *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.* -->
 
 ### Components
 
@@ -80,7 +80,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - *Third-party risk assessments*: Follow financial compliance regulations by adhering to least privilege access, limiting duration for escalated privileges, and auditing SRE resource access. Refer to the ARO documentation for the SRE shared responsibility model and access escalation procedures. For more information, see the [SRE Access to Azure Red Hat OpenShift (ARO)](https://access.redhat.com/solutions/6997379) and [Overview of responsibilities for Azure Red Hat OpenShift](/azure/openshift/responsibility-matrix).
 
-- *Regulatory compliance*: Use Azure Policy to address various regulatory requirements related to compliance in FSI scenarios. For more information, see [Azure Policy](/products/azure-policy/) and [Azure Policy built-in initiative definitions](/azure/governance/policy/samples/built-in-initiatives) documentation.
+- *Regulatory compliance*: Use Azure Policy to address various regulatory requirements related to compliance in FSI scenarios. For more information, see [Azure Policy](/azure/governance/policy/overview) and [Azure Policy built-in initiative definitions](/azure/governance/policy/samples/built-in-initiatives) documentation.
 
 ### Operational excellence
 
