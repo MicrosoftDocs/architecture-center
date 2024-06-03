@@ -287,7 +287,7 @@ You should test both positive and negative examples. For the positive examples, 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [large language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
+> [Large language model end to end evaluation phase](./rag-llm-evaluation-phase.yml)
 
 ## Related resources
 
