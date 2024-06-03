@@ -1,11 +1,11 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: RobBagby
-ms.date: 05/27/2024
+author: martinekuan
+ms.date: 06/03/2024
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: robbag
+ms.author: martinek
 categories: 
 - management-and-governance
 products:
@@ -22,6 +22,17 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## June 2024
+
+### New articles
+
+- [Use Azure OpenAI to process podcast audio files](./ai-ml/idea/process-audio-files.yml)
+
+### Updated articles
+
+- [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.yml)  ([#9e61a65255](https://github.com/MicrosoftDocs/architecture-center/commit/9e61a65255))
+- [Guide to designing and developing a RAG solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)  ([#9e61a65255](https://github.com/MicrosoftDocs/architecture-center/commit/9e61a65255))
 
 ## May 2024
 
@@ -44,13 +55,41 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#21cef339cb](https://github.com/MicrosoftDocs/architecture-center/commit/21cef339cb))
+- [Hub-spoke network topology with Azure Virtual WAN](./networking/architecture/hub-spoke-vwan-architecture.yml)  ([#48e37698c2](https://github.com/MicrosoftDocs/architecture-center/commit/48e37698c2))
+- [Blue-green deployment of AKS clusters](./guide/aks/blue-green-deployment-for-aks.yml)  ([#ab83f01e8c](https://github.com/MicrosoftDocs/architecture-center/commit/ab83f01e8c))
+- [Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service](./example-scenario/aks-agic/aks-agic.yml)  ([#2934252b7c](https://github.com/MicrosoftDocs/architecture-center/commit/2934252b7c))
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)  ([#2934252b7c](https://github.com/MicrosoftDocs/architecture-center/commit/2934252b7c))
+- [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#2934252b7c](https://github.com/MicrosoftDocs/architecture-center/commit/2934252b7c))
+- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#2934252b7c](https://github.com/MicrosoftDocs/architecture-center/commit/2934252b7c))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#2934252b7c](https://github.com/MicrosoftDocs/architecture-center/commit/2934252b7c))
+- [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)  ([#2934252b7c](https://github.com/MicrosoftDocs/architecture-center/commit/2934252b7c))
+- [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [Extract, transform, load (ETL)](./data-guide/relational-data/etl.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [Choose a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [N-tier application with Apache Cassandra](./databases/architecture/n-tier-cassandra.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [Microsoft Entra IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#40179fabe5](https://github.com/MicrosoftDocs/architecture-center/commit/40179fabe5))
+- [Migrate a web app by using Azure API Management](./example-scenario/apps/apim-api-scenario.yml)  ([#84a2e94497](https://github.com/MicrosoftDocs/architecture-center/commit/84a2e94497))
+- [Enable the financial services risk lifecycle with Azure and R](./industries/finance/financial-risk-model.md)  ([#be1be29555](https://github.com/MicrosoftDocs/architecture-center/commit/be1be29555))
+- [AKS triage—Workload deployments](./operator-guides/aks/aks-triage-deployment.md)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
+- [AKS triage—Node health](./operator-guides/aks/aks-triage-node-health.md)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
+- [Quarantine pattern](./patterns/quarantine.yml)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
+- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
+- [Mission-critical baseline architecture with network controls](./reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml)  ([#107a866ca6](https://github.com/MicrosoftDocs/architecture-center/commit/107a866ca6))
+- [Employee retention with Databricks and Kubernetes](./example-scenario/ai/employee-retention-databricks-kubernetes.yml)  ([#7ede8f8b01](https://github.com/MicrosoftDocs/architecture-center/commit/7ede8f8b01))
+- [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)  ([#7ede8f8b01](https://github.com/MicrosoftDocs/architecture-center/commit/7ede8f8b01))
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#7ede8f8b01](https://github.com/MicrosoftDocs/architecture-center/commit/7ede8f8b01))
+- [Map requests to tenants in a multitenant solution](./guide/multitenant/considerations/map-requests.yml)  ([#7ede8f8b01](https://github.com/MicrosoftDocs/architecture-center/commit/7ede8f8b01))
+- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#7ede8f8b01](https://github.com/MicrosoftDocs/architecture-center/commit/7ede8f8b01))
+- [AKS triage—Cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7ede8f8b01](https://github.com/MicrosoftDocs/architecture-center/commit/7ede8f8b01))
+- [Quantum computing integration with classical apps](./example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml)  ([#1333a5289b](https://github.com/MicrosoftDocs/architecture-center/commit/1333a5289b))
 - [Apache Sqoop migration to Azure](./guide/hadoop/apache-sqoop-migration.yml)  ([#593e37adc9](https://github.com/MicrosoftDocs/architecture-center/commit/593e37adc9))
 - [Azure DNS Private Resolver](./networking/architecture/azure-dns-private-resolver.yml)  ([#b24cbebe3b](https://github.com/MicrosoftDocs/architecture-center/commit/b24cbebe3b))
 - [Kubernetes node and node pool management](./aws-professional/eks-to-aks/node-pools.yml)  ([#ed57efe0db](https://github.com/MicrosoftDocs/architecture-center/commit/ed57efe0db))
 - [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)  ([#ed57efe0db](https://github.com/MicrosoftDocs/architecture-center/commit/ed57efe0db))
 - [Build the second layer of defense with Microsoft Defender XDR Security services](./solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)  ([#08d94354f1](https://github.com/MicrosoftDocs/architecture-center/commit/08d94354f1))
-- [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#894f65e5f0](https://github.com/MicrosoftDocs/architecture-center/commit/894f65e5f0))
-- [Blue-green deployment of AKS clusters](./guide/aks/blue-green-deployment-for-aks.yml)  ([#894f65e5f0](https://github.com/MicrosoftDocs/architecture-center/commit/894f65e5f0))
 - [Recover from loss of an Azure region](./resiliency/recovery-loss-azure-region.md)  ([#fddf1e1680](https://github.com/MicrosoftDocs/architecture-center/commit/fddf1e1680))
 - [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#2b0016275a](https://github.com/MicrosoftDocs/architecture-center/commit/2b0016275a))
 - [Azure Well-Architected Framework review of an Azure NAT gateway](./networking/guide/well-architected-network-address-translation-gateway.yml)  ([#89e3eacb29](https://github.com/MicrosoftDocs/architecture-center/commit/89e3eacb29))
@@ -172,63 +211,4 @@ The following new and updated articles have recently been published in the Azure
 - [Strangler Fig pattern](./patterns/strangler-fig.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
 - [Throttling pattern](./patterns/throttling.yml)  ([#87e9972941](https://github.com/MicrosoftDocs/architecture-center/commit/87e9972941))
 - [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#b227ec9aa9](https://github.com/MicrosoftDocs/architecture-center/commit/b227ec9aa9))
-
-## February 2024
-
-### New articles
-
-- [Migrate from Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS)](./aws-professional/eks-to-aks/migrate-eks-to-aks.md)
-- [Host a Murex MX.3 workload on Azure using SQL](./example-scenario/finance/murex-mx3-sql.yml)
-- [IPv6 hub-spoke network topology](./networking/guide/ipv6-architecture.yml)
-- [Quarantine pattern](./patterns/quarantine.yml)
-
-### Updated articles
-
-- [Databases architecture design](./databases/index.yml)  ([#3ba5551b02](https://github.com/MicrosoftDocs/architecture-center/commit/3ba5551b02))
-- [Group manager tasks in the Team Data Science Process](./data-science-process/group-manager-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Customer acceptance stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-acceptance.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Business understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-business-understanding.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Data acquisition and understanding stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-data.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Deployment stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-deployment.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Modeling stage of the Team Data Science Process lifecycle](./data-science-process/lifecycle-modeling.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [The Team Data Science Process lifecycle](./data-science-process/lifecycle.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Move Blob Storage data with SSIS connectors](./data-science-process/move-data-to-azure-blob-using-ssis.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [What is the Team Data Science Process?](./data-science-process/overview.yml)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Prepare data for Machine Learning Studio (classic)](./data-science-process/prepare-data.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Individual contributor tasks in the Team Data Science Process](./data-science-process/project-ic-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Project lead tasks in the Team Data Science Process](./data-science-process/project-lead-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Roles and tasks in the Team Data Science Process](./data-science-process/roles-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Team lead tasks in the Team Data Science Process](./data-science-process/team-lead-tasks.md)  ([#e970efb5a8](https://github.com/MicrosoftDocs/architecture-center/commit/e970efb5a8))
-- [Pipes and Filters pattern](./patterns/pipes-and-filters.yml)  ([#3384d4cef1](https://github.com/MicrosoftDocs/architecture-center/commit/3384d4cef1))
-- [Azure icons](./icons/index.md)  ([#e57764588e](https://github.com/MicrosoftDocs/architecture-center/commit/e57764588e))
-- [Search and query an enterprise knowledge base by using Azure OpenAI or Azure AI Search](./ai-ml/openai/idea/search-and-query-using-openai-service.yml)  ([#f8cde6690c](https://github.com/MicrosoftDocs/architecture-center/commit/f8cde6690c))
-- [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)  ([#b91e17155e](https://github.com/MicrosoftDocs/architecture-center/commit/b91e17155e))
-- [Zero-trust network for web applications with Azure Firewall and Application Gateway](./example-scenario/gateway/application-gateway-before-azure-firewall.yml)  ([#7dd617e4dd](https://github.com/MicrosoftDocs/architecture-center/commit/7dd617e4dd))
-- [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#31392db970](https://github.com/MicrosoftDocs/architecture-center/commit/31392db970))
-- [Ambassador pattern](./patterns/ambassador.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Anti-corruption Layer pattern](./patterns/anti-corruption-layer.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Asynchronous Request-Reply pattern](./patterns/async-request-reply.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Backends for Frontends pattern](./patterns/backends-for-frontends.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Bulkhead pattern](./patterns/bulkhead.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Cache-Aside pattern](./patterns/cache-aside.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Choreography pattern](./patterns/choreography.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Circuit Breaker pattern](./patterns/circuit-breaker.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Claim-Check pattern](./patterns/claim-check.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Compensating Transaction pattern](./patterns/compensating-transaction.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Competing Consumers pattern](./patterns/competing-consumers.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Compute Resource Consolidation pattern](./patterns/compute-resource-consolidation.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [CQRS pattern](./patterns/cqrs.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Deployment Stamps pattern](./patterns/deployment-stamp.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Event Sourcing pattern](./patterns/event-sourcing.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [External Configuration Store pattern](./patterns/external-configuration-store.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Federated Identity pattern](./patterns/federated-identity.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Gatekeeper pattern](./patterns/gatekeeper.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Gateway Aggregation pattern](./patterns/gateway-aggregation.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Gateway Offloading pattern](./patterns/gateway-offloading.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Gateway Routing pattern](./patterns/gateway-routing.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Geode pattern](./patterns/geodes.yml)  ([#64f6bb1215](https://github.com/MicrosoftDocs/architecture-center/commit/64f6bb1215))
-- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)  ([#67b065b5a7](https://github.com/MicrosoftDocs/architecture-center/commit/67b065b5a7))
-- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#851289722f](https://github.com/MicrosoftDocs/architecture-center/commit/851289722f))
-- [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#adc0cbe6cd](https://github.com/MicrosoftDocs/architecture-center/commit/adc0cbe6cd))
 
