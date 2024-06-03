@@ -46,7 +46,7 @@ This article describes how to use AI to create a podcast synopsis, localize the 
 
 ### Web app
 
-A [static web application] (https://learn.microsoft.com/azure/static-web-apps/) exposes this application's functionality. The application is written by using the [React web library](https://react.dev/). You can use the React web library to upload audio files. After the audio files are processed, React generates viewable and downloadable results that include:
+A [static web application](https://learn.microsoft.com/azure/static-web-apps/) exposes this application's functionality. The application is written by using the [React web library](https://react.dev/). You can use the React web library to upload audio files. After the audio files are processed, React generates viewable and downloadable results that include:
 
 - A synopsis.
 - A translated synopsis.
