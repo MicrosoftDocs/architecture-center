@@ -126,7 +126,7 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 
 ### Multiple subqueries
 
-Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to Interactive Connectivity Establishment (ICE) vehicles?" likely require grounding data from multiple sources.
+Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
 
 It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 
