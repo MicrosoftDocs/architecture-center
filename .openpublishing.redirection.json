@@ -2571,11 +2571,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/serverless-event-processing-filtering-content.md",
-      "redirect_url": "/azure/architecture/patterns/pipes-and-filters",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/solution-ideas/articles/serverless-event-processing-filtering.yml",
       "redirect_url": "/azure/architecture/patterns/pipes-and-filters",
       "redirect_document_id": false
