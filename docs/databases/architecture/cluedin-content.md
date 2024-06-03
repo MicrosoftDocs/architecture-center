@@ -65,7 +65,7 @@ Modern enterprise companies base many processes and projects on data, but the ra
 
 During these processes, *governance* must ensure data control and privacy protection with clear ownership, full traceability, and an audit trail of data origins, processing, and use.
 
-The [CluedIn platform](https://appsource.microsoft.com/product/office/WA200003700?tab=Overview) encapsulates these data management processes and pillars into a coherent, consistent, end-to-end Master Data Management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
+The [CluedIn platform](https://appsource.microsoft.com/product/web-apps/cluedin.cluedin-contact-me) encapsulates these data management processes and pillars into a coherent, consistent, end-to-end Master Data Management (MDM) solution. CluedIn uses a data integration technique called *eventual connectivity* that yields better results than classic *extract, transform, load (ETL)* or *extract, load, transform (ELT)* models. Eventual connectivity uses [GraphQL](https://graphql.org/) queries to blend data seamlessly from across many siloed data sources.
 
 With eventual connectivity, data isn't joined or blended upon entry or loading into other systems. Instead, CluedIn loads the data as is, and tags records using metadata. Eventually, records with the same tags merge or build a relationship in the graph.
 
@@ -115,7 +115,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- CluedIn security grants permissions and controls access to different services through [Azure RBAC](/azure/role-based-access-control/overview), with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) security key control and [Azure Monitor](https://azure.microsoft.com/services/monitor/) access tracking and logging.
+- CluedIn security grants permissions and controls access to different services through [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview), with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) security key control and [Azure Monitor](https://azure.microsoft.com/services/monitor/) access tracking and logging.
 
 - In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity.
 

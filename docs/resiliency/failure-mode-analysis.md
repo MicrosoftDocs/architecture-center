@@ -1,7 +1,8 @@
 ---
 title: Failure mode analysis
 description: Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.
-author: martinekuan
+author: claytonsiemens77
+ms.author: csiemens
 ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -330,28 +331,6 @@ There are two failure modes to consider.
 For more information, see [Overview of Service Bus dead-letter queues][sb-dead-letter-queue].
 
 **Diagnostics**. Whenever the application moves a message to the dead-letter queue, write an event to the application logs.
-
-## Service Fabric
-
-### A request to a service fails.
-
-**Detection**. The service returns an error.
-
-**Recovery:**
-
-- Locate a proxy again (`ServiceProxy` or `ActorProxy`) and call the service/actor method again.
-- **Stateful service**. Wrap operations on reliable collections in a transaction. If there is an error, the transaction will be rolled back. The request, if pulled from a queue, will be processed again.
-- **Stateless service**. If the service persists data to an external store, all operations need to be idempotent.
-
-**Diagnostics**. Application log
-
-### Service Fabric node is shut down.
-
-**Detection**. A cancellation token is passed to the service's `RunAsync` method. Service Fabric cancels the task before shutting down the node.
-
-**Recovery**. Use the cancellation token to detect shutdown. When Service Fabric requests cancellation, finish any work and exit `RunAsync` as quickly as possible.
-
-**Diagnostics**. Application logs
 
 ## Storage
 

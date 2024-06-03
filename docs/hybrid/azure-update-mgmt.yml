@@ -16,6 +16,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - linux-related-content
 name: Azure Automation update management
 azureCategories:
   - hybrid

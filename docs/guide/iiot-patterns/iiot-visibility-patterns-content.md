@@ -97,8 +97,5 @@ Principal author:
 ## Related resources
 
 - [Industrial IoT patterns overview](./iiot-patterns-overview.yml)
-- [Industrial IoT connectivity patterns](./iiot-connectivity-patterns.yml)
-- [Industrial IoT transparency patterns](./iiot-transparency-patterns.yml)
-- [Industrial IoT prediction patterns](./iiot-prediction-patterns.yml)
 - [Solutions for the manufacturing industry](../../industries/manufacturing.md)
 - [IoT Well-Architected Framework](/azure/architecture/framework/iot/iot-overview)

@@ -17,7 +17,7 @@ This article provides a baseline architecture for running web applications on Az
 - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway/) is a layer 7 (HTTP/S) load balancer and web traffic manager. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
 - [Web Application Firewall (WAF)](https://azure.microsoft.com/products/web-application-firewall/) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. WAF provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
-- [App Service](https://azure.microsoft.com/services/app-service) is a fully managed platform for building, deploying, and scaling web applications.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed platform for building, deploying, and scaling web applications.
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment. 
 - [Azure virtual network](https://azure.microsoft.com/products/virtual-network/) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
@@ -157,7 +157,7 @@ Scalability allows applications to handle increases and decreases in demand whil
 - Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
 - Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
 - Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
-- Choose the right [Azure App Service plan]( /azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
+- Choose the right [Azure App Service plan](/azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
 - [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
 - Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
 
@@ -357,7 +357,7 @@ See more built-in policies for key services such as [Application Gateway and net
 
 ## Related resources
 
-- [Guide to Private Link in Virtual WAN](../../../guide/networking/private-link-virtual-wan-dns-guide.yml)
+- [Guide to Private Link in Virtual WAN](../../../networking/guide/private-link-virtual-wan-dns-guide.yml)
 - [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up)
 - [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service)
 - [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)

@@ -38,7 +38,7 @@ This workflow describes how the system processes the incoming data:
 
 -   [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is used to store images of key frames that are extracted from the video stream.
 
--   [Azure SQL Edge]( https://azure.microsoft.com/products/azure-sql/edge/) is used to store data on the edge, close to the service that consumes and processes it.
+-   [Azure SQL Edge](https://azure.microsoft.com/products/azure-sql/edge/) is used to store data on the edge, close to the service that consumes and processes it.
 
 -   [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is used to store Docker container images.
 
@@ -92,7 +92,7 @@ To see a pricing example for this scenario, use the [Azure pricing calculator](h
 The cost of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
 
 -   [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a).
--   [High workload. 24 hours per day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7).
+-   [High workload. 24 hours per day](https://azure.com/e/06e155e46e6546b79fa07824f2c124f7).
 
 ### Performance efficiency
 

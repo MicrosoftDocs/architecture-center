@@ -22,11 +22,6 @@
             "heading": "Examples of microservices architectures",
             "cards": [
                 {
-                    "title": "Use Service Fabric to decompose monolithic applications",
-                    "url": "../example-scenario/infrastructure/service-fabric-microservices.yml",
-                    "summary": "An iterative approach to decomposing an ASP.NET web site into microservices."
-                },
-                {
                     "title": "Scalable order processing on Azure",
                     "url": "../example-scenario/data/ecommerce-order-processing.md",
                     "summary":"Order processing using a functional programming model implemented via microservices."

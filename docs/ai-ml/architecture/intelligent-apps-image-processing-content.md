@@ -1,4 +1,4 @@
-By using Azure services, such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and utilizing the expertise that Microsoft has already developed with processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/cognitive-services/).
+By using Azure services, such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and utilizing the expertise that Microsoft has already developed with processing images with Azure AI services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Azure AI services](/azure/cognitive-services/).
 
 ## Architecture
 
@@ -11,16 +11,16 @@ By using Azure services, such as the Computer Vision API and Azure Functions, co
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
 1. Adding new files (image uploads) in Blob storage triggers an event in Azure Event Grid. The uploading process can be orchestrated via the web or a mobile application. Alternatively, images can be uploaded separately to the Azure Blob storage.
-2. Event Grid sends a notification that triggers the Azure Functions.
+2. Event Grid sends a notification that triggers the Azure functions.
 3. Azure Functions calls the Azure Computer Vision API to analyze the newly uploaded image. Computer Vision accesses the image via the blob URL that's parsed by Azure Functions.
 4. Azure Functions persists the Computer Vision API response in Azure Cosmos DB. This response includes the results of the analysis, along with the image metadata.
 5. The results can be consumed and reflected on the web or mobile front end. Note that this approach retrieves the results of the classification but not the uploaded image.
 
 ### Components
 
-- [Computer Vision API](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) is part of the Cognitive Services suite and is used to retrieve information about each image.
+- [Computer Vision API](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) is part of the Azure AI services suite and is used to retrieve information about each image.
 - [Azure Functions](https://azure.microsoft.com/services/functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images.
-- [Azure Event Grid](https://azure.microsoft.com/services/event-grid) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure Functions.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
 - [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
@@ -66,7 +66,7 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).
+[Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure functions. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
@@ -82,7 +82,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We have provided three sample cost profiles based on amount of traffic (we assume all images are 100 kb in size):
+We have provided three sample cost profiles based on amount of traffic (we assume all images are 100 KB in size):
 
 - [Small][small-pricing]: this pricing example correlates to processing &lt; 5000 images a month.
 - [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.

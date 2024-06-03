@@ -46,4 +46,3 @@ Tiered applications provide the following benefits:
 
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
-- [Tiered data for analytics](../../example-scenario/hybrid/hybrid-tiered-data-analytics.yml)

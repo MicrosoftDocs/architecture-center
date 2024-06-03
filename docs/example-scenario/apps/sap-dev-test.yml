@@ -17,6 +17,7 @@ metadata:
     - SAP
     - example-scenario
     - e2e-sap
+    - linux-related-content
 name: Development and test environments for SAP workloads on Azure
 azureCategories:
   - databases

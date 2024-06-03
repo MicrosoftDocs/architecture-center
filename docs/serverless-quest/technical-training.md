@@ -3,6 +3,7 @@ title: Technical workshops and training
 titleSuffix: Azure Example Scenarios
 description: Use these workshops and training resources to help understand and adopt serverless technologies with Azure Functions.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center

@@ -19,6 +19,7 @@ metadata:
     - Azure
     - example-scenario
     - e2e-sap
+    - linux-related-content
 name: SAP deployment on Azure using an Oracle database
 azureCategories:
   - databases

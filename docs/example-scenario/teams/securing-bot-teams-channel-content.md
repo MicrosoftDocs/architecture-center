@@ -1,7 +1,3 @@
----
-ms.custom:
-  - devx-track-azurecli
----
 This example scenario helps secure the connection to a Microsoft Teams channel bot's web app by using Azure Private Link and Azure Private Endpoint. At the same time, it enables channels in the Teams client to communicate with the bot through an IP that's exposed through an Azure Firewall instance.
 
 ## Architecture
@@ -20,7 +16,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
   - *Private Endpoint Subnet* (10.0.3.0/24), which is used to route traffic from the firewall to the bot's private endpoint.
 
-- [Azure Firewall](/azure/firewall) exposes a single public IP address that clients can use to communicate with the underlying bot services. Ordinarily, a firewall is placed in its own virtual network, which is a common pattern for [hub and spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) architectures, but this simplified example deploys all services and resources into a single virtual network. The Azure Firewall instance is placed in its own subnet.
+- [Azure Firewall](/azure/firewall) exposes a single public IP address that clients can use to communicate with the underlying bot services. Ordinarily, a firewall is placed in its own virtual network, which is a common pattern for [hub and spoke](../../networking/architecture/hub-spoke.yml) architectures, but this simplified example deploys all services and resources into a single virtual network. The Azure Firewall instance is placed in its own subnet.
 
 - [Route table](/azure/virtual-network/virtual-networks-udr-overview) defines the routes that traffic takes within the virtual network. It ensures that traffic coming to and from the bot passes through the firewall.
 
@@ -41,7 +37,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall)
 - [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Private Link](https://azure.microsoft.com/services/private-link)
 
 ### Alternatives
@@ -386,4 +382,4 @@ Principal author:
 
 - [Confidential computing on a healthcare platform - Azure Example Scenarios](../confidential/healthcare-inference.yml)
 
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

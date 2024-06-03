@@ -2,7 +2,8 @@
 title: Busy Database antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Understand the Busy Database antipattern, which can cause performance and scalability problems by offloading processing to a database server.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
@@ -31,7 +32,7 @@ Many database systems can run code. Examples include stored procedures and trigg
 
 - The database server may spend too much time processing, rather than accepting new client requests and fetching data.
 - A database is usually a shared resource, so it can become a bottleneck during periods of high use.
-- Runtime costs may be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units][dtu] (DTUs).
+- Runtime costs may be excessive if the data store is metered. That's particularly true of managed database services. For example, Azure SQL Database charges for [Database Transaction Units (DTUs)][dtu].
 - Databases have finite capacity to scale up, and it's not trivial to scale a database horizontally. Therefore, it may be better to move processing into a compute resource, such as a VM or App Service app, that can easily scale out.
 
 This antipattern typically occurs because:
@@ -99,7 +100,7 @@ Clearly, this is complex query. As we'll see later, it turns out to use signific
 
 ## How to fix the problem
 
-Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in an RDBMS.
+Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in a relational database management system (RDBMS).
 
 For example, the previous Transact-SQL code can be replaced with a statement that simply retrieves the data to be processed.
 

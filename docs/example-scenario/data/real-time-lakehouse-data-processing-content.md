@@ -147,9 +147,9 @@ Other contributor:
 - [Best practices for serverless SQL pool](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool)
 - [Model, query, and explore data in Azure Synapse](/training/paths/model-query-explore-data-for-azure-synapse)
 - [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools)
+
 ## Related resources
 
-- [High throughput stream ingestion to Azure Synapse](stream-ingestion-synapse.yml)
 - [Secure a data lakehouse with Azure Synapse Analytics](../analytics/secure-data-lakehouse-synapse.yml)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](synapse-exploratory-data-analytics.yml)
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)

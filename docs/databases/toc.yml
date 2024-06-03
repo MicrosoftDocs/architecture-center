@@ -48,10 +48,6 @@ items:
         items:
         - name: N-tier app with Cassandra
           href: architecture/n-tier-cassandra.yml
-      - name: Relational
-        items:
-        - name: SQL Managed Instance with CMK
-          href: architecture/sql-managed-instance-cmk.yml
     - name: Apply guidance
       items:
       - name: Databases

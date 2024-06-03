@@ -17,7 +17,7 @@ In this guide, the network layout is greatly simplified to demonstrate architect
 
 The architecture uses the following components. Some shared services are optional.
 
-**Azure Virtual Network.** The [Virtual Network](/azure/virtual-network/virtual-networks-overview) service securely connects Azure resources to each other. In this architecture, a virtual network connects to an on-premises environment through a gateway that's deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers.
+**Azure Virtual Network.** The [Virtual Network](/azure/virtual-network/virtual-networks-overview) service securely connects Azure resources to each other. In this architecture, a virtual network connects to an on-premises environment through a gateway that's deployed in the hub of a [hub-spoke topology](../../networking/architecture/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers.
 
 **Virtual network peering.** This architecture uses multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology offers network segmentation and isolation for services that are deployed on Azure. Peering connects networks transparently through the Microsoft backbone network and doesn't incur a performance penalty if implemented within a single region. Separate subnets are used for each tier application (SAP NetWeaver), database, and for shared services, such as the jump box and Windows Server Active Directory.
 

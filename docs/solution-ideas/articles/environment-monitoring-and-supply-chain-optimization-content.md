@@ -61,7 +61,7 @@ This solution is ideal for the environment, manufacturing, transportation, and a
 
 ### Challenges faced
 
-There has been a significant [increase in wildfires](https://news.sciencebrief.org/wildfires-sep2020-update) in recent years, posing a growing danger to humans and the global supply chain. With the number of acres burned increasing by the year, [supply chain resilience to climate change](https://www.thebci.org/uploads/assets/e02a3e5f-82e5-4ff1-b8bc61de9657e9c8/BCI-0007h-Supply-Chain-Resilience-ReportLow-Singles.pdf) is top of mind for many leaders.
+There has been a significant increase in wildfires in recent years, posing a growing danger to humans and the global supply chain. With the number of acres burned increasing by the year, [supply chain resilience to climate change](https://www.thebci.org/uploads/assets/e02a3e5f-82e5-4ff1-b8bc61de9657e9c8/BCI-0007h-Supply-Chain-Resilience-ReportLow-Singles.pdf) is top of mind for many leaders.
 
 In the United States, the annual average of area affected by wildfires is approximately 7,000,000 acres. This area is more than double the average during the 1990s. The situation is even more alarming in other countries/regions. For example, in Australia there's an extra month of summer compared to 50 years ago and long-term drought has further worsened fire conditions. Massive bush fires there have caused economic damages nearly 10 times greater than in the United States. Australian wildfires can [impact the global food supply](https://www.foxbusiness.com/money/australian-wildfires-global-food-supply), including goods like beef, milk, wine, and wheat.
 
@@ -125,8 +125,6 @@ Principal author:
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml) 
 - [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml): A reference architecture for ingesting real-time vehicle data for analysis, including route optimization.
-- [Condition monitoring for industrial IoT](./condition-monitoring.yml) is an example scenario demonstrating how end manufacturers can connect their assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components.
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml) is an example scenario for building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.
 - [IoT monitor and manage loops](../../example-scenario/iot/monitor-manage-loop.yml) is a design pattern describing a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
 - [IoT analyze and optimize loops](../../example-scenario/iot/analyze-optimize-loop.yml) is a design pattern enabling the generation and application of business optimization insights to physical systems controlled by software by sourcing telemetry, refining it, and combining it with enterprise data sources to generate insights.
 - [IoT using Azure Cosmos DB](./iot-using-cosmos-db.yml) describes an example architecture for using Azure Cosmos DB to ingest device telemetry data at high rates and can serve indexed queries back with low latency and high availability.

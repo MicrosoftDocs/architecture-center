@@ -40,7 +40,7 @@ The architecture described here increases the security of applications by moving
 
 In this architecture, API Management policies handle the acquisition of the access token and the encryption and decryption of the cookie. *Policies* are collections of statements that are run sequentially on the request or response of an API and that are made up of XML elements and C# scripts.
 
-Storing the cooking in an `HttpOnly` cookie helps to protect the token from XSS attacks and to ensure that it can't be accessed by JavaScript. Scoping the cookie to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This design enables the access token to be automatically added to the `Authorization` header of all API calls made from the single-page application by the backend.
+Storing the cookie in an `HttpOnly` cookie helps to protect the token from XSS attacks and to ensure that it can't be accessed by JavaScript. Scoping the cookie to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This design enables the access token to be automatically added to the `Authorization` header of all API calls made from the single-page application by the backend.
 
 Because this architecture uses a `SameSite=Strict` cookie, the domain of the API Management gateway must be the same as the domain of the single-page application. That's because a cookie is sent to the API Management gateway only when the API request comes from a site in the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 

@@ -16,7 +16,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects in the target data store.
 
-   - [SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
+   - [SQL Server Migration Assistant (SSMA)](/sql/ssma/sql-server-migration-assistant) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
    - [Managed Data Provider for Host Files](/host-integration-server/core/managed-data-provider-for-host-files-programmer-s-guide2) converts objects by:
        - Parsing COBOL and RPG record layouts, or *copybooks*.
        - Mapping the copybooks to C# objects that .NET applications use.
@@ -90,7 +90,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 #### Compute
 
-- Data Factory integrates data across different network environments by using an [integration runtime](/azure/data-factory/concepts-integration-runtime) (IR), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
+- Data Factory integrates data across different network environments by using an [integration runtime (IR)](/azure/data-factory/concepts-integration-runtime), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
@@ -168,7 +168,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Ashish Khandelwal]( https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
 
 Other contributors:
 

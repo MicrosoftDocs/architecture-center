@@ -73,7 +73,7 @@ Azure also provides several services to help you monitor your entire IoT solutio
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps)
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 - [API Management](https://azure.microsoft.com/services/api-management)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Microsoft Power Automate (Microsoft Flow)](https://powerautomate.microsoft.com)
@@ -204,7 +204,6 @@ Other contributor:
 ## Related resources
 
 - [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
 - [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
-- [IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)
+- [IoT architecture design](iot/iot-architecture-overview.md)

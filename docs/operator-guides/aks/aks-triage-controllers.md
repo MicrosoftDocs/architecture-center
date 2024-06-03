@@ -2,8 +2,8 @@
 title: AKS triage—Admission controllers
 titleSuffix: Azure Architecture Center
 description: Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.
-author: kevingbb
-ms.author: kevinhar
+author: paolosalvatori
+ms.author: paolos
 ms.date: 11/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -34,7 +34,7 @@ Some components can affect admission controllers, such as *mutating and validati
 
 - [The Azure Policy add-on for Azure Kubernetes Service (AKS) clusters](/azure/governance/policy/concepts/policy-for-kubernetes), which extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper). Gatekeeper is an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org).
   
-- [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests. For troubleshooting reference (*eg. APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
+- [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests. For troubleshooting reference (such as *APIServer failing webhook calls*), see the [Kyverno troubleshooting documentation](https://kyverno.io/docs/troubleshooting/#api-server-is-blocked).
 
 Alternatively, admission controllers that aren't functioning properly can affect various components, such as *service meshes*. Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to ensure the seamless operation of a service mesh.
 
@@ -159,7 +159,6 @@ Run the commands in this section, and review the output so you can confirm that 
 
 Principal authors:
 
-- [Kevin Harris](https://www.linkedin.com/in/kevbhar) | Principal Solution Specialist
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
 
 Other contributors:

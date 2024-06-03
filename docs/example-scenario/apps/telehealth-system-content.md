@@ -41,11 +41,11 @@ The solution was set up in this way to:
 - [Azure Application Insights](https://azure.microsoft.com/services/monitor) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
 - [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) load balances between geo locations.
-- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either _Standard_  or _Advanced_  mode.
+- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either *Standard*  or *Advanced*  mode.
 
 ### Alternatives
 
-On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service or Azure Service Fabric.
+On the database side, any other platform as a service (PaaS) database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service.
 
 ## Scenario details
 
@@ -82,7 +82,7 @@ In Advanced mode, the hearing aid professional uses the fitting software to push
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, etc.) globally using a content delivery network (CDN) to improve speed through caching.
+We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, and so on) globally using a content delivery network (CDN) to improve speed through caching.
 
 ### Deployment
 
@@ -128,11 +128,11 @@ For a deployment in a single region, example pricing information is available in
 
 Principal authors:
 
-* [Jean-Yves Devant](https://www.linkedin.com/in/jydevant) | Principal Product Manager
+- [Jean-Yves Devant](https://www.linkedin.com/in/jydevant/) | Principal Product Manager
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.NET Core](/dotnet/core).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [.NET MAUI](/dotnet/maui/).
 
 Product documentation:
 
@@ -150,7 +150,7 @@ More information about how WebRTC provides real-time communication capabilities 
 
 Turn servers:
 
-Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (tcp, udp, p2p) between the two clients (fitting software and application on the phone). The client library:
+Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (TCP, UDP, p2p) between the two clients (fitting software and application on the phone). The client library:
 
 - Creates the streaming channel
 - Establishes the connections

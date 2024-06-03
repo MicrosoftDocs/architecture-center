@@ -20,7 +20,7 @@ This architecture makes use of the following technologies:
 
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) direct traffic to virtual machines in the application subnet. For high availability, this example uses [SAP Web Dispatcher](https://help.sap.com/saphelp_nwce72/helpdata/en/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) and [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview). These two services also support capacity extension by scaling out, or you can use Azure Application Gateway or other partner products, depending on the traffic type and required functionality you need, such as Secure Sockets Layer (SSL) termination and forwarding.
 
-- [Network security groups](/azure/virtual-network/security-overview) (NSGs) attach to a subnet or to the network interface cards (NICs) on a virtual machine. NSGs are used to restrict incoming, outgoing, and intra-subnet traffic in the virtual network.
+- [Network security groups (NSGs)](/azure/virtual-network/security-overview) attach to a subnet or to the network interface cards (NICs) on a virtual machine. NSGs are used to restrict incoming, outgoing, and intra-subnet traffic in the virtual network.
 
 - [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) provides secure access through the Azure portal to virtual machines that run in Azure, without using a jumpbox and its associated public IP address. This mechanism limits internet-facing exposure.
 
@@ -43,7 +43,7 @@ This architecture makes use of the following technologies:
 
 ### Alternatives
 
-- To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File System](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) (NFS) servers in a failover cluster configuration.
+- To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File System (NFS)](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) servers in a failover cluster configuration.
 
 - [SIOS Protection Suite](https://us.sios.com/solutions/cloud-high-availability/azure), available in Azure Marketplace, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
 
@@ -55,7 +55,7 @@ SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and
 
 This example workload also draws on the foundation of a pair of SAP on Azure reference architectures: [SAP NetWeaver (Windows) for AnyDB on virtual machines](/azure/architecture/guide/sap/sap-netweaver) and [SAP S/4HANA for Linux virtual machines on Azure](/azure/architecture/guide/sap/sap-s4hana). A similar deployment approach is used for SAP BW/4HANA workloads. The application layer is deployed using virtual machines that can be changed in size to accommodate your organization's needs.
 
-The network layout has been simplified to demonstrate recommended architectural principles for an Azure enterprise deployment based on a [hub-spoke topology](../hybrid-networking/hub-spoke.yml).
+The network layout has been simplified to demonstrate recommended architectural principles for an Azure enterprise deployment based on a [hub-spoke topology](../../networking/architecture/hub-spoke.yml).
 
 > [!NOTE]
 > Many deployment considerations apply when deploying SAP workloads on Azure. For more ideas and further information, see the [SAP on Azure planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
@@ -146,7 +146,7 @@ For the backup data store, we recommend using Azure [cool and archive access tie
 
 ### Networking
 
-Although not required, a [hub-spoke topology](../hybrid-networking/hub-spoke.yml) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, see the [SAP S/4HANA reference architecture](/azure/architecture/guide/sap/sap-s4hana).
+Although not required, a [hub-spoke topology](../../networking/architecture/hub-spoke.yml) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, see the [SAP S/4HANA reference architecture](/azure/architecture/guide/sap/sap-s4hana).
 
 The hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets that [peer](/azure/virtual-network/virtual-network-peering-overview) with the hub, and they can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 

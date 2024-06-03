@@ -2,8 +2,8 @@
 metadata:
   title: Tenancy models for a multitenant solution
   description: Learn about various multitenancy models and about how to choose the best one for your scenario.
-  author: martinekuan
-  ms.author: architectures
+  author: johndowns
+  ms.author: jodowns
   ms.date: 02/20/2023
   ms.topic: conceptual
   ms.service: architecture-center

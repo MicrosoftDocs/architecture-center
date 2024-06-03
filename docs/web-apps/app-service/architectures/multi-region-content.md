@@ -30,7 +30,7 @@ Key technologies used to implement this architecture:
 - [Microsoft Entra ID][Azure-Active-Directory] is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
 - [Azure DNS][Azure-DNS] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 - [Azure Content Delivery Network][Azure-Content-Delivery-Network] is a global solution for delivering high-bandwidth content by caching it at strategically placed physical nodes across the world.
-- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) solution in this design.
+- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall (WAF)](/azure/frontdoor/waf-overview) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design.
 - [Azure AppService][Azure-AppService] is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
 - [Azure Function Apps][Azure-Function] can be used to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - [Azure Storage][Azure-Storage] is a cloud storage solution for modern data storage scenarios, offering highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
@@ -217,7 +217,7 @@ Use Transparent Data Encryption if you need to encrypt data at rest in the datab
 When you define identities for the components in this architecture, use [system managed identities][system-managed-identities] where possible to reduce your need to manage credentials and the risks inherent to managing credentials. Where it's not possible to use system managed identities, ensure that every user managed identity exists in only one region and is never shared across region boundaries.
 
 **Service firewalls**
-When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that the services only allow outbound connections, which is explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Network-hardened web application with private connectivity to PaaS datastores][hardened-web-app].
+When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that the services only allow outbound connections, which is explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant).
 
 ### Cost optimization
 
@@ -327,7 +327,7 @@ Principal author:
 [Azure-DNS]: https://azure.microsoft.com/services/dns
 [Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn
 [Azure-Front-Door]: https://azure.microsoft.com/services/frontdoor
-[Azure-AppService]: https://azure.microsoft.com/services/app-service
+[Azure-AppService]: /azure/well-architected/service-guides/app-service-web-apps
 [Azure-Function]: https://azure.microsoft.com/services/functions
 [Azure-Storage]: https://azure.microsoft.com/product-categories/storage
 [Azure-Redis-Cache]: https://azure.microsoft.com/services/cache
@@ -339,7 +339,6 @@ Principal author:
 [endpoint-monitoring]: /azure/architecture/patterns/health-endpoint-monitoring
 [Design-principles-for-Azure-Application]: /azure/architecture/guide/design-principles
 [private-link]: /azure/private-link/private-link-overview
-[hardened-web-app]: /azure/architecture/example-scenario/security/hardened-web-app
 [durable-functions]: /azure/azure-functions/durable/durable-functions-overview
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [azure-search-scaling]: /azure/search/search-capacity-planning

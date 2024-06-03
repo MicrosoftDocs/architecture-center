@@ -26,7 +26,7 @@ If you're not familiar with the Azure service selected in the previous section, 
 - [Azure Virtual Machines](/azure/virtual-machines): A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service): A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 - [Azure Functions](/azure/azure-functions/functions-overview): A managed function as a service.
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS): A managed Kubernetes service for running containerized applications.
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 - [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a container in Azure. You don't have to provision any VMs or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.

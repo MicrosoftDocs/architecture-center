@@ -103,7 +103,7 @@ This example workload addresses one way of implementing a remote patient monitor
 
 ## Scenario details
 
-There's a plenitude of medical and wearable/consumer devices out there today. To access device measurements/readings, many of the in-home monitoring devices (such as blood pressure devices, scale…etc.) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
+There's a plenitude of medical and wearable/consumer devices out there today. To access device measurements/readings, many of the in-home monitoring devices (such as blood pressure devices or scales) provide Bluetooth connectivity (such as Bluetooth Low Energy, or other older versions of the Bluetooth standard). There are also consumer wearable devices, as well as more advanced in-home devices that provide API connectivity to access the devices measurements. In this case the devices can sync the readings directly to the API (Wifi enabled) or connect to a mobile app on a smart phone (via Bluetooth), allowing the app to sync the reading back to the API.  
 
 ### Problem statement
 
@@ -160,7 +160,7 @@ Healthcare data often includes sensitive protected health information (PHI) and 
 
 - Azure Health Data Services is a collection of secured managed services using [Microsoft Entra ID](/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/). When you create a new service of Azure Health Data Services, your data is encrypted using Microsoft-managed keys by default. Refer to [Authentication and Authorization for Azure Health Data Services](/azure/healthcare-apis/authentication-authorization) for more details.
 
-- Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (Azure SSE)](/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints](/azure/event-hubs/network-security#private-endpoints) and [virtual network](/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
+- Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (SSE)](/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints](/azure/event-hubs/network-security#private-endpoints) and [virtual network](/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
 
 - [Synapse RBAC](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac) extends the capabilities of [Azure RBAC](/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
 

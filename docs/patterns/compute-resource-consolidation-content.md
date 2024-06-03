@@ -46,7 +46,7 @@ Consider the following points when implementing this pattern:
 **Contention**. Avoid introducing contention between tasks that compete for resources in the same computational unit. Ideally, tasks that share the same computational unit should exhibit different resource utilization characteristics. For example, two compute-intensive tasks should probably not reside in the same computational unit, and neither should two tasks that consume large amounts of memory. However, mixing a compute-intensive task with a task that requires a large amount of memory is a workable combination.
 
 > [!NOTE]
-> Consider consolidating compute resources only for a system that's been in production for a period of time so that operators and developers can monitor the system and create a _heat map_ that identifies how each task uses differing resources. This map can be used to determine which tasks are good candidates for sharing compute resources.
+> Consider consolidating compute resources only for a system that's been in production for a period of time so that operators and developers can monitor the system and create a *heat map* that identifies how each task uses differing resources. This map can be used to determine which tasks are good candidates for sharing compute resources.
 
 **Complexity**. Combining multiple tasks into a single computational unit adds complexity to the code in the unit, possibly making it more difficult to test, debug, and maintain.
 
@@ -59,6 +59,18 @@ Consider the following points when implementing this pattern:
 Use this pattern for tasks that are not cost effective if they run in their own computational units. If a task spends much of its time idle, running this task in a dedicated unit can be expensive.
 
 This pattern might not be suitable for tasks that perform critical fault-tolerant operations, or tasks that process highly sensitive or private data and require their own security context. These tasks should run in their own isolated environment, in a separate computational unit.
+
+## Workload design
+
+An architect should evaluate how the Compute Resource Consolidation pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Cost Optimization](/azure/well-architected/cost-optimization/checklist) is focused on **sustaining and improving** your workload's **return on investment**. | This pattern maximizes the utilization of computing resources by avoiding unused provisioned capacity via aggregation of components or even whole workloads on a pooled infrastructure.<br/><br/> - [CO:14 Consolidation](/azure/well-architected/cost-optimization/consolidation) |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | Consolidation can lead to a more homogenous compute platform, which can simplify management and observability, reduce disparate approaches to operational tasks, and reduce the amount of tooling that's required.<br/><br/> - [OE:07 Monitoring system](/azure/well-architected/operational-excellence/observability)<br/> - [OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | Consolidation maximizes the utilization of computing resources by using spare node capacity and reducing the need for overprovisioning. Large (vertically scaled) compute instances are often used in the resource pool for these infrastructures.<br/><br/> - [PE:02 Capacity planning](/azure/well-architected/performance-efficiency/capacity-planning)<br/> - [PE:03 Selecting services](/azure/well-architected/performance-efficiency/capacity-planning) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Application platform choices
 

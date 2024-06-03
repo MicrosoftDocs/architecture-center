@@ -1,7 +1,7 @@
 ## Lessons learned
 
 1. Ensure all the parties involved understand the difference between High Availability (HA) and Disaster Recovery (DR): a common pitfall is to confuse the two concepts and mismatch the solutions associated with them 
-1. Discuss with the business stakeholders about their expectations regarding the following aspects to define the Recovery Point Objectives (RPO) and Recovery Time Objectives (RTO):
+1. Discuss with the business stakeholders about their expectations regarding the following aspects to define the recovery point objectives (RPOs) and recovery time objectives (RTOs):
     1. How much downtime they can tolerate, keeping in mind that usually, the faster the recovery, the higher the cost
     1. The type of incidents they want to be protected from, mentioning the related likelihood of such event. For example, the probability of a server going down is higher than a natural disaster that impacts all the datacenters across a region
     1. What impact does the system being unavailable has on their business?
@@ -13,7 +13,7 @@
     1. Active/Active
     1. Active/Passive
     1. Active/Redeploy on disaster
-    1. Rely on Microsoft's SLA
+    1. Rely on Microsoft's service-level agreement (SLA)
 1. Ensure you understand all the components that might impact the availability of your systems, such as:
     1. Identity management
     1. Networking topology
@@ -22,10 +22,10 @@
     1. Automation/job scheduler
     1. Source repository and deployment pipelines (GitHub, Azure DevOps)
 1. Early detection of outages is also a way to decrease RTO and RPO values significantly. Here are a few aspects that should be covered:
-    1. Define what an outage is and how it maps to Microsoft’s definition of an outage. The Microsoft definition is available on the [Azure Service Level Agreement](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
+    1. Define what an outage is and how it maps to Microsoft’s definition of an outage. The Microsoft definition is available on the [Azure service-level agreement](https://azure.microsoft.com/support/legal/sla/) page at the product or service level.
     1. An efficient monitoring and alerting system with accountable teams to review those metrics and alerts in a timely manner will help meet the goal
 1. [Composite SLAs](/azure/well-architected/reliability/metrics) mean that the more components you have in your architecture, the higher the probability of a failure. You could use composite SLA to define the chances of a component outage.
-1. Regarding subscription design, the additional infrastructure for disaster recovery can be stored in the original subscription. PaaS services like ADLS Gen2 or Azure Data Factory typically have native features that allow fail over to secondary instances in other regions while staying contained in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes
+1. Regarding subscription design, the additional infrastructure for disaster recovery can be stored in the original subscription. platform as a service (PaaS) services like ADLS Gen2 or Azure Data Factory typically have native features that allow fail over to secondary instances in other regions while staying contained in the original subscription. Some customers might want to consider having a dedicated resource group for resources used only in DR scenarios for cost purposes
     1. It should be noted that [subscription limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) may act as a constraint for this approach
     1. Other constraints may include the design complexity and management controls to ensure the DR resource groups aren't used for BAU workflows
 1. Design the DR workflow based on a solution’s criticality and dependencies. For example, don't try to rebuild an Azure Analysis Services instance before your data warehouse is up and running, as it will trigger an error. Leave development labs later in the process, recover core enterprise solutions first
@@ -77,7 +77,7 @@ While the end-to-end simulation of a DR event will be difficult across a modern 
 - **Relying on Microsoft to do it all**
 Within the Microsoft Azure services, there's a clear [division of responsibility](/azure/availability-zones/business-continuity-management-program#shared-responsibility-model), anchored by the cloud service tier used:
 ![Diagram showing the shared responsibility model.](../images/shared-responsibility-model.png)
-Even if a full [SaaS stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
+Even if a full [software as a service (SaaS) stack](https://azurecharts.com/overview/?f=saas) is used, the customer will still retain the responsibility to ensure the accounts, identities, and data is correct/up-to-date, along with the devices used to interact with the Azure services.
 
 ## Event scope and strategy
 
@@ -97,7 +97,7 @@ There are four high-level options for a [disaster recovery strategy](/azure/arch
 
 ### DR strategy impacts
 
-While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) (KDD) for a DR strategy. There are other important considerations.
+While the operating cost attributed to the higher levels of service resiliency often dominates the [Key Design Decision (KDD)](/azure/architecture/framework/cost/tradeoffs#cost-vs-reliability) for a DR strategy. There are other important considerations.
 
 >[!NOTE]
 >[Cost Optimization](/azure/architecture/framework/cost/) is one of the five pillars of architectural excellence with Azure’s [Well-Architected Framework](/azure/architecture/framework/). Its goal is to reduce unnecessary expenses and improve operational efficiencies

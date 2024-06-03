@@ -2,8 +2,8 @@
 title: Multitenancy and Azure Event Hubs
 titleSuffix: Azure Architecture Center
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
-author: willvelida
-ms.author: willvelida
+author: landonpierce
+ms.author: landonpierce
 ms.date: 02/20/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -160,13 +160,13 @@ For more information, see:
 
 Principal author:
 
-- Will Velida | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](http://linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-- John Downs | Principal Customer Engineer, FastTrack for Azure
-- Paolo Salvatori | Principal Customer Engineer, FastTrack for Azure
-- Arsen Vladimirskiy | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](http://linkedin.com/in/john-downs/) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

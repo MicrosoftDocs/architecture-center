@@ -20,37 +20,37 @@ Many factors can affect the reliability of an application, such as the ability t
 
 - **Redundancy in layers**
 
-    - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
+    - Deploy to *multiple regions in an active-active model*. The application is distributed across two or more Azure regions that handle active user traffic.
 
-    - Utilize _Availability Zones (AZs)_ for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
+    - Utilize *availability zones* for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
 
-    - Choose resources that support _global distribution_.
+    - Choose resources that support *global distribution*.
 
     > Refer to [Well-Architected mission-critical workloads: Global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution).
     
 - **Deployment stamps**
     
-    Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently provisioned to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
+    Deploy a regional stamp as a *scale unit* where a logical set of resources can be independently provisioned to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
 
     > Refer to [Well-Architected mission-critical workloads: Scale-unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
     
 - **Reliable and repeatable deployments**    
     
-    - Apply the _principle of Infrastructure as code (IaC)_ using technologies, such as Terraform, to provide version control and a standardized operational approach for infrastructure components.
+    - Apply the *principle of Infrastructure as code (IaC)* using technologies, such as Terraform, to provide version control and a standardized operational approach for infrastructure components.
 
-    - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
+    - Implement *zero downtime blue/green deployment pipelines*. Build and release pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
 
-    - Apply _environment consistency_ across all considered environments, with the same deployment pipeline code across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
+    - Apply *environment consistency* across all considered environments, with the same deployment pipeline code across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
 
-    - Have _continuous validation_ by integrating automated testing as part of DevOps processes, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
+    - Have *continuous validation* by integrating automated testing as part of DevOps processes, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
 
     > Refer to [Well-Architected mission-critical workloads: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
     
 - **Operational insights**
 
-    - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
+    - Have *federated workspaces for observability data*. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
 
-    - Construct a _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
+    - Construct a *layered health model* that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
 
     > Refer to [Well-Architected mission-critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).    
 
@@ -101,7 +101,7 @@ As a security measure, only allow access to required entities and authenticate t
 
 ### Regional resources
 
-The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
+The regional resources are provisioned as part of a *deployment stamp* to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
 
 In this architecture, a unified deployment pipeline deploys a stamp with these resources. 
 
@@ -158,7 +158,7 @@ Build and release pipelines for a mission-critical application must be fully aut
 
 #### Continuous Integration/Continuous Delivery (CI/CD) pipelines
 
-Automated pipelines are required for building, testing, and deploying a mission workload in preproduction _and_ production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
+Automated pipelines are required for building, testing, and deploying a mission workload in preproduction *and* production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
 
 Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that source code and the pipeline can be collocated. However, Azure Pipelines was chosen because of the richer CD capabilities. 
 

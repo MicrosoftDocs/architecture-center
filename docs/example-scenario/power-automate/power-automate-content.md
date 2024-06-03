@@ -129,4 +129,4 @@ Principal author:
 
 - [CI/CD for Azure Power Platform](../../solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)
 - [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml)
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

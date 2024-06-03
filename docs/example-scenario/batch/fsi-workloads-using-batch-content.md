@@ -47,7 +47,7 @@ Let's now look at the resources deployed on the spoke network. These resources h
 
 The resources deployed on the spoke network are as follows:
 
-- [Azure Batch](https://azure.microsoft.com/services/batch) is the core service that our architecture relies on for cloud-native job scheduling and execution. Azure Batch manages the compute resources required, schedules the tasks on the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool named "linux" with Linux compute nodes and a pool named "windows" with Windows compute nodes. The pools are configured to do the following:
+- [Azure Batch](https://azure.microsoft.com/services/batch) is the core service that our architecture relies on for cloud-native job scheduling and execution. Azure Batch manages the compute resources required, schedules the tasks on the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool named `linux` with Linux compute nodes and a pool named `windows` with Windows compute nodes. The pools are configured to do the following:
 
   - They use user subscription pool allocation mode. All resources that are used internally by the Batch service are allocated under the same subscription as the Batch account and use the subscription specific quotas and policies.
   - They use the corresponding subnets on the spoke network, thus they get assigned address space from the subnet's address range. It also means that all network security group (NSG) rules and traffic forwarding rules set up on those subnets are applied to the compute nodes as well.
@@ -67,7 +67,7 @@ The resources deployed on the spoke network are as follows:
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) can be used instead of Azure Batch service for a similar configuration for containerized applications.
 
-- [Azure CycleCloud](/azure/cyclecloud) can be used to manage HPC clusters on Azure. Such HPC clusters can be set up to run workloads similar to the ones targeted by this article.
+- [Azure CycleCloud](/azure/cyclecloud) can be used to manage high-performance computing (HPC) clusters on Azure. Such HPC clusters can be set up to run workloads similar to the ones targeted by this article.
 
 ## Scenario details
 
@@ -86,7 +86,7 @@ This architecture can be used to run a wide variety of FSI workloads. Some examp
 
 ### Network topology
 
-This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, vpn gateways, and jumpboxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
+This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks that are connected through virtual network peering. The hub network contains shared resources such as firewalls, VPN gateways, and jump boxes. The spoke network contains the Batch service and Batch compute nodes. It also includes other service endpoints needed by the workload, such as storage accounts, container registry, and so on. The spoke network is isolated from the public internet and can only be accessed from the hub network.
 
 Here are some highlights of the network topology:
 

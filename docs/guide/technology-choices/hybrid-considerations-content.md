@@ -123,5 +123,4 @@ To see nonpublic LinkedIn profiles, sign in to LinkedIn.
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)

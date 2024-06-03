@@ -75,8 +75,6 @@ IoT architectural guides provide insights into IoT concepts, architectures, and 
 
 - [Move an IoT solution from test to production](../../example-scenario/iot/iot-move-to-production.yml). Learn best practices and what to avoid when moving an IoT solution from a test environment to a production environment.
 
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml). Industrial IoT (IIoT) is the application of IoT to the manufacturing industry. This article series describes an Azure IIoT analytics solution that uses PaaS components.
-
 ## Next steps
 
 Azure IoT documentation:

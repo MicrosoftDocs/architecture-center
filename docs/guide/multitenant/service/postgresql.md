@@ -43,7 +43,7 @@ When you're building a multitenant application using Azure Database for PostgreS
 
 ### Row-level security
 
-Row-level security is useful for enforcing tenant-level isolation, when you use shared tables. In PostgreSQL, row-level security is implemented by applying _row security policies_ to tables to restrict access to rows by tenant.
+Row-level security is useful for enforcing tenant-level isolation, when you use shared tables. In PostgreSQL, row-level security is implemented by applying *row security policies* to tables to restrict access to rows by tenant.
 
 There maybe a slight performance impact when implementing row-level security on a table. Therefore, additional indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. It is recommended to use performance testing techniques to validate that your workload meets your baseline performance requirements when row-level security is enabled.
 
@@ -55,7 +55,7 @@ More information:
 
 The [Sharding pattern](/azure/architecture/patterns/sharding) enables you to scale your workload across multiple databases or database servers.
 
-Solutions that need a very high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using _distributed tables_ in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
+Solutions that need a very high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using *distributed tables* in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
 
 > [!NOTE]
 > From October 2022, Azure Database for PostgreSQL Hyperscale (Citus) has been rebranded as Azure Cosmos DB for PostgreSQL and [moved into the Cosmos DB family of products](/azure/postgresql/hyperscale/moved).
@@ -81,7 +81,7 @@ More information:
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -94,7 +94,7 @@ Other contributors:
 - [Paul Burpo](https://www.linkedin.com/in/paul-burpo/) | Principal Customer Engineer, FastTrack for Azure ISVs
 - [Assaf Fraenkel](https://www.linkedin.com/in/assaf-fraenkel/) | Senior Engineer/Data Architect, Azure FastTrack for ISVs and Start-ups
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

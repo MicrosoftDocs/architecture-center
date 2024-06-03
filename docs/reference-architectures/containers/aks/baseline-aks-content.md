@@ -79,7 +79,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
-For more information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
+For more information, see [Hub-spoke network topology in Azure](../../../networking/architecture/hub-spoke.yml).
 
 To review the network design changes included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#network-design).
 
@@ -107,7 +107,7 @@ The spoke virtual network contains the AKS cluster and other related resources. 
 
 #### Subnet to host Azure Application Gateway
 
-Azure [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer operating at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Web Application Firewall](/azure/application-gateway/waf-overview) (WAF). WAF secures incoming traffic from common web traffic attacks, including bots. The instance has a public frontend IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
+Azure [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer operating at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Web Application Firewall (WAF)](/azure/application-gateway/waf-overview). WAF secures incoming traffic from common web traffic attacks, including bots. The instance has a public frontend IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
 
 #### Subnet to host the ingress resources
 
@@ -121,7 +121,7 @@ AKS maintains two separate groups of nodes (or node pools). The *system node poo
 
 Azure Private Link connections are created for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview), so these services can be accessed using [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet and can also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network, and allows you to apply granular security rules at the subnet level using network security groups.
 
-For more information, see [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+For more information, see [Private Link deployment options](../../../networking/guide/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
 
 ## Plan the IP addresses
 
@@ -216,7 +216,7 @@ Of the two ways, managed identities is recommended. With service principals, you
 
 It's recommended that [managed identities is enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can enable this setting only during cluster creation. Even if Microsoft Entra ID isn't used immediately, you can incorporate it later.
 
-By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, etc. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
+By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, and so on. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
 
 As an example for the inside-out case, let's study the use of managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. One way is to store that information in the form of Kubernetes Secrets object and use `imagePullSecrets` to retrieve the secret. That approach isn't recommended because of security complexities. Not only do you need prior knowledge of the secret but also disclosure of that secret through the DevOps pipeline. Another reason is the operational overhead of managing the rotation of the secret. Instead, grant `acrPull` access to the kubelet managed identity of the cluster to your registry. This approach addresses those concerns.
 
@@ -240,7 +240,7 @@ Kubernetes supports role-based access control (RBAC) through:
 
 - A set of permissions. Defined by a `Role` or `ClusterRole` object for cluster-wide permissions.
 
-- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `CluserRoleBinding` object.
+- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `ClusterRoleBinding` object.
 
 Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Microsoft Entra users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
@@ -293,7 +293,7 @@ The ingress controller is a critical component of cluster. Consider these points
 > [!NOTE]
 > The choice for the appropriate ingress controller is driven by the requirements the workload, the skill set of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation.
 >
-> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for _illustrative_ purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
+> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for *illustrative* purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
 >
 > Another choice is Azure Application Gateway Ingress Controller, and it's well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because it's integrated with WAF. Also, it provides the opportunity to do TLS termination.
 
@@ -363,9 +363,9 @@ The architecture only accepts TLS encrypted requests from the client. TLS v1.2 i
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-tls-termination.vsdx) of this architecture.*
 
-1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
+1. The client sends an HTTPS request to the domain name: `bicycle.contoso.com`. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
 
-2. Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for bicycle.contoso.com, allowing only secure ciphers. Application Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault. It's accessed using a user-assigned managed identity integrated with Application Gateway. For information about that feature, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
+2. Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for `bicycle.contoso.com`, allowing only secure ciphers. Application Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault. It's accessed using a user-assigned managed identity integrated with Application Gateway. For information about that feature, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
 
 3. As traffic moves from Application Gateway to the backend, it's encrypted again with another TLS certificate (wildcard for \*.aks-ingress.contoso.com) as it's forwarded to the internal load balancer. This re-encryption makes sure traffic that is not secure doesn't flow into the cluster subnet.
 
@@ -439,7 +439,7 @@ An effective way to manage an AKS cluster is by enforcing governance through pol
 
 There are two different scenarios that Azure Policy delivers for managing your AKS clusters:
 
-* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, etc.
+* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, and so on.
 * Secure your AKS cluster through Azure Policy for Kubernetes.
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
@@ -478,7 +478,7 @@ As a general approach, start by performance testing with a minimum number of pod
 
 ### Horizontal Pod Autoscaler
 
-The [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA) is a Kubernetes resource that scales the number of pods.
+The [Horizontal Pod Autoscaler (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is a Kubernetes resource that scales the number of pods.
 
 In the HPA resource, setting the minimum and maximum replica count is recommended. Those values constrain the autoscaling bounds.
 
@@ -593,7 +593,7 @@ AKS can be used as a free service, but that tier doesn't offer a financially bac
 
 ### Tradeoff
 
-There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Azure Container Registry, are available in premium SKUs, which is more expensive. The cost will also increase because bandwidth charges that are applied when traffic moves across zones and regions.
+There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Azure Container Registry, are available in premium SKUs, which is more expensive. For multi-region deployments, the cost will also increase because bandwidth charges that are applied when traffic moves across regions.
 
 Also, expect additional network latency in node communication between zones or regions. Measure the impact of this architectural decision on your workload.
 
@@ -633,7 +633,23 @@ Monitor the health of pods by setting [Liveness and Readiness probes](https://ku
 > [!NOTE]
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
-### Security updates
+### AKS cluster updates
+
+Defining an update strategy that is consistent with the business requirements is paramount. Understanding the level of predictability for the date and time when the AKS cluster version or its nodes are updated, and the desired degree of control over what specific image or binaries get installed are fundamental aspects that will delineate your AKS cluster update blueprint. Predictability is tied to two main AKS cluster update properties that are the update cadence and maintenance window. Control is whether updates are manually or automatically installed. Organizations with AKS clusters that are not under a strict security regulation might consider weekly or even monthly updates, while the rest must update security-labeled patches as soon as available (daily). Organizations that operate AKS clusters as immutable infrastructure are not updating them. It means, neither automatic or manual updates are conducted. Instead when a desired update becomes available a replica stamp gets deployed and only when the new infrastructure instance is ready the old one is drained giving them the highest level of control.
+
+Once the AKS cluster update blueprint is determined, that can be easily mapped into the available update options for AKS nodes and AKS cluster version:
+
+- AKS nodes:
+  1. None/Manual updates: This is for immutable infrastructure or when manual updates are the preference. This achieves the greater level predictability and control over the AKS nodes updates.
+  1. Automatic Unattended updates: AKS execute native OS updates. This gives predictability by configuring maintenance windows aligned with what is good for the business. It might be based on peak hours and what is best operations-wise. The level of control is low since it is not possible to know in advance what is going to be specifically installed within the AKS node.
+  1. Automatic Node image updates: It is recommended to automatically update AKS node images when new virtual hard disks (VHDs) become available. Design maintenance windows to be aligned as much as possible with the business needs. For security-labeled VHD updates, it is recommended to configure a daily maintenance windows giving the lowest predictability. Regular VHD updates can be configured with a weekly maintenance window, every two weeks or even monthly. Depending on whether the need is for security-labeled vs regular VHDs combined with the scheduled maintenance window, the predictability fluctuates offering more or less flexibility to be aligned with the business requirements. While leaving this always up to the business requirements would be ideal, reality mandates organizations to find the tipping point. The level of control is low since it is not possible to know in advance what specific binaries were included into a new VHD and still this type of automatic updates are the recommended option since images are vetted before becoming available.
+
+  > [!NOTE]
+  > For more information about how to configure automatic AKS nodes updates please take a look at [Auto-upgrade node OS images](/azure/aks/auto-upgrade-node-os-image).
+
+- AKS cluster version:
+  1. None/Manual updates: This is for immutable infrastructure or when manual updates are the preference. This achieves the greater level predictability and control over the AKS cluster version updates. Opt-in for this is recommended, since this is leaving in full control giving the chance to test a new AKS cluster version (i.e. 1.14.x to 1.15.x) in lower environments before hitting production.
+  1. Automatic updates: A production cluster is not recommended to be automatically patched or updated in any fashion (i.e. 1.16.x to 1.16.y) to new AKS cluster version available without being properly tested in lower environments. While Kubernetes upstream releases and AKS cluster version updates are coordinated providing with a regular cadence, the recommendation is still to be defensive with AKS clusters in production increasing the predictability and control over the update process. Against consider this configuration for lower environments as part of the Operational Excellence, enabling proactive routine testing executions to detect potential issues as early as possible.
 
 Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/aks/supported-kubernetes-versions). Upgrading to the latest version of Kubernetes is critical because new versions are released frequently.
 
@@ -784,7 +800,7 @@ To review cost management considerations specific to Windows-based workloads inc
 
 - Data transfers between availability zones in a region are not free. If your workload is multi-region or there are transfers across availability zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
 
-- Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Azure Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
+- Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Microsoft Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
 
 ### Monitor
 
@@ -792,7 +808,7 @@ In order to monitor cost of the entire cluster, along with compute cost, also ga
 
 - [Azure Advisor](/azure/advisor/advisor-get-started)
 
-- [Azure Cost Management](/azure/cost-management-billing/costs/)
+- [Microsoft Cost Management](/azure/cost-management-billing/costs/)
 
 Ideally, monitor cost in real time or at least at a regular cadence to take action before the end of the month when costs are already calculated. Also monitor the monthly trend over time to stay in the budget.
 

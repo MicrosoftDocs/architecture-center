@@ -74,7 +74,7 @@ The system also contains the following components:
 
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) is a cloud-native WAF service that protects web apps against malicious attacks and common web vulnerabilities.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 

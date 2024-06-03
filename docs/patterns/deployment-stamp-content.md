@@ -64,7 +64,7 @@ Clients are then responsible for connecting to the correct stamp.
 
 If a single ingress point for all traffic is required, a traffic routing service can be used to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, using an HTTP 302 response status code), or it might act as a reverse proxy and forward the traffic to the relevant stamp, without the client being aware.
 
-A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component might itself by an instance of the [geode pattern](geodes.yml).
+A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component might itself be an instance of the [geode pattern](geodes.yml).
 
 For example, [Azure API Management](/azure/api-management/) could be deployed to act in the traffic routing service role. It can determine the appropriate stamp for a request by looking up data in an [Azure Cosmos DB](/azure/cosmos-db) collection storing the mapping between tenants and stamps. API Management can then [dynamically set the back-end URL](/azure/api-management/api-management-transformation-policies#SetBackendService) to the relevant stamp's API service.
 
@@ -112,6 +112,17 @@ This pattern is not suitable for:
 - Solutions in which data should be replicated across all deployed instances. Consider the [geode pattern](geodes.yml) for this scenario.
 - Solutions in which only some components need to be scaled, but not others. For example, consider whether your solution could be scaled by [sharding the data store](sharding.yml) rather than deploying a new copy of all of the solution components.
 - Solutions comprised solely of static content, such as a front-end JavaScript application. Consider storing such content in a [storage account](/azure/storage/blobs/storage-blob-static-website) and using [Azure CDN](/azure/storage/blobs/storage-blob-static-website).
+
+## Workload design
+
+An architect should evaluate how the Deployment Stamps pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This pattern supports immutable infrastructure goals, advanced deployment models, and can facilitate safe deployment practices.<br/><br/> - [OE:05 Infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design)<br/> - [OE:11 Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) |
+| [Performance Efficiency](/azure/well-architected/performance-efficiency/checklist) helps your workload **efficiently meet demands** through optimizations in scaling, data, code. | This pattern often aligns to the defined scale units in your workload: as additional capacity is needed beyond what a single scale unit provides, an additional deployment stamp is deployed for scaling out.<br/><br/> - [PE:05 Scaling and partitioning](/azure/well-architected/performance-efficiency/scale-partition) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Supporting technologies
 

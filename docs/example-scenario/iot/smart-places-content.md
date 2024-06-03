@@ -320,7 +320,6 @@ Other contributor:
 
 - [Get started with Azure IoT solutions][Getting started with Azure IoT solutions]
 - [Vision with Azure IoT Edge][Vision with Azure IoT Edge]
-- [Azure Industrial IoT analytics guidance][Azure Industrial IoT Analytics Guidance]
 - [Choose an Internet of Things (IoT) solution in Azure][Choose an Internet of Things (IoT) solution in Azure]
 - [End-to-end manufacturing using computer vision on the edge][End-to-end manufacturing using computer vision on the edge]
 - [COVID-19 safe environments with IoT Edge monitoring and alerting][COVID-19 safe environments with IoT Edge monitoring and alerting]
@@ -329,7 +328,7 @@ Other contributor:
 
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
-[App Service overview]: https://azure.microsoft.com/services/app-service
+[App Service overview]: /azure/well-architected/service-guides/app-service-web-apps
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure API Management]: https://azure.microsoft.com/services/api-management
 [Azure Cognitive Services]: https://azure.microsoft.com/services/cognitive-services/?azure-portal=true
@@ -342,7 +341,6 @@ Other contributor:
 [Azure Digital Twins Explorer (preview)]: /azure/digital-twins/concepts-azure-digital-twins-explorer
 [Azure Digital Twins tools repository]: https://github.com/Azure/opendigitaltwins-tools
 [Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
-[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.yml
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Azure IoT reference architecture]: ../../reference-architectures/iot.yml

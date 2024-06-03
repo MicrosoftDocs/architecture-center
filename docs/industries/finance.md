@@ -51,7 +51,6 @@ The following articles provide detailed analysis of architectures recommended fo
 | [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../reference-architectures/zos/refactor-zos-coupling-facility.yml) | Learn how to leverage Azure services for scale-out performance and high availability, comparable to IBM z/OS mainframe systems with Coupling Facilities (CFs). | Mainframe |
 | [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml) | Learn how a major bank modernized its financial transaction system while keeping compatibility with its existing payment system. | Migration |
 | [Patterns and implementations in banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml) | Learn the design patterns and implementations used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
-| [JMeter implementation reference for load testing pipeline solution](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml) | Learn about an implementation for a scalable cloud load testing pipeline used for the [Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml). | Migration |
 | [Real-time fraud detection](../example-scenario/data/fraud-detection.yml) | Learn how to analyze data in real time to detect fraudulent transactions or other anomalous activity. | Security |
 
 ## Solution ideas for finance

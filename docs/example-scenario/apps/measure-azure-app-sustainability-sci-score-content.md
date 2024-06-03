@@ -20,7 +20,7 @@ This example workload helps you create a sustainability model based on available
 ### Components
 
 - [Emissions Impact Dashboard for Azure](https://www.microsoft.com/sustainability/emissions-impact-dashboard) helps measure your cloud-based emissions and carbon savings potential. It tracks direct and indirect greenhouse gas emissions related to cloud usage.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance monitoring (APM). Application Insights helps you understand how people use your application. Use this knowledge to improve application efficiency.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance management (APM). Application Insights helps you understand how people use your application. Use this knowledge to improve application efficiency.
 - [Azure Table Storage](https://azure.microsoft.com/products/storage/tables) is a service that stores non-relational structured data, also known as *structured NoSQL data*. It provides a key/attribute store with a schemaless design. For many types of applications, access to Table Storage data is fast and cost-effective. Table Storage typically costs less than traditional SQL for similar volumes of data.
 - [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, build a workflow that integrates and manages proxy sources, data storage, and efficiency calculation systems.
 - [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
@@ -56,7 +56,7 @@ For a tutorial about how to set up Application Insights for the metrics, see [Ap
 
 You can add more variables to the equation, such as:
 
-- infrastructure and edge services carbon emissions
+- Infrastructure and edge services carbon emissions
 - Time when users connect, because electricity production and demand vary with time
 - Any other peculiar metric of the application that can explain how its performance changes over time
 
@@ -144,7 +144,7 @@ For more information about the choice of algorithm, see [How to select algorithm
 
 ### Data display
 
-You can display data and calculations several ways, such as through a customized Azure Monitor Workbook or a simple Power BI dashboard. For more information, see [Create custom KPI dashboards using Application Insights](/azure/azure-monitor/app/tutorial-app-dashboards) and [Create a Power BI dashboard from a report](/power-bi/create-reports/service-dashboard-create).
+You can display data and calculations several ways, such as through a customized Azure Monitor Workbook or a simple Power BI dashboard. For more information, see [Create custom key performance indicator (KPI) dashboards using Application Insights](/azure/azure-monitor/app/tutorial-app-dashboards) and [Create a Power BI dashboard from a report](/power-bi/create-reports/service-dashboard-create).
 
 ### SCI score action triggers
 
@@ -185,7 +185,7 @@ For general guidance on designing secure solutions, see the [Azure security docu
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The Emissions Impact Dashboard and Azure Cost Management reports are free. This example is intentionally minimal to save on cost and carbon emissions. You can deploy this architecture by using several alternative Azure services.
+The Emissions Impact Dashboard and Microsoft Cost Management reports are free. This example is intentionally minimal to save on cost and carbon emissions. You can deploy this architecture by using several alternative Azure services.
 
 Use any equivalent service you already have in your application deployment. The following resources provide component pricing information:
 

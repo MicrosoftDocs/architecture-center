@@ -82,7 +82,7 @@ There are several ways to optimize scalability for this scenario:
 
 #### Media and static files
 
-- Adequately provision Azure Files, Azure NetApp Files, or another network-attached storage (NAS) system. Magento can store thousands of media files such as product images. _Be sure to provision NAS products with sufficient input/output operations per second (IOPS) to handle demand_.
+- Adequately provision Azure Files, Azure NetApp Files, or another network-attached storage (NAS) system. Magento can store thousands of media files such as product images. *Be sure to provision NAS products with sufficient input/output operations per second (IOPS) to handle demand*.
 
 - Minimize the size of static content such as HTML, CSS, and JavaScript. [Minification](https://devdocs.magento.com/cloud/deploy/static-content-deployment.html#minify-content) can reduce bandwidth costs and provide a more responsive experience for users.
 
@@ -194,6 +194,5 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - [All retail architectures](/azure/architecture/browse/?terms=retail)
 - [Elastic Workplace Search on Azure](../../solution-ideas/articles/elastic-workplace-search.yml)
-- [Buy online, pick up in store (retail)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Scalable order processing](../data/ecommerce-order-processing.yml)
 - [Application data protection for AKS workloads on Azure NetApp Files](../file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)

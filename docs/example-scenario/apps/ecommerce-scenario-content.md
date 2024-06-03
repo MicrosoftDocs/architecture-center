@@ -43,7 +43,6 @@ Many other technologies are available for building a customer-facing application
 
 Other options for the web tier and functions include:
 
-- [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 - [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. The platform provides the agility of different components of the application, to scale independently, on demand.
 - [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
 - [Service Bus][service-bus] could be used in place of a Storage Queue.
@@ -106,7 +105,7 @@ Explore the cost of running this scenario, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. The other components are each scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
+- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. The other components are each scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is service-level agreement (SLA) support and enough capacity to handle a production level workload.
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 
@@ -157,7 +156,6 @@ Principal author:
 [docs-functions]: https://www.microsoft.com/azure/azure-functions/functions-overview
 [docs-redis-cache]: https://www.microsoft.com/azure/redis-cache/cache-overview
 [docs-search]: https://www.microsoft.com/azure/search/search-what-is-azure-search
-[docs-service-fabric]: https://www.microsoft.com/azure/service-fabric
 [docs-sentiment-analysis]: https://www.microsoft.com/azure/cognitive-services/welcome
 [docs-sql-database]: https://www.microsoft.com/azure/sql-database/sql-database-technical-overview
 [docs-storage-blobs]: https://www.microsoft.com/azure/storage/blobs/storage-blobs-introduction

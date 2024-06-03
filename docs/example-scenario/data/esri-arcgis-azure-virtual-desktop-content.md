@@ -145,10 +145,10 @@ Other contributor:
 - [Create Enterprise Geodatabase](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-enterprise-geodatabase.htm)
 - [Best practices for tuning ArcGIS Enterprise](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
-- [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/en-us/home)
+- [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/home)
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](../wvd/windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](../azure-virtual-desktop/azure-virtual-desktop.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
-- [Multiple forests with AD DS and Microsoft Entra ID](../wvd/multi-forest.yml)
+- [Multiple forests with AD DS and Microsoft Entra ID](../azure-virtual-desktop/multi-forest.yml)

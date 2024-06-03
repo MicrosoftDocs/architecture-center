@@ -57,7 +57,7 @@ Azure Databricks seamlessly integrates with other Azure services like Data Lake 
 
 ### Potential use cases
 
-This solution is inspired by the system that [Providence Health Care](https://customers.microsoft.com/story/862036-providence-health-provider-azure) built for real-time analytics. Any industry that ingests batch or streaming data could also consider this solution. Examples include:
+This solution is inspired by the system that Providence Health Care built for real-time analytics. Any industry that ingests batch or streaming data could also consider this solution. Examples include:
 
 - Retail and e-commerce
 - Finance
@@ -66,7 +66,6 @@ This solution is inspired by the system that [Providence Health Care](https://cu
 
 ## Next steps
 
-- [Providence Health Care](https://customers.microsoft.com/story/862036-providence-health-provider-azure) builds their data streaming solution using Azure Databricks and Azure Event Hubs to improve the National Emergency Department Overcrowding Score for each of its emergency departments.
 - [Spanish Point Technologies](https://customers.microsoft.com/story/861222-spanish-point-technologies-professional-services-azure) builds its Matching Engine using Azure Databricks and Azure Data Factory to ingest data at scale to help musicians get paid fairly.
 
 ## Related resources

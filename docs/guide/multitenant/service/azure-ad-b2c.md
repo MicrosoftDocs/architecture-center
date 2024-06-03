@@ -19,7 +19,7 @@ ms.custom:
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
 
-Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
+Azure Active Directory (Azure AD) B2C provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
 One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers so that your users can sign in with a pre-existing account. If you use Azure AD B2C, you can implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) that's specific to your application.
 
@@ -44,7 +44,7 @@ In multitenant solutions, it's common to combine multiple identity services to a
 - **Customer identities**, which are for end-user accounts. They control how your tenants' users get access to your applications.
 - **Internal identities**, which handle how your own team manages your solution.
 
-These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) (Microsoft Entra ID) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
+These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
 
 Consider an example multitenant solution built by Fabrikam. The solution uses a combination of the two services to meet Fabrikam's requirements:
 

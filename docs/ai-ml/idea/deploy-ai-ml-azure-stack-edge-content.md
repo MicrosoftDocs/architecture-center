@@ -10,16 +10,16 @@ This reference architecture illustrates how to use [Azure Stack Edge][azure-stac
 
 The architecture consists of the following steps:
 
-- **[Azure Machine Learning][azure-machine-learning]**. Machine Learning lets you build, train, deploy, and manage machine learning models in a cloud-based environment. These models can then deploy to Azure services, including (but not limited to) Azure Container Instances, Azure Kubernetes Service (AKS), and Azure Functions.
-- **[Azure Container Registry][azure-container-registry]**. Container Registry is a service that creates and manages the Docker Registry. Container Registry builds, stores, and manages Docker container images and can store containerized machine learning models.
-- **[Azure Stack Edge][azure-stack-edge]**. Azure Stack Edge is an edge computing device that's designed for machine learning inference at the edge. Data is preprocessed at the edge before transfer to Azure. Azure Stack Edge includes compute acceleration hardware that's designed to improve performance of AI inference at the edge.
-- **Local data**. Local data references any data that's used in the training of the machine learning model. The data can be in any local storage solution, including Azure Arc deployments.
+- **[Azure Machine Learning][azure-machine-learning].** Machine Learning lets you build, train, deploy, and manage machine learning models in a cloud-based environment. These models can then deploy to Azure services, including (but not limited to) Azure Container Instances, Azure Kubernetes Service (AKS), and Azure Functions.
+- **[Azure Container Registry][azure-container-registry].** Container Registry is a service that creates and manages the Docker Registry. Container Registry builds, stores, and manages Docker container images and can store containerized machine learning models.
+- **[Azure Stack Edge][azure-stack-edge].** Azure Stack Edge is an edge computing device that's designed for machine learning inference at the edge. Data is preprocessed at the edge before transfer to Azure. Azure Stack Edge includes compute acceleration hardware that's designed to improve performance of AI inference at the edge.
+- **Local data.** Local data references any data that's used in the training of the machine learning model. The data can be in any local storage solution, including Azure Arc deployments.
 
 ### Components
 
 - [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) 
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 
@@ -54,11 +54,11 @@ You can use the [Machine Learning command-line interface (CLI)][azure-machine-le
 
 After training and readying the model to deploy, you can deploy it to various Azure services, including but not limited to:
 
-- **[Azure Container Registry][azure-container-registry]**. You can deploy the models to a private Docker Registry such as Azure Container Registry since they are Docker container images.
-- **[Azure Container Instances][azure-container-instances]**. You can [deploy the model's Docker container image][azure-machine-learning-deploy-model-aci] directly to a container group.
-- **[Azure Kubernetes Service][azure-kubernetes-service]**. You can use Azure Kubernetes Service to [automatically scale the model's Docker container image][azure-machine-learning-deploy-model-aks] for high-scale production deployments.
-- **[Azure Functions][azure-functions]**. You can [package a model to run directly on a Functions][azure-machine-learning-deploy-model-functions] instance.
-- **[Azure Machine Learning][azure-machine-learning]**. You can use [Compute instances][azure-machine-learning-compute-instance], managed cloud-based development workstations, for both training and inference of models. You can also similarly deploy the model to on-premises [IoT Edge][azure-iot-edge] and [Azure Stack Edge][azure-stack-edge] devices.
+- **[Azure Container Registry][azure-container-registry].** You can deploy the models to a private Docker Registry such as Azure Container Registry since they are Docker container images.
+- **[Azure Container Instances][azure-container-instances].** You can [deploy the model's Docker container image][azure-machine-learning-deploy-model-aci] directly to a container group.
+- **[Azure Kubernetes Service][azure-kubernetes-service].** You can use Azure Kubernetes Service to [automatically scale the model's Docker container image][azure-machine-learning-deploy-model-aks] for high-scale production deployments.
+- **[Azure Functions][azure-functions].** You can [package a model to run directly on a functions][azure-machine-learning-deploy-model-functions] instance.
+- **[Azure Machine Learning][azure-machine-learning].** You can use [Compute instances][azure-machine-learning-compute-instance], managed cloud-based development workstations, for both training and inference of models. You can also similarly deploy the model to on-premises [IoT Edge][azure-iot-edge] and [Azure Stack Edge][azure-stack-edge] devices.
 
 > [!NOTE]
 > For this reference architecture, the model deploys to Azure Stack Edge to make the model available for inference on-premises. The model also deploys to Container Registry to ensure that the model is available for inference across the widest variety of Azure services.
@@ -82,7 +82,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - Administrators can verify that the data source from local storage has transferred to the Azure Stack Edge resource correctly. They can verify by mounting the Server Message Block (SMB)/Network File System (NFS) file share or connecting to the associated Blob storage account by using [Azure Storage Explorer][azure-storage-explorer].
 - Use [Machine Learning datasets][azure-machine-learning-datasets] to reference your data in Blob storage while training your model. Referencing storage eliminates the need to embed secrets, data paths, or connection strings in your training scripts.
-- In your Machine Learning workspace, [register and track ML models][azure-machine-learning-register-model] to track differences between your models at different points in time. You can similarly mirror the versioning and tracking metadata in the tags that you use for the Docker container images that deploy to Container Registry.
+- In your Machine Learning workspace, [register and track machine learning models][azure-machine-learning-register-model] to track differences between your models at different points in time. You can similarly mirror the versioning and tracking metadata in the tags that you use for the Docker container images that deploy to Container Registry.
 
 ### DevOps
 
@@ -113,8 +113,8 @@ Microsoft Learn modules:
 
 ## Related resources
 
- - [Build an enterprise-grade conversational bot](../architecture/conversational-bot.yml)
- - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
+- [Build an enterprise-grade conversational bot](../architecture/conversational-bot.yml)
+- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
 
 [architectural-diagram]: _images/deploy-ai-ml-azure-stack-edge.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx

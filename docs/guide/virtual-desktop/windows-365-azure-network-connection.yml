@@ -15,7 +15,6 @@ products:
   - azure-virtual-network
 azureCategories:
   - azure-virtual-desktop
-  - windows-virtual-desktop
 name: Windows 365 Azure network connection
 summary: Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.
 thumbnailUrl: /azure/architecture/browse/thumbs/windows-365-azure-network-connection.png

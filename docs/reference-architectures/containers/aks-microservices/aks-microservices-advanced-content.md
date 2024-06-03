@@ -50,7 +50,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Private Link](https://azure.microsoft.com/services/private-link)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
+**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](https://github.com/Azure/application-gateway-kubernetes-ingress) as the Kubernetes ingress controller.
 
 **[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
@@ -125,7 +125,7 @@ spec:
   - Egress
 ```
 
-Once a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the network policy is applied to any pod in the backend-dev namespace with a label that matches *app.kubernetes.io/component: backend*. The policy denies any traffic unless sourced from a pod with a label that matches *app.kubernetes.io/part-of: dronedelivery*.
+Once a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the network policy is applied to any pod in the backend-dev namespace with a label that matches `app.kubernetes.io/component: backend`. The policy denies any traffic unless sourced from a pod with a label that matches `app.kubernetes.io/part-of: dronedelivery`.
 
 ```yaml
 apiVersion: networking.k8s.io/v1

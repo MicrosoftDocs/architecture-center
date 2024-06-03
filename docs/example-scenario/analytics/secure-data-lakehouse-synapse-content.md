@@ -123,6 +123,8 @@ For details of what should be checked and considered, see:
 - [Asset protection](/azure/cloud-adoption-framework/secure/asset-protection)
 - [Innovation security](/azure/cloud-adoption-framework/secure/innovation-security)
 
+<!-- docutune:ignoredCasing "when designing" -->
+
 ### Network and asset protection plan
 
 One of the key security principles in the Cloud Adoption Framework is the [Zero Trust principle](/azure/cloud-adoption-framework/secure/#guiding-principles): when designing security for any component or system, reduce the risk of attackers expanding their access by assuming that other resources in the organization are compromised.
@@ -157,7 +159,7 @@ Consider the following techniques to better protect networks and assets:
 
 - **Deploy perimeter networks to provide security zones for data pipelines**
 
-    When a data pipeline workload requires access to external data and the data landing zone, it's best to implement a perimeter network and separate it with an extract, transform, and load (ETL) pipeline.
+    When a data pipeline workload requires access to external data and the data landing zone, it's best to implement a perimeter network and separate it with an extract, transform, load (ETL) pipeline.
 
 - **Enable Defender for Cloud for all storage accounts**
 
@@ -222,7 +224,7 @@ There are several components in the system. Each one requires a different identi
   A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Microsoft Entra user Account of the end user in the application and Azure Synapse DB access layers. It leverages the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
 - **Consider least-privileged access**
 
-  A Zero Trust guiding principle suggests providing just-in-time and just-enough access to critical resources. See [Microsoft Entra Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
+  A Zero Trust guiding principle suggests providing just-in-time and just enough access to critical resources. See [Microsoft Entra Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
 - **Protect linked service**
 
     Linked services define the connection information that's needed for a service to connect to external resources. It's important to secure linked services configurations.

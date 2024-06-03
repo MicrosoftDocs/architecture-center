@@ -56,7 +56,7 @@ The following articles provide detailed analysis of architectures created and re
 The following are other ideas that you can use as a starting point for your telecommunications solution.
 - [Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)
 - [IoT-connected light, power, and internet for emerging markets](../solution-ideas/articles/iot-power-management.yml)
-- [IoT device connectivity for healthcare facilities](../solution-ideas/articles/healthcare-network.yml)
+- [IoT device connectivity for healthcare facilities](../networking/idea/healthcare-network.yml)
 - [IoT Edge data storage and processing](../solution-ideas/articles/data-storage-edge.yml)
-- [Low-latency network connections for industry](../solution-ideas/articles/low-latency-network.yml)
-- [Video capture and analytics](../solution-ideas/articles/video-analytics.yml)
+- [Low-latency network connections for industry](../networking/idea/low-latency-network.yml)
+- [Video capture and analytics](../networking/idea/video-analytics.yml)

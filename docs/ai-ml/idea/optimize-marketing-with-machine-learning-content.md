@@ -4,14 +4,14 @@ Azure services can extract insights from social media for you to use in big data
 
 ## Architecture
 
-[ ![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.](_images/optimize-marketing-with-machine-learning.svg)](_images/optimize-marketing-with-machine-learning.svg#lightbox)
+[ ![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage](_images/optimize-marketing-with-machine-learning.svg)](_images/optimize-marketing-with-machine-learning.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/optimize-marketing-with-machine-learning.vsdx) of this architecture.*
 
 ### Dataflow
 
 1. [Azure Synapse Analytics][synapse-overview] enriches data in dedicated SQL pools with the model that's registered in Azure Machine Learning via a stored procedure.
-1. [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) enriches the data by running sentiment analysis, predicting overall meaning, extracting relevant information, and applying other AI features. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to develop a machine learning model and register the model in the Machine Learning registry.
+1. [Azure AI services](/azure/cognitive-services/what-are-cognitive-services) enriches the data by running sentiment analysis, predicting overall meaning, extracting relevant information, and applying other AI features. [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to develop a machine learning model and register the model in the Machine Learning registry.
 1. [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides storage for the machine learning data and a cache for training the machine learning model.
 1. The [Web Apps](/azure/app-service/overview) feature of Azure App Service is used to create and deploy scalable business-critical web applications. [Power BI][pbi-overview] provides an interactive dashboard with visualizations that use data that's stored in Azure Synapse Analytics to drive decisions on the predictions.
 
@@ -19,13 +19,13 @@ Azure services can extract insights from social media for you to use in big data
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
 
-- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services#api) consists of cloud-based services that provide AI functionality. The REST APIs and client library SDKs help you build cognitive intelligence into apps even if you don't have AI or data science skills.
+- [Azure AI services](https://azure.microsoft.com/services/cognitive-services#api) consists of cloud-based services that provide AI functionality. The REST APIs and client library SDKs help you build cognitive intelligence into apps even if you don't have AI or data science skills.
 
 - [Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure data lake for high-performance analytics workloads.
 
-- [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps. The Web Apps feature is a service for hosting web applications, REST APIs, and mobile back ends.
 
 - [Power BI](https://powerbi.microsoft.com) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
 
@@ -72,14 +72,14 @@ Learn more with the following learning paths:
 - [Create machine learning models][ms-learn-create-ml]
 - [Build AI solutions with Azure Machine Learning][ms-learn-build-ai-solutions]
 - [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline][ms-learn-synapse-data-integration]
-- [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
+- [Sentiment Analysis with Azure AI services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
 - [Tutorial: Text Analytics with Azure AI services](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
 For information about solution components, see these resources:
 
 - [Azure Machine Learning documentation][aml-docs]
 - [Azure Synapse Analytics documentation][synapse-docs]
-- [Cognitive Services Documentation](/azure/cognitive-services)
+- [Azure AI services Documentation](/azure/cognitive-services)
 - [Power BI documentation][pbi-docs]
 - [App Service overview](/azure/app-service/overview)
 - [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
@@ -90,7 +90,6 @@ For information about solution components, see these resources:
 
 - [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)
 - [Customer churn prediction using real-time analytics](./customer-churn-prediction.yml)
-
 
 <!-- links -->
 [synapse-docs]: /azure/synapse-analytics

@@ -72,11 +72,8 @@ The related resources provide further information on edge solutions, including i
 ### Guidance
 
 - [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
-- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.yml)
-- [Architectural Considerations in an IIoT Analytics Solution](../../guide/iiot-guidance/iiot-considerations.md)
 
 ### Architectures
 
 - [IoT using Azure Cosmos DB](iot-using-cosmos-db.yml)
-- [Retail - Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)

@@ -20,7 +20,7 @@ This article describes a variation of a [serverless](https://azure.microsoft.com
 
 ### Components
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
 - [KEDA](https://keda.sh) is an event-driven autoscaler used to scale containers in the Kubernetes cluster based on the number of events needing to be processed.
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.

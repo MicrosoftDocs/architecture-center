@@ -1,8 +1,8 @@
 ---
 title: Considerations for using Azure Container Apps in a multitenant solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems. Get links to additional guidance.
-author: willvelida
-ms.author: willvelida
+author: landonpierce
+ms.author: landonpierce
 ms.date: 12/16/2022
 ms.topic: conceptual
 ms.service: architecture-center

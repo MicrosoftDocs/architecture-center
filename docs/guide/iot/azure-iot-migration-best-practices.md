@@ -149,6 +149,5 @@ Other contributors:
 ## Related resources
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [Industrial IoT prediction patterns](../../guide/iiot-patterns/iiot-prediction-patterns.yml)
 - [Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Get started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)

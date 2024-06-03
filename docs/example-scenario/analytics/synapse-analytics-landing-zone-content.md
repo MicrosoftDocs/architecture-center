@@ -80,7 +80,7 @@ Following are some recommendations for Azure Synapse networking topology:
 
 ### Identity and access management
 
-Enterprises typically use a least-privileged approach for operational access. They use Microsoft Entra ID, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions for access management. 
+Enterprises typically use a least-privileged approach for operational access. They use Microsoft Entra ID, [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview), and custom role definitions for access management.
 
 - Implement fine-grained access controls in Azure Synapse by using Azure roles, Azure Synapse roles, SQL roles, and Git permissions. For more information about Azure Synapse workspace access control, see [this overview](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
 - [Azure Synapse roles](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac-roles) provide sets of permissions that you can apply at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
@@ -101,7 +101,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Azure Synapse, Data Lake Storage, and Key Vault are managed platform as a service (PaaS) services that have built-in high availability and resiliency. You can use redundant nodes to make the self-hosted integration runtime and NAT VMs in the architecture highly available.
-- For SLA information, see [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1).
+- For service-level agreement (SLA) information, see [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1).
 - For business continuity and disaster recovery recommendations for Azure Synapse, see [Database-restore points for Azure Synapse Analytics](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse).
 
 ### Security

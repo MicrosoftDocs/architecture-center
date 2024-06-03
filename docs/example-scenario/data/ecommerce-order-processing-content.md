@@ -1,4 +1,4 @@
-This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
+This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point of sale, order fulfillment, and inventory reservation and tracking.
 
 ## Architecture
 
@@ -18,7 +18,7 @@ This architecture details key components of an order processing pipeline. The da
 
 ### Components
 
-- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and it applies [Azure Cosmos DB Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service-level agreements (SLAs). This scenario uses Azure Cosmos DB for event stream storage and snapshot storage, and it applies [Azure Cosmos DB Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
 - [Apache Kafka on Azure HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming and downstream events, in the order processing pipeline.
 
 ## Scenario details
@@ -31,7 +31,7 @@ Using managed Azure services such as Azure Cosmos DB and HDInsight can help redu
 
 Other relevant use cases include:
 
-- E-commerce or retail point-of-sale back-end systems.
+- E-commerce or retail point of sale back-end systems.
 - Inventory management systems, for the retail or manufacturing industries.
 - Order fulfillment systems.
 - Other integration scenarios relevant to an order processing pipeline.
@@ -42,7 +42,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting.
 
-Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml) in the Azure Architecture Center.
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml).
 
 ### Availability
 

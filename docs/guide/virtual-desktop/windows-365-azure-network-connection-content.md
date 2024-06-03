@@ -63,7 +63,7 @@ The previous diagram shows Azure network connection and Microsoft-hosted network
 
 Virtual Desktop is an Azure-based virtual desktop infrastructure (VDI) solution. Microsoft manages Virtual Desktop. It provides a platform-as-a-service (PaaS) style solution. Windows 365 uses the network management components required for you to connect to their Cloud PCs. Components include the Virtual Desktop gateway service, a connection broker service, and a web client service. These services allow for seamless connection to Windows 365 Cloud PCs.
 
-For more information, see [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+For more information, see [Azure Virtual Desktop for the enterprise](../../example-scenario/azure-virtual-desktop/azure-virtual-desktop.yml).
 
 :::image type="content" source="./images/windows-365-placement-diagrams-updated-5.svg" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="./images/windows-365-placement-diagrams-updated-5.svg" border="false":::
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/w365-azure-network-connection-5.vsdx) of this architecture.*
@@ -212,7 +212,7 @@ Consider the following factors when you design an Azure virtual network architec
 - *Network topology*: Azure networking supports topologies to accommodate different use cases.
 
     - *Hub-spoke topology with virtual network peering*: This topology is the simplest way to provide an isolation of services with their own spoke and hub virtual networks. Shared services include Azure Firewall and network gateways. Choose this topology if you have a simple, single-site design to deploy a Cloud PC in one or more spoke virtual networks. For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
-    - *Hub-spoke topology with Azure Virtual WAN*: Virtual WAN is an Azure networking service that brings together networking, security, and management capabilities that enable complex network requirements. Use this topology for multi-site, multi-region deployments with specific firewalling and routing requirements. For more information, see [Hub-spoke network topology with Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
+    - *Hub-spoke topology with Azure Virtual WAN*: Virtual WAN is an Azure networking service that brings together networking, security, and management capabilities that enable complex network requirements. Use this topology for multi-site, multi-region deployments with specific firewalling and routing requirements. For more information, see [Hub-spoke network topology with Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-vwan-architecture).
 
 - *Network gateway*: Azure network gateways provide connectivity from a virtual network to an on-premises network. There are VPN and ExpressRoute network gateways. Ensure that the maximum bandwidth requirements of a Cloud PC are considered before deciding on the ExpressRoute or VPN method of connectivity. Both VPN and ExpressRoute gateways are offered in tiers, or SKUs, that differ in the amount of bandwidth provided and other metrics. For more information, see [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) and [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover).
 
@@ -263,7 +263,7 @@ On-premises AD DS supports many configurations and varying levels of complexity,
 In an Azure network connection deployment architecture, DNS servers or another DNS service used by an Azure virtual network is a crucial dependency. It's important to have a healthy infrastructure in place.
 
 - For a Microsoft Entra hybrid join configuration, DNS should be able to resolve the domain to which the Cloud PC needs to be joined. There are multiple configuration options available, the simplest of them being specifying your DNS server IP in the Azure virtual network configuration. For more information, see [Name resolution that uses your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances?tabs=redhat#name-resolution-that-uses-your-own-dns-server).
-- Depending on the complexity of the infrastructure, such as a multi-region, multi-domain setup in Azure and on-premises environments, you should use a service like Azure DNS private zones or [Azure DNS Private Resolver](/azure/architecture/example-scenario/networking/azure-dns-private-resolver).
+- Depending on the complexity of the infrastructure, such as a multi-region, multi-domain setup in Azure and on-premises environments, you should use a service like Azure DNS private zones or [Azure DNS Private Resolver](/azure/architecture/networking/architecture/azure-dns-private-resolver).
 
 ## Cloud PC connection recommendations
 

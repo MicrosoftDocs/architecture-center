@@ -102,7 +102,7 @@ Network security groups restrict access to each tier. For example, the database 
 [autoscaling]: ../../best-practices/auto-scaling.md
 [caching]: ../../best-practices/caching.yml
 [dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
-[ha-nva]: ../../reference-architectures/dmz/nva-ha.yml
+[ha-nva]: ../../networking/guide/nva-ha.yml
 [hybrid-network]: ../../reference-architectures/hybrid-networking/index.yml
 [identity]: ../../reference-architectures/identity/index.yml
 [multiregion-linux]: ../../databases/architecture/n-tier-cassandra.yml

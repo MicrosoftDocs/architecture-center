@@ -1649,7 +1649,7 @@
 		</g>
 		<g id="shape398-563" v:mID="398" v:groupContext="shape" v:layerMember="0" transform="translate(666,-289.125)">
 			<title>Number.398</title>
-			<desc>8</desc>
+			<desc>6</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
 				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
@@ -1660,7 +1660,7 @@
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="11.4057" cy="600.65" width="33.84" height="23.0429"/>
 			<ellipse cx="11.5215" cy="600.479" rx="11.5215" ry="11.5215" class="st34"/>
-			<text x="8.44" y="603.95" class="st35" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+			<text x="8.44" y="603.95" class="st35" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
 		<g id="shape399-566" v:mID="399" v:groupContext="shape" transform="translate(612,-217.125)">
 			<title>Sheet.399</title>
 			<path d="M7.68 612 L8.04 612 L36.96 612" class="st29"/>

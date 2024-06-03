@@ -43,7 +43,6 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
-- [Run containers](hybrid-containers.yml)
 - [Use Azure file shares](azure-file-share.yml)
 - [Back up files](azure-stack-backup.yml)
 - [Manage workloads](hybrid-server-os-mgmt.yml)
@@ -64,6 +63,5 @@ The typical hybrid solution journey ranges from learning how to get started with
 Here are some example implementations to consider:
 
 - [Cross-cloud scaling](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Cross-platform chat](../solution-ideas/articles/cross-platform-chat.yml)
 - [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
 - [Unlock legacy data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

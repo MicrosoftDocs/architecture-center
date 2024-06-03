@@ -37,7 +37,7 @@ Regardless of the metric used for throttling, your rate limiting implementation 
 
 In scenarios where your APIs can handle requests faster than any throttled ingestion services allow, you'll need to manage how quickly you can use the service. However, only treating the throttling as a data rate mismatch problem, and simply buffering your ingestion requests until the throttled service can catch up, is risky. If your application crashes in this scenario, you risk losing any of this buffered data.
 
-To avoid this risk, consider sending your records to a durable messaging system that _can_ handle your full ingestion rate. (Services such as Azure Event Hubs can handle millions of operations per second). You can then use one or more job processors to read the records from the messaging system at a controlled rate that is within the throttled service's limits. Submitting records to the messaging system can save internal memory by allowing you to dequeue only the records that can be processed during a given time interval.
+To avoid this risk, consider sending your records to a durable messaging system that *can* handle your full ingestion rate. (Services such as Azure Event Hubs can handle millions of operations per second). You can then use one or more job processors to read the records from the messaging system at a controlled rate that is within the throttled service's limits. Submitting records to the messaging system can save internal memory by allowing you to dequeue only the records that can be processed during a given time interval.
 
 Azure provides several durable messaging services that you can use with this pattern, including:
 
@@ -49,7 +49,7 @@ Azure provides several durable messaging services that you can use with this pat
 
 When you're sending records, the time period you use for releasing records may be more granular than the period the service throttles on. Systems often set throttles based on timespans you can easily comprehend and work with. However, for the computer running a service, these timeframes may be very long compared to how fast it can process information. For instance, a system might throttle per second or per minute, but commonly the code is processing on the order of nanoseconds or milliseconds.
 
-While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, network, etc.) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter may even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
+While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, network, and so on) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter may even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
 
 ![A chart showing rate limiting over time.](./_images/rate-limiting-pattern-02.png)
 
@@ -80,6 +80,16 @@ Use this pattern to:
 - Reduce throttling errors raised by a throttle-limited service.
 - Reduce traffic compared to a naive retry on error approach.
 - Reduce memory consumption by dequeuing records only when there is capacity to process them.
+
+## Workload design
+
+An architect should evaluate how the Rate Limiting pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Reliability](/azure/well-architected/reliability/checklist) design decisions help your workload become **resilient** to malfunction and to ensure that it **recovers** to a fully functioning state after a failure occurs. | This tactic protects the client by acknowledging and honoring the limitations and costs of communicating with a service when the service desires to avoid excessive usage.<br/><br/> - [RE:07 Self-preservation](/azure/well-architected/reliability/self-preservation) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
 ## Example
 
@@ -122,7 +132,7 @@ This diagram incorporates the following workflow:
 
 After 15 seconds, one or both jobs still will not be completed. As the leases expire, a processor should also reduce the number of requests it dequeues and writes.
 
-![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages: 
+![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages:
 
 - **Go** implementation is available on [GitHub](https://github.com/mspnp/go-batcher).
 - **Java** implementation is available on [GitHub](https://github.com/Azure-Samples/java-rate-limiting-pattern-sample).

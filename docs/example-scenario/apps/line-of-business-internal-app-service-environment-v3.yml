@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how to deploy line-of-business applications with an internal App Service Environment v3, while considering networking boundaries, DevOps, management, and more. 
   author: cykreng
-  ms.author: cykreng, nabeelp, petermessina
+  ms.author: petermessina
   ms.date: 03/23/2023
   ms.topic: example-scenario
   ms.service: architecture-center

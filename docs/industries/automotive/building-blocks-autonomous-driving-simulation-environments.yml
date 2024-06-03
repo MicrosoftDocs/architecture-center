@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.
   author: martinekuan
-  ms.author: gurcan.gulesir
+  ms.author: gugulesi
   ms.date: 08/22/2022
   ms.topic: solution-idea
   ms.service: architecture-center
