@@ -1,58 +1,58 @@
-# Deploy IBM Power in Skytap on Azure with Azure NetApp Files
+For more information about how to migrate Skytap to Azure, see [Migrate IBM i Series to Azure with Skytap](https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap).
 
-Looking for general information on migrating Skytap to Azure? Check out [Migrate IBM i Series to Azure with Skytap](https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap).
+[Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a cloud infrastructure-as-a-service (Iaas) designed to run [IBM Power](https://www.ibm.com/power) workloads (AIX, IBM i (AS/400), Linux on Power) together with x86 workloads natively in Azure. Skytap provides a simple path to Azure for traditional workloads because it doesn't require refactoring, rearchitecting or re-platforming.
 
-[Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a cloud infrastructure-as-a-service (Ias) designed to run [IBM Power](https://www.ibm.com/power) workloads (AIX, IBM i (AS/400), Linux on Power) together with x86 workloads natively in Azure. It provides a simple path to Azure for traditional workloads because it does not require refactoring, rearchitecting or re-platforming.
-
-If you deploy Skytap on Azure, [Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) is an excellent file storage option. With Azure NetApp Files, you can scale storage allocations up or down at any time without interruptions to services. You can also dynamically adjust storage service level performance requirements.
+If you deploy Skytap on Azure, [Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) is an excellent file storage option. You can use Azure NetApp Files to scale storage allocations up or down at any time without service interruptions. You can also dynamically adjust storage service-level performance requirements.
 
 ## Architecture
 
-## ![](RackMultipart20240603-1-uzt9gw_html_7fd25d9141426750.png)
+:::image type="content" source="" alt-text="" lightbox="" border="false":::
 
-## Workflow
+*Download a [Visio file]() of this architecture.*
 
-This example scenario demonstrates how to use Azure Netapp Files with workloads on Skytap on Azure. Here is a typical workflow you might follow:
+### Workflow
+
+This example scenario demonstrates how to use Azure Netapp Files with workloads on Skytap on Azure. The following workflow corresponds to the above diagram:
 
 1. Connect to the private network using VPN Gateway or ExpressRoute.
-2. Setup an Azure Netapp Files capacity pool and share from Azure portal.
-3. Mount the share on AIX, IBMi or Linux on Power based workloads in Skytap on Azure.
-4. Start using shares as primary storage and sharing files across platforms and Azure native deployments.
+1. Set up an Azure Netapp Files capacity pool and share from Azure portal.
+1. Mount the share on AIX, IBMi, or Linux on Power based workloads in Skytap on Azure.
+1. Use shares as primary storage. Share files across platforms and Azure native deployments.
 
 ### Components
 
-Below are the architecture components including all relevant Azure services.
+The architecture uses these components:
 
-- [Skytap On Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1)Skytap is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure data centers. Organizations of any size that run IBM Power based AIX, IBM i, or Linux operating systems can migrate them to Azure with little upfront effort.
+- [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1) is a service in Azure that natively runs IBM Power and x86 traditional workloads on hardware in Azure datacenters. Organizations of any size that run IBM Power based AIX, IBM i, or Linux operating systems (OS) can migrate them to Azure with little upfront effort.
 
-- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides Volumes as a service for which you can create NetApp accounts, capacity pools, and volumes. You can also select service and performance levels and manage data protection and replication across zones and regions.
+- [Azure NetApp Files](https://azure.microsoft.com/products/netapp/) is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides volumes as a service for which you can create NetApp accounts, capacity pools, and volumes. You can select service and performance levels and manage data protection and replication across zones and regions.
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/) ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute/) lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
-- [Azure VMs](https://azure.microsoft.com/products/virtual-machines) Azure virtual machines are one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a virtual machine when you need more control over the computing environment than the other choices offer.
+- [Azure VMs](https://azure.microsoft.com/products/virtual-machines) are one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a virtual machine (VM) when you need more control over the computing environment than the other choices offer.
 
-- [Azure VPN](https://azure.microsoft.com/products/vpn-gateway/) Azure VPN Gateway connects your on-premises networks to Azure through Site-to-Site VPNs in a similar way that you set up and connect to a remote branch office. The connectivity is secure and uses the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE)
+- [Azure VPN](https://azure.microsoft.com/products/vpn-gateway/) connects your on-premises networks to Azure through site-to-site VPNs in a similar way that you set up and connect to a remote branch office. The connectivity is secure and uses the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
 
 ### Alternatives
 
-- Azure Blob
+- Azure Blob Storage
 - Azure Files
 
-# Scenario details
+## Scenario details
 
 ### Potential use cases
 
-Azure NetApp Files fits nicely in the following use cases, but is an option in nearly any scenario where networked file storage in the cloud is needed.
+Azure NetApp Files can be used for the following use cases, but is an option in nearly any scenario where networked file storage in the cloud is needed.
 
 - **Scalable and resilient file service**: A scalable and resilient file share service is a robust storage solution that can grow alongside your data needs and keep your information safe. It can add storage capacity and performance in real-time, as needed, and ensures data is always accessible via replication and built-in data resiliency. Azure NetApp Files provides a reliable and adaptable platform for sharing and storing your files for mission critical workloads hosted on the IBM Power platform.
 
-- **Critical backups using**[**mksysb**](https://www.ibm.com/docs/aix/7.2?topic=m-mksysb-command) **for AIX:** AIX can create bootable backups of your system's core, allowing you to restore it after crashes or migrate to new hardware. It captures the root volume group and settings, saving it to a file which can be used to restore either the systems base image or a few files. Azure NetApp Files provides a scalable, cost-effective way to store these backups in the Azure cloud.
+- **Critical backups using mksyb for AIX**: Use [mksysb](https://www.ibm.com/docs/aix/7.2?topic=m-mksysb-command) for AIX to create bootable backups of your system's core, which allows you to restore it after crashes or migrate to new hardware. It captures the root volume group and settings, saving it to a file which can be used to restore either the systems base image or a few files. Azure NetApp Files provides a scalable, cost-effective way to store these backups in the Azure cloud.
 
-- **Centralized Data Storage:** Azure NetApp Files allows you to create a shared storage pool accessible by multiple AIX systems vis NFS. This includes user home directories, application data, or project files across your network **,** which is a common use case in distributed applications.
+- **Centralized Data Storage**: Azure NetApp Files allows you to create a shared storage pool accessible by multiple AIX systems vis NFS. This includes user home directories, application data, or project files across your network **,** which is a common use case in distributed applications.
 
-- **High Availability:** Azure NetApp Files shared repositories can be integrated with AIX clustering solutions like PowerHA SystemMirror, providing failover capabilities. If one server goes down, clients can seamlessly access data from another server hosting the same NFS repository in Azure NetApp Files.
+- **High Availability**: Azure NetApp Files shared repositories can be integrated with AIX clustering solutions like PowerHA SystemMirror, providing failover capabilities. If one server goes down, clients can seamlessly access data from another server hosting the same NFS repository in Azure NetApp Files.
 
-- **SAP Global Transport Directory:** The [SAP global transport directory](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/designing-sap-global-transport-directory-using-anf-in-azure/ba-p/2621547)(_/usr/sap/trans_) is a shared location residing on the global domain controller of an SAP transport management system (TMS). Depending on requirements, you may have one global transport directory or multiple transport directories. This directory can be presented as an NFS share hosted in the Azure cloud on Azure NetApp Files to allow sharing to multiple clients across a network. Using Azure NetApp files is best suited for this scenario for its blend of resiliency and performance.
+- **SAP Global Transport Directory**: The [SAP global transport directory](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/designing-sap-global-transport-directory-using-anf-in-azure/ba-p/2621547)(_/usr/sap/trans_) is a shared location residing on the global domain controller of an SAP transport management system (TMS). Depending on requirements, you might have one global transport directory or multiple transport directories. This directory can be presented as an NFS share hosted in the Azure cloud on Azure NetApp Files to allow sharing to multiple clients across a network. Using Azure NetApp files is best suited for this scenario for its blend of resiliency and performance.
 
 ## Considerations
 
@@ -60,7 +60,7 @@ Azure NetApp Files contains a set of features that provides design consideration
 
 ### Reliability
 
-Reliability ensures your application(s) meet the commitments you make to your customers. For more information, see the [Overview of the reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application(s) meet the commitments you make to your customers. For more information, see the [Overview of the Reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
 
 Skytap on Azure provides a standard 99.95% availability SLO for the platform and logical partitions (LPARs).
 
@@ -70,7 +70,7 @@ For improved RPO/RTO SLAs, integrated data protection with [snapshots](https://l
 
 ### Security
 
-Security provides assurance against deliberate attacks and abuse of valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
+Security provides assurance against deliberate attacks and abuse of valuable data and systems. For more information, see [Overview of the Security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
 
 Azure NetApp Files provides a level of security because [volumes and data traffic stay within your virtual networks](https://learn.microsoft.com/azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) and does not provide a publicly addressable endpoint. All [data is encrypted at rest](https://learn.microsoft.com/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) at all times. You can also choose to encrypt data-in-transit via [NFS Kerberos](https://learn.microsoft.com/azure/azure-netapp-files/understand-data-encryption).
 
@@ -78,7 +78,7 @@ Additionally, Azure NetApp Files provides support for standard NFSv4.1 security 
 
 The [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview) can help you enforce organizational standards and assess compliance at scale. Azure NetApp Files supports Azure Policy via [custom and built-in policy definitions](https://learn.microsoft.com/azure/azure-netapp-files/azure-policy-definitions).
 
-### Cost Optimization
+### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
@@ -109,7 +109,7 @@ You can determine which Azure NetApp Files service level (Standard, Premium, or 
 - ExR circuits and gateways
 - Virtual network
 
-### Performance Efficiency
+### Performance efficiency
 
 [Performance efficiency](https://learn.microsoft.com/azure/architecture/framework/scalability/overview) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
@@ -125,7 +125,7 @@ If more performance is needed than the capacity allows, consider setting [manual
 
 Performance efficiency in Azure NetApp Files allows you to easily control costs based on required performance for your application workload.
 
-#### Considerations
+### Considerations
 
 Depending on your requirements for throughput and capacity, keep the following considerations in mind:
 
