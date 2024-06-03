@@ -16,7 +16,7 @@ As described in the [enterprise hardened architecture](azure-data-factory-enterp
 - The ML model is forecast to be used by up to 1,000 concurrent users in any given region during peak-business hours.
    - When not in use, the ML processing MUST scale back to minimize costs.
 
-### The Key Design Decisions (KDDs)
+### The key design decisions (KDDs)
 
 - The cost and complexity of rearchitecting the platform to mission-critical specifications isn't justified by the requirement. Instead, the ML model should be containerized and then deployed to a mission-critical solution. This approach minimizes cost and complexity, isolating to the model service and follows [mission-critical guidance](/azure/well-architected/mission-critical/mission-critical-application-platform#containerization).
   - This design requires the model to be developed on the platform and then containerized for deployment.
@@ -93,7 +93,8 @@ In your own use case, be sure to determine whether the use is operational in nat
 
 ## Alternatives
 
-- [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) can be used to host the containers. For this use case, the management burden required for AKS makes it a less preferable choice for the solution. 
+- [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) can be used to host the containers. For this use case, the management burden required for AKS makes it a less preferable choice for the solution.
+- [Azure Container Apps](/azure/container-apps/overview) is a serverless container hosting service that can be used instead of Azure Web Apps for Containers. Private Endpoints are not currently supported for Azure Container Apps, but the service can be integrated into an existing or new VNet.
 - [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) as an alternate for load balancing: Azure Front Door is preferred for this scenario due to the additional functionality available and a quicker [failover](/azure/architecture/guide/technology-choices/load-balancing-overview#azure-load-balancing-services) performance.
 - If the model also requires read/write capabilities for the data as part of its processing, [Cosmos DB](/azure/well-architected/mission-critical/mission-critical-data-platform#globally-distributed-multi-region-write-datastore) can be considered.
 
