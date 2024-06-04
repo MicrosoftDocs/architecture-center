@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Enable Azure IoT Hub File Upload feature to a private storage account
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to enable the Azure IoT Hub File Upload feature to upload files to a private storage account exposed through a Firewall and custom domain.
+  author: katriendg
+  ms.author: katriendg
+  ms.date: 06/04/2024
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Azure IoT Hub File Upload to private storage account
+azureCategories:
+  - iot
+summary: Learn how to enable the Azure IoT Hub File Upload feature to upload files to a private storage account exposed through a Firewall and custom domain.
+products:
+  - azure-iot-hub
+  - azure-storage
+  - azure-firewall
+  - azure-virtual-network
+  - azure-app-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/TODO.png
+content: |
+   [!include[](iot-private-fileupload-content.md)]
