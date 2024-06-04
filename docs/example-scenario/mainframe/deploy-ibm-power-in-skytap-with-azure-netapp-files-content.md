@@ -29,9 +29,9 @@ The architecture uses these components:
 
 - [ExpressRoute](https://azure.microsoft.com/products/expressroute/) lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
-- [Azure VMs](https://azure.microsoft.com/products/virtual-machines) are one of several types of on-demand, scalable computing resources that Azure provides. Typically, you choose a virtual machine (VM) when you need more control over the computing environment than is provided by the other resources.
+- [Azure VMs](https://azure.microsoft.com/products/virtual-machines) are one of several types of on-demand, scalable computing resources that Azure provides. Typically, you choose a virtual machine (VM) when you need more control over the computing environment than is provided by other resources.
 
-- [Azure VPN](https://azure.microsoft.com/products/vpn-gateway/) connects your on-premises networks to Azure through site-to-site VPNs in a similar way that you set up and connect to a remote branch office. The connectivity is secure and uses the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
+- [Azure VPN](https://azure.microsoft.com/products/vpn-gateway/) connects your on-premises networks to Azure through site-to-site VPNs in a process similar to the one that you use to set up and connect to a remote branch office. The connectivity is secure and uses the industry-standard protocols Internet Protocol Security (IPsec) and Internet Key Exchange (IKE).
 
 ### Alternatives
 
@@ -42,21 +42,21 @@ The architecture uses these components:
 
 ### Potential use cases
 
-You can use Azure NetApp Files for the following use cases, but it's also an option in nearly any scenario in which networked file storage in the cloud is needed.
+You can use Azure NetApp Files for the following use cases and in most scenarios when networked file storage in the cloud is needed.
 
 - **Scalable and resilient file service**: A scalable and resilient file share service is a robust storage solution that can grow alongside your data needs and keep your information safe. It can add storage capacity and performance in real-time, as needed, and ensures that data is always accessible through replication and built-in data resiliency. Azure NetApp Files provides a reliable and adaptable platform for sharing and storing your files for mission-critical workloads hosted on the IBM Power platform.
 
-- **Critical backups**: Use [mksysb](https://www.ibm.com/docs/aix/7.2?topic=m-mksysb-command) for AIX to create bootable backups of your system's core. You can use mksysb to migrate to new hardware or restore your backups after a crash. Mksysb captures the root volume group and settings by saving it to a file that can be used to restore the systems base image or a few files. Azure NetApp Files provides a scalable, cost-effective way to store these backups in the Azure cloud.
+- **Critical backups**: Use [mksysb](https://www.ibm.com/docs/aix/7.2?topic=m-mksysb-command) for AIX to create bootable backups of your system's core. You can use mksysb to migrate to new hardware or restore your backups after a crash. Mksysb captures the root volume group and settings by saving it to a file that you can use to restore the systems base image or a few files. Azure NetApp Files provides a scalable, cost-effective way to store these backups in the Azure cloud.
 
-- **Centralized data storage**: Azure NetApp Files lets you create a shared storage pool that's accessible by multiple AIX systems through Network File System (NFS). This shared pool includes user home directories, application data, or project files across your network, which is a common use case in distributed applications.
+- **Centralized data storage**: Azure NetApp Files lets you create a shared storage pool that's accessible by multiple AIX systems through Network File System (NFS). This shared storage pool includes user home directories, application data, or project files across your network, which is a common use case in distributed applications.
 
-- **High availability**: For failover capabilities, you can integrate Azure NetApp Files with AIX clustering solutions like PowerHA SystemMirror. If one server goes down, clients can seamlessly access data from another server that's hosting the same NFS repository in Azure NetApp Files.
+- **High availability**: For failover capabilities, you can integrate Azure NetApp Files with AIX clustering solutions like PowerHA SystemMirror. If one server goes down, clients can seamlessly access data from another server hosting the same NFS repository in Azure NetApp Files.
 
-- **SAP global transport directory**: The [SAP global transport directory](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/designing-sap-global-transport-directory-using-anf-in-azure/ba-p/2621547) (_/usr/sap/trans_) is a shared location that resides on the global domain controller of an SAP transport management system (TMS). Depending on requirements, you might have one global transport directory or multiple transport directories. This directory can be described as an NFS share hosted in the Azure cloud on Azure NetApp Files to enable sharing to multiple clients across a network. The combination of resiliency and performance makes Azure NetApp Files best suited for this scenario.
+- **SAP global transport directory**: The [SAP global transport directory](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/designing-sap-global-transport-directory-using-anf-in-azure/ba-p/2621547) (_/usr/sap/trans_) is a shared location that resides on the global domain controller of an SAP transport management system (TMS). Depending on requirements, you might have one global transport directory or multiple transport directories. This directory can be described as an NFS share hosted in the Azure cloud on Azure NetApp Files that enables sharing to multiple clients across a network. The combination of resiliency and performance makes Azure NetApp Files best suited for this scenario.
 
 ## Considerations
 
-Azure NetApp Files contains a set of features that provides design considerations based on the pillars of the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework), which is a set of guiding tenets used to improve the quality of a workload.
+Azure NetApp Files contains a set of features that provide design considerations based on the pillars of the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework), which is a set of guiding tenets used to improve the quality of a workload.
 
 ### Reliability
 
@@ -88,11 +88,11 @@ Billing for Azure NetApp Files is based on provisioned storage capacity, which y
 
 #### Dynamic capacity adjustments
 
-If your capacity pool size requirements fluctuate for reasons such as variable capacity or performance needs, consider resizing your volumes and capacity pools to balance cost with your capacity and performance needs. You can resize with no disruption to your workloads.
+If your capacity pool size requirements fluctuate, consider resizing your volumes and capacity pools to balance cost with your variable capacity and performance needs. You can resize with no disruption to your workloads.
 
 #### Performance when you need it without interruption
 
-If your capacity pool size requirements remain the same but performance requirements fluctuate, consider dynamically changing the [service level](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) of a volume. Azure NetApp Files offers multiple service levels to provide the best blend of performance to cost optimization for your cloud needs. For instance, if your workloads are only busy at certain times in the quarter, apply the Premium or Ultra service levels to maximize your performance. Or if your workload occasionally goes stagnant, nondisruptively adjust the service level of the volume to Standard to reduce costs.
+If your capacity pool size requirements are consistent but performance requirements fluctuate, consider dynamically changing the [service level](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) of a volume. Azure NetApp Files has multiple service levels to provide the best blend of performance to cost optimization for your cloud needs. For instance, if your workloads are busy only at certain times in the quarter, apply the Premium or Ultra service levels to maximize your performance. Or if your workload occasionally goes stagnant, nondisruptively adjust the service level of the volume to Standard to reduce costs.
 
 #### Automatically tier cold data to lower cost storage
 
@@ -137,7 +137,7 @@ Consider the following requirements for your throughput and capacity:
 
 You can scale compute performance by adding capacity to LPARs that run in Skytap on Azure.
 
-You can also dynamically scale storage of Azure NetApp Files volumes. If you use [automatic QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations), performance is scaled at the same time. For more granular control of each volume, use [manual QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) to control the performance of each volume separately for your capacity pools.
+You can also dynamically scale storage of Azure NetApp Files volumes. Performance is scaled at the same time if you use [automatic QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations). For more granular control of each volume, use [manual QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) to control the performance of each volume separately for your capacity pools.
 
 Azure NetApp Files volumes are available in [Ultra, Premium, and Standard performance tiers](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). Choose the tier that best suits your performance requirements by taking into account that available performance bandwidth [scales with the size of a volume](https://docs.netapp.com/us-en/bluexp-azure-netapp-files/task-manage-volumes.html#:~:text=Change%20the%20volume%27s%20service%20level%201%20Open%20the,service%20level%20that%20you%20want.%204%20Click%20Change.). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [pricing examples](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
@@ -148,7 +148,6 @@ Check out the [Azure NetApp Files Performance Calculator](https://cloud.netapp.c
 ### Principal Authors
 
 - [Abishek Jain](https://www.linkedin.com/in/abhishek141088/) – Cloud Solutions Architect, Skytap
-
 - [Jason Scott](https://www.linkedin.com/in/jasonpaulscott/) – Director of Field Technical Sales, Skytap
 
 ### Other contributors
