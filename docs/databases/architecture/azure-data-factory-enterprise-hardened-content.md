@@ -1,12 +1,11 @@
-# Enterprise Hardened Lakehouse with Data Factory
+This reference architecture describes how to modify and harden a [medallion lakehouse](/azure/databricks/lakehouse/medallion) as the system is adopted across an enterprise. 
 
-This reference architecture describes how to uplift and harden a [Medallion Lakehouse](/azure/databricks/lakehouse/medallion) as the solution is adopted across the enterprise. 
-
-Following a typical adoption pattern, the architecture will be uplifted for additional capabilities, various non-functional requirements (NFRs) and a shift in responsibilities to a domain-based federated model.  
+Following a typical adoption pattern, as shown in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), the architecture provided in this article is hardened to meet additional non-functional requirements (NFRs), while and a shift in responsibilities to a domain-based federated model.  
 
 This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for best practice and guidance, specifically for the implementation of [data domains](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains) and the adoption of [data products](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone-data-products). 
 
-- *NB* - This design will only speak to the key delta's from the [Initial Implementation](TO_BE_ADDED). 
+>[!NOTE]
+>The guidance provided in this article is limited to the key delta's from the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml). 
 
 ## Context and Key-Design-Decisions
 
