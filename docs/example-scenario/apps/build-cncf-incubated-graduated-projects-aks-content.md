@@ -1,4 +1,4 @@
-This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after you deploy Azure Kubernetes Service (AKS). The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
+This article shows how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/projects) after you deploy Azure Kubernetes Service (AKS). The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The setup instructions in the repo provide steps for deploying the architecture.
 
 ## Architecture
 
@@ -64,7 +64,9 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). Provides the managed cluster infrastructure.
 
-#### Open-source software (OSS)
+<a name='open-source-software-oss'></a>
+
+#### Open-source software
 
 - [Kubernetes](https://kubernetes.io). CNCF. Automates deployment, scaling, and management of containerized applications.
 - [Flux](https://fluxcd.io/). CNCF. GitOps provider for infrastructure delivery.
@@ -95,7 +97,7 @@ This project uses CNCF graduated and incubated projects. There could be multiple
 
 You can consider various Azure services as alternatives. For example, Web Application Routing, Azure Container Registry, Azure Container Storage, Azure Monitor, Azure Monitor managed service for Prometheus, Azure Managed Grafana.
 
-Microsoft also supports OSS projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
+Microsoft also supports open-source software projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
 
 ## Scenario details
 

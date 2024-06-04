@@ -20,9 +20,9 @@ Azure Cache for Redis perfectly complements Azure database services such as Azur
 Key technologies used to implement this architecture:
 
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) complements database services, such as Azure SQL Database and Azure Cosmos DB, by enabling your data tier to scale throughput, at a lower cost than through expanded database instances. Store and share database query results, session states, and static content, by using a common cache-aside pattern. Make your application nimbler and more scalable.
-* [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, including .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications run and scale with ease on both Windows and Linux-based environments.
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, including .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python. Applications run and scale with ease on both Windows and Linux-based environments.
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database service for modern app development.
-* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is part of the Azure SQL family. Azure SQL Database is an intelligent, scalable, and relational database service built for the cloud. 
+* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is part of the Azure SQL family. Azure SQL Database is an intelligent, scalable, and relational database service built for the cloud.
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/en-gb/services/postgresql) is also part of the Azure SQL family.
 
 ## Scenario details

@@ -24,7 +24,7 @@ This scenario covers a scalable installation of [WordPress that runs on Azure Ap
 ### Components
 
 - The [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution for hosting WordPress on App Service. Besides App Service, the solution also uses the other Azure services that are described in this section.
-- [App Service](https://azure.microsoft.com/products/app-service) provides a framework for building, deploying, and scaling web apps.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a framework for building, deploying, and scaling web apps.
 - [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near end users.
 - [Azure Content Delivery Network](https://azure.microsoft.com/products/cdn) efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, you can use Content Delivery Network as an alternative to Azure Front Door.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via virtual network peering.

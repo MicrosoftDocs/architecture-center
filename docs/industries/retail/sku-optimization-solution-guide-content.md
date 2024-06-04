@@ -142,7 +142,7 @@ Note that the computation can also be expressed as a regression and, as such, mo
 
 As we can deduce from the previous formulation, optimization models are both data-driven and computation-intensive.
 
-Microsoft partners, such as Neal Analytics, have developed robust architectures to satisfy those conditions. See [SKU Max](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview?WT.mc_id=invopt-article-gmarchet). We’ll use those architectures as an example and offer a few considerations.
+Microsoft partners, such as Neal Analytics, have developed robust architectures to satisfy those conditions. See [SKU Assortment Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a). We’ll use those architectures as an example and offer a few considerations.
 
 - First, they rely on a robust and scalable data pipeline to feed the models and on a robust and scalable execution infrastructure to run them.
 - Second, the results are easily consumable by planners via a dashboard.

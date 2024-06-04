@@ -33,7 +33,7 @@ The example architecture uses the following components:
 * [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds)
 * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-* [Azure App Service](https://azure.microsoft.com/services/app-service)
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 * [Cognitive services](https://azure.microsoft.com/services/cognitive-services)
 * [Azure Automation](https://azure.microsoft.com/services/automation)
 

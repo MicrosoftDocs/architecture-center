@@ -42,17 +42,17 @@ This article presents a solution and guidance for developing offline data operat
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) devices provide Azure functionality in edge locations. Examples of Azure capabilities include compute, storage, networking, and hardware-accelerated machine learning.
 - [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft cloud over a private connection.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this case, Data Lake Storage stores data based on stages, for example, raw or extracted.
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless solution for creating and scheduling extract, transform, and load (ETL) and extract, load, and transform (ELT) workflows. Here, Data Factory performs ETL via [batch compute](/azure/batch) and creates data-driven workflows for orchestrating data movement and transforming data.
+- [Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless solution for creating and scheduling extract, transform, load (ETL) and extract, load, transform (ELT) workflows. Here, Data Factory performs ETL via [batch compute](/azure/batch) and creates data-driven workflows for orchestrating data movement and transforming data.
 - [Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Batch to run large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a globally distributed, multiple-model database. Here, it stores metadata results like stored measurements.
 - [Data Share](https://azure.microsoft.com/products/data-share) shares data with partner organizations with enhanced security. By using in-place sharing, data providers can share data where it resides without copying the data or taking snapshots. In this solution, Data Share shares data with labeling companies.
 - [Azure Databricks](https://azure.microsoft.com/products/databricks) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) reduces time to insight across data warehouses and big data systems.
 - [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
-- [App Service](https://azure.microsoft.com/products/app-service) provides a serverless-based web app service. In this case, App Service hosts the metadata API.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) provides a serverless-based web app service. In this case, App Service hosts the metadata API.
 - [Microsoft Purview](https://azure.microsoft.com/products/purview) provides data governance across organizations.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for processing topics.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance monitoring. In this scenario, Application Insights helps you build observability around measurement extraction: you can use Application Insights to log custom events, custom metrics, and other information while the solution processes each measurement for extraction. You can also build queries on log analytics to get detailed information about each measurement.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance management. In this scenario, Application Insights helps you build observability around measurement extraction: you can use Application Insights to log custom events, custom metrics, and other information while the solution processes each measurement for extraction. You can also build queries on log analytics to get detailed information about each measurement.
 
 ## Scenario details
 
@@ -97,7 +97,7 @@ The following table provides some ideas for structuring AVOps data domains:
 |Extracted radar or lidar| Selected and extracted lidar and radar data | Extracted |
 |Extracted telemetry | Selected and extracted car telemetry data | Extracted |
 |Labeled | Labeled datasets | Labeled |
-|Recompute | Generated KPIs based on repeated simulation runs | Recompute |
+|Recompute | Generated key performance indicators (KPIs) based on repeated simulation runs | Recompute |
 
 Each AVOps data domain is set up based on a blueprint structure. That structure includes Data Factory, Data Lake Storage, databases, Batch, and Apache Spark runtimes via Azure Databricks or Azure Synapse Analytics.
 

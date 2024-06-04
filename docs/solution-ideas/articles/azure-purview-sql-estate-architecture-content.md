@@ -98,7 +98,7 @@ Principal author:
 - [What is Microsoft Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Key Vault](https://azure.microsoft.com/services/key-vault)
 

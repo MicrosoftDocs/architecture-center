@@ -84,7 +84,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 ### Components
 
-- [App Service][App Service] is a platform as a service (PaaS) offering on Azure. You can use App Service to host web applications that you can scale in or scale out manually or automatically. The service supports various languages and frameworks, such as ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, and Python.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) is a platform as a service (PaaS) offering on Azure. You can use App Service to host web applications that you can scale in or scale out manually or automatically. The service supports various languages and frameworks, such as ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, and Python.
 
 - [Application Gateway][Application Gateway service page] is a layer-7 (application layer) load balancer that manages traffic to web applications. You can run Application Gateway with [Azure Web Application Firewall][Azure Web Application Firewall service page] to help protect web applications from common exploits and vulnerabilities.
 
@@ -189,7 +189,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
+- Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Worldwide Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
 - To improve App Service security, consider these options:
 
@@ -270,12 +270,9 @@ Principal author:
 ## Related resources
 
 - [Extract text from objects using Power Automate and AI Builder][Extract text from objects using Power Automate and AI Builder]
-- [Knowledge mining in business process management][Knowledge mining in business process management]
-- [Knowledge mining in contract management][Knowledge mining in contract management]
 - [Knowledge mining for content research][Knowledge mining for content research]
 
 [Achieve high availability with Azure Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
-[App Service]: https://azure.microsoft.com/services/app-service
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
 [Application Gateway service page]: https://azure.microsoft.com/products/application-gateway

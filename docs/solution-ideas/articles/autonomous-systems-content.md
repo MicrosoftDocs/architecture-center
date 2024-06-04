@@ -94,7 +94,7 @@ The Bonsai platform runs on Azure and charges resource costs to your Azure subsc
 
 #### Inkling
 
-Inkling is a declarative, statically typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
+Inkling is a declarative, statically typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines *concepts* necessary to teach the AI, and *curriculum*, or methods for teaching the concepts.
 
 ![Inkling example](../media/inkling.png)
 

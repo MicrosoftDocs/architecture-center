@@ -387,7 +387,7 @@ Create a Traffic Manager profile using the Azure portal, then configure endpoint
 2. Select **Networking**.
 3. Select **Traffic Manager profile** and configure the following settings:
 
-   - In **Name**, enter a name for your profile. This name **must** be unique in the trafficmanager.net zone and is used to create a new DNS name (for example, northwindstore.trafficmanager.net).
+   - In **Name**, enter a name for your profile. This name **must** be unique in the `trafficmanager.net` zone and is used to create a new DNS name (for example, `northwindstore.trafficmanager.net`).
    - For **Routing method**, select the **Weighted**.
    - For **Subscription**, select the subscription you want to create  this profile in.
    - In **Resource Group**, create a new resource group for this profile.

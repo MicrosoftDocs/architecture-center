@@ -17,7 +17,7 @@ This solution is used by retail to provide up to date product offerings.
 
 ### Components
 
-* App Service [Web Apps](https://azure.microsoft.com/services/app-service/web) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances.
+* [App Service Web Apps](/azure/well-architected/service-guides/app-service-web-apps) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) determines which web app is geographically best placed to handle each request.
 * [Content Delivery Network](/azure/cdn/cdn-add-to-web-app): A content delivery network serves static content such as images, script, and CSS, and reduces the load on the Web App servers.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): An SQL Database stores and serves data about the site.

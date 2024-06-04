@@ -8,6 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
@@ -21,7 +22,7 @@ categories:
 
 # Team lead tasks in the Team Data Science Process
 
-This article describes the tasks that a *team lead* completes for a data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process](overview.yml) (TDSP). The TDSP is designed to help improve collaboration and team learning.
+This article describes the tasks that a *team lead* completes for a data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process (TDSP)](overview.yml). The TDSP is designed to help improve collaboration and team learning.
 
 The TDSP is an agile, iterative data science methodology to efficiently deliver predictive analytics solutions and intelligent applications. The process incorporates the best practices and structures from Microsoft and the data science industry. The goal of the TDSP is successful implementation of data science initiatives and fully realizing the benefits of analytics programs. For an outline of the personnel roles and associated tasks, see [Team Data Science Process roles and tasks](roles-tasks.md).
 

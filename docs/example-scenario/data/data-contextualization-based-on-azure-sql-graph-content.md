@@ -33,7 +33,7 @@ Many other graph databases are available. For more information, see:
 - [Graph processing with SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 - [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/)
 - [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
-- [RedisGraph](https://redis.io/docs/stack/graph/)
+- [RedisGraph](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/deprecated-features/graph/)
 - [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
 
 There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
@@ -166,7 +166,7 @@ You can then use the query result to join the incoming raw data for contextualiz
 
 As the architecture diagram shows, the solution contextualizes only new incoming data, not the entire dataset in the Delta table. To meet this requirement, it uses an incremental data loading solution.
 
-In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture. The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which, in this case, include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you can use the pre-image and post-image information to evaluate the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
+In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture (CDC). The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which, in this case, include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you can use the pre-image and post-image information to evaluate the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
 
 ![Diagram that illustrates how change data feed works.](media/change-data-feed.jpg)
 
@@ -230,7 +230,7 @@ For this scenario, you need to consider the security of data at rest (that is, d
 
 For Data Lake Storage:
 
-* Azure Storage service-side encryption (SSE) is enabled to help protect data at rest.
+* Azure Storage service-side encryption (server-side encryption (SSE)) is enabled to help protect data at rest.
 * Use a managed identity and role-based access control (RBAC) if data is accessed via supported Azure resources.
 * If a managed identity is not supported, use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
 * For more information, see [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline).
@@ -294,7 +294,7 @@ Other contributor:
 * [The leading graph data platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
 * [Graph processing with SQL Server and SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 * [Use Delta Lake change data feed on Azure Databricks](/azure/databricks/delta/delta-change-data-feed)
-* [How to simplify CDC with Delta Lake's change data feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
+* [How to simplify change data capture (CDC) with Delta Lake's change data feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
 * [PostgreSQL graph search practices - 10-billion-scale graph with millisecond response](https://www.alibabacloud.com/blog/postgresql-graph-search-practices---10-billion-scale-graph-with-millisecond-response_595039)
 * [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline)
 

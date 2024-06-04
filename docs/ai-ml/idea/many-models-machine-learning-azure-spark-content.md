@@ -1,9 +1,9 @@
  This article describes an architecture for many models that uses Apache Spark in either Azure Databricks or Azure Synapse Analytics. Spark is a powerful tool for the large and complex data transformations that some solutions require.
 
-> [!Note]
+> [!NOTE]
 > Use Spark versions 3.0 and later for many models applications. The data transformation capabilities and support for Python and pandas are much better than in earlier versions.
 
-A companion article, [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml), uses Machine Learning and compute clusters.
+A companion article, [Many models machine learning at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml), uses Machine Learning and compute clusters.
 
 ## Architecture
 
@@ -31,9 +31,9 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 
 ### Components
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade ML service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated ML (AutoML), and a hosted Jupyter notebook environment that supports various IDEs.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics.
-- Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and ML scenarios. It offers both serverless and dedicated resource models.
+- Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios. It offers both serverless and dedicated resource models.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure storage service for high-performance analytics workloads.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
 - [Azure DevOps](https://azure.microsoft.com/services/devops) is a set of developer services that provide comprehensive application and infrastructure lifecycle management. DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
@@ -47,7 +47,7 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 
 ## Scenario details
 
-Many machine learning (ML) problems are too complex for a single ML model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many ML problems. This *many models* pattern is very common across a wide variety of industries, and applies to many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
+Many machine learning problems are too complex for a single machine learning model to solve. Whether it's predicting sales for every item of every store, or modeling maintenance for hundreds of oil wells, having a model for each instance might improve results on many machine learning problems. This *many models* pattern is very common across a wide variety of industries, and applies to many real-world use cases. With the use of Azure Machine Learning, an end-to-end many models pipeline can include model training, batch-inferencing deployment, and real-time deployment.
 
 A many models solution requires a different dataset for every model during training and scoring. For instance, if the task is to predict sales for every item of every store, every dataset will be for a unique item-store combination.
 
@@ -65,8 +65,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **Model management:** The training and scoring pipelines identify and invoke the right model for each dataset. To do this, they calculate tags that characterize the dataset, and then use the tags to find the matching model. The tags identify the data partition key and the model version, and might also provide other information.
 - **Choosing the right architecture:**
   - Spark is appropriate when your training pipeline has complex data transformation and grouping requirements. It provides flexible splitting and grouping techniques to group data by combinations of characteristics, such as product-store or location-product. The results can be placed in a Spark DataFrame for use in subsequent steps.
-  - When your ML training and scoring algorithms are straightforward, you might be able to partition data with libraries such as Scikit-learn. In such cases, you might not need Spark, so you can avoid possible complexities that can arise when installing Azure Synapse or Azure Databricks.
-  - When the training datasets are already created—for example, they're in separate files or in separate rows or columns—you don’t need Spark for complex data transformations.
+  - When your machine learning training and scoring algorithms are straightforward, you might be able to partition data with libraries such as scikit-learn. In such cases, you might not need Spark, so you can avoid possible complexities that can arise when installing Azure Synapse or Azure Databricks.
+  - When the training datasets are already created—for example, they're in separate files or in separate rows or columns—you don't need Spark for complex data transformations.
   - The Machine Learning and compute clusters solution provides great versatility for situations that require complex setup. For example, you can make use of a custom Docker container, or download files, or download pre-trained models. Computer vision and natural language processing (NLP) deep learning are examples of applications that might require such versatility.
 - **Spark training and scoring:** When you use the Spark architecture, you can use the Spark pandas function API for parallel training and scoring.
 - **Separate model repos:** To protect the deployed models, consider storing them in their own repository that the training and testing pipelines don't touch.
@@ -111,5 +111,5 @@ Principal author:
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml)
+- [Many models machine learning at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml)
 - [Batch scoring of Spark models on Azure Databricks](../../ai-ml/architecture/batch-scoring-databricks.yml)

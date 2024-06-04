@@ -34,7 +34,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
 | **[Azure Cache for Redis](#azure-cache-for-redis)** |Native in client |Programmatic |Client |TextWriter |
-| **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
+| **[Search](#azure-search)** |Native in client |Programmatic |Client |Event Tracing for Windows (ETW) or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Service Fabric](#service-fabric)** |Native in client |Programmatic |Client |None |
 | **[SQL Database with ADO.NET](#sql-database-using-adonet)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
@@ -827,7 +827,7 @@ namespace RetryCodeSamples
 
 The client library is based on [Azure Core library](https://azure.github.io/azure-sdk/general_azurecore.html), which is a library that provides cross-cutting services to other client libraries.
 
-There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale-down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration the consumer can override), our SDKs and the consumer’s application become resilient to these kinds of failures. Note that some services charge real money for each request and so consumers should be able to disable retries entirely if they prefer to save money over resiliency.
+There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale-down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, and so on. By offering a built-in retry mechanism (with a default configuration the consumer can override), our SDKs and the consumer’s application become resilient to these kinds of failures. Note that some services charge real money for each request and so consumers should be able to disable retries entirely if they prefer to save money over resiliency.
 
 ### Policy configuration
 

@@ -6,10 +6,10 @@ metadata:
   author: stephen-sumner
   ms.author: keschlob
   ms.reviewer: ssumner
-  ms.date: 07/17/2023
-  ms.topic: reference-architecture
+  ms.date: 04/15/2024
+  ms.topic: azure-guide
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: azure-guide
   ms.custom:
     - devx-track-dotnet
 azureCategories:

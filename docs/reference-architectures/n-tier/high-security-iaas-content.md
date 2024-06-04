@@ -6,7 +6,7 @@ Also see [Azure virtual machines security overview](/azure/security/fundamentals
 
 ## Azure VMs
 
-Azure's compute platform is based on machine virtualization. A *hypervisor* runs on the physical hardware of each Azure node or network endpoint, and creates a variable number of guest [Hyper-V virtual machines](/virtualization/hyper-v-on-windows/about/) (VMs) in the node. All user code executes on the VMs. For basic Azure VM deployment instructions, see [Run a Linux VM on Azure](./linux-vm.yml) or [Run a Windows VM on Azure](./windows-vm.yml). Most deployment processes are the same for the two operating systems (OSs), but OS-specific tools like disk encryption may differ.
+Azure's compute platform is based on machine virtualization. A *hypervisor* runs on the physical hardware of each Azure node or network endpoint, and creates a variable number of guest [Hyper-V virtual machines (VMs)](/virtualization/hyper-v-on-windows/about/) in the node. All user code executes on the VMs. For basic Azure VM deployment instructions, see [Run a Linux VM on Azure](./linux-vm.yml) or [Run a Windows VM on Azure](./windows-vm.yml). Most deployment processes are the same for the two operating systems (OSs), but OS-specific tools like disk encryption may differ.
 
 You can use [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) for VM patch management and to deploy and monitor [antimalware tools](/azure/security-center/security-center-install-endpoint-protection). Alternatively, you can manage your own or third-party patching and antimalware tools, which is common when extending or migrating existing infrastructures to Azure.
 
@@ -16,7 +16,7 @@ Microsoft provides Basic *distributed denial of service (DDoS)* protection as pa
 
 Many IaaS applications consist of multiple tiers, such as a web tier, business tier, and data tier, which are hosted across multiple VMs. Key aspects of deploying *n-tier* app architectures on Azure VMs include:
 
-- **High availability** (HA). HA apps must be available more than 99.9% of the time. Placing in-tier VMs in different Azure [availability zones](/azure/availability-zones/az-overview) (AZs) ensures HA, because AZs span one or more datacenters, providing resiliency through resistance to datacenter failure. Regions that don't support AZs can use [availability sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (ASs), which distribute VMs across multiple isolated hardware nodes.
+- **High availability (HA)**. HA apps must be available more than 99.9% of the time. Placing in-tier VMs in different Azure [availability zones](/azure/availability-zones/az-overview) ensures HA, because availability zones span one or more datacenters, providing resiliency through resistance to datacenter failure. Regions that don't support availability zones can use [availability sets](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), which distribute VMs across multiple isolated hardware nodes.
 - **Load balancing**. [Load balancers](/azure/load-balancer/load-balancer-get-started-internet-arm-cli) distribute traffic among VMs, to balance load and for resiliency when a VM fails. You don't need load balancers if the application manages load balancing and the individual VMs are known to the caller.
 - **Virtual networks**. [Virtual networks](/azure/virtual-network/) and subnets segment your network, enabling easier security management and advanced routing.
 - **Domain Name System (DNS)**. [Azure DNS](/azure/dns/) provides a highly available and secure DNS service. A [private zone](/azure/dns/private-dns-overview) in Azure DNS lets you use custom domains inside your virtual networks.
@@ -37,7 +37,7 @@ For highly sensitive workloads, you can add additional protection against side-c
 
 Isolated VMs are large VM sizes that are isolated to a specific hardware type and dedicated to a single customer. Using an isolated VM size guarantees that your VM is the only one running on a specific server instance. You can further subdivide the resources of isolated VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
-The minimum size of an isolated VM is 64 virtual CPU cores and 256 GiB of memory. These VMs are far larger than most n-tier applications require, and can create a large cost overhead. To reduce the overhead, you can run multiple app tiers on a single VM with nested virtualization, or in different processes or containers. You still need to deploy different VMs in AZs for resiliency, and run [demilitarized zone (DMZ) appliances](#deploy-a-dmz) on separate VMs. Combining multiple apps on one infrastructure for economic reasons might also conflict with organizational app segregation policies.
+The minimum size of an isolated VM is 64 virtual CPU cores and 256 GiB of memory. These VMs are far larger than most n-tier applications require, and can create a large cost overhead. To reduce the overhead, you can run multiple app tiers on a single VM with nested virtualization, or in different processes or containers. You still need to deploy different VMs in availability zones for resiliency, and run [demilitarized zone (DMZ) appliances](#deploy-a-dmz) on separate VMs. Combining multiple apps on one infrastructure for economic reasons might also conflict with organizational app segregation policies.
 
 As Azure region capabilities expand over time, Azure may also remove isolation guarantees from certain VM sizes, with one year's notice.
 
@@ -81,7 +81,7 @@ Key Vault can also store keys for network protocols that don't use certificates.
 
 ## Network security
 
-[Network security groups](/azure/virtual-network/security-overview) (NSGs) filter traffic between resources in Azure virtual networks. NSG security rules allow or deny network traffic to or from Azure resources based on IP addresses and ports. By default, NSGs block inbound traffic from the internet, but allow outbound connections from VMs to the internet. To prevent accidental outbound traffic, add a custom rule with the lowest possible priority, 4096, to block all inbound and outbound traffic. You can then add higher-priority rules to allow specific traffic.
+[Network security groups (NSGs)](/azure/virtual-network/security-overview) filter traffic between resources in Azure virtual networks. NSG security rules allow or deny network traffic to or from Azure resources based on IP addresses and ports. By default, NSGs block inbound traffic from the internet, but allow outbound connections from VMs to the internet. To prevent accidental outbound traffic, add a custom rule with the lowest possible priority, 4096, to block all inbound and outbound traffic. You can then add higher-priority rules to allow specific traffic.
 
 NSGs create flow records for existing connections, and allow or deny communication based on the flow record's connection state. The flow record allows an NSG to be stateful. For example, if you specify an outbound security rule to any address over port 443, it's not necessary to also specify an inbound security rule for the response. You only need to specify an inbound security rule if the communication is initiated externally.
 
@@ -93,7 +93,7 @@ You can use NVAs like [Azure Firewall](/azure/firewall/overview) to allow, block
 
 ### Application security groups
 
-To filter traffic between application tiers within a virtual network, use [Application security groups](/azure/virtual-network/application-security-groups) (ASGs). ASGs let you configure network security as an extension of an application's structure, letting you group VMs and define network security policies based on the groups. You can reuse your security policy at scale without manually maintaining explicit IP addresses.
+To filter traffic between application tiers within a virtual network, use [Application security groups (ASGs)](/azure/virtual-network/application-security-groups). ASGs let you configure network security as an extension of an application's structure, letting you group VMs and define network security policies based on the groups. You can reuse your security policy at scale without manually maintaining explicit IP addresses.
 
 ![Application security groups](images/asg.png)
 
@@ -156,7 +156,7 @@ Securing your highly sensitive IaaS apps requires more than just deploying the c
 
 To deploy workloads in Azure, you need one or more *management accounts*. Securing management accounts is critical to securing your workloads. For more information, see [Secure privileged access for hybrid and cloud deployments in Microsoft Entra ID](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
-Use the resources in your management subnet to grant app tier access only to people who need to manage that tier. For example, you can use [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) with Microsoft Entra ID. However, for cloud-native scenarios, Microsoft Entra [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM) is preferred.
+Use the resources in your management subnet to grant app tier access only to people who need to manage that tier. For example, you can use [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) with Microsoft Entra ID. However, for cloud-native scenarios, Microsoft Entra [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) is preferred.
 
 There are several other ways to control Azure roles and policies:
 

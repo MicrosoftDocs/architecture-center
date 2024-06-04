@@ -101,11 +101,11 @@ Currently, you might need to use multiple portals to manage Microsoft Defender X
 
 :::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
-*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1) and from Defender for Endpoint (2). However, as of March 2022, you can still access *protection.office.com* for security functionalities regarding Office 365 (3). For Defender for Endpoint, if you try to access the old portal, *securitycenter.windows.com*, you're redirected to the new portal at *security.microsoft.com* (7).
+*Security.microsoft.com* is currently the most important portal available because it brings functionalities from Microsoft Defender for Office 365 (1) and from Defender for Endpoint (2). However, as of March 2022, you can still access `protection.office.com` for security functionalities regarding Office 365 (3). For Defender for Endpoint, if you try to access the old portal, `securitycenter.windows.com`, you're redirected to the new portal at `security.microsoft.com` (7).
 
-The primary use of *Portal.cloudappsecurity.com* is to manage (4) Defender for Cloud Apps. It allows you to manage cloud apps and some apps that run on-premises, manage unauthorized apps (shadow IT), and review user signals from Identity Protection. You can also use this portal to manage many signals and features from (5) Identity protection on-premises, which allows you to consolidate many functions from (6) *portal.atp.azure.com* on (4) the portal for Defender for Cloud Apps. However, you can still access (6) *portal.atp.azure.com* if you need it.
+The primary use of `portal.cloudappsecurity.com` is to manage (4) Defender for Cloud Apps. It allows you to manage cloud apps and some apps that run on-premises, manage unauthorized apps (shadow IT), and review user signals from Identity Protection. You can also use this portal to manage many signals and features from (5) Identity protection on-premises, which allows you to consolidate many functions from (6) `portal.atp.azure.com` on (4) the portal for Defender for Cloud Apps. However, you can still access (6) `portal.atp.azure.com` if you need it.
 
-Lastly, *endpoint.microsoft.com* provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because *security.microsoft.com* and *endpoint.microsoft.com* deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
+Lastly, `endpoint.microsoft.com` provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because `security.microsoft.com` and `endpoint.microsoft.com` deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
 
 ### Components
 
@@ -119,11 +119,11 @@ The example architecture in this article uses the following Azure components:
 
 - [Virtual machines](https://azure.microsoft.com/services/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
-- [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service) (AKS) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
+- [Azure Kubernetes service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, continuous integration/continuous delivery (CI/CD), and enterprise-grade security and governance.
 
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
 
-- [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+- [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 
@@ -133,14 +133,14 @@ The example architecture in this article uses the following Azure components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
 - [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
-Other contributors: 
+Other contributors:
 
- * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
 ## Next steps
 

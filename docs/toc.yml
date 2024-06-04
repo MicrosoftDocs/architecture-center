@@ -201,6 +201,8 @@ items:
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
+        - name: Vector search
+          href: guide/technology-choices/vector-search.md
       - name: Data movement
         items:
         - name: Pipeline orchestration
@@ -983,6 +985,8 @@ items:
         href: solution-ideas/articles/logical-data-warehouse.yml
       - name: Manage data across the Azure SQL estate
         href: solution-ideas/articles/azure-purview-sql-estate-architecture.yml
+      - name: Manage event data with HDInsight and Delta Lake
+        href: solution-ideas/articles/hdinsight-kafka-spark-delta-lake.yml
       - name: Modern analytics with Azure Databricks
         href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
       - name: Oil and Gas tank level forecasting
@@ -1043,10 +1047,8 @@ items:
         href: example-scenario/blockchain/multi-cloud-blockchain.yml
     - name: Solution ideas
       items:
-      - name: Blockchain workflow application
-        href: https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
-      - name: Supply chain management with QBS
-        href: guide/blockchain/quorum-blockchain-service.yml
+      - name: Supply chain management with Kaleido
+        href: guide/blockchain/blockchain-service.yml
       - name: Supply chain track and trace
         href: solution-ideas/articles/supply-chain-track-and-trace.yml
   - name: Compute + HPC
@@ -1061,116 +1063,6 @@ items:
         href: guide/sas/sas-overview.yml
       - name: SAS Grid on Azure NetApp Files
         href: guide/hpc/netapp-files-sas.yml
-      - name: HPC deployments
-        items:
-        - name: Overview
-          href: guide/hpc/hpc-deployments.md
-        - name: ADS CFD Code Leo
-          href: guide/hpc/hpc-ads-cfd.yml
-        - name: Altair deployments
-          items:
-          - name: Altair AcuSolve
-            href: guide/hpc/hpc-altair-acusolve.yml
-          - name: Altair EDEM
-            href: guide/hpc/altair-edem.yml
-          - name: Altair nanoFluidX
-            href: guide/hpc/nanofluidx.yml
-          - name: Altair Radioss
-            href: guide/hpc/altair-radioss.yml
-          - name: Altair ultraFluidX
-            href: guide/hpc/ultrafluidx.yml
-        - name: Ansys deployments
-          items:
-          - name: Ansys CFX
-            href: guide/hpc/ansys-cfx.yml
-          - name: Ansys Fluent
-            href: guide/hpc/ansys-fluent.yml
-          - name: Ansys HFSS
-            href: guide/hpc/ansys-hfss.yml
-          - name: Ansys LS-DYNA
-            href: guide/hpc/ls-dyna.yml
-          - name: Ansys Rocky
-            href: guide/hpc/ansys-rocky.yml
-          - name: Ansys Speos
-            href: guide/hpc/ansys-speos.yml
-        - name: Autodesk deployments
-          items:
-          - name: Autodesk Civil 3D
-            href: guide/hpc/civil-3d.yml
-          - name: Autodesk Inventor
-            href: guide/hpc/autodesk-inventor.yml
-          - name: Autodesk Maya
-            href: guide/hpc/autodesk-maya.yml
-          - name: Autodesk Revit
-            href: guide/hpc/hpc-autodesk-revit.yml
-          - name: Autodesk VRED
-            href: guide/hpc/hpc-autodesk-vred.md
-          - name: Autodesk VRED Core
-            href: guide/hpc/autodesk-vred-core.yml
-        - name: AVL FIRE M
-          href: guide/hpc/hpc-avl-fire-m.yml
-        - name: Barracuda Virtual Reactor
-          href: guide/hpc/barracuda-virtual-reactor.yml
-        - name: CP2K
-          href: guide/hpc/cp2k.yml
-        - name: Devito
-          href: guide/hpc/devito-virtual-machine.yml
-        - name: Engys deployments
-          items:
-          - name: Engys ELEMENTS
-            href: guide/hpc/engys-elements.yml
-          - name: Engys HELYX
-            href: guide/hpc/engys-helyx.yml
-        - name: EPILYSIS
-          href: guide/hpc/epilysis.yml
-        - name: GROMACS
-          href: guide/hpc/gromacs.yml
-        - name: Indica Labs HALO AI
-          href: guide/hpc/indica-labs-halo-ai.yml
-        - name: LAMMPS
-          href: guide/hpc/hpc-lammps.yml
-        - name: Luxion KeyShot
-          href: guide/hpc/luxion-keyshot.yml
-        - name: M-Star
-          href: guide/hpc/m-star.yml
-        - name: NAMD
-          href: guide/hpc/hpc-namd.yml
-        - name: OpenFOAM
-          href: guide/hpc/openfoam.yml
-        - name: OpenRadioss
-          href: guide/hpc/openradioss.yml
-        - name: PSCAD
-          href: guide/hpc/pscad.yml
-        - name: Quantum ESPRESSO
-          href: guide/hpc/quantum-espresso.yml
-        - name: Remcom XFdtd
-          href: guide/hpc/remcom-xfdtd.yml
-        - name: Samadii deployments
-          items:
-          - name: Samadii DEM
-            href: guide/hpc/samadii-dem.yml
-          - name: Samadii EM
-            href: guide/hpc/samadii-em.yml
-          - name: Samadii Plasma
-            href: guide/hpc/plasma.yml
-          - name: Samadii SCIV
-            href: guide/hpc/samadii-sciv.yml
-        - name: Sandi HiFUN
-          href: guide/hpc/hpc-sandi-hifun.yml
-        - name: Siemens deployments
-          items:
-          - name: Siemens NX
-            href: guide/hpc/siemens-nx.yml
-          - name: Siemens Tecnomatix
-            href: guide/hpc/siemens-tecnomatix.yml
-        - name: tNavigator
-          href: guide/hpc/tnavigator.yml
-        - name: Turbostream
-          href: guide/hpc/turbostream.yml
-        - name: Visiopharm
-          href: guide/hpc/visiopharm.yml
-        - name: WRF
-          href: guide/hpc/weather-research-forecasting.yml
       - name: Industry guidance
         items:
         - name: Risk grid computing solution
@@ -1728,8 +1620,6 @@ items:
           href: solution-ideas/articles/serverless-event-processing-aks.yml
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-        - name: De-batch and filter with Event Hubs
-          href: solution-ideas/articles/serverless-event-processing-filtering.yml
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: Instant broadcasting with serverless
@@ -2020,6 +1910,8 @@ items:
       - name: Microsoft Entra architecture
         href: /azure/active-directory/fundamentals/active-directory-architecture
         maintainContext: true
+      - name: Cross-tenant communication
+        href: patterns/cross-tenant-communication-using-multitenanted-applications.md
       - name: Identity and access management in Azure
         href: /security/compass/identity
         maintainContext: true
@@ -2366,7 +2258,7 @@ items:
         - name: IBM System i to Azure using Infinite i
           href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
         - name: IBM z/OS migration with Avanade AMT
-          href: example-scenario/mainframe/asysco-zos-migration.yml
+          href: example-scenario/mainframe/avanade-amt-zos-migration.yml
         - name: IBM z/OS online transaction processing
           href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
         - name: Implement Azure DevOps for IBM Z mainframe applications
@@ -2430,8 +2322,8 @@ items:
           href: example-scenario/mainframe/mainframe-replication-precisely-connect.yml
         - name: Mainframe data replication with Qlik
           href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
-        - name: Mainframe data replication with tcVISION
-          href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
+        - name: Mainframe data replication with RDRS
+          href: example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml
         - name: Mainframe file and tape backup to Azure using Luminex
           href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
         - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
@@ -2985,7 +2877,7 @@ items:
         maintainContext: true
       - name: Inbound and outbound internet connections for SAP on Azure
         href: guide/sap/sap-internet-inbound-outbound.yml
-      - name: SAP workload configurations with AZs
+      - name: SAP workload configurations with availability zones
         href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
         maintainContext: true
       - name: Supported scenarios for HLI
@@ -3135,8 +3027,6 @@ items:
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
-      - name: SQL Managed Instance with CMK
-        href: databases/architecture/sql-managed-instance-cmk.yml
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.yml
     - name: Solution ideas

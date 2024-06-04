@@ -65,7 +65,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[IBM z/OS mainframe migration with Avanade AMT](../example-scenario/mainframe/asysco-zos-migration.yml)|Learn how to use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.|Mainframe|
+|[IBM z/OS mainframe migration with Avanade AMT](../example-scenario/mainframe/avanade-amt-zos-migration.yml)|Learn how to use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.|Mainframe|
 |[Unisys mainframe migration with Avanade AMT](../reference-architectures/migration/unisys-mainframe-migration.yml)|Learn options for using the AMT framework to migrate Unisys mainframe workloads to Azure.|Mainframe|
 
 ## CluedIn

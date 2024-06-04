@@ -263,7 +263,7 @@ This graph shows the results of load testing. Median response time is measured i
 
 ### Monitor the application
 
-You can use an application performance monitoring (APM) package to capture and analyze the key metrics that might identify chatty I/O. Which metrics are important will depend on the I/O workload. For this example, the interesting I/O requests were the database queries.
+You can use an application performance management (APM) package to capture and analyze the key metrics that might identify chatty I/O. Which metrics are important will depend on the I/O workload. For this example, the interesting I/O requests were the database queries.
 
 The following image shows results generated using [New Relic APM][new-relic]. The average database response time peaked at approximately 5.6 seconds per request during the maximum workload. The system was able to support an average of 410 requests per minute throughout the test.
 

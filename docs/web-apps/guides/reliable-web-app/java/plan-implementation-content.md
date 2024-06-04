@@ -128,9 +128,9 @@ Choose the best load balancer for your web app. Azure has several load balancers
 
 ### Web application firewall
 
-Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) (WAF) is Azure's web application firewall and provides centralized protection of from common web exploits and vulnerabilities.
+Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) is Azure's web application firewall (WAF) and provides centralized protection of from common web exploits and vulnerabilities.
 
-*Example:* Contoso Fiber chose the Web Application Firewall for the following benefits:
+*Example:* Contoso Fiber chose Web Application Firewall for the following benefits:
 
 - *Global protection.* It provides increased global web app protection without sacrificing performance.
 
@@ -190,7 +190,7 @@ Ensure data reliability by distributing it across Azure's regions and availabili
 
 - *Create a failover plan.* Develop a failover (disaster recovery) plan outlining response strategies to outages, determined by downtime or functionality loss. Specify the recovery time objectives (RTO) for maximum acceptable downtime. Ensure the failover process is quicker than RTO. Decide on automated or manual failover mechanisms for consistency and control, and detail the return to normal operations process. Test the failover plan to ensure effectiveness.
 
-*Example:* For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read-replica in the passive region. Contoso Fiber created a [sample failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md). The Azure Database for PostgreSQL read replica are central to Contoso Fiber's failover plan.
+*Example:* For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read-replica in the passive region.
 
 ## Next step
 

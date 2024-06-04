@@ -32,13 +32,13 @@ This architecture consists of the following services:
 
 ## MLOps Pipeline
 
-This solution demonstrates end-to-end automation of various stages of an AI project using tools that are already familiar to software engineers. The machine learning problem is simple to keep the focus on the DevOps pipeline. The solution uses the [scikit-learn diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) and builds a ridge linear regression model to predict the likelihood of diabetes. 
+This solution demonstrates end-to-end automation of various stages of an AI project using tools that are already familiar to software engineers. The machine learning problem is simple to keep the focus on the DevOps pipeline. The solution uses the [scikit-learn diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) and builds a ridge linear regression model to predict the likelihood of diabetes.
 
 This solution is based on the following three pipelines:
 
-- **Build pipeline**. Builds the code and runs a suite of tests.
-- **Retraining pipeline**. Retrains the model on a schedule or when new data becomes available.
-- **Release pipeline**. Operationalizes the scoring image and promotes it safely across different environments.
+- **Build pipeline.** Builds the code and runs a suite of tests.
+- **Retraining pipeline.** Retrains the model on a schedule or when new data becomes available.
+- **Release pipeline.** Operationalizes the scoring image and promotes it safely across different environments.
 
 The next sections describe each of these pipelines.
 
@@ -72,7 +72,7 @@ This pipeline covers the following steps:
 
 - **Evaluate model.** A simple evaluation test compares the new model with the existing model. Only when the new model is better does it get promoted. Otherwise, the model is not registered and the pipeline is canceled.
 
-- **Register model.** The retrained model is registered with the [Azure ML Model registry](/azure/machine-learning/service/concept-azure-machine-learning-architecture). This service provides version control for the models along with metadata tags so they can be easily reproduced.
+- **Register model.** The retrained model is registered with the [Azure Machine Learning Model registry](/azure/machine-learning/service/concept-azure-machine-learning-architecture). This service provides version control for the models along with metadata tags so they can be easily reproduced.
 
 ### Release pipeline
 
@@ -114,7 +114,7 @@ Ideally, have your build pipeline finish quickly and execute only unit tests and
 
 The release pipeline publishes a real-time scoring web service. A release to the QA environment is done using Container Instances for convenience, but you can use another Kubernetes cluster running in the QA/staging environment.
 
-Scale the production environment according to the size of your Azure Kubernetes Service cluster. The size of the cluster depends on the load you expect for the deployed scoring web service. For real-time scoring architectures, throughput is a key optimization metric. For non-deep learning scenarios, the CPU should be sufficient to handle the load; however, for deep learning workloads, when speed is a bottleneck, GPUs generally provide better performance compared to CPUs. Azure Kubernetes Service supports both CPU and GPU node types, which is the reason this solution uses it for image deployment. For more information, see [GPUs vs CPUs for deployment of deep learning models.](https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/)
+Scale the production environment according to the size of your Azure Kubernetes Service cluster. The size of the cluster depends on the load you expect for the deployed scoring web service. For real-time scoring architectures, throughput is a key optimization metric. For non-deep learning scenarios, the CPU should be sufficient to handle the load; however, for deep learning workloads, when speed is a bottleneck, GPUs generally provide better performance compared to CPUs. Azure Kubernetes Service supports both CPU and GPU node types, which is the reason this solution uses it for image deployment. For more information, see [GPUs vs CPUs for deployment of deep learning models](https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/).
 
 Scale the retraining pipeline up and down depending on the number of nodes in your Azure Machine Learning Compute resource, and use the [autoscaling](/azure/machine-learning/service/how-to-set-up-training-targets#persistent) option to manage the cluster. This architecture uses CPUs. For deep learning workloads, GPUs are a better choice and are supported by Azure Machine Learning Compute.
 
@@ -142,11 +142,11 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - Praneet Singh Solanki | Senior Software Engineer
+- Praneet Singh Solanki | Senior Software Engineer
 
 ## Next steps
 

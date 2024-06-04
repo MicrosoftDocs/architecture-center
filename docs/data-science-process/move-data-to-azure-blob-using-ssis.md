@@ -8,6 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
@@ -56,7 +57,7 @@ To use the **SSIS connectors**, you must download:
 
 For installing SSIS, see [Install Integration Services (SSIS)](/sql/integration-services/install-windows/install-integration-services)
 
-For information on how to get up and running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS tutorial: Creating a simple ETL package](/sql/integration-services/ssis-how-to-create-an-etl-package).
+For information on how to get up and running using SISS to build simple extract, transform, load (ETL) packages, see [SSIS tutorial: Creating a simple ETL package](/sql/integration-services/ssis-how-to-create-an-etl-package).
 
 ## Download NYC Taxi dataset
 

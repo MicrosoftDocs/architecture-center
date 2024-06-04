@@ -7,6 +7,7 @@ metadata:
   ms.author: pnp
   ms.date: 11/29/2022
   ms.topic: solution-idea
+  ms.collection: ce-skilling-ai-copilot  
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -36,4 +37,4 @@ products:
   - azure-stack-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected-thumbnail.png
 content: |
-  [!include[](ai-at-the-edge-disconnected-content.md)]
+  [!INCLUDE[](ai-at-the-edge-disconnected-content.md)]

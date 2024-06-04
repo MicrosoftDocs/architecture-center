@@ -29,7 +29,7 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 ### Components
 
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical web apps at scale
+* [Web Apps](/azure/well-architected/service-guides/app-service-web-apps): Quickly create and deploy mission critical web apps at scale
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision virtual machines for Ubuntu, Red Hat, and more
 * [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
