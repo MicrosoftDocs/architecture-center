@@ -8,7 +8,7 @@ For more information about how to migrate Skytap to Azure, see [Migrate IBM i Se
 
 :::image type="content" source="media/deploy-ibm-power-in-skytap-on-azure.svg" alt-text="Diagram of an example scenario that demonstrates how to use Azure NetApp Files with workloads in Skytap on Azure." lightbox="media/deploy-ibm-power-in-skytap-on-azure.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-power-in-skytap-on-azure) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-power-in-skytap-on-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -139,7 +139,7 @@ You can scale compute performance by adding capacity to LPARs that run in Skytap
 
 You can also dynamically scale storage of Azure NetApp Files volumes. If you use [automatic QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations), performance is scaled at the same time. For more granular control of each volume, use [manual QoS](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput) to control the performance of each volume separately for your capacity pools.
 
-Azure NetApp Files volumes are available in [Ultra, Premium, and Standard performance tiers](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). Choose the tier that best suits your performance requirements by taking into account that available performance bandwidth [scales with the size of a volume](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). You can [change the service level of a volume](https://docs.netapp.com/cloud-manager-azure-netapp-files/task-manage-volumes.html#:~:text=Change%20the%20volume%E2%80%99s%20service%20level%201%20Open%20the,service%20level%20that%20you%20want.%204%20Click%20Change.) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [pricing examples](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
+Azure NetApp Files volumes are available in [Ultra, Premium, and Standard performance tiers](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). Choose the tier that best suits your performance requirements by taking into account that available performance bandwidth [scales with the size of a volume](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). You can [change the service level of a volume](https://docs.netapp.com/us-en/occm37/task_manage_anf.html) at any time without disruption to storage operations. For more information about the Azure NetApp Files cost model, see [pricing examples](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
 Check out the [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/sizer) to get started.
 
