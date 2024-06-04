@@ -7,6 +7,18 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 [![Diagram that shows the ARO Hybrid architecture FSI scenario.](./images/fsi-architecture.png)](./images/fsi-architecture.png#lightbox)
 <!-- *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.* -->
 
+### Data Flow
+
+This scenario covers an application running on an ARO cluster with connectivity to resources on-premises and in a hub virtual network on Azure that is protected by Azure Firewall. The data flow is as follows:
+
+- The developer writes code within the company's network and pushes the code to a code repository. In this case, the code repository used is GitHub Enterprise.
+- The customer's deployment pipeline takes the code and containerizes it, deploying it in an on-premises container registry.
+- This image can then be deployed into an on-premises OpenShift Cluster and extended to an ARO cluster on Azure.
+- The image also gets deployed to ARO via ExpressRoute, which routes the traffic through the Hub Azure Virtual Network to the private ARO cluster in the Spoke Virtual network. These two networks are peered.
+- Traffic coming from the ARO cluster is first routed through the peered Hub Virtual Network and through an Azure Firewall instance.
+- Customers can access the application by accessing a web address that directs traffic to Azure Front Door.
+- Azure Front door is connected to the private ARO cluster using Private Link services.
+
 ### Components
 
 - [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat and is the primary compute platform in this architecture.
