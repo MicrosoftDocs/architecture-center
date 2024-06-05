@@ -5,7 +5,7 @@ metadata:
   description: Learn how to secure Azure Kubernetes Service using end-to-end TLS encryption, Azure Front Door Premium, Azure Kubernetes Service, Azure Private Link Service, and NGINX Ingress Controller.
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 05/28/2024
+  ms.date: 06/05/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
