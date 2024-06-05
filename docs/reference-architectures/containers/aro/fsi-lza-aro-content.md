@@ -5,7 +5,6 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 ## Architecture
 
 [![Diagram that shows the ARO Hybrid architecture FSI scenario.](./images/fsi-architecture.png)](./images/fsi-architecture.png#lightbox)
-<!-- *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.* -->
 
 ### Data Flow
 
