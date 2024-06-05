@@ -52,6 +52,8 @@ Watch this short video to learn how Microsoft 365 apps and services can help you
 
 > [!VIDEO https://www.youtube.com/embed/d6p_aKM1M3o]
 
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
+
 ## Solutions across Azure and Microsoft 365
 
 The following articles provide detailed analysis of solutions that feature integration between Azure and Microsoft 365.
