@@ -90,22 +90,22 @@
 		.st75 {fill:#819fb8;fill-opacity:1;stroke:#819fb8;stroke-opacity:1;stroke-width:0.16556291390728}
 		.st76 {fill:#326ce5}
 		.st77 {fill:#ffffff}
-		.st78 {fill:url(#grad0-845);stroke:none;stroke-width:0.75}
+		.st78 {fill:url(#grad0-846);stroke:none;stroke-width:0.75}
 		.st79 {fill:#b4ec36;stroke:none;stroke-width:0.75}
 		.st80 {fill:#5ea0ef;stroke:none;stroke-width:0.75}
-		.st81 {fill:url(#grad0-864);stroke:none;stroke-width:0.75}
-		.st82 {fill:url(#grad0-868);stroke:none;stroke-width:0.75}
+		.st81 {fill:url(#grad0-865);stroke:none;stroke-width:0.75}
+		.st82 {fill:url(#grad0-869);stroke:none;stroke-width:0.75}
 		.st83 {fill:#1490df;stroke:none;stroke-width:0.75}
 		.st84 {stroke:#00b050;stroke-dasharray:1,2;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
-		.st85 {fill:url(#grad7-969);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st85 {fill:url(#grad7-970);stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st86 {fill:#83b9f9;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st87 {fill:url(#grad0-977);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st87 {fill:url(#grad0-978);stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st88 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st89 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st90 {fill:#821010;stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st91 {fill:#e62323;stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st92 {fill:#ff7381;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st93 {fill:url(#grad0-1041);stroke:none;stroke-linecap:butt;stroke-width:33.9999}
+		.st93 {fill:url(#grad0-1042);stroke:none;stroke-linecap:butt;stroke-width:33.9999}
 		.st94 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:33.9999}
 		.st95 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:33.9999}
 		.st96 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
@@ -179,31 +179,31 @@
 			<stop offset="0.41" stop-color="#32d2f2" stop-opacity="1"/>
 			<stop offset="0.78" stop-color="#32d4f5" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-845" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+		<linearGradient id="grad0-846" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
 			<stop offset="0" stop-color="#5e9624" stop-opacity="1"/>
 			<stop offset="0.02" stop-color="#5f9724" stop-opacity="1"/>
 			<stop offset="1" stop-color="#76bc2d" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-864" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+		<linearGradient id="grad0-865" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
 			<stop offset="0.23" stop-color="#5ea0ef" stop-opacity="1"/>
 			<stop offset="0.93" stop-color="#127fd9" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-868" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+		<linearGradient id="grad0-869" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
 			<stop offset="0.02" stop-color="#5ea0ef" stop-opacity="1"/>
 			<stop offset="0.93" stop-color="#127fd9" stop-opacity="1"/>
 		</linearGradient>
-		<radialGradient id="grad7-969" cx="0" cy="0" r="1.4">
+		<radialGradient id="grad7-970" cx="0" cy="0" r="1.4">
 			<stop offset="0.185" stop-color="#5ea0ef" stop-opacity="1"/>
 			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
 		</radialGradient>
-		<linearGradient id="grad0-977" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.44863169121 0.5 0.5)">
+		<linearGradient id="grad0-978" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.44863169121 0.5 0.5)">
 			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
 			<stop offset="0.125" stop-color="#d7d7d7" stop-opacity="1"/>
 			<stop offset="0.42" stop-color="#ebebeb" stop-opacity="1"/>
 			<stop offset="0.715" stop-color="#f8f8f8" stop-opacity="1"/>
 			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-1041" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+		<linearGradient id="grad0-1042" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
 			<stop offset="0" stop-color="#0078d4" stop-opacity="1"/>
 			<stop offset="0.82" stop-color="#5ea0ef" stop-opacity="1"/>
 		</linearGradient>
@@ -2630,28 +2630,28 @@
 						class="st8">workspace</tspan></text>		</g>
 		<g id="shape484-805" v:mID="484" v:groupContext="shape" transform="translate(573.512,-543.819)">
 			<title>Sheet.484</title>
-			<desc>Managed Grafana</desc>
+			<desc>Azure Managed Grafana</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="24.8032" cy="629.926" width="49.61" height="21.2598"/>
 			<rect x="0" y="619.296" width="49.6063" height="21.2598" class="st6"/>
-			<text x="4" y="627.23" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Managed <tspan x="4" dy="1.2em"
-						class="st8">Grafana</tspan></text>		</g>
-		<g id="shape485-809" v:mID="485" v:groupContext="shape" transform="translate(-88.3043,116.505) rotate(-90)">
+			<text x="4" y="621.83" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Azure <tspan x="4" dy="1.2em" class="st8">Managed </tspan><tspan
+						x="4" dy="1.2em" class="st8">Grafana</tspan></text>		</g>
+		<g id="shape485-810" v:mID="485" v:groupContext="shape" transform="translate(-88.3043,116.505) rotate(-90)">
 			<title>Sheet.485</title>
 			<path d="M5.8 640.56 L6.16 640.56 L23.6 640.56" class="st69"/>
 		</g>
-		<g id="shape496-814" v:mID="496" v:groupContext="shape" transform="translate(134.142,-294.874)">
+		<g id="shape496-815" v:mID="496" v:groupContext="shape" transform="translate(134.142,-294.874)">
 			<title>Sheet.496</title>
 			<desc>HTTPS</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.7165" cy="633.469" width="35.44" height="14.1732"/>
 			<rect x="0" y="626.383" width="35.4331" height="14.1732" class="st6"/>
 			<text x="6.13" y="636.17" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>HTTPS</text>		</g>
-		<g id="shape508-817" v:mID="508" v:groupContext="shape" transform="translate(-88.1374,273.902) rotate(-90)">
+		<g id="shape508-818" v:mID="508" v:groupContext="shape" transform="translate(-88.1374,273.902) rotate(-90)">
 			<title>Sheet.508</title>
 			<path d="M5.8 640.56 L6.16 640.56 L134.65 640.56" class="st69"/>
 		</g>
-		<g id="shape482-822" v:mID="482" v:groupContext="shape" transform="translate(539.625,-498.798)">
+		<g id="shape482-823" v:mID="482" v:groupContext="shape" transform="translate(539.625,-498.798)">
 			<title>Sheet.482</title>
 			<rect v:rectContext="foreign" x="0" y="615.303" width="25.2533" height="25.2533" class="st6"/>
 			<image x="0" y="615.303" width="25.2533" height="25.2533" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -2701,7 +2701,7 @@
 						UAAAAABJRU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="615.303" width="25.2533" height="25.2533" class="st6"/>
 		</g>
-		<g id="shape481-826" v:mID="481" v:groupContext="shape" transform="translate(540.846,-543.711)">
+		<g id="shape481-827" v:mID="481" v:groupContext="shape" transform="translate(540.846,-543.711)">
 			<title>Sheet.481</title>
 			<rect v:rectContext="foreign" x="0" y="616.223" width="22.8123" height="24.3331" class="st6"/>
 			<image x="0" y="616.223" width="22.8123" height="24.3331" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -2740,12 +2740,716 @@
 						RU5ErkJggg=="/>
 			<rect v:rectContext="foreign" x="0" y="616.223" width="22.8123" height="24.3331" class="st6"/>
 		</g>
-		<g id="shape509-830" v:mID="509" v:groupContext="shape" transform="translate(-88.3043,72.512) rotate(-90)">
+		<g id="shape509-831" v:mID="509" v:groupContext="shape" transform="translate(-88.3043,72.512) rotate(-90)">
 			<title>Sheet.509</title>
 			<path d="M5.8 640.56 L6.16 640.56 L22.13 640.56" class="st69"/>
 		</g>
-		<g id="shape478-835" v:mID="478" v:groupContext="shape" transform="translate(535.934,-583.895)">
+		<g id="shape478-836" v:mID="478" v:groupContext="shape" transform="translate(535.934,-583.895)">
 			<title>Sheet.478</title>
+			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
+			<switch>
+				<foreignObject x="0" y="607.321" width="32.6356" height="33.235"
+						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+					<v:foreignData v:orgSize="6272" v:data="data:metafile;base64,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
+								9un/+DTVTOSI="/>
+				</foreignObject>
+				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+				<svg viewBox="-0.70833 -0.70968 347.08 354.13" height="33.235" preserveAspectRatio="none" width="32.6356" x="0"
+						y="607.321">
+					<clipPath id="mfid1">
+						<rect x="-0.70833" y="-0.70968" width="347.08" height="354.13" id="mfid2"/>
+					</clipPath>
+					<g clip-path="url(#mfid1)">
+						<mask id="mfid3">
+							<rect width="347" height="354" fill="white" stroke="none"/>
+						</mask>
+						<mask id="mfid4" fill="white" stroke="none">
+							<g>
+								<g mask="url(#mfid3)">
+									<use xlink:href="#mfid2"/>
+								</g>
+							</g>
+						</mask>
+						<!-- GetDC -->
+						<mask id="mfid5" fill-rule="evenodd" fill="white" stroke="none">
+							<rect x="0" y="0" width="347" height="354"/>
+						</mask>
+						<!-- Released DC -->
+						<defs>
+							<path id="mfid6" d="M0,0 L528830,0 L528830,539500 L0,539500 Z"/>
+						</defs>
+						<mask id="mfid7">
+							<use xlink:href="#mfid6" fill-rule="evenodd" fill="white" stroke="none"
+									transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
+						</mask>
+						<mask id="mfid8" fill="white" stroke="none">
+							<g mask="url(#mfid4)">
+								<g mask="url(#mfid7)">
+									<use xlink:href="#mfid2"/>
+								</g>
+							</g>
+						</mask>
+						<defs>
+							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
+							<svg viewBox="-0.70833 -0.70968 48.167 49.204" height="49" id="mfid9" width="48">
+								<clipPath id="mfid10">
+									<rect x="-0.70833" y="-0.70968" width="48.167" height="49.204" id="mfid11"/>
+								</clipPath>
+								<g clip-path="url(#mfid10)">
+									<mask id="mfid12">
+										<rect width="48" height="49" fill="white" stroke="none"/>
+									</mask>
+									<mask id="mfid13" fill="white" stroke="none">
+										<g>
+											<g mask="url(#mfid12)">
+												<use xlink:href="#mfid11"/>
+											</g>
+										</g>
+									</mask>
+									<defs>
+										<path id="mfid14"
+												d="M30.253,33.281 C30.253,28.376 34.222,24.407 39.126,24.407 C44.031,24.407 48,28.376 48,33.281 L30.253,33.281 Z"/>
+									</defs>
+									<g mask="url(#mfid13)">
+										<g transform="matrix(1, 0, 0, 1, 0, 0)">
+											<g fill="#50e6ff">
+												<use xlink:href="#mfid14" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid15"
+															d="M44.098,17.031 C44.098,19.778 41.873,21.994 39.134,21.994 C36.396,21.994 34.171,19.77 34.171,17.031 C34.171,14.292 36.396,12.067 39.134,12.067 C41.873,12.067 44.098,14.292 44.098,17.031 Z"/>
+												</defs>
+												<use xlink:href="#mfid15" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid16"
+															d="M15.084,23.167 C15.084,18.263 19.053,14.294 23.958,14.294 C28.862,14.294 32.831,18.263 32.831,23.167 L15.084,23.167 Z"/>
+												</defs>
+											</g>
+											<g fill="#0078d7">
+												<use xlink:href="#mfid16" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid17"
+															d="M28.93,6.9214 C28.93,9.6686 26.705,11.885 23.966,11.885 C21.228,11.885 19.003,9.6602 19.003,6.9214 C19.003,4.1827 21.219,1.9579 23.958,1.9579 C26.697,1.9579 28.93,4.1827 28.93,6.9214 Z"/>
+												</defs>
+												<use xlink:href="#mfid17" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid18"
+															d="M15.084,46.082 C15.084,41.177 19.053,37.208 23.958,37.208 C28.862,37.208 32.831,41.177 32.831,46.082 L15.084,46.082 Z"/>
+												</defs>
+											</g>
+											<g fill="#50e6ff">
+												<use xlink:href="#mfid18" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid19"
+															d="M28.93,29.839 C28.93,32.587 26.705,34.803 23.966,34.803 C21.228,34.803 19.003,32.578 19.003,29.839 C19.003,27.101 21.228,24.876 23.966,24.876 C26.705,24.876 28.93,27.092 28.93,29.839 Z"/>
+												</defs>
+												<use xlink:href="#mfid19" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid20"
+															d="M0,33.281 C0,28.376 3.9691,24.407 8.8736,24.407 C13.778,24.407 17.747,28.376 17.747,33.281 L0,33.281 Z"/>
+												</defs>
+											</g>
+											<g fill="#0078d7">
+												<use xlink:href="#mfid20" fill-rule="nonzero" stroke="none"/>
+												<defs>
+													<path id="mfid21"
+															d="M13.846,17.031 C13.846,19.778 11.621,21.994 8.8824,21.994 C6.1437,21.994 3.919,19.77 3.919,17.031 C3.919,14.292 6.1352,12.067 8.874,12.067 C11.613,12.067 13.846,14.292 13.846,17.031 Z"/>
+												</defs>
+												<use xlink:href="#mfid21" fill-rule="nonzero" stroke="none"/>
+											</g>
+										</g>
+									</g>
+								</g>
+							</svg>
+						</defs>
+						<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
+						<g mask="url(#mfid8)">
+							<g transform="matrix(7.0576, 0, 0, 7.0512, 4.9992, 5.0041)">
+								<clipPath id="mfid22">
+									<rect x="-0.70833" y="-0.70968" width="49.167" height="50.204"/>
+								</clipPath>
+								<use xlink:href="#mfid9" clip-path="url(#mfid22)" transform="matrix(1, 0, 0, 1, -0.00000054958, 0)"/>
+							</g>
+						</g>
+						<mask id="mfid23">
+							<rect width="347" height="354" fill="white" stroke="none"/>
+						</mask>
+					</g>
+				</svg>
+			</switch>
+			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
+		</g>
+		<g id="shape510-839" v:mID="510" v:groupContext="shape" transform="translate(431.779,-253.268)">
+			<title>Sheet.510</title>
+			<desc>Internal load balancer</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="629.926" width="113.39" height="21.2598"/>
+			<rect x="0" y="619.296" width="113.386" height="21.2598" class="st6"/>
+			<text x="16.58" y="632.63" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Internal load balancer</text>		</g>
+		<g id="group512-842" transform="translate(477.263,-284.579)" v:mID="512" v:groupContext="group">
+			<title>Icon-networking-62.512</title>
+			<g id="shape513-843" v:mID="513" v:groupContext="shape">
+				<title>Sheet.513</title>
+				<path d="M0.23 628.81 L10.67 618.36 a0.747134 0.747134 0 0 1 1.07089 1.13687E-13 L22.19 628.81 a0.747134 0.747134
+							 0 0 1 7.10543E-15 1.07089 L11.73 640.34 a0.747134 0.747134 0 0 1 -1.04599 0 L0.23 629.88 a0.747134 0.747134
+							 0 0 1 -1.24345E-14 -1.07089 Z" class="st78"/>
+			</g>
+			<g id="shape514-847" v:mID="514" v:groupContext="shape" transform="translate(8.42518,-14.4465)">
+				<title>Sheet.514</title>
+				<path d="M5.52 637.57 L2.88 634.94 a0.149427 0.149427 -180 0 0 -0.199236 0 L0.04 637.57 a0.124522 0.124522 -180 0
+							 0 0.0996179 0.22414 L1.69 637.79 a0.136975 0.136975 0 0 1 0.136975 0.136975 L1.82 640.42 a0.136975 0.136975
+							 -180 0 0 0.136975 0.136975 L3.61 640.56 a0.136975 0.136975 -180 0 0 0.136975 -0.136975 L3.74 637.93
+							 a0.136975 0.136975 0 0 1 0.136975 -0.136975 L5.42 637.79 a0.124522 0.124522 -180 0 0 0.0996179 -0.22414
+							 Z" class="st79"/>
+			</g>
+			<g id="shape515-849" v:mID="515" v:groupContext="shape" transform="translate(2.33108,-8.6861)">
+				<title>Sheet.515</title>
+				<path d="M2.65 635.06 L0.04 637.71 a0.136975 0.136975 -180 0 0 -4.03844E-15 0.186784 L2.65 640.52 a0.136975 0.136975
+							 -180 0 0 0.236592 -0.0996179 L2.89 638.89 a0.136975 0.136975 0 0 1 0.136975 -0.136975 L5.52 638.76 a0.124522
+							 0.124522 -180 0 0 0.124522 -0.136975 L5.64 636.97 a0.124522 0.124522 -180 0 0 -0.0871657 -0.186784 L3.06
+							 636.79 a0.124522 0.124522 0 0 1 -0.136975 -0.124522 L2.93 635.16 a0.14575 0.14575 -180 1 0 -0.273949
+							 -0.0996179 Z" class="st79"/>
+			</g>
+			<g id="shape516-851" v:mID="516" v:groupContext="shape" transform="translate(14.5586,-8.69551)">
+				<title>Sheet.516</title>
+				<path d="M2.98 640.53 L5.63 637.89 a0.136975 0.136975 -180 0 0 -7.99361E-15 -0.186784 L2.98 635.07 a0.136975 0.136975
+							 -180 0 0 -0.22414 0.0996179 L2.75 636.72 a0.124522 0.124522 0 0 1 -0.136975 0.124522 L0.12 636.85 a0.124522
+							 0.124522 -180 0 0 -0.124522 0.136975 L0 638.63 a0.124522 0.124522 -180 0 0 0.124522 0.136975 L2.61 638.76
+							 a0.136975 0.136975 0 0 1 0.136975 0.136975 L2.75 640.45 a0.136975 0.136975 -180 0 0 0.22414 0.0871657
+							 Z" class="st79"/>
+			</g>
+			<g id="shape517-853" v:mID="517" v:groupContext="shape" transform="translate(9.11699,-2.68015)">
+				<title>Sheet.517</title>
+				<path d="M5.57 632.03 A3.47417 3.47417 -180 1 0 1.16 635.35 L1.16 636.53 A2.12933 2.12933 -180 1 0 3.11 636.53 L3.11
+							 635.29 A3.44927 3.44927 -180 0 0 5.57 632.03 Z" class="st19"/>
+			</g>
+			<g id="shape518-855" v:mID="518" v:groupContext="shape" transform="translate(9.20413,-9.20409)">
+				<title>e99c3387-15c3-4f28-bd4b-cb209b4</title>
+				<ellipse cx="2.01726" cy="638.539" rx="2.01726" ry="2.01726" class="st80"/>
+			</g>
+		</g>
+		<g id="shape520-857" v:mID="520" v:groupContext="shape" transform="translate(285.198,-317.048)">
+			<title>Sheet.520</title>
+			<desc>Private Link service</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="629.926" width="85.04" height="21.2598"/>
+			<rect x="0" y="619.296" width="85.0394" height="21.2598" class="st6"/>
+			<text x="7.52" y="632.63" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link service</text>		</g>
+		<g id="group521-860" transform="translate(314.968,-302.875)" v:mID="521" v:groupContext="group">
+			<title>Sheet.521</title>
+			<g id="group522-861" v:mID="522" v:groupContext="group">
+				<title>Sheet.522</title>
+				<g id="shape523-862" v:mID="523" v:groupContext="shape" transform="translate(6.15476,-4.90951)">
+					<title>Sheet.523</title>
+					<path d="M5.4 634.51 L2.98 634.51 A3.02253 3.02253 -180 0 0 2.51 640.52 A3.24188 3.24188 0 0 1 2.55 639.39 A1.90826
+								 1.90826 0 0 1 2.99 635.62 L5.41 635.62 A1.91364 1.91364 0 1 1 5.41 639.45 L4.74 639.45 A1.43994
+								 1.43994 -180 0 0 4.61 640.05 A1.36996 1.36996 -180 0 0 4.7 640.56 L5.41 640.56 A3.02253 3.02253
+								 -180 1 0 5.41 634.51 L5.4 634.51 Z" class="st81"/>
+				</g>
+				<g id="shape524-866" v:mID="524" v:groupContext="shape" transform="translate(9.20477,-2.39567)">
+					<title>Sheet.524</title>
+					<path d="M5.85 634.56 A3.55813 3.55813 0 0 1 5.88 635.02 A3.10596 3.10596 0 0 1 5.81 635.68 A1.90826 1.90826
+								 0 0 1 5.38 639.45 L2.95 639.45 A1.91364 1.91364 0 0 1 2.95 635.62 L3.62 635.62 A1.4063 1.4063 -180
+								 0 0 3.75 635.02 A1.38342 1.38342 -180 0 0 3.66 634.51 L2.96 634.51 A3.02253 3.02253 -180 0 0 2.96
+								 640.56 L5.38 640.56 A3.02253 3.02253 -180 0 0 5.85 634.55 L5.85 634.56 Z" class="st82"/>
+				</g>
+				<g id="shape525-870" v:mID="525" v:groupContext="shape" transform="translate(0,-0.450819)">
+					<title>Sheet.525</title>
+					<path d="M7.51 639.88 L6.96 640.44 a0.379498 0.379498 0 0 1 -0.538295 0 L0.22 634.26 a0.761687 0.761687 0 0 1
+								 -4.66294E-15 -1.07659 L0.78 632.63 L7.51 639.35 a0.371423 0.371423 0 0 1 8.88178E-16 0.526183 L7.51
+								 639.88 Z" class="st10"/>
+				</g>
+				<g id="shape526-872" v:mID="526" v:groupContext="shape" transform="translate(-1.20903E-13,-6.12336)">
+					<title>Sheet.526</title>
+					<path d="M6.84 632.77 L7.46 633.38 a0.379498 0.379498 0 0 1 1.77636E-15 0.538295 L0.84 640.56 L0.22 639.94 a0.761687
+								 0.761687 0 0 1 -7.54952E-15 -1.07659 L6.31 632.77 a0.379498 0.379498 0 0 1 0.534258 0 Z"
+							class="st83"/>
+				</g>
+				<g id="shape527-874" v:mID="527" v:groupContext="shape" transform="translate(16.5988,-1.13687E-13)">
+					<title>Sheet.527</title>
+					<path d="M0.11 639.87 a0.371423 0.371423 0 0 1 -0.00807442 -0.526183 L0.11 639.35 L6.84 632.63 L7.4 633.19 a0.761687
+								 0.761687 0 0 1 3.55271E-15 1.07659 L1.2 640.44 a0.371423 0.371423 0 0 1 -0.526183 0.00807442 L0.66
+								 640.44 L0.11 639.87 Z" class="st10"/>
+				</g>
+				<g id="shape528-876" v:mID="528" v:groupContext="shape" transform="translate(16.6527,-5.68061)">
+					<title>Sheet.528</title>
+					<path d="M1.26 632.77 L7.35 638.87 a0.75765 0.75765 0 0 1 2.66454E-15 1.06717 L6.73 640.56 L0.11 633.92 a0.386227
+								 0.386227 0 0 1 -1.66533E-15 -0.538295 L0.73 632.77 a0.379498 0.379498 0 0 1 0.534258 0 Z"
+							class="st83"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape4-878" v:mID="4" v:groupContext="shape" transform="translate(641.074,-366.654)">
+			<title>Sheet.4</title>
+			<desc>User agent pool</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="38.7365" cy="629.962" width="77.48" height="21.1888"/>
+			<rect x="0" y="619.367" width="77.4731" height="21.1888" class="st6"/>
+			<text x="9.72" y="632.66" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>User agent pool</text>		</g>
+		<g id="group138-881" transform="translate(666.376,-395.668)" v:mID="138" v:groupContext="group">
+			<title>Icon-compute-34.406</title>
+			<g id="shape139-882" v:mID="139" v:groupContext="shape" transform="translate(0,-16.2009)">
+				<title>Sheet.139</title>
+				<path d="M0 640.02 a0.53741 0.53741 -180 0 0 0.537397 0.537397 L15.44 640.56 a0.53741 0.53741 -180 0 0 0.537397 -0.537397
+							 L15.98 630.42 a0.53741 0.53741 -180 0 0 -0.537397 -0.537397 L0.54 629.89 a0.53741 0.53741 -180 0 0 -0.537397
+							 0.537397 L0 640.02 Z" class="st9"/>
+			</g>
+			<g id="shape140-884" v:mID="140" v:groupContext="shape" transform="translate(7.99773,-18.4296)">
+				<title>Sheet.140</title>
+				<path d="M2.66 635.89 L2.66 639.01 L0 640.56 L0 637.46 L2.66 635.89 Z" class="st10"/>
+			</g>
+			<g id="shape141-886" v:mID="141" v:groupContext="shape" transform="translate(5.32655,-21.5275)">
+				<title>Sheet.141</title>
+				<path d="M5.33 638.99 L2.67 640.56 L0 638.99 L2.67 637.43 L5.33 638.99 Z" class="st11"/>
+			</g>
+			<g id="shape142-888" v:mID="142" v:groupContext="shape" transform="translate(5.32655,-18.4296)">
+				<title>Sheet.142</title>
+				<path d="M2.67 637.46 L2.67 640.56 L0 639.01 L0 635.89 L2.67 637.46 Z" class="st12"/>
+			</g>
+			<g id="shape143-890" v:mID="143" v:groupContext="shape" transform="translate(6.2749,-10.0841)">
+				<title>Sheet.143</title>
+				<path d="M0 640.02 a0.53741 0.53741 -180 0 0 0.537397 0.537397 L15.44 640.56 a0.53741 0.53741 -180 0 0 0.537397 -0.537397
+							 L15.98 630.42 a0.53741 0.53741 -180 0 0 -0.537397 -0.537397 L0.54 629.89 a0.53741 0.53741 -180 0 0 -0.537397
+							 0.537397 L0 640.02 Z" class="st13"/>
+			</g>
+			<g id="shape144-892" v:mID="144" v:groupContext="shape" transform="translate(14.2726,-12.2969)">
+				<title>Sheet.144</title>
+				<path d="M2.66 635.89 L2.66 638.99 L0 640.56 L0 637.44 L2.66 635.89 Z" class="st10"/>
+			</g>
+			<g id="shape145-894" v:mID="145" v:groupContext="shape" transform="translate(11.6015,-15.4107)">
+				<title>Sheet.145</title>
+				<path d="M5.33 639.01 L2.67 640.56 L0 639.01 L2.67 637.44 L5.33 639.01 Z" class="st11"/>
+			</g>
+			<g id="shape146-896" v:mID="146" v:groupContext="shape" transform="translate(11.6015,-12.2969)">
+				<title>Sheet.146</title>
+				<path d="M2.67 637.44 L2.67 640.56 L0 638.99 L0 635.89 L2.67 637.44 Z" class="st12"/>
+			</g>
+			<g id="shape147-898" v:mID="147" v:groupContext="shape" transform="translate(10.8902,-4.14112)">
+				<title>Sheet.147</title>
+				<path d="M0 640.02 a0.53741 0.53741 -180 0 0 0.537397 0.537397 L15.44 640.56 a0.53741 0.53741 -180 0 0 0.537397 -0.537397
+							 L15.98 630.42 a0.53741 0.53741 -180 0 0 -0.537397 -0.537397 L0.54 629.89 a0.53741 0.53741 -180 0 0 -0.537397
+							 0.537397 L0 640.02 Z" class="st14"/>
+			</g>
+			<g id="shape148-901" v:mID="148" v:groupContext="shape" transform="translate(18.8879,-6.35393)">
+				<title>Sheet.148</title>
+				<path d="M2.66 635.89 L2.66 638.99 L0 640.56 L0 637.44 L2.66 635.89 Z" class="st10"/>
+			</g>
+			<g id="shape149-903" v:mID="149" v:groupContext="shape" transform="translate(16.2168,-9.45187)">
+				<title>Sheet.149</title>
+				<path d="M5.33 638.99 L2.67 640.56 L0 638.99 L2.67 637.43 L5.33 638.99 Z" class="st11"/>
+			</g>
+			<g id="shape150-905" v:mID="150" v:groupContext="shape" transform="translate(16.2168,-6.35393)">
+				<title>Sheet.150</title>
+				<path d="M2.67 637.46 L2.67 640.56 L0 638.99 L0 635.89 L2.67 637.46 Z" class="st12"/>
+			</g>
+			<g id="shape151-907" v:mID="151" v:groupContext="shape" transform="translate(16.2168,-6.35393)">
+				<title>Sheet.151</title>
+				<path d="M0 638.99 L2.67 637.44 L2.67 640.56 L0 638.99 Z" class="st11"/>
+			</g>
+			<g id="shape152-909" v:mID="152" v:groupContext="shape" transform="translate(18.8879,-6.35393)">
+				<title>Sheet.152</title>
+				<path d="M2.66 638.99 L0 637.44 L0 640.56 L2.66 638.99 Z" class="st12"/>
+			</g>
+			<g id="shape153-911" v:mID="153" v:groupContext="shape" transform="translate(14.9681,0)">
+				<title>Sheet.153</title>
+				<path d="M7.11 639.66 C5.53 639.4 5.53 638.26 5.53 636.49 L2.37 636.49 C2.37 638.33 2.37 639.47 0.79 639.66 a0.932542
+							 0.932542 -180 0 0 -0.79029 0.900931 L7.9 640.56 a0.932542 0.932542 -180 0 0 -0.79029 -0.900931 Z"
+						class="st15"/>
+			</g>
+		</g>
+		<g id="shape381-914" v:mID="381" v:groupContext="shape" transform="translate(610.929,-295.684)">
+			<title>Sheet.381</title>
+			<path d="M0 640.56 L52.34 640.56" class="st65"/>
+		</g>
+		<g id="shape385-919" v:mID="385" v:groupContext="shape" transform="translate(592.787,-285.285)">
+			<title>Sheet.385</title>
+			<rect v:rectContext="foreign" x="0" y="619.549" width="18.1421" height="21.0066" class="st6"/>
+			<image x="0" y="619.549" width="18.1421" height="21.0066" preserveAspectRatio="none" xlink:href="data:image/png;base64,
+						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"/>
+			<rect v:rectContext="foreign" x="0" y="619.549" width="18.1421" height="21.0066" class="st6"/>
+		</g>
+		<g id="shape537-923" v:mID="537" v:groupContext="shape" transform="translate(729.312,-274.528)">
+			<title>Rectangle.537</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="598.036" width="56.9037" height="42.5197" rx="8.50394" ry="8.50394" class="st71"/>
+		</g>
+		<g id="group455-925" transform="translate(745.692,-284.356)" v:mID="455" v:groupContext="group">
+			<title>Sheet.455</title>
+			<g id="group456-926" v:mID="456" v:groupContext="group">
+				<title>layer1</title>
+				<g id="group457-927" v:mID="457" v:groupContext="group">
+					<title>g70</title>
+					<g id="shape458-928" v:mID="458" v:groupContext="shape" transform="translate(0.619666,-0.602819)">
+						<title>path3055</title>
+						<path d="M11.06 618.9 A1.48408 1.47193 -0 0 0 10.49 619.04 L2.73 622.75 A1.48408 1.47193 -0 0 0 1.93 623.75
+									 L0.01 632.08 A1.48408 1.47193 -0 0 0 0.22 633.21 A1.48408 1.47193 -0 0 0 0.3 633.32 L5.67 640
+									 A1.48408 1.47193 -0 0 0 6.83 640.56 L15.45 640.55 A1.48408 1.47193 -0 0 0 16.61 640 L21.98 633.32
+									 A1.48408 1.47193 -0 0 0 22.26 632.08 L20.35 623.75 A1.48408 1.47193 -0 0 0 19.54 622.75 L11.78
+									 619.04 A1.48408 1.47193 -0 0 0 11.06 618.9 Z" class="st76"/>
+					</g>
+					<g id="shape459-931" v:mID="459" v:groupContext="shape">
+						<title>path3054-2-9</title>
+						<path d="M11.68 617.69 A1.5667 1.55388 -0 0 0 11.08 617.84 L2.88 621.76 A1.5667 1.55388 -0 0 0 2.04 622.81
+									 L0.02 631.61 A1.5667 1.55388 -0 0 0 0.23 632.8 A1.5667 1.55388 -0 0 0 0.32 632.92 L5.99 639.97
+									 A1.5667 1.55388 -0 0 0 7.21 640.56 L16.31 640.55 A1.5667 1.55388 -0 0 0 17.53 639.97 L23.2 632.92
+									 A1.5667 1.55388 -0 0 0 23.5 631.6 L21.48 622.81 A1.5667 1.55388 -0 0 0 20.63 621.76 L12.44 617.84
+									 A1.5667 1.55388 -0 0 0 11.68 617.69 ZM11.68 618.29 A1.48408 1.47193 180 0 1 12.4 618.44 L20.16
+									 622.14 A1.48408 1.47193 180 0 1 20.97 623.14 L22.88 631.47 A1.48408 1.47193 180 0 1 22.6 632.72
+									 L17.23 639.4 A1.48408 1.47193 180 0 1 16.07 639.95 L7.45 639.95 A1.48408 1.47193 180 0 1 6.29
+									 639.4 L0.92 632.72 A1.48408 1.47193 180 0 1 0.84 632.6 A1.48408 1.47193 180 0 1 0.63 631.48
+									 L2.55 623.15 A1.48408 1.47193 180 0 1 3.35 622.15 L11.11 618.44 A1.48408 1.47193 180 0 1 11.68
+									 618.29 L11.68 618.29 Z" class="st77"/>
+					</g>
+				</g>
+				<g id="group460-934" transform="translate(7.02786,-6.74673)" v:mID="460" v:groupContext="group">
+					<title>g3341</title>
+					<g id="shape461-935" v:mID="461" v:groupContext="shape" transform="translate(0,-6.62943)">
+						<title>path910</title>
+						<path d="M0 639.18 L4.73 637.81 L9.46 639.18 L4.73 640.56 L0 639.18 Z" class="st19"/>
+					</g>
+					<g id="shape462-937" v:mID="462" v:groupContext="shape">
+						<title>path912</title>
+						<path d="M0 633.08 L0 638.11 L4.41 640.56 L4.43 634.4 L0 633.08 Z" class="st19"/>
+					</g>
+					<g id="shape463-939" v:mID="463" v:groupContext="shape" transform="translate(5.03238,0)">
+						<title>path914</title>
+						<path d="M4.43 633.08 L4.43 638.11 L0.02 640.56 L0 634.4 L4.43 633.08 Z" class="st19"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="shape538-941" v:mID="538" v:groupContext="shape" transform="translate(499.673,-295.684)">
+			<title>Sheet.538</title>
+			<path d="M0 640.56 L86.39 640.56" class="st65"/>
+		</g>
+		<g id="shape540-946" v:mID="540" v:groupContext="shape" transform="translate(197.921,-310.066)">
+			<title>Sheet.540</title>
+			<path d="M0 640.56 L107.65 640.56" class="st65"/>
+		</g>
+		<g id="shape541-951" v:mID="541" v:groupContext="shape" transform="translate(341.821,-310.066)">
+			<title>Sheet.541</title>
+			<path d="M0 640.56 L32.81 640.56" class="st84"/>
+		</g>
+		<g id="shape542-954" v:mID="542" v:groupContext="shape" transform="translate(403.433,-295.386)">
+			<title>Sheet.542</title>
+			<path d="M0 640.56 L67.79 640.56" class="st65"/>
+		</g>
+		<g id="shape544-959" v:mID="544" v:groupContext="shape" transform="translate(373.67,-295.386)">
+			<title>Sheet.544</title>
+			<path d="M29.76 640.56 A14.166 7.48871 0 0 1 15.6 633.07 A15.5972 7.19132 -180 0 0 -0 625.88" class="st84"/>
+		</g>
+		<g id="group545-962" transform="translate(114.385,-247.392)" v:mID="545" v:groupContext="group">
+			<title>Sheet.545</title>
+			<g id="group546-963" v:mID="546" v:groupContext="group">
+				<title>Page-1</title>
+				<g id="group547-964" v:mID="547" v:groupContext="group">
+					<title>WAF policy</title>
+					<g id="group548-965" v:mID="548" v:groupContext="group">
+						<title>Icon-362Artboard 1</title>
+						<g id="group549-966" transform="translate(0.88053,-3.02793)" v:mID="549" v:groupContext="group">
+							<title>Sheet.549</title>
+							<g id="shape550-967" v:mID="550" v:groupContext="shape">
+								<title>Sheet.550</title>
+								<path d="M15.35 640.56 A11.206 10.9683 90 0 1 1.83 622.91 L1.96 622.78 A11.2178 10.9799 90 0 1 15.35
+											 640.56 Z" class="st85"/>
+							</g>
+						</g>
+						<g id="group551-971" transform="translate(1.06415E-13,-4.21277)" v:mID="551" v:groupContext="group">
+							<title>Sheet.551</title>
+							<g id="shape552-972" v:mID="552" v:groupContext="shape">
+								<title>Sheet.552</title>
+								<path d="M1.03 635.16 A33.9971 33.2759 -90 0 0 0 638.58 L0.77 639.77 L1.55 640.56 A18.7587 18.3608
+											 90 0 1 2.96 635.95 A3.3294 3.25878 90 0 1 1.03 635.16 ZM2.32 629.1 A17.9767 17.5954
+											 90 0 1 1.42 625.28 A9.94084 9.72996 -90 0 0 -0 627.13 A13.8864 13.5918 -90 0 0 0.77
+											 630.29 A3.59402 3.51779 90 0 1 2.32 629.1 Z" class="st86"/>
+							</g>
+						</g>
+						<g id="group553-974" transform="translate(1.05915E-13,-8.68917)" v:mID="553" v:groupContext="group">
+							<title>Sheet.553</title>
+							<g id="shape554-975" v:mID="554" v:groupContext="shape">
+								<title>Sheet.554</title>
+								<ellipse cx="3.47913" cy="637.002" rx="3.47913" ry="3.55453" class="st87"/>
+							</g>
+						</g>
+						<g id="group555-979" transform="translate(4.12339,-3.80253)" v:mID="555" v:groupContext="group">
+							<title>Sheet.555</title>
+							<g id="shape556-980" v:mID="556" v:groupContext="shape">
+								<title>Sheet.556</title>
+								<path d="M4.51 638.7 A2.77253 2.71372 90 0 1 5.16 636.98 A12.1117 11.8548 90 0 1 1.93 634.49 A3.62167
+											 3.54484 90 0 1 -0 635.54 A25.2766 24.7404 -90 0 0 1.93 637.38 A10.7623 10.534 -90 0
+											 0 4.51 638.96 L4.51 638.7 ZM12.63 638.96 A17.5475 17.1753 90 0 1 9.02 638.57 L9.02 638.7
+											 A2.18011 2.13386 90 0 1 8.38 640.28 A17.071 16.7088 -90 0 0 12.75 640.54 C13.27 640.01
+											 13.79 639.36 14.3 638.83 A6.95504 6.80748 90 0 1 12.63 638.96 Z" class="st86"/>
+							</g>
+						</g>
+						<g id="group557-982" transform="translate(8.63338,-3.29171)" v:mID="557" v:groupContext="group">
+							<title>Sheet.557</title>
+							<g id="shape558-983" v:mID="558" v:groupContext="shape">
+								<title>Sheet.558</title>
+								<ellipse cx="2.31942" cy="638.186" rx="2.31942" ry="2.36968" class="st88"/>
+							</g>
+						</g>
+						<g id="group559-985" transform="translate(4.76769,-11.9801)" v:mID="559" v:groupContext="group">
+							<title>Sheet.559</title>
+							<g id="shape560-986" v:mID="560" v:groupContext="shape">
+								<title>Sheet.560</title>
+								<path d="M5.54 635.55 A17.7305 17.3544 90 0 1 13.14 633.71 A8.85998 8.67203 -90 0 0 11.21 631.87
+											 A20.1884 19.7601 -90 0 0 5.16 633.32 A12.1775 11.9192 -90 0 0 3.86 633.97 A24.6487 24.1258
+											 90 0 1 1.29 630.15 A2.50133 2.44827 -90 0 0 0.13 630.55 A27.8082 27.2184 -90 0 0 2.83
+											 634.63 A12.9556 12.6808 -90 0 0 0 636.87 A3.752 3.67241 90 0 1 1.67 638.32 A11.7971
+											 11.5468 90 0 1 4.13 636.34 A29.4407 28.8162 -90 0 0 8.89 640.56 A2.73172 2.67378 90
+											 0 1 9.66 639.24 A36.7196 35.9407 90 0 1 5.54 635.55 Z" class="st86"/>
+							</g>
+						</g>
+						<g id="group561-988" transform="translate(13.6588,-8.95244)" v:mID="561" v:groupContext="group">
+							<title>Sheet.561</title>
+							<g id="shape562-989" v:mID="562" v:groupContext="shape">
+								<title>Sheet.562</title>
+								<ellipse cx="2.44827" cy="638.055" rx="2.44827" ry="2.50133" class="st89"/>
+							</g>
+						</g>
+						<g id="group563-991" transform="translate(17.6534,-8.42554)" v:mID="563" v:groupContext="group">
+							<title>Sheet.563</title>
+							<g id="shape564-992" v:mID="564" v:groupContext="shape">
+								<title>Sheet.564</title>
+								<path d="M2.58 639.24 C2.45 639.11 2.32 639.11 2.19 638.98 C2.06 638.84 1.93 638.84 1.8 638.71 L1.67
+											 638.71 L1.29 638.45 L1.16 638.45 L0.77 638.19 A1.91681 1.87615 90 0 1 0 639.37 C0.13
+											 639.5 0.26 639.5 0.52 639.63 L0.64 639.63 C0.77 639.77 0.9 639.77 1.03 639.9 C1.42 640.16
+											 1.8 640.29 2.19 640.56 C2.32 640.16 2.45 639.63 2.58 639.24 Z" class="st86"/>
+							</g>
+						</g>
+						<g id="group565-994" transform="translate(1.05915E-13,-8.68917)" v:mID="565" v:groupContext="group">
+							<title>Sheet.565</title>
+							<g id="shape566-995" v:mID="566" v:groupContext="shape">
+								<title>Sheet.566</title>
+								<ellipse cx="3.47913" cy="637.002" rx="3.47913" ry="3.55453" class="st89"/>
+							</g>
+						</g>
+						<g id="group567-997" transform="translate(8.63338,-3.29171)" v:mID="567" v:groupContext="group">
+							<title>Sheet.567</title>
+							<g id="shape568-998" v:mID="568" v:groupContext="shape">
+								<title>Sheet.568</title>
+								<ellipse cx="2.31942" cy="638.186" rx="2.31942" ry="2.36968" class="st89"/>
+							</g>
+						</g>
+						<g id="group569-1000" transform="translate(4.50999,0)" v:mID="569" v:groupContext="group">
+							<title>Sheet.569</title>
+							<g id="shape570-1001" v:mID="570" v:groupContext="shape">
+								<title>Sheet.570</title>
+								<path d="M0.52 630.94 L16.11 630.94 C16.36 630.94 16.75 631.21 16.75 631.47 L16.75 639.9 a0.705638
+											 0.690672 90 0 1 -0.643466 0.659257 L0.52 640.56 a0.602951 0.590161 90 0 1 -0.517141
+											 -0.659257 L0 631.6 a0.602951 0.590161 90 0 1 0.517141 -0.659257 Z" class="st90"/>
+							</g>
+						</g>
+						<g id="group571-1003" transform="translate(5.15424,-6.45128)" v:mID="571" v:groupContext="group">
+							<title>Sheet.571</title>
+							<g id="shape572-1004" v:mID="572" v:groupContext="shape">
+								<title>Sheet.572</title>
+								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st91"/>
+							</g>
+						</g>
+						<g id="group573-1006" transform="translate(10.5662,-6.45128)" v:mID="573" v:groupContext="group">
+							<title>Sheet.573</title>
+							<g id="shape574-1007" v:mID="574" v:groupContext="shape">
+								<title>Sheet.574</title>
+								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st92"/>
+							</g>
+						</g>
+						<g id="group575-1009" transform="translate(5.15424,-3.68618)" v:mID="575" v:groupContext="group">
+							<title>Sheet.575</title>
+							<g id="shape576-1010" v:mID="576" v:groupContext="shape">
+								<title>Sheet.576</title>
+								<path d="M10.69 635.68 L15.33 635.68 L15.33 637.79 L10.69 637.79 L10.69 635.68 ZM0 638.45 L1.93 638.45
+											 L1.93 640.56 L0 640.56 L0 638.45 Z" class="st91"/>
+							</g>
+						</g>
+						<g id="group577-1012" transform="translate(7.86023,-3.68618)" v:mID="577" v:groupContext="group">
+							<title>Sheet.577</title>
+							<g id="shape578-1013" v:mID="578" v:groupContext="shape">
+								<title>Sheet.578</title>
+								<path d="M10.69 638.45 L12.63 638.45 L12.63 640.56 L10.69 640.56 L10.69 638.45 ZM0 638.45 L4.64 638.45
+											 L4.64 640.56 L0 640.56 L0 638.45 Z" class="st92"/>
+							</g>
+						</g>
+						<g id="group579-1015" transform="translate(5.15424,-0.921542)" v:mID="579" v:groupContext="group">
+							<title>Sheet.579</title>
+							<g id="shape580-1016" v:mID="580" v:groupContext="shape">
+								<title>Sheet.580</title>
+								<path d="M7.99 635.68 L12.63 635.68 L12.63 637.79 L7.99 637.79 L7.99 635.68 ZM0 638.45 L4.64 638.45
+											 L4.64 640.56 L0 640.56 L0 638.45 Z" class="st91"/>
+							</g>
+						</g>
+						<g id="group581-1018" transform="translate(10.5662,-0.922016)" v:mID="581" v:groupContext="group">
+							<title>Sheet.581</title>
+							<g id="shape582-1019" v:mID="582" v:groupContext="shape">
+								<title>Sheet.582</title>
+								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st92"/>
+							</g>
+						</g>
+						<g id="group583-1021" transform="translate(15.8494,-0.922016)" v:mID="583" v:groupContext="group">
+							<title>Sheet.583</title>
+							<g id="shape584-1022" v:mID="584" v:groupContext="shape">
+								<title>Sheet.584</title>
+								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st91"/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="shape585-1024" v:mID="585" v:groupContext="shape" transform="translate(100.244,-274.528)">
+			<title>Sheet.585</title>
+			<desc>Azure Front Door</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="24.7713" cy="629.926" width="49.55" height="21.2598"/>
+			<rect x="0" y="619.296" width="49.5426" height="21.2598" class="st6"/>
+			<text x="14.22" y="627.23" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
+						x="4.79" dy="1.2em" class="st8">Front Door</tspan></text>		</g>
+		<g id="shape586-1028" v:mID="586" v:groupContext="shape" transform="translate(96.9445,-210.33)">
+			<title>Sheet.586</title>
+			<desc>Web Application Firewall policy</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="26.5985" cy="629.926" width="53.2" height="21.2598"/>
+			<rect x="0" y="619.296" width="53.197" height="21.2598" class="st6"/>
+			<text x="17.99" y="616.43" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web <tspan x="5.87"
+						dy="1.2em" class="st8">Application </tspan><tspan x="12.25" dy="1.2em" class="st8">Firewall </tspan><tspan
+						x="15.86" dy="1.2em" class="st8">policy</tspan></text>		</g>
+		<g id="group587-1034" transform="translate(111.126,-295.788)" v:mID="587" v:groupContext="group">
+			<title>Sheet.587</title>
+			<g id="group588-1035" v:mID="588" v:groupContext="group">
+				<title>Page-1</title>
+				<g id="group589-1036" v:mID="589" v:groupContext="group">
+					<title>Azure Front Door</title>
+					<g id="group590-1037" v:mID="590" v:groupContext="group">
+						<title>Icon-networking-73</title>
+						<g id="group591-1038" transform="translate(0,-4.87666)" v:mID="591" v:groupContext="group">
+							<title>Sheet.591</title>
+							<g id="shape592-1039" v:mID="592" v:groupContext="shape">
+								<title>Sheet.592</title>
+								<path d="M27.78 634.24 A6.30554 6.17319 -90 0 0 22.36 628.2 A8.03954 7.87084 -90 0 0 14.26 620.43
+											 A8.24451 8.07144 -90 0 0 6.54 625.8 A7.61393 7.45414 -90 0 0 -0 633.12 A7.72428 7.56219
+											 -90 0 0 7.83 640.54 L21.17 640.54 A1.22958 1.20377 -90 0 0 21.52 640.54 A6.44739 6.3121
+											 -90 0 0 27.78 634.24 Z" class="st93"/>
+							</g>
+						</g>
+						<g id="group593-1043" transform="translate(10.2321,-4.9038)" v:mID="593" v:groupContext="group">
+							<title>Sheet.593</title>
+							<g id="shape594-1044" v:mID="594" v:groupContext="shape">
+								<title>Sheet.594</title>
+								<rect x="0" y="629.521" width="7.8091" height="11.0347" class="st94"/>
+							</g>
+						</g>
+						<g id="group595-1046" transform="translate(13.5965,-1.13687E-13)" v:mID="595" v:groupContext="group">
+							<title>Sheet.595</title>
+							<g id="shape596-1047" v:mID="596" v:groupContext="shape">
+								<title>Sheet.596</title>
+								<path d="M5.87 623.91 L0.48 620.76 a0.394096 0.385825 -90 0 0 -0.478423 0.236458 L0 640.16 a0.394096
+											 0.385825 -90 0 0 0.370392 0.394096 L0.49 640.56 L5.88 637.31 a0.394096 0.385825 -90
+											 0 0 0.262361 -0.362569 L6.14 624.33 a0.40986 0.401258 -90 0 0 -0.277794 -0.425624 L5.87
+											 623.91 Z" class="st95"/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="shape609-1049" v:mID="609" v:groupContext="shape" transform="translate(75.0568,-310.367)">
+			<title>Sheet.609</title>
+			<path d="M0 640.56 L30.32 640.56" class="st65"/>
+		</g>
+		<g id="shape610-1054" v:mID="610" v:groupContext="shape" transform="translate(33.1732,-267.442)">
+			<title>Sheet.610</title>
+			<desc>Application users</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="28.3465" cy="629.926" width="56.7" height="21.2598"/>
+			<rect x="0" y="619.296" width="56.6929" height="21.2598" class="st6"/>
+			<text x="7.61" y="627.23" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application<v:lf/><tspan
+						x="18.65" dy="1.2em" class="st8">users</tspan></text>		</g>
+		<g id="shape611-1058" v:mID="611" v:groupContext="shape" transform="translate(45.2019,-294.715)">
+			<title>Sheet.611</title>
 			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
 			<switch>
 				<foreignObject x="0" y="607.321" width="32.6356" height="33.235"
@@ -2902,555 +3606,72 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
 		</g>
-		<g id="shape510-838" v:mID="510" v:groupContext="shape" transform="translate(431.779,-253.268)">
-			<title>Sheet.510</title>
-			<desc>Internal load balancer</desc>
+		<g id="shape612-1061" v:mID="612" v:groupContext="shape" transform="translate(177.228,-302.875)">
+			<title>Sheet.612</title>
+			<rect v:rectContext="foreign" x="0" y="619.863" width="20.6932" height="20.6932" class="st6"/>
+			<image x="0" y="619.863" width="20.6932" height="20.6932" preserveAspectRatio="none" xlink:href="data:image/png;base64,
+						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"/>
+			<rect v:rectContext="foreign" x="0" y="619.863" width="20.6932" height="20.6932" class="st6"/>
+		</g>
+		<g id="shape613-1065" v:mID="613" v:groupContext="shape" transform="translate(166.374,-267.442)">
+			<title>Sheet.613</title>
+			<desc>Private endpoint</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="629.926" width="113.39" height="21.2598"/>
-			<rect x="0" y="619.296" width="113.386" height="21.2598" class="st6"/>
-			<text x="16.58" y="632.63" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Internal load balancer</text>		</g>
-		<g id="group512-841" transform="translate(477.263,-284.579)" v:mID="512" v:groupContext="group">
-			<title>Icon-networking-62.512</title>
-			<g id="shape513-842" v:mID="513" v:groupContext="shape">
-				<title>Sheet.513</title>
-				<path d="M0.23 628.81 L10.67 618.36 a0.747134 0.747134 0 0 1 1.07089 1.13687E-13 L22.19 628.81 a0.747134 0.747134
-							 0 0 1 7.10543E-15 1.07089 L11.73 640.34 a0.747134 0.747134 0 0 1 -1.04599 0 L0.23 629.88 a0.747134 0.747134
-							 0 0 1 -1.24345E-14 -1.07089 Z" class="st78"/>
-			</g>
-			<g id="shape514-846" v:mID="514" v:groupContext="shape" transform="translate(8.42518,-14.4465)">
-				<title>Sheet.514</title>
-				<path d="M5.52 637.57 L2.88 634.94 a0.149427 0.149427 -180 0 0 -0.199236 0 L0.04 637.57 a0.124522 0.124522 -180 0
-							 0 0.0996179 0.22414 L1.69 637.79 a0.136975 0.136975 0 0 1 0.136975 0.136975 L1.82 640.42 a0.136975 0.136975
-							 -180 0 0 0.136975 0.136975 L3.61 640.56 a0.136975 0.136975 -180 0 0 0.136975 -0.136975 L3.74 637.93
-							 a0.136975 0.136975 0 0 1 0.136975 -0.136975 L5.42 637.79 a0.124522 0.124522 -180 0 0 0.0996179 -0.22414
-							 Z" class="st79"/>
-			</g>
-			<g id="shape515-848" v:mID="515" v:groupContext="shape" transform="translate(2.33108,-8.6861)">
-				<title>Sheet.515</title>
-				<path d="M2.65 635.06 L0.04 637.71 a0.136975 0.136975 -180 0 0 -4.03844E-15 0.186784 L2.65 640.52 a0.136975 0.136975
-							 -180 0 0 0.236592 -0.0996179 L2.89 638.89 a0.136975 0.136975 0 0 1 0.136975 -0.136975 L5.52 638.76 a0.124522
-							 0.124522 -180 0 0 0.124522 -0.136975 L5.64 636.97 a0.124522 0.124522 -180 0 0 -0.0871657 -0.186784 L3.06
-							 636.79 a0.124522 0.124522 0 0 1 -0.136975 -0.124522 L2.93 635.16 a0.14575 0.14575 -180 1 0 -0.273949
-							 -0.0996179 Z" class="st79"/>
-			</g>
-			<g id="shape516-850" v:mID="516" v:groupContext="shape" transform="translate(14.5586,-8.69551)">
-				<title>Sheet.516</title>
-				<path d="M2.98 640.53 L5.63 637.89 a0.136975 0.136975 -180 0 0 -7.99361E-15 -0.186784 L2.98 635.07 a0.136975 0.136975
-							 -180 0 0 -0.22414 0.0996179 L2.75 636.72 a0.124522 0.124522 0 0 1 -0.136975 0.124522 L0.12 636.85 a0.124522
-							 0.124522 -180 0 0 -0.124522 0.136975 L0 638.63 a0.124522 0.124522 -180 0 0 0.124522 0.136975 L2.61 638.76
-							 a0.136975 0.136975 0 0 1 0.136975 0.136975 L2.75 640.45 a0.136975 0.136975 -180 0 0 0.22414 0.0871657
-							 Z" class="st79"/>
-			</g>
-			<g id="shape517-852" v:mID="517" v:groupContext="shape" transform="translate(9.11699,-2.68015)">
-				<title>Sheet.517</title>
-				<path d="M5.57 632.03 A3.47417 3.47417 -180 1 0 1.16 635.35 L1.16 636.53 A2.12933 2.12933 -180 1 0 3.11 636.53 L3.11
-							 635.29 A3.44927 3.44927 -180 0 0 5.57 632.03 Z" class="st19"/>
-			</g>
-			<g id="shape518-854" v:mID="518" v:groupContext="shape" transform="translate(9.20413,-9.20409)">
-				<title>e99c3387-15c3-4f28-bd4b-cb209b4</title>
-				<ellipse cx="2.01726" cy="638.539" rx="2.01726" ry="2.01726" class="st80"/>
-			</g>
-		</g>
-		<g id="shape520-856" v:mID="520" v:groupContext="shape" transform="translate(285.198,-317.048)">
-			<title>Sheet.520</title>
-			<desc>Private Link service</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="42.5197" cy="629.926" width="85.04" height="21.2598"/>
-			<rect x="0" y="619.296" width="85.0394" height="21.2598" class="st6"/>
-			<text x="7.52" y="632.63" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link service</text>		</g>
-		<g id="group521-859" transform="translate(314.968,-302.875)" v:mID="521" v:groupContext="group">
-			<title>Sheet.521</title>
-			<g id="group522-860" v:mID="522" v:groupContext="group">
-				<title>Sheet.522</title>
-				<g id="shape523-861" v:mID="523" v:groupContext="shape" transform="translate(6.15476,-4.90951)">
-					<title>Sheet.523</title>
-					<path d="M5.4 634.51 L2.98 634.51 A3.02253 3.02253 -180 0 0 2.51 640.52 A3.24188 3.24188 0 0 1 2.55 639.39 A1.90826
-								 1.90826 0 0 1 2.99 635.62 L5.41 635.62 A1.91364 1.91364 0 1 1 5.41 639.45 L4.74 639.45 A1.43994
-								 1.43994 -180 0 0 4.61 640.05 A1.36996 1.36996 -180 0 0 4.7 640.56 L5.41 640.56 A3.02253 3.02253
-								 -180 1 0 5.41 634.51 L5.4 634.51 Z" class="st81"/>
-				</g>
-				<g id="shape524-865" v:mID="524" v:groupContext="shape" transform="translate(9.20477,-2.39567)">
-					<title>Sheet.524</title>
-					<path d="M5.85 634.56 A3.55813 3.55813 0 0 1 5.88 635.02 A3.10596 3.10596 0 0 1 5.81 635.68 A1.90826 1.90826
-								 0 0 1 5.38 639.45 L2.95 639.45 A1.91364 1.91364 0 0 1 2.95 635.62 L3.62 635.62 A1.4063 1.4063 -180
-								 0 0 3.75 635.02 A1.38342 1.38342 -180 0 0 3.66 634.51 L2.96 634.51 A3.02253 3.02253 -180 0 0 2.96
-								 640.56 L5.38 640.56 A3.02253 3.02253 -180 0 0 5.85 634.55 L5.85 634.56 Z" class="st82"/>
-				</g>
-				<g id="shape525-869" v:mID="525" v:groupContext="shape" transform="translate(0,-0.450819)">
-					<title>Sheet.525</title>
-					<path d="M7.51 639.88 L6.96 640.44 a0.379498 0.379498 0 0 1 -0.538295 0 L0.22 634.26 a0.761687 0.761687 0 0 1
-								 -4.66294E-15 -1.07659 L0.78 632.63 L7.51 639.35 a0.371423 0.371423 0 0 1 8.88178E-16 0.526183 L7.51
-								 639.88 Z" class="st10"/>
-				</g>
-				<g id="shape526-871" v:mID="526" v:groupContext="shape" transform="translate(-1.20903E-13,-6.12336)">
-					<title>Sheet.526</title>
-					<path d="M6.84 632.77 L7.46 633.38 a0.379498 0.379498 0 0 1 1.77636E-15 0.538295 L0.84 640.56 L0.22 639.94 a0.761687
-								 0.761687 0 0 1 -7.54952E-15 -1.07659 L6.31 632.77 a0.379498 0.379498 0 0 1 0.534258 0 Z"
-							class="st83"/>
-				</g>
-				<g id="shape527-873" v:mID="527" v:groupContext="shape" transform="translate(16.5988,-1.13687E-13)">
-					<title>Sheet.527</title>
-					<path d="M0.11 639.87 a0.371423 0.371423 0 0 1 -0.00807442 -0.526183 L0.11 639.35 L6.84 632.63 L7.4 633.19 a0.761687
-								 0.761687 0 0 1 3.55271E-15 1.07659 L1.2 640.44 a0.371423 0.371423 0 0 1 -0.526183 0.00807442 L0.66
-								 640.44 L0.11 639.87 Z" class="st10"/>
-				</g>
-				<g id="shape528-875" v:mID="528" v:groupContext="shape" transform="translate(16.6527,-5.68061)">
-					<title>Sheet.528</title>
-					<path d="M1.26 632.77 L7.35 638.87 a0.75765 0.75765 0 0 1 2.66454E-15 1.06717 L6.73 640.56 L0.11 633.92 a0.386227
-								 0.386227 0 0 1 -1.66533E-15 -0.538295 L0.73 632.77 a0.379498 0.379498 0 0 1 0.534258 0 Z"
-							class="st83"/>
-				</g>
-			</g>
-		</g>
-		<g id="shape4-877" v:mID="4" v:groupContext="shape" transform="translate(641.074,-366.654)">
-			<title>Sheet.4</title>
-			<desc>User agent pool</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="38.7365" cy="629.962" width="77.48" height="21.1888"/>
-			<rect x="0" y="619.367" width="77.4731" height="21.1888" class="st6"/>
-			<text x="9.72" y="632.66" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>User agent pool</text>		</g>
-		<g id="group138-880" transform="translate(666.376,-395.668)" v:mID="138" v:groupContext="group">
-			<title>Icon-compute-34.406</title>
-			<g id="shape139-881" v:mID="139" v:groupContext="shape" transform="translate(0,-16.2009)">
-				<title>Sheet.139</title>
-				<path d="M0 640.02 a0.53741 0.53741 -180 0 0 0.537397 0.537397 L15.44 640.56 a0.53741 0.53741 -180 0 0 0.537397 -0.537397
-							 L15.98 630.42 a0.53741 0.53741 -180 0 0 -0.537397 -0.537397 L0.54 629.89 a0.53741 0.53741 -180 0 0 -0.537397
-							 0.537397 L0 640.02 Z" class="st9"/>
-			</g>
-			<g id="shape140-883" v:mID="140" v:groupContext="shape" transform="translate(7.99773,-18.4296)">
-				<title>Sheet.140</title>
-				<path d="M2.66 635.89 L2.66 639.01 L0 640.56 L0 637.46 L2.66 635.89 Z" class="st10"/>
-			</g>
-			<g id="shape141-885" v:mID="141" v:groupContext="shape" transform="translate(5.32655,-21.5275)">
-				<title>Sheet.141</title>
-				<path d="M5.33 638.99 L2.67 640.56 L0 638.99 L2.67 637.43 L5.33 638.99 Z" class="st11"/>
-			</g>
-			<g id="shape142-887" v:mID="142" v:groupContext="shape" transform="translate(5.32655,-18.4296)">
-				<title>Sheet.142</title>
-				<path d="M2.67 637.46 L2.67 640.56 L0 639.01 L0 635.89 L2.67 637.46 Z" class="st12"/>
-			</g>
-			<g id="shape143-889" v:mID="143" v:groupContext="shape" transform="translate(6.2749,-10.0841)">
-				<title>Sheet.143</title>
-				<path d="M0 640.02 a0.53741 0.53741 -180 0 0 0.537397 0.537397 L15.44 640.56 a0.53741 0.53741 -180 0 0 0.537397 -0.537397
-							 L15.98 630.42 a0.53741 0.53741 -180 0 0 -0.537397 -0.537397 L0.54 629.89 a0.53741 0.53741 -180 0 0 -0.537397
-							 0.537397 L0 640.02 Z" class="st13"/>
-			</g>
-			<g id="shape144-891" v:mID="144" v:groupContext="shape" transform="translate(14.2726,-12.2969)">
-				<title>Sheet.144</title>
-				<path d="M2.66 635.89 L2.66 638.99 L0 640.56 L0 637.44 L2.66 635.89 Z" class="st10"/>
-			</g>
-			<g id="shape145-893" v:mID="145" v:groupContext="shape" transform="translate(11.6015,-15.4107)">
-				<title>Sheet.145</title>
-				<path d="M5.33 639.01 L2.67 640.56 L0 639.01 L2.67 637.44 L5.33 639.01 Z" class="st11"/>
-			</g>
-			<g id="shape146-895" v:mID="146" v:groupContext="shape" transform="translate(11.6015,-12.2969)">
-				<title>Sheet.146</title>
-				<path d="M2.67 637.44 L2.67 640.56 L0 638.99 L0 635.89 L2.67 637.44 Z" class="st12"/>
-			</g>
-			<g id="shape147-897" v:mID="147" v:groupContext="shape" transform="translate(10.8902,-4.14112)">
-				<title>Sheet.147</title>
-				<path d="M0 640.02 a0.53741 0.53741 -180 0 0 0.537397 0.537397 L15.44 640.56 a0.53741 0.53741 -180 0 0 0.537397 -0.537397
-							 L15.98 630.42 a0.53741 0.53741 -180 0 0 -0.537397 -0.537397 L0.54 629.89 a0.53741 0.53741 -180 0 0 -0.537397
-							 0.537397 L0 640.02 Z" class="st14"/>
-			</g>
-			<g id="shape148-900" v:mID="148" v:groupContext="shape" transform="translate(18.8879,-6.35393)">
-				<title>Sheet.148</title>
-				<path d="M2.66 635.89 L2.66 638.99 L0 640.56 L0 637.44 L2.66 635.89 Z" class="st10"/>
-			</g>
-			<g id="shape149-902" v:mID="149" v:groupContext="shape" transform="translate(16.2168,-9.45187)">
-				<title>Sheet.149</title>
-				<path d="M5.33 638.99 L2.67 640.56 L0 638.99 L2.67 637.43 L5.33 638.99 Z" class="st11"/>
-			</g>
-			<g id="shape150-904" v:mID="150" v:groupContext="shape" transform="translate(16.2168,-6.35393)">
-				<title>Sheet.150</title>
-				<path d="M2.67 637.46 L2.67 640.56 L0 638.99 L0 635.89 L2.67 637.46 Z" class="st12"/>
-			</g>
-			<g id="shape151-906" v:mID="151" v:groupContext="shape" transform="translate(16.2168,-6.35393)">
-				<title>Sheet.151</title>
-				<path d="M0 638.99 L2.67 637.44 L2.67 640.56 L0 638.99 Z" class="st11"/>
-			</g>
-			<g id="shape152-908" v:mID="152" v:groupContext="shape" transform="translate(18.8879,-6.35393)">
-				<title>Sheet.152</title>
-				<path d="M2.66 638.99 L0 637.44 L0 640.56 L2.66 638.99 Z" class="st12"/>
-			</g>
-			<g id="shape153-910" v:mID="153" v:groupContext="shape" transform="translate(14.9681,0)">
-				<title>Sheet.153</title>
-				<path d="M7.11 639.66 C5.53 639.4 5.53 638.26 5.53 636.49 L2.37 636.49 C2.37 638.33 2.37 639.47 0.79 639.66 a0.932542
-							 0.932542 -180 0 0 -0.79029 0.900931 L7.9 640.56 a0.932542 0.932542 -180 0 0 -0.79029 -0.900931 Z"
-						class="st15"/>
-			</g>
-		</g>
-		<g id="shape381-913" v:mID="381" v:groupContext="shape" transform="translate(610.929,-295.684)">
-			<title>Sheet.381</title>
-			<path d="M0 640.56 L52.34 640.56" class="st65"/>
-		</g>
-		<g id="shape385-918" v:mID="385" v:groupContext="shape" transform="translate(592.787,-285.285)">
-			<title>Sheet.385</title>
-			<rect v:rectContext="foreign" x="0" y="619.549" width="18.1421" height="21.0066" class="st6"/>
-			<image x="0" y="619.549" width="18.1421" height="21.0066" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						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"/>
-			<rect v:rectContext="foreign" x="0" y="619.549" width="18.1421" height="21.0066" class="st6"/>
-		</g>
-		<g id="shape537-922" v:mID="537" v:groupContext="shape" transform="translate(729.312,-274.528)">
-			<title>Rectangle.537</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<rect x="0" y="598.036" width="56.9037" height="42.5197" rx="8.50394" ry="8.50394" class="st71"/>
-		</g>
-		<g id="group455-924" transform="translate(745.692,-284.356)" v:mID="455" v:groupContext="group">
-			<title>Sheet.455</title>
-			<g id="group456-925" v:mID="456" v:groupContext="group">
-				<title>layer1</title>
-				<g id="group457-926" v:mID="457" v:groupContext="group">
-					<title>g70</title>
-					<g id="shape458-927" v:mID="458" v:groupContext="shape" transform="translate(0.619666,-0.602819)">
-						<title>path3055</title>
-						<path d="M11.06 618.9 A1.48408 1.47193 -0 0 0 10.49 619.04 L2.73 622.75 A1.48408 1.47193 -0 0 0 1.93 623.75
-									 L0.01 632.08 A1.48408 1.47193 -0 0 0 0.22 633.21 A1.48408 1.47193 -0 0 0 0.3 633.32 L5.67 640
-									 A1.48408 1.47193 -0 0 0 6.83 640.56 L15.45 640.55 A1.48408 1.47193 -0 0 0 16.61 640 L21.98 633.32
-									 A1.48408 1.47193 -0 0 0 22.26 632.08 L20.35 623.75 A1.48408 1.47193 -0 0 0 19.54 622.75 L11.78
-									 619.04 A1.48408 1.47193 -0 0 0 11.06 618.9 Z" class="st76"/>
-					</g>
-					<g id="shape459-930" v:mID="459" v:groupContext="shape">
-						<title>path3054-2-9</title>
-						<path d="M11.68 617.69 A1.5667 1.55388 -0 0 0 11.08 617.84 L2.88 621.76 A1.5667 1.55388 -0 0 0 2.04 622.81
-									 L0.02 631.61 A1.5667 1.55388 -0 0 0 0.23 632.8 A1.5667 1.55388 -0 0 0 0.32 632.92 L5.99 639.97
-									 A1.5667 1.55388 -0 0 0 7.21 640.56 L16.31 640.55 A1.5667 1.55388 -0 0 0 17.53 639.97 L23.2 632.92
-									 A1.5667 1.55388 -0 0 0 23.5 631.6 L21.48 622.81 A1.5667 1.55388 -0 0 0 20.63 621.76 L12.44 617.84
-									 A1.5667 1.55388 -0 0 0 11.68 617.69 ZM11.68 618.29 A1.48408 1.47193 180 0 1 12.4 618.44 L20.16
-									 622.14 A1.48408 1.47193 180 0 1 20.97 623.14 L22.88 631.47 A1.48408 1.47193 180 0 1 22.6 632.72
-									 L17.23 639.4 A1.48408 1.47193 180 0 1 16.07 639.95 L7.45 639.95 A1.48408 1.47193 180 0 1 6.29
-									 639.4 L0.92 632.72 A1.48408 1.47193 180 0 1 0.84 632.6 A1.48408 1.47193 180 0 1 0.63 631.48
-									 L2.55 623.15 A1.48408 1.47193 180 0 1 3.35 622.15 L11.11 618.44 A1.48408 1.47193 180 0 1 11.68
-									 618.29 L11.68 618.29 Z" class="st77"/>
-					</g>
-				</g>
-				<g id="group460-933" transform="translate(7.02786,-6.74673)" v:mID="460" v:groupContext="group">
-					<title>g3341</title>
-					<g id="shape461-934" v:mID="461" v:groupContext="shape" transform="translate(0,-6.62943)">
-						<title>path910</title>
-						<path d="M0 639.18 L4.73 637.81 L9.46 639.18 L4.73 640.56 L0 639.18 Z" class="st19"/>
-					</g>
-					<g id="shape462-936" v:mID="462" v:groupContext="shape">
-						<title>path912</title>
-						<path d="M0 633.08 L0 638.11 L4.41 640.56 L4.43 634.4 L0 633.08 Z" class="st19"/>
-					</g>
-					<g id="shape463-938" v:mID="463" v:groupContext="shape" transform="translate(5.03238,0)">
-						<title>path914</title>
-						<path d="M4.43 633.08 L4.43 638.11 L0.02 640.56 L0 634.4 L4.43 633.08 Z" class="st19"/>
-					</g>
-				</g>
-			</g>
-		</g>
-		<g id="shape538-940" v:mID="538" v:groupContext="shape" transform="translate(499.673,-295.684)">
-			<title>Sheet.538</title>
-			<path d="M0 640.56 L86.39 640.56" class="st65"/>
-		</g>
-		<g id="shape540-945" v:mID="540" v:groupContext="shape" transform="translate(197.921,-310.066)">
-			<title>Sheet.540</title>
-			<path d="M0 640.56 L107.65 640.56" class="st65"/>
-		</g>
-		<g id="shape541-950" v:mID="541" v:groupContext="shape" transform="translate(341.821,-310.066)">
-			<title>Sheet.541</title>
-			<path d="M0 640.56 L32.81 640.56" class="st84"/>
-		</g>
-		<g id="shape542-953" v:mID="542" v:groupContext="shape" transform="translate(403.433,-295.386)">
-			<title>Sheet.542</title>
-			<path d="M0 640.56 L67.79 640.56" class="st65"/>
-		</g>
-		<g id="shape544-958" v:mID="544" v:groupContext="shape" transform="translate(373.67,-295.386)">
-			<title>Sheet.544</title>
-			<path d="M29.76 640.56 A14.166 7.48871 0 0 1 15.6 633.07 A15.5972 7.19132 -180 0 0 -0 625.88" class="st84"/>
-		</g>
-		<g id="group545-961" transform="translate(114.385,-247.392)" v:mID="545" v:groupContext="group">
-			<title>Sheet.545</title>
-			<g id="group546-962" v:mID="546" v:groupContext="group">
-				<title>Page-1</title>
-				<g id="group547-963" v:mID="547" v:groupContext="group">
-					<title>WAF policy</title>
-					<g id="group548-964" v:mID="548" v:groupContext="group">
-						<title>Icon-362Artboard 1</title>
-						<g id="group549-965" transform="translate(0.88053,-3.02793)" v:mID="549" v:groupContext="group">
-							<title>Sheet.549</title>
-							<g id="shape550-966" v:mID="550" v:groupContext="shape">
-								<title>Sheet.550</title>
-								<path d="M15.35 640.56 A11.206 10.9683 90 0 1 1.83 622.91 L1.96 622.78 A11.2178 10.9799 90 0 1 15.35
-											 640.56 Z" class="st85"/>
-							</g>
-						</g>
-						<g id="group551-970" transform="translate(1.06415E-13,-4.21277)" v:mID="551" v:groupContext="group">
-							<title>Sheet.551</title>
-							<g id="shape552-971" v:mID="552" v:groupContext="shape">
-								<title>Sheet.552</title>
-								<path d="M1.03 635.16 A33.9971 33.2759 -90 0 0 0 638.58 L0.77 639.77 L1.55 640.56 A18.7587 18.3608
-											 90 0 1 2.96 635.95 A3.3294 3.25878 90 0 1 1.03 635.16 ZM2.32 629.1 A17.9767 17.5954
-											 90 0 1 1.42 625.28 A9.94084 9.72996 -90 0 0 -0 627.13 A13.8864 13.5918 -90 0 0 0.77
-											 630.29 A3.59402 3.51779 90 0 1 2.32 629.1 Z" class="st86"/>
-							</g>
-						</g>
-						<g id="group553-973" transform="translate(1.05915E-13,-8.68917)" v:mID="553" v:groupContext="group">
-							<title>Sheet.553</title>
-							<g id="shape554-974" v:mID="554" v:groupContext="shape">
-								<title>Sheet.554</title>
-								<ellipse cx="3.47913" cy="637.002" rx="3.47913" ry="3.55453" class="st87"/>
-							</g>
-						</g>
-						<g id="group555-978" transform="translate(4.12339,-3.80253)" v:mID="555" v:groupContext="group">
-							<title>Sheet.555</title>
-							<g id="shape556-979" v:mID="556" v:groupContext="shape">
-								<title>Sheet.556</title>
-								<path d="M4.51 638.7 A2.77253 2.71372 90 0 1 5.16 636.98 A12.1117 11.8548 90 0 1 1.93 634.49 A3.62167
-											 3.54484 90 0 1 -0 635.54 A25.2766 24.7404 -90 0 0 1.93 637.38 A10.7623 10.534 -90 0
-											 0 4.51 638.96 L4.51 638.7 ZM12.63 638.96 A17.5475 17.1753 90 0 1 9.02 638.57 L9.02 638.7
-											 A2.18011 2.13386 90 0 1 8.38 640.28 A17.071 16.7088 -90 0 0 12.75 640.54 C13.27 640.01
-											 13.79 639.36 14.3 638.83 A6.95504 6.80748 90 0 1 12.63 638.96 Z" class="st86"/>
-							</g>
-						</g>
-						<g id="group557-981" transform="translate(8.63338,-3.29171)" v:mID="557" v:groupContext="group">
-							<title>Sheet.557</title>
-							<g id="shape558-982" v:mID="558" v:groupContext="shape">
-								<title>Sheet.558</title>
-								<ellipse cx="2.31942" cy="638.186" rx="2.31942" ry="2.36968" class="st88"/>
-							</g>
-						</g>
-						<g id="group559-984" transform="translate(4.76769,-11.9801)" v:mID="559" v:groupContext="group">
-							<title>Sheet.559</title>
-							<g id="shape560-985" v:mID="560" v:groupContext="shape">
-								<title>Sheet.560</title>
-								<path d="M5.54 635.55 A17.7305 17.3544 90 0 1 13.14 633.71 A8.85998 8.67203 -90 0 0 11.21 631.87
-											 A20.1884 19.7601 -90 0 0 5.16 633.32 A12.1775 11.9192 -90 0 0 3.86 633.97 A24.6487 24.1258
-											 90 0 1 1.29 630.15 A2.50133 2.44827 -90 0 0 0.13 630.55 A27.8082 27.2184 -90 0 0 2.83
-											 634.63 A12.9556 12.6808 -90 0 0 0 636.87 A3.752 3.67241 90 0 1 1.67 638.32 A11.7971
-											 11.5468 90 0 1 4.13 636.34 A29.4407 28.8162 -90 0 0 8.89 640.56 A2.73172 2.67378 90
-											 0 1 9.66 639.24 A36.7196 35.9407 90 0 1 5.54 635.55 Z" class="st86"/>
-							</g>
-						</g>
-						<g id="group561-987" transform="translate(13.6588,-8.95244)" v:mID="561" v:groupContext="group">
-							<title>Sheet.561</title>
-							<g id="shape562-988" v:mID="562" v:groupContext="shape">
-								<title>Sheet.562</title>
-								<ellipse cx="2.44827" cy="638.055" rx="2.44827" ry="2.50133" class="st89"/>
-							</g>
-						</g>
-						<g id="group563-990" transform="translate(17.6534,-8.42554)" v:mID="563" v:groupContext="group">
-							<title>Sheet.563</title>
-							<g id="shape564-991" v:mID="564" v:groupContext="shape">
-								<title>Sheet.564</title>
-								<path d="M2.58 639.24 C2.45 639.11 2.32 639.11 2.19 638.98 C2.06 638.84 1.93 638.84 1.8 638.71 L1.67
-											 638.71 L1.29 638.45 L1.16 638.45 L0.77 638.19 A1.91681 1.87615 90 0 1 0 639.37 C0.13
-											 639.5 0.26 639.5 0.52 639.63 L0.64 639.63 C0.77 639.77 0.9 639.77 1.03 639.9 C1.42 640.16
-											 1.8 640.29 2.19 640.56 C2.32 640.16 2.45 639.63 2.58 639.24 Z" class="st86"/>
-							</g>
-						</g>
-						<g id="group565-993" transform="translate(1.05915E-13,-8.68917)" v:mID="565" v:groupContext="group">
-							<title>Sheet.565</title>
-							<g id="shape566-994" v:mID="566" v:groupContext="shape">
-								<title>Sheet.566</title>
-								<ellipse cx="3.47913" cy="637.002" rx="3.47913" ry="3.55453" class="st89"/>
-							</g>
-						</g>
-						<g id="group567-996" transform="translate(8.63338,-3.29171)" v:mID="567" v:groupContext="group">
-							<title>Sheet.567</title>
-							<g id="shape568-997" v:mID="568" v:groupContext="shape">
-								<title>Sheet.568</title>
-								<ellipse cx="2.31942" cy="638.186" rx="2.31942" ry="2.36968" class="st89"/>
-							</g>
-						</g>
-						<g id="group569-999" transform="translate(4.50999,0)" v:mID="569" v:groupContext="group">
-							<title>Sheet.569</title>
-							<g id="shape570-1000" v:mID="570" v:groupContext="shape">
-								<title>Sheet.570</title>
-								<path d="M0.52 630.94 L16.11 630.94 C16.36 630.94 16.75 631.21 16.75 631.47 L16.75 639.9 a0.705638
-											 0.690672 90 0 1 -0.643466 0.659257 L0.52 640.56 a0.602951 0.590161 90 0 1 -0.517141
-											 -0.659257 L0 631.6 a0.602951 0.590161 90 0 1 0.517141 -0.659257 Z" class="st90"/>
-							</g>
-						</g>
-						<g id="group571-1002" transform="translate(5.15424,-6.45128)" v:mID="571" v:groupContext="group">
-							<title>Sheet.571</title>
-							<g id="shape572-1003" v:mID="572" v:groupContext="shape">
-								<title>Sheet.572</title>
-								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st91"/>
-							</g>
-						</g>
-						<g id="group573-1005" transform="translate(10.5662,-6.45128)" v:mID="573" v:groupContext="group">
-							<title>Sheet.573</title>
-							<g id="shape574-1006" v:mID="574" v:groupContext="shape">
-								<title>Sheet.574</title>
-								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st92"/>
-							</g>
-						</g>
-						<g id="group575-1008" transform="translate(5.15424,-3.68618)" v:mID="575" v:groupContext="group">
-							<title>Sheet.575</title>
-							<g id="shape576-1009" v:mID="576" v:groupContext="shape">
-								<title>Sheet.576</title>
-								<path d="M10.69 635.68 L15.33 635.68 L15.33 637.79 L10.69 637.79 L10.69 635.68 ZM0 638.45 L1.93 638.45
-											 L1.93 640.56 L0 640.56 L0 638.45 Z" class="st91"/>
-							</g>
-						</g>
-						<g id="group577-1011" transform="translate(7.86023,-3.68618)" v:mID="577" v:groupContext="group">
-							<title>Sheet.577</title>
-							<g id="shape578-1012" v:mID="578" v:groupContext="shape">
-								<title>Sheet.578</title>
-								<path d="M10.69 638.45 L12.63 638.45 L12.63 640.56 L10.69 640.56 L10.69 638.45 ZM0 638.45 L4.64 638.45
-											 L4.64 640.56 L0 640.56 L0 638.45 Z" class="st92"/>
-							</g>
-						</g>
-						<g id="group579-1014" transform="translate(5.15424,-0.921542)" v:mID="579" v:groupContext="group">
-							<title>Sheet.579</title>
-							<g id="shape580-1015" v:mID="580" v:groupContext="shape">
-								<title>Sheet.580</title>
-								<path d="M7.99 635.68 L12.63 635.68 L12.63 637.79 L7.99 637.79 L7.99 635.68 ZM0 638.45 L4.64 638.45
-											 L4.64 640.56 L0 640.56 L0 638.45 Z" class="st91"/>
-							</g>
-						</g>
-						<g id="group581-1017" transform="translate(10.5662,-0.922016)" v:mID="581" v:groupContext="group">
-							<title>Sheet.581</title>
-							<g id="shape582-1018" v:mID="582" v:groupContext="shape">
-								<title>Sheet.582</title>
-								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st92"/>
-							</g>
-						</g>
-						<g id="group583-1020" transform="translate(15.8494,-0.922016)" v:mID="583" v:groupContext="group">
-							<title>Sheet.583</title>
-							<g id="shape584-1021" v:mID="584" v:groupContext="shape">
-								<title>Sheet.584</title>
-								<rect x="0" y="638.45" width="4.63884" height="2.10638" class="st91"/>
-							</g>
-						</g>
-					</g>
-				</g>
-			</g>
-		</g>
-		<g id="shape585-1023" v:mID="585" v:groupContext="shape" transform="translate(100.244,-274.528)">
-			<title>Sheet.585</title>
-			<desc>Azure Front Door</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="24.7713" cy="629.926" width="49.55" height="21.2598"/>
-			<rect x="0" y="619.296" width="49.5426" height="21.2598" class="st6"/>
-			<text x="14.22" y="627.23" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
-						x="4.79" dy="1.2em" class="st8">Front Door</tspan></text>		</g>
-		<g id="shape586-1027" v:mID="586" v:groupContext="shape" transform="translate(96.9445,-210.33)">
-			<title>Sheet.586</title>
-			<desc>Web Application Firewall policy</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="26.5985" cy="629.926" width="53.2" height="21.2598"/>
-			<rect x="0" y="619.296" width="53.197" height="21.2598" class="st6"/>
-			<text x="17.99" y="616.43" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web <tspan x="5.87"
-						dy="1.2em" class="st8">Application </tspan><tspan x="12.25" dy="1.2em" class="st8">Firewall </tspan><tspan
-						x="15.86" dy="1.2em" class="st8">policy</tspan></text>		</g>
-		<g id="group587-1033" transform="translate(111.126,-295.788)" v:mID="587" v:groupContext="group">
-			<title>Sheet.587</title>
-			<g id="group588-1034" v:mID="588" v:groupContext="group">
-				<title>Page-1</title>
-				<g id="group589-1035" v:mID="589" v:groupContext="group">
-					<title>Azure Front Door</title>
-					<g id="group590-1036" v:mID="590" v:groupContext="group">
-						<title>Icon-networking-73</title>
-						<g id="group591-1037" transform="translate(0,-4.87666)" v:mID="591" v:groupContext="group">
-							<title>Sheet.591</title>
-							<g id="shape592-1038" v:mID="592" v:groupContext="shape">
-								<title>Sheet.592</title>
-								<path d="M27.78 634.24 A6.30554 6.17319 -90 0 0 22.36 628.2 A8.03954 7.87084 -90 0 0 14.26 620.43
-											 A8.24451 8.07144 -90 0 0 6.54 625.8 A7.61393 7.45414 -90 0 0 -0 633.12 A7.72428 7.56219
-											 -90 0 0 7.83 640.54 L21.17 640.54 A1.22958 1.20377 -90 0 0 21.52 640.54 A6.44739 6.3121
-											 -90 0 0 27.78 634.24 Z" class="st93"/>
-							</g>
-						</g>
-						<g id="group593-1042" transform="translate(10.2321,-4.9038)" v:mID="593" v:groupContext="group">
-							<title>Sheet.593</title>
-							<g id="shape594-1043" v:mID="594" v:groupContext="shape">
-								<title>Sheet.594</title>
-								<rect x="0" y="629.521" width="7.8091" height="11.0347" class="st94"/>
-							</g>
-						</g>
-						<g id="group595-1045" transform="translate(13.5965,-1.13687E-13)" v:mID="595" v:groupContext="group">
-							<title>Sheet.595</title>
-							<g id="shape596-1046" v:mID="596" v:groupContext="shape">
-								<title>Sheet.596</title>
-								<path d="M5.87 623.91 L0.48 620.76 a0.394096 0.385825 -90 0 0 -0.478423 0.236458 L0 640.16 a0.394096
-											 0.385825 -90 0 0 0.370392 0.394096 L0.49 640.56 L5.88 637.31 a0.394096 0.385825 -90
-											 0 0 0.262361 -0.362569 L6.14 624.33 a0.40986 0.401258 -90 0 0 -0.277794 -0.425624 L5.87
-											 623.91 Z" class="st95"/>
-							</g>
-						</g>
-					</g>
-				</g>
-			</g>
-		</g>
-		<g id="shape609-1048" v:mID="609" v:groupContext="shape" transform="translate(75.0568,-310.367)">
-			<title>Sheet.609</title>
+			<v:textRect cx="21.2598" cy="629.926" width="42.52" height="21.2598"/>
+			<rect x="0" y="619.296" width="42.5197" height="21.2598" class="st6"/>
+			<text x="8.4" y="627.23" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private <v:newlineChar/><tspan
+						x="4.65" dy="1.2em" class="st8">endpoint</tspan></text>		</g>
+		<g id="shape614-1069" v:mID="614" v:groupContext="shape" transform="translate(140.746,-309.961)">
+			<title>Sheet.614</title>
 			<path d="M0 640.56 L30.32 640.56" class="st65"/>
 		</g>
-		<g id="shape610-1053" v:mID="610" v:groupContext="shape" transform="translate(33.1732,-267.442)">
-			<title>Sheet.610</title>
-			<desc>Application users</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="28.3465" cy="629.926" width="56.7" height="21.2598"/>
-			<rect x="0" y="619.296" width="56.6929" height="21.2598" class="st6"/>
-			<text x="7.61" y="627.23" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application<v:lf/><tspan
-						x="18.65" dy="1.2em" class="st8">users</tspan></text>		</g>
-		<g id="shape611-1057" v:mID="611" v:groupContext="shape" transform="translate(45.2019,-294.715)">
-			<title>Sheet.611</title>
+		<g id="shape615-1074" v:mID="615" v:groupContext="shape" transform="translate(73.2244,-409.174)">
+			<title>Sheet.615</title>
+			<path d="M0 640.56 L96.6 640.56" class="st54"/>
+		</g>
+		<g id="shape420-1079" v:mID="420" v:groupContext="shape" transform="translate(45.2019,-393.014)">
+			<title>Sheet.420</title>
 			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
 			<switch>
 				<foreignObject x="0" y="607.321" width="32.6356" height="33.235"
@@ -3607,243 +3828,21 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
 		</g>
-		<g id="shape612-1060" v:mID="612" v:groupContext="shape" transform="translate(177.228,-302.875)">
-			<title>Sheet.612</title>
-			<rect v:rectContext="foreign" x="0" y="619.863" width="20.6932" height="20.6932" class="st6"/>
-			<image x="0" y="619.863" width="20.6932" height="20.6932" preserveAspectRatio="none" xlink:href="data:image/png;base64,
-						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"/>
-			<rect v:rectContext="foreign" x="0" y="619.863" width="20.6932" height="20.6932" class="st6"/>
-		</g>
-		<g id="shape613-1064" v:mID="613" v:groupContext="shape" transform="translate(166.374,-267.442)">
-			<title>Sheet.613</title>
-			<desc>Private endpoint</desc>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="21.2598" cy="629.926" width="42.52" height="21.2598"/>
-			<rect x="0" y="619.296" width="42.5197" height="21.2598" class="st6"/>
-			<text x="8.4" y="627.23" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private <v:newlineChar/><tspan
-						x="4.65" dy="1.2em" class="st8">endpoint</tspan></text>		</g>
-		<g id="shape614-1068" v:mID="614" v:groupContext="shape" transform="translate(140.746,-309.961)">
-			<title>Sheet.614</title>
-			<path d="M0 640.56 L30.32 640.56" class="st65"/>
-		</g>
-		<g id="shape615-1073" v:mID="615" v:groupContext="shape" transform="translate(73.2244,-409.174)">
-			<title>Sheet.615</title>
-			<path d="M0 640.56 L96.6 640.56" class="st54"/>
-		</g>
-		<g id="shape420-1078" v:mID="420" v:groupContext="shape" transform="translate(45.2019,-393.014)">
-			<title>Sheet.420</title>
-			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
-			<switch>
-				<foreignObject x="0" y="607.321" width="32.6356" height="33.235"
-						requiredExtensions="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
-					<v:foreignData v:orgSize="6272" v:data="data:metafile;base64,eNrtWGtsVEUUPjP7LLZYZZWlLeXVQhcwNErLm869BZRQIqF
-								UG4oJkqpoUTAYU4mBbVTkESOpkdQ/0GB/0CqCECUU0jaRUDWBINjSYGpCCGgIIUhIxIqs58zO7L293S1bCYKJk3z55s6ce2b
-								OuefM4zIAWAVWWcoAnkf8FYlECIc9AJ2IkXMXzgNgEA4CfIJyLuhdLg8B+HYYQBfWh7LefcsWuGBlsRtQAUxEjESguglMMMj
-								CejqCp7f9RLLlPAqSvY74VcnmCy7l3FJjuGi0cEOq0j9eAOQgB1WfNbJVf1wA02NZ3XuKAb4sTub9XAG28QFGCFds/GyREqu
-								PEr6489rHJ07Xuux1N8rE3kX4EVmKFyCwG/IRHuU3pmC3owIbVrC+zzR2Tj9jo5thNETHx08dIZ+X48Al/qjPJ9jmli28Nhs
-								9cW1Pxl67f/wCXDOVffT93Y6Yastk8zWHv3bJumTGap7A76n15CSIhaFd50Qsrj89J9L/2CmeGVUv/IJ5Un3Y6IuOy9V3veq
-								N+naVzT+TEI+BlQ/fYf04WPlA76Sob3Ln+QD95kMDBkGd5y7mAwgTYI75b+RDJLIhpstep5hYjrxE+YDygBx01XPN2DLCYxI
-								38fPGkvN+85rxjbG5Jktyy4h8yRloA/UTa3licMlSExAQ1vOOXFwUwVhwbcP6u2q8NDXe2Mp8M1C0ySAun7bDGLx+nLnk+l6
-								jfnOW5ODHD0mGvX4zJ2+HZJIn9n9eKfsbhxhSnpjeJyZ91K/1q3nJ8g7GdUAwx/x4XH+kl79uDHr2kEFcn1FrtK2qM04eqDT
-								GN7ZKXn7houTUUpdJ/cRantjyB4+Nd6YacDxXXH+sXvOLUfF2tyD+bH+GIRo6jA/yZhv5h1sljzzVKPmqp84Ysy1DMskTr+5
-								6T1xuazQyd/QU3cT5EZ+p7ZBM+qhf6+/rD5djfu6E/viwdKpJvPSrHJP8cevHgEn+ICZ/EJMfqJ9YyxNb/nA7/O9J6I+hB68
-								YxF+Uc5P8MaHwAZP8QUz+ICb7A4u4ZJIn9p3okv7qYu3Sf8T0PjHpO32ky9D6+/rD45ifN64/qMi4x0L5UOtZLyg/cnvSDOJ
-								ha5dJTu/5QOYTsZbvnS9eh/99cf1xYtNzBsUzMeXL6qvTDMqPyuzBkrvrjgriwMl1gvKFmOSJKR9OlB4VlB/df6YZxDuPT5N
-								M+mS/0t/XH75e80tm7UpGZqxjffMLvzuo9kq9NuMZKH2y8PfZv1coOVr2SxCVcfYT/Zyv9oAQNEG8efSuxy/OPVyv67RPcNs
-								ePhgRUPV0Vcf1xa99QXaxOGe7TDyn0UY6Wc2ZUFZW0PrynoLW3U1zzPwfnjJdtrbFHYZJTM/reuaa8fyi27Jj36H32UWfgUY
-								5eC1Y9miZXKstrOs+Wx3tDg+zfARBm46H9TdFDLHNL6DqFN+P2Noftb2b5tg/p6u+QeQzR98YlZZlP1+InUm+r70gTp/aJZ6
-								+vEvos1qifrfDdufYixFrmDX3FFvfER5lH+ejS+Et1PMGvACvwv9l4KXyTRlysZgjf1PO5al4fHLO/GKucpHKJJXjidYH/d0
-								xRGfZcn6W/Yw+Tuenalt0MQL2Odhjl+oz1Dg6BrtxoDQ6R6octs5d0eKVMi0si29gryAOIW7wFkQaL3TomKV0z1Q8W82NFsR
-								9EL0//ubIJXt+2uw1bPYadnuT8cntbC8jP8WxlfKmmaewZl7AtvNyVoUoQmTicya2Z/JuKOLNUIXYjmjGZ5J32vs7RP1ZhAb
-								W36G9ebb5/5N4gOozA4qHS4gq1n88XILhLMS6oRpxDOHlw5mXV7FCh45E8fAaYiXiCmL3fR4P7ewlxEfQwA6ivQehBBHC5xC
-								2h9gMfA5iexD7gyg3Q8o77d2CeBBxSsXFvYyHga4P9C3P8tvFw1YeYiW8GnEM4eVbEWd5oUNHf/GQyqLxsJDd7/HQydoZ5w0
-								sF+3N5SWIED6HsD3EmlgJ28iqEQ2Idnwm+XjxcEDFw83/2Ppwg/xwm3i4EWlhU2ED24joQARw/wgwa7/QOhLFA1P7RQ3c//t
-								FJ6SwTihg+6GcvY+oQEzB5ynYPgW6oQKaYSNiP6ITn0neae9wtS68CHe+X8xTZzy/Om/Q2dt+B7DXtW60I5xnGzOe/C11fzi
-								CAvtY9P4wUfR7VwoTkvnnlsy/wRxhnW+T+ffoFy63PnfpO5kKPzkv/X93coJ/UwP9X5mM/N27f7oT3D/dSd8/Aaz/+7ro+9a
-								9un/+DTVTOSI="/>
-				</foreignObject>
-				<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-				<svg viewBox="-0.70833 -0.70968 347.08 354.13" height="33.235" preserveAspectRatio="none" width="32.6356" x="0"
-						y="607.321">
-					<clipPath id="mfid70">
-						<rect x="-0.70833" y="-0.70968" width="347.08" height="354.13" id="mfid71"/>
-					</clipPath>
-					<g clip-path="url(#mfid70)">
-						<mask id="mfid72">
-							<rect width="347" height="354" fill="white" stroke="none"/>
-						</mask>
-						<mask id="mfid73" fill="white" stroke="none">
-							<g>
-								<g mask="url(#mfid72)">
-									<use xlink:href="#mfid71"/>
-								</g>
-							</g>
-						</mask>
-						<!-- GetDC -->
-						<mask id="mfid74" fill-rule="evenodd" fill="white" stroke="none">
-							<rect x="0" y="0" width="347" height="354"/>
-						</mask>
-						<!-- Released DC -->
-						<defs>
-							<path id="mfid75" d="M0,0 L528830,0 L528830,539500 L0,539500 Z"/>
-						</defs>
-						<mask id="mfid76">
-							<use xlink:href="#mfid75" fill-rule="evenodd" fill="white" stroke="none"
-									transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
-						</mask>
-						<mask id="mfid77" fill="white" stroke="none">
-							<g mask="url(#mfid73)">
-								<g mask="url(#mfid76)">
-									<use xlink:href="#mfid71"/>
-								</g>
-							</g>
-						</mask>
-						<defs>
-							<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-							<svg viewBox="-0.70833 -0.70968 48.167 49.204" height="49" id="mfid78" width="48">
-								<clipPath id="mfid79">
-									<rect x="-0.70833" y="-0.70968" width="48.167" height="49.204" id="mfid80"/>
-								</clipPath>
-								<g clip-path="url(#mfid79)">
-									<mask id="mfid81">
-										<rect width="48" height="49" fill="white" stroke="none"/>
-									</mask>
-									<mask id="mfid82" fill="white" stroke="none">
-										<g>
-											<g mask="url(#mfid81)">
-												<use xlink:href="#mfid80"/>
-											</g>
-										</g>
-									</mask>
-									<defs>
-										<path id="mfid83"
-												d="M30.253,33.281 C30.253,28.376 34.222,24.407 39.126,24.407 C44.031,24.407 48,28.376 48,33.281 L30.253,33.281 Z"/>
-									</defs>
-									<g mask="url(#mfid82)">
-										<g transform="matrix(1, 0, 0, 1, 0, 0)">
-											<g fill="#50e6ff">
-												<use xlink:href="#mfid83" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid84"
-															d="M44.098,17.031 C44.098,19.778 41.873,21.994 39.134,21.994 C36.396,21.994 34.171,19.77 34.171,17.031 C34.171,14.292 36.396,12.067 39.134,12.067 C41.873,12.067 44.098,14.292 44.098,17.031 Z"/>
-												</defs>
-												<use xlink:href="#mfid84" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid85"
-															d="M15.084,23.167 C15.084,18.263 19.053,14.294 23.958,14.294 C28.862,14.294 32.831,18.263 32.831,23.167 L15.084,23.167 Z"/>
-												</defs>
-											</g>
-											<g fill="#0078d7">
-												<use xlink:href="#mfid85" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid86"
-															d="M28.93,6.9214 C28.93,9.6686 26.705,11.885 23.966,11.885 C21.228,11.885 19.003,9.6602 19.003,6.9214 C19.003,4.1827 21.219,1.9579 23.958,1.9579 C26.697,1.9579 28.93,4.1827 28.93,6.9214 Z"/>
-												</defs>
-												<use xlink:href="#mfid86" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid87"
-															d="M15.084,46.082 C15.084,41.177 19.053,37.208 23.958,37.208 C28.862,37.208 32.831,41.177 32.831,46.082 L15.084,46.082 Z"/>
-												</defs>
-											</g>
-											<g fill="#50e6ff">
-												<use xlink:href="#mfid87" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid88"
-															d="M28.93,29.839 C28.93,32.587 26.705,34.803 23.966,34.803 C21.228,34.803 19.003,32.578 19.003,29.839 C19.003,27.101 21.228,24.876 23.966,24.876 C26.705,24.876 28.93,27.092 28.93,29.839 Z"/>
-												</defs>
-												<use xlink:href="#mfid88" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid89"
-															d="M0,33.281 C0,28.376 3.9691,24.407 8.8736,24.407 C13.778,24.407 17.747,28.376 17.747,33.281 L0,33.281 Z"/>
-												</defs>
-											</g>
-											<g fill="#0078d7">
-												<use xlink:href="#mfid89" fill-rule="nonzero" stroke="none"/>
-												<defs>
-													<path id="mfid90"
-															d="M13.846,17.031 C13.846,19.778 11.621,21.994 8.8824,21.994 C6.1437,21.994 3.919,19.77 3.919,17.031 C3.919,14.292 6.1352,12.067 8.874,12.067 C11.613,12.067 13.846,14.292 13.846,17.031 Z"/>
-												</defs>
-												<use xlink:href="#mfid90" fill-rule="nonzero" stroke="none"/>
-											</g>
-										</g>
-									</g>
-								</g>
-							</svg>
-						</defs>
-						<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-						<g mask="url(#mfid77)">
-							<g transform="matrix(7.0576, 0, 0, 7.0512, 4.9992, 5.0041)">
-								<clipPath id="mfid91">
-									<rect x="-0.70833" y="-0.70968" width="49.167" height="50.204"/>
-								</clipPath>
-								<use xlink:href="#mfid78" clip-path="url(#mfid91)"
-										transform="matrix(1, 0, 0, 1, -0.00000054958, 0)"/>
-							</g>
-						</g>
-						<mask id="mfid92">
-							<rect width="347" height="354" fill="white" stroke="none"/>
-						</mask>
-					</g>
-				</svg>
-			</switch>
-			<rect v:rectContext="foreign" x="0" y="607.321" width="32.6356" height="33.235" class="st6"/>
-		</g>
-		<g id="shape616-1081" v:mID="616" v:groupContext="shape" transform="translate(73.9053,-294.874)">
+		<g id="shape616-1082" v:mID="616" v:groupContext="shape" transform="translate(73.9053,-294.874)">
 			<title>Sheet.616</title>
 			<desc>HTTPS</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.7165" cy="633.469" width="35.44" height="14.1732"/>
 			<rect x="0" y="626.383" width="35.4331" height="14.1732" class="st6"/>
 			<text x="6.13" y="636.17" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>HTTPS</text>		</g>
-		<g id="shape618-1084" v:mID="618" v:groupContext="shape" transform="translate(375.595,-132.796)">
+		<g id="shape618-1085" v:mID="618" v:groupContext="shape" transform="translate(375.595,-132.796)">
 			<title>Sheet.618</title>
 			<desc>TLS certificate</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="31.6353" cy="629.926" width="63.28" height="21.2598"/>
 			<rect x="0" y="619.296" width="63.2706" height="21.2598" class="st6"/>
 			<text x="6" y="632.63" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>TLS certificate</text>		</g>
-		<g id="shape619-1087" v:mID="619" v:groupContext="shape" transform="translate(350.556,-129.525)">
+		<g id="shape619-1088" v:mID="619" v:groupContext="shape" transform="translate(350.556,-129.525)">
 			<title>Sheet.619</title>
 			<rect v:rectContext="foreign" x="0" y="618.14" width="25.068" height="22.416" class="st6"/>
 			<image x="0" y="618.14" width="25.068" height="22.416" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -3957,7 +3956,7 @@
 						xIskKomMAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="618.14" width="25.068" height="22.416" class="st6"/>
 		</g>
-		<g id="shape620-1091" v:mID="620" v:groupContext="shape" transform="translate(110.842,-345.394)">
+		<g id="shape620-1092" v:mID="620" v:groupContext="shape" transform="translate(110.842,-345.394)">
 			<title>Sheet.620</title>
 			<rect v:rectContext="foreign" x="0" y="612.21" width="28.3465" height="28.3465" class="st6"/>
 			<image x="0" y="612.21" width="28.3465" height="28.3465" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -4229,7 +4228,7 @@
 						f+y7s1en6SrCAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="612.21" width="28.3465" height="28.3465" class="st6"/>
 		</g>
-		<g id="shape621-1095" v:mID="621" v:groupContext="shape" transform="translate(100.244,-324.134)">
+		<g id="shape621-1096" v:mID="621" v:groupContext="shape" transform="translate(100.244,-324.134)">
 			<title>Sheet.621</title>
 			<desc>Azure DNS zone</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -4237,7 +4236,7 @@
 			<rect x="0" y="619.296" width="49.5426" height="21.2598" class="st6"/>
 			<text x="14.22" y="627.23" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
 						x="7.26" dy="1.2em" class="st8">DNS zone</tspan></text>		</g>
-		<g id="shape623-1099" v:mID="623" v:groupContext="shape" transform="translate(17.7165,-7.95814)">
+		<g id="shape623-1100" v:mID="623" v:groupContext="shape" transform="translate(17.7165,-7.95814)">
 			<title>Sheet.623</title>
 			<rect v:rectContext="foreign" x="0" y="584.633" width="105.874" height="55.9228" class="st6"/>
 			<image x="0" y="584.633" width="105.874" height="55.9228" preserveAspectRatio="none" xlink:href="data:image/png;base64,
