@@ -21,7 +21,7 @@ The following sections describe the various stages of the data extraction proces
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
    - [Business card][Form Recognizer business card model]
-   - [General document][Form Recognizer general document model (preview)], which is in preview
+   - [General document][Form Recognizer general document model (preview)]
 
    The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions. Azure AI Document Intelligence also assigns [confidence values][Characteristics and limitations of Form Recognizer - Customer evaluation] to the extracted data.
 

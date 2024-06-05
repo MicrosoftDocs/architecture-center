@@ -26,7 +26,7 @@ Chunking your data supports your workload in its efforts to find the most releva
 
 Semantic searches against the vectorized chunks work well for some types of queries, but not as well for others. Depending upon the types of queries you need to support, you might need to augment your chunks with additional information. The additional metadata fields are all stored in the same row as your embeddings and can be used in the search solution as either filters or as part of the search.
 
-:::image type="complex" source="./_images/augmented-metadata-usage-in-search.svg" lightbox="./_images/augmented-metadata-usage-in-search.svg" alt-text="Diagram showing json of fully enriched content and how it might be used in a search platform." border="false":::
+:::image type="complex" source="./_images/augmented-metadata-usage-in-search.svg" lightbox="./_images/augmented-metadata-usage-in-search.png" alt-text="Diagram showing json of fully enriched content and how it might be used in a search platform." border="false":::
    The diagram shows json for one chunk with six fields: Chunk, CleanedChunk, Title, Summary, Keywords, and questions. It has the following name-value pairs: Chunk, CleanedChunk, Title, and Summary. It has the following arrays: Keywords and questions. Each field points to a column in a table that shows its data type, Usage, and Query type. The following are the values for each: Chunk (String, Return, Full text), CleanedChunk (Vector: Float, Search, Vector), Title (String, Search/Return, Full text), Summary (String, Search/Return, Full text), Keywords (Collection of strings, Search/Filter, Full text), and questions (Vector: Float, Search, Vector)
 :::image-end:::
 *Figure 2. Use of augmented metadata in search solution*
