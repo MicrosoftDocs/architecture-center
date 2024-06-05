@@ -269,7 +269,7 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 ### AKS
 
 - [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
-- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
 - [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
 - [Best practices for authentication and authorization](/azure/aks/operator-best-practices-advanced-scheduler)
@@ -290,7 +290,7 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 
 ### Reference architectures
 
-- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
