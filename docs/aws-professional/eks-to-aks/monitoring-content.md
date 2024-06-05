@@ -69,9 +69,13 @@ An AKS deployment can divide into cluster level components, managed AKS componen
 
 - **External components**: You can monitor external components like service mesh, ingress, and egress with Azure Monitor managed service for Prometheus and Azure Managed Grafana or other tools. You can use Azure Monitor features to monitor any platform as a service (PaaS) that your workload applications use, such as databases and other Azure resources.
 
-[Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview.md): Prometheus is a popular open-source metrics monitoring solution from [Cloud Native Compute Foundation](https://www.cncf.io/) and the most common tool used for collecting and analyzing metric data from Kubernetes clusters. Azure Monitor managed service for Prometheus is a fully managed Prometheus-compatible monitoring solution in Azure which stores its data in an [Azure Monitor workspace](/azure/azure-monitor-workspace-overview.md), which is [linked to a Grafana workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that you can analyze the data with Azure Managed Grafana. 
+#### Azure Monitor managed service for Prometheus
 
-[Azure Managed Grafana](/azure/managed-grafana/overview.md): Fully managed implementation of [Grafana](https://grafana.com/), which is an open-source data visualization platform commonly used to present Prometheus data. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.
+Prometheus is a popular open-source metrics monitoring solution from [Cloud Native Compute Foundation](https://www.cncf.io/) and the most common tool used for collecting and analyzing metric data from Kubernetes clusters. [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) is a fully managed Prometheus-compatible monitoring solution in Azure which stores its data in an [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview), which is [linked to a Grafana workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) so that you can analyze the data with Azure Managed Grafana. 
+
+#### Azure Managed Grafana 
+
+[Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform built on top of the [Grafana](https://grafana.com/). It's built as a fully managed Azure service operated and supported by Microsoft. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.
 
 ### AKS monitoring costs
 
