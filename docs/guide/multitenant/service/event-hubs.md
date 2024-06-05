@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
 author: landonpierce
 ms.author: landonpierce
-ms.date: 02/20/2023
+ms.date: 06/05/2024 
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -80,13 +80,22 @@ However, having a shared namespace can lead to the [noisy neighbor](../../../ant
 
 The following features of Event Hubs support multitenancy:
 
-- [Application groups](#application-groups)
-- [Microsoft Entra authentication](#azure-ad-authentication)
-- [Shared access signature](#shared-access-signature)
-- [Customer-managed keys](#customer-managed-keys)
-- [Event Hubs Capture](#event-hubs-capture)
-- [Geo-disaster recovery](#geo-disaster-recovery)
-- [IP firewall rules](#ip-firewall-rules)
+- [Multitenancy and Azure Event Hubs](#multitenancy-and-azure-event-hubs)
+  - [Isolation models](#isolation-models)
+    - [Dedicated namespace](#dedicated-namespace)
+    - [Shared namespace, dedicated event hubs](#shared-namespace-dedicated-event-hubs)
+    - [Shared namespace and event hubs](#shared-namespace-and-event-hubs)
+  - [Features of Event Hubs that support multitenancy](#features-of-event-hubs-that-support-multitenancy)
+    - [Application groups](#application-groups)
+    - [Microsoft Entra authentication](#microsoft-entra-authentication)
+    - [Shared access signature](#shared-access-signature)
+    - [Customer-managed keys](#customer-managed-keys)
+    - [Event Hubs Capture](#event-hubs-capture)
+    - [Geo-disaster recovery](#geo-disaster-recovery)
+    - [IP firewall rules](#ip-firewall-rules)
+  - [Contributors](#contributors)
+  - [Next steps](#next-steps)
+  - [Related resources](#related-resources)
 
 These features are discussed in the following sections.
 
