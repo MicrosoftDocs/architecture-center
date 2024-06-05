@@ -97,6 +97,8 @@ Or watch this short video:
 
 > [!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
 
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
+
 ### Potential use cases
 
 This solution is ideal for the healthcare industry. Risk stratification models apply to these scenarios:
