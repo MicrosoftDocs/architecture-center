@@ -1,39 +1,39 @@
 This reference architecture describes how to modify and harden a [medallion lakehouse](/azure/databricks/lakehouse/medallion) as the system is adopted across an enterprise. 
 
-Following a typical adoption pattern, as shown in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), the architecture provided in this article is hardened to meet additional non-functional requirements (NFRs), while and a shift in responsibilities to a domain-based federated model.  
+Following a typical adoption pattern, as shown in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), the architecture provided in this article is hardened to meet additional non-functional requirements (NFRs), provide additional capabilities, and shift responsibilities to a domain-based federated model.  
 
 This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for best practice and guidance, specifically for the implementation of [data domains](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains) and the adoption of [data products](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone-data-products). 
 
 >[!NOTE]
->The guidance provided in this article is limited to the key delta's from the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml). 
+>The guidance provided in this article is limited to key differences from the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml). 
 
-## Context and Key-Design-Decisions
+## Context and key design decisions
 
-As described in the [Initial Implementation](TO_BE_ADDED), Consoto have implemented medallion lakehouse that supports their first data workloads for the financial department. Consoto have decided to adopt and harden this pattern to support the enterprise analytical data needs, extending it to deliver a data science capability and self-service optionality.   
+As described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Consoto operates a medallion lakehouse that supports their first data workloads for the financial department. Consoto has decided to adopt and harden this pattern to support the enterprise analytical data needs, extending it to deliver a data science capability and self-service functionality.   
 
-### Key Requirements
-- The Solution MUST be uplifted to an Enterprise data and analytics platform, extended to support other corporate functions while adhering to Consoto's data access policy requirements.  
-- The Platform MUST be able to ingest, store, process, and serve data in near-real time (defined as < 1min from ingestion to being available via the reporting layer).
-- The Platform MUST deliver economy of scale savings and efficiency, while driving reuse. i.e. land once, reuse many times. 
-- The Platform MUST present the optionality for Business areas to select the level of self-service and control they can have over their data solutions and products.
+### Key requirements
+- The Solution MUST be hardened to operate as an enterprise data and analytics platform and extended to support other corporate functions, while adhering to Consoto's data access policy requirements.  
+- The Platform MUST be able to ingest, store, process, and serve data in near-real time. The performance target is defined as a sub-one minute processing time from ingestion to being available in the reporting layer.
+- The Platform MUST deliver economy of scale savings and efficiency, while driving reuse. 
+- The Platform MUST provide the ability for business areas to determine the level of self-service and control they will have over their data solutions and products.
 - The Platform MUST support an enterprise data science capability, including the enablement of data citizens.
-- The Platform MUST support the uplifted target SLA’s of:
-  - 99.9% target uptime (or ~8.5 hours downtime within a year).
+- The Platform MUST support higher target SLAs:
+  - 99.9% target uptime (or ~8.5 hours downtime per year).
   - Recovery Point Objective (RPO) of 1.5 days.
-  - Recovery Time Objective (RTO) of < 1 day.
-- The Platform MUST support the forecast usage of 1000 users across the various domains with an estimated growth of <5% annually.
-   - While only Consoto employees can directly access the platform, there SHOULD be the capability to share data with 3rd parties. 
+  - Recovery Time Objective (RTO) of less than 1 day.
+- The Platform MUST support the forecast usage of 1000 users across the various domains with an estimated growth of 5% annually.
+   - While only Consoto employees can directly access the platform, there SHOULD be the capability to share data with third parties. 
 
-### The Key Design Decisions (KDD's)
-- The [Initial Implementation](TO_BE_ADDED) can be extended to meet these requirements, without fundamental redesign.
-- Given the requirements for extension across the enterprise, self-service optionality and the business strategic objective, a [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) will be implemented underpinned by an enterprise managed foundation. The foundation is defined as:
+### The key design decisions (KDDs)
+- The [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) can be modified to meet these requirements without rearchitecting.
+- Given the requirements for extending the platform across the enterprise and self-service functionality, and the business strategic objective, a [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) supported by an enterprise managed foundation is chosen. The foundation is defined as:
   - Identity and access controls.
   - The underlying networking, boundary controls and security baseline.
   - The governance, audit and monitoring functionality.
   - The ingestion and initial processing of data into the platform.
-- The domain design is anchored around a business departments' ownership of data, as defined by ownership of the originating source system. (for enterprise systems, ownership of the various modules could be used)
-- A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) will provide business's with the optionality to standup their own stack of model and serve components, which they then control and maintain going forward.
-  - Domains will operate within guardrails, based upon enterprise requirements and be enabled to completed bounded experiments.
+- The domain design is anchored around a given business departments' ownership of their data and the originating source system. 
+- A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) allows business groups to optionally build their own stack of model and serve components, which they control and maintain going forward.
+  - Domains operate within guardrails, based upon enterprise requirements and are enabled to perform well-defined experiments.
 - The data science capability will be delivered via:
   - [Power BI](https://learn.microsoft.com/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code, simple/medium complexity use cases across tabular data. This is an ideal starting point for data citizens.
   - [Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/?view=azureml-api-2) and AI service offerings, supporting the full set of use cases and [end-user maturity](/azure/machine-learning/tutorial-first-experiment-automated-ml?view=azureml-api-2).
