@@ -9,13 +9,13 @@ This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azu
 
 ## Context and key design decisions
 
-As described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Consoto operates a medallion lakehouse that supports their first data workloads for the financial department. Consoto has decided to harden this system and extend it to support the enterprise analytical data needs, providing a data science capability and self-service functionality.   
+As described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Consoto operates a medallion lakehouse that supports their first data workloads for the financial department. Consoto has hardened this system and extend it to support the enterprise analytical data needs, providing a data science capability and self-service functionality.   
 
 ### Key requirements
 - The Solution MUST be hardened to operate as an enterprise data and analytics platform and extended to support other corporate functions, while adhering to Consoto's data access policy requirements.  
 - The Platform MUST be able to ingest, store, process, and serve data in near-real time. The performance target is defined as a sub-one minute processing time from ingestion to being available in the reporting layer.
 - The Platform MUST deliver economy of scale savings and efficiency, while driving reuse. 
-- The Platform MUST provide the ability for business areas to determine the level of self-service and control they will have over their data solutions and products.
+- The Platform MUST provide the ability for business areas to determine the level of self-service and control they need over their data solutions and products.
 - The Platform MUST support an enterprise data science capability, including the enablement of data citizens.
 - The Platform MUST support higher target SLAs:
   - 99.9% target uptime (or ~8.5 hours downtime per year).
@@ -26,16 +26,16 @@ As described in the [baseline architecture](azure-data-factory-on-azure-landing-
 
 ### The key design decisions (KDDs)
 - The [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) can be modified to meet these requirements without rearchitecting.
-- Given the requirements for extending the platform across the enterprise and self-service functionality, and the business strategic objective, a [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) supported by an enterprise managed foundation is chosen. The foundation is defined as:
+- Given the requirements for extending the platform across the enterprise and self-service functionality, and the business strategic objective, a [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) supported by an enterprise managed foundation is a good fit for the scenario. The foundation is defined as:
   - Identity and access controls.
   - The underlying networking, boundary controls and security baseline.
   - The governance, audit and monitoring functionality.
   - The ingestion and initial processing of data into the platform.
 - The domain design is anchored around a given business departments' ownership of their data and the originating source system. 
 - A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) allows business groups to optionally build their own stack of model-and-serve components, which they control and maintain going forward.
-  - Domains operate within guardrails, based upon enterprise requirements and are enabled to perform well-defined experiments.
+  - Domains operate within guardrails, based upon enterprise requirements and are enabled to perform well-defined and controlled experiments.
 - The data science capability is delivered via:
-  - [Power BI](https://learn.microsoft.com/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code, simple or medium complexity use cases across tabular data. This is an ideal starting point for data citizens.
+  - [Power BI](https://learn.microsoft.com/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code, simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
   - [Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/?view=azureml-api-2) and AI service offerings, supporting the full set of use cases and [end-user maturity](/azure/machine-learning/tutorial-first-experiment-automated-ml?view=azureml-api-2).
   - [Azure Databricks](/azure/databricks/lakehouse-architecture/performance-efficiency/best-practices#use-parallel-computation-where-it-is-beneficial) for large enterprise volume use cases with significant processing demands.
   - An innovation sandbox supports any proof-of-concept work for new technologies or techniques in a logically segregated area.
@@ -44,28 +44,29 @@ As described in the [baseline architecture](azure-data-factory-on-azure-landing-
 
 ## Architecture
 
-![Diagram showing hardened Medlallion architecture.](_images/ADF-ALZ-Medallion-hardening.png)
+![Diagram showing hardened Medlallion architecture.](_images/azure-data-factory-hardened.png)
 
 ### Design callouts
 
 The design callouts for the hardened architecture are:
+
 1.	The Ingestion and Delta Lake are [source aligned](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#source-system-aligned-domains) and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that accounts for enterprise reusability.
 - Data feeds from source systems are governed with [data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1), which can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) ETL (extract, transform, load) framework and surfaced up to end users as part of the [governance capability](https://learn.microsoft.com/purview/how-to-browse-catalog).
-- The delta lake's Bronze layer (Raw) directory structure reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2F_bread%2Ftoc.json#directory-structure), ordered by source system. This organization methodology enables a unified security implementation based on business ownership of source systems.
+- The delta lake's Bronze layer (Raw) directory structure reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2F_bread%2Ftoc.json#directory-structure). The data is ordered by source system. This organization methodology enables a unified security implementation based on business ownership of source systems.
 - To support the streaming requirement,a fast-path for data is designed. To that end, data is ingested through ADF and directly processed by the Azure Databricks structured stream for analysis and use. Delta lake [CDC](/azure/databricks/structured-streaming/delta-lake#stream-a-delta-lake-change-data-capture-cdc-feed) can be used create the audit history, supporting replay and propagating incremental changes to downstream tables in the medallion architecture. 
 
-2. A model-and-serve path remains the responsibility of the central technical team to support the enterprise owned data solutions and provide the service catalog optionality for business areas who require data solutions but do not have the skilling, budget or interest in technically managing their own domain implementation.
-- Self-service will still be offered within the model and serve components managed by the central technical team.
+2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but do not have the skilling, budget, or interest in technically managing their own domain implementation.
+- Self-service is offered within the model-and-serve components managed by the central technical team.
   
-3. The Enterprise data science capability will be established under the central technical team. Once again, supporting the enterprise focused solutions, providing service optionality and hosting services with a enterprise pricing structure.
+3. The enterprise data science capability is managed by the central technical team. This model also aligns with their supporting the enterprise focused solutions, providing service optionality and hosting services with a enterprise pricing structure.
 
-4. Domains will be enabled via logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the domain level unit of management, billing, governance, and isolation that clearly separates concerns.
-- This approach will be enabled via [IaC](https://learn.microsoft.com/devops/deliver/what-is-infrastructure-as-code) which provides a baseline of enterprise monitoring, audit and security controls. The Platform [Tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) will be extended to support the domain extension.
-- Each Domain will have it's own set of RBAC roles covering the [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles will largely be used within the domain logical containers, where as data plane roles will be used across the platform, providing a consistent, unified and low-complexity control.   
+4. Domains are enabled via logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the domain level unit of management, billing, governance, and isolation necessary.
+- The approach is completely managed through infrastructure-as-code [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design) which provides a baseline of enterprise monitoring, audit and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
+- Each domain has it's own set of role-based access controls (RBAC) roles covering the [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within the domain logical containers. On the other hand, data plane roles are used across the platform, providing a consistent, unified, and low-complexity control.   
   
-5.	Within a Domain subscription, there will be optionality on the components made available, depending on the Business's skillset, priorities and use cases.
-- Power BI [workspaces](https://learn.microsoft.com/power-bi/collaborate-share/service-new-workspaces) will be used to enable domains. These can be individual linked to specific [premium capacities](https://learn.microsoft.com/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
-- An Innovation Sandpit is a temporary entity, enabling the validation of new technologies or processes. Data storage will be available to onboard, create or change data, outside of constraints of the append-only functionality of the Data Lake - Bronze layer. 
+5.	Within a domain subscription, the components made available are configurable, depending on the skillset, priorities, and use cases.
+- Power BI [workspaces](https://learn.microsoft.com/power-bi/collaborate-share/service-new-workspaces) is used to enable domains. These can be individual linked to specific [premium capacities](https://learn.microsoft.com/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
+- An innovation sandbox is a temporary entity, enabling the validation of new technologies or processes. Data storage is made available to onboard, create or change data, outside of constraints of the append-only functionality of the Data Lake - Bronze layer. 
 
 
 ### Network Design
@@ -76,30 +77,30 @@ TO BE ADDED - Darren
 
 ### Data Science Capability
 
-For data science scenarios, Azure Data Factory’s primary role lies in data movement, scheduling and orchestration required as part of batch inferencing machine learning use-cases. Batch inference, or batch scoring, scenarios involve making predictions on a batch of observations. These scenarios are usually characterised by a high-throughput of data with scoring at a pre-defined frequency. 
+For data science scenarios, Azure Data Factory’s primary role lies in data movement, scheduling, and orchestration required as part of batch inferencing machine learning use cases. Batch inference, or batch scoring, scenarios involve making predictions on a batch of observations. These scenarios are usually characterized by a high-throughput of data with scoring at a pre-defined frequency. 
 
-Within Azure Data Factory these workflows are defined in pipelines consisting of various interlinked activities. Scalable Azure Data Factory pipelines are usually parameterized and driven by metadata defined in a control table. This pattern is characterized by the ingestion of data, processing it to generate machine learning predictions, and moving the data outputs to a service for modelling and serving purposes. The processing of data to generate machine learning predictions are performed differently in Azure Machine Learning and Azure Databricks - this is described in more details below. 
+Within Azure Data Factory, these workflows are defined in pipelines consisting of various interlinked activities. Scalable Azure Data Factory pipelines are usually parameterized and driven by metadata defined in a control table. This pattern is characterized by the ingestion of data, processing it to generate machine learning predictions, and moving the data outputs to a service for modeling and serving purposes. The processing of data to generate machine learning predictions is performed differently in Azure Machine Learning and Azure Databricks in the following ways: 
 
-#### Azure Databricks:
-- An [Azure Databricks notebook](https://learn.microsoft.com/en-us/azure/databricks/notebooks/) will incorporate all model scoring logic.
-- Execute model scoring using a [Databricks Notebook activity](https://learn.microsoft.com/en-us/azure/data-factory/transform-data-databricks-notebook).
+#### Azure Databricks
+- An [Azure Databricks notebook](/azure/databricks/notebooks/) incorporates all model scoring logic.
+- Execute model scoring using a [Databricks Notebook activity](/azure/data-factory/transform-data-databricks-notebook).
 
 #### Azure Machine Learning:
-- An Azure Machine Learning [Batch Endpoint](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints-batch?view=azureml-api-2) will be used to incorporate all model scoring logic.
-- Execute model scoring using a [Machine Learning pipeline activity](https://learn.microsoft.com/en-us/azure/data-factory/transform-data-machine-learning-service).
+- An Azure Machine Learning [Batch Endpoint](/azure/machine-learning/concept-endpoints-batch?view=azureml-api-2) is used to incorporate all model scoring logic.
+- Execute model scoring using a [Machine Learning pipeline activity](/azure/data-factory/transform-data-machine-learning-service).
 
 
 ## Callouts
 
-- Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. It is strongly recommended that business requirements are tested for acceptable latency, source system and network infrastructure can support streaming requirements, before such work is undertaken.
-- Any decision to move toward a domain model must be taken in collaboration with business stakeholders. Its critical that stakeholders understand and accept the increased [responsibilities](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities) of domain ownership.
-  - Stakeholders data maturity, available skilling across the SDLC, governance framework, standards and automation coverage are all influencing factors for how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms), although this could shift out to the target state for the [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist). 
+- Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency, and that source system and network infrastructure can support streaming requirements before implementation.
+- Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities) of domain ownership.
+  - Stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity are all influencing factors for how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also determine how far along you are on your cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist), and the necessary steps you'll need to take to push the adoption farther along. 
  
 
 ## Alternatives
 
-- [Azure Event Hubs](/azure/event-hubs/) as alternative for the streaming: Discounted due to Azure Databricks functional match, and the desire for simplification.
-- [Azure Data Share](/azure/data-share/) as alternative for the data sharing: Discounted due to basic sharing functionality offered by Power BI, and the desire for simplification. 
+- [Azure Event Hubs](/azure/event-hubs/) as alternative for the streaming: In this scenario, Azure Databricks provides the functionality, simplifying the design.
+- [Azure Data Share](/azure/data-share/) as alternative for the data sharing: In this scenario, Power BI provides the functionality, simplifying the design.
 
 
 ## Considerations
