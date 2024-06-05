@@ -128,11 +128,11 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
-### Time series & IOT data
+### Time series & IoT data
 
 | Google Cloud service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
 #### Time series architectures
 
@@ -272,9 +272,9 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/),[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
-| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
+| [Cloud IoT Core](https://cloud.google.com/iot/docs) <br><b>NOTE:</b> Product has been deprecated by GCP | [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)<br><br> [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)<br><br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | See [Messaging and eventing](#messaging-and-eventing) section | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
+| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)<br><br> [Azure IoT Operations](https://learn.microsoft.com/en-us/azure/iot-operations/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
 ### IoT architectures
 
