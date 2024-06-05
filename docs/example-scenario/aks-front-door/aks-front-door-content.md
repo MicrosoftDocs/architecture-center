@@ -4,13 +4,15 @@ This article describes how to securely expose and protect a workload that runs i
 
 :::image type="content" border="false" source="./media/aks-front-door.svg" alt-text="Diagram that shows an architecture that securely exposes and protects a workload that runs in AKS." lightbox="./media/aks-front-door.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-front-door.vsdx) of this architecture.*
 
 ### Workflow architecture
 
 The following diagram shows the steps for the message flow during deployment and runtime.
 
 :::image type="content" source="./media/flow.svg" alt-text="Diagram that shows the steps for the message flow during deployment and runtime." lightbox="./media/flow.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-flow.vsdx) of this architecture.*
 
 #### Deployment workflow
 
@@ -36,7 +38,7 @@ The following steps describe the message flow for a request that an external cli
 
 1. The client application uses its custom domain to send a request to the web application. The DNS zone that's associated with the custom domain uses a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) to redirect the DNS query for the custom domain to the original hostname of the Azure Front Door endpoint.
 
-1. Azure Front Door traffic routing occurs in several stages. Initially, the request is sent to one of the [Azure Front Door points of presence](/azure/frontdoor/edge-locations-by-region). Subsequently, the Front Door uses the configuration to determine the appropriate destination for the traffic. Various factors can influence the routing process, such as the Azure Front Door caching, web application firewall (WAF), routing rules, rules engine, and caching configuration. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
+1. Azure Front Door traffic routing occurs in several stages. Initially, the request is sent to one of the [Azure Front Door points of presence](/azure/frontdoor/edge-locations-by-region). Then Azure Front Door uses the configuration to determine the appropriate destination for the traffic. Various factors can influence the routing process, such as the Azure Front Door caching, web application firewall (WAF), routing rules, rules engine, and caching configuration. For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 1. Azure Front Door forwards the incoming request to the [Azure private endpoint](/azure/private-link/private-endpoint-overview) that's connected to the [Private Link service](/azure/private-link/private-link-service-overview) that exposes the AKS-hosted workload.
 1. The request is sent to the Private Link service.
 1. The request is forwarded to the *kubernetes-internal* AKS internal load balancer.
@@ -48,12 +50,12 @@ The following steps describe the message flow for a request that an external cli
 
 The architecture consists of the following components:
 
-- A public or private [AKS cluster]((https://azure.microsoft.com/services/kubernetes-service)) is composed of the following node pools:
+- A public or private [AKS cluster](https://azure.microsoft.com/services/kubernetes-service) is composed of the following node pools:
   - A *system node pool* in a dedicated subnet. The default node pool hosts only critical system pods and services. The worker nodes have node taint, so application pods can't be scheduled on this node pool.
 
   - A *user node pool* that hosts user workloads and artifacts in a dedicated subnet.
 
-- The deployment requires [role-based access control (RBAC) role assignments]((/azure/role-based-access-control/role-assignments)), including:
+- The deployment requires [role-based access control (RBAC) role assignments](/azure/role-based-access-control/role-assignments), including:
   - A *Grafana Admin* role assignment on Azure Managed Grafana for the Microsoft Entra ID user whose objectID is defined in the `userId` parameter. The *Grafana Admin* role provides full control of the instance, including managing role assignments, viewing, editing, and configuring data sources. For more information, see [How to share access to Azure Managed Grafana](/azure/managed-grafana/how-to-share-grafana-workspace).
 
   - A *Key Vault Administrator* role assignment on the existing Key Vault resource that contains the TLS certificate for the user-defined managed identity that the [Key Vault provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver) uses. This assignment provides access to the CSI driver so that it can read the certificate from the source key vault.
@@ -74,8 +76,8 @@ The architecture consists of the following components:
   - *ApiServerSubnet* uses [API server virtual network integration](/azure/aks/api-server-vnet-integration) to project the API server endpoint directly into this delegated subnet where the AKS cluster is deployed.
   - *AzureBastionSubnet* is used for the [Azure Bastion host](/azure/bastion/bastion-overview).
   - *VmSubnet* is used for the jumpbox virtual machine (VM) that connects to the private AKS cluster and for the private endpoints.
-- A [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview) is used by the AKS cluster to create additional resources like load balancers and managed disks in Azure.
-- [Azure Virtual Machine](/azure/virtual-machines/overview) is used to create an optional jumpbox VM in the VMSubnet.
+- A [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview) is used by the AKS cluster to create more resources like load balancers and managed disks in Azure.
+- [Azure Virtual Machines](/azure/virtual-machines/overview) is used to create an optional jumpbox VM in the VMSubnet.
 - An [Azure Bastion host](/azure/bastion/bastion-overview) is deployed in the AKS cluster virtual network to provide Secure Socket Shell (SSH) connectivity to the AKS agent nodes and VMs.
 - An [Azure Storage account](/azure/storage/common/storage-account-overview) is used to store the boot diagnostics logs of both the service provider and service consumer VMs. Boot diagnostics is a debugging feature that you can use to view console output and screenshots to diagnose the VM status.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is used to build, store, and manage container images and artifacts.
@@ -91,7 +93,7 @@ The architecture consists of the following components:
 - [Azure network security groups](/azure/virtual-network/network-security-groups-overview) are used to filter inbound and outbound traffic for the subnets that host VMs and Azure Bastion hosts.
 - An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) is a unique environment for data that [Monitor](/azure/azure-monitor/essentials/data-platform-metrics) collects. Each workspace has its own data repository, configuration, and permissions. Azure Monitor Logs workspaces contain logs and metrics data from multiple Azure resources, whereas Monitor workspaces contain metrics related to [Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) only.
 
-  You can use managed service for Prometheus to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on [Prometheus](https://aka.ms/azureprometheus-promio). You can use the [Prometheus query language (PromQL)](https://aka.ms/azureprometheus-promio-promql) to analyze and alert on the performance of monitored infrastructure and workloads without having to operate the underlying infrastructure. 
+  You can use managed service for Prometheus to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on [Prometheus](https://prometheus.io/). You can use the [Prometheus query language (PromQL)](https://prometheus.io/docs/prometheus/latest/querying/basics/) to analyze and alert on the performance of monitored infrastructure and workloads without having to operate the underlying infrastructure. 
 - An [Azure Managed Grafana](/azure/managed-grafana/overview) instance is used to visualize the [Prometheus metrics](/azure/azure-monitor/containers/prometheus-metrics-enable) that are generated by the Bicep module-deployed [AKS](/azure/aks/intro-kubernetes) cluster. You can connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) to [Azure Managed Grafana](/azure/managed-grafana/overview), and use a set of built-in and custom Grafana dashboards to visualize Prometheus metrics. Grafana Enterprise supports Azure Managed Grafana, which provides extensible data visualizations. You can quickly and easily deploy Grafana dashboards that have built-in high availability. You can also use Azure security measures to control access to the dashboards.
 - An [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace is used to collect the diagnostic logs and metrics from Azure resources, including:
   - AKS clusters
@@ -188,7 +190,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - Choose the appropriate [VM size](/azure/virtual-machines/sizes) for node pools based on workload requirements.
 - Create multiple [node pools](/azure/aks/use-multiple-node-pools) with different VM sizes for specific workloads. Use node labels, node selectors, and affinity rules to optimize resource allocation.
 - [Stop node pools](/azure/aks/start-stop-nodepools) or [scale down AKS clusters](/azure/aks/start-stop-cluster) when you don't use them.  
-- Take advantage of Azure cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview), to monitor and optimize costs.
+- Take advantage of cost management tools, such as [Azure Advisor](/azure/advisor/advisor-overview), [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), and [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview), to monitor and optimize costs.
 - Consider using [spot node pools](/azure/aks/spot-node-pool) to benefit from unused capacity in Azure and reduce cost.
 - Use tools like [Kubecost](https://www.kubecost.com/) to monitor and govern AKS costs.
 - Use Azure tags to associate AKS resources with specific workloads or tenants to improve cost tracking and management.
@@ -210,7 +212,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - Use [container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 
-- Use [managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from Cloud Native Computing Foundation.
+- Use [managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution that's based on the [Prometheus](https://prometheus.io/) project from Cloud Native Computing Foundation.
 - Connect your managed service for Prometheus to an [Azure Managed Grafana](/azure/managed-grafana/overview) instance to use it as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics, and you can create custom dashboards.
 - Configure all PaaS services, such as Container Registry and Key Vault, to collect diagnostic logs and metrics in an [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-workspace-overview) workspace.
 
@@ -261,7 +263,7 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 
 - [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
 - [Traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration)
-- [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture))
+- [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture)
 - [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin)
 - [Secure your origin with Private Link in Azure Front Door Premium](/azure/frontdoor/private-link)
 - [What is a rule set in Azure Front Door?](/azure/frontdoor/front-door-rules-engine)
@@ -274,7 +276,7 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Create a private AKS cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Best practices for basic scheduler features in AKS](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
-- [Best practices for authentication and authorization](/azure/aks/operator-best-practices-advanced-scheduler)
+- [Best practices for authentication and authorization](/azure/aks/operator-best-practices-identity)
 - [Best practices for cluster security and upgrades in AKS](/azure/aks/operator-best-practices-cluster-security)
 - [Best practices for container image management and security in AKS](/azure/aks/operator-best-practices-container-image-management)
 - [Best practices for network connectivity and security in AKS](/azure/aks/operator-best-practices-network)
@@ -288,7 +290,7 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 
 - [AKS solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
-- - [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
+- [Best practices for multitenancy and cluster isolation](../../guide/multitenant/service/aks.yml)
 
 ### Reference architectures
 
@@ -296,5 +298,5 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
-- [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)
+- [Build a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)
 
