@@ -112,3 +112,4 @@ Operational excellence covers the operations processes that deploy an applicatio
 ## Next steps
 
 The landing zone accelerator is an open-source repo that consists of an Azure CLI reference implementation along with Critical Design Area recommendations. The repo is [available on GitHub](https://github.com/Azure/ARO-Landing-Zone-Accelerator).
+
