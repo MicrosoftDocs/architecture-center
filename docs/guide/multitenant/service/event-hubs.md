@@ -80,22 +80,13 @@ However, having a shared namespace can lead to the [noisy neighbor](../../../ant
 
 The following features of Event Hubs support multitenancy:
 
-- [Multitenancy and Azure Event Hubs](#multitenancy-and-azure-event-hubs)
-  - [Isolation models](#isolation-models)
-    - [Dedicated namespace](#dedicated-namespace)
-    - [Shared namespace, dedicated event hubs](#shared-namespace-dedicated-event-hubs)
-    - [Shared namespace and event hubs](#shared-namespace-and-event-hubs)
-  - [Features of Event Hubs that support multitenancy](#features-of-event-hubs-that-support-multitenancy)
-    - [Application groups](#application-groups)
-    - [Microsoft Entra authentication](#microsoft-entra-authentication)
-    - [Shared access signature](#shared-access-signature)
-    - [Customer-managed keys](#customer-managed-keys)
-    - [Event Hubs Capture](#event-hubs-capture)
-    - [Geo-disaster recovery](#geo-disaster-recovery)
-    - [IP firewall rules](#ip-firewall-rules)
-  - [Contributors](#contributors)
-  - [Next steps](#next-steps)
-  - [Related resources](#related-resources)
+- [Application groups](#application-groups)
+- [Microsoft Entra authentication](#azure-ad-authentication)
+- [Shared access signature](#shared-access-signature)
+- [Customer-managed keys](#customer-managed-keys)
+- [Event Hubs Capture](#event-hubs-capture)
+- [Geo-disaster recovery](#geo-disaster-recovery)
+- [IP firewall rules](#ip-firewall-rules)
 
 These features are discussed in the following sections.
 
