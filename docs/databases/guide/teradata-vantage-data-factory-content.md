@@ -328,7 +328,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 - You can also query data in place or load data into a Vantage database by creating a foreign table in the object store. You first need to create an authorization object that uses the storage account name and access key in `USER` and `PASSWORD` fields, respectively, as shown in the following syntax. You can use this object to create your foreign table so that you don't need to provide the keys when you create the table.
 
     ```
-    USER 'YOUR-STORAGE-ACCOUNT-NAME'      
+    USER 'YOUR-STORAGE-ACCOUNT-NAME'
     PASSWORD 'YOUR-ACCESS-KEY';
     ```
 

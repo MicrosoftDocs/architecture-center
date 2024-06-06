@@ -130,7 +130,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

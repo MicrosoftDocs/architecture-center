@@ -109,7 +109,7 @@ This proof of concept illustrates:
 
 Principal author:
 
-_ [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
+- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 
 ## Next steps
 
