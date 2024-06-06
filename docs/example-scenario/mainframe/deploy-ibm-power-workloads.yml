@@ -19,6 +19,6 @@ products:
   - azure-netapp-files
 name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
 summary: Learn how to deploy IBM Power workloads in Skytap on Azure by using Azure NetApp Files for file storage and other Microsoft Azure components.
-thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-power-workloads-content.png
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-power-workloads.png
 content: |
   [!include[](deploy-ibm-power-workloads-content.md)]

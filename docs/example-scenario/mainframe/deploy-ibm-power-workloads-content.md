@@ -6,7 +6,7 @@ For more information, see [Migrate IBM i series to Azure with Skytap](/azure/arc
 
 ## Architecture
 
-:::image type="content" source="media/deploy-ibm-power-workloads" alt-text="Diagram of an example scenario that demonstrates how to use Azure NetApp Files with workloads in Skytap on Azure." lightbox="media/deploy-ibm-power-workloads" border="false":::
+:::image type="content" source="media/deploy-ibm-power-workloads.svg" alt-text="Diagram of an example scenario that demonstrates how to use Azure NetApp Files with workloads in Skytap on Azure." lightbox="media/deploy-ibm-power-workloads.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-power-workloads.vsdx) of this architecture.*
 
