@@ -16,10 +16,10 @@ Each scenario describes the challenges that they introduce, and the benefits int
 
 ## Client applications authenticated with an external identity provider 
 
-:::image type="complex" source="_images/openai-gateway-custom-authentication-challenge.png" lightbox="_images/openai-gateway-custom-authentication-challenge.png" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
-Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.
+:::image type="complex" source="_images/Scenario-ExternalIdentity.png" lightbox="_images/Scenario-ExternalIdentity.png" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
+Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI and using an external Identity Provider.
 :::image-end:::
-*Figure 1: Starting point for application authentication with Azure OpenAI service using key-based authentication.*
+*Figure 1: Client applications auuthenticate with external identity provider.*
 
 
 
