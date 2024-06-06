@@ -61,11 +61,11 @@ The design callouts for the hardened architecture are:
 3. The enterprise data science capability is managed by the central technical team. This model also aligns with their supporting the enterprise focused solutions, providing service optionality and hosting services with a enterprise pricing structure.
 
 4. Domains are enabled via logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the domain level unit of management, billing, governance, and isolation necessary.
-- The approach is completely managed through infrastructure-as-code [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design) which provides a baseline of enterprise monitoring, audit and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
+- The approach is completely managed through infrastructure-as-code [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
 - Each domain has it's own set of role-based access controls (RBAC) roles covering the [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within the domain logical containers. On the other hand, data plane roles are used across the platform, providing a consistent, unified, and low-complexity control.   
   
 5.	Within a domain subscription, the components made available are configurable, depending on the skillset, priorities, and use cases.
-- Power BI [workspaces](https://learn.microsoft.com/power-bi/collaborate-share/service-new-workspaces) is used to enable domains. These can be individual linked to specific [premium capacities](https://learn.microsoft.com/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
+- Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) allow domains to collaborate when practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
 - An innovation sandbox is a temporary entity, enabling the validation of new technologies or processes. Data storage is made available to onboard, create or change data, outside of constraints of the append-only functionality of the Data Lake - Bronze layer. 
 
 
@@ -94,7 +94,7 @@ Within Azure Data Factory, these workflows are defined in pipelines consisting o
 
 - Streaming data patterns can be complicated to implement and manage, especially in failure case scenarios. Ensure that business requirements are tested for acceptable latency, and that source system and network infrastructure can support streaming requirements before implementation.
 - Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities) of domain ownership.
-  - Stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity are all influencing factors for how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also determine how far along you are on your cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist), and the necessary steps you'll need to take to push the adoption farther along. 
+  - Stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity are all influencing factors for how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also determine how far along you are on your cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist), and the necessary steps you need to take to push the adoption farther along. 
  
 
 ## Alternatives
@@ -115,7 +115,7 @@ The following considerations provide guidance for implementing the pillars of th
 The delta this architecture provides, includes:
 - The default Azure [SLA's](https://www.azure.cn/support/sla/summary/) across the solution still meet the uplifted requirements, so no high-availability or multi-regional uplift is required.
 - Uplift the [DR strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and stakeholder RACI. This must be regularly tested to ensure it remains "fit-for-purpose".
-- Solution components will utilise zone-redundancy features to protect against localised service issues. The following table shows the resiliency types for the services in this architecture:
+- Solution components utilize zone-redundancy features to protect against localised service issues. The following table shows the resiliency types for the services in this architecture:
 
 **Service**|**Resiliency Type**
 :-----:|:-----:
@@ -127,8 +127,8 @@ Azure Key Vault|Zone-redundant
 Azure Virtual Network Gateway|Zone-redundant
 Self-hosted integration runtime (SHIR)|Same-zone high availability
 
-
-  - *NB* - Azure services aren't supported in all regions and not all regions support zones. Before you select a region, verify its regional and zone support.
+> [!NOTE]
+> Not all Azure services are supported in all regions and not all regions support zones. Before you select a region, verify that all of the required resources and redundancy requirements are supported.
 
 
 ### Security
@@ -136,48 +136,46 @@ Self-hosted integration runtime (SHIR)|Same-zone high availability
 [Security](/azure/well-architected/security/) provides guidance to your architecture to help ensure the confidentiality, integrity, and availability of your data and systems.
 
 The delta this architecture provides, includes:
-- Domain specific data RBAC roles will be created when domain specific data is ingested onto the platform with data classification higher than enterprise - [general](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses) and then reused across all solution components which uses this data.
-  - These domain data roles will be reused for new domain data onboarded to the platform, delivering a consistent, unified controls for the access to data.
-- Given the increased in data ssensitivity on the platform, [PIM](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) should be considered for all key operational support roles. 
+- Domain-specific data RBAC roles are created when domain-specific data is ingested into the platform with data classification higher than enterprise - [general](/azure/cloud-adoption-framework/govern/policy-compliance/data-classification#classifications-microsoft-uses). The roles are then reused across all solution components that use this data.
+  - These domain data roles can be reused for new domain data onboarded to the platform, delivering consistent, unified controls for the access to data.
+- Given the higher data sensitivity requirements for the platform, [privileged identity management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) should be considered for all key operational support roles. 
 
 
-### Cost Optimization
+### Cost optimization
 
 [Cost optimization](/azure/well-architected/cost-optimization/) provides guidance in your architecture to sustain and improve your return on investment (ROI).
 
 The delta this architecture provides, includes:
-- Uplift of the Domain teams to ensure they understand the discipline of [cost optimization](https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/) and their responsibilities under the new operating model.
+- Skilling the domain teams to ensure they understand the discipline of [cost optimization](/azure/well-architected/cost-optimization/) and their responsibilities under the new operating model.
 - Extending the [cost management alerting](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) to the domains and business stakeholders, providing transparency and observability. 
 
 
-### Operational Efficiency
+### Operational efficiency
 
 [Operational excellence](/azure/well-architected/operational-excellence/) ensures workload quality through standardized processes and team cohesion. 
 
-The delta this architecture provides, includes:
-- Evolve the operating model to account for the new domain model, stakeholders, governance structures, persona-based training and RACI. 
-- Extend the [Tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) to account for domain model.
-- Develop an central [NFR](/azure/architecture/guide/design-principles/build-for-business) register and [software development best practices](/azure/architecture/best-practices/index-best-practices) which can be referenced by any platform solution, irrespective of developer area. This should be supported by a [testing framework](https://learn.microsoft.com/devops/develop/shift-left-make-testing-fast-reliable) within the CI/CD suite, successfully run for every production change.
-  - This will be a key enabler of quality, particularly for 3rd party deliverables.
- 
+The delta this architecture provides includes:
+- Evolving the operating model to account for the new domain model, stakeholders, governance structures, persona-based training and RACI. 
+- Extending the [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) to account for domain model.
+- Developing a central [NFR](/azure/architecture/guide/design-principles/build-for-business) register and adopt a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that can be referenced by any platform solution, in any developer area. These standards should be supported by a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) integrated into the CI/CD practice.
 
-### Performance Efficiency
+### Performance efficiency
 
 [Performance efficiency](/azure/well-architected/performance-efficiency/) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. 
 
-The delta this architecture provides, includes:
+The delta this architecture provides includes:
 - As part of the domain establishment and baseline of [monitoring](/azure/azure-monitor/overview), alerting and [observability](/azure/cloud-adoption-framework/manage/monitor/observability) will be provided to the domain teams.
-- Encourage the sharing of knowledge and best-practice between knowledge workers, offering [incentives](https://learn.microsoft.com/power-bi/guidance/fabric-adoption-roadmap-community-of-practice?context=%2Ffabric%2Fcontext%2Fcontext#incentives) for community engagement.
+- Encourage the sharing of knowledge and best-practice between knowledge workers, offering [incentives](/power-bi/guidance/fabric-adoption-roadmap-community-of-practice?context=%2Ffabric%2Fcontext%2Fcontext#incentives) for community engagement.
 
-## Anti-Patterns
+## Anti-patterns
 
-- **Technology Led Transformation** - The shift to a domain model is a major undertaking that requires significant change across the organisation. This works best when Business stakeholders understand the scope of activities needed and value the outputs delivered. Deep collaboration is the key to any successful transformation.   
-- **LinkedIn Architecture** - Technology is driven by new ideas. Questions such as "Are we solving the business problem at hand?", "what are the industry validated patterns?", "is this a problem needing a technical solution, or the other way around?", etc. can tempter earlier adopter enthusiasm and risk.  
+- **Technology-led transformation** - The shift to a domain model is a major undertaking that requires significant change across the organization. This shift works best when business stakeholders understand the scope of activities needed and value the outputs delivered. Deep collaboration is the key to any successful transformation.   
+- **LinkedIn architecture** - Technology is driven by new ideas. Questions such as "Are we solving the business problem at hand?", "what are the industry validated patterns?", "is this a problem needing a technical solution, or the other way around?", etc. can tempter earlier adopter enthusiasm and risk.  
 - **Understanding the RACI for Product Ownership** - When a gap in technical services is identified, it is often tempting to "build your own". While this is a valid approach in many cases, consideration needs to be given to the responsibility of adoption a Product ownership role across the full lifecycle, which can be a lengthy period of time for a productionised solution. The Cost and risk from activities such as support, feature uplift, security patching, environment interoperability, etc. can quickly weight any benefit provided. 
    
 ## Next steps
 
-- [Azure Data Factory Mission Critical](TO_BE_ADDED) 
+- [Azure Data Factory mission critical architecture](azure-data-factory-mission-critical.yml) 
 
 
 ## Related resources
@@ -185,4 +183,4 @@ The delta this architecture provides, includes:
 - [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
 - [Data Domain Guidance](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains)
-- [Initial Implementation](TO_BE_ADDED)
+- [Baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml)
