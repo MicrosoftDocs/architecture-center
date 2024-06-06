@@ -1,46 +1,51 @@
-This article shows how to implement alternative authentication mechanisms for client applications communicating with Azure OpenAI Service through a gateway. In this scenario, the focus is on the use of identity providers and managed identity taking advantage of role-based access control using pre-built roles.  
+Intelligent applications that use Azure OpenAI services through platform-native Azure deployments offer a seamless user authentication and authorization approach for developers. However, edge case scenarios present unique complexities that require additional architecture designs. Scenarios include topologies such as non-Azure hosted applications, the use of external identity providers, or deploying multiple clients accessing the same Azure OpenAI instances. In these scenarios, introducing a gateway in front of Azure OpenAI can provide significant improvement with a layer of security that ensures consistency in authentication to deployed instances. 
+
+This article explores the following key scenarios when authenticating with Azure OpenAI services. 
+- Client applications authenticated with an external identity provider 
+
+- Client applications authenticated with certificates 
+
+- Multiple client applications accessing a shared Azure OpenAI instance 
+
+- Client applications accessing multiple Azure OpenAI instances
+
+Each scenario describes the challenges that they introduce, and the benefits introduced by including a gateway. 
 
 > [!IMPORTANT]
-> This article is part of a series of solutions involving providing access to Azure OpenAI through a gateway. Ensure you've read [Providing access to Azure OpenAI through a gateway](./openai-gateway-guide.yml) before reading this guide, as this guide builds upon that pattern.
+> The following guidance is suitable for any gateway implementation, including Azure API Management. The architecture diagrams represent the component generically in most scenarios to illustrate this. 
 
-## Scenario
+## Client applications authenticated with an external identity provider 
 
 :::image type="complex" source="_images/openai-gateway-custom-authentication-challenge.png" lightbox="_images/openai-gateway-custom-authentication-challenge.png" alt-text="Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.":::
 Diagram that shows a conceptual architecture of injecting a gateway between an intelligent application and Azure OpenAI.
 :::image-end:::
 *Figure 1: Starting point for application authentication with Azure OpenAI service using key-based authentication.*
 
-This section builds on the starting architecture defined in the overview guide, exploring the challenge of implementing authentication mechanisms to authorize user access to Azure OpenAI service.  
 
-## Impediment
 
-By default, Azure OpenAI provides an API key authentication mechanism that requires you to manually store and manage the lifecycle of your API keys for your applications. As identified in the overview, the challenges with the scenario include:
+### Scenario use cases for external identity providers
 
-- API key-based authentication does not allow for fine-grained access control to the OpenAI endpoints and models, which can pose security and governance challenges for organizations building solutions on Azure.
-- Users must be authorized to access the application and its associated Azure platform services, validated in Microsoft Entra ID with the least privilege access available.
+In the scenario where a user operates an intelligent application that employs an external Identity Provider (IdP), like Okta or Auth0, the authentication process may differ. If the application is not hosted within Azure, the use of managed identities for authentication is not possible. In this case, API keys become essential as they offer a secure and straightforward method for these external applications to interact with Azure OpenAI, facilitating effective tracking and control of API usage. 
 
-## Successful outcome
+When designing an architecture for accessing Azure OpenAI services, the following use cases may apply: 
 
-Authenticated application users via Microsoft Entra ID can successfully access the capabilities of Azure OpenAI Service using access tokens, without the need to manage API keys.
+- User authentication is managed by a Microsoft Entra ID tenant external to the Azure OpenAI instance. 
 
-## Solution – Establish user authentication and authorization via Azure API Management  
+- User authentication is managed by an external OpenID Connect (OIDC) enabled identity provider, such as Okta or Auth0. 
 
-A solution to the challenge is for teams to implement Azure API Management as an API gateway. The responsibility for the API gateways is to validate the authenticity of a user from user tokens served by an identity provider, ensure that they have granted permission to access the Azure OpenAI API, and distribute requests to one or more Azure OpenAI Service instances without the requirement for key-based authentication.
+### Introduce a gateway to improve Azure OpenAI access security and maintainability 
 
-The following are the required configuration changes:
+Introducing a gateway in this scenario allows server-side control to authorize access to Azure OpenAI using a managed identity regardless of the user authentication mechanism via an identity provider. The managed identity eliminates the need to manage API keys for Azure OpenAI instances in client application code, while improving security using Azure role-based access control (RBAC). 
 
-An AI-powered application must authenticate the user with an identity provider, e.g. Microsoft Entra ID. This identity provider issues a user access token with the relevant scopes with access to specific APIs, e.g. ones that interface with the Azure OpenAI service.
+Using a gateway in this scenario, it will validate the authenticated user access tokens, such as a JSON Web Token (JWT), generated by the identity provider before granting authorization to the backing Azure OpenAI instance. When authenticating with Azure OpenAI, the gateway uses its assigned managed identity with least-privileged role-assignment to make requests for completions. 
 
-A managed identity is deployed for the Azure API Management service that has the built-in Cognitive Services OpenAI User role assigned to the deployed Azure OpenAI service instances.
+#### Tips for client applications authenticated with external identity providers  
 
-An inbound policy is deployed for the Azure OpenAI API within Azure API Management that validates the user's access token and ensures an access token is retrieved for the managed identity of Azure API Management to access the Azure OpenAI service.
+- Additional client scopes can be added to your application registration in your identity provider to enable granular permission to consumers. These scopes allow client applications to request permission to perform specific operations in your gateway, including access to Azure OpenAI. 
 
-The following diagram illustrates the architecture, including the additional Azure resources based on the starting architecture.
+- This scenario is straightforward to configure using inbound policies in Azure API Management with the validate-jwt policy to enforce the existence and validity of a supported JWT. 
 
-:::image type="complex" source="_images/openai-gateway-custom-authentication-challenge.png" lightbox="_images/openai-gateway-custom-authentication-challenge.png" alt-text="Diagram that shows a working architecture of injecting a gateway between an intelligent application and Azure OpenAI securing with Microsoft Entra ID.":::
-Diagram that shows the custom authentication working scenario. An intelligent application with a dashed arrow pointing to Microsoft Entra ID, representing user authentication. The flow continues from the intelligent application to API Management representing user authorization, which has an arrow pointing to Azure OpenAI Service representing authentication via a managed identity.
-:::image-end:::
-*Figure 2: Working solution for custom authentication with Azure OpenAI Service.*
+
 
 ### User Authentication and Authorization via Microsoft Entra ID
 
