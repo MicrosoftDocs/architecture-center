@@ -31,7 +31,7 @@ Using managed Azure services such as Azure Cosmos DB and HDInsight can help redu
 
 Other relevant use cases include:
 
-- E-commerce or retail point of sale back-end systems.
+- E-commerce or retail point-of-sale backend systems.
 - Inventory management systems, for the retail or manufacturing industries.
 - Order fulfillment systems.
 - Other integration scenarios relevant to an order processing pipeline.
