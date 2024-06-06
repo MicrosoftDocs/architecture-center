@@ -24,7 +24,7 @@ Scientific simulations, weather forecasting, computational fluid dynamics (CFD),
 
 ### Genomic Analysis and Bioinformatics Workloads
 
-There has been a surge In the health and life sciences space, genomic analysis, and bioinformatics applications space. These workloads involve processing genetic data, such as DNA sequences and protein structures, and require complex algorithms for sequence alignment, variant calling, and genomic data mining. GPUs expedite genomic analysis workflows, enabling researchers to process data efficiently and uncover insights faster.
+There has been a surge in the health and life sciences space, including genomic analysis and bioinformatics applications. These workloads involve processing genetic data, such as DNA sequences and protein structures, and require complex algorithms for sequence alignment, variant calling, and genomic data mining. GPUs expedite genomic analysis workflows, enabling researchers to process data efficiently and uncover insights faster.
 
 In summary, cloud engineers must consider cost implications before deploying GPU nodes in AKS clusters, and understand GPU optimization for compute-intensive tasks like computer vision, video processing, high-performance computing, and genomic analysis. This highlights the nuanced decision-making process for selecting GPU versus CPU resources in AKS clusters.
 
