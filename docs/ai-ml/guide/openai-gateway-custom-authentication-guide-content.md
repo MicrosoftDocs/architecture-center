@@ -46,6 +46,9 @@ Using a gateway in this scenario, it will validate the authenticated user access
 - This scenario is straightforward to configure using inbound policies in Azure API Management with the validate-jwt policy to enforce the existence and validity of a supported JWT. 
 
 
+#### Reasons to avoid a gateway for client applications authenticated with external identity providers 
+
+When implementing a single, Azure deployed client application to access Azure OpenAI, configuration of user authentication and authorization may be easier within the application than at the gateway level. With this approach, your Azure deployed application can also be assigned the necessary RBAC to securely authenticate with Azure OpenAI directly. 
 
 ### User Authentication and Authorization via Microsoft Entra ID
 
