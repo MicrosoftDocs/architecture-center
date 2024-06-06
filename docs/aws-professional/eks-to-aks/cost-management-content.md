@@ -20,6 +20,29 @@ With On-Demand Instances, you pay for compute capacity by the second, with no lo
 
 - AWS Spot Instance prices vary. AWS sets the price depending on long-term supply and demand trends for Spot Instance capacity, and you pay the price in effect for the time period the instance is up.
 
+## Azure Kubernetes Service cost analysis
+
+An [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) cluster relies on various Azure resources such as virtual machines, virtual disks, load-balancers, and public IP addresses. These resources can be utilized by multiple applications, which might be managed by different teams within an organization. The consumption patterns of these resources can vary, resulting in varying contribution towards the total cluster resource cost. Additionally, some applications may have footprints across multiple clusters, making cost attribution and management a challenge.
+
+Previously, [Microsoft Cost Management (MCM)](/azure/cost-management-billing/cost-management-billing-overview) aggregated cluster resource consumption under the cluster resource group. However, there were several limitations:
+
+- Granular breakdown of resource usage, such as compute, storage, and networking, was not available.
+- Distinguishing between individual application costs and shared costs was not possible.
+- Analyzing costs across multiple clusters in the same subscription scope was not supported.
+
+To address these challenges, AKS has integrated with MCM to provide detailed cost drill-downs at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure Compute, Network, and Storage categories.
+
+The AKS cost analysis addon is built on [OpenCost](https://www.opencost.io/), an open-source project for usage data collection. It provides cost visibility by reconciling data with your Azure invoice. The post-processed data is directly visible in the MCM Cost Analysis portal. For more information, see [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis).
+
+### Cost Definitions
+
+In the Kubernetes namespaces and assets views, you will see the following charges:
+
+- **Idle charges:** Represents the cost of available resource capacity that wasn't used by any workloads.
+- **Service charges:** Represents the charges associated with services like Uptime SLA and Microsoft Defender for Containers.
+- **System charges:** Represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster.
+- **Unallocated charges:** Represents the cost of resources that couldn't be allocated to namespaces.
+
 ## AKS cost basics
 
 Kubernetes architecture is based on two layers, the control plane and one or more nodes or node pools. The AKS pricing model is based on the two Kubernetes architecture layers.
@@ -218,14 +241,22 @@ Cost governance is the process of continuously implementing policies or controls
 
 - Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster cost. You can scope cost allocation to a deployment, service, label, pod, and namespace, which provides flexibility in showing and charging cluster users.
 
+## Reference Material
+
+Here are some reference materials that can help you further understand and utilize AKS cost analysis:
+
+- [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis)
+- [Webinar: Tools and Tips for Unparalleled Cost Transparency on AKS](https://www.youtube.com/watch?v=p15XAKy14WQ)
+- [OpenCost project on GitHub](https://github.com/opencost/opencost)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Cloud Solution Architect
 
 Other contributors:
 
