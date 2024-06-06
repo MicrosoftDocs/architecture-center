@@ -54,8 +54,6 @@ Consider the following points when you decide how to implement this pattern:
 
 - When you implement a compensating transaction, you face many of the same challenges that you face when you implement eventual consistency. For more information, see the "Considerations for Implementing Eventual Consistency" section in [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)).
 
-- Compensating transactions don't always work.
-
 ## When to use this pattern
 
 Use this pattern only for operations that must be undone if they fail. If possible, design solutions to avoid the complexity of requiring compensating transactions.
