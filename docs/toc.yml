@@ -2251,8 +2251,8 @@ items:
           href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
         - name: Batch transaction processing
           href: example-scenario/mainframe/process-batch-transactions.yml
-        - name: Deploy IBM Power in Skytap on Azure with Azure NetApp Files
-          href: example-scenario/mainframe/deploy-ibm-power-in-skytap-with-azure-netapp-files.yml    
+        - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
+          href: example-scenario/mainframe/deploy-ibm-power-workloads-with-skytap-and-netapp-files.yml   
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs

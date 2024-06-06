@@ -72,7 +72,7 @@ For improved recovery point objective and recovery time objective (RPO/RTO) SLAs
 
 Security provides assurance against deliberate attacks and abuse of valuable data and systems. For more information, see [Overview of the Security pillar](/azure/architecture/framework/security/overview).
 
-Azure NetApp Files provides an extra level of security by keeping [volumes and data traffic within your virtual networks](azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) and not providing a publicly addressable endpoint. All [data is encrypted at rest](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) always. You can also use [NFS Kerberos](/azure/azure-netapp-files/understand-data-encryption) to encrypt data in transit.
+Azure NetApp Files provides an extra level of security by keeping [volumes and data traffic within your virtual networks](/azure/azure-netapp-files/faq-security#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted) and not providing a publicly addressable endpoint. All [data is encrypted at rest](/azure/azure-netapp-files/faq-security#can-the-storage-be-encrypted-at-rest) always. You can also use [NFS Kerberos](/azure/azure-netapp-files/understand-data-encryption) to encrypt data in transit.
 
 Azure NetApp Files provides support for standard NFSv4.1 security measures, such as name strings, limited firewall port exposure, [LDAP integration](/azure/azure-netapp-files/configure-ldap-extended-groups), and [NFSv4.1 ACLs](/azure/azure-netapp-files/configure-access-control-lists).
 
@@ -99,6 +99,7 @@ If your capacity pool size requirements are consistent but performance requireme
 Azure NetApp Files has a Standard storage service level with [cool access](https://learn.microsoft.com/azure/azure-netapp-files/cool-access-introduction). You can use this feature to tier cold data and reduce S3 object storage cost. Cool access automatically moves cold blocks to S3 object storage and automatically returns them to the active file system when a client requests them.
 
 You can also provision and deprovision various types of capacity pools throughout the month to provide just-in-time performance and reduce costs during periods when you don't need high performance.
+
 #### Pricing
 
 Determine which Azure NetApp Files service level (Standard, Premium, or Ultra) that you need based on your capacity and performance requirements. Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator) to evaluate the costs for these components:
@@ -140,12 +141,14 @@ To get started, see the [Azure NetApp Files performance calculator](https://clou
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
 Principal authors
 
-- [Abishek Jain](https://www.linkedin.com/in/abhishek141088/) | Cloud Solutions Architect, Skytap
+- [Abhishek Jain](https://www.linkedin.com/in/abhishek141088/) | Cloud Solutions Architect, Skytap
 - [Jason Scott](https://www.linkedin.com/in/jasonpaulscott/) | Director of Field Technical Sales, Skytap
 
-### Other contributors
+Other contributors:
 
 - [Justin Parisi](https://www.linkedin.com/in/jmparisi/) | Technical Marketing Engineer, Azure NetApp Files
 
@@ -153,18 +156,13 @@ Principal authors
 
 ## Next steps
 
-- [Migrate AIX workloads to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap)
-
-- [Migrate IBM i series to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap)
-
+- [About Skytap](https://www.skytap.com/about-us/)
 - [Skytap help and documentation](https://help.skytap.com/)
-
 - [What is Azure NetApp Files?](/azure/azure-netapp-files/azure-netapp-files-introduction)
+- [Understand NAS concepts in Azure NetApp Files | Microsoft Learn](/azure/azure-netapp-files/network-attached-storage-concept)
+- [Understand data protection and disaster recovery options in Azure NetApp Files | Microsoft Learn](/azure/azure-netapp-files/data-protection-disaster-recovery-options)
 
 ## Related resources
 
-- [About Skytap](https://www.skytap.com/about-us/)
-
-- [Understand NAS concepts in Azure NetApp Files | Microsoft Learn](/azure/azure-netapp-files/network-attached-storage-concept)
-
-- [Understand data protection and disaster recovery options in Azure NetApp Files | Microsoft Learn](/azure/azure-netapp-files/data-protection-disaster-recovery-options)
+- [Migrate AIX workloads to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap)
+- [Migrate IBM i series to Azure with Skytap](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap)
