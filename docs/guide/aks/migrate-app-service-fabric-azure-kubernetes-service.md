@@ -3,7 +3,7 @@ title: Migrate a simple app from Service Fabric to AKS
 description: Use an example to guide the migration of your application from Azure Service Fabric to Azure Kubernetes Service.
 author: allyford
 ms.author: allyford
-ms.date: 04/18/2023
+ms.date: 06/06/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -37,7 +37,7 @@ Before you start the migration, you need:
 
     The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-- The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. Install it by running this command:
+- The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. Please note that kubectl is installed by default in the Azure cloud shell. If you are using a local installation, install it by running this command:
 
    ```azurecli
    az aks install-cli
