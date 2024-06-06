@@ -24,9 +24,9 @@ The preceding diagram shows how the typical components of an IBM z/OS mainframe 
 
 1. Server farms use scale set capabilities to accommodate the converted mainframe batch loads and transaction loads. The server farms handle workload peaks. An Azure load balancer fronts the transaction servers to distribute the traffic in an active-active arrangement across the server farm.
 
-1.	The mainframe application code is converted to either .NET C# or Java artifacts. This migrated code runs on the transaction servers to provide the current business logic.
+1. The mainframe application code is converted to either .NET C# or Java artifacts. This migrated code runs on the transaction servers to provide the current business logic.
 
-1.	Avanade AMT Transform automates the migration of database management systems (IBM Db2, IMS, Adabas), databases (hierarchical, network, relational), VSAM files, and schemas to modern databases and file handling.
+1. Avanade AMT Transform automates the migration of database management systems (IBM Db2, IMS, Adabas), databases (hierarchical, network, relational), VSAM files, and schemas to modern databases and file handling.
 
     Avanade AMT Transform converts Job Control Language (JCL) and Rexx scripts to PowerShell (.NET C#), Python, or Java. Azure Private Link provides a private, direct connection from the Azure VMs to the databases.
 
@@ -91,10 +91,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
-- Use Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
- 
-- Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region. 
-- Use [Load Balancer](/azure/load-balancer) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload. 
+- Use Site Recovery to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's an Azure datacenter failure.
+
+- Use [Azure automatic failover group replication](/azure/azure-sql/database/failover-group-sql-db) to manage database replication and failover to another region.
+- Use [Load Balancer](/azure/load-balancer) to build resiliency into this solution. If one presentation or transaction server fails, the other servers behind the load balancer take on the workload.
 
 ### Security
 
@@ -104,7 +104,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Use [Private Link](/azure/azure-sql/database/private-endpoint-overview) to provide a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to SQL Database.
 - Use [Azure Bastion](/azure/bastion/bastion-overview) to limit the number of open ports, which maximizes admin access security. Bastion provides secure and seamless secure RDP and SSH connectivity over TLS from the Azure portal to VMs in the virtual network.
-
 
 ### Cost optimization
 
@@ -125,14 +124,13 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Use the SQL Database hyperscale tier or business-critical tier for high input/output operations per second (IOPS) and high-uptime service-level agreements (SLAs). For pricing information, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use SSD or Ultra Disk Storage for best performance. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -140,7 +138,7 @@ Principal author:
 
 - For more information, [contact the Legacy Migrations Engineering team](mailto:legacy2azure@microsoft.com).
 - Visit the [Avanade website](https://www.avanade.com).
-- Review [the CIO’s guide to mainframe modernization](https://www.avanade.com/en/solutions/cloud-and-application-services/mainframe-modernization-guide).
+- Review [the CIO's guide to mainframe modernization](https://www.avanade.com/en/solutions/cloud-and-application-services/mainframe-modernization-guide).
 - Learn about [MIPS equivalent sizing for IBM CICS COBOL applications](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
 
 ## Related resources

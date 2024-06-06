@@ -139,7 +139,7 @@ You need to further configure the components deployed using the preceding Resour
 4. App Service Plan with ASE as location
 5. An API App (App Services for simplicity) - `srasprest` (URL: `https://srasprest.contoso.org`) – ASP.NET Model-View-Controller (MVC)-based web API. After the deployment, configure:
    - Web app to use the TLS certificate
-   - Application Insights to the preceding apps: API-insights
+   - Application Insights to the preceding apps: `api-insights`
    - Create an Azure Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
    - Create DNS entries on the Private DNS zone created
    - You can make use of Azure Pipelines to configure the agents on Virtual Machines to deploy the code for Web App on internal Network

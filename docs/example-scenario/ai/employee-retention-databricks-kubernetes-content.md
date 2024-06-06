@@ -96,7 +96,7 @@ A proof-of-concept implementation of this scenario is available on GitHub at [Em
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architecture.*
 
-This proof of concept (POC) illustrates:
+This proof of concept illustrates:
 
 - How to train an MLflow model for employee attrition on Azure Databricks.
 - How to package models as a web service by using open-source tools.
@@ -109,7 +109,7 @@ This proof of concept (POC) illustrates:
 
 Principal author:
 
-* [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
+_ [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
 
 ## Next steps
 
