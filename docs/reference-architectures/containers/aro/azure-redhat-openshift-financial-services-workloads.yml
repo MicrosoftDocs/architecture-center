@@ -11,13 +11,12 @@ metadata:
   ms.subservice: example-scenario
 azureCategories:
   - containers
-  - security 
-  - hybrid 
+  - security
+  - hybrid
 products:
   - azure-redhat-openshift
 name: Use Azure Red Hat OpenShift for the financial services industry
 summary: Azure Red Hat OpenShift landing zone for the financial services industry to create secure, resilient, and compliant solutions in a hybrid cloud environment.
 thumbnailUrl: /azure/architecture/browse/thumbs/openshift-architecture.png
 content: |
-  [!include[](./fsi-lza-aro-content.md)])]
-
+  [!include[](./azure-redhat-openshift-financial-services-workloads-content.md)])]
