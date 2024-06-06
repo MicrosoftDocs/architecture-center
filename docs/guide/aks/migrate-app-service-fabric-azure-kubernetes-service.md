@@ -71,7 +71,7 @@ In the AKS manifest, a `Deployment` object provides declarative updates for 
   </ServiceTypes>
  
   <!-- Code package is your service executable file. -->
-  <CodePackage Name="Code" Version="1.0.0">
+  <CodePackage Name="code" Version="1.0.0">
     <EntryPoint>
       <ContainerHost>
         <ImageName><YOUR IMAGE></ImageName>
