@@ -272,9 +272,9 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud IoT Core](https://cloud.google.com/iot/docs) <br><b>NOTE:</b> Product has been deprecated by GCP | [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)<br><br> [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)<br><br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
+| [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)<br><br> [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)<br><br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | See [Messaging and eventing](#messaging-and-eventing) section | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
-| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)<br><br> [Azure IoT Operations](https://learn.microsoft.com/azure/iot-operations/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
+| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)<br><br> [Azure IoT Operations](/azure/iot-operations/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
 ### IoT architectures
 
