@@ -1,4 +1,4 @@
-This article provides guidance on running workloads that use GPU Nodes on Azure Kubernetes Service (AKS) cluster efficiently. It focuses on selecting the right SKU, using GPU nodes to train machine learning models, and using GPU nodes to run inferences on AKS.
+This article provides guidance on running workloads that use GPU Nodes on an Azure Kubernetes Service (AKS) cluster efficiently. It focuses on selecting the right SKU, using GPU nodes to train machine learning models, and using GPU nodes to run inferences on AKS.
 
 ## **Scenarios**
 
