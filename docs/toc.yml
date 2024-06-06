@@ -2252,7 +2252,7 @@ items:
         - name: Batch transaction processing
           href: example-scenario/mainframe/process-batch-transactions.yml
         - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
-          href: example-scenario/mainframe/deploy-ibm-power-workloads-with-skytap-and-netapp-files.yml   
+          href: example-scenario/mainframe/deploy-ibm-power-workloads 
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
         - name: Extend mainframes to digital channels by using standards-based REST APIs
