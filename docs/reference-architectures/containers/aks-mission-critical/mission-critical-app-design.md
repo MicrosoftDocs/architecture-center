@@ -20,7 +20,7 @@ categories: featured
 
 # Application design considerations for mission-critical workloads
 
-The [baseline mission-critical reference architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses a simple online catalogue application to describe a highly reliable workload. Users can browse through a catalog of items, see item details, and post ratings and comments for items. This article focuses on the reliability and resiliency aspects of a mission-critical application, such as asynchronous request processing and how to achieve high throughput within a solution.
+The [baseline mission-critical reference architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses a simple online catalog application to describe a highly reliable workload. Users can browse through a catalog of items, see item details, and post ratings and comments for items. This article focuses on the reliability and resiliency aspects of a mission-critical application, such as asynchronous request processing and how to achieve high throughput within a solution.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) The guidance is supported by a production-grade [reference implementation](https://github.com/Azure/Mission-Critical-Online) that showcases mission-critical application development on Azure. You can use this implementation as a basis for further solution development in your first step toward production.
@@ -29,7 +29,7 @@ The [baseline mission-critical reference architecture](/azure/architecture/refer
 
 For high-scale mission-critical applications, it's essential to optimize the architecture for end-to-end scalability and resilience. You can optimize the architecture by separating components into functional units that can operate independently. Apply this separation at all levels on the application stack. Separation at all levels enables each part of the system to scale independently and meet changes in demand. The implementation demonstrates this approach.
 
-The application uses stateless API endpoints that decouple long-running write requests asynchronously through a messaging broker. The workload is composed in a way that lets you delete and recreate whole AKS cluster and other dependencies in the stamp at all times. The main components of the application are:
+The application uses stateless API endpoints that decouple long-running write requests asynchronously through a messaging broker. The workload is composed in a way that lets you always delete and recreate whole AKS cluster and other dependencies in the stamp. The main components of the application are:
 
 - **User interface (UI)**: A single-page web application that users access. The UI is hosted in Azure Storage Account's static website hosting.
 
@@ -111,7 +111,7 @@ The key characteristics of asynchronous messaging are:
 
 - Downstream failures don't affect client transactions.
 
-- Transactional integrity is more difficult to maintain because data creation and persistence happen in separate services. This is also a challenge across messaging and persistence services. For more information, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+- Transactional integrity is more difficult to maintain because data creation and persistence happen in separate services. Transactional integrity is a challenge across messaging and persistence services. For more information, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 - End-to-end tracing requires more complex orchestration.
 
@@ -130,7 +130,7 @@ Messages in the queue are processed by `BackgroundProcessor` instances that hand
 
 :::image type="content" source="./images/application-design-operations-2.png" alt-text="Diagram that shows the asynchronous nature of the post rating feature in the implementation." lightbox="./images/application-design-operations-2.png":::
 
-The Azure Event Hubs Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and to track progress by using checkpoints. Writing the checkpoints to the blob storage doesn't happen after every event because this would add a prohibitively expensive delay for every message. Instead, the checkpoint writing happens on a timer-loop, which is a configurable duration with a current setting of 10 seconds:
+The Azure Event Hubs Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and to track progress by using checkpoints. Writing the checkpoints to the blob storage doesn't happen after every event because it would add a prohibitively expensive delay for every message. Instead, the checkpoint writing happens on a timer-loop, which is a configurable duration with a current setting of 10 seconds:
 
 ```csharp
 while (!stoppingToken.IsCancellationRequested)
@@ -162,9 +162,7 @@ while (!stoppingToken.IsCancellationRequested)
 }
 ```
 
-If the processor application encounters an error or is stopped before processing the message, then:
-
-- Another instance picks up the message for reprocessing because it wasn't properly checkpointed in Storage.
+If the processor application encounters an error or is stopped before processing the message, then another instance picks up the message for reprocessing because it wasn't properly checkpointed in Storage.
 
 - If the previous worker managed to persist the document in the database before it failed, a conflict happens because the same ID and partition key is used. The processor can safely ignore the message because it's already persisted.
 
@@ -172,7 +170,7 @@ If the processor application encounters an error or is stopped before processing
 
 ### Read operations implementation details
 
-Read operations are processed directly by the API and immediately return data back to the user.
+The API directly processes read operations and immediately returns data back to the user.
 
 :::image type="content" source="./images/application-design-operations-1.png" alt-text="Diagram of list Catalog Items that reads from the database directly." lightbox="./images/application-design-operations-1.png":::
 
@@ -180,7 +178,7 @@ There's no back channel that communicates to the client if the operation complet
 
 ## Scalability
 
-Individual workload components should scale out independently because each has different load patterns. The scaling requirements depend on the functionality of the service. Some services have a direct effect on users and are expected to scale out aggressively to provide fast response for a positive user experience and performance at all times.
+Individual workload components should scale out independently because each has different load patterns. The scaling requirements depend on the functionality of the service. Some services have a direct effect on users and are expected to scale out aggressively to provide fast response for a positive user experience and performance.
 
 In the implementation, the services are packaged as Docker containers and deployed by using Helm charts to each stamp. They're configured to have the expected Kubernetes requests and limits and a preconfigured automatic scaling rule in place. The `CatalogService` and the `BackgroundProcessor` workload components can scale in and scale out individually because both services are stateless.
 
@@ -303,7 +301,7 @@ Extensive logging can negatively affect cost and provide no benefits. For this r
 
 For more information, see the [full configuration file](https://github.com/Azure/Mission-Critical-Online/blob/ae62624a9aaf3e5673ec39bdfadb25a257278dde/src/config/monitoring/container-azm-ms-agentconfig.yaml).
 
-## Health monitoring
+## Application health monitoring
 
 Application monitoring and observability are commonly used to quickly identify problems with a system and inform the [health model](/azure/architecture/framework/mission-critical/mission-critical-health-modeling) about the current application state. Health monitoring surfaced through *health endpoints* and used by *health probes* provides information, which is immediately actionable - typically instructing the main load balancer to take the unhealthy component out of rotation.
 
@@ -319,11 +317,13 @@ In the architecture, health monitoring is applied at these levels:
 
 :::image type="content" source="./images/application-design-health-service.png" alt-text="Diagram of the health service querying Azure Cosmos DB, Event Hubs, and Storage." lightbox="./images/application-design-health-service.png":::
 
-The health service won't respond if the AKS cluster is down, which renders the workload unhealthy. When the service runs, it performs periodic checks against critical components of the solution. All checks are done asynchronously and in parallel. If any of the checks fail, the whole stamp is considered unavailable.
+The health service doesn't respond if the AKS cluster is down, which renders the workload unhealthy. When the service runs, it performs periodic checks against critical components of the solution. All checks are done asynchronously and in parallel. If any of the checks fail, the whole stamp is considered unavailable.
 
 > [!WARNING]
 > Azure Front Door health probes can impose significant load on the health service because requests come from multiple point of presence (PoP) locations. To prevent overloading the downstream components, implement effective caching.
 
 The health service is also used for explicitly configured URL ping tests with each stamp's Application Insights resource.
 
-For more details about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling.md#application-health-service).
+## Next steps
+
+For more information about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling.md#application-health-service).
