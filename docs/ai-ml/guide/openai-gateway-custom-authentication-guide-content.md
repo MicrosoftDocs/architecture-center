@@ -220,15 +220,24 @@ Centralized logging of all requests passing through the gateway also helps in ma
 
 Azure does not offer a turn-key solution or reference architecture for building such a gateway. As mentioned in the introduction article, you must build and operate this gateway. The following are examples of community-supported implementations covering the previously mentioned use cases. Consider referencing these samples when you build your own gateway solution. 
 
+| Implementation | Example | 
+| :---         |     :---      |
+| Azure OpenAI Application Identity and Security – Learn Live Webinar   | [Learn Live: Azure OpenAI Application Identity & Security (youtube.com)](https://www.youtube.com/live/pDjXsNWYmvo)    | 
+
+
+## Next steps 
+
+Implementing a gateway for your workload provides benefits beyond the scenarios for improving authentication and authorization detailed in this article. Learn about the other key challenges a gateway can solve. 
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Lizet Pena De Sola](https://www.linkedin.com/in/lizetp/) | Senior Customer Engineer
-- [Bappaditya Banerjee](https://www.linkedin.com/in/bappaditya-banerjee-8860ba7/) | Senior Customer Engineer  
-- [James Croft](https://www.linkedin.com/in/jmcroft/) | Customer Engineer
+- [Lizet Pena De Sola](https://www.linkedin.com/in/lizetp/) | Senior Customer Engineer, FastTrack for Azure
+- [Bappaditya Banerjee](https://www.linkedin.com/in/bappaditya-banerjee-8860ba7/) | Senior Customer Engineer, FastTrack for Azure 
+- [James Croft](https://www.linkedin.com/in/jmcroft/) | Customer Engineer, ISV & Digital Native Center of Excellence 
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -243,3 +252,4 @@ This article provides an effective solution for implementing alternative authent
 - [Policies in Azure API Management](/azure/api-management/api-management-howto-policies)
 - [Authentication and authorization to APIs in Azure API Management](/azure/api-management/authentication-authorization-overview)
 - [Protect an API in API Management using OAuth 2.0 and Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad)
+- [Secure API Management backend using client certificate authentication](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates) 
