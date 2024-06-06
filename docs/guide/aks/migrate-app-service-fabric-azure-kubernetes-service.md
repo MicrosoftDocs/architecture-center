@@ -19,7 +19,7 @@ categories:
 
 This article provides an example workload migration to help you implement some of the conceptual information provided in [Migrate your workload from Service Fabric to AKS](service-fabric-azure-kubernetes-service.md). That article provides information about Azure Kubernetes Service (AKS) and a comparison of AKS with Azure Service Fabric. It also describes considerations to take into account when you migrate your workloads.
 
-This example focuses on Windows-based Service Fabric applications that have already been containerized. If your application isn't containerized, consider investigating whether you can containerize it. If the application depends on Service Fabric programming models (Reliable Services, Reliable Actors, ASP.NET Core, and guest executables), you'll probably need to do some refactoring.
+This example focuses on Windows-based Service Fabric applications that have already been containerized. Please note that Azure service fabric as well as Azure Kuberenetes Service supports both Windows and Linux containers. If your application isn't containerized, consider investigating whether you can containerize it. Building a container is a pre-requisite for deploying the application to Azure Kubernetes Service. If the application depends on Service Fabric programming models (Reliable Services, Reliable Actors, ASP.NET Core, and guest executables), you'll probably need to do some refactoring.
 
 For information about containerizing your application, see [Prepare an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app). For information about containerizing an ASP.NET application, see [ASP.NET app containerization and migration to AKS](/azure/migrate/tutorial-app-containerization-aspnet-kubernetes).
 
@@ -27,7 +27,7 @@ For information about containerizing your application, see [Prepare an applicati
 
 Before you start the migration, you need:
 
-- An application image that's stored in Azure Container Registry.
+- An application container image that's stored in Azure Container Registry.
 
 - A Bash environment that you can use to configure your Azure resources.
 
@@ -54,7 +54,7 @@ The translation of the Service Fabric configuration manifest to an AKS manifest 
 
 The two manifests don't map one-to-one because they're based on the functional paradigms that are specific to each service, but their intents are the same. (In these samples, variables use the format `<VARIABLE DESCRIPTION>`.)
 
-In the AKS manifest, a `Deployment` object provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). A `Service` object exposes an application that's running on a set of pods as a network service. Much of the power of Kubernetes comes from its extensibility.
+In the AKS manifest, a `Deployment` object provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). A `Service` object exposes an application that's running on a set of pods as a network service.
 
 ### Sample Service Fabric service manifest
 
@@ -152,6 +152,7 @@ After you have your manifest, you just need to apply it, and you can watch your 
 
 ```
 kubectl apply -f <YOUR MANIFEST>.yaml
+kubectl get deploy <APP NAME>
 kubectl get service <SERVICE NAME> --watch
 ```
 
