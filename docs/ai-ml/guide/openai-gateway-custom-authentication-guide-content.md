@@ -107,79 +107,118 @@ There are a few disadvantages to the use of an API Gateway to facilitate client 
 
 In smaller applications or environments where security and certificate management can be handled directly within the application without a gateway, the added complexity may outweigh the benefits. You must carefully assess your specific needs, resource availability, and the criticality of your applications before deciding to implement a gateway for client certificate authentication. 
 
-    *Figure 7: Code snippet to implement Microsoft Entra ID JWT token validation in Azure API Management API policies.*
+## Multiple client applications accessing a shared Azure OpenAI instance 
 
-### Configuring Azure API Management to authenticate with Azure OpenAI Service using Managed Identity
 
-1. For Azure API Management to call the Azure OpenAI Service APIs without API keys, the system-assigned managed identity must be enabled. This will provide you with an Object ID that you can associate with your Azure OpenAI Service instances.
+:::image type="complex" source="_images/Scenario-MultipleClients.png" lightbox="_images/Scenario-MultipleClients.png.png" alt-text="Diagram that shows multiple Intelligent Applications accessing the same Azure OpenAI instance.":::
+Diagram that shows multiple Intelligent Applications accessing the same Azure OpenAI instance.
+:::image-end:::
+*Figure 5: Multiple Intelligent Applications accessing the same Azure OpenAI instance.*
 
-    :::image type="content" source="_images/openai-gateway-custom-authentication-apim-system-managed-identity.png" lightbox="_images/openai-gateway-custom-authentication-apim-system-managed-identity.png" alt-text="Screenshot showing configuration for system assigned managed identity in Azure API Management.":::
-    *Figure 8: System assigned managed identity configuration for Azure API Management.*
+### Scenario use cases for multiple client applications accessing a shared Azure OpenAI instance 
 
-1. From your Azure OpenAI Service instances, using access control (IAM), create a role assignment for your Azure API Management managed identity with the role **Cognitive Services OpenAI User**.
+When designing an architecture for accessing Azure OpenAI services, the following use cases may apply: 
 
-    :::image type="content" source="_images/openai-gateway-custom-authentication-apim-managed-identity-role-assignment.png" lightbox="_images/openai-gateway-custom-authentication-apim-managed-identity-role-assignment.png" alt-text="Screenshot showing adding a role assignment for the system assigned managed identity in Azure API Management.":::
-    *Figure 9: Add least-privileged role assignment to Azure API Management's managed identity scoped to the Azure OpenAI resource.*
+- Multiple client applications are deployed across multiple environments, including Azure, other cloud providers, or on-premises. 
 
-1. To authenticate with the Azure OpenAI Service, an access token must be provided in the Authorization header of the request to the API endpoints. In the inbound policy of the Azure OpenAI API in Azure API Management, the authentication-managed-identity policy in conjunction with the set-header policy to ensure the request is authenticated.
+- A distributed microservice architecture requires access to a shared Azure OpenAI instance. 
 
-    ```xml
-    <policies>
-      <inbound>
-        <authentication-managed-identity resource="https://cognitiveservices.azure.com" output-token-variable-name="msi-access-token" ignore-error="false" />
-        <set-header name="Authorization" exists-action="override">
-          <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
-        </set-header>
-      </inbound>
-    </policies>
-    ```
+Depending on where the applications are deployed, a mix of authentication methods can be used when making a request to the Azure OpenAI instance. Where not deployed in Azure, client applications share an API key that is managed per application. 
 
-    *Figure 10: Code snippet to implement authentication to Azure OpenAI service using managed identity in Azure API Management API policies.*
+### Introduce a gateway to handle multiple clients accessing Azure OpenAI with unified authentication 
 
-## Scenario considerations
+:::image type="complex" source="_images/Solution-MultipleClients.png" lightbox="_images/Solution-MultipleClients.png.png" alt-text="Diagram that shows the introduction of a gateway for multiple Intelligent Applications accessing the same Azure OpenAI instance.":::
+Diagram that shows the introduction of a gateway for multiple Intelligent Applications accessing the same Azure OpenAI instance.
+:::image-end:::
+*Figure 6: Introduce a gateway to allow multiple Intelligent Applications accessing the same Azure OpenAI instance.*
 
-With a well-configured Azure OpenAI gateway in place, let's consider additional points to aid in achieving the successful outcome objectives within this scenario.
 
-### User-assigned managed identity
+Using a shared API key across multiple client applications, such as on-prem hosted, alternate cloud hosted, and Azure hosted intelligent applications, increases the attack surface, and complicates key management. Introducing a gateway to handle multiple clients accessing Azure OpenAI with unified authentication using Entra ID addresses can address this. 
 
-An alternative approach to implementing the managed identity for Azure API Management is to use a user assigned. Unlike the system-assigned managed identity, which is managed for you by Azure, user-assigned managed identity allows you to create and manage it. This gives you more control over the identity implementation and its assigned roles.
+By implementing a gateway, you can centralize authentication, reducing the risk associated with key distribution. Managing API keys across numerous client applications can be complex. Regularly rotating keys is a best practice, but doing this across multiple clients can be logistically challenging. The gateway simplifies this process by handling authentication centrally.  
 
-To implement this approach, you need to create the user assigned managed identity within your resource group and assign it the same Cognitive Services OpenAI User role to the Azure OpenAI instances. The user-assigned managed identity has an associated client ID that is needed for configuring the authentication-managed-identity policy in Azure API Management. This must be set as the client-id parameter.
+Choosing to configure a gateway to leverage managed identities for Azure OpenAI authentication reduces the administrative burden of API key management while enhancing security.  
 
-```xml
-<policies>
-  <inbound>
-    <authentication-managed-identity resource="https://cognitiveservices.azure.com" client-id="00000000-0000-0000-0000-000000000000" output-token-variable-name="msi-access-token" ignore-error="false" />
-    <set-header name="Authorization" exists-action="override">
-      <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
-    </set-header>
-  </inbound>
-</policies>
-```
+#### Tips for multiple client applications access a shared Azure OpenAI instance 
 
-*Figure 11: Code snippet to implement authentication to Azure OpenAI service using a user-assigned managed identity in Azure API ManagementAPI policies.*
+- Since using a managed identity might reduce traceability of the end user and client application, enhance monitoring on metrics related to API requests. The gateway should provide any additional tracing metadata associated with the request, such as the requesting client and user IDs. 
 
-Using a user assigned managed identity can provide more flexibility and control over the authentication process. However, it also requires additional management and configuration on your part.
+- Beyond managed identities, consider combining this approach with an identity provider as covered in [Introduce a gateway to improve Azure OpenAI access security and maintainability](bookmark://_Introduce_a_gateway). This adds an additional layer of security at the gateway for client requests. 
 
-### External identity providers
+- When routing multiple client application requests through a gateway to a shared Azure OpenAI service, consider implementing retry policies for transient failures. For more best practices in gateway implementations for Azure OpenAI deployments, see [using a gateway in front of multiple Azure OpenAI deployments](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend). 
 
-In scenarios where you already have an existing external identity provider, enabling the use of Microsoft Entra ID to build an identity platform for your application is not be feasible. Taking advantage of your existing identity platform ensures that your team feel familiar with their tools to focus on building core functionality.
+## Client applications accessing multiple Azure OpenAI instances
 
-When working with external OpenID Connect (OIDC) supported identity providers, ensure that a client is configured within that identity provider. This is equivalent to configuring your application within Microsoft Entra ID, discussed in the scenario. With this configured, configuring the validate-jwt policy requires configuration for the external well-known OpenID configuration path.  
+If the intelligent applications are not hosted within Azure, managed identities cannot be utilized for authentication.  Instead, API keys are used to authenticate Azure OpenAI for these external applications. 
 
-```xml
-<policies>
-  <inbound>
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access tokenis missing or invalid.">
-      <openid-config url="{external-identity-provider-well-known-openid-path}" />
-    </validate-jwt>
-  </inbound>
-</policies>
-```
+:::image type="complex" source="_images/Scenario-MultipleServices.png" lightbox="_images/Scenario-MultipleServicess.png.png" alt-text="Diagram that shows an Intelligent Application accessing multiple Azure OpenAI instances.":::
+Diagram that shows an Intelligent Application accessing multiple Azure OpenAI instances.
+:::image-end:::
+*Figure 7: Intelligent Application accessing multiple Azure OpenAI instances.*
 
-*Figure 12: Code snippet to implement external identity provider JWT token validation in Azure API Management API policies.*
 
-Additional configuration for required claims can be provided the same as the scenario solution.
+### Scenario use cases for accessing multiple Azure OpenAI instances 
+
+When designing an architecture for accessing Azure OpenAI services, the following use cases may apply: 
+
+- Multi-tenant client applications ensure resources are as close as possible to their users' region. 
+
+- Client applications maximize tokens per minute (TPM) quotas by deploying instances across regions. 
+
+- Client applications taking advantage of multiple model capabilities not available in a single region. 
+
+These scenarios may require client applications to manage API keys for each Azure OpenAI instance to authenticate requests. 
+
+### Introduce a gateway to handle client applications accessing multiple Azure OpenAI deployments with unified authentication 
+
+:::image type="complex" source="_images/Solution-MultipleServices.png" lightbox="_images/Solution-MultipleServicess.png.png" alt-text="Introduce a gateway to handle client applications accessing multiple Azure OpenAI instances.":::
+Introduce a gateway to handle client applications accessing multiple Azure OpenAI instances.
+:::image-end:::
+*Figure 8: Introduce a gateway to handle client applications accessing multiple Azure OpenAI instances.*
+
+The approach for introducing a gateway to handle client applications accessing multiple Azure OpenAI deployments follows the same reasons covered by introducing a gateway to handle multiple clients accessing a shared Azure OpenAI deployment. 
+
+In addition to those reasons, by using a single user-defined managed identity to authenticate requests from the gateway to multiple Azure OpenAI instances, the process for authentication is streamlined. This reduces the overall operational overhead and minimizes the risks of misconfiguration of the client when working with multiple instances. 
+
+#### Tips for client applications accessing multiple Azure OpenAI instances 
+
+- Implement load balancing techniques to distribute the API requests across multiple instances of the Azure OpenAI service to handle high traffic and ensure high availability. For more guidance on this, see [using a gateway in front of multiple Azure OpenAI deployments or instances](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend). 
+
+- For multi-tenant scenarios using multiple Azure OpenAI instances, tracking token usage for a specific tenant must be correlated at the gateway. This ensures that you are tracking total token usage regardless of the backend Azure OpenAI instance that the request was forwarded to.  
+
+### Reasons to avoid a gateway for accessing a shared Azure OpenAI instance or multiple Azure Open AI instances 
+
+Introducing a gateway can be a potential single point of failure for solutions where high availability is a requirement. If the gateway experiences downtime or performance issues, all client applications relying on it for access to the Azure OpenAI instance will be affected. This can lead to widespread service disruptions, impacting the availability and reliability of critical applications. Instead, provide multiple gateway instances and follow our best practice guidance when using a gateway in front of multiple Azure OpenAI deployments. 
+
+Additionally, the gateway can introduce latency, which may be detrimental in performance-sensitive applications. Each request from a client must pass through the gateway, adding extra processing time and potentially slowing down response times. Directly connecting client applications to the Azure OpenAI instance, while managing authentication and authorization individually, might be more efficient in such cases. This direct approach, albeit more complex to manage, can ensure the lowest possible latency and highest performance for critical applications. 
+
+## General recommendations 
+
+When integrating Azure OpenAI services through a gateway, there are several cross-cutting recommendations to consider that apply in all scenarios. 
+
+Opting for Azure API Management (APIM) instead of building your own can deliver considerable advantages such as efficient API orchestration, seamless integration with other Azure services, and cost-effectiveness by reducing development and maintenance efforts. APIM supports authentication and authorization by integrating with various identity providers like Entra ID, enabling OAuth 2.0, and offering policy-based authorization and incorporates managed identities for secure access to Azure OpenAI, ensuring robust and secure API management. 
+
+### Gateway policy enforcement 
+
+Before requests to Azure OpenAI instances are sent via a gateway, inbound authentication and authorization policies should be enforced. Whether by user access tokens from an identity provider or certificate validation, implementing this approach ensures that only authenticated and authorized requests are forwarded on. 
+
+Implementing additional auth scoping with roles and permissions for client applications in your gateway also enables granular control. These scopes allow specific operations to be permitted based on the client application's needs, enhancing security and manageability.  
+
+### Use Azure managed identities 
+
+Using Azure managed identities simplifies authentication across all client application scenarios by centralizing authentication management. This approach reduces the complexity and risks associated with managing multiple API keys or credentials in client applications. 
+
+As managed identities inherently support Azure RBAC, they ensure the gateway has only the right level of permission to access Azure OpenAI instances. This reduces the risk of unauthorized access and simplifies compliance with security policies. 
+
+### Implement comprehensive observability 
+
+Given the potential reduction in traceability in the Azure Open AI Service (a managed identity represents the API Gateway service and not the end-user or Intelligent Application that initiated the request) when using a gateway with managed identities, it is crucial to enhance observability on metrics related to API requests. Gateways should provide additional tracing metadata, including the requesting client and user IDs, to maintain visibility over access patterns and usage. 
+
+Centralized logging of all requests passing through the gateway also helps in maintaining an audit trail. This is especially important for troubleshooting, compliance, and ensuring that unauthorized access attempts can be detected. 
+
+## Gateway implementations 
+
+Azure does not offer a turn-key solution or reference architecture for building such a gateway. As mentioned in the introduction article, you must build and operate this gateway. The following are examples of community-supported implementations covering the previously mentioned use cases. Consider referencing these samples when you build your own gateway solution. 
 
 ## Contributors
 
