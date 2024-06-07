@@ -135,6 +135,9 @@ When a service implementation changes, it's useful to tag the change with a vers
 
 For further discussion of API versioning, see [Versioning a RESTful web API](../../best-practices/api-design.md#versioning-a-restful-web-api).
 
+> [!NOTE]  
+> Versioning microservices isn't simple. It requires careful planning and using a proper versioning strategy.
+
 ## Idempotent operations
 
 An operation is *idempotent* if it can be called multiple times without producing additional side-effects after the first call. Idempotency can be a useful resiliency strategy, because it allows an upstream service to safely invoke an operation multiple times. For a discussion of this point, see [Distributed transactions](./interservice-communication.yml#distributed-transactions).
