@@ -47,7 +47,7 @@ The API, worker, and health check applications are referred to as *workload* and
 
 There are other supporting components that run in the cluster:
 
-1. **Nginx Ingress Controller**: Routes incoming requests to the workload and load balance between pods. It's exposed through Azure Load Balancer with a public IP address but can only be accessed through Azure Front Door.
+1. **Nginx Ingress Controller**: Routes incoming requests to the workload and load balances between pods. Nginx Ingress Controller is exposed through Azure Load Balancer with a public IP address but can only be accessed through Azure Front Door.
 
 1. **Cert manager**: Jetstack's `cert-manager` autoprovisions SSL/TLS certificates by using Let's Encrypt for the ingress rules.
 
@@ -115,7 +115,7 @@ The key characteristics of asynchronous messaging are:
 
   - Transactional integrity is difficult to maintain because data creation and persistence happen in separate services. Transactional integrity is a challenge across messaging and persistence services. For more information, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
-We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API to accept the request and quickly return to the caller while processing a database write operation separately.
+We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API accept the request and quickly return to the caller while processing a database write operation separately.
 
 Azure Event Hubs brokers messages between the API and worker.
 
