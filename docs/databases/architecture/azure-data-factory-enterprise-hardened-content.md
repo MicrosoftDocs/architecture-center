@@ -1,6 +1,6 @@
 This reference architecture describes how to modify and harden a [medallion lakehouse](/azure/databricks/lakehouse/medallion) as the system is adopted across an enterprise. 
 
-Following a typical adoption pattern, as shown in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), the architecture provided in this article is hardened to meet additional non-functional requirements (NFRs), provide additional capabilities, and shift user and operator responsibilities to a domain-based federated model.  
+Following a typical adoption pattern, as shown in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), the architecture provided in this article is hardened to meet additional nonfunctional requirements (NFRs), provide additional capabilities, and shift user and operator responsibilities to a domain-based federated model.  
 
 This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/) for best practice and guidance, specifically for the implementation of [data domains](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains) and the adoption of [data products](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone-data-products). 
 
@@ -9,27 +9,27 @@ This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azu
 
 ## Context and key design decisions
 
-As described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Consoto operates a medallion lakehouse that supports their first data workloads for the financial department. Consoto has hardened this system and extend it to support the enterprise analytical data needs, providing a data science capability and self-service functionality.   
+As described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Contoso operates a medallion lakehouse that supports their first data workloads for the financial department. Contoso has hardened this system and extend it to support the enterprise analytical data needs, providing a data science capability and self-service functionality.   
 
 ### Key requirements
-- The Solution MUST be hardened to operate as an enterprise data and analytics platform and extended to support other corporate functions, while adhering to Consoto's data access policy requirements.  
-- The Platform MUST be able to ingest, store, process, and serve data in near-real time. The performance target is defined as a sub-one minute processing time from ingestion to being available in the reporting layer.
-- The Platform MUST deliver economy of scale savings and efficiency, while driving reuse. 
-- The Platform MUST provide the ability for business areas to determine the level of self-service and control they need over their data solutions and products.
-- The Platform MUST support an enterprise data science capability, including the enablement of data citizens.
-- The Platform MUST support higher target SLAs:
+- The solution MUST be hardened to operate as an enterprise data and analytics platform and extended to support other corporate functions, while adhering to Contoso's data access policy requirements.  
+- The platform MUST be able to ingest, store, process, and serve data in near-real time. The performance target is defined as a sub-one minute processing time from ingestion to being available in the reporting layer.
+- The platform MUST deliver economy of scale savings and efficiency, while driving reuse. 
+- The platform MUST provide the ability for business areas to determine the level of self-service and control they need over their data solutions and products.
+- The platform MUST support an enterprise data science capability, including the enablement of data citizens.
+- The platform MUST support higher target SLAs:
   - 99.9% target uptime (or ~8.5 hours downtime per year).
   - Recovery Point Objective (RPO) of 1.5 days.
   - Recovery Time Objective (RTO) of less than 1 day.
-- The Platform MUST support the forecast usage of 1000 users across the various domains with an estimated growth of 5% annually.
-   - While only Consoto employees can directly access the platform, there SHOULD be the capability to share data with third parties. 
+- The platform MUST support the forecast usage of 1,000 users across the various domains with an estimated growth of 5% annually.
+   - While only Contoso employees can directly access the platform, there SHOULD be the capability to share data with third parties. 
 
 ### The key design decisions (KDDs)
 - The [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) can be modified to meet these requirements without rearchitecting.
 - Given the requirements for extending the platform across the enterprise and self-service functionality, and the business strategic objective, a [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) supported by an enterprise managed foundation is a good fit for the scenario. The foundation is defined as:
   - Identity and access controls.
-  - The underlying networking, boundary controls and security baseline.
-  - The governance, audit and monitoring functionality.
+  - The underlying networking, boundary controls, and security baseline.
+  - The governance, audit, and monitoring functionality.
   - The ingestion and initial processing of data into the platform.
 - The domain design is anchored around a given business departments' ownership of their data and the originating source system. 
 - A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) allows business groups to optionally build their own stack of model-and-serve components, which they control and maintain going forward.
@@ -51,18 +51,18 @@ As described in the [baseline architecture](azure-data-factory-on-azure-landing-
 The design callouts for the hardened architecture are:
 
 1.	The Ingestion and Delta Lake are [source aligned](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#source-system-aligned-domains) and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that accounts for enterprise reusability.
-- Data feeds from source systems are governed with [data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1), which can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) ETL (extract, transform, load) framework and surfaced up to end users as part of the [governance capability](https://learn.microsoft.com/purview/how-to-browse-catalog).
+- Data feeds from source systems are governed with [data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1), which can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) ETL (extract, transform, load) framework and surfaced up to end users as part of the [governance capability](/purview/how-to-browse-catalog).
 - The delta lake's Bronze layer (Raw) directory structure reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2F_bread%2Ftoc.json#directory-structure). The data is ordered by source system. This organization methodology enables a unified security implementation based on business ownership of source systems.
-- To support the streaming requirement,a fast-path for data is designed. To that end, data is ingested through ADF and directly processed by the Azure Databricks structured stream for analysis and use. Delta lake [CDC](/azure/databricks/structured-streaming/delta-lake#stream-a-delta-lake-change-data-capture-cdc-feed) can be used create the audit history, supporting replay and propagating incremental changes to downstream tables in the medallion architecture. 
+- To support the streaming requirement, a fast-path for data is designed. To that end, data is ingested through ADF and directly processed by the Azure Databricks structured stream for analysis and use. Delta lake [CDC](/azure/databricks/structured-streaming/delta-lake#stream-a-delta-lake-change-data-capture-cdc-feed) can be used to create the audit history, supporting replay and propagating incremental changes to downstream tables in the medallion architecture. 
 
-2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but do not have the skilling, budget, or interest in technically managing their own domain implementation.
+2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but don't have the skilling, budget, or interest in technically managing their own domain implementation.
 - Self-service is offered within the model-and-serve components managed by the central technical team.
   
-3. The enterprise data science capability is managed by the central technical team. This model also aligns with their supporting the enterprise focused solutions, providing service optionality and hosting services with a enterprise pricing structure.
+3. The enterprise data science capability is managed by the central technical team. This model also aligns with their supporting the enterprise focused solutions, providing service optionality, and hosting services with a enterprise pricing structure.
 
 4. Domains are enabled via logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the domain level unit of management, billing, governance, and isolation necessary.
 - The approach is completely managed through infrastructure-as-code [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
-- Each domain has it's own set of role-based access controls (RBAC) roles covering the [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within the domain logical containers. On the other hand, data plane roles are used across the platform, providing a consistent, unified, and low-complexity control.   
+- Each domain has its own set of role-based access controls (RBAC) roles covering the [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within the domain logical containers. On the other hand, data plane roles are used across the platform, providing a consistent, unified, and low-complexity control.   
   
 5.	Within a domain subscription, the components made available are configurable, depending on the skillset, priorities, and use cases.
 - Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) allow domains to collaborate when practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
@@ -77,7 +77,7 @@ TO BE ADDED - Darren
 
 ### Data Science Capability
 
-For data science scenarios, Azure Data Factory’s primary role lies in data movement, scheduling, and orchestration required as part of batch inferencing machine learning use cases. Batch inference, or batch scoring, scenarios involve making predictions on a batch of observations. These scenarios are usually characterized by a high-throughput of data with scoring at a pre-defined frequency. 
+For data science scenarios, Azure Data Factory’s primary role lies in data movement, scheduling, and orchestration required as part of batch inferencing machine learning use cases. Batch inference, or batch scoring, scenarios involve making predictions on a batch of observations. These scenarios are usually characterized by a high-throughput of data with scoring at a predefined frequency. 
 
 Within Azure Data Factory, these workflows are defined in pipelines consisting of various interlinked activities. Scalable Azure Data Factory pipelines are usually parameterized and driven by metadata defined in a control table. This pattern is characterized by the ingestion of data, processing it to generate machine learning predictions, and moving the data outputs to a service for modeling and serving purposes. The processing of data to generate machine learning predictions is performed differently in Azure Machine Learning and Azure Databricks in the following ways: 
 
@@ -113,11 +113,11 @@ The following considerations provide guidance for implementing the pillars of th
 [Reliability](/azure/well-architected/reliability/) ensures that solution resilient to malfunction and to ensure that it returns to a fully functioning state after a failure occurs. 
 
 The delta this architecture provides, includes:
-- The default Azure [SLA's](https://www.azure.cn/support/sla/summary/) across the solution still meet the uplifted requirements, so no high-availability or multi-regional uplift is required.
-- Uplift the [DR strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and stakeholder RACI. This must be regularly tested to ensure it remains "fit-for-purpose".
-- Solution components utilize zone-redundancy features to protect against localised service issues. The following table shows the resiliency types for the services in this architecture:
+- The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution still meet the uplifted requirements, so no high-availability or multi-regional uplift is required.
+- Uplift the [DR strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and stakeholder RACI. This must be regularly tested to ensure it remains "fit-for-purpose."
+- Solution components utilize zone-redundancy features to protect against localized service issues. The following table shows the resiliency types for the services in this architecture:
 
-**Service**|**Resiliency Type**
+**Service**|**Resiliency type**
 :-----:|:-----:
 Azure Data Factory (ADF)|Zone-redundant
 Azure Databricks (ADB)|Zone-redundant
@@ -157,7 +157,7 @@ The delta this architecture provides, includes:
 The delta this architecture provides includes:
 - Evolving the operating model to account for the new domain model, stakeholders, governance structures, persona-based training and RACI. 
 - Extending the [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) to account for domain model.
-- Developing a central [NFR](/azure/architecture/guide/design-principles/build-for-business) register and adopt a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that can be referenced by any platform solution, in any developer area. These standards should be supported by a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) integrated into the CI/CD practice.
+- Developing a central [NFR](/azure/architecture/guide/design-principles/build-for-business) register and adopting a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that can be referenced by any platform solution, in any developer area. These standards should be supported by a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) integrated into the CI/CD practice.
 
 ### Performance efficiency
 
@@ -171,7 +171,7 @@ The delta this architecture provides includes:
 
 - **Technology-led transformation** - The shift to a domain model is a major undertaking that requires significant change across the organization. This shift works best when business stakeholders understand the scope of activities needed and value the outputs delivered. Deep collaboration is the key to any successful transformation.   
 - **LinkedIn architecture** - Technology is driven by new ideas. Questions such as "Are we solving the business problem at hand?", "what are the industry validated patterns?", "is this a problem needing a technical solution, or the other way around?", etc. can tempter earlier adopter enthusiasm and risk.  
-- **Understanding the RACI for Product Ownership** - When a gap in technical services is identified, it is often tempting to "build your own". While this is a valid approach in many cases, consideration needs to be given to the responsibility of adoption a Product ownership role across the full lifecycle, which can be a lengthy period of time for a productionised solution. The Cost and risk from activities such as support, feature uplift, security patching, environment interoperability, etc. can quickly weight any benefit provided. 
+- **Understanding the RACI for Product Ownership** - When a gap in technical services is identified, it's often tempting to "build your own". While this is a valid approach in many cases, consideration needs to be given to the responsibility of adoption a Product ownership role across the full lifecycle, which can be a lengthy period of time for a productionised solution. The Cost and risk from activities such as support, feature uplift, security patching, environment interoperability, etc. can quickly weight any benefit provided. 
    
 ## Next steps
 
