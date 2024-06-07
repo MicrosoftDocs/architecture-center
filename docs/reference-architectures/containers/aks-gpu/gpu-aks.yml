@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use Azure Kubernetes Service to host GPU-based workloads 
+  title: Use Azure Kubernetes Service to host GPU-based workloads
   titleSuffix: Azure Architecture Center
   description: Use Azure Kubernetes Service to host GPU-based workloads including Machine Learning, Deep Learning, and High-Performance Computing (HPC) workloads.
   author: mosabami
@@ -11,13 +11,12 @@ metadata:
   ms.subservice: example-scenario
 azureCategories:
   - containers
-  - compute 
-  - ai-machine-learning 
+  - compute
+  - ai-machine-learning
 products:
   - azure-kubernetes-service
 name: Use Azure Kubernetes Service to host GPU-based workloads
-summary: Guidance on running workloads that use GPU Nodes on Azure Kubernetes Service (AKS) cluster efficiently. It focuses on selecting the right SKU, using GPU nodes to train machine learning models, and using GPU nodes to run inferences on AKS. 
+summary: Guidance on running workloads that use GPU Nodes on Azure Kubernetes Service (AKS) cluster efficiently. It focuses on selecting the right SKU, using GPU nodes to train machine learning models, and using GPU nodes to run inferences on AKS.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-baseline-architecture.png
 content: |
-  [!include[](./gpu-aks-content.md)])]
-
+  [!include[](gpu-aks-content.md)]

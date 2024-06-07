@@ -6,34 +6,15 @@ Running GPU workloads can be expensive. It's crucial to understand when to deplo
 
 GPUs are purpose-built for graphics, AI/ML, and specialized tasks, making them ideal for compute-intensive workloads. While CPUs excel in managing intricate logic and branching, GPUs are optimized for throughput and efficient handling of straightforward arithmetic and vector operations.
 
-Despite understanding GPU optimization and utilizing compute-intensity as a decision factor, determining when to use 
-GPUs for AKS workloads isn't always straightforward. To gain better insight into GPU utilization for AKS workloads, let's explore some workload examples.
+Despite understanding GPU optimization and utilizing compute-intensity as a decision factor, determining when to use GPUs for AKS workloads isn't always straightforward. To gain better insight into GPU utilization for AKS workloads, let's explore some workload examples.
 
 Here are four scenarios where utilizing GPU nodes in your AKS cluster is advantageous:
 
-### Computer Vision and Image Processing Workloads
+### Data Science and Analytics
 
-Computer vision tasks involve interpreting visual data to extract meaningful information and are becoming increasingly common in AI-powered applications, autonomous vehicles, medical imaging, surveillance systems, and augmented reality. With their parallel processing architecture, GPUs efficiently handle large-scale image data and complex computations required for tasks like object detection, image classification, and feature extraction.
+Data preprocessing, feature engineering, and model training in data science workflows can be accelerated using GPUs. Frameworks like [RAPIDS](https://rapids.ai/) and [Dask GPU](https://docs.dask.org/en/stable/gpu.html) extend popular data processing libraries, such as Pandas and Scikit-learn, to efficiently use GPUs.
 
-### Video Processing and Streaming Workloads
-
-As video becomes more prevalent in business, there's a growing need for GPU-powered hardware over CPUs. Video processing workloads, including transcoding, encoding, and streaming, are computationally intensive, especially with high-definition or 4K content. Whether it's streaming sports events or corporate videos, GPUs offer an efficient platform for delivering high-performance, low-latency video experiences across diverse applications.
-
-### High-Performance Computing (HPC) Workloads
-
-Scientific simulations, weather forecasting, computational fluid dynamics (CFD), and molecular modeling are examples of HPC applications that demand massive parallel processing power. GPUs are well-suited for parallel computations and significantly accelerate HPC workloads, making them indispensable for scientific and research-driven endeavors.
-
-### Genomic Analysis and Bioinformatics Workloads
-
-There has been a surge in the health and life sciences space, including genomic analysis and bioinformatics applications. These workloads involve processing genetic data, such as DNA sequences and protein structures, and require complex algorithms for sequence alignment, variant calling, and genomic data mining. GPUs expedite genomic analysis workflows, enabling researchers to process data efficiently and uncover insights faster.
-
-In summary, cloud engineers must consider cost implications before deploying GPU nodes in AKS clusters, and understand GPU optimization for compute-intensive tasks like computer vision, video processing, high-performance computing, and genomic analysis. This highlights the nuanced decision-making process for selecting GPU versus CPU resources in AKS clusters.
-
-## Use cases for Accelerating Workloads with GPU-Enabled Agent Nodes
-
-GPU-enabled agent nodes on Kubernetes provide a significant performance boost for a wide category of workloads that heavily rely on parallel processing and intensive computation. The use of GPUs over CPUs offers several advantages, making them highly beneficial in specific scenarios.
-
-Examples of scenarios that can take advantage of GPU-enabled agent nodes on Kubernetes to deliver breakthrough performance with dramatically fewer servers, less power consumption, and reduced networking overhead, resulting in total cost savings are discussed here.
+OSS accelerated SQL query engines and columnar databases like [BlazingSQL](https://github.com/BlazingDB/blazingsql) and [HeavyDB](https://github.com/heavyai/heavydb) use GPUs for fast querying and analytics on large datasets.
 
 ### Machine Learning (ML) and Deep Learning (DL)
 
@@ -43,29 +24,31 @@ DL models, with their complex neural networks, can take advantage of parallel pr
 
 Tasks such as image classification, object detection, natural language processing, and speech recognition can be accelerated using GPUs.
 
-### High-Performance Computing (HPC)
+### Computer Vision and Image Processing Workloads
 
-HPC applications often require complex simulations, numerical analysis, and scientific computations. Using GPUs allows for faster execution of these tasks by parallelizing the workload across multiple cores.
+Computer vision tasks involve interpreting visual data to extract meaningful information and are becoming increasingly common in AI-powered applications, autonomous vehicles, medical imaging, surveillance systems, and augmented reality. With their parallel processing architecture, GPUs efficiently handle large-scale image data and complex computations required for tasks like object detection, image classification, and feature extraction.
 
-Frameworks like [NVIDIA CUDA](https://developer.nvidia.com/cuda-toolkit), [OpenCL](https://www.khronos.org/opencl/), and [OpenACC](https://www.openacc.org/) provide GPU-enabled APIs and libraries to accelerate HPC applications.
+### Video Processing and Streaming Workloads
 
-### Data Science and Analytics
+As video becomes more prevalent in business, there's a growing need for GPU-powered hardware over CPUs. Video processing workloads, including transcoding, encoding, and streaming, are computationally intensive, especially with high-definition or 4K content. Whether it's streaming sports events or corporate videos, GPUs offer an efficient platform for delivering high-performance, low-latency video experiences across diverse applications.
 
-Data preprocessing, feature engineering, and model training in data science workflows can be accelerated using GPUs. Frameworks like [RAPIDS](https://rapids.ai/) and [Dask GPU](https://docs.dask.org/en/stable/gpu.html) extend popular data processing libraries, such as Pandas and Scikit-learn, to efficiently use GPUs.
-
-OSS accelerated SQL query engines and columnar databases like [BlazingSQL](https://github.com/BlazingDB/blazingsql) and [HeavyDB](https://github.com/heavyai/heavydb) use GPUs for fast querying and analytics on large datasets.
-
-### Video Processing and Computer Vision
-
-GPU-accelerated video encoding and decoding capabilities help in real-time video streaming, video transcoding, and video analytics.
+GPU-enabled agent nodes are essential for providing a rich user experience in virtual desktop environments by offloading graphics-intensive tasks to the GPU.GPU-accelerated video encoding and decoding capabilities help in real-time video streaming, video transcoding, and video analytics.
 
 Computer Vision tasks like object detection, tracking, and image/video processing can be accelerated using frameworks like [OpenCV](https://opencv.org/), [OpenCL](https://www.khronos.org/opencl/), [NVIDIA CUDA](https://developer.nvidia.com/cuda-toolkit), and [NVIDIA cuDNN](https://developer.nvidia.com/cudnn).
 
-### Virtual Desktop Infrastructure (VDI) and Gaming
-
-GPU-enabled agent nodes are essential for providing a rich user experience in virtual desktop environments by offloading graphics-intensive tasks to the GPU.
-
 Gaming platforms and cloud gaming services rely on GPUs to deliver high-quality graphics and smooth gameplay experiences.
+
+### High-Performance Computing (HPC) Workloads
+
+HPC applications often require complex simulations, numerical analysis, and scientific computations. Using GPUs allows for faster execution of these tasks by parallelizing the workload across multiple cores. Scientific simulations, weather forecasting, computational fluid dynamics (CFD), and molecular modeling are examples of HPC applications that demand massive parallel processing power. GPUs are well-suited for parallel computations and significantly accelerate HPC workloads, making them indispensable for scientific and research-driven endeavors.
+
+Frameworks like [NVIDIA CUDA](https://developer.nvidia.com/cuda-toolkit), [OpenCL](https://www.khronos.org/opencl/), and [OpenACC](https://www.openacc.org/) provide GPU-enabled APIs and libraries to accelerate HPC applications.
+
+#### Genomic Analysis and Bioinformatics Workloads
+
+There has been a surge in the health and life sciences space, including genomic analysis and bioinformatics applications. These workloads involve processing genetic data, such as DNA sequences and protein structures, and require complex algorithms for sequence alignment, variant calling, and genomic data mining. GPUs expedite genomic analysis workflows, enabling researchers to process data efficiently and uncover insights faster.
+
+In summary, cloud engineers must consider cost implications before deploying GPU nodes in AKS clusters, and understand GPU optimization for compute-intensive tasks like computer vision, video processing, high-performance computing, and genomic analysis. This highlights the nuanced decision-making process for selecting GPU versus CPU resources in AKS clusters.
 
 ### Large Language Models
 
@@ -103,7 +86,7 @@ Follow these steps for the recommended way to deploy GPU-enabled Linux node pool
 
 1. View the [supported GPU-enabled VMs](/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#supported-gpu-enabled-vms) in Azure. It's recommended to use a minimum size of _Standard_NC6s_v3_ for AKS node pools. Note, NVv4 series (based on AMD GPUs) aren't currently supported on AKS.
 2. Be aware of the limitations when using an Azure Linux GPU-enabled node pool. Automatic security patches aren't applied and the default behavior for the cluster is _Unmanaged_. [NVadsA10](/azure/virtual-machines/nva10v5-series) v5-series isn't a recommended SKU for GPU VHD. Updating an existing node pool to add GPU isn't supported.
-3. Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), GPU driver installation, and more. AKS installs the GPU drivers automatically. However, you'll need to manually install the NVIDIA device plugin. 
+3. Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), GPU driver installation, and more. AKS installs the GPU drivers automatically. However, you'll need to manually install the NVIDIA device plugin.
     - **NVIDIA device plugin installation:** The [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin/blob/main/README.md) is required when using GPUs on AKS. You can manually install the NVIDIA device plugin. You can use a YAML manifest to deploy a [DaemonSet](https:/kubernetes.io/docs/concepts/workloads/controllers/daemonset) that runs a pod on each node to provide the required drivers for the GPUs. This is the recommended approach when using GPU-enabled node pools for Azure Linux. For more information and detailed instructions, see [NVIDIA device plugin installation](https://learn.microsoft.com/en-us/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool%22%20%5Cl%20%22nvidia-device-plugin-installation#nvidia-device-plugin-installation).
 4. Once the necessary components are installed, you can check that your GPUs are schedulable. Then you can proceed to deploy and run GPU-enabled workloads on GPU-enabled node pools. You can use Kubernetes [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity), [taints, and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to schedule workloads on GPU-enabled nodes.
 
@@ -115,13 +98,13 @@ To deploy GPU-enabled Windows node pools and workloads on AKS, follow these step
 
 1. View the [supported GPU-enabled VMs](https://learn.microsoft.com/en-us/azure/aks/use-windows-gpu#supported-gpu-enabled-virtual-machines-vms) in Azure. It's recommended to use a minimum size of _Standard_NC6s_v3_ for AKS node pools. Note that the NVv4 series (based on AMD GPUs) aren't supported on AKS.
 2. Be aware of the limitations when using a Windows node pool. Updating an existing Windows node pool to add GPU isn't supported. It's also not supported on Kubernetes version 1.28 and below.
-3. ```
-**Using Windows GPU with automatic driver installation:** When creating a Windows node pool with a supported GPU-enabled VM size, the GPU driver and Kubernetes DirectX device plugin are installed automatically. For more information, see [Using Windows GPU with automatic driver installation](https://learn.microsoft.com/en-us/azure/aks/use-windows-gpu#using-windows-gpu-with-automatic-driver-installation).
+3. **Using Windows GPU with automatic driver installation:** When creating a Windows node pool with a supported GPU-enabled VM size, the GPU driver and Kubernetes DirectX device plugin are installed automatically. For more information, see [Using Windows GPU with automatic driver installation](https://learn.microsoft.com/en-us/azure/aks/use-windows-gpu#using-windows-gpu-with-automatic-driver-installation).
 4. Once you install the necessary components, you can check that your GPUs are schedulable. Then you can proceed to deploy and run GPU-enabled workloads on GPU-enabled node pools. Use Kubernetes [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity), [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to schedule workloads on GPU-enabled nodes.
 
 For more information and instructions, see [Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/use-windows-gpu).
 
 ### Deploying with the NVIDIA GPU Operator
+
 The NVIDIA GPU Operator is a tool designed to streamline the deployment and management of GPU resources within Kubernetes clusters. It automates the installation, configuration, and maintenance of the necessary software components to ensure optimal utilization of NVIDIA GPUs for demanding workloads such as artificial intelligence (AI) and machine learning (ML). The [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html) automates the management of all NVIDIA software components needed to deploy GPU including driver installation, the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), the NVIDIA container runtime, and more. For more information, see [NVIDIA documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html).
 
 For more advanced GPU workloads where you may want increased control and flexibility, you can use the NVIDIA GPU Operator with your GPU-enabled nodes on AKS. Follow the below steps to skip driver installation and install the NVIDIA GPU Operator:
@@ -131,6 +114,7 @@ For more advanced GPU workloads where you may want increased control and flexibi
 3. Once the necessary components are installed, you can check that your GPUs are schedulable. Then you can proceed to deploy and run GPU-enabled workloads on GPU-enabled node pools. You can use Kubernetes [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity), [taints, and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to schedule workloads on GPU-enabled nodes.
 
 For more information and instructions about how you can manage and customize your GPU deployment including GPU driver version control, time-slicing, and more, see [NVIDIA documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html)
+
 ### Multi-Instance GPU (MIG) on AKS
 
 Multi-instance GPU (MIG) is a feature provided by NVIDIA GPUs that allows a single physical GPU to be partitioned into multiple smaller instances, each running independently and appearing as a separate GPU to the host system. This enables efficient sharing of GPU resources among multiple users or workloads, improving GPU utilization and flexibility.
@@ -172,7 +156,6 @@ For more information, see [NVIDIA GPU Operator with Azure Kubernetes Service](ht
 ### Kubernetes AI Toolchain Operator (KAITO) add-on for AKS
 
 The [Kubernetes AI toolchain operator (KAITO)](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator) is a Kubernetes operator that simplifies the experience of running open-source large language models (LLMs) like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama) on your Kubernetes cluster. You can deploy KAITO on your AKS cluster as a managed add-on for [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes). KAITO leverages [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification provided in the Workspace custom resource definition (CRD) of your chosen model. KAITO creates the inference server as an endpoint for your LLM, reduces overall onboarding time, and allows you to focus on ML operations rather than infrastructure setup and maintenance.
-
 
 KAITO improves your ML operations with the following capabilities:
 
@@ -244,7 +227,7 @@ Underutilization can occur when the GPUs aren't fully utilized by your workloads
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
@@ -253,7 +236,7 @@ Underutilization can occur when the GPUs aren't fully utilized by your workloads
 - [Sachi Desai](https://www.linkedin.com/in/sachi-desai/) | Product Manager
 - [Erin Schaffer](https://www.linkedin.com/in/erin-schaffer-65800215b/) | Content Developer 2
 
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+_To see nonpublic LinkedIn profiles, sign in to LinkedIn._
 
 ## Next steps
 
