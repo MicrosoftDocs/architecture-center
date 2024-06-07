@@ -4,7 +4,7 @@ description: Learn about considerations and approaches for using Azure Active Di
 author: landonpierce
 ms.author: landonpierce 
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 06/06/2024
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
@@ -207,9 +207,9 @@ For more information about automated deployments and management of Azure AD B2C,
 
 ## Comparing Microsoft Entra B2B to Azure AD B2C
 
-[Microsoft Entra B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of Microsoft Entra External ID that you can use to invite guest users into your *organizational* Microsoft Entra tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Microsoft Entra tenant.
+[Microsoft Entra B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of [Microsoft Entra External ID](/entra/external-id/external-identities-overview) that you can use to invite guest users into your *organizational* Microsoft Entra tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Microsoft Entra tenant.
 
-[Microsoft Entra External ID](/azure/active-directory/external-identities/external-identities-overview) is the set of approaches that you can use to interact with users outside of your organization. Azure AD B2C is one of the Microsoft Entra External ID capabilities, but it provides a different set of features than other external identities approaches. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Microsoft Entra tenant.
+Azure AD B2C is a unique product apart from Microsoft Entra External ID that provides a different set of features. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Microsoft Entra tenant.
 
 Depending on your user personas and scenarios, you might need to use Microsoft Entra B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Microsoft Entra B2B and Azure AD B2C together to meet this requirement.
 

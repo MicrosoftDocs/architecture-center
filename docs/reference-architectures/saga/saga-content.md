@@ -77,6 +77,7 @@ Consider the following points when implementing the Saga pattern:
 - The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result. For more information, see the [guidance on ensuring idempotence when processing messages and updating state together](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 - It's best to implement observability to monitor and track the saga workflow.
 - The lack of participant data isolation imposes durability challenges. The saga implementation must include countermeasures to reduce anomalies.
+- Compensating transactions don't always work.
 
 The following anomalies can happen without proper measures:
 - *Lost updates*, when one saga writes without reading changes made by another saga.
