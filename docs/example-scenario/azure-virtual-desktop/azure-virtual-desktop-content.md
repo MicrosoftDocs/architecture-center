@@ -80,7 +80,7 @@ By using personal desktop solutions, sometimes called *persistent desktops*, use
 Pooled desktop solutions, also called *non-persistent desktops*, assign users to whichever session host is currently available, depending on the load-balancing algorithm. Because users don't always return to the same session host each time they connect, they have limited ability to customize the desktop environment and don't usually have administrator access.
 
 > [!NOTE]
-> Persistent and non-persistent terminology in this case is in reference to the persistence of the user profile. It does not imply that the operating system disk reverts to golden image or discards changes on reboot.
+> Persistent and non-persistent terminology in this case is in reference to the persistence of the user profile. It does not imply that the operating system disk reverts to a golden image or discards changes on reboot.
 
 ## Windows servicing
 
