@@ -123,7 +123,7 @@ Principal author:
 [Azure Key Vault]: /azure/key-vault
 [Azure RBAC]: /azure/role-based-access-control/overview
 [Azure RBAC custom roles]: /azure/role-based-access-control/custom-roles
-[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines
+[Azure Virtual Machines]: /azure/well-architected/service-guides/virtual-machines
 [Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
 [Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
 [Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management
