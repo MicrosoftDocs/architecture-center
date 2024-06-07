@@ -1,10 +1,10 @@
-This article provides guidance on running workloads that use GPU Nodes on an Azure Kubernetes Service (AKS) cluster efficiently. It focuses on selecting the right SKU, using GPU nodes to train machine learning models, and using GPU nodes to run inferences on AKS.
+This article provides guidance on efficiently running workloads that use GPU Nodes on an Azure Kubernetes Service (AKS) cluster. It focuses on selecting the right SKU, using GPU nodes to train machine learning models, and using GPU nodes to run inferences on AKS.
 
 ## Scenarios
 
-GPU workloads can get expensive, so cloud engineers should carefully consider deploying an AKS cluster with GPU nodes. Although the need for GPU-based nodes isn't common, it's crucial to understand when deploying GPU nodes in your AKS cluster is warranted.
+Running GPU workloads can be expensive. It's crucial to understand when to deploy GPU-based nodes in your AKS clusters to avoid unnecessary cost.
 
-GPUs are purpose-built for graphics, AI/ML, and other specialized tasks, which can seamlessly extend to any compute-intensive workload. In contrast, CPUs prioritize latency optimization, excelling in managing intricate logic and branching, while GPUs are optimized for throughput and effectively handle straightforward arithmetic and vector operations.
+GPUs are purpose-built for graphics, AI/ML, and specialized tasks, making them ideal for compute-intensive workloads. While CPUs excel in managing intricate logic and branching, GPUs are optimized for throughput and efficient handling of straightforward arithmetic and vector operations.
 
 Despite understanding GPU optimization and utilizing compute-intensity as a decision factor, determining when to use 
 GPUs for AKS workloads isn't always straightforward. To gain better insight into GPU utilization for AKS workloads, let's explore some workload examples.
@@ -171,19 +171,19 @@ For more information, see [NVIDIA GPU Operator with Azure Kubernetes Service](ht
 
 ### Kubernetes AI Toolchain Operator (KAITO) add-on for AKS
 
-The [Kubernetes AI toolchain operator (Kaito)](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator) is a Kubernetes operator that simplifies the experience of running OSS AI models like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama) on your AKS cluster. You can deploy Kaito on your AKS cluster as a managed add-on for [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes). The [Kubernetes AI toolchain operator (Kaito)](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator) uses [Karpenter](https://karpenter.sh/) to automatically deploy the necessary GPU nodes based on a specification provided in the Workspace custom resource definition (CRD). Kaito sets up the inference server as an endpoint for your AI models. The Kaito add-on reduces onboarding time and allows you to focus on AI model usage and development rather than infrastructure setup.
+The [Kubernetes AI toolchain operator (KAITO)](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator) is a Kubernetes operator that simplifies the experience of running open-source large language models (LLMs) like [Falcon](https://huggingface.co/tiiuae) and [Llama2](https://github.com/meta-llama/llama) on your Kubernetes cluster. You can deploy KAITO on your AKS cluster as a managed add-on for [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes). KAITO leverages [Karpenter](https://karpenter.sh/) to automatically provision and deploy GPU nodes based on a specification provided in the Workspace custom resource definition (CRD) of your chosen model. KAITO creates the inference server as an endpoint for your LLM, reduces overall onboarding time, and allows you to focus on ML operations rather than infrastructure setup and maintenance.
 
 
-Kaito provides the following features:
+KAITO improves your ML operations with the following capabilities:
 
-- **Container Image Management**: Kaito allows you to manage large language models using container images. It provides an HTTP server to perform inference calls using the model library.
-- **GPU Hardware Configuration**: Kaito eliminates the need for manual tuning of deployment parameters to fit GPU hardware. It provides preset configurations that are automatically applied based on the model requirements.
-- **Auto-provisioning of GPU Nodes**: Kaito automatically provisions GPU nodes based on the requirements of your models. This ensures that your AI inference workloads have the necessary resources to run efficiently.
-- **Integration with Microsoft Container Registry**: If the license allows, Kaito can host large language model images in the public Microsoft Container Registry (MCR). This simplifies the process of accessing and deploying the models.
+- **Container Image Management**: Manage large language models using container images. KAITO provides an HTTP server to perform inference calls using the [supported model library](https://github.com/Azure/kaito/tree/main/examples/inference).
+- **GPU Hardware Configuration**: KAITO eliminates manual tuning of deployment parameters to fit GPU hardware. It provides preset configurations that are automatically applied based on the model requirements.
+- **Auto-provisioning of GPU Nodes**: KAITO automatically provisions GPU nodes based on model requirements and recommends lower-cost GPU VM sizes to configure distributed inferencing.
+- **Integration with Microsoft Container Registry**: If the LLM license allows, KAITO can host model images in the public Microsoft Container Registry (MCR), simplifying access to and deployment of supported models. (For open-source models with MIT or Apache2 license not yet included in the KAITO repository, submit a request [here](https://github.com/Azure/kaito/blob/main/docs/How-to-add-new-models.md) for new model onboarding).
 
-For more information on Kaito, see the following resources:
+To learn more about KAITO, see the following resources:
 
-- [Kubernetes AI Toolchain Operator (Kaito)](https://github.com/Azure/Kaito)
+- [KAITO](https://github.com/Azure/Kaito) open source project
 - [Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator](https://learn.microsoft.com/en-us/azure/aks/ai-toolchain-operator)
 - [Intelligent Apps on AKS Ep02: Bring Your Own AI Models to Intelligent Apps on AKS with Kaito](https://learn.microsoft.com/en-us/shows/learn-live/intelligent-apps-on-aks-ep02-bring-your-own-ai-models-to-intelligent-apps-on-aks-with-Kaito)
 - [Deploy Kaito on AKS using Terraform](https://techcommunity.microsoft.com/t5/azure-for-isv-and-startups/deploy-kaito-on-aks-using-terraform/ba-p/4108930)
