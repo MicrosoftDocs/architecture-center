@@ -12,7 +12,7 @@ This scenario covers an application running on an ARO cluster with connectivity 
 
 - The developer writes code within the company's network and pushes the code to a code repository. In this case, the code repository used is GitHub Enterprise.
 - The customer's deployment pipeline takes the code and containerizes it, deploying it in an on-premises container registry.
-- This image can then be deployed into an on-premises OpenShift Cluster and extended to an ARO cluster on Azure.
+- This image can then be deployed into an on-premises OpenShift Cluster and to the ARO cluster on Azure.
 - The image also gets deployed to ARO via ExpressRoute, which routes the traffic through the Hub Azure Virtual Network to the private ARO cluster in the Spoke Virtual network. These two networks are peered.
 - Outgoing traffic coming from the ARO cluster is first routed through the peered Hub Virtual Network and through an Azure Firewall instance.
 - Customers can access the application by accessing a web address that directs traffic to Azure Front Door.
@@ -24,8 +24,8 @@ This scenario covers an application running on an ARO cluster with connectivity 
 - [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) (formerly Azure Active Directory) is a cloud-based identity and access management service that your employees can use to access external resources. In this architecture, it's used to provide users with secure, granular access to the resources.
 - [ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. In this architecture, it's used to provide private, high bandwidth connectivity between on-premises resources and Azure.
 - [Azure Key vault](/azure/key-vault/general/overview) is a key management solution that helps store and manage secrets, keys, and certificates. In this architecture, it's being used to securely store secrets for the applications running on the private ARO cluster.
-- [Azure Bastion](/azure/well-architected/service-guides/virtual-machines) is a fully managed PaaS service that you deploy to securely connect to virtual machines (VM) via private IP address. In this architecture, Azure Bastion is being used to connect to the Azure VM within the private network since we're implementing a private cluster.
-- [Azure Firewalls](/azure/well-architected/service-guides/virtual-machines) cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. In this architecture, Azure firewall is used to monitor and filter network traffic in an out of the ARO environment.
+- [Azure Bastions](/azure/bastion/design-architecture) is a fully managed PaaS service that you deploy to securely connect to virtual machines (VM) via private IP address. In this architecture, Azure Bastion is being used to connect to the Azure VM within the private network since we're implementing a private cluster.
+- [Azure Firewalls](/azure/well-architected/service-guides/azure-firewall) cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. In this architecture, Azure firewall is used to monitor and filter network traffic in an out of the ARO environment.
 
 ### Alternatives
 
@@ -53,7 +53,7 @@ These recommendations implement the pillars of the Azure Well-Architected Framew
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). Resilience is essential for Microsoft Azure Red Hat OpenShift (ARO) to maintain the uninterrupted operation of mission-critical applications. Follow these reliability recommendations:
 
-- *Availability zones*: Distribute control plane and worker nodes across three Availability Zones (AZs) within an Azure region. This ensures the control plane cluster maintains quorum and mitigates potential failures across entire AZs. Implement this distribution as a standard practice. 
+- *Availability zones*: Distribute control plane and worker nodes across three Availability Zones (AZs) within an Azure region. This ensures the control plane cluster maintains quorum and mitigates potential failures across entire AZs. Implement this distribution as a standard practice.
 
 - *Multi-region deployments*: Deploy ARO clusters in multiple regions to protect against region-wide failures. Use Azure Front Door to route traffic to these clusters for improved resilience.
 
@@ -63,7 +63,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist). 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 Security is paramount in the financial industry, requiring stringent measures to protect sensitive data, and ensure regulatory compliance. Follow these security recommendations:
 
@@ -93,13 +93,13 @@ Security is paramount in the financial industry, requiring stringent measures to
 
 #### Compliance
 
-- *Third-party risk assessments*: Follow financial compliance regulations by adhering to least privilege access, limiting duration for escalated privileges, and auditing SRE resource access. Refer to the ARO documentation for the SRE shared responsibility model and access escalation procedures. For more information, see the [SRE Access to Azure Red Hat OpenShift (ARO)](https://access.redhat.com/solutions/6997379) and [Overview of responsibilities for Azure Red Hat OpenShift](/azure/openshift/responsibility-matrix).
+- *Third-party risk assessments*: Follow financial compliance regulations by adhering to least privilege access, limiting duration for escalated privileges, and auditing Site Reliability Engineer (SRE) resource access. Refer to the ARO documentation for the SRE shared responsibility model and access escalation procedures. For more information, see the [SRE Access to Azure Red Hat OpenShift (ARO)](https://access.redhat.com/solutions/6997379) and [Overview of responsibilities for Azure Red Hat OpenShift](/azure/openshift/responsibility-matrix).
 
 - *Regulatory compliance*: Use Azure Policy to address various regulatory requirements related to compliance in FSI scenarios. For more information, see [Azure Policy](/azure/governance/policy/overview) and [Azure Policy built-in initiative definitions](/azure/governance/policy/samples/built-in-initiatives) documentation.
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 With robust observability tools and practices in place, FSI companies can proactively detect and address issues and optimize resource utilization. Follow these operational-excellence recommendations:
 
