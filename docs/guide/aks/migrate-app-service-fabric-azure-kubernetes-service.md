@@ -19,7 +19,7 @@ categories:
 
 This article provides an example workload migration to help you implement some of the conceptual information provided in [Migrate your workload from Service Fabric to AKS](service-fabric-azure-kubernetes-service.md). That article provides information about Azure Kubernetes Service (AKS) and a comparison of AKS with Azure Service Fabric. It also describes considerations to take into account when you migrate your workloads.
 
-This example focuses on Windows-based Service Fabric applications that have already been containerized. Please note that Azure service fabric as well as Azure Kuberenetes Service supports both Windows and Linux containers. If your application isn't containerized, consider investigating whether you can containerize it. Building a container image is a pre-requisite for deploying the application to Azure Kubernetes Service. If the application depends on Service Fabric programming models (Reliable Services, Reliable Actors, ASP.NET Core, and guest executables), you'll probably need to do some refactoring.
+This example focuses on Windows-based Service Fabric applications that have already been containerized. Azure Service Fabric and Azure Kubernetes Service both support Windows and Linux containers. If your application isn't containerized, consider investigating whether you can containerize it. Building a container image for your application is a prerequisite for deploying the application to Azure Kubernetes Service. If the application depends on Service Fabric programming models (Reliable Services, Reliable Actors, ASP.NET Core, and guest executables), you'll probably need to do some refactoring.
 
 For information about containerizing your application, see [Prepare an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app). For information about containerizing an ASP.NET application, see [ASP.NET app containerization and migration to AKS](/azure/migrate/tutorial-app-containerization-aspnet-kubernetes).
 
@@ -37,7 +37,7 @@ Before you start the migration, you need:
 
     The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-- The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. Please note that kubectl is installed by default in the Azure cloud shell. If you are using a local installation, install it by running this command:
+- The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. If it's not already available in your environment, you can install it by running this command:
 
    ```azurecli
    az aks install-cli
