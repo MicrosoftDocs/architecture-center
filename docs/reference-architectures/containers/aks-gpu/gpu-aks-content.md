@@ -8,7 +8,7 @@ GPUs are purpose-built for graphics, AI/ML, and specialized tasks, making them i
 
 Despite understanding GPU optimization and utilizing compute-intensity as a decision factor, determining when to use GPUs for AKS workloads isn't always straightforward. To gain better insight into GPU utilization for AKS workloads, let's explore some workload examples.
 
-Here are four scenarios where utilizing GPU nodes in your AKS cluster is advantageous:
+Here are scenarios where utilizing GPU nodes in your AKS cluster is advantageous:
 
 ### Data Science and Analytics
 
@@ -50,6 +50,15 @@ There has been a surge in the health and life sciences space, including genomic 
 
 In summary, cloud engineers must consider cost implications before deploying GPU nodes in AKS clusters, and understand GPU optimization for compute-intensive tasks like computer vision, video processing, high-performance computing, and genomic analysis. This highlights the nuanced decision-making process for selecting GPU versus CPU resources in AKS clusters.
 
+### Customer Stories
+
+Many Microsoft customers are already leveraging GPU workloads to innovate for their customers. You can find some examples below:
+NBA on streaming sports use case: [NBA players are improving performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states)
+MR.Turing on natural language processing: [Mr. Turing uses AI and Azure Kubernetes Service to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil)
+OriGen on Energy/HPC: [OriGen accelerates reservoir simulations by 1,000 times with Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure)
+Sensyne on Healthcare use case: [Sensyne Health aids National Health Service in the COVID-19 struggle with Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc)
+Constellation on Energy: [Clearsight augments electrical infrastructure inspection with AutoML for Images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning)
+
 ### Large Language Models
 
 Large language models like [OpenAI GPT](https://platform.openai.com/docs/models), [Meta Llama](https://llama.meta.com/llama3/), [Falcon](https://falconllm.tii.ae/), or [Mistral](https://mistral.ai/news/mistral-large/), can take advantage of GPUs through parallel processing, leading to significant improvements in performance.
@@ -87,7 +96,7 @@ Follow these steps for the recommended way to deploy GPU-enabled Linux node pool
 1. View the [supported GPU-enabled VMs](/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool#supported-gpu-enabled-vms) in Azure. It's recommended to use a minimum size of _Standard_NC6s_v3_ for AKS node pools. Note, NVv4 series (based on AMD GPUs) aren't currently supported on AKS.
 2. Be aware of the limitations when using an Azure Linux GPU-enabled node pool. Automatic security patches aren't applied and the default behavior for the cluster is _Unmanaged_. [NVadsA10](/azure/virtual-machines/nva10v5-series) v5-series isn't a recommended SKU for GPU VHD. Updating an existing node pool to add GPU isn't supported.
 3. Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), GPU driver installation, and more. AKS installs the GPU drivers automatically. However, you'll need to manually install the NVIDIA device plugin.
-    - **NVIDIA device plugin installation:** The [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin/blob/main/README.md) is required when using GPUs on AKS. You can manually install the NVIDIA device plugin. You can use a YAML manifest to deploy a [DaemonSet](https:/kubernetes.io/docs/concepts/workloads/controllers/daemonset) that runs a pod on each node to provide the required drivers for the GPUs. This is the recommended approach when using GPU-enabled node pools for Azure Linux. For more information and detailed instructions, see [NVIDIA device plugin installation](https://learn.microsoft.com/en-us/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool%22%20%5Cl%20%22nvidia-device-plugin-installation#nvidia-device-plugin-installation).
+    - **NVIDIA device plugin installation:** The [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin/blob/main/README.md) is required when using GPUs on AKS. You can manually install the NVIDIA device plugin. You can use a YAML manifest to deploy a DaemonSet that runs a pod on each node to provide the required drivers for the GPUs. This is the recommended approach when using GPU-enabled node pools for Azure Linux. For more information and detailed instructions, see [NVIDIA device plugin installation](https://learn.microsoft.com/en-us/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool%22%20%5Cl%20%22nvidia-device-plugin-installation#nvidia-device-plugin-installation).
 4. Once the necessary components are installed, you can check that your GPUs are schedulable. Then you can proceed to deploy and run GPU-enabled workloads on GPU-enabled node pools. You can use Kubernetes [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector), [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity), [taints, and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to schedule workloads on GPU-enabled nodes.
 
 For more information, see [Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool)
