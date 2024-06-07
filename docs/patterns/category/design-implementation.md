@@ -31,7 +31,7 @@ Cloud workloads are prone to the [fallacies of distributed computing](https://wi
 - Component versioning is simple
 - Observability implementation can be delayed
 
-Design patterns do not eliminate notions such as these but can help bring awareness, compenstations, and mitigations of them. Each cloud pattern has their own trade-offs, you need to pay attention more to why you are choosing a certain pattern rather than to how to implement it.
+Design patterns don't eliminate notions such as these but can help bring awareness, compensations, and mitigations of them. Each cloud pattern has its own trade-offs. You need to pay attention more to why you're choosing a certain pattern than to how to implement it.
 
 |                                Pattern                                 |                                                                                                      Summary                                                                                                       |
 |------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
