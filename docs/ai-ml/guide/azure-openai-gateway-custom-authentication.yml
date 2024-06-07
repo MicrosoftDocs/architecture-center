@@ -3,7 +3,7 @@ metadata:
   title: Provide alternative authentication to Azure OpenAI services through a gateway 
   description: Learn how to implement alternative authentication mechanisms for client applications communicating with Azure OpenAI Service through a gateway.
   author: robbagby
-  ms.author: lipenade,jamescroft,bbanerjee
+  ms.author: robbag
   ms.date: 06/07/2024
   ms.topic: conceptual
   ms.collection: ce-skilling-ai-copilot
