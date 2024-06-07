@@ -28,7 +28,7 @@ Since secure enclaves have the capability to remotely attest themselves to other
 
 [Azure Confidential Ledger](/azure/confidential-ledger/overview) is an Azure-managed service that allows you to run blockchain models on secure enclaves.
 
-Finally, you could choose a centralized system, which offers immutability and trustworthiness. [Azure SQL Database ledger](/azure/azure-sql/database/ledger-overview) offers the trust needed for multiparty computing in a relational database. You may not need a decentralized consensus, but just the immutability aspect of the ledger.
+Finally, you could choose a centralized system, which offers immutability and trustworthiness. [Azure SQL Database ledger](/azure/azure-sql/database/ledger-overview) offers the trust needed for multiparty computing in a relational database. You might not need a decentralized consensus, but just the immutability aspect of the ledger.
 
 ## Blockchain network models
 
