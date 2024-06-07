@@ -61,7 +61,7 @@ There are deployment templates available on Azure for most blockchain ledgers fo
 
 ### Blockchain on Kubernetes
 
-Since most blockchain ledgers support deploying into containers, you can use Kubernetes to manage the containers. Azure has a managed Kubernetes offering called Azure Kubernetes Service (AKS) that you can use to deploy and configure your blockchain nodes.
+Since most blockchain ledgers support deploying into containers, you can use Kubernetes to manage the containers. Azure Kubernetes Service (AKS) is an Azure-managed Kubernetes service that you can use to deploy and configure your blockchain nodes.
 
 AKS implementations come with a managed service for the virtual machines that power the AKS cluster. However, your organization must still manage your AKS clusters and any networking or storage options in your architecture.
 
