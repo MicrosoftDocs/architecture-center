@@ -37,9 +37,9 @@ The application uses stateless API endpoints that decouple long-running write re
 
 - **Worker (`BackgroundProcessor`)**: A background worker that processes write requests to the database by listening to new events on the message bus. This component doesn't expose any APIs.
 
-- **Health service API* (`HealthService`)**: Reports the health of the application by checking if critical components are working, such as the database or messaging bus.
+- **Health service API (`HealthService`)**: Reports the health of the application by checking if critical components are working, such as the database or messaging bus.
 
-:::image type="content" source="./images/application-design-flow.png" alt-text="Diagram that shows the Application flow." lightbox="./images/application-design-flow.png":::
+  :::image type="content" source="./images/application-design-flow.png" alt-text="Diagram that shows the Application flow." lightbox="./images/application-design-flow.png":::
 
 The API, worker, and health check applications are referred to as *workload* and hosted as containers in a dedicated AKS namespace called `workload`. There's no direct communication between the pods. The pods are stateless and can scale independently.
 
