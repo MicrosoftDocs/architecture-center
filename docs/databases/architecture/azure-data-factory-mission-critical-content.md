@@ -61,7 +61,7 @@ The design callouts for the mission-critical architecture are:
 - Depending on the nature of the ML model, there may be regional data compliance requirements that require the ML model to adhere to sovereignty regulations. This design will support these requirements.
 - Each regional deployment comes with its own monitoring and storage stack, providing isolation from the rest of solution.
    
-7.	The [scale unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) of the solution contains the following elements:
+6.	The [scale unit](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) of the solution contains the following elements:
 
 - [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) hosting the ML model and serving its outputs.
   -  As the core service component in this solution, Web App for Containers [scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) are the key constraints to be aware of. If these limits don't support the solutions requirements, then AKS should be reconsidered. 
@@ -69,7 +69,7 @@ The design callouts for the mission-critical architecture are:
 - [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) provides data storage, secured via [Private Link](/azure/storage/common/storage-private-endpoints). 
 - [Azure DNS](/azure/dns/dns-overview) provides name resolution enabling service resiliency and ease of use for load balancing across the solution.
    
-8.	To enable support and trouble shooting of the solution, the following components are also included:
+7.	To enable support and trouble shooting of the solution, the following components are also included:
 
 - [Azure Bastion](/azure/bastion/) provides a secure connection to jump hosts, without requiring a public IP.
 - [Azure VM](/azure/virtual-machines/) acts as a jump host to the solution, enabling a better security posture.
