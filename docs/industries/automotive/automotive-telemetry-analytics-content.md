@@ -10,33 +10,35 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ### Dataflow
 
-1. The Data capture is connected to the vehicle networks and collects high-resolution vehicle signal data. The device publishes either live vehicle signal messages (**1b**) or requests upload of recorded data files (**1b**) using an MQTT client to Azure Event Grid's MQTT broker functionality.
+1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. The device publishes live vehicle signal messages (**1b**) or requests upload of recorded data files (**1b**) using an MQTT client to Azure Event Grid's MQTT broker functionality.
 
-1. Event Grid routes live vehicle signal data (**2a**) to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an Azure Event Hubs namespace.
+1. Event Grid routes live vehicle signal data (**2a**) to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an Event Stream.
 
-   Event Grid handles file upload with the device client(**2b**) to OneLake or Azure Blob Storage. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format suitable for ingestion, such as parquet or CSV.
+   Event Grid orchestrates file upload with the device client(**2b**) to OneLake or Azure Blob Storage. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format suitable for ingestion, such as parquet or CSV.
 
-1. An eventstream consumes the events from the Event Hubs namespace and triggers ingestion of decoded JSON vehicle signals into the KQL database (**3a**).
+1. The Event stream routs the decoded JSON vehicle signals for ingestion in Eventhouse (**3a**).
 
-    A data pipeline triggers ingestion of decoded files from OneLake (**3b**).
+    A data pipeline triggers ingestion of decoded files from Lakehouse (**3b**).
 
-1. The KQL database uses [update policies](/azure/data-explorer/kusto/management/update-policy) to expand the JSON data into a suitable row format and to enrich the data. For example, clusters location data to support geospatial analytics. Every time a new row is ingested, the Real-Time Analytics engine invokes an associated `Update()` function.
+1. Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to expand the JSON data into a suitable row format and to enrich the data. For example, cluster location data to support geospatial analytics. Every time a new row is ingested, the Real-Time Analytics engine invokes an associated `Update()` function.
 
-1. Data Engineers and Data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store often-used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning (ML) plugins.
+1. Data Engineers and Data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store often-used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning (ML) plugins with Copilot support.
 
 1. R&D engineers and Data Scientists use notebooks to analyze data and build test & validation use cases.
     1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-set) to perform interactive data analysis, using the [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
-    1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can run analytics using Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git.
+    1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can run analytics using Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git. Users can use the [Copilot for Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support their work.
 
-1. R&D Engineers and Data Scientists can use Power BI with Dynamic Query or Real-Time Analytics Dashboards to create visualizations to share with business users. These visualizations apply the user-defined functions for ease of maintenance.
+1. R&D Engineers and Data Scientists can use Power BI with Dynamic Query or Real-Time Analytics Dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
 
-1. Engineers can also connect more tools to Fabric. As an example, it's possible to connect Azure managed Grafana to the KQL database, or create a Web Application that queries the KQL database directly.
+1. Engineers can also connect more tools to Fabric. As an example, it's possible to connect Azure managed Grafana to Eventhouse, or create a Web Application that queries Eventhouse directly.
 
-1. The data collector configuration enables engineers to change the data collection policies of the data capture device. Azure API Management abstracts and secures the partner configuration API, and provides observability.
+1. Data and R&D Engineers use Data Activator(/fabric/data-activator/) to create Reflex items to monitor conditions and trigger actions such s triggering Power Automate flows for business integration. For example, notifying a teams channel in case that the health of a device degrades.
+
+1. The *data collector configuration* enables engineers to change the data collection policies of the data capture device. Azure API Management abstracts and secures the partner configuration API, and provides observability.
 
 ### KQL database schema
 
-:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the Azure Data Explorer functions and methods for extracting, expanding, and enriching data." border="false":::
+:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL Database and methods for extracting, expanding, and enriching data." border="false":::
 
 When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), it's useful to consider the difference between `fact`  and `dimension` tables. Telemetry is a `fact` table, as vehicle signals are progressively appended in either a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly. It requires a last-modified timestamp column.
 
@@ -53,7 +55,7 @@ The vehicle telemetry lands in raw tables. You can use the following functions t
 
 1. The **Signals Last Known Values** materialized view uses `arg_max()` on the timestamp to keep an up-to-date status of the vehicles.
 
-1. The **Signals Downsampled** materialized view aggregates signals by using predefined bins such as *hourly* and *daily* to simplify reporting across the fleet.
+1. The **Signals Downsampled** materialized view aggregates signals by using the [summarize operator](/azure/data-explorer/kusto/query/summarize-operator) with bins such as *hourly* and *daily* to simplify reporting across the fleet.
 
 1. Create user defined functions that provide anomaly detection or root cause analysis
     - Use time-series functions for [anomaly detection and forecasting](/azure/data-explorer/kusto/query/anomaly-detection) to detect potential problems and predict failures.
@@ -69,6 +71,7 @@ The vehicle telemetry lands in raw tables. You can use the following functions t
 The following key technologies implement this workload:
 
 - [Microsoft Fabric Real Time Intelligence](/fabric/real-time-intelligence) enables extraction of insights and visualization of vehicle telemetry in motion. It contains event streams, the time-series KQL database to store and analyze data and Reflex for reacting to events.
+- [Microsoft Fabric Data Activator](/fabric/data-activator/data-activator-introduction) is no code experience for automatically taking actions when patterns or conditions change in changing data.
 - [Azure Event Grid](/azure/event-grid) is a Pub Sub message distribution service that supports the MQTT protocol. It enables vehicles to publish and subscribe to topics to publish telemetry and subscribe to command and control messages.
 - [Azure Event Hubs](/azure/event-hubs) is a real time data streaming platform, well suited for streaming million of vehicle events per second with low latency.
 - [Azure Functions](/azure/functions) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings, using the language of your choice.
@@ -78,7 +81,7 @@ The following key technologies implement this workload:
 
 ### Alternatives
 
-This architecture can also be implemented using base Azure products:
+This architecture can also be implemented using the following Azure services:
 
 - [Azure Blob Storage](/azure/storage/blobs) stores massive amounts of unstructured data, such as recordings, logs, and videos from the vehicles. It replaces OneLake storage
 - [Azure Data Explorer](/azure/data-explorer) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real Time Intelligence KQL Database
@@ -89,15 +92,17 @@ This architecture can also be implemented using base Azure products:
 
 1. The user uploads a recorded data file to Blob Storage. When the upload is completed, it triggers a Functions app to schedule decoding.
 1. The scheduler starts a Functions app that creates a batch job, taking into consideration the file type, size, and required decoding algorithm. The app selects a suitable virtual machine (VM) from the pool and starts the job.
-1. Batch writes the resulting decoded file back to Blob Storage when the job completes. This file must be suitable for direct ingestion in a format that Azure Data Explorer supports.
-1. OneLake or Blob Storage triggers a function that ingests the data into Azure Data Explorer upon file write. This function creates the table and data mapping if necessary, and starts the ingestion process.
-1. The KQL database or Azure Data Explorer ingests the data files from OneLake or Blob Storage.
+1. Batch writes the resulting decoded file back to Blob Storage when the job completes. This file must be suitable for direct ingestion in a format that Eventhouse supports.
+1. Lakehouse or Blob Storage triggers a function that ingests the data into Eventhouseupon file write. This function creates the table and data mapping if necessary, and starts the ingestion process.
+1. The KQL database  ingests the data files from Lakehouse or Blob Storage.
 
 This approach offers the following benefits:
 
 - Azure Functions and Batch pools are able to handle scalable data processing tasks robustly and efficiently.
 - Batch pools provide insight into processing statistics, task queues, and batch pool health. You can visualize status, detect problems, and rerun failed tasks.
 - The combination of Azure Functions and Azure Batch supports plug-and-play processing in Docker containers.
+- Cost savings with the use of [Spot Virtual Machines](/azure/batch/batch-spot-vms) to process files in off-peak times
+-
 
 ## Scenario details
 
@@ -113,6 +118,7 @@ To validate vehicle functions and analyze anomalies and failures, petabytes of d
 - Root cause analysis uses ML plugins such as clustering algorithms to identify changes in the distribution of values on multiple dimensions.
 - Predictive maintenance combines multiple data sources, enriched location data, and vehicle signals to predict component time to failure.
 - Sustainability evaluation uses driver behavior and energy consumption to evaluate the environmental impact of vehicle operations.
+- Automotive racing to understand and improve the performance of the vehicles before, during and after a race.
 
 ## Considerations
 
@@ -132,17 +138,18 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 It's important to understand the division of responsibility between the automotive OEM and Microsoft. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform-as-a-service (PaaS) provides built-in security on the physical stack, including the operating system. You can apply the following capabilities on top of the infrastructure security components.
 
-- Private endpoints for network security.
+- Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
+- Review the [governance overview and guidance](/fabric/governance/governance-compliance-overview) for Microsoft Fabric
+- Private endpoints for network security when using Azure Data Explorer
   - [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint)
   - [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 - Encryption at rest and in transit.
 - Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 - [Row Level Security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL Databases and Azure Data Explorer.
 - Use the [restrict](/azure/data-explorer/kusto/query/restrict-statement) statement when implementing middleware applications with access to the KQL database to create a logical model that restricts the user access to the data.
-- Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
-- Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
 
-All these features help automotive OEMs create a safe environment for their vehicle telemetry data. For more information, see [Security in Azure Data Explorer](/azure/data-explorer/security).
+
+All these features help automotive OEMs create a safe environment for their vehicle telemetry data. For more information, see [Security in Microsoft Fabric](/fabric/security/security-overview).
 
 ### Cost optimization
 
@@ -160,14 +167,13 @@ This solution uses the following practices to help optimize costs:
 
 Performance efficiency is your workload's ability to scale efficiently to meet user demands. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Consider using Azure Batch for decoding ff the number and size of recorded data files is greater than 1,000 files or 300 MB a day.
+- Consider using Azure Batch for decoding if the number and size of recorded data files is greater than 1,000 files or 300 MB a day.
 - Consider performing common calculations and analysis after ingest and storing them in extra tables.
 - Use [KQL query best practices](/azure/data-explorer/kusto/query/best-practices) to make your query run faster
-
-As the data grows in the KQL database and hits billions or trillions of records, it's critical to filter the data correctly, considering the active [partition policy](/azure/data-explorer/kusto/management/partitioning-policy). Use a where clause by ingestion time to reduce the amount of extends loaded when performing the query.
+- As the data grows in the KQL database and hits billions or trillions of records, it's critical to filter the data correctly, considering the active [partition policy](/azure/data-explorer/kusto/management/partitioning-policy). Use a where clause by ingestion time to reduce the amount of data loaded. Consider changing the data partition policy for the *Signals* table if your common search criteria is not time-based (for example, filtering by recording id and signal name).
 
 > [!WARNING]
-> Consult with the support team before altering a data sharding policy.
+> Consult with your support team before altering a data partition policy.
 
 ## Deploy this scenario
 
@@ -179,13 +185,14 @@ Use the [step-by-step tutorial](https://github.com/microsoft/adx-automotive-demo
 
 Principal authors:
 
-- [Frank Kaleck](https://www.linkedin.com/in/frank-kaleck) | Industry Advisor Automotive
-- [Mario Ortegon-Cabrera](https://www.linkedin.com/in/marioortegon) | Principal Program Manager
-- [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager
 - [Boris Scholl](https://www.linkedin.com/in/bscholl) | Partner, Chief Architect
+- [Frank Kaleck](https://www.linkedin.com/in/frank-kaleck) | Industry Advisor Automotive
+- [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager
+- [Mario Ortegon-Cabrera](https://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI Software-Defined Vehicle and Mobility
 
 Other contributors:
 
+- [Devang Shah](https://www.linkedin.com/in/shahdevang) | Principal Program Manager
 - [Hans-Peter Bareiner](https://www.linkedin.com/in/hans-peter-bareiner-69039163) | Cloud Solution Architect
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Sr. Software Engineer
 
@@ -194,10 +201,12 @@ Other contributors:
 ## Next steps
 
 - Learn how to connect vehicles and devices to the cloud using the [MQTT broker feature in Azure Event Grid](/azure/event-grid/mqtt-overview).
+- Understand how to transfer files without storing the payload in a MQTT message using the [claim-check pattern](/azure/architecture/patterns/claim-check)
 - Connect your [datastream to a KQL destination](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities).
-- Ingest recordings from [OneLake into a KQL database](/fabric/real-time-intelligence/get-data-onelake). 
-- Take a look to [materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview) to learn how to create materialized views, such as the last-known value tables.
+- Ingest recordings from [OneLake into a KQL database](/fabric/real-time-intelligence/get-data-onelake).
+- Read about [materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview) to learn how to create materialized views, such as the last-known value tables.
 - Create a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your vehicle data.
+- Set up an [alert from a Real-Time Dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard) using Data Activator  
 - Create a [Power BI Report](/fabric/real-time-intelligence/create-powerbi-report) for business users using Direct Query.
 - Connect your vehicle data stream to an [Azure managed Grafana instance](/azure/data-explorer/grafana).
 
