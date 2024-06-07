@@ -408,6 +408,9 @@ It is highly unlikely that a web API will remain static. As business requirement
 
 Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.
 
+> [!NOTE]  
+> Versioning distributed systems and microservices isn't simple. It requires careful planning and using a proper versioning strategy.
+
 ### No versioning
 
 This is the simplest approach, and may be acceptable for some internal APIs. Significant changes could be represented as new resources or new links. Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will ignore it.
