@@ -2,7 +2,7 @@
 
 This solution offers a multilayered strategy for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. It's crucial to maintain accessibility while minimizing the attack surface.
 
-Achieving non-persistent granular access to VMs is possible by incorporating several protection mechanisms offered by Microsoft Azure and Entra services. The solution aligns with the *principle of least privilege (PoLP)* and the concept of separation of duties. To reduce exposure to attacks, inbound traffic to VMs is locked down. However, connectivity to VM is possible only when needed. In addition, authorization to Azure cloud resources should be granted only for legit reasons. Implementing these types of protection minimize the risk of many popular cyber-attacks on VMs, such as brute-force and distributed denial-of-service (DDoS) attacks.
+This solution achieves non-persistent granular access to VMs by incorporating several protection mechanisms offered by Microsoft Azure and Entra services. The solution aligns with the *principle of least privilege (PoLP)* and the concept of separation of duties. To reduce exposure to attacks, inbound traffic to VMs is locked down. However, connectivity to VM is possible only when needed. In addition, authorization to Azure cloud resources is only granted only for legit reasons. Implementing these types of protection minimize the risk of many popular cyber-attacks on VMs, such as brute-force and distributed denial-of-service (DDoS) attacks.
 
 This solution uses many Azure services and features including:
 
@@ -59,7 +59,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 3. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. Azure Bastion opens an internal RDP session by using that connection. The session is limited to the Azure virtual network and isn't exposed to the public internet.
 
-4. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time. The user may retrieve the password from an Azure Key Vault, if the password was stored as a secret in the Key Vault, and right RBAC permissions where configured to limit access to the appropriate user account.
+4. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time. The user may retrieve the password from an Azure Key Vault, if the password was stored as a secret in the Key Vault, and sufficient RBAC permissions are configured to limit access to the appropriate user account.
 
 ### Components
 
@@ -90,7 +90,7 @@ This solution uses the following components:
 
   Azure Bastion is optional in this solution. Users can connect directly to Azure VMs by using the RDP protocol. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. By using this configuration, you block connections that don't come from the user's on-premises environment.
   
-- [Azure Key Vault][Azure Key Vault] provides a secure mechanism to store the VM user's password as a *secret*. The secret RBAC can be configured so only the VM user account has the permission to retrieve it. Retriving the password value from the secret can be done through Azure APIs (i.e. using Azure CLI), or from Azure Portal, as it integrates closely with Azure Bastion interface. 
+- [Azure Key Vault][Azure Key Vault] provides a secure mechanism to store the VM user's password as a *secret*. The secret RBAC can be configured so only the VM user account has the permission to retrieve it. Retrieving the password value from the key vault can be done through Azure APIs (such as using Azure CLI) or from the Azure portal, as Azure Key Vault integrates with the Azure Bastion user interface.
 
   ## Contributors
 
