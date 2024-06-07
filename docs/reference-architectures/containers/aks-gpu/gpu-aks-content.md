@@ -53,11 +53,12 @@ In summary, cloud engineers must consider cost implications before deploying GPU
 ### Customer Stories
 
 Many Microsoft customers are already leveraging GPU workloads to innovate for their customers. You can find some examples below:
-NBA on streaming sports use case: [NBA players are improving performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states)
-MR.Turing on natural language processing: [Mr. Turing uses AI and Azure Kubernetes Service to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil)
-OriGen on Energy/HPC: [OriGen accelerates reservoir simulations by 1,000 times with Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure)
-Sensyne on Healthcare use case: [Sensyne Health aids National Health Service in the COVID-19 struggle with Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc)
-Constellation on Energy: [Clearsight augments electrical infrastructure inspection with AutoML for Images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning)
+
+- NBA on streaming sports use case: [NBA players are improving performance with AI on Azure AI infrastructure](https://customers.microsoft.com/story/1769559716293357869-nba-azure-kubernetes-service-media-and-entertainment-en-united-states)
+- MR.Turing on natural language processing: [Mr. Turing uses AI and Azure Kubernetes Service to unlock and retain company information—and make it searchable](https://customers.microsoft.com/story/1696908458386008536-misterturing-azure-kubernetes-service-brazil)
+- OriGen on Energy/HPC: [OriGen accelerates reservoir simulations by 1,000 times with Azure AI infrastructure](https://customers.microsoft.com/story/1665511423001946809-OriGen-partner-professional-services-azure)
+- Sensyne on Healthcare use case: [Sensyne Health aids National Health Service in the COVID-19 struggle with Microsoft HPC and AI technologies](https://customers.microsoft.com/story/1430377058968477645-sensyne-health-partner-professional-services-azure-hpc)
+- Constellation on Energy: [Clearsight augments electrical infrastructure inspection with AutoML for Images from Azure Machine Learning](https://customers.microsoft.com/story/1548724923828850434-constellation-clearsight-energy-azure-machine-learning)
 
 ### Large Language Models
 
