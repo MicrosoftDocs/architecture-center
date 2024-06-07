@@ -7,6 +7,7 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 [![Diagram that shows the Azure Sandbox environment.](images/create-azure-sandbox.svg)](images/create-azure-sandbox.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/create-an-azure-sandbox.vsdx) of this architecture.*
+
 ### Components
 
 You can deploy all the following sandbox configurations, or just the ones you need.
@@ -51,6 +52,9 @@ A sandbox is ideal for accelerating Azure projects. After you deploy your sandbo
 - Hackathons
 - Testing
 - Development
+- Tabletop exercises
+- Red Team / Blue Team simulations
+- Incident response drills
 
 > [!IMPORTANT]
 > Azure Sandbox isn't intended for production use. The deployment uses some best practices, but others intentionally aren't used in favor of simplicity and cost.
@@ -86,9 +90,45 @@ For example, you can use the following capabilities and configurations that the 
   - Dynamic CIFS mount to Azure Files preconfigured file share
 
 - Use a preconfigured SQL Server VM.
-  - Domain joined to local domain 
+  - Domain joined to local domain
 
 - Use a preconfigured Azure SQL database or Azure Database for MySQL Flexible Server through private endpoints.
+
+## Security
+
+> [!IMPORTANT]
+> Sandbox environments represent an attack surface that can be exploited. To reduce risk, consider the following security best practices.
+
+- Implement strong authentication in the Microsoft Entra ID tenant associated with Azure subscriptions used to provision sandbox environments.
+  - Use multi-factor authentication (MFA) for all users.
+  - Use conditional access policies to restrict access to sandbox environments.
+  - Use integrated Microsoft Entra authentication to authorize access to Azure PaaS services like Azure SQL Database and Azure Storage.
+
+- Use zero-trust principles to authorize sandbox use.
+  - Limit `Owner` Azure RBAC role assignments to sandbox subscription owners.
+  - Limit `Contributor` Azure RBAC role assignments to sandbox subscription users.
+  - Use Microsoft Entra privileged identity management (PIM) to manage privileged Azure RBAC role assignments scoped to  sandbox subscriptions (e.g. `Owner`, `Contributor`, `User Access Administrator`).
+
+- Avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or data that has been de-identified.
+
+- Consider these [Secure Futures Initiative](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) principles when implementing sandbox environments. Note that many of these examples are taken directly from the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) implementation.
+  - Secure by design
+    - Limit the use of shared secrets, and secure them using Azure Key Vault when required. When shared secrets must be used, retrieve them at runtime from Azure Key Vault using managed identities. If secrets must be persisted, ensure they are encrypted and not stored in plain text. Never echo secrets to the console or to log files, and never check secrets into source control.
+    - Set an expiration date for Key Vault secrets.
+    - When selecting a guest operating system for virtual machines, only use operating systems that are currently supported and eligible to receive security updates.
+  - Secure by default
+    - Ensure that cryptographic protocols and algorithms are up-to-date (e.g. TLS 1.2 or higher, SHA-256 or higher).
+    - For managed disks attached to virtual machines, data is encrypted at rest by default. Consider using host encryption or Azure Disk Encryption for encryption in transit.
+    - Avoid the use of public IPs. Use Azure Bastion for secure remote access to virtual machines.
+    - Use private endpoints to communicate with Azure services.
+    - Disable public network access to Azure services like Azure Storage and Azure SQL Database.
+  - Secure operations
+    - Enable Microsoft Defender for Cloud CSPM on sandbox subscriptions.
+    - Enable Azure Update Manager on all virtual machines used in sandbox environments, and set a regular patching schedule.
+      - For SQL Server virtual machines, enable first-party updates in Windows Update to ensure that SQL Server is patched.
+    - Monitor activity and diagnostic logs with Azure Monitor and/or Azure Sentinel.
+    - Decommission sandboxes that are no longer in use.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributor.*
