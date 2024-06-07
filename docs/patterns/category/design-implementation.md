@@ -20,11 +20,21 @@ categories: featured
 
 Good design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.
 
-> [!NOTE]  
-> In distributed systems:
-> - Versioning isn't simple.
-> - Observabality is not optional but mandatory.
-> 
+These patterns are prone to [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) and even more: 
+- The network is reliable;
+- Latency is zero;
+- Bandwidth is infinite;
+- The network is secure;
+- Topology doesn't change;
+- There is one administrator;
+- Transport cost is zero;
+- The network is homogeneous;
+- Versioning is simple;
+- Observability is optional
+
+Aforementioned assumptions are common but wrong. Before choosing any of the patterns, question your assumptions to ensure  you won’t fall for any of the above fallacies otherwise you will face consequences in terms of cost, unreliability, unavailability, lack of performance and / or security breaches. 
+
+Remember that each of these patterns have their own trade-offs and you need to pay more attention to why you are choosing a certain pattern rather than to how to implement it. 
 
 
 |                                Pattern                                 |                                                                                                      Summary                                                                                                       |
