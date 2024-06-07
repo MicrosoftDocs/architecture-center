@@ -15,8 +15,8 @@ Priority queues allow workloads to process tasks based on their priority rather 
 
 With a single queue, the application (producer) assigns a priority to each message and sends the message to the queue. The queue orders messages by priority, ensuring that consumers process higher-priority messages before lower-priority ones.
 
-![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-pattern.png)
-<br>*Architecture of a single queue and single consumer pool.*
+![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-single-queue-single-pool.svg)<br>
+*Figure 1. Architecture of a single queue and single consumer pool*
 
 ### Multiple queues
 
@@ -28,12 +28,15 @@ With multiple consumer pools, each queue has designated consumers resources. Hig
 
 Use multiple consumers when you need guaranteed low-priority processing, queue isolation, dedicated resource allocation, scalability, and performance fine-tuning.
 
-![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-separate.png)<br>
-*Architecture of multiple queues and multiple consumer pools.*
+![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-multiple-queues-multiple-pools.svg)<br>
+*Figure 2. Architecture of multiple queues and multiple consumer pools.*
 
 #### Single consumer pool
 
 With a single consumer pool, all queues share a single pool of consumers. Consumers process messages from the highest priority queue first and only process messages from lower priority queues when there are no high priority messages. As a result, the single consumer pool always processes higher priority messages before lower priority ones. This setup could lead to lower priority messages being continually delayed and potentially never processed.
+
+![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-multiple-queues-single-pool.svg)<br>
+*Figure 3. Architecture of multiple queues and a single consumer pool.*
 
 ## Recommendations for the priority queue pattern
 
@@ -86,8 +89,8 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 The example on [GitHub](priority-queues) demonstrates how Azure facilitates an implementation of the Priority Queue pattern.
 
-![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-service-bus.png)<br>
-*Architecture of the PriorityQueue example on GitHub*
+![Diagram that shows how to implement a priority queue by using Service Bus topics and subscriptions.](./_images/priority-queue-example.svg)<br>
+*Figure 4. Architecture of the PriorityQueue example on GitHub*
 
 - *Application (producer)*: The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. `PriorityQueueSender` uses a time-triggered Azure function that posts messages to a Service Bus topic every 30 seconds.
 
