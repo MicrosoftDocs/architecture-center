@@ -64,7 +64,7 @@ In some situations, you might deploy an instance of API Management for each tena
 
 When you deploy an instance of API Management, you need to consider the [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits), including any limits that might apply to the number of API Management instances within an Azure subscription or region.
 
-For single-tenant instances, there's typically minimal routing configuration because all requests can be routed to a single backend. In this scenario, there's no custom routing decisions required, and so there's no added performance impact from these decision. However, you typically incur a higher resource cost than if you were deploying a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) might enable you to reuse tenant-specific compute resources that you already deploy.
+For single-tenant instances, there's typically minimal routing configuration because all requests can be routed to a single backend. In this scenario, there's no custom routing decisions required, and so there's no added performance impact. However, you typically incur a higher resource cost than if you were deploying a shared instance. If you need to deploy single-tenant instances, consider whether [self-hosted gateways](/azure/api-management/self-hosted-gateway-overview) might enable you to reuse tenant-specific compute resources that you already deploy.
 
 ## Features of API Management that support multitenancy
 
@@ -72,7 +72,7 @@ API Management enables flexibility through its use of [policies](/azure/api-mana
 
 ### Identify tenants on incoming requests
 
-Consider how you can identify the appropriate tenant within each incoming request. In a multitenant solution it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
+Consider how you can identify the appropriate tenant within each incoming request. In a multitenant solution, it's important to have a clear understanding of who is making each request so that you return the data for that specific tenant and nobody else.
 
 API Management provides [subscriptions](/azure/api-management/api-management-subscriptions). Subscriptions enable you to authenticate requests with a unique *subscription key* that helps to identify the subscriber making the request. If you choose to use subscriptions, consider how you can map the API Management subscriptions to your own tenant or customer identifiers. Subscriptions are tightly integrated into the developer portal. For most solutions, it's a good practice to use subscriptions to identify tenants.
 
@@ -134,7 +134,7 @@ The API Management documentation [provides extensive guidance on monetizing APIs
 
 An API Management instance supports a certain amount of [capacity](/azure/api-management/api-management-capacity), which represents the resources available to process your requests. When you use complex policies or deploy more APIs to the instance, more capacity is consumed. You can manage the capacity of an instance in several ways, including by purchasing more units. You can also dynamically scale the capacity of your instance.
 
-Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your capacity if you see your use increase. You should also consider testing the performance of your solution to understand your capacity needs ahead of time.
+Some multitenant instances might consume higher amounts of capacity than single-tenant instances, such as if you use many policies for routing requests to different tenant backends. Consider capacity planning carefully, and plan to scale your instance's capacity if you see your use increase. You should also consider testing the performance of your solution to understand your capacity needs ahead of time.
 
 For more information about scaling API Management, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
