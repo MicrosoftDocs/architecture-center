@@ -94,7 +94,7 @@ The architecture described in this article uses the completions endpoint for sum
 
 GPT-3 models can perform multiple tasks, so you need to be explicit in the goals of the design. The models estimate the desired output based on the provided prompt.
 
-For example, if you input the words "Give me a list of cat breeds," the model doesn't automatically assume that you're asking for a list of cat breeds. You could be asking the model to continue a conversation in which the first words are "Give me a list of cat breeds" and the next ones are "and I'll tell you which ones I like." If the model just assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
+For example, if you input the words "Give me a list of cat breeds," the model doesn't automatically assume that you're asking for a list of cat breeds. You could be asking the model to continue a conversation in which the first words are "Give me a list of cat breeds" and the next ones are "And I'll tell you which ones I like." If the model just assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
 
 As described in [Learn how to generate or manipulate text](/azure/cognitive-services/openai/how-to/completions#prompt-design), there are three basic guidelines for creating prompts:
 
