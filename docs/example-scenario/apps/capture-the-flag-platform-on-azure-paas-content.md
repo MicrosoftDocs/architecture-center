@@ -76,7 +76,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down just as easily.
-- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
+- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/e283b19ecaeb4fa5a428c56ede9d9bd3).
 
 ### Operational excellence
 
@@ -93,7 +93,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - This solution requires at least the Basic tier, because lower tiers do not support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
 - The CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
 - For information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/web-apps/app-service/architectures/basic-web-app#scaling-the-app-service-app).
-- You can [scale up](/azure/mysql/flexible-server/concepts-service-tiers-storage) Azure Database for MySQL to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
+- You can [scale up](/azure/mysql/flexible-server/concepts-service-tiers-storage) Azure Database for MySQL to meet higher demands. You can dynamically change the number vCores and the amount of storage that is right for your target workload.
 
 ## Deploy this scenario
 
