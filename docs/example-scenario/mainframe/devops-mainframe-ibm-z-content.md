@@ -119,13 +119,15 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Transformation Specialist 
 - [Ivan Dovgan](https://www.linkedin.com/in/ivandov/) | Senior Software Architect 
 
-Other contributors: 
+Other contributors:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) |Technical Writer 
 - [Bhuvi Vatsey](https://www.linkedin.com/in/bvatsey/) | Modernization Specialist 
 

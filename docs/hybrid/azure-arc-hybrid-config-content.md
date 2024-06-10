@@ -154,9 +154,10 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
