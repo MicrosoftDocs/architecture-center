@@ -51,7 +51,9 @@ These recommendations implement the pillars of the Azure Well-Architected Framew
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). Resilience is essential for Microsoft Azure Red Hat OpenShift (ARO) to maintain the uninterrupted operation of mission-critical applications. Follow these reliability recommendations:
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
+
+Resilience is essential for Microsoft Azure Red Hat OpenShift (ARO) to maintain the uninterrupted operation of mission-critical applications. Follow these reliability recommendations:
 
 - *Availability zones*: Distribute control plane and worker nodes across three Availability Zones (AZs) within an Azure region. This ensures the control plane cluster maintains quorum and mitigates potential failures across entire AZs. Implement this distribution as a standard practice.
 
