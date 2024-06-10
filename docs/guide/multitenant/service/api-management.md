@@ -161,3 +161,9 @@ Other contributor:
 ## Next steps
 
 Review [architectural approaches for integration in multitenant solutions](../approaches/integration.md).
+
+## Related resources
+
+- [Architect multitenant solutions on Azure](../overview.md)
+- [Checklist for architecting and building multitenant solutions on Azure](../checklist.md)
+- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml)
