@@ -1,6 +1,6 @@
 This architecture describes a solution that provides real-time monitoring and observability of systems and end-user device telemetry data. It focuses on a use case for the media industry.
 
-*[Grafana](https://grafana.com) is a trademark of its respective company. No endorsement is implied by the use of this mark.*
+*[Grafana](https://grafana.com) is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
@@ -14,11 +14,11 @@ In the observable system shown in the diagram, raw telemetry is streamed to Azur
 
 More specifically, these are the elements of the system in the diagram:
 
-1.	**Instrumentation.** Instrumentation occurs via probes or agents that are installed in systems to monitor data. These agents come in various forms. For example, in a video-on-demand streaming platform, a company might use open-standards [dash.js](https://github.com/Dash-Industry-Forum/dash.js) to collect Quality of Experience metrics from customers.
-2.	**Ingestion.** This raw telemetry can come directly from end clients via HTTP calls. Alternatively, you can upload it via third-party systems to persistent storage and data lakes like Blob Storage. Blog Storage supports the ability to invoke an Azure function when a new file is uploaded. You can use this trigger mechanism to move raw telemetry to structured data warehouses.
-3.	**Transformation and persistence.** You might need a transformation system to normalize your data. An Azure Functions app transforms the data as needed and then writes it to Data Explorer. Data Explorer is ideal for big data analytics because it's designed for high performance and throughput on large data sets.
-4.	**Monitoring.** Azure Managed Grafana supports integration with Data Explorer. You can use the drag-and-drop features of Grafana to quickly build dashboards and charts. Grafana is a good fit for media monitoring because it provides sub-minute refreshing of dashboard tiles and can also be used for alerting.
-5.	**Anomaly detection.** The Grafana dashboard provides support for manual monitoring in the NOC. However, with a large data set and a user base spread across geographies and using various devices, manual identification of issues via charts and alert rules that have hard-coded thresholds becomes inefficient. You can use AI to address this problem. Services like Metrics Advisor use machine learning algorithms to automatically understand and detect anomalies based on time-series data. In addition, the Kusto data platform has built-in anomaly detection functions that account for seasonality and baseline trends in the data.
+1. **Instrumentation.** Instrumentation occurs via probes or agents that are installed in systems to monitor data. These agents come in various forms. For example, in a video-on-demand streaming platform, a company might use open-standards [dash.js](https://github.com/Dash-Industry-Forum/dash.js) to collect Quality of Experience metrics from customers.
+2. **Ingestion.** This raw telemetry can come directly from end clients via HTTP calls. Alternatively, you can upload it via third-party systems to persistent storage and data lakes like Blob Storage. Blog Storage supports the ability to invoke an Azure function when a new file is uploaded. You can use this trigger mechanism to move raw telemetry to structured data warehouses.
+3. **Transformation and persistence.** You might need a transformation system to normalize your data. An Azure Functions app transforms the data as needed and then writes it to Data Explorer. Data Explorer is ideal for big data analytics because it's designed for high performance and throughput on large data sets.
+4. **Monitoring.** Azure Managed Grafana supports integration with Data Explorer. You can use the drag-and-drop features of Grafana to quickly build dashboards and charts. Grafana is a good fit for media monitoring because it provides sub-minute refreshing of dashboard tiles and can also be used for alerting.
+5. **Anomaly detection.** The Grafana dashboard provides support for manual monitoring in the NOC. However, with a large data set and a user base spread across geographies and using various devices, manual identification of issues via charts and alert rules that have hard-coded thresholds becomes inefficient. You can use AI to address this problem. Services like Metrics Advisor use machine learning algorithms to automatically understand and detect anomalies based on time-series data. In addition, the Kusto data platform has built-in anomaly detection functions that account for seasonality and baseline trends in the data.
 
 ### Components
 
@@ -36,7 +36,7 @@ More specifically, these are the elements of the system in the diagram:
 
 ## Scenario details
 
-Organizations often deploy varied and large-scale technologies to solve business problems. These systems, and end-user devices, generate large sets of telemetry data. 
+Organizations often deploy varied and large-scale technologies to solve business problems. These systems, and end-user devices, generate large sets of telemetry data.
 
 This architecture is based on a use case for the media industry. Media streaming for live and video-on-demand playback requires near real-time identification of and response to application problems. To support this real-time scenario, organizations need to collect a massive telemetry set, which requires scalable architecture. After the data is collected, other types of analysis, like AI and anomaly detection, are needed to efficiently identify problems across so large a data set.
 
@@ -79,7 +79,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 Depending on the scale and frequency of incoming requests, the function app might be a bottleneck, for two main reasons:
 
 - **Cold start.** Cold start is a consequence of serverless executions. It refers to the scheduling and setup time that's required to spin up an environment before the function first starts running. At most, the required time is a few seconds.
-- **Frequency of requests.** Say you have 1,000 HTTP requests but only a single-threaded server to handle them. You won't be able to service all 1,000 HTTP requests concurrently. To serve these requests in a timely manner, you need to deploy more servers. That is, you need to scale horizontally. 
+- **Frequency of requests.** Say you have 1,000 HTTP requests but only a single-threaded server to handle them. You won't be able to service all 1,000 HTTP requests concurrently. To serve these requests in a timely manner, you need to deploy more servers. That is, you need to scale horizontally.
 
 We recommend that you use Premium or Dedicated SKUs to:
 
@@ -103,7 +103,7 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Dilmurod Makhamadaliev](https://www.linkedin.com/in/dilmurod-makhamadaliev) | Software Engineer
 - [Omeed Musavi](https://www.linkedin.com/in/omusavi) | Principal Software Engineer Lead
 - [Ayo Mustapha](https://www.linkedin.com/in/ayo-mustapha) | Principal Technical Program Manager
@@ -112,12 +112,12 @@ Other contributors:
 
 ## Next steps
 
-- [Supplementary code samples](https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media) 
+- [Supplementary code samples](https://github.com/Azure-Samples/real-time-monitoring-and-observability-for-media)
 - [Azure Data Explorer documentation](/azure/data-explorer)
 - [Introduction to Azure Data Explorer - Training](/training/modules/intro-to-azure-data-explorer)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 
-## Related resources 
+## Related resources
 
 - [Monitor Media Services](/azure/media-services/latest/monitoring/monitor-media-services?toc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)

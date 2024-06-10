@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use a high-performance computing (HPC) environment on Azure to run CAE simulations for manufacturing.
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 03/15/2023
+  ms.date: 06/07/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

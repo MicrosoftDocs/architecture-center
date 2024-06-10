@@ -49,9 +49,9 @@ The goal of pre-processing is to ensure that the data provided to the summarizer
 
 Here are some pre-processing steps that can help condition your raw data. You might need to apply one or many steps, depending on the use case.
 
--	**Remove personally identifiable information (PII)**. You can use the [Conversational PII API](/azure/cognitive-services/language-service/personally-identifiable-information/overview) (preview) to remove PII from transcribed or written text. This example shows the output after the API has removed PII:
+- **Remove personally identifiable information (PII).** You can use the [Conversational PII API](/azure/cognitive-services/language-service/personally-identifiable-information/overview) (preview) to remove PII from transcribed or written text. This example shows the output after the API has removed PII:
 
-    ```
+    ```output
     Document text: Parker Doe has repaid all of their loans as of
           2020-04-25. Their SSN is 999-99-9999. To contact them, use 
           their phone number 555-555-0100. They are originally from 
@@ -66,9 +66,9 @@ Here are some pre-processing steps that can help condition your raw data. You mi
     ...Entity '555-555-0100' with category 'PhoneNumber' got redacted
     ```
 
--	**Remove extraneous information**. Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added to a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information in the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
+- **Remove extraneous information.** Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added to a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information in the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
 
--	**Remove excessively negative conversations**. Conversations can also include negative sentiments from unhappy customers. You can use Azure content-filtering methods like Azure Content Moderator to remove conversations that contain sensitive information from analysis. Alternatively, OpenAI offers a moderation endpoint, a tool that you can use to check whether content complies with OpenAI's content policies.
+- **Remove excessively negative conversations.** Conversations can also include negative sentiments from unhappy customers. You can use Azure content-filtering methods like Azure Content Moderator to remove conversations that contain sensitive information from analysis. Alternatively, OpenAI offers a moderation endpoint, a tool that you can use to check whether content complies with OpenAI's content policies.
 
 ### Summarizer
 
@@ -139,7 +139,7 @@ The dataset used in this scenario is a set of hypothetical conversations between
 
 |Prompt|Completion|
 |-|-|
-|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you might require that you join an Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.| Customer wants to know whether they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences might require it.|
+|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you might require that you join a Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.| Customer wants to know whether they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences might require it.|
 
 **Ideal output**. The goal is to create summaries that follow this format: "Customer said *x*. Agent responded *y*." Another goal is to capture salient features of the dialog, like the customer complaint, suggested resolution, and follow-up actions.
 
