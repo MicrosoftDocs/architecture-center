@@ -3,7 +3,7 @@ title: Use Azure Front Door in a multitenant solution
 description: Learn about the features of Azure Front Door that are useful when you work in multitenant solutions.
 author: rajnemani
 ms.author: ranema
-ms.date: 04/04/2023
+ms.date: 06/10/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
