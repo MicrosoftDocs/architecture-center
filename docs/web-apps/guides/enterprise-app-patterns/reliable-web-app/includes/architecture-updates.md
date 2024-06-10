@@ -18,7 +18,7 @@ The foundational architecture identifies the essential web components needed to 
     | Web application firewall | Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to secure the ingress from web app attacks. |
     | Configuration storage | Use [Azure App Configuration](/azure/azure-app-configuration/overview) to store non-secret, configuration values. |
     | Endpoint security | Use [Azure Private Link](/azure/private-link/private-link-overview) to keep service communication with the virtual network. |
-    | Network firewall | Use [Azure Firewall](/azure/firewall/overview) to secure traffic between spoke virtual network. |
+    | Network firewall | Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. |
     | Bastion host | Use [Azure Bastion](/azure/bastion/bastion-overview) to securely connect to virtual machines. |
 
 - *Filter inbound traffic.* Force all inbound internet traffic to through the external load balancer and web application firewall to protect against common web exploits. Azure Web Application Firewall integrates with with Azure Application Gateway, Azure Front Door, and Azure Content Delivery Network (CDN).
