@@ -7,7 +7,7 @@ Once you have generated the embeddings for your chunks, the next step is to gene
 > [!NOTE]
 > Azure AI Search is a first party Azure search service. This section will mention some specifics for AI Search. If you're using a different store, consult the documentation to find the key configuration for that service.
 
-The search index in your store has a column for every field in your data. Search stores generally have support for [nonvector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-nonvector-fields) such as string, boolean, integer, single, double, datetime, and collections like Collection(single) and [vector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) such as Collection(single). For each column, you must [configure information](/azure/search/vector-search-how-to-create-index#add-a-vector-field-to-the-fields-collection) such as the data type, whether the field is filterable, retrievable, and/or searchable.
+The search index in your store has a column for every field in your data. Search stores generally have support for [nonvector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-nonvector-fields) such as string, Boolean, integer, single, double, datetime, and collections like Collection(single) and [vector data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) such as Collection(single). For each column, you must [configure information](/azure/search/vector-search-how-to-create-index#add-a-vector-field-to-the-fields-collection) such as the data type, whether the field is filterable, retrievable, and/or searchable.
 
 The following are some key decisions you must make for the [vector search configuration](/azure/search/vector-search-how-to-create-index#add-a-vector-search-configuration) that are applied to vector fields:
 
@@ -126,7 +126,7 @@ You can, of course, run multiple queries, such as a vector search and a keyword 
 
 ### Multiple subqueries
 
-Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to ICE vehicles?" likely require grounding data from multiple sources.
+Some prompts are complex and require more than one collection of data to ground the model. For example, the query "How do electric cars work and how do they compare to Interactive Connectivity Establishment (ICE) vehicles?" likely require grounding data from multiple sources.
 
 It's good practice to determine whether the query requires multiple searches before running any searches. If you deem multiple subqueries are required, you can run [manual multiple queries](#manual-multiple) for all the queries. Use a large language model to determine whether multiple subqueries are required. The following prompt is taken from the [RAG experiment accelerator](https://github.com/microsoft/rag-experiment-accelerator/blob/development/rag_experiment_accelerator/llm/prompts.py) that is used to categorize a query as simple or complex, with complex requiring multiple queries:
 

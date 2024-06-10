@@ -46,7 +46,7 @@ For customized NLP workloads, the open-source library Spark NLP serves as an eff
 
 - **Document classification:** Spark NLP offers several options for text classification:
 
-  - Text preprocessing in Spark NLP and machine learning algorithms that are based on Spark ML
+  - Text preprocessing in Spark NLP and machine learning algorithms that are based on Spark machine learning
   - Text preprocessing and word embedding in Spark NLP and machine learning algorithms such as GloVe, BERT, and ELMo
   - Text preprocessing and sentence embedding in spark NLP and machine learning algorithms and models such as the Universal Sentence Encoder
   - Text preprocessing and classification in Spark NLP that uses the ClassifierDL annotator and is based on TensorFlow
@@ -63,7 +63,7 @@ For customized NLP workloads, the open-source library Spark NLP serves as an eff
 
 Spark NLP provides Python, Java, and Scala libraries that offer the full functionality of traditional NLP libraries such as spaCy, NLTK, Stanford CoreNLP, and Open NLP. Spark NLP also offers functionality such as spell checking, sentiment analysis, and document classification. Spark NLP improves on previous efforts by providing state-of-the-art accuracy, speed, and scalability.
 
-Spark NLP is by far the fastest open-source NLP library. Recent public benchmarks show Spark NLP as [38 and 80 times faster than spaCy](https://www.oreilly.com/content/comparing-production-grade-nlp-libraries-accuracy-performance-and-scalability), with comparable accuracy for training custom models. Spark NLP is the only open-source library that can use a distributed Spark cluster. Spark NLP is a native extension of Spark ML that operates directly on data frames. As a result, speedups on a cluster result in another order of magnitude of performance gain. Because every Spark NLP pipeline is a Spark ML pipeline, Spark NLP is well-suited for building unified NLP and machine learning pipelines such as document classification, risk prediction, and recommender pipelines.
+Spark NLP is by far the fastest open-source NLP library. Recent public benchmarks show Spark NLP as [38 and 80 times faster than spaCy](https://www.oreilly.com/content/comparing-production-grade-nlp-libraries-accuracy-performance-and-scalability), with comparable accuracy for training custom models. Spark NLP is the only open-source library that can use a distributed Spark cluster. Spark NLP is a native extension of Spark machine learning that operates directly on data frames. As a result, speedups on a cluster result in another order of magnitude of performance gain. Because every Spark NLP pipeline is a Spark machine learning pipeline, Spark NLP is well-suited for building unified NLP and machine learning pipelines such as document classification, risk prediction, and recommender pipelines.
 
 Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy for a growing number of NLP tasks. The Spark NLP team regularly reads the latest relevant academic papers and produces the most accurate models.
 

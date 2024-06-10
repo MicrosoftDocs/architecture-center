@@ -99,7 +99,7 @@ The following list contains a small sample of common similarity and evaluation m
 - **[Jaccard](https://en.wikipedia.org/wiki/Jaccard_index)** - Token based algorithm that calculates similarity by dividing the intersection of two strings by the union of those strings.
 - **[Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance)** - Edit based algorithm that calculates similarity by determining the minimum number of single character edits required to transform one string to another.
 - **[BLEU](https://en.wikipedia.org/wiki/BLEU)** - Evaluates the quality of text that is the result of machine translation from one language to another. Bleu calculates the overlap of n-grams between a machine translation and a human quality translation to make this evaluation.
-- **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several ROUGE variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
+- **[ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))** - Compare a machine translation of one language to another to a human created translation. There are several rogue variants that use the overlap of n-grams, skip-bigrams, or longest common subsequence.
 - **[METEOR](https://en.wikipedia.org/wiki/METEOR)** - Evaluates the quality of text that is the result of machine translation by looking at exact matches, matches after stemming, synonyms, paraphrasing, and alignment.
 
 Refer to the following resources for common similarity and evaluation metrics:
