@@ -71,9 +71,9 @@ Microsoft creates a new node image for AKS nodes approximately once per week. A 
 
 When a node image is updated, a *cordon and drain* action is triggered on the target node pool's nodes:
 
-- A node with the updated image is added to the node pool. The number of nodes added at a time is governed by the surge value.
-- One of the existing nodes is *cordoned* and *drained*. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
-- After the node is fully drained, it's removed from the node pool. The updated node added by the surge replaces it.
+- Depending on the surge value, at a time a batch of nodes with the updated image are added to the node pool.
+- Depending on the surge value, a batch of existing nodes are *cordoned* and *drained*. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
+- After these nodes are fully drained, they are removed from the node pool. The updated nodes added by the surge replace them.
 - This process is repeated for each node that needs to be updated in the node pool.
 
 A similar process occurs during a cluster upgrade.
