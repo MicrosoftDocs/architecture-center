@@ -100,7 +100,7 @@ The diagram shows a prompt flow author connecting through Azure Bastion to a vir
 
 We recommend that you configure the Machine Learning workspace for [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Container Registry and Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or AI Search, that your workflow is going to use. You must configure user-defined outbound rules. Required outbound rules are configured when the managed virtual network is created.
 
-The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a public IP (PIP) package, cloning a GitHub repo, or downloading base container images from external repositories.
+The outbound rules can be private endpoints, service tags, or fully qualified domain names (FQDNs) for external public endpoints. In this architecture, connectivity to Azure services such as Container Registry, Storage, Azure Key Vault, Azure OpenAI, and AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, or downloading base container images from external repositories.
 
 ### Virtual network segmentation and security
 
@@ -133,7 +133,7 @@ All other traffic is explicitly denied.
 
 Consider the following points when implementing virtual network segmentation and security.
 
-- Enable [DDoS Protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that's part of an application gateway with a public IP (PIP) address.
+- Enable [DDoS Protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that's part of an application gateway with a public IP address.
 
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. Use the strictest rules that enable full solution functionality.
 
@@ -179,7 +179,7 @@ Azure OpenAI doesn't currently support availability zones. To mitigate the poten
 
 To support multiple instances effectively, we recommend that you externalize fine-tuning files, such as to a geo-redundant Storage account. This approach minimizes the state that's stored in the Azure OpenAI for each region. You must still fine tune files for each instance to host the model deployment.
 
-It's important to monitor the required throughput in terms of tokens per minute (Trusted Platform Module (TPM)) and requests per minute (RPM). Ensure that sufficient TPM u assigned from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management can be deployed in front of your OpenAI service or services and can be configured for retry if there are transient errors and throttling. API Management can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding its quota.
+It's important to monitor the required throughput in terms of tokens per minute (TPM) and requests per minute (RPM). Ensure that sufficient TPM u assigned from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management can be deployed in front of your OpenAI service or services and can be configured for retry if there are transient errors and throttling. API Management can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding its quota.
 
 ### AI Search - reliability
 
@@ -355,7 +355,7 @@ Consider the following guidance when implementing automated evaluations:
 
 - Some of these tests require preconfigured data inputs of questions, context, and ground truth.
 
-- Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. These question-answer pairs are referred to as your "Golden dataset." A larger population might be required depending on the size and domain of your dataset.
+- Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. These question-answer pairs are referred to as your "golden dataset." A larger population might be required depending on the size and domain of your dataset.
 
 - Avoid using language models to generate any of the data in your golden dataset.
 
