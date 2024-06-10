@@ -33,7 +33,7 @@ A topology that includes a single Azure OpenAI instance but contains more than o
 
 - Expose different model versions, such as `0613`, `1106`, and custom fine-tuned models to support workload evolution or blue-green deployments.
 
-- Expose different quotas assigned (30,000 Token-Per-Minute (Trusted Platform Module (TPM)), 60,000 TPM) to support consumption throttling across multiple clients.
+- Expose different quotas assigned (30,000 Token-Per-Minute (TPM), 60,000 TPM) to support consumption throttling across multiple clients.
 
 ### Introduce a gateway for multiple model deployments
 
@@ -259,7 +259,7 @@ Policies such as routing and request handling logic are replicated to each indiv
 
 API Management offers out-of-the-box global fully qualified domain name (FQDN) routing based on lowest latency. Use this built-in, performance based functionality for active-active gateway deployments. This built-in functionality helps address performance and handles a regional gateway outage. The built-in global router also supports disaster recovery testing as regions can be simulated down through disabling individual gateways. Make sure clients respect the time to live (TTL) on the FQDN and have appropriate retry logic to handle a recent DNS failover.
 
-If you need to introduce a web application firewall into this architecture, you can still use the built-in FQDN routing solution as the back-end origin for your global router that implements Azure Web Application Firewall. The global router would delegate failover responsibility to API Management. Alternatively, you could use the regional gateway FQDNs as the back-end pool members. In that latter architecture, use the built-in `/status-0123456789abcdef` endpoint on each regional gateway or another custom health API endpoint to support regional failover. If unsure, start with the single origin back-end FQDN approach.
+If you need to introduce a web application firewall into this architecture, you can still use the built-in FQDN routing solution as the back-end origin for your global router that implements a web application firewall. The global router would delegate failover responsibility to API Management. Alternatively, you could use the regional gateway FQDNs as the back-end pool members. In that latter architecture, use the built-in `/status-0123456789abcdef` endpoint on each regional gateway or another custom health API endpoint to support regional failover. If unsure, start with the single origin back-end FQDN approach.
 
 This architecture works best if you can treat regions as either fully available or fully unavailable. This means that if either the API Management gateway or Azure OpenAI instance is unavailable, you want client traffic to no longer be routed to the API Management gateway in that region. Unless another provision is made, if the regional gateway still accepts traffic while Azure OpenAI is unavailable, the error must be propagated to the client. To avoid the client error, see an improved approach in [Active-active gateway plus active-passive Azure OpenAI variant](#active-active-gateway-plus-active-passive-azure-openai-variant).
 
@@ -289,7 +289,7 @@ The previous section addresses the availability of the gateway by providing an a
 
 If your per-gateway routing rules are too complex for your team to consider reasonable as API Management policies, you need to deploy and manage your own solution. This architecture must be a multi-region deployment of your gateway, with one highly available scale unit per region. You need to front those deployments with [Azure Front Door](/azure/frontdoor) (Anycast) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) (DNS), typically by using latency-based routing and appropriate health checks of gateway availability.
 
-Use Azure Front Door if you require an Azure web application firewall and public internet access. Use Traffic Manager if you don't need an Azure web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that the gateway can't be bypassed. Make the gateway instances available only through private endpoint when you use Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
+Use Azure Front Door if you require a web application firewall and public internet access. Use Traffic Manager if you don't need a web application firewall and DNS TTL is sufficient. When fronting your gateway instances with Azure Front Door (or any reverse proxy), ensure that the gateway can't be bypassed. Make the gateway instances available only through private endpoint when you use Azure Front Door and add validation of the `X_AZURE_FDID` HTTP header in your gateway implementation.
 
 Place per-region resources that are used in your custom gateway in per-region resource groups. Doing so reduces the blast radius of a related regional outage affecting your ability to access the resource provider for your gateway resources in that region.
 

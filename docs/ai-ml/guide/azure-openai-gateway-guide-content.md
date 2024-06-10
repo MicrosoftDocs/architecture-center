@@ -18,7 +18,7 @@ The reliability of the workload depends on several factors, including its capaci
 
 - **Scale out to handle spikes:** Failing over to Azure OpenAI instances with capacity when throttled is another client responsibility that you need to control through configuration and custom logic. Updating multiple client configurations for new Azure OpenAI instances presents greater risk and has timeliness concerns. The same is true for updating client code to implement changes in logic, such as directing low priority requests to a queue during high demand periods.
 
-- **Load balancing or throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (Trusted Platform Module (TPM)) or Requests-Per-Minute (RPM) in the pay-as-you-go model. Azure OpenAI APIs also throttle requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
+- **Load balancing or throttling:** Azure OpenAI APIs throttle requests by returning an HTTP 429 error response code to requests that exceed the Token-Per-Minute (TPM) or Requests-Per-Minute (RPM) in the pay-as-you-go model. Azure OpenAI APIs also throttle requests that exceed the provisioned throughput units (PTU) capacity for the pre-provisioned billing model. Handling appropriate back-off and retry logic is left exclusively to client implementations.
 
 ### Security challenges
 
@@ -187,5 +187,5 @@ Learn ways to [Implement logging and monitoring for Azure OpenAI models](../open
 
 - [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
 - [API gateway in Azure API Management](/azure/api-management/api-management-gateways-overview)
-- [API Management landing zone accelerator (LZA)](https://aka.ms/apim-genai-lza) covering generative AI scenarios
+- [API Management landing zone accelerator](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/scenarios/workload-genai/README.md) covering generative AI scenarios
 - [API Management gateway toolkit](https://github.com/Azure-Samples/apim-genai-gateway-toolkit)
