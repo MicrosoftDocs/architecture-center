@@ -246,7 +246,7 @@ Managing access to machine learning data and resources is crucial. Role-Based Ac
 
 #### Example personas
 
-This example considers the following Personas to inform the identity-based RBAC group design:
+Consider the following common personas in a ML workload which will inform the identity-based RBAC group design to support appropriate segmentation:
 
 #### Example personas
 &nbsp;&nbsp; **Description** - The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
@@ -322,6 +322,7 @@ This example considers the following Personas to inform the identity-based RBAC 
 The [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) is used to manage the resource level objects with a subscription.
 
 The Persona based identity RBAC design for the control plane for each environment can be described as;
+
 ##### Production
 
 :::image type="content" source="_images/secureAML_ControlPrd.png" lightbox="_images/secureAML_ControlPrd.png" alt-text="Diagram showing the secure AML Identity RBAC – Control Plane - Production." border="false":::
@@ -335,20 +336,19 @@ Cell Colour = Access Period Granted. Green = Life of Project, Orange = Temporary
 **Key**
 <br/>
 **[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
-<br/>&nbsp;&nbsp; R = Reader.<br/>
-&nbsp;&nbsp; C = Contributor.
-<br/>&nbsp;&nbsp; O = Owner.<br/>
+<br/>&nbsp;&nbsp; R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).<br/>
+&nbsp;&nbsp; C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).<br/>
+<br/>&nbsp;&nbsp; O = [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#owner).<br/>
 **[Component Specific Roles](/azure/role-based-access-control/built-in-roles/ai-machine-learning)**
-<br/>&nbsp;&nbsp; ADS = Azure Machine Learning Data Scientist.<br/>
-&nbsp;&nbsp; ACO = Azure Machine Learning Compute Operator.
-<br/>&nbsp;&nbsp; ARU = Azure Machine Learning Registry User.<br/>
-&nbsp;&nbsp; ACRPush = Azure Container Registry Push.
-<br/>&nbsp;&nbsp; DOPA = DevOps Project Administrators.<br/>
-&nbsp;&nbsp; DOPCA = DevOps Project Collection Administrators.
-<br/>&nbsp;&nbsp; LAR = Log Analytics Reader. <br/>
-&nbsp;&nbsp; LAC = Log Analytics Contributor.
-<br/>&nbsp;&nbsp; MR = Monitoring Reader. <br/>
-&nbsp;&nbsp; MC = Monitoring Contributor.
+<br/>&nbsp;&nbsp; ADS = [Azure Machine Learning Data Scientist](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist).<br/>
+&nbsp;&nbsp; ACO = [Azure Machine Learning Compute Operator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator).<br/>
+&nbsp;&nbsp; ACRPush = [Azure Container Registry Push](https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli#push-image).<br/>
+<br/>&nbsp;&nbsp; DOPA = [DevOps Project Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-administrators?view=azure-devops&tabs=preview-page).<br/>
+&nbsp;&nbsp; DOPCA = [DevOps Project Collection Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-collection-administrators?view=azure-devops).
+<br/>&nbsp;&nbsp; LAR = [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader). <br/>
+&nbsp;&nbsp; LAC = [Log Analytics Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor). <br/>
+<br/>&nbsp;&nbsp; MR = [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader). <br/>
+&nbsp;&nbsp; MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
 
 > [!IMPORTANT]
 > Once a model has been productionized using one or more [Azure AI Services](/azure/ai-services/) API’s, service specific [built-in roles](/azure/role-based-access-control/built-in-roles) should be implemented into that project.
