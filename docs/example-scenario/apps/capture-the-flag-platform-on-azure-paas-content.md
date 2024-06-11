@@ -1,4 +1,4 @@
-A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to run a capture-the-flag game service by using Azure PaaS and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
+A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to run a capture-the-flag game service by using Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
 
 ## Architecture
 
@@ -8,7 +8,7 @@ A Capture the Flag (CTF) event is a gamified exercise that you can use to test e
 
 ### Workflow
 
-This scenario describes an open-source capture-the-flag solution based on CTFd in which customers can provision and configure a game service.
+This scenario describes an open-source capture-the-flag solution based on CTFd in which customers can provision and configure a game service. The following workflow corresponds to the preceding diagram:
 
 1. A CTFd Docker image is pulled from Azure Container Registry and ready to serve customers.
 
@@ -34,7 +34,7 @@ The template supports the preceding configuration and a simpler configuration wi
 
 ### Components
 
-- [Azure App Service Web App for Containers](https://azure.microsoft.com/products/app-service/containers/) hosts containerized web applications allowing autoscale and high availability without managing infrastructure.
+- [Azure App Service Web App for Containers](https://azure.microsoft.com/products/app-service/containers/) hosts containerized web applications to enable autoscaling and high availability without the need to directly manage infrastructure.
 
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql/) is a cloud-based relational database service. This service is based on the [MySQL](https://www.mysql.com/) community edition database engine.
 
@@ -42,21 +42,25 @@ The template supports the preceding configuration and a simpler configuration wi
 
 - [Key Vault](https://azure.microsoft.com/products/key-vault/) provides secure credential and certificate management.
 
-- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/), an Azure Monitor Logs tool, can be used for diagnostic or logging information and for querying this data to sort, filter, or visualize it. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
+- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/) is an Azure Monitor Logs tool that you can use for information diagnostics, information logging, and to query this data to sort, filter, or visualize it. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 
-- [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides various networking capabilities in Azure, and the networks can peer with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MySQL](/azure/mysql/flexible-server/concepts-networking-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure all the data is flowing only through the Azure virtual network.
+- [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides diverse networking capabilities and allows the networks to peer with other virtual networks in Azure.
+
+Connections can also be established with on-premises datacenters through Azure ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MySQL](/azure/mysql/flexible-server/concepts-networking-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure that all the data flows only through the Azure virtual network.
 
 ### Alternatives
 
-- You can use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, that provisions the required services (web-application, cache, and database) into a single host machine, which isn't scalable or highly available.
+- You can use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, the Docker compose definition provisions the required web-application, cache, and database services into a single host machine, which isn't scalable or highly available.
 
-- You can provision the required services, as described in the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you're managing infrastructure as a service (IaaS).
+- You can provision the required services described in the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you're managing infrastructure as a service (IaaS).
 
 - You can use a [CTFd paid tier](https://ctfd.io/pricing/) and get the platform as a service, with added features, per the chosen plan.
 
 ## Scenario details
 
-Traditionally, [Capture the Flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) events are cybersecurity exercises in which “flags” are secretly hidden in a program or website, and competitors steal them from other competitors (attack/defense-style CTFs) or the organizers (Jeopardy-style challenges). However, you can teach and practice other engineering practices as CTF events. You might not always use the term *CTF*. For example, the Microsoft [OpenHack](https://github.com/microsoft/OpenHack) content packs are similar to what CTF is all about, and include topics such as AI-Powered Knowledge Mining, ML and DevOps, containers, Serverless, and Azure security.
+[Capture the flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) are cybersecurity exercises in which "flags" are hidden in a program or website. Competitors try to steal them from each other in an attack/defense-style CTFs, or from the organizers in Jeopardy-style challenges.
+
+However, you can teach and practice other engineering practices as CTF events. You might not always use the term *CTF*. For example, the Microsoft [OpenHack](https://github.com/microsoft/OpenHack) content packs are similar to what CTF is all about, and include topics such as AI-Powered Knowledge Mining, ML and DevOps, containers, Serverless, and Azure security.
 
 Open-source CTF frameworks make it easy to turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you would expect from CTF, such as using zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to do security training on.
 
@@ -70,13 +74,15 @@ This solution is optimized for the developer, DevOps, and cybersecurity communit
 
 Ultimately, any up-skilling, hack, or bug bash event can use this setup to run [CTFd](https://github.com/CTFd/CTFd) to manage and track challenge-based progress, team progress, or individual progress.
 
+You can use any up-skilling, hack, or bug bash event with this setup to run
+
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 - Review the security considerations in the appropriate [App Service web application reference architecture](/azure/architecture/web-apps/app-service/architectures/basic-web-app#security).
 
@@ -92,7 +98,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 - The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down as easily.
 
@@ -100,15 +106,15 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
 Azure Monitor integrates with Azure App Service to support logging from all web application instances to a single location. Azure Monitor diagnostics settings collect CTFd container logs and send them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
 
-Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/))
+Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - This solution requires at least the Basic tier, because lower tiers don't support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
 
@@ -120,9 +126,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the solution deployment files as [Bicep](/azure/azure-resource-manager/bicep/overview) infrastructure as code at [GitHub](https://github.com/Azure-Samples/ctfd-azure-paas).
+You can find the solution deployment files as [Bicep](/azure/azure-resource-manager/bicep/overview) infrastructure as code (IaC) at [GitHub](https://github.com/Azure-Samples/ctfd-azure-paas).
 
-The easiest way to deploy the solution to your subscription is to use the **Deploy to Azure** button in the **Quickstart** section of the repo's main README.
+The easiest way to deploy the solution to your subscription is to use the **Deploy to Azure** button in the **Quickstart** section of the repo's main README file.
 
 ## Contributors
 
