@@ -24,7 +24,6 @@ This solution uses the following components:
   - [VM](/azure/virtual-machines/) running [Ubuntu](https://azure.microsoft.com/ubuntu) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker) trains the machine learning model.
   - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) stores private data.
 
-
 ## Scenario details
 
 This scenario generates portable machine learning models from data that exists only on-premises. It uses a VM that runs on Azure Stack Hub. The VM is registered as a compute target in Machine Learning, which lets it access data that is only available on-premises. In this scenario, the data is stored in Blob Storage running in the on-premises environment of Azure Stack Hub.
@@ -73,18 +72,17 @@ To enable this solution to scale, you'll need to create an appropriately sized V
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
- - Ronmia Bess | Content Developer 2
+- Ronmia Bess | Content Developer 2
 
 Other contributors:
 
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 
 ## Next steps
 
@@ -93,7 +91,6 @@ Other contributors:
 - [Azure App Service and Azure Functions on Azure Stack Hub overview](/azure-stack/operator/azure-stack-app-service-overview) describes the resource provider and how to deploy it.
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) describes best practices and how to get your questions answered.
 - [Azure Stack documentation](/azure-stack) provides an overview of the entire portfolio of Azure Stack products and solutions.
-
 
 ## Related resources
 

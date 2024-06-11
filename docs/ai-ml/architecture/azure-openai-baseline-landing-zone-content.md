@@ -140,7 +140,7 @@ An organization might impose requirements on the workload team that mandates the
 
 The organization's governance might add more requirements for container base image maintenance and dependency package tracking than what the workload requirements indicate. Workload teams must ensure that the workload's runtime environment, the code deployed to it, and its operations align with these organizational standards.
 
-##### Alternate approach to hosting the prompt flow code
+### Alternate approach to hosting the prompt flow code
 
 Instead of hosting the prompt flow code in a Machine Learning runtime environment, you can host it in App Service. In this approach, egress traffic is controlled, when compared to Machine Learning compute's managed virtual network. The logic itself doesn't change but the App Service instances need internet access.
 
@@ -178,7 +178,7 @@ The ingress traffic flow remains the same as the [baseline architecture](./basel
 
 Your workload team is responsible for any resources that are related to public internet ingress into the workload. For example, in this architecture, Application Gateway and its public IP address are placed in the spoke network and not the hub network. Some organizations might place resources with ingress traffic in a connectivity subscription by using a centralized perimeter network (also known as DMZ, demilitarized zone, and screened subnet) implementation. Integration with that specific topology is out of scope for this article.
 
-##### Alternate approach to inspecting incoming traffic
+#### Alternate approach to inspecting incoming traffic
 
 This architecture doesn't use Azure Firewall to inspect incoming traffic. Sometimes organizational governance requires this approach. Platform teams support the implementation to provide workload teams an extra layer of intrusion detection and prevention to block unwanted inbound traffic. This architecture needs more UDR configurations to support this topology. For more information about this approach, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml).
 
@@ -472,7 +472,7 @@ A landing zone deployment for this reference architecture is available on GitHub
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors
+Principal authors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Azure patterns & practices - Microsoft
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Microsoft Cloud Solution Architect
