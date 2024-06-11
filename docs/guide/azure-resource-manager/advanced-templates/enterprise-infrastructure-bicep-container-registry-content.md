@@ -119,7 +119,7 @@ Finally, though you might not have an index of all repositories and the code wit
 
 Principal authors:
 
-* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Technical Specialist
 
 Other contributors:
 
