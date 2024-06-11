@@ -332,7 +332,7 @@ Other contributors:
 
 [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
 [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
-[Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/Active Directory Domain Services-overview
+[Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
 [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
 [Workload Cluster]: /azure/aks/hybrid/kubernetes-concepts#the-workload-cluster
 [Azure Arc]: /azure/azure-arc/overview
