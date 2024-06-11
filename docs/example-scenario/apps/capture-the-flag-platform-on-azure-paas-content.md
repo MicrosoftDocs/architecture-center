@@ -28,7 +28,7 @@ This scenario describes an open-source CTF solution based on CTFd in which custo
 
 ### Network configuration
 
-The template supports the preceding configuration and a simpler configuration without a virtual network that uses the *vnet* input parameter. The following diagram describes the solution for the latter situation. Step seven in the preceding workflow is omitted.
+The template supports the preceding configuration and a simpler configuration without a virtual network that uses the *vnet* input parameter. The following diagram describes the solution for the simpler configuration. Step seven in the preceding workflow is omitted.
 
 :::image type="content" source="/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png" alt-text="Diagram that shows the architecture overview of the Azure components involved in a CTFd system." lightbox="/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png":::
 
@@ -58,13 +58,13 @@ Connections can be established with on-premises datacenters through Azure Expres
 
 ## Scenario details
 
-[Capture the flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) is a cybersecurity exercise in which "flags" are hidden in a program or website. Competitors try to steal them from each other in an attack/defense-style CTFs, or from the organizers in Jeopardy-style challenges.
+[Capture the Flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) is a cybersecurity exercise in which "flags" are hidden in a program or website. Competitors try to steal them from each other in an Attack-Defense CTFs, or from the organizers in Jeopardy-style challenges.
 
-However, you can teach and practice other engineering practices as CTF events. You might not always use the term *CTF*. For example, the Microsoft [OpenHack](https://github.com/microsoft/OpenHack) content packs are similar to what CTF is all about, and include topics such as AI-Powered Knowledge Mining, ML and DevOps, containers, Serverless, and Azure security.
+You can teach and practice other engineering practices as CTF events but you might not always use the term *CTF*. For example, the Microsoft [OpenHack](https://github.com/microsoft/OpenHack) content packs are similar to CTF and its processes. OpenHack includes topics such as AI-powered knowledge mining, Machine Learning DevOps (MLOps), containers, serverless computing, and Azure security.
 
-Open-source CTF frameworks make it easy to turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you would expect from CTF, such as zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to complete security training.
+Open-source CTF frameworks can turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you would expect from CTF, such as zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to complete security training.
 
-One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. However, it typically costs less, you own the data, and you can integrate it with your organization’s network. Using a PaaS maintained by your cloud vendor provides free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
+One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. However, it typically costs less, you own the data, and you can integrate the environment with your organization’s network. Using a PaaS maintained by your cloud vendor provides free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
 
 This document can help you set up a self-hosted CTFd environment by using Azure PaaS, so that your CTF environment is easy to maintain and scalable to accommodate your participants.
 
