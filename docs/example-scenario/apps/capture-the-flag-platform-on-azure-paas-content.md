@@ -1,4 +1,4 @@
-A capture-the-flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to run a capture-the-flag game service by using Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
+A Capture-the-Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to run a CTF game service by using Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
 
 ## Architecture
 
@@ -8,11 +8,11 @@ A capture-the-flag (CTF) event is a gamified exercise that you can use to test e
 
 ### Workflow
 
-This scenario describes an open-source capture-the-flag solution based on CTFd in which customers can provision and configure a game service. The following workflow corresponds to the preceding diagram:
+This scenario describes an open-source CTF solution based on CTFd in which customers can provision and configure a game service. The following workflow corresponds to the preceding diagram:
 
 1. A CTFd Docker image is retrieved from Azure Container Registry and ready to serve customers.
 
-1. CTF administrators and participants navigate to the Capture-the-flag web application from any device.
+1. CTF administrators and participants navigate to the CTF web application from any device.
 
 1. The web application is provided by [CTFd](https://github.com/CTFd/CTFd) platform as a Docker container that runs on an Azure App Service Web App for Containers.
 
