@@ -5,7 +5,7 @@ metadata:
   description: Build a CTFd service with Azure PaaS so you can manage your games while Azure takes care of the infrastructure.
   author: balteravishay
   ms.author: avbalter
-  ms.date: 04/27/2023
+  ms.date: 06/11/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
