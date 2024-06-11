@@ -42,11 +42,11 @@ The template supports the preceding configuration and a simpler configuration wi
 
 - [Key Vault](https://azure.microsoft.com/products/key-vault/) provides secure credential and certificate management.
 
-- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/) is an Azure Monitor Logs tool that you can use for information diagnostics, information logging, and to query this data to sort, filter, or visualize. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
+- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/) is an Azure Monitor Logs tool that you can use for information diagnostics, information logging, and to use a query to sort, filter, or visualize this data. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 
 - [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides diverse networking capabilities and lets the networks peer with other virtual networks in Azure.
 
-Connections can also be established with on-premises datacenters through Azure ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MySQL](/azure/mysql/flexible-server/concepts-networking-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure that all the data flows only through the Azure virtual network.
+Connections can be established with on-premises datacenters through Azure ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MySQL](/azure/mysql/flexible-server/concepts-networking-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure that all the data flows only through the Azure virtual network.
 
 ### Alternatives
 
@@ -141,12 +141,12 @@ Principal author:
 ## Next steps
 
 - [App Service documentation](/azure/app-service)
+- [App Service overview](/azure/app-service/overview)
 - [App Service networking features](/azure/app-service/networking-features)
 - [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet)
 - [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
 - [Introduction to the App Service Environments](/azure/app-service/environment/intro)
 - [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource)
-- [App Service overview](/azure/app-service/overview)
 - [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
 - [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)
 
