@@ -96,26 +96,26 @@ An architect should evaluate how the Priority Queue pattern can be used in their
 
 As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
 
-## Example
+## Priority queues pattern example
 
-The example on [GitHub](priority-queues) demonstrates how Azure facilitates an implementation of the Priority Queue pattern.
+The following example on [GitHub](priority-queues) demonstrates the implementation of the Priority Queues pattern using Azure Service Bus.
 
 ![Diagram that shows how to implement a priority queue by using Service Bus](./_images/priority-queue-example.svg)<br>
 *Figure 4. Architecture of the PriorityQueue example on GitHub*
 
 Here's a overview of the architecture:
 
-- *Application (producer)*: The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`. `PriorityQueueSender` uses a time-triggered Azure function that posts messages to a Service Bus topic every 30 seconds.
+- *Application (producer)*: The example has an application (`PriorityQueueSender`) that creates messages and assigns a custom property called `Priority` in each message. `Priority` has a value of `High` or `Low`.
 
-- *Multiple queues*: The example uses Azure Service Bus as the message queue service. To implement multiple queues, it uses two Azure Service Bus queues, one for each message priority (`High` and `Low`). The application (producer) sends messages to the correct Azure Service Bus queue based on the message priority.
+- *Message broker and queues*: The example uses Azure Service Bus as the message broker. It uses two Azure Service Bus queues, one for each message priority (`High` and `Low`). The application (producer) sends messages to the correct queue based on the message `Priority`.
 
-- *Multiple consumer pools*: The example uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from the each of the queues. `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` are functions running on Azure App Service. They integrate with Azure Service Bus via triggers and bindings. You can configure how many instances the functions on Azure App Service can scale out to. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high-priority messages are read from the queue more quickly than low priority messages.
+- *Multiple consumer pools*: The example uses multiple consumer pools (`PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow`) dedicated to read messages from the each of the queues.
 
-| Role in architecture | Azure service | Name in example |
+| Role in example architecture | Azure service in example | Name in example |
 | --- | --- | --- |
 | Application | Azure Functions app | [PriorityQueueSender](app) |
-| Message queue broker | Azure Service Bus | <*service_bus_namespace*> |
-| Message queues | Azure Service Bus queues | <*queue_names*> |
+| Message queue broker | Azure Service Bus | <*your service bus namespace*> |
+| Message queues | Azure Service Bus queues | <*your queue names*> |
 | Consumers | Azure Functions app | [PriorityQueueConsumerHigh](high)<br>[PriorityQueueConsumerLow](low) |
 
 ## Related resources
