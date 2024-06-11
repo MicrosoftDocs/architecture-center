@@ -244,11 +244,11 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 Managing access to machine learning data and resources is crucial. Role-Based Access Control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas involved in the process. Each persona has a specific role and set of responsibilities that should be reflected in their RBAC roles and group membership.
 
-#### Example Personas
+#### Example personas
 
 This example considers the following Personas to inform the identity-based RBAC group design:
 
-##### 1 - Data Scientist/ML Engineer
+#### Example personas
 &nbsp;&nbsp; **Description** - The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
 <br/>&nbsp;&nbsp; **Type** - Person.<br/>
 &nbsp;&nbsp; **Project Specific** - Yes. 
