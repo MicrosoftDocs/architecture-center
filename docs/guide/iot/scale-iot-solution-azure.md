@@ -3,16 +3,16 @@ title: Scale out an Azure IoT solution to support millions of devices
 description: Learn how to scale out your Azure IoT solution to support millions of devices.
 author: MikeBazMSFT
 ms.author: micbaz
-ms.date: 04/18/2023
+ms.date: 06/17/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-iot
-  - azure-iot-hub
-  - azure-iot-sdk
+- azure-iot
+- azure-iot-hub
+- azure-iot-sdk
 categories:
-  - iot
+- iot
 ---
 
 # Scale out an Azure IoT solution to support millions of devices
