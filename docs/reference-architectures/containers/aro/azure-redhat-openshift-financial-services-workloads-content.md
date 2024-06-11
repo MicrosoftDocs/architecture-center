@@ -89,7 +89,7 @@ Security is paramount in the financial industry, requiring stringent measures to
 
 #### Authentication and authorization
 
-- *Identity and access management*: Deploy ARO clusters with managed Azure AD integration for centralized identity management. Use Microsoft Entra ID for this purpose. Learn more at the [Configure ARO to use Microsoft Entra ID Group Claims](https://cloud.redhat.com/experts/idp/group-claims/aro/) documentation.
+- *Identity and access management*: Use Microsoft Entra ID for centralized identity management of ARO clusters. For more information, see [Configure ARO to use Microsoft Entra ID Group Claims](https://cloud.redhat.com/experts/idp/group-claims/aro/).
 
 - *Role-based access control (RBAC)*: Implement RBAC in ARO to provide granular authorization of user actions and access levels. Use RBAC in FSI scenarios to ensure least privilege access to the cloud environment. For more information, see [Managing Role-based Access Control (RBAC)](https://docs.openshift.com/aro/3/admin_guide/manage_rbac.html) documentation.
 
