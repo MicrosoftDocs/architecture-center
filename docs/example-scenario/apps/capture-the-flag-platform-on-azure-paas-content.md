@@ -64,7 +64,7 @@ However, you can teach and practice other engineering practices as CTF events. Y
 
 Open-source CTF frameworks make it easy to turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you would expect from CTF, such as zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to complete security training.
 
-One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. However, it typically costs less, you own the data, and you can integrate it with your organization’s network. Using PaaS maintained by your cloud vendor provides free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
+One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. However, it typically costs less, you own the data, and you can integrate it with your organization’s network. Using a PaaS maintained by your cloud vendor provides free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
 
 This document can help you set up a self-hosted CTFd environment by using Azure PaaS, so that your CTF environment is easy to maintain and scalable to accommodate your participants.
 
@@ -118,7 +118,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - The CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
 
-- For more information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/web-apps/app-service/architectures/basic-web-app#scaling-the-app-service-app).
+- For more information about how to scale a basic web app, see [Scaling the App Service app](/azure/architecture/web-apps/app-service/architectures/basic-web-app#scaling-the-app-service-app).
 
 - You can [scale up](/azure/mysql/flexible-server/concepts-service-tiers-storage) Azure Database for MySQL to meet higher demands. You can dynamically change the number vCores and the amount of storage that is right for your target workload.
 
