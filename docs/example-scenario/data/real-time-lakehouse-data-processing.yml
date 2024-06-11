@@ -5,7 +5,7 @@ metadata:
   description: Use Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage to create an end-to-end, near real-time data lakehouse data processing solution.
   author: pratimav0420
   ms.author: prvalava
-  ms.date: 01/17/2023
+  ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

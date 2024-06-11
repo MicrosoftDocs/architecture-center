@@ -84,7 +84,7 @@ This solution uses the following components:
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) automatically builds and tests code projects. This [Azure DevOps](https://azure.microsoft.com/services/devops/) service combines continuous integration (CI) and continuous delivery (CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) automatically builds and tests code projects. This [Azure DevOps](https://azure.microsoft.com/services/devops/) service combines continuous integration and continuous delivery (CI/CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
 
 - [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
 

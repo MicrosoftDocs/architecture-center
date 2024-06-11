@@ -1,8 +1,8 @@
 ---
 title: Monitor Azure Databricks
 description: Learn how to extend the core monitoring functionality of Azure Databricks to send Apache Spark metrics, events, and logging information to Azure Monitor.
-author: martinekuan
-ms.author: martinek
+author: mssaperla
+ms.author: saperla
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -44,6 +44,6 @@ Start by building the code library and deploying it to your Azure Databricks clu
 ## Related resources
 
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
-- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+- [Ingestion, ETL (extract, transform, load), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Orchestrate MLOps by using Azure Databricks](../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)

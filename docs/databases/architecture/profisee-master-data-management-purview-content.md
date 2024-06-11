@@ -40,7 +40,7 @@ Metadata and data flow include these steps, which are shown in the preceding fig
 
 - [Profisee MDM](https://profisee.com/platform) is a fast and intuitive MDM platform that integrates seamlessly with Microsoft technologies and the Azure data management ecosystem.
 
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service. You can use Data Factory to create, schedule, and orchestrate extract, transform, and load (ETL) and extract, load, and transform (ELT) workflows. Data Factory also offers more than 100 pre-built connectors and a REST gateway that you can use to extract data from source systems.
+- [Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service. You can use Data Factory to create, schedule, and orchestrate extract, transform, load (ETL) and extract, load, transform (ELT) workflows. Data Factory also offers more than 100 pre-built connectors and a REST gateway that you can use to extract data from source systems.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast, flexible, and trusted cloud data warehouse that uses a massive parallel processing architecture. You can use Azure Synapse Analytics to scale, compute, and store data elastically and independently.
 
@@ -249,7 +249,7 @@ Profisee runs natively on Azure Kubernetes Service (AKS) and Azure SQL Database.
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Profisee authenticates users by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee MDM to authenticate users against Microsoft Entra ID, which ensures that you can apply and enforce your enterprise policies for authentication.
+Profisee authenticates users by using OpenID Connect, which implements an Open Authorization (OAuth) 2.0 authentication flow. Most organizations configure Profisee MDM to authenticate users against Microsoft Entra ID, which ensures that you can apply and enforce your enterprise policies for authentication.
 
 ### Cost optimization
 
@@ -269,7 +269,7 @@ For detailed information about how to deploy Profisee and Microsoft Purview on A
 
 ## Deploy this scenario
 
-Profisee MDM is a packaged Kubernetes service. You can deploy Profisee MDM as a [PaaS in your Azure tenant](/azure/purview/how-to-deploy-profisee-purview-integration), in any other cloud tenant, or on-premises. You can also deploy Profisee MDM as a [SaaS that Profisee hosts and manages](https://profisee.com/our-technology/modern-cloud-architecture).
+Profisee MDM is a packaged Kubernetes service. You can deploy Profisee MDM as a [platform as a service (PaaS) in your Azure tenant](/azure/purview/how-to-deploy-profisee-purview-integration), in any other cloud tenant, or on-premises. You can also deploy Profisee MDM as a [SaaS that Profisee hosts and manages](https://profisee.com/our-technology/modern-cloud-architecture).
 
 ## Contributors
 
@@ -292,7 +292,7 @@ Principal author:
 
 Architecture guides:
 
-- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
+- [Extract, transform, load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Choose a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 
 Reference architectures:

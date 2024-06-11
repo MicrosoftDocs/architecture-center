@@ -2,7 +2,7 @@
 metadata:
   title: E-commerce front end
   titleSuffix: Azure Architecture Center
-  description: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
+  description: This example scenario implements an e-commerce front end using Azure platform-as-a-service tools, which allow you to handle increases in transactions.
   author: chrismason
   ms.author: chmason
   ms.date: 07/11/2022
@@ -19,7 +19,7 @@ metadata:
 name: E-commerce front end
 azureCategories:
   - web
-summary: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
+summary: This example scenario implements an e-commerce front end using Azure platform-as-a-service tools, which allow you to handle increases in transactions.
 products:
   - entra-external-id
   - azure-cdn

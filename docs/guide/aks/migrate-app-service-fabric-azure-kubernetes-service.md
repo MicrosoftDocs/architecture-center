@@ -3,7 +3,7 @@ title: Migrate a simple app from Service Fabric to AKS
 description: Use an example to guide the migration of your application from Azure Service Fabric to Azure Kubernetes Service.
 author: allyford
 ms.author: allyford
-ms.date: 04/18/2023
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

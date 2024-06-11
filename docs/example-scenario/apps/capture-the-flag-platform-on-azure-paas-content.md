@@ -102,7 +102,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Azure Monitor integrates with Azure App Service to support logging from all web application instances to a single location. Azure Monitor diagnostics settings collect CTFd container logs and send them to a Log Analytics workspace. From there, you can use the [Kusto query language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
+Azure Monitor integrates with Azure App Service to support logging from all web application instances to a single location. Azure Monitor diagnostics settings collect CTFd container logs and send them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
 
 Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/))
 
@@ -120,7 +120,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the solution deployment files as [Bicep](/azure/azure-resource-manager/bicep/overview) Infrastructure-as-Code at [GitHub](https://github.com/Azure-Samples/ctfd-azure-paas).
+You can find the solution deployment files as [Bicep](/azure/azure-resource-manager/bicep/overview) infrastructure as code at [GitHub](https://github.com/Azure-Samples/ctfd-azure-paas).
 
 The easiest way to deploy the solution to your subscription is to use the **Deploy to Azure** button in the **Quickstart** section of the repo's main README.
 

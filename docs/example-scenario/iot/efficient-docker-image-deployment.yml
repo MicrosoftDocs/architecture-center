@@ -5,7 +5,7 @@ metadata:
   description: See an example solution for reliable and resilient Docker image deployment over limited, intermittent, or low bandwidth.
   author: gled4er
   ms.author: kadimitr
-  ms.date: 03/21/2023
+  ms.date: 06/07/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

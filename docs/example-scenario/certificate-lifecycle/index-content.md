@@ -186,7 +186,7 @@ On the key vault containing the certificates, the Automation account identity mu
 
 On the storage account queue, the Automation account identity must have the `Storage Queue Data Contributor`, `Reader and Data Access`, and `Reader` roles.
 
-In scenarios where the Key Vault extension deploys on an Azure VM, the authentication occurs via the managed identity Identity of the VM. However, when deployed on an Azure Arc-enabled server, authentication is handled using a service principal. Both the managed identity and service principal must be assigned the key vault secret user role within the key vault that stores the certificate. You must use a secret role because the certificate is stored in the key vault as a secret.
+In scenarios where the Key Vault extension deploys on an Azure VM, the authentication occurs via the managed identity of the VM. However, when deployed on an Azure Arc-enabled server, authentication is handled using a service principal. Both the managed identity and service principal must be assigned the key vault secret user role within the key vault that stores the certificate. You must use a secret role because the certificate is stored in the key vault as a secret.
 
 ### Cost optimization
 
@@ -222,9 +222,9 @@ Detailed information about the parameters needed for the deployment can be found
 
 > [!IMPORTANT]
 > > You can deploy a full lab environment to demonstrate the entire automatic certificate renewal workflow. Use the [code sample](/samples/azure/certlc/certlc/) to deploy the following resources:
-> > - **Active Directory Domain Services** (AD DS) within a domain controller VM.
-> > - **Active Directory Certificate Services** (AD CS) within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
-> > - A **Windows SMTP server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
+> > - **Active Directory Domain Services (AD DS)** within a domain controller VM.
+> > - **Active Directory Certificate Services (AD CS)** within a CA VM, joined to the domain, configured with a template, *WebServerShort*, for enrolling the certificates to renew.
+> > - A **Windows Simple Mail Transfer Protocol (SMTP) server** installed on the same VM of the CA for sending email notifications. MailViewer also installs to verify the email notifications sent.
 > > - The **Key Vault extension** installed on the VM of the domain controller for retrieving the renewed certificates from the Key Vault extension.
 > >
 > > [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fcertlc%2Fmain%2F.armtemplate%2Ffulllabdeploy.json)

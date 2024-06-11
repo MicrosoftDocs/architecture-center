@@ -3,7 +3,7 @@ title: Build a private 5G network
 description: Find out how operators can build private 5G networks for their enterprise customers by using Azure services. 
 author: rickliev 
 ms.author: rickliev
-ms.date: 11/04/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

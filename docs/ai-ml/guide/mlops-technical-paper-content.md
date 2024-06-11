@@ -101,7 +101,7 @@ The machine learning lifecycle, also known as the data science lifecycle, fits r
 
 *Deploy Model* here can represent any operational use of the validated machine learning model. Compared to DevOps, MLOps presents the additional challenge of integrating the machine learning lifecycle into the typical CI/CD process.
 
-The [data science lifecycle](/azure/machine-learning/team-data-science-process/overview#data-science-lifecycle) doesn't follow the typical software development lifecycle. It includes the use of Azure Machine Learning to train and score the models, so these steps had to be included in the CI/CD automation.
+The [data science lifecycle](/azure/machine-learning/team-data-science-process/overview#data-science-lifecycle) doesn't follow the typical software development life cycle. It includes the use of Azure Machine Learning to train and score the models, so these steps had to be included in the CI/CD automation.
 
 Batch processing of data is the basis of the architecture. Two Azure Machine Learning pipelines are central to the process, one for training and the other for scoring. This diagram shows the data science methodology that was used for the initial phase of the client project:
 
