@@ -178,7 +178,7 @@ The ingress traffic flow remains the same as the [baseline architecture](./basel
 
 Your workload team is responsible for any resources that are related to public internet ingress into the workload. For example, in this architecture, Application Gateway and its public IP address are placed in the spoke network and not the hub network. Some organizations might place resources with ingress traffic in a connectivity subscription by using a centralized perimeter network (also known as DMZ, demilitarized zone, and screened subnet) implementation. Integration with that specific topology is out of scope for this article.
 
-### Alternate approach to inspecting incoming traffic
+#### Alternate approach to inspecting incoming traffic
 
 This architecture doesn't use Azure Firewall to inspect incoming traffic. Sometimes organizational governance requires this approach. Platform teams support the implementation to provide workload teams an extra layer of intrusion detection and prevention to block unwanted inbound traffic. This architecture needs more UDR configurations to support this topology. For more information about this approach, see [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml).
 
