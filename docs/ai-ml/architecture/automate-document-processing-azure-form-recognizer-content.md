@@ -20,10 +20,10 @@ The following sections describe the various stages of the data extraction proces
    - [Invoice][Form Recognizer invoice model]
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
-   - [Business card][Form Recognizer business card model]
    - [General document][Form Recognizer general document model (preview)]
+   - [US tax document models][https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-tax-document?view=doc-intel-4.0.0]
 
-   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions. Azure AI Document Intelligence also assigns [confidence values][Characteristics and limitations of Form Recognizer - Customer evaluation] to the extracted data.
+   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions.
 
 1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
