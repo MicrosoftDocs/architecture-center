@@ -242,11 +242,7 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 ### Persona-based RBAC
 
-When designing solutions using  Azure Machine Learning, managing access to resources is crucial. Role-Based Access Control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within an Azure workspace.
-
-When managing the lifecycle of machine learning models in Azure Machine Learning, it's important to consider the personas involved in the process. Each persona has a specific role and set of responsibilities.
-
-This section aims to outline an exmaple of how to map personas to roles in Azure Machine Learning. The roles are based on the personas involved in the MLOps v2 lifecycle.
+Managing access to machine learning data and resources is crucial. Role-Based Access Control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas involved in the process. Each persona has a specific role and set of responsibilities that should be reflected in their RBAC roles and group membership.
 
 #### Example Personas
 
