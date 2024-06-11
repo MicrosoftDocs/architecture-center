@@ -1,4 +1,4 @@
-A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to run a capture-the-flag game service by using Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
+A capture-the-flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to run a capture-the-flag game service by using Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ A Capture the Flag (CTF) event is a gamified exercise that you can use to test e
 
 This scenario describes an open-source capture-the-flag solution based on CTFd in which customers can provision and configure a game service. The following workflow corresponds to the preceding diagram:
 
-1. A CTFd Docker image is pulled from Azure Container Registry and ready to serve customers.
+1. A CTFd Docker image is retrieved from Azure Container Registry and ready to serve customers.
 
 1. CTF administrators and participants navigate to the Capture-the-flag web application from any device.
 
@@ -18,7 +18,7 @@ This scenario describes an open-source capture-the-flag solution based on CTFd i
 
 1. The CTFd data is maintained in an Azure Database for MySQL that includes users, challenges, flags, and game plays.
 
-1. The state, user sessions, and other CTFd values are held in Azure Cache for Redis. This configuration makes it suitable for supporting scaling out to multiple CTFd instances.
+1. The state, user sessions, and other CTFd values are held in Azure Cache for Redis. This configuration enables support for scaling out to multiple CTFd instances.
 
 1. The keys for both the database and cache are maintained in Azure Key Vault. Access to the secrets is granted only to the web application.
 
@@ -28,7 +28,7 @@ This scenario describes an open-source capture-the-flag solution based on CTFd i
 
 ### Network configuration
 
-The template supports the preceding configuration and a simpler configuration without a virtual network that uses the *vnet* input parameter. In the latter case, the following diagram describes the solution, and step seven in the preceding workflow is omitted.
+The template supports the preceding configuration and a simpler configuration without a virtual network that uses the *vnet* input parameter. The following diagram describes the solution for the latter situation. Step seven in the preceding workflow is omitted.
 
 :::image type="content" source="/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png" alt-text="Diagram that shows the architecture overview of the Azure components involved in a CTFd system." lightbox="/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png":::
 
@@ -42,29 +42,29 @@ The template supports the preceding configuration and a simpler configuration wi
 
 - [Key Vault](https://azure.microsoft.com/products/key-vault/) provides secure credential and certificate management.
 
-- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/) is an Azure Monitor Logs tool that you can use for information diagnostics, information logging, and to query this data to sort, filter, or visualize it. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
+- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/) is an Azure Monitor Logs tool that you can use for information diagnostics, information logging, and to query this data to sort, filter, or visualize. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 
-- [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides diverse networking capabilities and allows the networks to peer with other virtual networks in Azure.
+- [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides diverse networking capabilities and lets the networks peer with other virtual networks in Azure.
 
 Connections can also be established with on-premises datacenters through Azure ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MySQL](/azure/mysql/flexible-server/concepts-networking-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure that all the data flows only through the Azure virtual network.
 
 ### Alternatives
 
-- You can use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, the Docker compose definition provisions the required web-application, cache, and database services into a single host machine, which isn't scalable or highly available.
+- You can use the Docker Compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, the Docker Compose definition provisions the required web-application, cache, and database services into a single host machine, which isn't scalable or highly available.
 
-- You can provision the required services described in the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you're managing infrastructure as a service (IaaS).
+- You can provision the required services described in the Docker Compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you have to manage infrastructure as a service (IaaS).
 
-- You can use a [CTFd paid tier](https://ctfd.io/pricing/) and get the platform as a service, with added features, per the chosen plan.
+- You can use a [CTFd paid tier](https://ctfd.io/pricing/) and get the PaaS with added features, in accordance with the chosen plan.
 
 ## Scenario details
 
-[Capture the flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) are cybersecurity exercises in which "flags" are hidden in a program or website. Competitors try to steal them from each other in an attack/defense-style CTFs, or from the organizers in Jeopardy-style challenges.
+[Capture the flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) is a cybersecurity exercise in which "flags" are hidden in a program or website. Competitors try to steal them from each other in an attack/defense-style CTFs, or from the organizers in Jeopardy-style challenges.
 
 However, you can teach and practice other engineering practices as CTF events. You might not always use the term *CTF*. For example, the Microsoft [OpenHack](https://github.com/microsoft/OpenHack) content packs are similar to what CTF is all about, and include topics such as AI-Powered Knowledge Mining, ML and DevOps, containers, Serverless, and Azure security.
 
-Open-source CTF frameworks make it easy to turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you would expect from CTF, such as using zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to do security training on.
+Open-source CTF frameworks make it easy to turn any challenge into a CTF event with configurable challenge pages, leader boards, and other features that you would expect from CTF, such as zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms that you can provision and run for your teams to complete security training.
 
-One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). It's easy to use and customize, and it's built with open-source components. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or you can deploy and maintain your own environment. Managing an environment has cost and maintenance implications. However, it typically costs less, you own the data, and you can integrate it with your organization’s network if necessary. Using PaaS maintained by your cloud vendor provides free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
+One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). CTFd is built with open-source components and is easy to use and customize. You can choose from several [plans for managed hosting and features](https://ctfd.io/pricing/), or deploy and maintain your own environment. Managing an environment has cost and maintenance implications. However, it typically costs less, you own the data, and you can integrate it with your organization’s network. Using PaaS maintained by your cloud vendor provides free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
 
 This document can help you set up a self-hosted CTFd environment by using Azure PaaS, so that your CTF environment is easy to maintain and scalable to accommodate your participants.
 
@@ -72,9 +72,7 @@ This document can help you set up a self-hosted CTFd environment by using Azure 
 
 This solution is optimized for the developer, DevOps, and cybersecurity communities, and for teams that want to run a CTF event.
 
-Ultimately, any up-skilling, hack, or bug bash event can use this setup to run [CTFd](https://github.com/CTFd/CTFd) to manage and track challenge-based progress, team progress, or individual progress.
-
-You can use any up-skilling, hack, or bug bash event with this setup to run
+You can use any up-skilling, hack, or bug bash event with this setup to run [CTFd](https://github.com/CTFd/CTFd) to manage and track challenge-based progress, team progress, or individual progress.
 
 ## Considerations
 
@@ -100,7 +98,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
-- The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down as easily.
+- The CTFd environment is ephemeral. You can easily deploy and then dismantle the environment with the required resources for the event.
 
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/e283b19ecaeb4fa5a428c56ede9d9bd3).
 
@@ -108,7 +106,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist).
 
-Azure Monitor integrates with Azure App Service to support logging from all web application instances to a single location. Azure Monitor diagnostics settings collect CTFd container logs and send them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
+Azure Monitor integrates with Azure App Service to support logging from all web application instances to a single location. Azure Monitor diagnostics settings collect CTFd container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
 
 Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
