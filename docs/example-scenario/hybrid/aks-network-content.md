@@ -326,6 +326,10 @@ Other contributors:
 
 - [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
 
+## Related resources
+
+- [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
+
 [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
 [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
 [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/Active Directory Domain Services-overview
@@ -357,7 +361,3 @@ Other contributors:
 [manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
 [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
-
-## Related resources
-
-- [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
