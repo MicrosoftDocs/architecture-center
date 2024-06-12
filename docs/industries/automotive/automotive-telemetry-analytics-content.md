@@ -10,13 +10,13 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ### Dataflow
 
-1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. The device publishes live vehicle signal messages (**1b**) or requests upload of recorded data files (**1b**) using an MQTT client to Azure Event Grid's MQTT broker functionality.
+1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. The device publishes live vehicle signal messages (**1a**) or requests upload of recorded data files (**1b**) using an MQTT client to Azure Event Grid's MQTT broker functionality using a claims-check pattern.
 
 1. Event Grid routes live vehicle signal data (**2a**) to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an Event Stream.
 
    Event Grid orchestrates file upload with the device client(**2b**) to OneLake or Azure Blob Storage. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format suitable for ingestion, such as parquet or CSV.
 
-1. The Event stream routs the decoded JSON vehicle signals for ingestion in Eventhouse (**3a**).
+1. The Event stream routes the decoded JSON vehicle signals for ingestion in Eventhouse (**3a**).
 
     A data pipeline triggers ingestion of decoded files from Lakehouse (**3b**).
 
