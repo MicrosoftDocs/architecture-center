@@ -378,6 +378,10 @@ All personas have an acess period for the life of the project except for the Pla
 - KVA = [Key Vault Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-administrator).
 - KVR = [Key Vault Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-reader).
 
+A persona-based RBAC approach can also leverage [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
+
+RBAC plays a vital role in securing and streamlining MLOps workflows. By restricting access based on assigned roles, it mitigates security risks by preventing unauthorized users from accessing sensitive data (training data, models) and critical infrastructure (production pipelines). This not only safeguards against unauthorized activity but also ensures compliance with data privacy regulation while simplifying auditing by providing a clear record of access and permissions thereby making it easier to identify security gaps and track user activity.
+
 ### Package management
 
 When developing machine learning models there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use.
