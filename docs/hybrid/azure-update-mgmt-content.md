@@ -235,7 +235,7 @@ Manage software updates by using:
 - Endpoint Configuration Manager
 - Azure Automation
 
-Partner updates on Windows machines can be deployed from a custom repository that [System Center Updates Publisher][27] (SCUP) provides. SCUP can import custom updates either in standalone WSUS or integrated with Endpoint Configuration Manager.
+Partner updates on Windows machines can be deployed from a custom repository that [System Center Updates Publisher (SCUP)][27] provides. SCUP can import custom updates either in standalone WSUS or integrated with Endpoint Configuration Manager.
 
 For more information, refer to [Integrate Update Management with Windows Endpoint Configuration Manager][28].
 
