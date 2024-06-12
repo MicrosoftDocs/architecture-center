@@ -1,6 +1,6 @@
 This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [`AKS Baseline` architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for Azure Kubernetes Service (AKS) infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
@@ -35,7 +35,7 @@ This request flow implements the [Publisher-Subscriber](../../../patterns/publis
 
 This architecture uses the following Azure components:
 
-**[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
+[Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)** is an Azure offering that provides a managed Kubernetes cluster. When using AKS, the Kubernetes API server is managed by Azure. The Kubernetes nodes or node pools are accessible and can be managed by the cluster operator.
 
 The AKS infrastructure features used in this architecture include:
 
