@@ -384,7 +384,7 @@ RBAC plays a vital role in securing and streamlining MLOps workflows. By restric
 
 ### Package management
 
-When developing machine learning models there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use. This gives rise to the problem of needing to access many different assets (i.e. packages, libraries, and binaries) securely and free from vulnerabilities.
+Throughout the MLOps lifecycle there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use. This gives rise to the problem of needing to access many different assets (i.e. packages, libraries, and binaries) securely and free from vulnerabilities.
 
 In the machine learning lifecycle this can introduce many challenges, such as:
 - Data scientists often require large numbers of highly specialized packages, libraries or binaries as “building blocks” for ML solutions.
@@ -408,7 +408,7 @@ The above process flow provides a secure, self-serve, package management process
 
 ### Monitoring
 
-Model monitoring is a key consideration in the end-to-end lifecycle of machine learning systems. Unlike traditional software, where behavior is governed by fixed rules, machine learning models learn from data hence their performance can degrade over time. Therefore, when monitoring the performance of a models in production it is essential to monitor data-related aspects in addition to traditional software-based metrics.
+Model monitoring is a key consideration in the end-to-end lifecycle of machine learning systems. Unlike traditional software, where behavior is governed by fixed rules, machine learning models learn from data hence their performance can degrade over time. Therefore, when monitoring the performance of a models in production it is essential to monitor data-related aspects in addition to traditional software-based metrics. Monitoring activities are relevent for personas such as Data Scientists, Business Stakeholders, Project Leads, Project Owners, Platform Technical Support, CI/CD processes, and Monitoring Processes.
 
 The suggested MVP monitoring for the [current architectures](#current-architectures) in MLOps V2 is:
 
