@@ -35,7 +35,7 @@ We can generally divide Azure storage into two general categories (unofficial cl
 
 ![Diagram that explains data store classifications in Azure.](../images/AzureStorageOptions.png)
 
-Databases in Azure can be divided into two different groups: **Analytics databases/datastores** and **transactional databases/datastores**.
+For cases when you need [ACID](/windows/win32/cossdk/acid-properties) capabilities you would use databases. Databases in Azure can be divided into two different groups: **Analytics databases/datastores** and **transactional databases/datastores**.
 
 **Azure analytical databases/datastores (including OLAP workloads – Online Analytical Processing)** are specialized services designed to store, manage, and analyze large volumes of data. They provide the infrastructure for data warehousing, big data analytics, and real-time analytics. These workloads are optimized for reading large amounts of data and often involve columnar storage. If you're looking to perform analytics with your workloads see [Analytical Data Stores](../technology-choices/analytical-data-stores.md).
 
