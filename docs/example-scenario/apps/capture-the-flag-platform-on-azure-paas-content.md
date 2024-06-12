@@ -157,5 +157,5 @@ Principal author:
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 - [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
-- [Reliability patterns](../../framework/resiliency/reliability-patterns.yml)
-- [Performance Efficiency patterns](../framework/scalability/performance-efficiency-patterns.yml)
+- [Reliability patterns](../reliability/design-patterns.md)
+- [Performance Efficiency patterns](../../performance-efficiency/design-patterns.md)
