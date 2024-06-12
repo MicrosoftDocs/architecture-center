@@ -43,7 +43,7 @@ Any migration strategy should allow teams to incrementally refactor the applicat
 
 To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD).
 
-Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
+Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD is opposes the idea of having a single unified model for the entire system; instead it encourages dividing the system into bounded contexts, each of which have their own model. DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
 
 The DDD approach can be applied retroactively to an existing application, as a way to begin decomposing the application.
 
@@ -53,7 +53,7 @@ The DDD approach can be applied retroactively to an existing application, as a w
 
 1. Define the domain models of the monolithic application. The domain model is an abstract model of the business domain.
 
-1. Define *bounded contexts* for the models. A bounded context is the boundary within a domain where a particular domain model applies. Apply explicit boundaries with clearly defined models and responsibilities.
+1. Define *bounded contexts* for the models. A bounded context is the boundary within a domain where a particular domain model applies. Apply explicit boundaries with clearly defined models and responsibilities. Each microservice should have its own bounded context.
 
 The bounded contexts identified in step 4 are candidates for refactoring into smaller microservices. The following diagram shows the existing monolith with the bounded contexts overlaid:
 
