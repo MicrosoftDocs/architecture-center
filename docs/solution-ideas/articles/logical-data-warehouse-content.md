@@ -82,6 +82,7 @@ This pattern is useful for the following cases:
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Sr. Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

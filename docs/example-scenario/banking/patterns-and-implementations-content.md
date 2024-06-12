@@ -36,7 +36,7 @@ The traditional *atomicity, consistency, isolation, and durability (ACID)* prope
 
 ### KEDA architecture
 
-![EFT-Processor Autoscaling with KEDA Kafka topic trigger](./images/eft-processor-autoscaling-keda-kafka-trigger.png)
+![EFT-Processor Autoscaling with Kubernetes Event-driven Autoscaling (KEDA) Kafka topic trigger](./images/eft-processor-autoscaling-keda-kafka-trigger.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/eft-processor-autoscaling-keda-kafka-trigger.vsdx) of this architecture.*
 

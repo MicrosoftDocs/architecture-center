@@ -21,7 +21,7 @@ The following sections describe the various stages of the data extraction proces
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
    - [Business card][Form Recognizer business card model]
-   - [General document][Form Recognizer general document model (preview)], which is in preview
+   - [General document][Form Recognizer general document model (preview)]
 
    The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions. Azure AI Document Intelligence also assigns [confidence values][Characteristics and limitations of Form Recognizer - Customer evaluation] to the extracted data.
 
@@ -189,7 +189,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
+- Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Worldwide Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
 - To improve App Service security, consider these options:
 

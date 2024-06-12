@@ -216,4 +216,3 @@ Before continuing, consider reviewing these related articles:
 
 - [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md)
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml)
-- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml)

@@ -1,9 +1,9 @@
 ---
 title: Send Databricks app logs to Azure Monitor
 description: Learn how to send application logs and metrics from Azure Databricks to a Log Analytics workspace using the Azure Databricks Monitoring Library.
-author: martinekuan
+author: mssaperla
+ms.author: saperla
 categories: azure
-ms.author: martinek
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -124,7 +124,7 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
 > [!NOTE]
 > If you're using the library and you have Apache Spark Notebooks, any logs that Spark generates during execution for the notebook automatically go to Log Analytics.
 >
-> There is a limitation for Python to support custom logging messages using the Spark configured Log4j. Logs can only be sent from the driver node because executor nodes don't have access to the Java Virtual Machine from Python.
+> There is a limitation for Python to support custom logging messages using the Spark configured Log4j. Logs can only be sent from the driver node because executor nodes don't have access to the Java virtual machine from Python.
 
 ## Run the sample application
 
@@ -171,7 +171,7 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 - [Monitoring Azure Databricks](index.md)
 - [Troubleshoot performance bottlenecks in Azure Databricks](performance-troubleshooting.md)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
-- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+- [Ingestion, ETL (extract, transform, load), and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 <!-- links -->
 

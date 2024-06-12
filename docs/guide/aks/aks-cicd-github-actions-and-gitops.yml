@@ -3,8 +3,8 @@ metadata:
   title: CI/CD for AKS apps with GitHub Actions and GitFlow
   titleSuffix: Azure Example Scenarios
   description: Learn how to build and deploy container applications using Azure Kubernetes Service, DevOps, and GitOps.
-  author: iainfoulds
-  ms.author: pnp
+  author: Buchatech
+  ms.author: stebuchanan
   ms.date: 10/03/2022
   ms.topic: conceptual
   ms.service: architecture-center

@@ -10,8 +10,8 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 The term serverless has two distinct but related meanings:
 
-- **Backend as a service** (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
-- **Functions as a service** (FaaS). In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
+- **Backend as a service (BaaS)**. Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
+- **Functions as a service (FaaS)**. In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
 
 Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:
 
@@ -27,7 +27,7 @@ The architecture consists of the following components:
 
 **Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There's no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
 
-**CDN**. Use [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) (CDN) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
+**Content Delivery Network**. Use [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
 
 **Function Apps**. [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
 
@@ -45,7 +45,7 @@ If you don't need all of the functionality provided by API Management, another o
 
 **Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client.
 
-**Microsoft Entra ID** (Microsoft Entra ID). Users sign into the web application by using their [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
+**Microsoft Entra ID**. Users sign into the web application by using their [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
 
 **Azure Monitor**. [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. It also collected application logs.
 
@@ -314,7 +314,7 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 Product documentation:
 
 - [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
-- [Azure Content Delivery Network](/azure/cdn/cdn-overview) (CDN)
+- [Azure Content Delivery Network](/azure/cdn/cdn-overview)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [About API Management][apim] 
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)

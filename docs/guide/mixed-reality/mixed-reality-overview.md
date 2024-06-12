@@ -2,8 +2,8 @@
 title: Microsoft mixed reality architecture overview
 titleSuffix: Azure Architecture Center
 description: See an overview of Microsoft mixed-reality concepts, training, best practices, architectures, and Azure services.
-author: martinekuan
-ms.author: martinek
+author: Varnauld
+ms.author: vanesa
 ms.date: 08/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
