@@ -4,7 +4,7 @@ An N-tier architecture divides an application into **logical layers** and **phys
 
 Layers are a way to separate responsibilities and manage dependencies. Each layer has a specific responsibility. A higher layer can use services in a lower layer, but not the other way around.
 
-Tiers are physically separated, running on separate machines and can be either strict or relaxed: in the strict way, a request must go through adjacent tiers, one by one, and can't skip any tier in between. For example, from WAF to Web tier then to Middle Tier 1. In contrast, in the relaxed approach, the request can skip some tiers if it's necessary. The strict approach has more latency and overhead, and the relaxed approach has more couplings and subsequently it's more difficult to change. A system can use a hybrid approach: having both relaxed and strict tiers where necessary.
+Tiers are physically separated, running on separate machines. Contractually, the tier can have their communication models be strict or relaxed. In the strict model, a request must go through adjacent tiers, one by one, and can't skip any tier in between. For example, from the web application firewall to the web tier, then to middle tier 1, and so on. In contrast, in the relaxed approach, the request may skip some tiers if it's necessary. The strict approach has more latency and overhead, and the relaxed approach has more couplings and subsequently it's more difficult to change. A system can use a hybrid approach: having both relaxed and strict tiers where necessary.
 
 A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
 
@@ -34,7 +34,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 - Portability between cloud and on-premises, and between cloud platforms.
 - Less learning curve for most developers.
-- Relatively low cost
+- Relatively low cost by not rearchitecting the solution
 - Natural evolution from the traditional application model.
 - Open to heterogeneous environment (Windows/Linux)
 
@@ -44,7 +44,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 - Monolithic design prevents independent deployment of features.
 - Managing an IaaS application is more work than an application that uses only managed services.
 - It can be difficult to manage network security in a large system.
-- Workflows typically span across multiple tiers
+- User and data flows typically span across multiple tiers, adding complexity to concerns like testing and observability.
 
 ## Best practices
 
