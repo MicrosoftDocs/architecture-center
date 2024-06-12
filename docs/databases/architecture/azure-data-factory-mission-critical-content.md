@@ -77,7 +77,9 @@ The design callouts for the mission-critical architecture are:
 
 ### Network Design
 
-![Diagram showing Medlallion architecture Network design.](_images/azure-data-factory-mission-critical-network.png)
+:::image type="complex" source="./_images/azure-data-factory-mission-critical-network.png" alt-text="Diagram of a hardened network design for an Azure Data Factory workload.":::
+    Diagram showing an example of the workflow for a system using the valet key pattern. Boxes on the left show on-premise infrastructure and user connectivity. A box on the upper right shows ingress infrastructure in the Connectivity Hub subscription. Below that are the main components of the design all using Private Endpoints. To the right of the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
+:::image-end:::
 
 - A next generation firewall, like [Azure Firewall](/azure/firewall/overview), should be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 - Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure. Consider deploying the VM in Azure as part of the shared support resource landing zone to simplify governance and security. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.

@@ -68,12 +68,17 @@ The design callouts for the hardened architecture are:
 - Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) allow domains to collaborate when practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
 - An innovation sandbox is a temporary entity, enabling the validation of new technologies or processes. Data storage is made available to onboard, create or change data, outside of constraints of the append-only functionality of the Data Lake - Bronze layer. 
 
-
 ### Network Design
 
-TO BE ADDED - Darren
-- How is the domain structure added?
+:::image type="complex" source="./_images/azure-data-factory-hardened-network.png" alt-text="Diagram of a hardened network design for an Azure Data Factory workload.":::
+    Diagram showing an example of the workflow for a system using the valet key pattern. Boxes on the left show on-premise infrastructure and user connectivity. A box on the upper right shows ingress infrastructure in the Connectivity Hub subscription. Below that are the main components of the design all using Private Endpoints. To the right of the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
+:::image-end:::
 
+- A next generation firewall, like [Azure Firewall](/azure/firewall/overview), should be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
+- Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure. Consider deploying the VM in Azure as part of the shared support resource landing zone to simplify governance and security. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
+- ML-assisted data labeling doesn't support default storage accounts as they're secured behind a virtual network. First create a storage account for ML-assisted data labeling, apply the labeling and secure it behind the virtual network.
+
+**[Private Endpoints](/azure/private-link/private-endpoint-overview):** provide a private IP address from your VNet to an Azure service, effectively bringing the service into your VNet. This functionality makes the service accessible only from your VNet or connected networks, ensuring a more secure and private connection. Private Endpoints use Azure Private Link, which secures the connection to the PaaS service. If your workload uses any resources that don't support Private Endpoints, you may be able to use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). Private Endpoints are the recommended solution for mission-critical workloads, so default to using them whenever possible and practical.
 
 ### Data Science Capability
 
