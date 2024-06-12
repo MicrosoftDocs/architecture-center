@@ -136,7 +136,7 @@ Also, consider these [Secure Futures Initiative](https://www.microsoft.com/micro
 - Enable Azure Update Manager on all virtual machines used in sandbox environments, and set a regular patching schedule.
   - For SQL Server virtual machines, enable first-party updates in Windows Update to ensure that SQL Server is patched.
 - Monitor activity and diagnostic logs with Azure Monitor and/or Azure Sentinel.
-- Decommission sandboxes that are no longer in use.
+- Decommission individual sandbox resources and whole sandboxes that are no longer in use.
 
 ## Contributors
 
