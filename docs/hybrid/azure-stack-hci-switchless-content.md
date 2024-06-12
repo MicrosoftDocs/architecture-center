@@ -1,6 +1,6 @@
 This reference architecture illustrates how to design Azure Stack HCI infrastructure as a platform to run highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 
-The primary focus of this architecture pattern is not the application workload that will run on Azure Stack HCI. Instead, this article provides guidance for configuring and deploying the HCI cluster infrastructure, to provide a platform on which the workload and applications will deploy to and depend upon. These components include physical nodes, storage and networking, in addition to Azure services that will be used for the day to day management and monitoring.
+The primary focus of this architecture pattern is not the application workload that will run on Azure Stack HCI. Instead, this article provides guidance for configuring and deploying the Azure Stack HCI cluster infrastructure, to provide a resilient platform to host end user applications or business systems (_workload_). These components include physical nodes, storage and networking, in addition to Azure services that are used to simplify and streamline the day-to-day management and monitoring using Azure consistent tools and processes.
 
 For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_Azure Stack HCI workloads_" navigation menu.
 
@@ -10,7 +10,7 @@ This architecture serves as a starting point for a [3-node Azure Stack HCI clust
 
 | Architecture | Design decision | Well-Architected Framework approach|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; Workload resources <br> &#9642; Supporting resources <br> &#9642; User flows <br> |&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; Disks <br> &#9642; [Networking](#network-design) <br> &#9642; Monitoring <br> &#9642; Update management|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; Platform supporting resources(#platform-supporting-resources) <br> &#9642; Supporting resources <br> &#9642; User flows <br> |&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; Disks <br> &#9642; [Networking](#network-design) <br> &#9642; Monitoring <br> &#9642; Update management|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-3Nodes-Switchless-DualLink) demonstrates how to deploy a 3-node Azure Stack HCI storage switchless cluster using an ARM template and parameter file.
@@ -25,17 +25,22 @@ For information about these resources, see Azure product documentation listed in
 
 ### Components
 
-This architecture consists of Azure Stack HCI, Azure Arc and several Azure services that offer supporting resources for Azure Stack HCI and optionally the running workload, these services and their roles are described in the following sections.
+This architecture consists of physical server hardware that is used deploy Azure Stack HCI clusters in on-premises or edge locations. Azure Stack HCI integrates with Azure Arc and several other Azure services that provide supporting resources that enhance the platform capabilities. Azure Stack HCI provides a resilient platform to deploy, manage and operate end user applications or business systems (_workloads_). These platform resources and services are described in the following sections.
 
-### Workflow
+### Platform resources
 
-The architecture incorporates the following capabilities:
+The architecture requires the following mandatory resources and components:
 
-- **[Azure Stack HCI][azs-hci]** is a hyper-converged infrastructure (HCI) solution that hosts virtualized workloads and storage in a hybrid on-premises environment or edge location. Azure Stack HCI clusters can scale from a single node to a maximum of sixteen nodes.
+- **[Azure Stack HCI][azs-hci]** is a hyper-converged infrastructure (HCI) solution, deploy on-premises or in edge locations using physical server hardware and networking infrastructure. Azure Stack HCI provides a platform to deploy and manage virtualized workloads, such as virtual machines, kubernetes clusters and other services enabled through Azure Arc. Azure Stack HCI clusters can scale from a single node deployment to a maximum of sixteen nodes using validated hardware provided by OEM partners.
 - **[Azure Arc][azure-arc]** is a cloud-based service that extends the Azure Resource Manager-based management model to Azure Stack HCI and other non-Azure locations. Azure Arc provides the ability to manage resources including virtual machines (VMs), Kubernetes clusters, and containerized data services using Azure as the control and management plane.
 - **[Key Vault][key-vault]** is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
 - **[Cloud Witness][cloud-witness]** is a type of failover cluster quorum witness that uses an Azure Storage Account to provide Azure Stack HCI cluster node quorum voting capabilities.
 - **[Update Management][azure-update-management]** is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, or other cloud platforms from a single dashboard.
+
+### Platform supporting resources
+
+The architecture can incorporate the following optional supporting services that can be used to enhance the platform capabilities:
+
 - **[Azure Monitor][azure-monitor]** is a cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on diagnostic logs and telemetry from your cloud and on-premises workloads.
 - **[Azure Policy][azure-policy]** evaluates Azure and on-premises resources through integration with Azure Arc by comparing properties to determine compliance based on customizable business rules.
 - **[Microsoft Defender for Cloud][ms-defender-for-cloud]** is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - and on premises.
