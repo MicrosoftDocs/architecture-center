@@ -53,7 +53,7 @@ The DDD approach can be applied retroactively to an existing application, as a w
 
 1. Define the domain models of the monolithic application. The domain model is an abstract model of the business domain.
 
-1. Define *bounded contexts* for the models. A bounded context is the boundary within a domain where a particular domain model applies. Apply explicit boundaries with clearly defined models and responsibilities. Each microservice should have its own bounded context.
+1. Define *bounded contexts* for the models. A bounded context is the boundary within a domain where a particular domain model applies. Apply explicit boundaries with clearly defined models and responsibilities.
 
 The bounded contexts identified in step 4 are candidates for refactoring into smaller microservices. The following diagram shows the existing monolith with the bounded contexts overlaid:
 
