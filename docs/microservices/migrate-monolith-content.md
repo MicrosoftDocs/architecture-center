@@ -43,7 +43,7 @@ Any migration strategy should allow teams to incrementally refactor the applicat
 
 To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD).
 
-Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
+Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD opposes the idea of having a single unified model for the entire system. Instead, it encourages dividing the system into bounded contexts, each of which has its own model. DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
 
 The DDD approach can be applied retroactively to an existing application, as a way to begin decomposing the application.
 

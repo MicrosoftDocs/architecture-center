@@ -63,6 +63,8 @@ Use this pattern when:
 
 - The pattern is a natural fit for serverless architectures that are appropriate for simple workflows. The components can be short-lived and event-driven. When an event occurs, components are spun up, perform their tasks, and removed once the task is completed.
 
+- This pattern can be a good choice for communications between bounded contexts. For communications inside an individual bounded context, an orchestrator pattern might be considered.
+
 - There's performance bottleneck introduced by the central orchestrator.
 
 This pattern might not be useful when:
