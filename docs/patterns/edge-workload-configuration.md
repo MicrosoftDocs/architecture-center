@@ -26,11 +26,11 @@ pnp.pattern.categories: [availability, design-implementation, management-monitor
 
 # Edge Workload Configuration pattern
 
-The great variety of systems and devices on the shop floor can make workload configuration a difficult problem. This article provides approaches to solving it.
+Managing workloads on the shop floor can be complex due to the diversity of systems and devices. This article discusses strategies for effective configuration management in this context.
 
 ## Context and problem
 
-Manufacturing companies, as part of their digital transformation journey, focus increasingly on building software solutions that can be reused as shared capabilities. Due to the variety of devices and systems on the shop floor, the modular workloads are configured to support different protocols, drivers, and data formats. Sometimes even multiple instances of a workload are run with different configurations in the same edge location. For some workloads, the configurations are updated more than once a day. Therefore, configuration management is increasingly important to the scaling out of edge solutions.
+Manufacturing companies are increasingly adopting digital transformation strategies, focusing on developing reusable software solutions. The variety of devices and systems on the shop floor necessitates modular workloads that support different protocols, drivers, and data formats. Multiple instances of a workload may run with different configurations at the same edge location, and configurations for some workloads may be updated several times a day. Thus, effective configuration management is crucial for scaling edge solutions.
 
 ## Solution
 
@@ -107,9 +107,9 @@ The benefits of this variation are:
 
 :::image type="content" source="_images/edge-workload-configuration-4.png" alt-text="Diagram of the architecture for the I o T Edge-based variation." border="false" :::
 
-The cloud component of the IoT Edge reference implementation consists of an IoT hub acting as the cloud configuration controller. The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) module twin functionality propagates configuration changes and information about the currently applied configuration by using module twin desired and reported properties. The configuration management service acts as the source of the configurations. It can also be a user interface for managing configurations, a build system, and other tools used to author workload configurations.
+The cloud component of the IoT Edge reference implementation consists of an IoT hub acting as the cloud configuration controller. The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) module twin functionality propagates configuration changes and information about the currently applied configuration by using module twin desired and reported properties. Configurations are stored in an [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) , which interacts with multiple IoT hubs and maintains a configuration history.
 
-An [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) database stores all configurations. It can interact with multiple IoT hubs, and provides configuration history.
+#### Edge Component
 
 After an edge device indicates via reported properties that a configuration was applied, the configuration state service notes the event in the database instance.
 
