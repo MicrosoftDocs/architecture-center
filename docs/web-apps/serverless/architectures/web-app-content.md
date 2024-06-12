@@ -265,6 +265,10 @@ If you make a breaking change in an API, publish a new version in API Management
 
 For updates that aren't breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
 
+#### Testing
+
+In serverless applications, the line between infrastructure and business logic is blurred. And due to their distributed nature, typically pieces of code are spread across various services. To get the most value-to-effort ratio from testing your serverless applications (especially functions), we recommend you to emphasize more on integration tests and do unit tests only if you have genuinely complex business logic.
+
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
