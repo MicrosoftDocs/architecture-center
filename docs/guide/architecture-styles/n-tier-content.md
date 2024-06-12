@@ -4,7 +4,9 @@ An N-tier architecture divides an application into **logical layers** and **phys
 
 Layers are a way to separate responsibilities and manage dependencies. Each layer has a specific responsibility. A higher layer can use services in a lower layer, but not the other way around.
 
-Tiers are physically separated, running on separate machines. A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
+Tiers are physically separated, running on separate machines and can be either strict or relaxed: in the strict way, a request must go through adjacent tiers, one by one, and can't skip any tier in between. For example, from WAF to Web tier then to Middle Tier 1. In contrast, in the relaxed approach, the request can skip some tiers if it's necessary. The strict approach has more latency and overhead, and the relaxed approach has more couplings and subsequently it's more difficult to change. A system can use a hybrid approach: having both relaxed and strict tiers where necessary.
+
+A tier can call to another tier directly, or use [Asynchronous messaging patterns](/azure/service-bus-messaging/service-bus-async-messaging) through a message queue. Although each layer might be hosted in its own tier, that's not required. Several layers might be hosted on the same tier. Physically separating the tiers improves scalability and resiliency, but also adds latency from the additional network communication.
 
 A traditional three-tier application has a presentation tier, a middle tier, and a database tier. The middle tier is optional. More complex applications can have more than three tiers. The diagram above shows an application with two middle tiers, encapsulating different areas of functionality.
 
@@ -22,6 +24,7 @@ N-tier architectures are typically implemented as infrastructure-as-service (Iaa
 Consider an N-tier architecture for:
 
 - Simple web applications.
+- A good starting point when architectural requirements are not clear yet.
 - Migrating an on-premises application to Azure with minimal refactoring.
 - Unified development of on-premises and cloud applications.
 
@@ -31,6 +34,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 - Portability between cloud and on-premises, and between cloud platforms.
 - Less learning curve for most developers.
+- Relatively low cost
 - Natural evolution from the traditional application model.
 - Open to heterogeneous environment (Windows/Linux)
 
@@ -40,6 +44,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 - Monolithic design prevents independent deployment of features.
 - Managing an IaaS application is more work than an application that uses only managed services.
 - It can be difficult to manage network security in a large system.
+- Workflows typically across span multiple tiers
 
 ## Best practices
 
