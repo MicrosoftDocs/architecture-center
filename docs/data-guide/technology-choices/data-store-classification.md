@@ -27,7 +27,7 @@ ai-usage: ai-assisted
 
 # Choosing a Data Store - Classification
 
-Storage for **IoT (Internet of things)** scenarios is intentionally not covered in this document. For more information on IoT related storage, please see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT Architectures](../../reference-architectures/iot/iot-architecture-overview.md).
+Storage for **IoT (Internet of things)** scenarios is intentionally not covered in this document. For more information on IoT related storage, please see [Azure IoT](https://azure.microsoft.com/solutions/iot) and [IoT Architectures](../../reference-architectures/iot/iot-architecture-overview.md). Also, AI Search and vector databases are not covered in this article.
 
 We can generally divide Azure storage into two general categories (unofficial classification, for the purposes of architecture only): **Database/Analytics storage** and more **simple storage** options.
 
