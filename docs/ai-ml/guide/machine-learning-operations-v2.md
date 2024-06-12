@@ -248,7 +248,7 @@ Managing access to machine learning data and resources is crucial. Role-Based Ac
 
 Consider the following common personas in a ML workload which will inform the identity-based RBAC group design to support appropriate segmentation:
 
-#### Example personas
+#### 1 - Data Scientist/ML Engineer
 **Description**: The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
 <br/>**Type**: Person.
 <br/>**Project Specific**: Yes. 
@@ -316,78 +316,67 @@ Consider the following common personas in a ML workload which will inform the id
 <br/>**Type**: Process.
 <br/>**Project Specific**: No. 
 
-#### Identity RBAC – Control Plane
+#### Identity RBAC
 
-The [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) is used to manage the resource level objects with a subscription.
+Using the previously described personas, here are examples of how RBAC can be applied to production (Staging / Test / Production environments based on the [current architectures](#current-architectures) section) and pre-production (Development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:  
 
-The Persona based identity RBAC design for the control plane for each environment can be described as;
+**Production Environment**
 
-##### Production
+| Persona                          | AML Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
+| -------------------------------- | ------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
+| Data Scientist                   |               |           | R                        |                 |              |                 | LAR                     | MR            |
+| Data Analyst                     |               |           |                          |                 |              |                 |                         |               |
+| Model Tester                     |               |           |                          |                 |              |                 |                         |               |
+| Business Stakeholders            |               |           |                          |                 |              |                 |                         | MR            |
+| Project Lead (Data Science Lead) | R             | R, KVR    | R                        |                 |              |                 | LAR                     | MR            |
+| Project Owner (Bus Owner)        |               |           |                          |                 |              |                 |                         | MR            |
+| Platform Technical Support       | O             | O, KVA    |                          |                 | DOPCA        | O               | O                       | O             |
+| Model End User                   |               |           |                          |                 |              |                 |                         |               |
+| CI/CD processes                  | O             | O, KVA    | ACRPush                  |                 | DOPCA        | O               | O                       | O             |
+| AML Workspace                    |               | R         | C                        | C               |              |                 |                         |               |
+| Monitoring Processes             | R             |           |                          |                 |              |                 | LAR                     | MR            |
+| Data Governance Processes        | R             |           | R                        | R               | R            | R               |                         |               |  |
 
-:::image type="content" source="_images/secureAML_ControlPrd.png" lightbox="_images/secureAML_ControlPrd.png" alt-text="Diagram showing the secure AML Identity RBAC – Control Plane - Production." border="false":::
+All personas have an acess period for the life of the project except for the Platform Technical Support and CI/CD processes which have temporary, or just-in-time access.
 
-##### Development
+**Pre-Production Environment**
 
-:::image type="content" source="_images/secureAML_ControlPre.png" lightbox="_images/secureAML_ControlPre.png" alt-text="Diagram showing the secure AML Identity RBAC – Control Plane - Development." border="false":::
+| Persona                          | AML Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
+| -------------------------------- | ------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
+| Data Scientist                   | ADS           | R, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
+| Data Analyst                     | R             |           |                          | C               |              |                 | LAR                     | MC            |
+| Model Tester                     | R             | R, KVR    | R                        | R               | R            | R               | LAR                     | MR            |
+| Business Stakeholders            | R             |           | R                        | R               | R            | R               |                         |               |
+| Project Lead (Data Science Lead) | C             | C, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
+| Project Owner (Bus Owner)        | R             |           |                          | R               |              |                 |                         | MR            |
+| Platform Technical Support       | O             | O, KVA    | O                        | O               | DOPCA        | O               | O                       | O             |
+| Model End User                   |               |           |                          |                 |              |                 |                         |               |
+| CI/CD processes                  | O             | O, KVA    | ACRPush                  | O               | DOPCA        | O               | O                       | O             |
+| AML Workspace                    |               | R, KVR    | C                        | C               |              |                 |                         |               |
+| Monitoring Processes             | R             | R         | R                        | R               | R            | R               | LAC                     |               |
+| Data Governance Processes        | R             |           | R                        | R               |              |                 |                         |               |  |
 
-Cell Colour = Access Period Granted. Green = Life of Project, Orange = Temporary, Just-in-time.
+All personas have an acess period for the life of the project except for the Platform Technical Support which have temporary, or just-in-time access.
 
-**Key**
-<br/>
+**Key:**
+
 **[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
-<br/>&nbsp;&nbsp; R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).<br/>
-&nbsp;&nbsp; C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).<br/>
-<br/>&nbsp;&nbsp; O = [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#owner).<br/>
+-  R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).
+-  C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).
+-  O = [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#owner).
+
 **[Component Specific Roles](/azure/role-based-access-control/built-in-roles/ai-machine-learning)**
-<br/>&nbsp;&nbsp; ADS = [Azure Machine Learning Data Scientist](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist).<br/>
-&nbsp;&nbsp; ACO = [Azure Machine Learning Compute Operator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator).<br/>
-&nbsp;&nbsp; ACRPush = [Azure Container Registry Push](https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli#push-image).<br/>
-<br/>&nbsp;&nbsp; DOPA = [DevOps Project Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-administrators?view=azure-devops&tabs=preview-page).<br/>
-&nbsp;&nbsp; DOPCA = [DevOps Project Collection Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-collection-administrators?view=azure-devops).
-<br/>&nbsp;&nbsp; LAR = [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader). <br/>
-&nbsp;&nbsp; LAC = [Log Analytics Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor). <br/>
-<br/>&nbsp;&nbsp; MR = [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader). <br/>
-&nbsp;&nbsp; MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
-
-> [!IMPORTANT]
-> Once a model has been productionized using one or more [Azure AI Services](/azure/ai-services/) API’s, service specific [built-in roles](/azure/role-based-access-control/built-in-roles) should be implemented into that project.
-<br/>
-
-#### Identity RBAC – Data/Model Plane
-
-The [Data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) is used to manage the capabilities exposed by a resource.
-
-The Persona based identity RBAC design for the data plane for each environment can be described as;
-
-##### Production
-
-:::image type="content" source="_images/secureAML_DataPrd.png" lightbox="_images/secureAML_DataPrd.png" alt-text="Diagram showing the secure AML Identity RBAC – Data Plane - Production." border="false":::
-
-##### Development
-
-:::image type="content" source="_images/secureAML_DataPre.png" lightbox="_images/secureAML_DataPre.png" alt-text="Diagram showing the secure AML Identity RBAC – Data Plane - Development." border="false":::
-
-Cell Colour = Access Period Granted. Green = Life of Project, Orange = Temporary, Just-in-time.
-
-**Key**
-<br/>
-**[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
-<br/>&nbsp;&nbsp; R = Reader.<br/>
-&nbsp;&nbsp; C = Contributor.
-<br/>&nbsp;&nbsp; O = Owner.<br/>
-**[Component Specific Roles](/azure/role-based-access-control/built-in-roles/ai-machine-learning)**
-<br/>&nbsp;&nbsp; ADS = Azure Machine Learning Data Scientist.<br/>
-&nbsp;&nbsp; ACO = Azure Machine Learning Compute Operator.
-<br/>&nbsp;&nbsp; ARU = Azure Machine Learning Registry User.<br/>
-&nbsp;&nbsp; ACRPush = Azure Container Registry Push.
-<br/>&nbsp;&nbsp; DOPA = DevOps Project Administrators.<br/>
-&nbsp;&nbsp; DOPCA = DevOps Project Collection Administrators.
-<br/>&nbsp;&nbsp; KVA = Key Vault Administrator. <br/>
-&nbsp;&nbsp; KVA = Key Vault Administrator.
-
-> [!IMPORTANT] 
-> - Data plane controls are additive to the Control plane, i.e. they build on top of them.
-> - The Data plane controls vary depending on the specific AI Service selected, its recommended to take to most restrictive scope matched with the most appropriate built-in role available for the role/task requirements.
+- ADS = [Azure Machine Learning Data Scientist](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist)
+- ACO = [Azure Machine Learning Compute Operator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator)
+- ACRPush = [Azure Container Registry Push](https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli#push-image)
+- DOPA = [DevOps Project Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-administrators?view=azure-devops&tabs=preview-page)
+- DOPCA = [DevOps Project Collection Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-collection-administrators?view=azure-devops).
+- LAR = [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader).
+- LAC = [Log Analytics Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
+- MR = [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader).
+- MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
+- KVA = [Key Vault Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-administrator).
+- KVR = [Key Vault Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-reader).
 
 ### Package management
 
