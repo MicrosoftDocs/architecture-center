@@ -146,7 +146,6 @@ Principal author:
 - [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
 - [Introduction to App Service Environment](/azure/app-service/environment/intro)
 - [Private link resource](/azure/private-link/private-endpoint-overview#private-link-resource)
-- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
 
 ## Related resources
 
@@ -159,3 +158,4 @@ Principal author:
 - [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
 - [App Service overview](../../app-service/overview.yml)
 - [Performance Efficiency patterns](../../scalability/performance-efficiency-patterns.yml)
+- [Reliability patterns](../../framework/resiliency/reliability-patterns.yml)
