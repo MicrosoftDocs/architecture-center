@@ -384,7 +384,7 @@ RBAC plays a vital role in securing and streamlining MLOps workflows. By restric
 
 ### Package management
 
-When developing machine learning models there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use.
+When developing machine learning models there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use. This gives rise to the problem of needing to access many different assets (i.e. packages, libraries, and binaries) securely and free from vulnerabilities.
 
 In the machine learning lifecycle this can introduce many challenges, such as:
 - Data scientists often require large numbers of highly specialized packages, libraries or binaries as “building blocks” for ML solutions.
@@ -395,20 +395,20 @@ A suggested approach for managing these dependencies is to use a secure, self-se
 
 This involved safelisting three industry standard ML package repositories, allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
 
-:::image type="content" source="_images/secureAML_Package.png" lightbox="_images/secureAML_Package.png" alt-text="Diagram showing the secure AML Package approach." border="false":::
+:::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram showing the secure AML Package approach." border="false":::
 
 **Process Flow**
 
-1. Data scientists working within a specific AML workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&tabs=ipaddress%2Cpublic#recommended-configuration-for-training-and-deploying-models) applied, can self-serve ML packages on-demand from the ML package repositories.
-<br/>&nbsp;&nbsp; - An exception process is required for everything else, using the [Private Storage](/azure/machine-learning/how-to-use-private-python-packages?view=azureml-api-1&viewFallbackFrom=azureml-api-2#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function. <br/> 
-1. AML delivers ML solutions as docker containers. As these solutions are developed, they are uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) would be used to for the vulnerability scanning process.
-2. Solution deployment occurs via a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
-3. Only if the solution container passes each of the security processes will it be deployed. Failure will result in the deployment elegantly exiting with error notifications, full audit trails and the solution container being discarded.
-<br/><br/>
+1. Data scientists working within a specific AML workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&tabs=ipaddress%2Cpublic#recommended-configuration-for-training-and-deploying-models) applied, can self-serve ML packages on-demand from the ML package repositories. An exception process is required for everything else, using the [Private Storage](/azure/machine-learning/how-to-use-private-python-packages?view=azureml-api-1&viewFallbackFrom=azureml-api-2#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function.
+2. AML delivers ML solutions as docker containers. As these solutions are developed, they are uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) can be used to generate vulnerability assessments for your container image.
+3. Solution deployment occurs via a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
+4. Only if the solution container passes each of the security processes will it be deployed. Failure will result in the deployment elegantly exiting with error notifications, full  audit trails and the solution container being discarded
+
+The above process flow provides a secure, self-serve, package management process for data scientists, while ensuring that the packages are secure and compliant with organizational standards.
 
 ### Monitoring
 
-Model monitoring is an key consideration in the end-to-end lifecycle of machine learning systems. Unlike traditional software, where behavior is governed by fixed rules, machine learning models learn from data hence their performance an degrade over time. Therefore, when monitoring the performance of a models in production it is essential to monitor data-related aspects in addition to traditional software-based metrics.
+Model monitoring is a key consideration in the end-to-end lifecycle of machine learning systems. Unlike traditional software, where behavior is governed by fixed rules, machine learning models learn from data hence their performance can degrade over time. Therefore, when monitoring the performance of a models in production it is essential to monitor data-related aspects in addition to traditional software-based metrics.
 
 The suggested MVP monitoring for this design is:
 
