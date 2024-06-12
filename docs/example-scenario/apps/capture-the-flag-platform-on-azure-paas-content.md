@@ -141,6 +141,7 @@ Principal author:
 ## Next steps
 
 - [App Service documentation](/azure/app-service)
+- [App Service overview](/azure/app-service/overview)
 - [App Service networking features](/azure/app-service/networking-features)
 - [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet)
 - [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
@@ -156,6 +157,5 @@ Principal author:
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 - [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
-- [App Service overview](../../app-service/overview.yml)
-- [Performance Efficiency patterns](../../scalability/performance-efficiency-patterns.yml)
 - [Reliability patterns](../../framework/resiliency/reliability-patterns.yml)
+- [Performance Efficiency patterns](../framework/scalability/performance-efficiency-patterns.yml)
