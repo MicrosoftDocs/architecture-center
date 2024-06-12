@@ -44,7 +44,7 @@ N-tier architectures are very common in traditional on-premises applications, so
 - Monolithic design prevents independent deployment of features.
 - Managing an IaaS application is more work than an application that uses only managed services.
 - It can be difficult to manage network security in a large system.
-- Workflows typically across span multiple tiers
+- Workflows typically span across multiple tiers
 
 ## Best practices
 
