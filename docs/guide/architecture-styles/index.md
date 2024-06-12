@@ -27,7 +27,7 @@ We have identified a set of architecture styles that are commonly found in cloud
 
 ## A quick tour of the styles
 
-This section gives a quick tour of the architecture styles that we've identified, along with some high-level considerations for their use. Read more details in the linked topics.
+This section gives a quick tour of the architecture styles that we've identified, along with some high-level considerations for their use. Please note that the list is not exhaustive. Read more details in the linked topics.
 
 ### N-tier
 
@@ -79,7 +79,9 @@ For example, the constraints in microservices include:
 
 By adhering to these constraints, what emerges is a system where services can be deployed independently, faults are isolated, frequent updates are possible, and it's easy to introduce new technologies into the application.
 
-Before choosing an architecture style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
+Each architecture style has its own trade-offs. Therefore, before choosing any architectural style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. You need to pay attention more to why you're choosing a certain architectural style than to how to implement it. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
+
+Choosing an appropriate architectural style should be done ideally with a team of 3-5 stakeholders. The team should firstly identify the shape of the problem they are trying to solve. Then they should identify business drivers and corresponding architecture characteristics (also known as non-functional requirements) then prioritize them. For example, if they need shorter time to market, they should prioritize maintainability, testability and deployability. Or if they have constrained time or budget, they should prioritize feasibility and simplicity. Afterwards, the team can identify a candidate architecture style but they must be sure that the shape of their candidate architecture style matches the shape of the problem they are trying to solve. Otherwise, it can lead to an epic failure. Also note that choosing and maintaining an architectural style is not a one-off activity but a continuous approach: the architecture should be continuously measured, validated and fine-tuned over time.
 
 The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
 
