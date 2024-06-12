@@ -410,7 +410,7 @@ The above process flow provides a secure, self-serve, package management process
 
 Model monitoring is a key consideration in the end-to-end lifecycle of machine learning systems. Unlike traditional software, where behavior is governed by fixed rules, machine learning models learn from data hence their performance can degrade over time. Therefore, when monitoring the performance of a models in production it is essential to monitor data-related aspects in addition to traditional software-based metrics.
 
-The suggested MVP monitoring for this design is:
+The suggested MVP monitoring for the [current architectures](#current-architectures) in MLOps V2 is:
 
 #### 1.1 - Model Performance – Data Drift
 &nbsp;&nbsp; **Description**: [Data drift](/azure/machine-learning/how-to-monitor-datasets?view=azureml-api-1&tabs=python) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
