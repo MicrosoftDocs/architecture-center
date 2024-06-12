@@ -249,73 +249,72 @@ Managing access to machine learning data and resources is crucial. Role-Based Ac
 Consider the following common personas in a ML workload which will inform the identity-based RBAC group design to support appropriate segmentation:
 
 #### Example personas
-&nbsp;&nbsp; **Description** - The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
-<br/>&nbsp;&nbsp; **Notes** - Involves data exploration and preprocessing to model training, evaluation, and deployment, to solve complex business problems and generate insight.<br/>
+**Description**: The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
+<br/>**Type**: Person.
+<br/>**Project Specific**: Yes. 
+<br/>**Notes**: Involves data exploration and preprocessing to model training, evaluation, and deployment, to solve complex business problems and generate insight.
 
 ##### 2 - Data Analyst
-&nbsp;&nbsp; **Description** - The people doing the data analyst tasks required as an input to data science activities. 
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
-<br/>&nbsp;&nbsp; **Notes** - This role involves working with data, performing analysis, and supporting model development and deployment activities.<br/>
+**Description**: The people doing the data analyst tasks required as an input to data science activities. 
+<br/>**Type**: Person.
+<br/>**Project Specific**: Yes. 
+<br/>**Notes**: This role involves working with data, performing analysis, and supporting model development and deployment activities.
 
 ##### R3 - Model Tester
-&nbsp;&nbsp; **Description** - The compute process used in Staging & QA testing.
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
-<br/>&nbsp;&nbsp; **Notes** - This role provides functional segregation from the CI/CD processes.<br/>
+**Description**: The compute process used in Staging & QA testing.
+<br/>**Type**: Person.
+<br/>**Project Specific**: Yes. 
+<br/>**Notes**: This role provides functional segregation from the CI/CD processes.
 
 ##### 4 - Business Stakeholders
-&nbsp;&nbsp; **Description** - Business stakeholders attached to the project.
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
-<br/>&nbsp;&nbsp; **Notes** - This role is [read-only](/azure/role-based-access-control/built-in-roles/general#reader) for the AML workspace components in development.<br/>
+**Description**: Business stakeholders attached to the project.
+<br/>**Type**: Person.
+<br/>**Project Specific**: Yes. 
+<br/>**Notes**: This role is [read-only](/azure/role-based-access-control/built-in-roles/general#reader) for the AML workspace components in development.
 
 ##### 5 - Project Lead (Data Science Lead)
-&nbsp;&nbsp; **Description** - The Data Science lead in a project administration role for the AML workspace. 
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
-<br/>&nbsp;&nbsp; **Notes** - This role would also have break/fix responsibility for the ML models and packages used.<br/>
+**Description**: The Data Science lead in a project administration role for the AML workspace. 
+<br/>**Type**: Person.
+<br/>**Project Specific**: Yes. 
+<br/>**Notes**: This role would also have break/fix responsibility for the ML models and packages used.
 
 ##### 6 - Project Owner (Bus Owner)
-&nbsp;&nbsp; **Description** - The Business stakeholders responsible for the AML workspace based upon data ownership. 
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
-<br/>&nbsp;&nbsp; **Notes** - This role is read-only for the AML workspace configuration and components in development. Production coverage will be provided by the data governance application.<br/>
+**Description**: The Business stakeholders responsible for the AML workspace based upon data ownership. 
+<br/>**Type**: Person.
+<br/>**Project Specific**: Yes. 
+<br/>**Notes**: This role is read-only for the AML workspace configuration and components in development. Production coverage will be provided by the data governance application.
 
 ##### 7 - Platform Technical Support
-&nbsp;&nbsp; **Description** - The Technical support staff responsible for break/fix activities across the platform. This role would cover infrastructure, service, etc. But not the ML models, packages or data. These elements remain under the Data Scientist/ML Engineer role's responsibility. 
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - No. 
-<br/>&nbsp;&nbsp; **Notes** - While the role group is permanent, membership is only transient, based upon a Privileged Identity Management ([PIM](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure)) process for time boxed, evaluated access.<br/>
+**Description**: The Technical support staff responsible for break/fix activities across the platform. This role would cover infrastructure, service, etc. But not the ML models, packages or data. These elements remain under the Data Scientist/ML Engineer role's responsibility. 
+<br/>**Type**: Person.
+<br/>**Project Specific**: No. 
+<br/>**Notes**: While the role group is permanent, membership is only transient, based upon a Privileged Identity Management ([PIM](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure)) process for time boxed, evaluated access.
 
 ##### 8 - Model End User
-&nbsp;&nbsp; **Description** - The End consumers of the ML Model. This role could be a downstream process or an individual. 
-<br/>&nbsp;&nbsp; **Type** - Person and Process.<br/>
-&nbsp;&nbsp; **Project Specific** - Yes. 
+**Description**: The End consumers of the ML Model. This role could be a downstream process or an individual. 
+<br/>**Type**: Person and Process.
+<br/>**Project Specific**: Yes. 
 
 ##### 9 - CI/CD processes
-&nbsp;&nbsp; **Description** - The compute processes that releases/rolls back change across the platform environments.
-<br/>&nbsp;&nbsp; **Type** - Process.<br/>
-&nbsp;&nbsp; **Project Specific** - No. 
+**Description**: The compute processes that releases/rolls back change across the platform environments.
+<br/>**Type**: Process.
+<br/>**Project Specific**: No. 
 
 ##### 10 - AML Workspace
-&nbsp;&nbsp; **Description** - The [managed identities](/azure/machine-learning/how-to-setup-authentication?view=azureml-api-2&tabs=sdk) used by an AML workspace to interact with other parts of Azure.
-<br/>&nbsp;&nbsp; **Type** - Person.<br/>
-&nbsp;&nbsp; **Project Specific** - No. 
-<br/>&nbsp;&nbsp; **Notes** - This persona represents the various services that make up an AML implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store, etc.<br/>
+**Description**: The [managed identities](/azure/machine-learning/how-to-setup-authentication?view=azureml-api-2&tabs=sdk) used by an AML workspace to interact with other parts of Azure.
+<br/>**Type**: Person.
+<br/>**Project Specific**: No. 
+<br/>**Notes**: This persona represents the various services that make up an AML implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store, etc.
 
 ##### 11 - Monitoring Processes
-&nbsp;&nbsp; **Description** - The compute processes which monitor & alert based upon platform activities. 
-<br/>&nbsp;&nbsp; **Type** - Process.<br/>
-&nbsp;&nbsp; **Project Specific** - No. 
+**Description**: The compute processes which monitor & alert based upon platform activities. 
+<br/>**Type**: Process.
+<br/>**Project Specific**: No. 
 
 ##### 12 - Data Governance Processes
-&nbsp;&nbsp; **Description** - The compute process that scans the ML project and datastores for data governance.
-<br/>&nbsp;&nbsp; **Type** - Process.<br/>
-&nbsp;&nbsp; **Project Specific** - No. 
-<br/>
+**Description**: The compute process that scans the ML project and datastores for data governance.
+<br/>**Type**: Process.
+<br/>**Project Specific**: No. 
 
 #### Identity RBAC – Control Plane
 
@@ -421,62 +420,62 @@ Model monitoring is an key consideration in the end-to-end lifecycle of machine 
 The suggested MVP monitoring for this design is:
 
 #### 1.1 - Model Performance – Data Drift
-&nbsp;&nbsp; **Description** - [Data drift](/azure/machine-learning/how-to-monitor-datasets?view=azureml-api-1&tabs=python) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
-<br/>&nbsp;&nbsp; **Environment** - Production.<br/>
-&nbsp;&nbsp; **Implementation** - AML – [Model Monitoring](/azure/machine-learning/concept-model-monitoring?view=azureml-api-2#enabling-model-monitoring).
-<br/>&nbsp;&nbsp; **Notes** - Data drift refactoring requires recent production datasets and outputs, to be available for comparison. <br/>
+&nbsp;&nbsp; **Description**: [Data drift](/azure/machine-learning/how-to-monitor-datasets?view=azureml-api-1&tabs=python) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
+<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
+&nbsp;&nbsp; **Implementation**: AML – [Model Monitoring](/azure/machine-learning/concept-model-monitoring?view=azureml-api-2#enabling-model-monitoring).
+<br/>&nbsp;&nbsp; **Notes**: Data drift refactoring requires recent production datasets and outputs, to be available for comparison. <br/>
 
 #### 1.2 - Model Performance – Usage
-&nbsp;&nbsp; **Description** - Several model serving endpoint metrics to indicate quality and performance. 
-<br/>&nbsp;&nbsp; **Environment** - All.<br/>
-&nbsp;&nbsp; **Implementation** - Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
-<br/>&nbsp;&nbsp; **Notes** - This table has the supporting information to identify the AML workspace, deployment etc. <br/>
+&nbsp;&nbsp; **Description**: Several model serving endpoint metrics to indicate quality and performance. 
+<br/>&nbsp;&nbsp; **Environment**: All.<br/>
+&nbsp;&nbsp; **Implementation**: Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
+<br/>&nbsp;&nbsp; **Notes**: This table has the supporting information to identify the AML workspace, deployment etc. <br/>
 
 #### 1.3 - Model Performance – Prediction Drift
-&nbsp;&nbsp; **Description** - Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
-<br/>&nbsp;&nbsp; **Environment** - Production.<br/>
-&nbsp;&nbsp; **Implementation** - Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
-<br/>&nbsp;&nbsp; **Notes** - Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.  <br/>
+&nbsp;&nbsp; **Description**: Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
+<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
+&nbsp;&nbsp; **Implementation**: Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
+<br/>&nbsp;&nbsp; **Notes**: Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.  <br/>
 
 #### 2.1 - Usage - Client Requests
-&nbsp;&nbsp; **Description** - Count of the Client Requests to the model endpoint.
-<br/>&nbsp;&nbsp; **Environment** - Production.<br/>
+&nbsp;&nbsp; **Description**: Count of the Client Requests to the model endpoint.
+<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Machine Learning Services - [OnlineEndpoints](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics). <br/>
 &nbsp;&nbsp; - Count of RequestPerMintute.
-<br/>&nbsp;&nbsp; **Notes** - Acceptable thresholds could be aligned to t-shirt sizing’s or anomalies (acknowledging the need to establish a baseline). <br/>
+<br/>&nbsp;&nbsp; **Notes**: Acceptable thresholds could be aligned to t-shirt sizing’s or anomalies (acknowledging the need to establish a baseline). <br/>
 &nbsp;&nbsp; - When a model is no longer being used, it should be retired from production. 
 
 #### 2.2 - Usage - Throttling Delays
-&nbsp;&nbsp; **Description** - [Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. 
-<br/>&nbsp;&nbsp; **Environment** - Production.<br/>
+&nbsp;&nbsp; **Description**: [Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. 
+<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**; 
 <br/>&nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview\).<br/>
 &nbsp;&nbsp; - Sum of RequestThrottlingDelayMs. 
 <br/>&nbsp;&nbsp; - ResponseThrottlingDelayMs.<br/>
-&nbsp;&nbsp; **Notes** - Acceptable thresholds should be aligned service's "Service Level Agreement" (SLA) and the solution's non-functional requirements (NFRs).
+&nbsp;&nbsp; **Notes**: Acceptable thresholds should be aligned service's "Service Level Agreement" (SLA) and the solution's non-functional requirements (NFRs).
 
 #### 2.3 - Usage - Errors Generated
-&nbsp;&nbsp; **Description** - Response Code - Errors generated.
-<br/>&nbsp;&nbsp; **Environment** - Production.<br/>
+&nbsp;&nbsp; **Description**: Response Code - Errors generated.
+<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**; 
 <br/>&nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview\).<br/>
 &nbsp;&nbsp; - Count of XRequestId by ModelStatusCode. 
 <br/>&nbsp;&nbsp; - Count of XRequestId by ModelStatusCode & ModelStatusReason.<br/>
-&nbsp;&nbsp; **Notes** - All HTTP responses codes in the 400 & 500 range would be classified as an error.
+&nbsp;&nbsp; **Notes**: All HTTP responses codes in the 400 & 500 range would be classified as an error.
 
 #### 3 - Budget Boundaries
-&nbsp;&nbsp; **Description** - When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount.
-<br/>&nbsp;&nbsp; **Environment** - All.<br/>
-&nbsp;&nbsp; **Implementation** - Azure – [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts).
+&nbsp;&nbsp; **Description**: When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount.
+<br/>&nbsp;&nbsp; **Environment**: All.<br/>
+&nbsp;&nbsp; **Implementation**: Azure – [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts).
 <br/>&nbsp;&nbsp; **Notes**;<br/>
 &nbsp;&nbsp; - Budget thresholds should be set based upon the initial NFR’s and cost estimates.
 <br/>&nbsp;&nbsp; - Multiple threshold tiers should be used, ensuring stakeholders get appropriate warning before the budget is exceeded.<br/>
 &nbsp;&nbsp; - Consistent budget alerts could also be a trigger for refactoring to support greater demand.
 
 #### 4 - Workspace – Staleness
-&nbsp;&nbsp; **Description** - When an AML workspace no longer appears to have active use.
-<br/>&nbsp;&nbsp; **Environment** - Development.<br/>
+&nbsp;&nbsp; **Description**: When an AML workspace no longer appears to have active use.
+<br/>&nbsp;&nbsp; **Environment**: Development.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2) AML metrics; <br/>
 &nbsp;&nbsp; - Machine Learning Services - [Workspaces](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics) - count of Active Cores over a period. 
@@ -485,8 +484,8 @@ The suggested MVP monitoring for this design is:
 <br/>&nbsp;&nbsp; - Date thresholds should be aligned to the project schedule. <br/>
 
 #### 5 - Security Controls inc. RBAC
-&nbsp;&nbsp; **Description** - Ensuring the appropriate security controls and baseline are implemented and not deviated from. 
-<br/>&nbsp;&nbsp; **Environment** - All.<br/>
+&nbsp;&nbsp; **Description**: Ensuring the appropriate security controls and baseline are implemented and not deviated from. 
+<br/>&nbsp;&nbsp; **Environment**: All.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Azure – [Policies](/azure/machine-learning/how-to-integrate-azure-policy?view=azureml-api-2#policies-for-azure-machine-learning). <br/>
 &nbsp;&nbsp; - Including the “[Audit usage of custom RBAC roles](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5)”.
@@ -495,8 +494,8 @@ The suggested MVP monitoring for this design is:
 <br/>&nbsp;&nbsp; - Other components/services used in this design should also have their specific in-built policies reviewed and implemented where appropriate. <br/>
 
 #### 6 - Deployment – Standards/Governance
-&nbsp;&nbsp; **Description** - Ensuring the appropriate standards and guardrails are adhered too. 
-<br/>&nbsp;&nbsp; **Environment** - Azure & CI/CD.<br/>
+&nbsp;&nbsp; **Description**: Ensuring the appropriate standards and guardrails are adhered too. 
+<br/>&nbsp;&nbsp; **Environment**: Azure & CI/CD.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Azure – [DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines).<br/>
 &nbsp;&nbsp; - [PSRule](https://azure.github.io/enterprise-azure-policy-as-code/) for Azure.
@@ -507,23 +506,23 @@ The suggested MVP monitoring for this design is:
 <br/>&nbsp;&nbsp; - Microsoft guidance is available in the [Azure guidance for AML regulatory compliance](/azure/machine-learning/security-controls-policy?view=azureml-api-2).<br/>
 
 #### 7 - Deployment – Security Scanning
-&nbsp;&nbsp; **Description** - Automated security scanning is executed as part of the automated integration and deployment processes. 
-<br/>&nbsp;&nbsp; **Environment** - CI/CD.<br/>
-&nbsp;&nbsp; **Implementation** - Azure – [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction).
-<br/>&nbsp;&nbsp; **Notes** - This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules. <br/>
+&nbsp;&nbsp; **Description**: Automated security scanning is executed as part of the automated integration and deployment processes. 
+<br/>&nbsp;&nbsp; **Environment**: CI/CD.<br/>
+&nbsp;&nbsp; **Implementation**: Azure – [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction).
+<br/>&nbsp;&nbsp; **Notes**: This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules. <br/>
 
 #### 8 - Model – Endpoint Security
-&nbsp;&nbsp; **Description** - Targeted security monitoring of any AML endpoint.
-<br/>&nbsp;&nbsp; **Environment** - All.<br/>
-&nbsp;&nbsp; **Implementation** - Azure – [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction).
+&nbsp;&nbsp; **Description**: Targeted security monitoring of any AML endpoint.
+<br/>&nbsp;&nbsp; **Environment**: All.<br/>
+&nbsp;&nbsp; **Implementation**: Azure – [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction).
 
 #### 9 - Development – Ongoing service
-&nbsp;&nbsp; **Description** - A development model appearing provide a regular service that should be productionised.
-<br/>&nbsp;&nbsp; **Environment** - Development. <br/>
+&nbsp;&nbsp; **Description**: A development model appearing provide a regular service that should be productionised.
+<br/>&nbsp;&nbsp; **Environment**: Development. <br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2) AML metrics. <br/>
 &nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month. 
-<br/>&nbsp;&nbsp; **Notes** - Date thresholds should be aligned to the project schedule. <br/>
+<br/>&nbsp;&nbsp; **Notes**: Date thresholds should be aligned to the project schedule. <br/>
 
 > [!IMPORTANT] 
 > Several of the implementations are in Preview (as at Mar ‘24), please refer to [Preview Terms Of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for greater detail.
