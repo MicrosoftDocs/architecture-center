@@ -270,7 +270,7 @@ This is a comprehensive family of AI services and cognitive APIs to help you bui
 
 ### Azure Cognitive Search
 
-This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 
 - [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
 

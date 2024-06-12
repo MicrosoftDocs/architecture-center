@@ -98,7 +98,7 @@ Principal author:
 
 - Review [Publish and subscribe with Azure IoT Edge](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11) to understand how to configure general-purpose MQTT brokering in IoT Edge.
 
-- Review [Set up up Azure IoT Edge for Azure Sphere](/azure-sphere/app-development/setup-iot-edge) to learn how to use Azure Sphere Device Certificate for IoT Edge.
+- Review [Set up Azure IoT Edge for Azure Sphere](/azure-sphere/app-development/setup-iot-edge) to learn how to use Azure Sphere Device Certificate for IoT Edge.
 
 ## Related resources
 

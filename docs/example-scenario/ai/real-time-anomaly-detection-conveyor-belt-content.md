@@ -81,7 +81,7 @@ Because sensors capture data in real time, anomaly detection should be able to d
 
 The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. Sample data is presented here.
 
-**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyer belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. This sample graph shows how conveyor belt status is recorded:
+**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyor belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. This sample graph shows how conveyor belt status is recorded:
 
 :::image type="content" source="media/conveyor-belt-status.png" alt-text="Graph that shows conveyor belt status data." lightbox="media/conveyor-belt-status.png" border="false":::
 
