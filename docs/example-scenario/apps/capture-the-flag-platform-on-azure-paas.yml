@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Capture-the-Flag with CTFd on Azure PaaS
+  title: Run a Capture the Flag game service with CTFd on Azure PaaS
   titleSuffix: Azure Architecture Center
   description: Build a CTFd service with Azure platform as a service (PaaS) so that you can manage your games while Azure takes care of the infrastructure.
   author: balteravishay
@@ -15,7 +15,7 @@ metadata:
     - acom-architecture
     - web-app
     - web apps
-name: Capture-the-Flag with CTFd on Azure PaaS
+name: Run a Capture the Flag game service with CTFd on Azure PaaS
 azureCategories:
   - web
 summary: Build a CTFd service with Azure PaaS so you can manage your games while Azure takes care of the infrastructure.
