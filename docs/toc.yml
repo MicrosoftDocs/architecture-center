@@ -769,6 +769,8 @@ items:
     href: patterns/priority-queue.yml
   - name: Publisher/Subscriber
     href: patterns/publisher-subscriber.yml
+  - name: Quarantine
+    href: patterns/quarantine.yml
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.yml
   - name: Rate Limiting
