@@ -113,27 +113,30 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Maintain your [data classification](/azure/well-architected/security/data-classification) compliance. For example, avoid hosting personally identifiable information (PII) or other sensitive data in a sandbox environment. If you must use sensitive data, use synthetic data or data that has been de-identified.
 
-- Consider these [Secure Futures Initiative](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) principles when implementing sandbox environments. The [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) implementation showcases many of these.
+Also, consider these [Secure Futures Initiative](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) principles when designing and implementing sandbox environments. The [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) implementation on GitHub showcases many of these.
 
-  - Secure by design
-    - Limit the use of [shared secrets](/azure/well-architected/security/application-secrets#preshared-keys) and secure them using Azure Key Vault when required. When shared secrets must be used, retrieve them at runtime from Azure Key Vault using managed identities. If secrets must be persisted, ensure they are encrypted and not stored in plain text. Never echo secrets to the console or to log files, and never check secrets into source control.
-    - Set an expiration date for Key Vault secrets.
-    - When selecting a guest operating system for virtual machines, only use operating systems that are currently supported and eligible to receive security updates.
+### Secure by design
 
-  - Secure by default
-    - Use encryption as recommended by [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
-      - Ensure that cryptographic protocols and algorithms are up-to-date (e.g. TLS 1.2 or higher, SHA-256 or higher).
-      - For managed disks attached to virtual machines, data is encrypted at rest by default. Consider using host encryption or Azure Disk Encryption for encryption in transit.
-    - Avoid the use of public IPs. Use Azure Bastion for secure remote access to virtual machines.
-    - Use private endpoints to communicate with Azure services.
-    - Disable public network access to Azure services like Azure Storage and Azure SQL Database.
+- Limit the use of [shared secrets](/azure/well-architected/security/application-secrets#preshared-keys) and secure them using Azure Key Vault when required. When shared secrets must be used, retrieve them at runtime from Azure Key Vault using managed identities. If secrets must be persisted, ensure they are encrypted and not stored in plain text. Never echo secrets to the console or to log files, and never check secrets into source control.
+- Set an expiration date for Key Vault secrets.
+- When selecting a guest operating system for virtual machines, only use operating systems that are currently supported and eligible to receive security updates.
 
-  - Secure operations
-    - Enable Microsoft Defender for Cloud CSPM on sandbox subscriptions.
-    - Enable Azure Update Manager on all virtual machines used in sandbox environments, and set a regular patching schedule.
-      - For SQL Server virtual machines, enable first-party updates in Windows Update to ensure that SQL Server is patched.
-    - Monitor activity and diagnostic logs with Azure Monitor and/or Azure Sentinel.
-    - Decommission sandboxes that are no longer in use.
+### Secure by default
+
+- Use encryption as recommended by [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
+  - Ensure that cryptographic protocols and algorithms are up-to-date (e.g. TLS 1.2 or higher, SHA-256 or higher).
+  - For managed disks attached to virtual machines, data is encrypted at rest by default. Consider using host encryption or Azure Disk Encryption for encryption in transit.
+- Avoid the use of public IPs. Use Azure Bastion for secure remote access to virtual machines.
+- Use private endpoints to communicate with Azure services.
+- Disable public network access to Azure services like Azure Storage and Azure SQL Database.
+
+### Secure operations
+
+- Enable Microsoft Defender for Cloud CSPM on sandbox subscriptions.
+- Enable Azure Update Manager on all virtual machines used in sandbox environments, and set a regular patching schedule.
+  - For SQL Server virtual machines, enable first-party updates in Windows Update to ensure that SQL Server is patched.
+- Monitor activity and diagnostic logs with Azure Monitor and/or Azure Sentinel.
+- Decommission sandboxes that are no longer in use.
 
 ## Contributors
 
