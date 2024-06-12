@@ -12,6 +12,7 @@ This architecture reflects [Microsoft's Cloud Adoption Framework for Azure](/azu
 As described in the [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml), Contoso operates a medallion lakehouse that supports their first data workloads for the financial department. Contoso has hardened this system and extend it to support the enterprise analytical data needs, providing a data science capability and self-service functionality.   
 
 ### Key requirements
+
 - The solution MUST be hardened to operate as an enterprise data and analytics platform and extended to support other corporate functions, while adhering to Contoso's data access policy requirements.  
 - The platform MUST be able to ingest, store, process, and serve data in near-real time. The performance target is defined as a sub-one minute processing time from ingestion to being available in the reporting layer.
 - The platform MUST deliver economy of scale savings and efficiency, while driving reuse. 
@@ -87,13 +88,14 @@ For data science scenarios, Azure Data Factory’s primary role lies in data mov
 Within Azure Data Factory, these workflows are defined in pipelines consisting of various interlinked activities. Scalable Azure Data Factory pipelines are usually parameterized and driven by metadata defined in a control table. This pattern is characterized by the ingestion of data, processing it to generate machine learning predictions, and moving the data outputs to a service for modeling and serving purposes. The processing of data to generate machine learning predictions is performed differently in Azure Machine Learning and Azure Databricks in the following ways: 
 
 #### Azure Databricks
+
 - An [Azure Databricks notebook](/azure/databricks/notebooks/) incorporates all model scoring logic.
 - Execute model scoring using a [Databricks Notebook activity](/azure/data-factory/transform-data-databricks-notebook).
 
-#### Azure Machine Learning:
+#### Azure Machine Learning
+
 - An Azure Machine Learning [Batch Endpoint](/azure/machine-learning/concept-endpoints-batch?view=azureml-api-2) is used to incorporate all model scoring logic.
 - Execute model scoring using a [Machine Learning pipeline activity](/azure/data-factory/transform-data-machine-learning-service).
-
 
 ## Callouts
 
@@ -101,17 +103,14 @@ Within Azure Data Factory, these workflows are defined in pipelines consisting o
 - Any decision to move toward a domain model must be made in collaboration with business stakeholders. It's critical that stakeholders understand and accept the increased [responsibilities](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-responsibilities) of domain ownership.
   - Stakeholders' data maturity, available skilling across the software development lifecycle (SDLC), governance framework, standards, and automation maturity are all influencing factors for how far the initial operating model leans into [domain enablement](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/self-serve-data-platforms). These factors can also determine how far along you are on your cloud-scale analytics [adoption lifecycle](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-checklist), and the necessary steps you need to take to push the adoption farther along. 
  
-
 ## Alternatives
 
 - [Azure Event Hubs](/azure/event-hubs/) as alternative for the streaming: In this scenario, Azure Databricks provides the functionality, simplifying the design.
 - [Azure Data Share](/azure/data-share/) as alternative for the data sharing: In this scenario, Power BI provides the functionality, simplifying the design.
 
-
 ## Considerations
 
 The following considerations provide guidance for implementing the pillars of the [Azure Well-Architected Framework](/azure/well-architected/) in the context of this architecture. 
-
 
 ### Reliability
 
@@ -145,7 +144,6 @@ The delta this architecture provides, includes:
   - These domain data roles can be reused for new domain data onboarded to the platform, delivering consistent, unified controls for the access to data.
 - Given the higher data sensitivity requirements for the platform, [privileged identity management (PIM)](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles) should be considered for all key operational support roles. 
 
-
 ### Cost optimization
 
 [Cost optimization](/azure/well-architected/cost-optimization/) provides guidance in your architecture to sustain and improve your return on investment (ROI).
@@ -153,7 +151,6 @@ The delta this architecture provides, includes:
 The delta this architecture provides, includes:
 - Skilling the domain teams to ensure they understand the discipline of [cost optimization](/azure/well-architected/cost-optimization/) and their responsibilities under the new operating model.
 - Extending the [cost management alerting](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) to the domains and business stakeholders, providing transparency and observability. 
-
 
 ### Operational efficiency
 
@@ -174,14 +171,13 @@ The delta this architecture provides includes:
 
 ## Anti-patterns
 
-- **Technology-led transformation** - The shift to a domain model is a major undertaking that requires significant change across the organization. This shift works best when business stakeholders understand the scope of activities needed and value the outputs delivered. Deep collaboration is the key to any successful transformation.   
-- **LinkedIn architecture** - Technology is driven by new ideas. Questions such as "Are we solving the business problem at hand?", "what are the industry validated patterns?", "is this a problem needing a technical solution, or the other way around?", etc. can tempter earlier adopter enthusiasm and risk.  
-- **Understanding the RACI for Product Ownership** - When a gap in technical services is identified, it's often tempting to "build your own". While this is a valid approach in many cases, consideration needs to be given to the responsibility of adoption a Product ownership role across the full lifecycle, which can be a lengthy period of time for a productionised solution. The Cost and risk from activities such as support, feature uplift, security patching, environment interoperability, etc. can quickly weight any benefit provided. 
-   
+- **Non-collaborative transformation** - The shift to a domain model is a major undertaking that requires significant change across the organization. This shift should not be one-sided endeavor, with technology leadership making decisions based on the technology they want to adopt. This approach can lead to disagreements or misunderstandings between business stakeholders and technology teams further down the line if issues arise in the workload. Rather, this type of transformation works best when business stakeholders understand the scope of activities needed and value the outputs delivered. [Deep collaboration](/azure/well-architected/reliability/principles#design-for-business-requirements) between technology and business stakeholders is the key to any successful transformation.
+- **Blindly adopting technology trends** - Technology is driven by new ideas. New functionality, new approaches, and new designs are constantly being introduced through various forums online. For example, a particular data design pattern might be a trending topic on LinkedIn that may seem enticing to adopt. Resist the temptation to adopt the latest trends when building for an enterprise-class solution, and favor proven technologies and patterns. Oftentimes, trending solutions may not be thoroughly tested and proven in production enterprise environments, and may not work well in production for a variety of reasons, like missing functionality, a lack of thorough documentation, or an inability to properly scale. 
+- **Building functionality without proper consideration** - When a gap in technical functionality is identified, it's often tempting to "build your own". While this may be a valid approach in some cases, product owners should consider the impact on the overall product lifecycle that building a bespoke solution may introduce. Building bespoke solutions to cover a gap in existing, well-supported products can signifcantly increase technical debt over the course of a product lifecycle as maintaining that solution adds considerable management burden, which increases as time goes on. The amount of projected technical debt needs to be weighed against the criticality of the missing functionality. If that functionality is on the product roadmap for an off-the-shelf solution, waiting for the feature to be delivered by the vendor might be a better strategy in the long term.
+
 ## Next steps
 
 - [Azure Data Factory mission critical architecture](azure-data-factory-mission-critical.yml) 
-
 
 ## Related resources
 
