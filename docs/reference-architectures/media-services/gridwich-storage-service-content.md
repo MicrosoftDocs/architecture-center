@@ -116,7 +116,7 @@ A pair of provider classes, one for [blobs][ProvB] and one for [containers][Prov
 
 ### Sleeve structure
 
-The *sleeve* is a container for the SDK Client object instance and a storage context. Storage provider functions reference the sleeve via the two properties `Client` and `Context`. There's a sleeve type for [blobs][SleeveB] and another for [containers][SleeveC], which have have `Client` properties of type [`BlobBaseClient`][SDK_BlobClient] and [`BlobContainerClient`][SDK_ContainerClient], respectively.
+The *sleeve* is a container for the SDK Client object instance and a storage context. Storage provider functions reference the sleeve via the two properties `Client` and `Context`. There's a sleeve type for [blobs][SleeveB] and another for [containers][SleeveC], which have `Client` properties of type [`BlobBaseClient`][SDK_BlobClient] and [`BlobContainerClient`][SDK_ContainerClient], respectively.
 
 The general sleeve structure for blobs looks like:
 
