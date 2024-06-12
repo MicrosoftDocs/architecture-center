@@ -412,43 +412,46 @@ Model monitoring is a key consideration in the end-to-end lifecycle of machine l
 
 The suggested MVP monitoring for the [current architectures](#current-architectures) in MLOps V2 is:
 
-#### 1.1 - Model Performance – Data Drift
+#### Model Performance
+
+##### Data Drift
 &nbsp;&nbsp; **Description**: [Data drift](/azure/machine-learning/how-to-monitor-datasets?view=azureml-api-1&tabs=python) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
 <br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**: AML – [Model Monitoring](/azure/machine-learning/concept-model-monitoring?view=azureml-api-2#enabling-model-monitoring).
 <br/>&nbsp;&nbsp; **Notes**: Data drift refactoring requires recent production datasets and outputs, to be available for comparison. <br/>
 
-#### 1.2 - Model Performance – Usage
+##### Usage
 &nbsp;&nbsp; **Description**: Several model serving endpoint metrics to indicate quality and performance. 
 <br/>&nbsp;&nbsp; **Environment**: All.<br/>
 &nbsp;&nbsp; **Implementation**: Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
-<br/>&nbsp;&nbsp; **Notes**: This table has the supporting information to identify the AML workspace, deployment etc. <br/>
 
-#### 1.3 - Model Performance – Prediction Drift
+##### Prediction Drift
 &nbsp;&nbsp; **Description**: Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
 <br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**: Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
 <br/>&nbsp;&nbsp; **Notes**: Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.  <br/>
 
-#### 2.1 - Usage - Client Requests
+#### Usage
+
+##### Client Requests
 &nbsp;&nbsp; **Description**: Count of the Client Requests to the model endpoint.
 <br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Machine Learning Services - [OnlineEndpoints](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics). <br/>
-&nbsp;&nbsp; - Count of RequestPerMintute.
-<br/>&nbsp;&nbsp; **Notes**: Acceptable thresholds could be aligned to t-shirt sizing’s or anomalies (acknowledging the need to establish a baseline). <br/>
+&nbsp;&nbsp; - Count of [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints).
+<br/>&nbsp;&nbsp; **Notes**: Acceptable thresholds could be aligned to t-shirt sizing or anomalies (acknowledging the need to establish a baseline).<br/>
 &nbsp;&nbsp; - When a model is no longer being used, it should be retired from production. 
 
-#### 2.2 - Usage - Throttling Delays
+##### Throttling Delays
 &nbsp;&nbsp; **Description**: [Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. 
 <br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**; 
 <br/>&nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview\).<br/>
 &nbsp;&nbsp; - Sum of RequestThrottlingDelayMs. 
 <br/>&nbsp;&nbsp; - ResponseThrottlingDelayMs.<br/>
-&nbsp;&nbsp; **Notes**: Acceptable thresholds should be aligned service's "Service Level Agreement" (SLA) and the solution's non-functional requirements (NFRs).
+&nbsp;&nbsp; **Notes**: Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
 
-#### 2.3 - Usage - Errors Generated
+##### Errors Generated
 &nbsp;&nbsp; **Description**: Response Code - Errors generated.
 <br/>&nbsp;&nbsp; **Environment**: Production.<br/>
 &nbsp;&nbsp; **Implementation**; 
@@ -457,7 +460,10 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 <br/>&nbsp;&nbsp; - Count of XRequestId by ModelStatusCode & ModelStatusReason.<br/>
 &nbsp;&nbsp; **Notes**: All HTTP responses codes in the 400 & 500 range would be classified as an error.
 
-#### 3 - Budget Boundaries
+
+#### Budget Boundaries
+
+##### Deployment
 &nbsp;&nbsp; **Description**: When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount.
 <br/>&nbsp;&nbsp; **Environment**: All.<br/>
 &nbsp;&nbsp; **Implementation**: Azure – [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts).
@@ -466,7 +472,9 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 <br/>&nbsp;&nbsp; - Multiple threshold tiers should be used, ensuring stakeholders get appropriate warning before the budget is exceeded.<br/>
 &nbsp;&nbsp; - Consistent budget alerts could also be a trigger for refactoring to support greater demand.
 
-#### 4 - Workspace – Staleness
+#### Workspace
+
+##### Staleness
 &nbsp;&nbsp; **Description**: When an AML workspace no longer appears to have active use.
 <br/>&nbsp;&nbsp; **Environment**: Development.<br/>
 &nbsp;&nbsp; **Implementation**;
@@ -476,7 +484,9 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 &nbsp;&nbsp; - Active Cores should equal zero with aggregation of count.
 <br/>&nbsp;&nbsp; - Date thresholds should be aligned to the project schedule. <br/>
 
-#### 5 - Security Controls inc. RBAC
+#### Security Controls inc. RBAC
+
+##### Workload
 &nbsp;&nbsp; **Description**: Ensuring the appropriate security controls and baseline are implemented and not deviated from. 
 <br/>&nbsp;&nbsp; **Environment**: All.<br/>
 &nbsp;&nbsp; **Implementation**;
@@ -486,30 +496,27 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 &nbsp;&nbsp; - The full listing of available [in-built policies](/azure/governance/policy/samples/built-in-policies?view=azureml-api-2#machine-learning) is available for AML.
 <br/>&nbsp;&nbsp; - Other components/services used in this design should also have their specific in-built policies reviewed and implemented where appropriate. <br/>
 
-#### 6 - Deployment – Standards/Governance
+#### Deployment
+
+##### Standards/Governance
 &nbsp;&nbsp; **Description**: Ensuring the appropriate standards and guardrails are adhered too. 
 <br/>&nbsp;&nbsp; **Environment**: Azure & CI/CD.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Azure – [DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines).<br/>
 &nbsp;&nbsp; - [PSRule](https://azure.github.io/enterprise-azure-policy-as-code/) for Azure.
-<br/>&nbsp;&nbsp; - [Enterprise Policy As Code](https://azure.github.io/enterprise-azure-policy-as-code/) (EPAC) (azure.github.io).<br/>
+<br/>&nbsp;&nbsp; - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) (EPAC) (azure.github.io).<br/>
 &nbsp;&nbsp; **Notes**;
-<br/>&nbsp;&nbsp; - [PSRule](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure Infrastructure as Code (IaC).<br/>
+<br/>&nbsp;&nbsp; - [PSRule]( https://github.com/microsoft/PSRule) provides a testing framework for Azure Infrastructure as Code (IaC).<br/>
 &nbsp;&nbsp; - [EPAC](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy Policies, Policy Sets, Assignments, Policy Exemptions and Role Assignments.
 <br/>&nbsp;&nbsp; - Microsoft guidance is available in the [Azure guidance for AML regulatory compliance](/azure/machine-learning/security-controls-policy?view=azureml-api-2).<br/>
 
-#### 7 - Deployment – Security Scanning
+##### Security Scanning
 &nbsp;&nbsp; **Description**: Automated security scanning is executed as part of the automated integration and deployment processes. 
 <br/>&nbsp;&nbsp; **Environment**: CI/CD.<br/>
 &nbsp;&nbsp; **Implementation**: Azure – [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction).
 <br/>&nbsp;&nbsp; **Notes**: This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules. <br/>
 
-#### 8 - Model – Endpoint Security
-&nbsp;&nbsp; **Description**: Targeted security monitoring of any AML endpoint.
-<br/>&nbsp;&nbsp; **Environment**: All.<br/>
-&nbsp;&nbsp; **Implementation**: Azure – [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction).
-
-#### 9 - Development – Ongoing service
+##### Ongoing service
 &nbsp;&nbsp; **Description**: A development model appearing provide a regular service that should be productionised.
 <br/>&nbsp;&nbsp; **Environment**: Development. <br/>
 &nbsp;&nbsp; **Implementation**;
@@ -517,8 +524,13 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 &nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month. 
 <br/>&nbsp;&nbsp; **Notes**: Date thresholds should be aligned to the project schedule. <br/>
 
-> [!IMPORTANT] 
-> Several of the implementations are in Preview (as at Mar ‘24), please refer to [Preview Terms Of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for greater detail.
+#### Model
+
+##### Endpoint Security
+&nbsp;&nbsp; **Description**: Targeted security monitoring of any AML endpoint.
+<br/>&nbsp;&nbsp; **Environment**: All.<br/>
+&nbsp;&nbsp; **Implementation**: Azure – [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction).
+
 
 ## Contributors
 
