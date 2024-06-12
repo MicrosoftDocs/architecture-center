@@ -26,6 +26,7 @@ As described in the [baseline architecture](azure-data-factory-on-azure-landing-
    - While only Contoso employees can directly access the platform, there SHOULD be the capability to share data with third parties. 
 
 ### The key design decisions (KDDs)
+
 - The [baseline architecture](azure-data-factory-on-azure-landing-zones-baseline.yml) can be modified to meet these requirements without rearchitecting.
 - Given the requirements for extending the platform across the enterprise and self-service functionality, and the business strategic objective, a [domain design](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations) supported by an enterprise managed foundation is a good fit for the scenario. The foundation is defined as:
   - Identity and access controls.
@@ -52,20 +53,24 @@ As described in the [baseline architecture](azure-data-factory-on-azure-landing-
 The design callouts for the hardened architecture are:
 
 1.	The Ingestion and Delta Lake are [source aligned](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#source-system-aligned-domains) and remain the responsibility of the central technical team. This decision reflects the level of technical expertise required for Spark development and supports a consistent, standardized implementation approach that accounts for enterprise reusability.
+
 - Data feeds from source systems are governed with [data contracts](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#data-contracts-1), which can be used to drive a [metadata-driven](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-contracts#:~:text=metadata%2Ddriven%20ingestion%20frameworks) ETL (extract, transform, load) framework and surfaced up to end users as part of the [governance capability](/purview/how-to-browse-catalog).
 - The delta lake's Bronze layer (Raw) directory structure reflects how [data is consumed](/azure/storage/blobs/data-lake-storage-best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2F_bread%2Ftoc.json#directory-structure). The data is ordered by source system. This organization methodology enables a unified security implementation based on business ownership of source systems.
 - To support the streaming requirement, a fast-path for data is designed. To that end, data is ingested through ADF and directly processed by the Azure Databricks structured stream for analysis and use. Delta lake [CDC](/azure/databricks/structured-streaming/delta-lake#stream-a-delta-lake-change-data-capture-cdc-feed) can be used to create the audit history, supporting replay and propagating incremental changes to downstream tables in the medallion architecture. 
 
 2. A model-and-serve path remains the responsibility of the central technical team in support of the enterprise owned data solutions. The technical team is also responsible for providing the service catalog optionality for business areas that require data solutions but don't have the skilling, budget, or interest in technically managing their own domain implementation.
+
 - Self-service is offered within the model-and-serve components managed by the central technical team.
   
 3. The enterprise data science capability is managed by the central technical team. This model also aligns with their supporting the enterprise focused solutions, providing service optionality, and hosting services with a enterprise pricing structure.
 
 4. Domains are enabled via logical containers at the subscription level. [Subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) provide the domain level unit of management, billing, governance, and isolation necessary.
+
 - The approach is completely managed through infrastructure-as-code [IaC](/azure/well-architected/operational-excellence/infrastructure-as-code-design), which provides a baseline of enterprise monitoring, audit and security controls. The platform [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) is extended to support the domain extension.
 - Each domain has its own set of role-based access controls (RBAC) roles covering the [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane). Control plane roles are primarily used within the domain logical containers. On the other hand, data plane roles are used across the platform, providing a consistent, unified, and low-complexity control.   
   
 5.	Within a domain subscription, the components made available are configurable, depending on the skillset, priorities, and use cases.
+
 - Power BI [workspaces](/power-bi/collaborate-share/service-new-workspaces) allow domains to collaborate when practical. Workspaces can also be unique to domains and linked to specific [premium capacities](/power-bi/enterprise/service-premium-what-is#workspaces) if increased performance is required.
 - An innovation sandbox is a temporary entity, enabling the validation of new technologies or processes. Data storage is made available to onboard, create or change data, outside of constraints of the append-only functionality of the Data Lake - Bronze layer. 
 
@@ -134,7 +139,6 @@ Self-hosted integration runtime (SHIR)|Same-zone high availability
 > [!NOTE]
 > Not all Azure services are supported in all regions and not all regions support zones. Before you select a region, verify that all of the required resources and redundancy requirements are supported.
 
-
 ### Security
 
 [Security](/azure/well-architected/security/) provides guidance to your architecture to help ensure the confidentiality, integrity, and availability of your data and systems.
@@ -166,6 +170,7 @@ The delta this architecture provides includes:
 [Performance efficiency](/azure/well-architected/performance-efficiency/) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. 
 
 The delta this architecture provides includes:
+
 - As part of the domain establishment and baseline of [monitoring](/azure/azure-monitor/overview), alerting and [observability](/azure/cloud-adoption-framework/manage/monitor/observability) will be provided to the domain teams.
 - Encourage the sharing of knowledge and best-practice between knowledge workers, offering [incentives](/power-bi/guidance/fabric-adoption-roadmap-community-of-practice?context=%2Ffabric%2Fcontext%2Fcontext#incentives) for community engagement.
 
