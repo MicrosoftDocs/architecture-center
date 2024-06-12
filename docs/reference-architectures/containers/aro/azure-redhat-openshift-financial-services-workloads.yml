@@ -5,7 +5,7 @@ metadata:
   description: Azure Red Hat OpenShift landing zone for the financial services industry to create secure, resilient, and compliant solutions in a hybrid cloud environment.
   author: mosabami
   ms.author: aayodeji
-  ms.date: 06/10/2024
+  ms.date: 06/12/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

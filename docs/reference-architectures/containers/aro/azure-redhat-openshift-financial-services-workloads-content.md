@@ -4,34 +4,45 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 ## Architecture
 
-![Diagram that shows the ARO Hybrid architecture FSI scenario.](./images/fsi-architecture.png)
+:::image type="content" source="./images/fsi-architecture.png" alt-text="Diagram that shows the ARO Hybrid architecture FSI scenario." border="false" lightbox="./images/fsi-architecture.png":::
 
-### Data Flow
+### Dataflow
 
-This scenario covers an application running on an ARO cluster with connectivity to resources on-premises and in a hub virtual network on Azure that is protected by Azure Firewall. The data flow is as follows:
+This scenario covers an application that runs on an ARO cluster with connectivity to resources on-premises and in a hub virtual network on Azure that is protected by Azure Firewall. The data flow is as follows:
 
 - The developer writes code within the company's network and pushes the code to a code repository. In this case, the code repository used is GitHub Enterprise.
-- The customer's deployment pipeline takes the code and containerizes it, deploying it in an on-premises container registry.
+
+- The customer's deployment pipeline takes the code and containerizes it, which deploys the code in an on-premises container registry.
+
 - This image can then be deployed into an on-premises OpenShift Cluster and to the ARO cluster on Azure.
+
 - The image also gets deployed to ARO via ExpressRoute, which routes the traffic through the Hub Azure Virtual Network to the private ARO cluster in the Spoke Virtual network. These two networks are peered.
-- Outgoing traffic coming from the ARO cluster is first routed through the peered Hub Virtual Network and through an Azure Firewall instance.
+
+- Outgoing traffic that comes in from the ARO cluster is first routed through the peered Hub Virtual Network and through an Azure Firewall instance.
+
 - Customers can access the application by accessing a web address that directs traffic to Azure Front Door.
-- Azure Front door is connected to the private ARO cluster using Private Link services.
+
+- Azure Front door connects to the private ARO cluster by using Private Link services.
 
 ### Components
 
 - [Azure Red Hat OpenShift](https://azure.microsoft.com/products/openshift) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat and is the primary compute platform in this architecture.
+
 - [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) (formerly Azure Active Directory) is a cloud-based identity and access management service that your employees can use to access external resources. In this architecture, it's used to provide users with secure, granular access to the resources.
+
 - [Azure ExpressRoute](/azure/well-architected/service-guides/azure-expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. In this architecture, it's used to provide private, high bandwidth connectivity between on-premises resources and Azure.
-- [Azure Key Vault](/azure/key-vault/general/overview) is a key management solution that helps store and manage secrets, keys, and certificates. In this architecture, it's being used to securely store secrets for the applications running on the private ARO cluster.
-- [Azure Bastion](/azure/bastion/design-architecture) is a fully managed PaaS service that you deploy to securely connect to virtual machines (VM) via private IP address. In this architecture, Azure Bastion is being used to connect to the Azure VM within the private network since we're implementing a private cluster.
-- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. In this architecture, Azure firewall is used to monitor and filter network traffic in an out of the ARO environment.
+
+- [Azure Key Vault](/azure/key-vault/general/overview) is a key management solution that helps store and manage secrets, keys, and certificates. In this architecture, it's being used to securely store secrets for the applications that run on the private ARO cluster.
+
+- [Azure Bastion](/azure/bastion/design-architecture) is a fully managed PaaS service that you deploy to securely connect to virtual machines (VM) via private IP address. In this architecture, Azure Bastion is used to connect to the Azure VM within the private network because we're implementing a private cluster.
+
+- [Azure Firewall](/azure/well-architected/service-guides/azure-firewall) is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads that run in Azure. In this architecture, Azure firewall is used to monitor and filter network traffic in an out of the ARO environment.
 
 ### Alternatives
 
-Red Hat and Azure Red Hat OpenShift (ARO) is a platform that offers alternatives to customers. With ARO, you get access to the OpenShift ecosystem. This means that the platform services you get running OpenShift on-premises mostly also apply to ARO. ARO allows you to use those as alternatives to some of the Azure services mentioned in this document.
+Red Hat and Azure Red Hat OpenShift (ARO) is a platform that offers alternatives to customers. With ARO, you get access to the OpenShift ecosystem. This means that the platform services that you get running OpenShift on-premises mostly also apply to ARO. ARO allows you to use those as alternatives to some of the Azure services mentioned in this document.
 
-You can also use third-party alternatives. For example, customers might decide to host their container registry on-premises  or use OpenShift GitOps instead of GitHub Actions. Other alternative considerations would be third party monitoring solutions that work seamlessly with ARO environments. This document focuses on Azure alternatives customers often use to build their solutions on ARO.
+You can also use non-Microsoft alternatives. For example, customers might decide to host their container registry on-premises or use OpenShift GitOps instead of GitHub Actions. Other alternative considerations would be third-party monitoring solutions that work seamlessly with ARO environments. This document focuses on Azure alternatives customers often use to build their solutions on ARO.
 
 ## Scenario details
 
@@ -43,7 +54,7 @@ Resilience planning involves distributing resources across Availability Zones fo
 
 ### Potential use cases
 
-This scenario is most relevant to customers in regulated industries including finance and healthcare. This would also apply to other customers who have elevated security requirements than regular scenarios, for example, when building solutions with strict data governance requirements.
+This scenario is most relevant to customers in regulated industries, specifically finance and healthcare. This would also apply to other customers who have elevated security requirements than regular scenarios, for example, when building solutions with strict data governance requirements.
 
 ## Considerations
 
@@ -51,7 +62,7 @@ These recommendations implement the pillars of the Azure Well-Architected Framew
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist). 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 Resilience is essential for Microsoft Azure Red Hat OpenShift (ARO) to maintain the uninterrupted operation of mission-critical applications. Follow these reliability recommendations:
 
@@ -67,7 +78,7 @@ Resilience is essential for Microsoft Azure Red Hat OpenShift (ARO) to maintain 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
-Security is paramount in the financial industry, requiring stringent measures to protect sensitive data, and ensure regulatory compliance. Follow these security recommendations:
+Security is paramount in the financial industry. Stringent security measures are required to protect sensitive data and ensure regulatory compliance. Follow these security recommendations:
 
 #### Networking
 
@@ -81,11 +92,11 @@ Security is paramount in the financial industry, requiring stringent measures to
 
 #### Data
 
-- *Encryption at rest*: Ensure data encryption at rest using default storage policies and configurations. Encrypt ETCD behind the control plane, storage on each worker node, and configure CSI access to Azure File, Block, and Blob for Persistent Volumes. Use ETCD and storage data encryption (ARO feature) and manage keys either through the customer or Azure. For more information, see [Security for Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
+- *Encryption at rest*: Ensure data encryption at rest by using default storage policies and configurations. Encrypt ETCD behind the control plane, storage on each worker node, and configure CSI access to Azure File, Block, and Blob for Persistent Volumes. Use ETCD and storage data encryption (ARO feature) and manage keys either through the customer or Azure. For more information, see [Security for Azure Red Hat OpenShift](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
 
 - *Encryption in transit*: Encrypt all interconnections between services in a default ARO cluster. Enable TLS for traffic between services, use network policies, service mesh, and Key Vault for certificate storage. Implement TLS, Network policies, Service mesh, and Azure Key Vault. For more information, see the [Update Azure Red Hat OpenShift cluster certificates](/azure/openshift/howto-update-certificates) documentation.
 
-- *Key management service*: Ensure secure storage and servicing of secrets using Azure Key Vault. Consider third-party ISVs like Hashicorp Vault or Cyberark Concur for additional options. Handle certificates and secrets with Azure Key Vault and consider BYOK models. Use Azure Key Vault as the main component. Learn more at the [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) documentation.
+- *Key management service*: Ensure secure storage and servicing of secrets by using Azure Key Vault. Consider third-party ISVs like Hashicorp Vault or Cyberark Concur for more options. Handle certificates and secrets with Azure Key Vault and consider BYOK models. Use Azure Key Vault as the main component. Learn more at the [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) documentation.
 
 #### Authentication and authorization
 
@@ -105,7 +116,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 With robust observability tools and practices in place, FSI companies can proactively detect and address issues and optimize resource utilization. Follow these operational-excellence recommendations:
 
-- *Implement effective logging and monitoring*: Use Azure Monitor and Azure Sentinel to track actions and ensure system integrity within your ARO environment. Supplement with third-party tools such as Dynatrace, Datadog, and Splunk. Ensure Managed Prometheus/Grafana is available for ARO.
+- *Implement effective logging and monitoring*: Use Azure Monitor and Azure Sentinel to track actions and ensure system integrity within your ARO environment. Supplement with non-Microsoft tools such as Dynatrace, Datadog, and Splunk. Ensure Managed Prometheus/Grafana is available for ARO.
 
 - *Use Arc-enabled Kubernetes*: Integrate Arc-enabled Kubernetes with your ARO environment for enhanced logging and monitoring capabilities. Use the provided tools to optimize resource utilization and maintain compliance with industry regulations. Enable comprehensive monitoring and observability by following the guidelines in the Arc-enabled Kubernetes documentation. For more information, check out the [Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) page and the [enabling monitoring for Arc enabled clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#arc-enabled-cluster) documentation.
 
@@ -119,4 +130,4 @@ With robust observability tools and practices in place, FSI companies can proact
 
 ## Next steps
 
-The landing zone accelerator is an open-source repo that consists of an Azure CLI reference implementation along with Critical Design Area recommendations. The repo is [available on GitHub](https://github.com/Azure/ARO-Landing-Zone-Accelerator).
+- The landing zone accelerator is an open-source repo that consists of an Azure CLI reference implementation along with Critical Design Area recommendations. The repo is [available on GitHub](https://github.com/Azure/ARO-Landing-Zone-Accelerator).
