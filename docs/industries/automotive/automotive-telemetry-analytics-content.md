@@ -10,11 +10,11 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ### Dataflow
 
-1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. The device publishes live vehicle signal messages (**1a**) or requests upload of recorded data files (**1b**) using an MQTT client to Azure Event Grid's MQTT broker functionality using a claims-check pattern.
+1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. The device publishes live vehicle signal messages (**1a**) or requests upload of recorded data files (**1b**) using an MQTT client to Azure Event Grid's MQTT broker functionality using a Claim-Check pattern.
 
 1. Event Grid routes live vehicle signal data (**2a**) to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an Event Stream.
 
-   Event Grid orchestrates file upload with the device client(**2b**) to OneLake or Azure Blob Storage. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format suitable for ingestion, such as parquet or CSV.
+   Event Grid orchestrates file upload with the device client(**2b**) to Lakehouse. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format suitable for ingestion, such as parquet or CSV.
 
 1. The Event stream routes the decoded JSON vehicle signals for ingestion in Eventhouse (**3a**).
 
@@ -26,7 +26,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 1. R&D engineers and Data Scientists use notebooks to analyze data and build test & validation use cases.
     1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-set) to perform interactive data analysis, using the [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence)
-    1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can run analytics using Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git. Users can use the [Copilot for Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support their work.
+    1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can run analytics using Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git. Users can use the [Copilot for Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support their workflow with contextual code suggestions.
 
 1. R&D Engineers and Data Scientists can use Power BI with Dynamic Query or Real-Time Analytics Dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
 
@@ -40,7 +40,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 :::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the KQL Database and methods for extracting, expanding, and enriching data." border="false":::
 
-When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), it's useful to consider the difference between `fact`  and `dimension` tables. Telemetry is a `fact` table, as vehicle signals are progressively appended in either a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly. It requires a last-modified timestamp column.
+When [designing the table schema](/azure/data-explorer/kusto/concepts/fact-and-dimension-tables), it's useful to consider the difference between `fact`  and `dimension` tables. Telemetry is a `fact` table, as vehicle signals are progressively appended in either a streaming fashion or as part of a complete recording, and it doesn't change. The fleet metadata can be considered a `fact` table that updates slowly.
 
 The vehicle telemetry lands in raw tables. You can use the following functions to process the messages:
 
@@ -64,7 +64,7 @@ The vehicle telemetry lands in raw tables. You can use the following functions t
 
 1. Perform geospatial analytics with user defined functions. Use the [Geospatial Analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
 
-1. The fleet metadata table reflects changes on the vehicle metadata and configuration. The **Fleet metadata last known values** materialized view shows the latest state of the vehicle fleet.
+1. The fleet metadata table reflects changes on the vehicle metadata and configuration. The **Fleet metadata last known values** materialized view shows the latest state of the vehicle fleet based on a last-time modified column.
 
 ### Components
 
@@ -83,18 +83,18 @@ The following key technologies implement this workload:
 
 This architecture can also be implemented using the following Azure services:
 
-- [Azure Blob Storage](/azure/storage/blobs) stores massive amounts of unstructured data, such as recordings, logs, and videos from the vehicles. It replaces OneLake storage
-- [Azure Data Explorer](/azure/data-explorer) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real Time Intelligence KQL Database
+- [Azure Blob Storage](/azure/storage/blobs) stores massive amounts of unstructured data, such as recordings, logs, and videos from the vehicles. It replaces OneLake storage.
+- [Azure Data Explorer](/azure/data-explorer) is a fast, fully managed data analytics service for real-time analysis. It replaces the Fabric Real Time Intelligence KQL Database.
 
-[Azure Batch](https://azure.microsoft.com/services/batch) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or type.
+[Azure Batch](https://azure.microsoft.com/services/batch) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or type. This approach can be done both with Microsoft Fabric or with Blob Storage with Azure Data Explorer.
 
 :::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Azure Batch method for decoding complex files." border="false":::
 
-1. The user uploads a recorded data file to Blob Storage. When the upload is completed, it triggers a Functions app to schedule decoding.
-1. The scheduler starts a Functions app that creates a batch job, taking into consideration the file type, size, and required decoding algorithm. The app selects a suitable virtual machine (VM) from the pool and starts the job.
-1. Batch writes the resulting decoded file back to Blob Storage when the job completes. This file must be suitable for direct ingestion in a format that Eventhouse supports.
-1. Lakehouse or Blob Storage triggers a function that ingests the data into Eventhouseupon file write. This function creates the table and data mapping if necessary, and starts the ingestion process.
-1. The KQL database  ingests the data files from Lakehouse or Blob Storage.
+1. The user or recording device uploads a recorded data file to Lakehouse. When the upload is completed, it triggers a Functions app to schedule decoding.
+1. The scheduler starts a Functions app that creates a batch job, taking into consideration the file type, size, and required decoding algorithm. The app selects a virtual machine (VM) with a suitable size from the pool and starts the job.
+1. Azure Batch writes the resulting decoded file back to Lakehouse when the job completes. This file must be suitable for direct ingestion in a format that Eventhouse supports.
+1. Lakehouse triggers a function that ingests the data into Eventhouseupon file write. This function creates the table and data mapping if necessary, and starts the ingestion process.
+1. The KQL database  ingests the data files from Lakehouse.
 
 This approach offers the following benefits:
 
@@ -102,7 +102,6 @@ This approach offers the following benefits:
 - Batch pools provide insight into processing statistics, task queues, and batch pool health. You can visualize status, detect problems, and rerun failed tasks.
 - The combination of Azure Functions and Azure Batch supports plug-and-play processing in Docker containers.
 - Cost savings with the use of [Spot Virtual Machines](/azure/batch/batch-spot-vms) to process files in off-peak times
--
 
 ## Scenario details
 
@@ -148,8 +147,7 @@ It's important to understand the division of responsibility between the automoti
 - [Row Level Security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL Databases and Azure Data Explorer.
 - Use the [restrict](/azure/data-explorer/kusto/query/restrict-statement) statement when implementing middleware applications with access to the KQL database to create a logical model that restricts the user access to the data.
 
-
-All these features help automotive OEMs create a safe environment for their vehicle telemetry data. For more information, see [Security in Microsoft Fabric](/fabric/security/security-overview).
+All these features help automotive OEMs create a secure environment for their vehicle telemetry data. For more information, see [Security in Microsoft Fabric](/fabric/security/security-overview).
 
 ### Cost optimization
 
@@ -201,7 +199,7 @@ Other contributors:
 ## Next steps
 
 - Learn how to connect vehicles and devices to the cloud using the [MQTT broker feature in Azure Event Grid](/azure/event-grid/mqtt-overview).
-- Understand how to transfer files without storing the payload in a MQTT message using the [claim-check pattern](/azure/architecture/patterns/claim-check)
+- Understand how to transfer files without storing the payload in a MQTT message using the [Claim-Check pattern](/azure/architecture/patterns/claim-check).
 - Connect your [datastream to a KQL destination](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities).
 - Ingest recordings from [OneLake into a KQL database](/fabric/real-time-intelligence/get-data-onelake).
 - Read about [materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview) to learn how to create materialized views, such as the last-known value tables.
