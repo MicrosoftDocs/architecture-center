@@ -40,7 +40,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 1. **Access in Azure.** In Azure, access to the application compute clusters is provided via an Azure load balancer. This approach allows scale-out compute resources to process the input work. Both level 7 (application level) and level 4 (network protocol level) load balancers are available. The type that you use depends on how the application input reaches the entry point of the compute cluster.  
 
-1. **Application compute clusters.** The architecture supports applications that run in a container that can be deployed in a container orchestrator like Kubernetes. Adabas and Natural components can run inside container technology operated on top of a Linux operating system. You can re-architect your legacy applications to modern container-based architectures and operate on top of Azure Kubernetes Service (AKS).
+1. **Application compute clusters.** The architecture supports applications that run in a container that can be deployed in a container orchestrator like Kubernetes. Adabas & Natural components can run inside container technology operated on top of a Linux operating system. You can re-architect your legacy applications to modern container-based architectures and operate on top of Azure Kubernetes Service (AKS).
 
 1. **ApplinX terminal emulation** (Software AG). ApplinX is a server-based technology that provides web connectivity and integration into core system applications without requiring changes to the applications. **Natural Online** enables online users to connect to Natural applications via a web browser. Without ApplinX, users need to connect with terminal emulation software by using SSH. Both systems run in containers.
 
