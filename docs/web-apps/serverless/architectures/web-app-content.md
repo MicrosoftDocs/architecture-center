@@ -238,7 +238,7 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 ### DevOps
 
-Use a fast and reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions][gh-actions], to automatically build and deploy every source change in frontend and backend. The source must reside in an online version control system. For more details on Azure Pipelines, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops&preserve-view=true). To learn more on GitHub Actions for Azure, see [Deploy apps to Azure](/azure/developer/github/deploy-to-azure).
+Safe deployment practices are automated using a reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions][gh-actions]. These services are used to automatically build and deploy every source change in the frontend and backend. The source must reside in an online version control system. For more details on Azure Pipelines, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline). To learn more on GitHub Actions for Azure, see [Deploy apps to Azure](/azure/developer/github/deploy-to-azure).
 
 #### Front-end deployment
 
@@ -254,7 +254,7 @@ The front end of this reference architecture is a single page application, with 
 
 To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
 
-Add a sufficient number of automated tests in your CI/CD pipelines. Be aware that the more deployable units (Azure Functions, etc), the more network boundaries. Those individual units work together to produce an outcome. Subsequently, end-to-end testing of such a system requires additional investment in integration testing.
+Add a sufficient number of automated tests in your both your build and deployment pipelines. Be aware that the more individual deployable units that make up your workload, the more network boundaries are introduced. Those individual units work together to support user and data flows. Subsequently, end-to-end testing of such a system requires additional investment in integration testing.
 
 #### API versioning
 
