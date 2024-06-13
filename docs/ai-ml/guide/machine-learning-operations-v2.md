@@ -469,7 +469,7 @@ The suggested MVP monitoring could be scoped around the [AML workspace setup](/a
 &nbsp;&nbsp; **Implementation**: Azure – [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts).
 <br/>&nbsp;&nbsp; **Notes**;<br/>
 &nbsp;&nbsp; - Budget thresholds should be set based upon the initial NFR’s and cost estimates.
-<br/>&nbsp;&nbsp; - Multiple threshold tiers should be used, ensuring stakeholders get appropriate warning before the budget is exceeded.<br/>
+<br/>&nbsp;&nbsp; - Multiple threshold tiers should be used, ensuring stakeholders get appropriate warning before the budget is exceeded. These stakeholders could include Business Leads, Project Owners, or Project Leads depending on the organisation.<br/>
 &nbsp;&nbsp; - Consistent budget alerts could also be a trigger for refactoring to support greater demand.
 
 #### Workspace
