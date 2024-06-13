@@ -1,6 +1,6 @@
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))***
+        *Well-Architected Framework alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments)*
     :::column-end:::
 :::row-end:::
 ---
