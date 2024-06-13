@@ -410,7 +410,7 @@ The above process flow provides a secure, self-serve, package management process
 
 Model monitoring is a key consideration in the end-to-end lifecycle of machine learning systems. Unlike traditional software, where behavior is governed by fixed rules, machine learning models learn from data hence their performance can degrade over time. Therefore, when monitoring the performance of a models in production it is essential to monitor data-related aspects in addition to traditional software-based metrics. Monitoring activities are relevent for personas such as Data Scientists, Business Stakeholders, Project Leads, Project Owners, Platform Technical Support, CI/CD processes, and Monitoring Processes.
 
-The suggested MVP monitoring for the [current architectures](#current-architectures) in MLOps V2 is:
+The suggested MVP monitoring could be scoped around the [AML workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. for the [current architectures](#current-architectures) in MLOps V2 is:
 
 #### Model Performance
 
