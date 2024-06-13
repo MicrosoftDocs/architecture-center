@@ -475,7 +475,7 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 #### Workspace
 
 ##### Staleness
-&nbsp;&nbsp; **Description**: When an AML workspace no longer appears to have active use.
+&nbsp;&nbsp; **Description**: When an AML workspace no longer appears to have active use as measured by compute use associated with the use-case a project owner might choose to decommission an AML workspace if it is no longer needed for a given project.
 <br/>&nbsp;&nbsp; **Environment**: Development.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2) AML metrics; <br/>
