@@ -45,7 +45,7 @@ Also, [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) unifies you
 
 ![Diagram that shows how Microsoft Fabric pushes data to OneLake.](media/microsoft-fabric.png)
 
-In Fabric, you can directly reference data that's pushed to Data Lake Storage by using [OneLake shortcuts](/fabric/onelake/onelake-shortcuts), without any ETL.
+In Fabric, you can directly reference data that's pushed to Data Lake Storage by using [OneLake shortcuts](/fabric/onelake/onelake-shortcuts), without any extract, transform, load (ETL).
 
 You can push the data to Power BI to create reports and visualizations for BI reporting.
 
@@ -147,7 +147,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info(object_id)
         encoded_data = json.dumps(data)
     except Exception as e:
-        logging.info("Exception occured : "+ str(e)) 
+        logging.info("Exception occurred : "+ str(e)) 
         
     file_system_client = service_client.get_file_system_client(file_system=storage_container)
     directory_client = file_system_client.get_directory_client(storage_directory)

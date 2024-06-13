@@ -80,7 +80,7 @@ The following table presents considerations that might influence your decision t
 | **DevOps** | DevOps benefits from:<br/><br/>- A single release for the entire platform. <br/>- Less complicated release pipelines. |
 | **Usability - Administrators** | - It's easier for administrators to manage because they have fewer items to manage. <br/>- There's no need for other provisioning or to handle requests from teams for new capacities or workspaces. <br/>- Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
 |  **Usability - Other roles** | - It's acceptable to share the workspace with other users. <br/>- Collaboration among users is encouraged. |
-| **Performance** | - Isolation of workloads isn't mandatory. <br/>- No strict performance service level agreements (SLAs) need to be met. <br/>- Throttling isn't likely. |
+| **Performance** | - Isolation of workloads isn't mandatory. <br/>- No strict performance service-level agreements (SLAs) need to be met. <br/>- Throttling isn't likely. |
 | **Billing and cost management** | - One, single team can handle costs. <br/>- There's no need to charge back to different teams. |
 
 ## Pattern 2: Multiple workspaces backed by a single Fabric capacity
