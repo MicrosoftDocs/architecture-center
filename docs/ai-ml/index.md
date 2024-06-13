@@ -20,7 +20,7 @@ categories:
 
 # Artificial intelligence (AI) architecture design
 
-*Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
+*Artificial intelligence (AI)* is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 
 ![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](_images/ai-overview-img-001.png)
 

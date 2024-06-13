@@ -22,7 +22,7 @@ ms.custom:
 
 A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product. On this page, we provide guidance for technical decision-makers about the pricing models you can consider and the tradeoffs involved.
 
-When you determine the pricing model for your product, you need to balance the *return on value* (ROV) for your customers with the *cost of goods sold* (COGS) to deliver the service. Offering more flexible commercial models (for a solution) might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution (and therefore also increase your COGS).
+When you determine the pricing model for your product, you need to balance the *return on value (ROV)* for your customers with the *cost of goods sold (COGS)* to deliver the service. Offering more flexible commercial models (for a solution) might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution (and therefore also increase your COGS).
 
 Some important considerations that you should take into account, when developing pricing models for a solution, are as follows:
 
