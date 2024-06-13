@@ -165,7 +165,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 #### Network security
 
 - Ingress: To limit external access, only the Ingestion service is configured for external ingress. The backend services are accessible only through the internal virtual network in the Container Apps environment. Only expose services to the Internet where required. Because this architecture uses the built-in external ingress feature, this solution does not offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall.
-- Virtual network: When you create an environment, you can provide a custom virtual network; otherwise, a virtual network is automatically generated and managed by Microsoft. You cannot manipulate this Microsoft-managed virtual network, such as by adding network security groups (NSGs) or force tunneling traffic to a egress firewall. This example uses an automatically generated virtual network.
+- Virtual network: When you create an environment, you can provide a custom virtual network; otherwise, a virtual network is automatically generated and managed by Microsoft. You cannot manipulate this Microsoft-managed virtual network, such as by adding network security groups (NSGs) or force tunneling traffic to an egress firewall. This example uses an automatically generated virtual network.
 
 For more network topology options, see [Networking architecture in Azure Container Apps](/azure/container-apps/networking).
 

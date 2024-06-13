@@ -65,7 +65,7 @@ This solution is also applicable to the following industries where CFD, FEA, and
 - Heavy machinery
 - Automotive
 - Heating, ventilation, and air conditioning (HVAC)
-- Oil and gas 
+- Oil and gas
 - Energy
 - Electronics manufacturing
 - Healthcare
@@ -139,10 +139,12 @@ This architecture uses the AMD CPU-based HBv3-series VMs for CFD simulations and
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Kalaiselvan Balaraman](http://www.linkedin.com/in/kalaiselvan-b-5a153358) | Cloud Solution Architect
 - [Wolfgang Gentzsch](https://www.linkedin.com/in/wolfganggentzsch) | President
 
 Other contributors:
+
 - [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
 - [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Program Lead

@@ -93,9 +93,9 @@ There are three main approaches for training models for in-context learning: zer
 
   You can use this customization step to improve your process by:
 
-   - Including a larger set of example data.
-   - Using traditional optimization techniques with backpropagation to readjust the weights of the model. These techniques enable higher quality results than the zero-shot or few-shot approaches provide by themselves.
-   - Improving the few-shot learning approach by training the model weights with specific prompts and a specific structure. This technique enables you to achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens.
+  - Including a larger set of example data.
+  - Using traditional optimization techniques with backpropagation to readjust the weights of the model. These techniques enable higher quality results than the zero-shot or few-shot approaches provide by themselves.
+  - Improving the few-shot learning approach by training the model weights with specific prompts and a specific structure. This technique enables you to achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens.
 
   Disadvantages include the need for a large new dataset for every task, the potential for poor generalization out of distribution, and the possibility to exploit spurious features of the training data, resulting in high chances of unfair comparison with human performance.
 
@@ -139,7 +139,7 @@ The dataset used in this scenario is a set of hypothetical conversations between
 
 |Prompt|Completion|
 |-|-|
-|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you might require that you join a Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.| Customer wants to know whether they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences might require it.|
+|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you might require that you join an Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.| Customer wants to know whether they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences might require it.|
 
 **Ideal output**. The goal is to create summaries that follow this format: "Customer said *x*. Agent responded *y*." Another goal is to capture salient features of the dialog, like the customer complaint, suggested resolution, and follow-up actions.
 
@@ -441,6 +441,7 @@ Principal author:
 - [Meghna Jani](https://www.linkedin.com/in/meghnajani/) | Data & Applied Scientist II
 
 Other contributor:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*

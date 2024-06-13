@@ -14,7 +14,7 @@ This article describes the architecture and design considerations of a solution 
 The cloud components of the proposed solution include the following services:
 
 - An Azure subscription that hosts all cloud resources that are part of this solution.
-- An [Microsoft Entra ID](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Microsoft Entra security principals to authorize access to Azure resources.
+- A [Microsoft Entra ID](/azure/active-directory) tenant associated with the Azure subscription that provides authentication of Microsoft Entra security principals to authorize access to Azure resources.
 - An [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) vault in the Azure region that's closest to an on-premises datacenter that hosts the Azure Stack Hub deployment.
 
   > [!NOTE]

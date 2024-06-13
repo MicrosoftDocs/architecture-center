@@ -13,8 +13,9 @@ This reference architecture demonstrates a common enterprise workload that uses 
 
 ### Workflow
 
-App Service Environment version 3 provides different features than earlier versions, and advantages over those versions. For more information, see [Feature differences](/azure/app-service/environment/overview#feature-differences). You can deploy App Service Environment in two ways: 
-- As an external App Service Environment with a public IP address 
+App Service Environment version 3 provides different features than earlier versions, and advantages over those versions. For more information, see [Feature differences](/azure/app-service/environment/overview#feature-differences). You can deploy App Service Environment in two ways:
+
+- As an external App Service Environment with a public IP address
 - As an internal App Service Environment with an internal IP address that belongs to the internal load balancer (ILB)
 
 This reference architecture deploys an enterprise web application in an internal App Service Environment, also called an ILB App Service Environment. Use an ILB App Service Environment when your scenario requires you to:
@@ -307,13 +308,13 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
 - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
 
- Other contributors:
+Other contributors:
 
 - [Deep Bhattacharya](https://www.linkedin.com/in/deeplydiligent/) | Cloud Solution Architect
 - [Suhas Rao](https://www.linkedin.com/in/suhasaraos/) | Cloud Solution Architect
