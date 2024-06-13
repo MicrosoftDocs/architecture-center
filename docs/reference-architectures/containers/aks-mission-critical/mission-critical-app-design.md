@@ -263,7 +263,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 :::image type="content" source="./images/application-design-end-to-end-tracing.png" alt-text="Screenshot of the end-to-end tracing capability." lightbox="./images/application-design-end-to-end-tracing.png":::
 
-To demonstrate practical request traceability, every successful and unsuccessful API request returns the Correlation ID header to the caller. The application support team can search Application Insights with this identifier and get a detailed view of the full transaction.
+To demonstrate practical request traceability, every successful and unsuccessful API request returns the Correlation ID header to the caller. The application support team can search Application Insights with this identifier and get a detailed view of the full transaction, which is illustrated in the preceding diagram.
 
 The following code block appears in the reference implementation:
 
