@@ -184,7 +184,7 @@ Kubernetes supports *autoscaling* to increase the number of pods allocated to a 
 
 #### Cluster autoscaling
 
-The *cluster autoscaler* (CA) scales the number of nodes. Suppose pods can't be scheduled because of resource constraints; the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
+The *cluster autoscaler (CA)* scales the number of nodes. Suppose pods can't be scheduled because of resource constraints; the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
 
 The following example shows the CA configuration from the ARM template:
 
