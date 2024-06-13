@@ -80,6 +80,8 @@ All workload components use the Azure Cosmos DB .NET Core SDK to communicate wit
 
 - **ApplicationRegion**: This property is set to the region of the stamp, which enables the SDK to find the closest connection endpoint. The endpoint should preferably be in the same region.
 
+The following code block appears in the reference implementation:
+
 ```csharp
 //
 // /src/app/AlwaysOn.Shared/Services/CosmosDbService.cs
@@ -131,6 +133,8 @@ Write operations, such as post rating and post comment, are processed asynchrono
 :::image type="content" source="./images/application-design-operations-2.png" alt-text="Diagram that shows the asynchronous nature of the post rating feature in the implementation." lightbox="./images/application-design-operations-2.png" border="false":::
 
 The Event Hubs processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and use checkpoints to track progress. The checkpoints don't get written to blob storage after every event because it adds an expensive delay for every message. Instead, the checkpoints are written on a timer loop, and you can configure the duration. The default setting is 10 seconds.
+
+The following code block appears in the reference implementation:
 
 ```csharp
 while (!stoppingToken.IsCancellationRequested)
@@ -197,6 +201,8 @@ The `BackgroundProcessor` service has different requirements and is considered a
 
 Each component of the workload that includes dependencies like `ingress-nginx` has the [pod disruption budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) setting configured to ensure that a minimum number of instances remain available when clusters change.
 
+The following code block appears in the reference implementation:
+
 ```yml
 #
 # /src/app/charts/healthservice/templates/pdb.yaml
@@ -222,7 +228,7 @@ Use instrumentation to evaluate performance bottle necks and health problems tha
 
 - Send logs, metrics, and other telemetry to the stamp's log system.
 - Use structured logging instead of plain text so that you can query information.
-- Implement event correlation to get an end-to-end transaction view. In the RI, every API response contains an Operation ID as an HTTP header for traceability.
+- Implement event correlation to get an end-to-end transaction view. In the reference implementation, every API response contains an Operation ID as an HTTP header for traceability.
 - Don't rely only on *stdout* logging, or console logging. But you can use these logs to immediately troubleshoot a failing pod.
 
 This architecture implements distributed tracing with Application Insights and an Azure Monitor Logs workspace for application monitoring data. Use Azure Monitor Logs for logs and metrics of workload and infrastructure components. This architecture implements full end-to-end tracing of requests that come from the API, go through Event Hubs, and then to Azure Cosmos DB.
@@ -235,6 +241,8 @@ This architecture implements distributed tracing with Application Insights and a
 ### Application monitoring implementation details
 
 The `BackgroundProcessor` component uses the `Microsoft.ApplicationInsights.WorkerService` NuGet package to get out-of-the-box instrumentation from the application. Serilog is also used for all logging inside the application. Application Insights is configured as a sink next to the console sink. A `TelemetryClient` instance for Application Insights is used directly only when it's necessary to track other metrics.
+
+The following code block appears in the reference implementation:
 
 ```csharp
 //
@@ -256,6 +264,8 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 :::image type="content" source="./images/application-design-end-to-end-tracing.png" alt-text="Screenshot of the end-to-end tracing capability." lightbox="./images/application-design-end-to-end-tracing.png":::
 
 To demonstrate practical request traceability, every successful and unsuccessful API request returns the Correlation ID header to the caller. The application support team can search Application Insights with this identifier and get a detailed view of the full transaction.
+
+The following code block appears in the reference implementation:
 
 ```csharp
 //
@@ -286,6 +296,8 @@ app.Use(async (context, next) =>
 You can use diagnostic settings to send AKS logs and metrics to Azure Monitor Logs. You can also use the container insights feature with AKS. Enable container insights to deploy the OMSAgentForLinux through a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux can collect more logs and metrics from within the Kubernetes cluster and send them to its corresponding Azure Monitor Logs workspace. This workspace contains granular data about pods, deployments, services, and the overall health of the cluster.
 
 Extensive logging can negatively affect cost and doesn't provide benefits. For this reason, *stdout* log collection and Prometheus scraping is disabled for the workload pods in the container insights configuration because all traces are already captured through Application Insights, which generates duplicate records.
+
+The following code block appears in the reference implementation:
 
 ```yaml
 #
@@ -326,6 +338,7 @@ Health Service is also used for explicitly configured URL ping tests with each s
 
 For more information about the `HealthService` implementation, see [Application Health Service](./mission-critical-health-modeling.md#application-health-service).
 
-## Next steps
+## Next step
 
-
+> [!div class="nextstepaction"]
+> [Networking and connectivity for mission-critical workloads](mission-critical-networking.md)
