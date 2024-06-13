@@ -464,7 +464,7 @@ The suggested MVP monitoring for the [current architectures](#current-architectu
 #### Budget Boundaries
 
 ##### Deployment
-&nbsp;&nbsp; **Description**: When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount.
+&nbsp;&nbsp; **Description**: When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount. Note that these boundries could be based on a teams [workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department.
 <br/>&nbsp;&nbsp; **Environment**: All.<br/>
 &nbsp;&nbsp; **Implementation**: Azure – [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts).
 <br/>&nbsp;&nbsp; **Notes**;<br/>
