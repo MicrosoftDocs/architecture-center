@@ -320,6 +320,26 @@ Consider the following common personas in a ML workload which will inform the id
 
 Using the previously described personas, here are examples of how RBAC can be applied to production (Staging / Test / Production environments based on the [current architectures](#current-architectures) section) and pre-production (Development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:  
 
+**Key:**
+
+**[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
+-  R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).
+-  C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).
+-  O = [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#owner).
+
+**[Component Specific Roles](/azure/role-based-access-control/built-in-roles/ai-machine-learning)**
+- ADS = [Azure Machine Learning Data Scientist](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist)
+- ACO = [Azure Machine Learning Compute Operator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator)
+- ACRPush = [Azure Container Registry Push](https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli#push-image)
+- DOPA = [DevOps Project Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-administrators?view=azure-devops&tabs=preview-page)
+- DOPCA = [DevOps Project Collection Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-collection-administrators?view=azure-devops).
+- LAR = [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader).
+- LAC = [Log Analytics Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
+- MR = [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader).
+- MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
+- KVA = [Key Vault Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-administrator).
+- KVR = [Key Vault Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-reader).
+
 **Production Environment**
 
 | Persona                          | AML Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
@@ -357,26 +377,6 @@ All personas have an acess period for the life of the project except for the Pla
 | Data Governance Processes        | R             |           | R                        | R               |              |                 |                         |               |  |
 
 All personas have an acess period for the life of the project except for the Platform Technical Support which have temporary, or just-in-time access.
-
-**Key:**
-
-**[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
--  R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).
--  C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).
--  O = [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#owner).
-
-**[Component Specific Roles](/azure/role-based-access-control/built-in-roles/ai-machine-learning)**
-- ADS = [Azure Machine Learning Data Scientist](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist)
-- ACO = [Azure Machine Learning Compute Operator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator)
-- ACRPush = [Azure Container Registry Push](https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli#push-image)
-- DOPA = [DevOps Project Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-administrators?view=azure-devops&tabs=preview-page)
-- DOPCA = [DevOps Project Collection Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-collection-administrators?view=azure-devops).
-- LAR = [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader).
-- LAC = [Log Analytics Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
-- MR = [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader).
-- MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
-- KVA = [Key Vault Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-administrator).
-- KVR = [Key Vault Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-reader).
 
 A persona-based RBAC approach can also leverage [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
 
