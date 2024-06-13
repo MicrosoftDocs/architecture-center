@@ -1,4 +1,5 @@
-A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to use Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform to run a CTF game service.
+- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to use Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform to run a CTF game service.
 
 ## Architecture
 
@@ -147,6 +148,8 @@ Principal author:
 - [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
 - [Introduction to App Service Environment](/azure/app-service/environment/intro)
 - [Private link resource](/azure/private-link/private-endpoint-overview#private-link-resource)
+- [Reliability patterns](/azure/well-architected/reliability/design-patterns)
+- [Performance Efficiency patterns](/azure/well-architected/performance-efficiency/design-patterns)
 
 ## Related resources
 
@@ -157,5 +160,3 @@ Principal author:
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 - [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
-- [Reliability patterns](../reliability/design-patterns.md)
-- [Performance Efficiency patterns](../../performance-efficiency/design-patterns.md)
