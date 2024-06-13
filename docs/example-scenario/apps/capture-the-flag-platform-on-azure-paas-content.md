@@ -1,5 +1,4 @@
-- [Reliability patterns](/azure/architecture/framework/resiliency/reliability-patterns)
-- [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns)A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to use Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform to run a CTF game service.
+A Capture the Flag (CTF) event is a gamified exercise that you can use to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This article describes how to use Azure platform as a service (PaaS) and the open-source [CTFd](https://github.com/CTFd/CTFd) platform to run a CTF game service.
 
 ## Architecture
 
