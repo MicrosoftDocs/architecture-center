@@ -393,7 +393,7 @@ In the machine learning lifecycle this can introduce many challenges, such as:
 
 A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](https://learn.microsoft.com/azure/architecture/patterns/quarantine). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
 
-This involved safelisting three industry standard ML package repositories, allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
+This involved safelisting three industry standard ML package repositories (Microsoft Artifact Registry, PyPI, Conda), allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
 
 :::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram showing the secure AML Package approach." border="false":::
 
