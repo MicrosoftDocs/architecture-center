@@ -20,8 +20,9 @@ The following sections describe the various stages of the data extraction proces
    - [Invoice][Form Recognizer invoice model]
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
-   - [General document][Form Recognizer general document model (preview)]
-   - [US tax document models][https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-tax-document?view=doc-intel-4.0.0]
+   - [General document][Form Recognizer general document model]
+   - [US tax document models](/azure/ai-services/document-intelligence/concept-tax-document)
+   - [US mortgage document model](/azure/ai-services/document-intelligence/concept-mortgage-documents)
 
    The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions.
 
@@ -311,12 +312,12 @@ Principal author:
 [Durability and availability parameters]: /azure/storage/common/storage-redundancy#durability-and-availability-parameters
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
-[Form Recognizer business card model]: /azure/applied-ai-services/form-recognizer/concept-business-card
-[Form Recognizer general document model (preview)]: /azure/applied-ai-services/form-recognizer/concept-general-document
+[Form Recognizer general document model]: /azure/applied-ai-services/form-recognizer/concept-general-document
 [Form Recognizer ID document model]: /azure/applied-ai-services/form-recognizer/concept-id-document
 [Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
 [Form Recognizer layout model]: /azure/applied-ai-services/form-recognizer/concept-layout
 [Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
+[US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
 [How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
