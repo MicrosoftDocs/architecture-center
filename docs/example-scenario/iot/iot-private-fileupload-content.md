@@ -3,20 +3,20 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In typical Azure IoT deployments, the client devices need to communicate directly with the Azure Storage account to upload files. Consequently, the Storage account must allow incoming Internet traffic. However, for customers with stricter networking requirements, a common practice involves restricting access to the Storage account from within a private network.
-This solution proposes a strategy that blocks direct Internet traffic to the Storage account. Instead, only traffic routed through the inbound Application Gateway is permitted. Additionally, this setup enables traffic inspection via Azure Firewall, providing an extra layer of security.
+This solution proposes a strategy that blocks direct Internet traffic to the Storage account. Instead, only traffic routed through the inbound Application Gateway is permitted. Additionally, this setup allows for traffic inspection via Azure Firewall, providing an extra layer of security.
 
 ## Architecture
 
-![Diagram of the <solution name> architecture.](./media/<file-name>.png)
+![Diagram of the <solution name> architecture.](./media/iothub-file-upload-private-link.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.* (TODO)
 
 ### Workflow
 
-1. Storage account is configured to deny any public Internet access, so only private virtual network connections are allowed. An exception configured to allow a chosen Azure IoT Hub service to connect using resource [instance allow rule](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-azure-resource-instances) and Managed Identity.
-2. Application Gateway is configured with custom DNS, and deployed into a Virtual Network that has been granted access or peered with the Virtual Network used by the Storage account's private link.
+1. Storage account is configured to deny any public Internet access, so only private virtual network connections are allowed. An exception configured to allow a chosen Azure IoT Hub service to connect using resource [instance allow rule](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-azure-resource-instances) and Managed Identity authentication.
+2. Application Gateway is configured with custom DNS and TLS termination, and deployed into a Virtual Network that has been granted access or peered with the Virtual Network used by the Storage account's private link.
 3. IoT client device using Azure IoT Hub SDK requests a SAS URI for File Upload to the IoT Hub.
-4. Azure IoT Hub connects directly to the Azure Storage account with Managed Identity authentication. A short lived SAS URI is generated.
+4. Azure IoT Hub connects directly to the Azure Storage account with Managed Identity authentication. A short lived SAS URI is generated, containing the public domain name of the blob storage endpoint.
 5. Azure IoT Hub sends the SAS URI with the public Storage account name to the IoT device.
 6. IoT client device has logic to replace the public Storage URI with a custom domain it's been supplied with, for example using a [Device Twin](/azure/iot-hub/iot-hub-devguide-device-twins). IoT Devices uses standard Azure Storage SDK to upload the file through the custom Storage domain.
 7. Azure Application Gateway receives the HTTP POST from the client device and tunnels it through via Private Link to the Storage account. Optionally, going through Azure Firewall if configured.
@@ -47,10 +47,9 @@ By implementing this scenario, customers with internal security requirements to 
 
 ### Potential use cases
 
-> What industry is the customer in? Use the following industry keywords, when possible, to get the article into the proper search and filter results: retail, finance, manufacturing, healthcare, government, energy, telecommunications, education, automotive, nonprofit, game, media (media and entertainment), travel (includes hospitality, like restaurants), facilities (includes real estate), aircraft (includes aerospace and satellites), agriculture, and sports.
->
-> - Are there any other use cases or industries where this would be a fit?
-> - How similar or different are they to what's in this article?
+An industrial automation vendor offers managed connected edge controllers and sensors. These sensors need to communicate with the Azure cloud through the public internet, but vendor's security team requires the Azure Storage account to be denied public internet access. This architecture approach solves this requirement.
+
+The same use case can apply to any industry where devices need to communicate with an Azure Storage account that is not exposed publicly.
 
 ## Contributors
 
@@ -58,7 +57,7 @@ By implementing this scenario, customers with internal security requirements to 
 
 Principal authors:
 
-- [Katrien De Graeve](https://linkedin.com/in/TODO) | "Software Engineer"
+- [Katrien De Graeve](https://linkedin.com/in/katriendg) | "Software Engineer"
 - [Vincent Misson](https://linkedin.com/in/TODO) | "Cloud Solution Architect"
 
 Other contributors:
