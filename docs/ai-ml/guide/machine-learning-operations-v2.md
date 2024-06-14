@@ -246,139 +246,165 @@ Managing access to machine learning data and resources is crucial. Role-Based Ac
 
 #### Example personas
 
-Consider the following common personas in a ML workload which will inform the identity-based RBAC group design to support appropriate segmentation:
+Consider the following common personas in a machine learning workload which will inform the identity-based RBAC group design to support appropriate segmentation:
 
-#### 1 - Data Scientist/ML Engineer
-**Description**: The people doing the various ML and data science activities across the SLDC lifecycle for a project. This role's responsibilies include break and fix activities for the ML models, packages, and data, which sit outside of platform support expertise.  
-<br/>**Type**: Person.
-<br/>**Project Specific**: Yes. 
-<br/>**Notes**: Involves data exploration and preprocessing to model training, evaluation, and deployment, to solve complex business problems and generate insight.
+##### Data scientist/ML engineer
 
-##### 2 - Data Analyst
-**Description**: The people doing the data analyst tasks required as an input to data science activities. 
-<br/>**Type**: Person.
-<br/>**Project Specific**: Yes. 
-<br/>**Notes**: This role involves working with data, performing analysis, and supporting model development and deployment activities.
+The people doing the various machine learning and data science activities across the SDLC lifecycle for a project. This role's responsibilities include break and fix activities for the machine learning models, packages, and data, which sit outside of platform support expertise.
 
-##### R3 - Model Tester
-**Description**: The compute process used in Staging & QA testing.
-<br/>**Type**: Person.
-<br/>**Project Specific**: Yes. 
-<br/>**Notes**: This role provides functional segregation from the CI/CD processes.
+**Type:** Person<br/>
+**Project Specific:** Yes<br/>
+**Notes:** Involves data exploration and preprocessing to model training, evaluation, and deployment, to solve complex business problems and generate insight.
 
-##### 4 - Business Stakeholders
-**Description**: Business stakeholders attached to the project.
-<br/>**Type**: Person.
-<br/>**Project Specific**: Yes. 
-<br/>**Notes**: This role is [read-only](/azure/role-based-access-control/built-in-roles/general#reader) for the AML workspace components in development.
+##### Data analyst
 
-##### 5 - Project Lead (Data Science Lead)
-**Description**: The Data Science lead in a project administration role for the AML workspace. 
-<br/>**Type**: Person.
-<br/>**Project Specific**: Yes. 
-<br/>**Notes**: This role would also have break/fix responsibility for the ML models and packages used.
+The people doing the data analyst tasks required as an input to data science activities.
 
-##### 6 - Project Owner (Bus Owner)
-**Description**: The Business stakeholders responsible for the AML workspace based upon data ownership. 
-<br/>**Type**: Person.
-<br/>**Project Specific**: Yes. 
-<br/>**Notes**: This role is read-only for the AML workspace configuration and components in development. Production coverage will be provided by the data governance application.
+**Type:** Person<br/>
+**Project Specific:** Yes<br/>
+**Notes:** This role involves working with data, performing analysis, and supporting model development and deployment activities.
 
-##### 7 - Platform Technical Support
-**Description**: The Technical support staff responsible for break/fix activities across the platform. This role would cover infrastructure, service, etc. But not the ML models, packages or data. These elements remain under the Data Scientist/ML Engineer role's responsibility. 
-<br/>**Type**: Person.
-<br/>**Project Specific**: No. 
-<br/>**Notes**: While the role group is permanent, membership is only transient, based upon a Privileged Identity Management ([PIM](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure)) process for time boxed, evaluated access.
+##### Model tester
 
-##### 8 - Model End User
-**Description**: The End consumers of the ML Model. This role could be a downstream process or an individual. 
-<br/>**Type**: Person and Process.
-<br/>**Project Specific**: Yes. 
+The people performing testing in QA & staging.
 
-##### 9 - CI/CD processes
-**Description**: The compute processes that releases/rolls back change across the platform environments.
-<br/>**Type**: Process.
-<br/>**Project Specific**: No. 
+**Type:** Person<br/>
+**Project Specific:** Yes<br/>
+**Notes:** This role provides functional segregation from the CI/CD processes.
 
-##### 10 - AML Workspace
-**Description**: The [managed identities](/azure/machine-learning/how-to-setup-authentication?view=azureml-api-2&tabs=sdk) used by an AML workspace to interact with other parts of Azure.
-<br/>**Type**: Person.
-<br/>**Project Specific**: No. 
-<br/>**Notes**: This persona represents the various services that make up an AML implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store, etc.
+##### Business stakeholders
 
-##### 11 - Monitoring Processes
-**Description**: The compute processes which monitor & alert based upon platform activities. 
-<br/>**Type**: Process.
-<br/>**Project Specific**: No. 
+Business stakeholders attached to the project.
 
-##### 12 - Data Governance Processes
-**Description**: The compute process that scans the ML project and datastores for data governance.
-<br/>**Type**: Process.
-<br/>**Project Specific**: No. 
+**Type:** Person<br/>
+**Project Specific:** Yes<br/>
+**Notes:** This role is [read-only](/azure/role-based-access-control/built-in-roles/general#reader) for the Azure Machine Learning workspace components in development.
+
+##### Project lead (Data science lead)
+
+The data science lead in a project administration role for the Azure Machine Learning workspace.
+
+**Type:** Person<br/>
+**Project Specific:** Yes<br/>
+**Notes:** This role would also have break-fix responsibility for the machine learning models and packages used.
+
+##### Project/Product owner (Business owner)
+
+The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership.
+
+**Type:** Person<br/>
+**Project Specific:** Yes<br/>
+**Notes:** This role is read-only for the Azure Machine Learning workspace configuration and components in development. Production coverage will be provided by the data governance application.
+
+##### Platform technical support
+
+The technical support staff responsible for break-fix activities across the platform. This role would cover infrastructure, service, etc. But not the machine learning models, packages or data. These elements remain under the Data scientist/ML engineer role's responsibility.
+
+**Type:** Person<br/>
+**Project Specific:** No<br/>
+**Notes:** While the role group is permanent, membership is only transient, based upon a [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) process for time boxed, evaluated access.
+
+##### Model end user
+
+The end consumers of the machine learning model.
+
+**Type:** Person or Process<br/>
+**Project specific:** Yes
+
+##### CI/CD processes
+
+The compute processes that releases/rolls back change across the platform environments.
+
+**Type:** Process<br/>
+**Project specific:** No
+
+##### Azure Machine Learning workspace
+
+The [managed identities](/azure/machine-learning/how-to-setup-authentication) used by an Azure Machine Learning workspace to interact with other parts of Azure.
+
+**Type:** Process<br/>
+**Project Specific:** No<br/>
+**Notes:** This persona represents the various services that make up an Azure Machine Learning implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store.
+
+##### Monitoring processes
+
+The compute processes which monitor and alert based upon platform activities.
+
+**Type:** Process<br/>
+**Project specific:** No
+
+##### Data governance processes
+
+The compute process that scans the machine learning project and datastores for data governance.
+
+**Type:** Process<br/>
+**Project specific:** No
 
 #### Identity RBAC
 
-Using the previously described personas, here are examples of how RBAC can be applied to production (Staging / Test / Production environments based on the [current architectures](#current-architectures) section) and pre-production (Development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:  
+Using the previously described personas, here are examples of how RBAC can be applied to production (Staging / Test / Production environments based on the [current architectures](#current-architectures) section) and pre-production (Development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:
 
-**[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
--  R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).
--  C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).
--  O = [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#owner).
+#### Standard roles
 
-**[Component Specific Roles](/azure/role-based-access-control/built-in-roles/ai-machine-learning)**
-- ADS = [Azure Machine Learning Data Scientist](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist)
-- ACO = [Azure Machine Learning Compute Operator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator)
-- ACRPush = [Azure Container Registry Push](https://learn.microsoft.com/azure/container-registry/container-registry-roles?tabs=azure-cli#push-image)
-- DOPA = [DevOps Project Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-administrators?view=azure-devops&tabs=preview-page)
-- DOPCA = [DevOps Project Collection Administrators](https://learn.microsoft.com/azure/devops/organizations/security/look-up-project-collection-administrators?view=azure-devops).
-- LAR = [Log Analytics Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader).
-- LAC = [Log Analytics Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor).
-- MR = [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader).
-- MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
-- KVA = [Key Vault Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-administrator).
-- KVR = [Key Vault Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-reader).
+- R = [Reader](/azure/role-based-access-control/built-in-roles/general#reader)
+- C = [Contributor](/azure/role-based-access-control/built-in-roles/general#contributor)
+- O = [Owner](/azure/role-based-access-control/built-in-roles/general#owner)
 
-_The letters preceding these Azure RBAC roles are used in the following tables. Refer back to this list when reviewing the table._
+#### Component specific roles
 
-**Production Environment**
+- ADS = [Azure Machine Learning Data Scientist](/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-data-scientist)
+- ACO = [Azure Machine Learning Compute Operator](/azure/role-based-access-control/built-in-roles/ai-machine-learning#azureml-compute-operator)
+- ACRPush = [Azure Container Registry Push](/azure/container-registry/container-registry-roles#push-image)
+- DOPA = [DevOps Project Administrators](/azure/devops/organizations/security/look-up-project-administrators)
+- DOPCA = [DevOps Project Collection Administrators](/azure/devops/organizations/security/look-up-project-collection-administrators)
+- LAR = [Log Analytics Reader](/azure/role-based-access-control/built-in-roles/analytics#log-analytics-reader)
+- LAC = [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/analytics#log-analytics-contributor)
+- MR = [Monitoring Reader](/azure/role-based-access-control/built-in-roles/monitor#monitoring-reader)
+- MC = [Monitoring Contributor](/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor)
+- KVA = [Key Vault Administrator](/azure/role-based-access-control/built-in-roles/security#key-vault-administrator)
+- KVR = [Key Vault Reader](/azure/role-based-access-control/built-in-roles/security#key-vault-reader)
 
-| Persona                          | AML Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
-| -------------------------------- | ------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
-| Data Scientist                   |               |           | R                        |                 |              |                 | LAR                     | MR            |
-| Data Analyst                     |               |           |                          |                 |              |                 |                         |               |
-| Model Tester                     |               |           |                          |                 |              |                 |                         |               |
-| Business Stakeholders            |               |           |                          |                 |              |                 |                         | MR            |
-| Project Lead (Data Science Lead) | R             | R, KVR    | R                        |                 |              |                 | LAR                     | MR            |
-| Project Owner (Bus Owner)        |               |           |                          |                 |              |                 |                         | MR            |
-| Platform Technical Support       | O             | O, KVA    |                          |                 | DOPCA        | O               | O                       | O             |
-| Model End User                   |               |           |                          |                 |              |                 |                         |               |
-| CI/CD processes                  | O             | O, KVA    | ACRPush                  |                 | DOPCA        | O               | O                       | O             |
-| AML Workspace                    |               | R         | C                        | C               |              |                 |                         |               |
-| Monitoring Processes             | R             |           |                          |                 |              |                 | LAR                     | MR            |
-| Data Governance Processes        | R             |           | R                        | R               | R            | R               |                         |               |  |
+*The letters preceding these Azure RBAC roles are used in the following tables. Refer back to this list when reviewing the table.*
 
-All personas have an acess period for the life of the project except for the Platform Technical Support and CI/CD processes which have temporary, or just-in-time access.
+##### Production environment
 
-**Pre-Production Environment**
+| Persona                          | Azure Machine Learning Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
+| -------------------------------- | -------------------------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
+| Data scientist                   |                                  |           | R                        |                 |              |                 | LAR                     | MR            |
+| Data analyst                     |                                  |           |                          |                 |              |                 |                         |               |
+| Model tester                     |                                  |           |                          |                 |              |                 |                         |               |
+| Business stakeholders            |                                  |           |                          |                 |              |                 |                         | MR            |
+| Project lead (Data science lead) | R                                | R, KVR    | R                        |                 |              |                 | LAR                     | MR            |
+| Project/Product owner            |                            |           |                          |                 |              |                 |                         | MR            |
+| Platform technical support       | O                                | O, KVA    |                          |                 | DOPCA        | O               | O                       | O             |
+| Model end user                   |                                  |           |                          |                 |              |                 |                         |               |
+| CI/CD processes                  | O                                | O, KVA    | ACRPush                  |                 | DOPCA        | O               | O                       | O             |
+| Azure Machine Learning Workspace |                                  | R         | C                        | C               |              |                 |                         |               |
+| Monitoring processes             | R                                |           |                          |                 |              |                 | LAR                     | MR            |
+| Data governance processes        | R                                |           | R                        | R               | R            | R               |                         |               |
 
-| Persona                          | AML Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
-| -------------------------------- | ------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
-| Data Scientist                   | ADS           | R, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
-| Data Analyst                     | R             |           |                          | C               |              |                 | LAR                     | MC            |
-| Model Tester                     | R             | R, KVR    | R                        | R               | R            | R               | LAR                     | MR            |
-| Business Stakeholders            | R             |           | R                        | R               | R            | R               |                         |               |
-| Project Lead (Data Science Lead) | C             | C, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
-| Project Owner (Bus Owner)        | R             |           |                          | R               |              |                 |                         | MR            |
-| Platform Technical Support       | O             | O, KVA    | O                        | O               | DOPCA        | O               | O                       | O             |
-| Model End User                   |               |           |                          |                 |              |                 |                         |               |
-| CI/CD processes                  | O             | O, KVA    | ACRPush                  | O               | DOPCA        | O               | O                       | O             |
-| AML Workspace                    |               | R, KVR    | C                        | C               |              |                 |                         |               |
-| Monitoring Processes             | R             | R         | R                        | R               | R            | R               | LAC                     |               |
-| Data Governance Processes        | R             |           | R                        | R               |              |                 |                         |               |  |
+All personas have an access period for the life of the project except for the Platform technical support and CI/CD processes which have temporary, or just-in-time access.
 
-All personas have an acess period for the life of the project except for the Platform Technical Support which have temporary, or just-in-time access.
+##### Pre-production environment
 
-A persona-based RBAC approach can also leverage [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
+| Persona                          | Azure Machine Learning Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
+| -------------------------------- | -------------------------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
+| Data scientist                   | ADS                              | R, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
+| Data analyst                     | R                                |           |                          | C               |              |                 | LAR                     | MC            |
+| Model tester                     | R                                | R, KVR    | R                        | R               | R            | R               | LAR                     | MR            |
+| Business stakeholders            | R                                |           | R                        | R               | R            | R               |                         |               |
+| Project lead (Data science lead) | C                                | C, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
+| Project/Product owner            | R                          |           |                          | R               |              |                 |                         | MR            |
+| Platform technical support       | O                                | O, KVA    | O                        | O               | DOPCA        | O               | O                       | O             |
+| Model end user                   |                                  |           |                          |                 |              |                 |                         |               |
+| CI/CD processes                  | O                                | O, KVA    | ACRPush                  | O               | DOPCA        | O               | O                       | O             |
+| Azure Machine Learning Workspace |                                  | R, KVR    | C                        | C               |              |                 |                         |               |
+| Monitoring processes             | R                                | R         | R                        | R               | R            | R               | LAC                     |               |
+| Data governance processes        | R                                |           | R                        | R               |              |                 |                         |               |
+
+All personas have an access period for the life of the project except for the Platform technical support which have temporary, or just-in-time access.
+
+A persona-based RBAC approach should use [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
 
 RBAC plays a vital role in securing and streamlining MLOps workflows. By restricting access based on assigned roles, it mitigates security risks by preventing unauthorized users from accessing sensitive data (training data, models) and critical infrastructure (production pipelines). This not only safeguards against unauthorized activity but also ensures compliance with data privacy regulation while simplifying auditing by providing a clear record of access and permissions thereby making it easier to identify security gaps and track user activity.
 
@@ -387,148 +413,185 @@ RBAC plays a vital role in securing and streamlining MLOps workflows. By restric
 Throughout the MLOps lifecycle there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use. This gives rise to the problem of needing to access many different assets (i.e. packages, libraries, and binaries) securely and free from vulnerabilities.
 
 In the machine learning lifecycle this can introduce many challenges, such as:
-- Data scientists often require large numbers of highly specialized packages, libraries or binaries as “building blocks” for ML solutions.
-- Many of these packages are community developed, iterate with fast-paced development cycles, and required "Subject Matter Expert" (SME) knowledge to understand and use.
+
+- Data scientists often require large numbers of highly specialized packages, libraries or binaries as building blocks for machine learning solutions.
+- Many of these packages are community developed, iterate with fast-paced development cycles, and required "Subject Matter Expert (SME)" knowledge to understand and use.
 - Traditional approaches to software management for this requirement, often result in expensive, toil-filled processes, which act as a bottleneck on the delivery of value.
 
-A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](/architecture/patterns/quarantine). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
+A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](../../patterns/quarantine.yml). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
 
-This involved safelisting three industry standard ML package repositories (Microsoft Artifact Registry, PyPI, and Conda), allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
+This involved safe-listing three industry standard machine learning package repositories (Microsoft Artifact Registry, PyPI, and Conda), allowing self-serve from individual Azure Machine Learning workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
 
-:::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram showing the secure AML Package approach." border="false":::
+:::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram showing the secure Azure Machine Learning Package approach." border="false":::
 
-**Process Flow**
+#### Process flow
 
-1. Data scientists working within a specific AML workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall?view=azureml-api-2&tabs=ipaddress%2Cpublic#recommended-configuration-for-training-and-deploying-models) applied, can self-serve ML packages on-demand from the ML package repositories. An exception process is required for everything else, using the [Private Storage](/azure/machine-learning/how-to-use-private-python-packages?view=azureml-api-1&viewFallbackFrom=azureml-api-2#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function.
-2. AML delivers ML solutions as docker containers. As these solutions are developed, they are uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) can be used to generate vulnerability assessments for your container image.
+1. Data scientists working within a specific Azure Machine Learning workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall#recommended-configuration-for-training-and-deploying-models) applied, can self-serve machine learning packages on-demand from the machine learning package repositories. An exception process is required for everything else, using the [private storage](/azure/machine-learning/how-to-use-private-python-packages#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function.
+2. Azure Machine Learning delivers machine learning solutions as docker containers. As these solutions are developed, they are uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) can be used to generate vulnerability assessments for your container image.
 3. Solution deployment occurs via a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
-4. Only if the solution container passes each of the security processes will it be deployed. Failure will result in the deployment elegantly exiting with error notifications, full  audit trails and the solution container being discarded
+4. Only if the solution container passes each of the security processes will it be deployed. Failure will result in the deployment elegantly exiting with error notifications, full audit trails and the solution container being discarded
 
-The above process flow provides a secure, self-serve, package management process for data scientists, while ensuring that the packages are secure and compliant with organizational standards. By providing data scientists self-service access to most ML packages, libraries, and binaries in pre-production environments, while requiring an exception for less common packages, organisations can balance innovation and security requirements. This ensures data scientists can remain productive during development reducing - a major bottleneck during delivery. By containerising environments for use in production environments organisations can streamline their release processes reducing toil while ensuring continued security via vulnerability scanning. Overall, this provides a repeatable approach that can be leveraged across use-cases to time of delivery reducing the overall cost to build and deploy machine learning solutions within an enterprise.  
+The above process flow provides a secure, self-serve, package management process for data scientists, while ensuring that the packages are secure and compliant with organizational standards. By providing data scientists self-service access to most machine learning packages, libraries, and binaries in pre-production environments, while requiring an exception for less common packages, organizations can balance innovation and security requirements. This ensures data scientists can remain productive during development reducing - a major bottleneck during delivery. By containerizing environments for use in production environments organizations can streamline their release processes reducing toil while ensuring continued security via vulnerability scanning. Overall, this provides a repeatable approach that can be used across use cases to time of delivery reducing the overall cost to build and deploy machine learning solutions within an enterprise.  
 
 ### Monitoring
 
-Monitoring in MLOps is crucial for maintaining the health and performance of machine learning systems, ensuring that models remain effective and aligned with business goals. During the inner loop (see [current architectures](#current-architectures) section) it supports governance, security, and cost controls, in addition to providing observability into the performance, model degradation and usage when deploying solutions during the outer loop (see [current architectures](#current-architectures) section). Monitoring activities are relevent for personas such as Data Scientists, Business Stakeholders, Project Leads, Project Owners, Platform Technical Support, CI/CD processes, and Monitoring Processes.
+Monitoring in MLOps is crucial for maintaining the health and performance of machine learning systems, ensuring that models remain effective and aligned with business goals. During the inner loop (see [current architectures](#current-architectures) section) it supports governance, security, and cost controls, in addition to providing observability into the performance, model degradation and usage when deploying solutions during the outer loop (see [current architectures](#current-architectures) section). Monitoring activities are relevant for personas such as Data Scientists, Business Stakeholders, Project Leads, Project Owners, Platform Technical Support, CI/CD processes, and Monitoring Processes.
 
-The suggested MVP monitoring could be scoped around the [AML workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. for the [current architectures](#current-architectures) in MLOps V2 is:
+The suggested MVP monitoring could be scoped around the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. for the [current architectures](#current-architectures) in MLOps V2 is:
 
-#### Model Performance
+#### Model performance
 
-##### Data Drift
-&nbsp;&nbsp; **Description**: [Data drift](/azure/machine-learning/how-to-monitor-datasets?view=azureml-api-1&tabs=python) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
-<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
-&nbsp;&nbsp; **Implementation**: AML – [Model Monitoring](/azure/machine-learning/concept-model-monitoring?view=azureml-api-2#enabling-model-monitoring).
-<br/>&nbsp;&nbsp; **Notes**: Data drift refactoring requires recent production datasets and outputs, to be available for comparison. <br/>
+##### Data drift
+
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
+
+**Environment:** Production<br/>
+**Implementation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)<br/>
+**Notes:** Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
 ##### Usage
-&nbsp;&nbsp; **Description**: Several model serving endpoint metrics to indicate quality and performance. 
-<br/>&nbsp;&nbsp; **Environment**: All.<br/>
-&nbsp;&nbsp; **Implementation**: Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
 
-##### Prediction Drift
-&nbsp;&nbsp; **Description**: Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
-<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
-&nbsp;&nbsp; **Implementation**: Azure Monitor [AML metrics](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2).
-<br/>&nbsp;&nbsp; **Notes**: Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.  <br/>
+Use several model serving endpoint metrics to indicate quality and performance.
 
-#### Usage
+**Environment:** All<br/>
+**Implementation:** Azure Monitor [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 
-##### Client Requests
-&nbsp;&nbsp; **Description**: Count of the Client Requests to the model endpoint.
-<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
-&nbsp;&nbsp; **Implementation**;
-<br/>&nbsp;&nbsp; - Machine Learning Services - [OnlineEndpoints](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics). <br/>
-&nbsp;&nbsp; - Count of [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints).
-<br/>&nbsp;&nbsp; **Notes**: Acceptable thresholds could be aligned to t-shirt sizing or anomalies tailored to the workload's need.<br/>
-&nbsp;&nbsp; - When a model is no longer being used, it should be retired from production. 
+##### Prediction drift
 
-##### Throttling Delays
-&nbsp;&nbsp; **Description**: [Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. 
-<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
-&nbsp;&nbsp; **Implementation**; 
-<br/>&nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview\).<br/>
-&nbsp;&nbsp; - Sum of RequestThrottlingDelayMs. 
-<br/>&nbsp;&nbsp; - ResponseThrottlingDelayMs.<br/>
-&nbsp;&nbsp; **Notes**: Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
 
-##### Errors Generated
-&nbsp;&nbsp; **Description**: Response Code - Errors generated.
-<br/>&nbsp;&nbsp; **Environment**: Production.<br/>
-&nbsp;&nbsp; **Implementation**; 
-<br/>&nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview\).<br/>
-&nbsp;&nbsp; - Count of XRequestId by ModelStatusCode. 
-<br/>&nbsp;&nbsp; - Count of XRequestId by ModelStatusCode & ModelStatusReason.<br/>
-&nbsp;&nbsp; **Notes**: All HTTP responses codes in the 400 & 500 range would be classified as an error.
+**Environment:** Production<br/>
+**Implementation:** Azure Monitor [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
+**Notes:** Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
+#### Usage metrics
 
-#### Budget Boundaries
+##### Client requests
+
+Count of the client requests to the model endpoint.
+
+**Environment:** Production<br/>
+**Implementation:**
+
+- Machine Learning Services - [OnlineEndpoints](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
+- Count of [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints)
+
+**Notes:**
+
+- Acceptable thresholds could be aligned to t-shirt sizing or anomalies tailored to the workload's need.
+- When a model is no longer being used, it should be retired from production.
+
+##### Throttling delays
+
+[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer.
+
+**Environment:** Production<br/>
+**Implementation:**
+
+- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
+- Sum of RequestThrottlingDelayMs
+- ResponseThrottlingDelayMs
+
+**Notes:** Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
+
+##### Errors generated
+
+Track response code that indicate errors.
+
+**Environment:** Production
+**Implementation:**
+
+- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
+- Count of XRequestId by ModelStatusCode
+- Count of XRequestId by ModelStatusCode and ModelStatusReason
+
+**Notes:** All HTTP responses codes in the 400 & 500 range would be classified as an error.
+
+#### Cost optimization
 
 ##### Deployment
-&nbsp;&nbsp; **Description**: When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount. Note that these boundries could be based on a teams [workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department.
-<br/>&nbsp;&nbsp; **Environment**: All.<br/>
-&nbsp;&nbsp; **Implementation**: Azure – [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts).
-<br/>&nbsp;&nbsp; **Notes**;<br/>
-&nbsp;&nbsp; - Budget thresholds should be set based upon the initial NFR’s and cost estimates.
-<br/>&nbsp;&nbsp; - Multiple threshold tiers should be used, ensuring stakeholders get appropriate warning before the budget is exceeded. These stakeholders could include Business Leads, Project Owners, or Project Leads depending on the organisation.<br/>
-&nbsp;&nbsp; - Consistent budget alerts could also be a trigger for refactoring to support greater demand.
 
-#### Workspace
+When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount. These boundaries are based on the [workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department.
 
-##### Staleness
-&nbsp;&nbsp; **Description**: When an AML workspace no longer appears to have active use as measured by compute use associated with the use-case a project owner might choose to decommission an AML workspace if it is no longer needed for a given project.
-<br/>&nbsp;&nbsp; **Environment**: Development.<br/>
-&nbsp;&nbsp; **Implementation**;
-<br/>&nbsp;&nbsp; - [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2) AML metrics; <br/>
-&nbsp;&nbsp; - Machine Learning Services - [Workspaces](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics) - count of Active Cores over a period. 
-<br/>&nbsp;&nbsp; **Notes**;
-&nbsp;&nbsp; - Active Cores should equal zero with aggregation of count.
-<br/>&nbsp;&nbsp; - Date thresholds should be aligned to the project schedule. <br/>
+**Environment:** All<br/>
+**Implementation:** [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts)<br/>
+**Notes:**
 
-#### Security Controls inc. RBAC
+- Budget thresholds should be set based upon the initial NFR’s and cost estimates.
+- Multiple threshold tiers should be used, ensuring stakeholders get appropriate warning before the budget is exceeded. These stakeholders could include business leads, project owners, or project Leads depending on the organization or workload.
+- Consistent budget alerts could also be a trigger for refactoring to support greater demand.
 
-##### Workload
-&nbsp;&nbsp; **Description**: Ensuring the appropriate security controls and baseline are implemented and not deviated from. 
-<br/>&nbsp;&nbsp; **Environment**: All.<br/>
-&nbsp;&nbsp; **Implementation**;
-<br/>&nbsp;&nbsp; - Azure – [Policies](/azure/machine-learning/how-to-integrate-azure-policy?view=azureml-api-2#policies-for-azure-machine-learning). <br/>
-&nbsp;&nbsp; - Including the “[Audit usage of custom RBAC roles](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5)”.
-<br/>&nbsp;&nbsp; **Notes**;. <br/>
-&nbsp;&nbsp; - The full listing of available [in-built policies](/azure/governance/policy/samples/built-in-policies?view=azureml-api-2#machine-learning) is available for AML.
-<br/>&nbsp;&nbsp; - Other components/services used in this design should also have their specific in-built policies reviewed and implemented where appropriate. <br/>
+##### Workspace staleness
 
-#### Deployment
+When an Azure Machine Learning workspace no longer appears to have active use as measured by compute use associated with the use-case a project owner might choose to decommission an Azure Machine Learning workspace if it is no longer needed for a given project.
 
-##### Standards/Governance
-&nbsp;&nbsp; **Description**: Ensuring the appropriate standards and guardrails are adhered too. 
-<br/>&nbsp;&nbsp; **Environment**: Azure & CI/CD.<br/>
-&nbsp;&nbsp; **Implementation**;
-<br/>&nbsp;&nbsp; - Azure – [DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines).<br/>
-&nbsp;&nbsp; - [PSRule](https://azure.github.io/enterprise-azure-policy-as-code/) for Azure provides a testing framework for Azure Infrastructure as Code (IaC).
-<br/>&nbsp;&nbsp; - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy Policies, Policy Sets, Assignments, Policy Exemptions and Role Assignments.<br/>
-&nbsp;&nbsp; **Notes**;
-<br/>&nbsp;&nbsp; - Microsoft guidance is available in the [Azure guidance for AML regulatory compliance](/azure/machine-learning/security-controls-policy?view=azureml-api-2).<br/>
+**Environment:** Development<br/>
+**Implementation:**
 
-##### Security Scanning
-&nbsp;&nbsp; **Description**: Automated security scanning is executed as part of the automated integration and deployment processes. 
-<br/>&nbsp;&nbsp; **Environment**: CI/CD.<br/>
-&nbsp;&nbsp; **Implementation**: Azure – [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction).
-<br/>&nbsp;&nbsp; **Notes**: This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules. <br/>
+- [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) Azure Machine Learning metrics
+- Machine Learning Services - [Workspaces](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics) - count of Active Cores over a period
+
+**Notes:**
+
+- Active cores should equal zero with aggregation of count.
+- Date thresholds should be aligned to the project schedule.
+
+#### Security
+
+Do not deviate from the appropriate security controls and baselines must remained implemented.
+
+**Environment:** All<br/>
+**Implementation:**
+
+- Azure – [Policies](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning)
+- Including the [Audit usage of custom RBAC roles](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5)
+
+**Notes:**
+
+- The full listing of available [in-built policies](/azure/governance/policy/samples/built-in-policies#machine-learning) is available for Azure Machine Learning.
+- Other components/services used in this design should also have their specific in-built policies reviewed and implemented where appropriate.
+
+##### Endpoint security
+
+Implement targeted security monitoring of all Azure Machine Learning endpoints.
+
+**Environment:** All<br/>
+**Implementation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)
+
+#### Deployment monitoring
+
+##### Standards and governance
+
+Ensure the appropriate standards and guardrails are adhered too.
+
+**Environment:** All<br/>
+**Implementation:**
+
+- [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines)
+- [PSRule for Azure](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure infrastructure as code.
+- [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy policies, policy sets, assignments, policy exemptions and role assignments.
+
+**Notes:** See more guidance in [Azure guidance for Azure Machine Learning regulatory compliance](/azure/machine-learning/security-controls-policy).
+
+##### Security scanning
+
+Implement automated security scans as part of the automated integration and deployment processes.
+
+**Environment:** All<br/>
+**Implementation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br/>
+**Notes:** This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules.
 
 ##### Ongoing service
-&nbsp;&nbsp; **Description**: A development model appearing provide a regular service that should be productionised.
-<br/>&nbsp;&nbsp; **Environment**: Development. <br/>
-&nbsp;&nbsp; **Implementation**;
-<br/>&nbsp;&nbsp; - [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource?view=azureml-api-2) AML metrics. <br/>
-&nbsp;&nbsp; - [AMLOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month. 
-<br/>&nbsp;&nbsp; **Notes**: Date thresholds should be aligned to the project schedule. <br/>
 
-#### Model
+A development model appearing provide a regular service that should be made available in production.
 
-##### Endpoint Security
-&nbsp;&nbsp; **Description**: Targeted security monitoring of any AML endpoint.
-<br/>&nbsp;&nbsp; **Environment**: All.<br/>
-&nbsp;&nbsp; **Implementation**: Azure – [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction).
+**Environment:** Development<br/>
+**Implementation:**
 
+- [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) Azure Machine Learning metrics
+- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month
+
+**Notes:** Date thresholds should be aligned to the project schedule.
 
 ## Contributors
 
@@ -570,4 +633,4 @@ Other contributors:
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
-- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [What is the Team Data Science Process?](../../data-science-process/overview.yml)
