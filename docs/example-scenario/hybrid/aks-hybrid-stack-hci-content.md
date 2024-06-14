@@ -1,22 +1,22 @@
-This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service hybrid deployment options (AKS hybrid). The apps can run on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
+This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service enabled by Azure Arc. The apps can run on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
 
 ## Architecture
 
-:::image type="content" source="media/aks-stack-hci.png" alt-text="Diagram that shows an architecture for AKS hybrid clusters that are running on Azure Stack HCI or Windows Server." lightbox="media/aks-stack-hci.png" border="false":::
+:::image type="content" source="media/aks-stack-hci.png" alt-text="Diagram that shows an architecture for AKS clusters that run on Azure Stack HCI or Windows Server." lightbox="media/aks-stack-hci.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-on-hci-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
-The architecture illustrates an implementation that deploys containerized applications on AKS hybrid clusters that are running on Azure Stack HCI or Windows Server. It uses GitOps to manage the infrastructure as code (IaC).
+The architecture illustrates an implementation that deploys containerized applications on AKS clusters that run on Azure Stack HCI or Windows Server. It uses GitOps to manage the infrastructure as code (IaC).
 
-1. An operator sets up an on-premises infrastructure on Azure Stack HCI or on Windows Server hardware that's capable of hosting an AKS hybrid cluster.
-2. On-premises, an administrator deploys an AKS hybrid cluster on the Azure Stack HCI or Windows Server infrastructure and connects the AKS hybrid cluster to Azure by using Azure Arc. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS hybrid cluster.
-3. GitOps configurations facilitate IaC. These GitOps configurations represent the desired state of the AKS hybrid cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS hybrid cluster that's deployed on Azure Stack HCI or Windows Server.
-4. The administrator pushes GitOps configurations to a Git repository. You can also use a Helm or Kustomize repository. The Flux components in the AKS hybrid cluster monitor the repository for changes, detecting and applying updates as needed.
-5. The Flux extension in the AKS hybrid cluster receives a notification from the GitOps flow when changes are made to the configurations in the repositories. It automatically triggers deployment of the desired configuration by using Helm charts or Kustomize.
+1. An operator sets up an on-premises infrastructure on Azure Stack HCI or on Windows Server hardware that's capable of hosting an AKS cluster.
+2. On-premises, an administrator deploys an AKS cluster on the Azure Stack HCI or Windows Server infrastructure and connects the cluster to Azure by using Azure Arc. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS cluster.
+3. GitOps configurations facilitate IaC. These GitOps configurations represent the desired state of the AKS cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS cluster that's deployed on Azure Stack HCI or Windows Server.
+4. The administrator pushes GitOps configurations to a Git repository. You can also use a Helm or Kustomize repository. The Flux components in the AKS cluster monitor the repository for changes, detecting and applying updates as needed.
+5. The Flux extension in the AKS cluster receives a notification from the GitOps flow when changes are made to the configurations in the repositories. It automatically triggers deployment of the desired configuration by using Helm charts or Kustomize.
 6. Application changes in the form of new or updated configuration or code are pushed to the designated repositories, including corresponding container image updates. These container image updates are pushed to private or public container registries.
-7. The Flux operator in the AKS hybrid cluster detects changes in the repositories and initiates their deployment to the cluster.
+7. The Flux operator in the AKS cluster detects changes in the repositories and initiates their deployment to the cluster.
 8. Changes are implemented in a rolling fashion on the cluster to ensure minimal downtime and preserve the desired state of the cluster.
 
 ### Components
@@ -74,7 +74,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 - **Use the automation** that GitOps provides to minimize your management and maintenance overhead. The simplified operational model requires less effort to maintain and results in reduced operational costs.
 
-- **Use AKS hybrid.** AKS hybrid provides built-in support for autoscaling the computing resources and increased workload density that's inherent to containerization. Autoscaling can help you right-size your physical infrastructure and speed up datacenter consolidation initiatives, which can help you save money.
+- **Use AKS enabled by Arc.** AKS Arc provides built-in support for autoscaling the computing resources and increased workload density that's inherent to containerization. Autoscaling can help you right-size your physical infrastructure and speed up datacenter consolidation initiatives, which can help you save money.
 
 ### Operational excellence
 
@@ -86,7 +86,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - **Create GitOps configurations that are scoped to a cluster** (or to multiple clusters) to implement a baseline for components of the containerized infrastructure, like ingress controllers, service meshes, security products, and monitoring solutions. Doing so can help you ensure that your clusters satisfy the baseline infrastructure requirements.
 
-- **Create namespace-level GitOps configurations** that enable you to control the resources of your workloads at a more granular level (for example, pods, services, and ingress routes), and therefore ensure that your workloads conform to application standards. By following these guidelines, you can ensure that your deployment and management of AKS hybrid applications remain efficient, effective, and cost effective.
+- **Create namespace-level GitOps configurations** that enable you to control the resources of your workloads at a more granular level (for example, pods, services, and ingress routes), and therefore ensure that your workloads conform to application standards. By following these guidelines, you can ensure that your deployment and management of AKS Arc applications remains efficient, effective, and cost effective.
 
 #### Use GitOps
 
@@ -145,11 +145,8 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 Cluster workloads benefit from the scalability and agility that's inherent to the Kubernetes platform. Flux v2 offers additional agility, reducing the time required for end-to-end software delivery.
 
 - **Optimize your Kubernetes cluster and infrastructure** setup for your specific workloads. We recommend that you work with the application developer to determine the required settings.
-
-- **Use the autoscaling feature** in Kubernetes. For more information, see [Cluster autoscaling in AKS hybrid](/azure/aks/hybrid/concepts-cluster-autoscaling).
-
+- **Use the autoscaling feature** in Kubernetes. For more information, see [Cluster autoscaling in AKS enabled by Azure Arc](/azure/aks/hybrid/concepts-cluster-autoscaling).
 - **Add a cache** to optimize the application.
-
 - **Establish a performance baseline.** Benchmark your architecture and use metrics and monitoring tools to identify any problems or bottlenecks that affect performance.
 
 ## Contributors
@@ -170,8 +167,8 @@ Other contributors:
 
 ## Next steps
 
-- [Quickstart: Set up AKS hybrid using Windows Admin Center](/azure/aks/hybrid/setup)
-- [Quickstart: Create a local Kubernetes cluster on AKS hybrid using Windows Admin Center](/azure-stack/aks-hci/create-kubernetes-cluster)
+- [Quickstart: Set up AKS Arc using Windows Admin Center](/azure/aks/hybrid/setup)
+- [Quickstart: Create a local Kubernetes cluster on AKS Arc using Windows Admin Center](/azure-stack/aks-hci/create-kubernetes-cluster)
 - [Quickstart: Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
 - [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2)
 - [Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
