@@ -111,5 +111,4 @@ This diagram summarizes options for multiparty computing with Azure services.
 ## Related resources
 
 - [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
-- [Multicloud blockchain DLT](../../example-scenario/blockchain/multi-cloud-blockchain.yml)
 - [Decentralized trust between banks](../../example-scenario/apps/decentralized-trust.yml)

@@ -279,5 +279,4 @@ Other contributors:
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)

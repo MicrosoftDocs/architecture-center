@@ -280,9 +280,6 @@ conceptualContent:
         - text: Image modeling
           itemType: get-started
           url:  example-scenario/infrastructure/image-modeling.yml
-        - text: Linux virtual desktops
-          itemType: get-started
-          url:  example-scenario/infrastructure/linux-vdi-citrix.yml
       footerLink:
         text: Introduction to HPC on Azure
         url: topics/high-performance-computing.md
