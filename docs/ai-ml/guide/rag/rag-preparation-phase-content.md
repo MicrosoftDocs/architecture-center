@@ -21,14 +21,16 @@ Consider these areas when evaluating potential representative test documents:
 
 The success factor in this step is being *qualitatively confident* that you have a good representation of test documents for your particular domain.
 
+<!-- docutune:ignoredChange "personally identifiable information \(PII\)" -->
+
 ### Test document guidance
 
-* Prefer real documents over synthetic. Real documents must go through a cleaning process to remove personally identifiable information (PII).
-* Consider augmenting your documents with synthetic data to ensure you're handling all kinds of scenarios.
-* If you must use synthetic data, do your best to make it as close to real data as possible.
-* Make sure that the documents can address the questions that are being gathered.
-* You should have at least two documents for each document variant.
-* You can use large language models or other tools to help evaluate the document quality.
+- Prefer real documents over synthetic. Real documents must go through a cleaning process to remove personally identifiable information (PII).
+- Consider augmenting your documents with synthetic data to ensure you're handling all kinds of scenarios.
+- If you must use synthetic data, do your best to make it as close to real data as possible.
+- Make sure that the documents can address the questions that are being gathered.
+- You should have at least two documents for each document variant.
+- You can use large language models or other tools to help evaluate the document quality.
 
 ## Gather test queries
 
@@ -38,9 +40,9 @@ In this step, you're gathering test queries that you'll use to evaluate your chu
 
 The output of this phase includes content from both the [Gather representative test queries](#gather-test-queries) step, and the [Gather representative test documents](#gather-representative-test-documents) step. The output is a collection containing the following data:
 
-* **Query** - The question, representing a legitimate user's potential prompt.
-* **Context** - A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.
-* **Answer** - A valid response to the query. The response be content directly from the documents or it might be rephrased from one or more pieces of context.
+- **Query** - The question, representing a legitimate user's potential prompt.
+- **Context** - A collection of all the actual text in the documents that address the query. For each bit of context, you should include the page and the actual text.
+- **Answer** - A valid response to the query. The response be content directly from the documents or it might be rephrased from one or more pieces of context.
 
 ### Creating synthetic queries
 
@@ -63,7 +65,7 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
         "answer": "Answer 2"
       }
     ]
-    
+
     CONTEXT:
     ```
 
@@ -73,50 +75,50 @@ It's often challenging for the subject matter experts (SMEs) for a particular do
 
 It's important to gather queries that the documents don't address, along with queries that are addressed. When you test your solution, particularly when you test the large language model, you need to determine how the solution should respond to queries it doesn't have sufficient context to answer. Approaches to responding to queries you can't address include:
 
-* Responding that you don't know
-* Responding that you don't know and providing a link where the user might find more information
+- Responding that you don't know
+- Responding that you don't know and providing a link where the user might find more information
 
 ### Gather test queries guidance
 
-* Determine if there is a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
-* The customer or SME for the use case should act as a quality gate to determine whether or not the gathered documents, the associated test queries, and the answers to the queries from the documents are comprehensive, representative, and are correct.
-* Reviewing the body of questions and answers should be done periodically to ensure that they continue to accurately reflect the source documents.
+- Determine whether there is a system that contains real customer questions that you can use. For example, if you're building a chat bot to answer customer questions, you might be able to use customer questions from your help desk, FAQs, or ticketing system.
+- The customer or SME for the use case should act as a quality gate to determine whether or not the gathered documents, the associated test queries, and the answers to the queries from the documents are comprehensive, representative, and are correct.
+- Reviewing the body of questions and answers should be done periodically to ensure that they continue to accurately reflect the source documents.
 
 ## Document analysis
 
 The goal of document analysis is to determine the following three things:
 
-* What in the document you want to ignore or exclude
-* What in the document you want to capture in chunks
-* How you want to chunk the document
+- What in the document you want to ignore or exclude
+- What in the document you want to capture in chunks
+- How you want to chunk the document
 
 The following are some common questions you can ask when analyzing a document type that helps you make those three determinations:
 
-* Does the document contain a table of content?
-* Does the document contain images?
-  * Are they high resolution images?
-  * What kind of data do you have on images?
-  * Are there captions for the images?
-  * Is there text embedded in the images?
-* Does the document have charts with numbers?
-* Does the document contain tables?
-  * Are the tables complex (nested tables) or noncomplex?
-  * Are there captions for the tables?
-* Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
-* How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
-* What languages, language variant, or dialects are in the documents?
-* Does the document contain unicode characters?
-* How are numbers formatted? Are they using commas or decimals?
-* Are there headers and footers? Do you need them?
-* Are there copyrights or disclaimers? Do you need them?
-* What in the document is uniform and what isn't uniform?
-* Is there a header structure where semantic meaning can be extracted?
-* Are there footnotes or endnotes?
-* Are there watermarks?
-* Are there annotations or comments (for example, in PDFs or Word documents)
-* Are there other types of embedded media like videos or audio?
-* Are there any mathematical equations/scientific notations in the document?
-* Are there bullets or meaningful indentations?
+- Does the document contain a table of content?
+- Does the document contain images?
+  - Are they high resolution images?
+  - What kind of data do you have on images?
+  - Are there captions for the images?
+  - Is there text embedded in the images?
+- Does the document have charts with numbers?
+- Does the document contain tables?
+  - Are the tables complex (nested tables) or noncomplex?
+  - Are there captions for the tables?
+- Is there multi-column data or multi column paragraphs? You don't want to parse multi-column content as though it were a single column.
+- How many paragraphs are there? How long are the paragraphs? Are the paragraphs roughly equal length?
+- What languages, language variant, or dialects are in the documents?
+- Does the document contain Unicode characters?
+- How are numbers formatted? Are they using commas or decimals?
+- Are there headers and footers? Do you need them?
+- Are there copyrights or disclaimers? Do you need them?
+- What in the document is uniform and what isn't uniform?
+- Is there a header structure where semantic meaning can be extracted?
+- Are there footnotes or endnotes?
+- Are there watermarks?
+- Are there annotations or comments (for example, in PDFs or Word documents)
+- Are there other types of embedded media like videos or audio?
+- Are there any mathematical equations/scientific notations in the document?
+- Are there bullets or meaningful indentations?
 
 The answers to these questions help you identify the document structure, determine your chunking approach, and identify content to chunk and what not to.
 
@@ -127,5 +129,5 @@ The answers to these questions help you identify the document structure, determi
 
 ## Related resources
 
-* [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer)
-* [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)
+- [Automate document processing by using AI Document Intelligence](/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer)
+- [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)

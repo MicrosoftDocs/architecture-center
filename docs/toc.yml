@@ -769,6 +769,8 @@ items:
     href: patterns/priority-queue.yml
   - name: Publisher/Subscriber
     href: patterns/publisher-subscriber.yml
+  - name: Quarantine
+    href: patterns/quarantine.yml
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.yml
   - name: Rate Limiting
@@ -1287,6 +1289,8 @@ items:
             href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
             href: guide/aks/aks-firewall.yml
+          - name: Use Azure Front Door to secure AKS workloads
+            href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Overview of migration from Service Fabric to AKS
             href: guide/aks/service-fabric-azure-kubernetes-service.md
           - name: Multitenancy with AKS and AGIC
@@ -1620,8 +1624,6 @@ items:
           href: solution-ideas/articles/serverless-event-processing-aks.yml
         - name: Big data analytics with Data Explorer
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
-        - name: De-batch and filter with Event Hubs
-          href: solution-ideas/articles/serverless-event-processing-filtering.yml
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: Instant broadcasting with serverless
@@ -2275,6 +2277,8 @@ items:
           href: example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
         - name: Migrate IBM i series to Azure with Skytap
           href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
+        - name: Use Azure NetApp Files to deploy IBM Power in Skytap on Azure
+          href: example-scenario/mainframe/deploy-ibm-power-workloads.yml  
         - name: Refactor mainframe with CloudFrame Renovate
           href: example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml
         - name: Refactor IBM z/OS mainframe CF

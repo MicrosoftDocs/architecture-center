@@ -1,11 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Developing a RAG solution - Chunking phase 
+  title: Developing a RAG solution - Chunking phase
   description: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
   author: robbagby
   ms.author: robbag
   ms.date: 04/18/2024 
   ms.topic: conceptual
+  ms.collection: ce-skilling-ai-copilot
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
@@ -19,4 +20,4 @@ name: Chunking
 summary: Learn about the various chunking strategies like boundary based, custom code, and document analysis models. Also learn about how the document structure should influence your chunking strategy.
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-text-thumb.png
 content: |
-  [!include[](rag-chunking-phase-content.md)]
+  [!INCLUDE[](rag-chunking-phase-content.md)]

@@ -9,7 +9,7 @@ This solution is for any organization that utilizes both web and mobile applicat
 ## Architecture
 
 ![Architecture diagram shows browser or mobile app requests to Azure App Services to Azure Database for My S Q L.](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png)
-_Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg) of this architecture._
+*Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.svg) of this architecture.*
 
 ### Dataflow
 

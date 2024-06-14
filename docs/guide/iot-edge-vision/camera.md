@@ -39,7 +39,7 @@ A line scan camera has a single row of linear pixel sensors. The camera takes 1-
 
 Line scan cameras are good for vision workloads where items are either moving past the camera, or need to be rotated to detect defects. The line scan camera then produces a continuous image stream for evaluation. Examples of workloads that work best with line scan cameras are:
 
-- Item defect detection on parts that are moving on a conveyer belt
+- Item defect detection on parts that are moving on a conveyor belt
 - Workloads that require spinning to see a cylindrical object
 - Workloads that require rotation
 

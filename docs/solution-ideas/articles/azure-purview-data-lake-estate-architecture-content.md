@@ -8,7 +8,7 @@ This article describes a solution that uses Azure Purview to build a foundation 
  Diagram that shows how Azure Purview scans and classifies data. Data Lake Storage connects to Azure Purview via a modern data platform. Azure Purview also connects to Power BI. The diagram also shows integration among these services and Microsoft Entra ID, Azure Monitor, and Azure Key Vault.
 :::image-end:::
 
-_Download a [Visio file](https://arch-center.azureedge.net/data-lake-purview.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/data-lake-purview.vsdx) of this architecture.*
 
 ### Dataflow
 Azure Purview provides a single, unified data management service for the data from all sources, in the data lake, and in end reporting tools.

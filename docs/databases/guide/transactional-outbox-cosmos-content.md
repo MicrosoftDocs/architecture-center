@@ -49,7 +49,7 @@ In practice, things aren't as easy as they might look at first. Most importantly
 
 ## Implementation in Azure Cosmos DB
 
-This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design concepts. You can find the sample code for the implementation on [GitHub](https://github.com/mspnp/transactional-outbox-pattern).
+This section shows how to implement the Transactional Outbox pattern in Azure Cosmos DB to achieve reliable, in-order messaging between different services with the help of the Azure Cosmos DB change feed and Service Bus. It demonstrates a sample service that manages `Contact` objects (`FirstName`, `LastName`, `Email`, `Company` information, and so on). It uses the Command and Query Responsibility Segregation (CQRS) pattern and follows basic domain-driven design (DDD) concepts. You can find the sample code for the implementation on [GitHub](https://github.com/mspnp/transactional-outbox-pattern).
 
 A `Contact` object in the sample service has the following structure:
 
@@ -435,7 +435,7 @@ private async Task<ChangeFeedProcessor> StartChangeFeedProcessorAsync()
 
 A handler method (`HandleChangesAsync` here) then processes the messages. In this sample, events are published to a Service Bus topic that's partitioned for scalability and has the [de-duplication feature enabled](/azure/service-bus-messaging/duplicate-detection). Any service interested in changes to `Contact` objects can then subscribe to that Service Bus topic and receive and process the changes for its own context.
 
-The Service Bus messages produced have a `SessionId` property. When you use sessions in Service Bus, you guarantee that the order of the messages is preserved ([FIFO](/azure/service-bus-messaging/message-sessions)). Preserving the order is necessary for this use case.
+The Service Bus messages produced have a `SessionId` property. When you use sessions in Service Bus, you guarantee that the order of the messages is preserved ([first in, first out (FIFO)](/azure/service-bus-messaging/message-sessions)). Preserving the order is necessary for this use case.
 
 Here's the snippet that handles messages from the change feed:
 
@@ -542,7 +542,7 @@ The advantages of this solution are:
 - Reliable messaging and guaranteed delivery of events.
 - Preserved order of events and message de-duplication via Service Bus.
 - No need to maintain an extra `Processed` property that indicates successful processing of an event document.
-- Deletion of events from Azure Cosmos DB via TTL. The process doesn't consume request units that are needed for handling user/application requests. Instead, it uses "leftover" request units in a background task.
+- Deletion of events from Azure Cosmos DB via time to live (TTL). The process doesn't consume request units that are needed for handling user/application requests. Instead, it uses "leftover" request units in a background task.
 - Error-proof processing of messages via `ChangeFeedProcessor` (or an Azure function).
 - Optional: Multiple change feed processors, each maintaining its own pointer in the change feed.
 

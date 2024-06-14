@@ -1,7 +1,7 @@
 For customers in segments that are tightly governed and restricted by compliance, it's important to have an isolated and dedicated environment, especially for line-of-business applications. While security is front and center, these critical applications also require the ability to scale and perform under scenarios of high memory utilization or high requests per second. This solution provides an example for how you can host line-of-business applications. You can use Azure App Service Environment to ensure that both security and performance can be addressed simultaneously. When deploying this solution, you'll have the flexibility to use existing resources in your [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone), which represents your resources in the hub VNet. Or, you can deploy this solution as a self-contained workload.
 
 > [!NOTE]
-> This article provides a deployable architecture that aligns to our [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
+> This article provides a deployable architecture that aligns to our [landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
 
 ## Architecture
 
@@ -9,7 +9,7 @@ For customers in segments that are tightly governed and restricted by compliance
    The entirety of this image is in the scope of a subscription and a private DNS Zone. It's denoted by a subscription icon and a Private DNS zone icon in the top-left corner. Below these icons, two blocks are side by side. They represent two virtual networks, with VNet peering between them. The block on the left represents the hub VNet, and the block on the right represents the spoke VNet. Within the left box, there are three smaller boxes. Each box indicates a different subnet and its associated network security group. Starting from the top left is an Azure Bastion instance within the Bastion subnet, and the top right is the jumpbox VM, which resides in the jumpbox subnet. On the bottom right is the third and last box in the hub VNet, which contains the CI/CD agent server that resides in the CI/CD subnet. The box on the right, which represents the spoke VNet, contains only one smaller box, the ASE subnet that has the App Service Environment v3 instance within it. A smaller box represents the App Service Environment. The App Service icon is inside that box. On the bottom center of the image, are shared resources that are also deployed as part of the process. Starting from the left to right, the shared resources include Azure Key Vault, Azure Log Analytics workspace, and Azure Application Insights.
 :::image-end:::
 
-_Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-v3.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-environment-v3.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -130,7 +130,7 @@ Learn more about these key services:
 
 ## Related resources
 
-* [High availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [High-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 * [Enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)
-* [High availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [High-availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 * [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)

@@ -38,9 +38,9 @@ By adding drivers and storage classes, you can use storage services such as:
 
 - Amazon Elastic Block Store (Amazon EBS), a block-level storage solution used with Amazon Elastic Compute Cloud (EC2) instances to store persistent data. This service is similar to Azure Disk Storage, which has several SKUs like Standard SSD, Premium SSD, or Ultra Disk, depending on needed performance.
 
-- Amazon Elastic File System (Amazon EFS) , which provides Network File System (NFS) access to external file systems that can be shared across instances. The equivalent Azure solution is Azure Files and Azure Files Premium with both Server Message Block (SMB) 3.0 and NFS access.
+- Amazon Elastic File System (Amazon EFS) , which provides network filesystem access to external file systems that can be shared across instances. The equivalent Azure solution is Azure Files and Azure Files Premium with both Server Message Block (SMB) 3.0 and NFS access.
 
-- Lustre, an open-source file system commonly used in high performance computing (HPC). In Azure, you can use Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
+- Lustre, an open-source file system commonly used in high-performance computing (HPC). In Azure, you can use Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
 
 - NetApp ONTAP, fully managed ONTAP shared storage in Amazon Web Services (AWS). Azure NetApp Files is a similar Azure file storage service built on NetApp technology.
 
@@ -88,7 +88,7 @@ If you choose Ultra Disk Storage, be aware of its [limitations](/azure/virtual-m
 
 ### Azure Files
 
-Disk Storage can't provide concurrent access to a volume, but you can use [Azure Files](https://azure.microsoft.com/services/storage/files) to connect by using the SMB protocol, and then mount a shared volume that's backed by Azure Storage. This process provides a network attached storage that's similar to Amazon EFS. As with Disk Storage, there are two options:
+Disk Storage can't provide concurrent access to a volume, but you can use [Azure Files](https://azure.microsoft.com/services/storage/files) to connect by using the SMB protocol, and then mount a shared volume that's backed by Azure Storage. This process provides a network-attached storage that's similar to Amazon EFS. As with Disk Storage, there are two options:
 
 - Azure Files Standard storage is backed by regular hard disk drives (HDDs).
 - Azure Files Premium storage backs the file share with high-performance SSD drives. The minimum file share size for Premium is 100 GB.

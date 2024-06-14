@@ -12,7 +12,7 @@ This article presents a decision tree and examples of high-availability (HA) and
 
 The decision flowchart reflects the principle that HA apps should use availability zones if possible. Cross-zone, and therefore cross-datacenter, HA provides > 99.99% SLA because of resilience to datacenter failure.
 
-Availability sets and availability zones for different app tiers aren't guaranteed to be within the same datacenters. If app latency is a primary concern, you should colocate services in a single datacenter by using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups) (PPGs) with availability zones and availability sets.
+Availability sets and availability zones for different app tiers aren't guaranteed to be within the same datacenters. If app latency is a primary concern, you should colocate services in a single datacenter by using [proximity placement groups (PPGs)](https://azure.microsoft.com/blog/introducing-proximity-placement-groups) with availability zones and availability sets.
 
 ### Components
 
@@ -74,7 +74,7 @@ Availability zones are suitable for many clustered app scenarios, including [Alw
 
 If you want to use a VM-based *cluster arbiter*, for example a *file-share witness*, place it in the third availability zone, to ensure quorum isn't lost if any one zone fails. Alternatively, you might be able to use a cloud-based witness in another region.
 
-All VMs in an availability zone are in a single *fault domain* (FD) and *update domain* (UD), meaning they share a common power source and network switch, and can all be rebooted at the same time. If you create VMs across different availability zones, your VMs are effectively distributed across different FDs and UDs, so they won't all fail or be rebooted at the same time. If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in availability sets in PPGs to ensure they won't all be rebooted at once. Even for single-instance VM workloads that aren't redundant today, you can still optionally use availability sets in the PPGs to allow for future growth and flexibility.
+All VMs in an availability zone are in a single *fault domain (FD)* and *update domain (UD)*, meaning they share a common power source and network switch, and can all be rebooted at the same time. If you create VMs across different availability zones, your VMs are effectively distributed across different FDs and UDs, so they won't all fail or be rebooted at the same time. If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in availability sets in PPGs to ensure they won't all be rebooted at once. Even for single-instance VM workloads that aren't redundant today, you can still optionally use availability sets in the PPGs to allow for future growth and flexibility.
 
 For deploying virtual machine scale sets across availability zones, consider using [Orchestration mode](/azure/virtual-machine-scale-sets/orchestration-modes-api-comparison), currently in public preview, which allows combining FDs and availability zones.
 
@@ -106,7 +106,7 @@ If your app supports Azure Site Recovery, you can provide a regional DR solution
 
 ### Cost optimization
 
-There's no additional cost for VMs deployed in availability zones. There might be additional inter-availability zone VM-to-VM data transfer charges. For more information, see the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth).
+There's no additional cost for VMs deployed in availability zones, including inter-availability zone bandwidth.
 
 ## Contributors
 
@@ -114,7 +114,7 @@ There's no additional cost for VMs deployed in availability zones. There might b
 
 Principal author:
 
-* [Shaun Croucher](https://uk.linkedin.com/in/shaun-croucher-64b251185) | Senior Consultant
+- [Shaun Croucher](https://uk.linkedin.com/in/shaun-croucher-64b251185) | Senior Consultant
 
 ## Next steps
 

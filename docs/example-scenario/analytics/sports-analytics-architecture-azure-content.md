@@ -43,7 +43,7 @@ Throughout the process:
 - [Power Apps](https://powerapps.microsoft.com) is a suite of apps, services, connectors, and data platform that provides a rapid development environment to build custom apps for your business needs. By using Power Apps, you can quickly build custom business apps that connect to your data stored either in the underlying data platform or in various online and on-premises data sources like SharePoint, Microsoft 365, and Dynamics 365.
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can use it with your favorite languages, like .NET, .NET Core, and Java.
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) is a tool for security posture management and threat protection.
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management) helps you understand your Azure invoice, manage your billing account and subscriptions, monitor, control Azure spending, and optimize resource use.
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management) helps you understand your Azure invoice, manage your billing account and subscriptions, monitor, control Azure spending, and optimize resource use.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for securely storing and accessing secrets.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity service that provides single sign-on, multifactor authentication, and conditional access to guard against most cybersecurity attacks.
@@ -89,7 +89,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider using the following security resources in this architecture:
 
-- [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity)
+- [Secure cluster connectivity (No Public IP (NPIP)](/azure/databricks/security/secure-cluster-connectivity)
 - [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Azure Databricks Premium](https://azure.microsoft.com/pricing/details/databricks)
@@ -107,7 +107,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-If you use Azure Data Factory Mapping Data Flows for extract, transform, and load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
+If you use Azure Data Factory Mapping Data Flows for extract, transform, load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
 
 ## Deploy this scenario
 

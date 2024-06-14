@@ -4,7 +4,7 @@ As the publisher of APIs, you need a website that effectively markets your APIs 
 
 :::image type="content" alt-text="Diagram of the components of this architecture and the workflow through the internet portals and Azure services that constitute the solution, including Microsoft Entra B 2 C, Azure A P I Management, the A P I gateway, and line-of-business services." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
-_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
+*Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture.*
 
 ### Dataflow
 
@@ -60,7 +60,7 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed compute platform for hosting custom web applications.
 
-- [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Azure Active Directory (Azure AD) B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
 ## Scenario details
 
@@ -85,7 +85,7 @@ At the top of the value chain is the API service provider. Next are the API cons
 
 :::image type="content" alt-text="Diagram of features and capabilities of the enhanced A P I developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
-_Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this diagram._
+*Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this diagram.*
 
 The API developer experience features three portals:
 
@@ -97,7 +97,7 @@ The API developer experience features three portals:
 
 ### Functional requirements
 
-At a high level, the functional requirements for an enterprise-scale API platform fit into three categories, namely _productization_, _platform administration_, and _consumer experiences_.
+At a high level, the functional requirements for an enterprise-scale API platform fit into three categories, namely *productization*, *platform administration*, and *consumer experiences*.
 
 :::image type="content" alt-text="Diagram that shows three broad functional requirements of an enterprise-scale A P I platform." source="media/design-api-developer-experiences-management-github-functional-requirements.png":::
 
@@ -173,9 +173,9 @@ GitHub makes security reviews an automated part of code reviews, scanning every 
 
 ### Cost optimization
 
-You can develop the consumer portal by using the _Team_ or _Enterprise_ [pricing plan for GitHub](https://github.com/pricing). Refer to the feature matrix to identify which plan best suits your enterprise.
+You can develop the consumer portal by using the *Team* or *Enterprise* [pricing plan for GitHub](https://github.com/pricing). Refer to the feature matrix to identify which plan best suits your enterprise.
 
-For API Management, you can use the _Standard_ or the _Premium_ tiers. To better understand the differences between the tiers, see [API Management pricing options](https://azure.microsoft.com/pricing/details/api-management).
+For API Management, you can use the *Standard* or the *Premium* tiers. To better understand the differences between the tiers, see [API Management pricing options](https://azure.microsoft.com/pricing/details/api-management).
 
 For Azure App Service, refer to the pricing options that are available for [Windows](https://azure.microsoft.com/pricing/details/app-service/windows) and [Linux](https://azure.microsoft.com/pricing/details/app-service/linux) environments for hosting your applications.
 

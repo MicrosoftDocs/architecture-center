@@ -81,11 +81,11 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
 | Relational data store | Yes | Yes | No | Yes |
-| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
+| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks unit (DBU)<sup>2</sup> + cluster hour |
 
 [1] With manual configuration.
 
-[2] A Databricks Unit (DBU) is a unit of processing capability per hour.
+[2] A Databricks unit (DBU) is a unit of processing capability per hour.
 
 ### Capabilities
 

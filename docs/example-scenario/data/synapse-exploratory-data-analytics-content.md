@@ -42,7 +42,7 @@ This solution shows an implementation of the EDA approach to data warehouse proj
 
 Other scenarios that can benefit from this analytics pattern:
 
-- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
+- **Prescriptive analytics**. Ask questions of your data, like *Next Best Action*, or *what do we do next?* Use data to be more *data-driven* and less *gut-driven*. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
 
 - **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. Transform data and make it valuable. Doing so can improve the scale of your ETL developers.  
 
@@ -64,17 +64,17 @@ You can do this in another way that focuses first on generating business insight
 
 ![Diagram that describes data sandboxing.](media/exploratory-data-analytics/sandboxing.png)
 
-In the industry, this process is called *EDA*, or _exploratory data analysis_.  
+In the industry, this process is called *EDA*, or *exploratory data analysis*.  
 
 Here are the steps:
 
 - **Data acquisition**. First, you need to determine what data sources you need to ingest into your data lake / sandbox. You then need to bring that data into the landing area of your lake. Azure provides tools like Azure Data Factory and Azure Logic Apps that can ingest data quickly.  
 
-- **Data sandboxing**. Initially, a business analyst and an engineer who's skilled in exploratory data analysis via Azure Synapse Analytics serverless or basic SQL work together. During this phase, they're trying to uncover the _business insight_ by using the new data. EDA is an iterative process. You might need to ingest more data, talk with SMEs, ask more questions, or generate visualizations.  
+- **Data sandboxing**. Initially, a business analyst and an engineer who's skilled in exploratory data analysis via Azure Synapse Analytics serverless or basic SQL work together. During this phase, they're trying to uncover the *business insight* by using the new data. EDA is an iterative process. You might need to ingest more data, talk with SMEs, ask more questions, or generate visualizations.  
 
 - **Evaluation**. After you find the business insight, you need to evaluate what to do with the data. You might want to persist the data into the data warehouse (so you move to the modeling phase). In other cases, you might decide to keep the data in the data lake / lakehouse and use it for predictive analytics (machine learning algorithms). In still other cases, you might decide to backfill your systems of record with the new insights. Based on these decisions, you can gain a better understanding of what you need to do next. You might not need to do ETL.
 
-These methods are the core of true _self-service analytics_. By using the data lake and a query tool like Azure Synapse serverless that understands data lake query patterns, you can put your data assets into the hands of business people who understand a modicum of SQL. You can radically shorten the time-to-value by using this method and remove some of the risk associated with corporate data initiatives.
+These methods are the core of true *self-service analytics*. By using the data lake and a query tool like Azure Synapse serverless that understands data lake query patterns, you can put your data assets into the hands of business people who understand a modicum of SQL. You can radically shorten the time-to-value by using this method and remove some of the risk associated with corporate data initiatives.
 
 ## Considerations
 

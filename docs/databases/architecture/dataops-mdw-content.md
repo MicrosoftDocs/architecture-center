@@ -65,7 +65,7 @@ This article describes how a fictional city planning office could use this solut
 
 * Deploy application changes across different environments in an automated manner:
 
-  * Implement Continuous Integration/Continuous Delivery (CI/CD) pipelines.
+  * Implement continuous integration and continuous delivery (CI/CD) pipelines.
 
   * Use deployment gates for manual approvals.
 
@@ -136,7 +136,9 @@ If deployment is successful, there should be three resources groups in Azure rep
 
 For a detailed list of all resources, see the [Deployed Resources](https://github.com/Azure-Samples/modern-data-warehouse-dataops/tree/main/e2e_samples/parking_sensors#deployed-resources) section of the **DataOps - Parking Sensor Demo** README.
 
-### Continuous integration and continuous delivery
+<a name='continuous-integration-and-continuous-delivery'></a>
+
+### Continuous integration and continuous delivery (CI/CD)
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 

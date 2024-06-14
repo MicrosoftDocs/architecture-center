@@ -2,8 +2,8 @@
 title: Oracle on Azure architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about sample architectures, solutions, and guides that can help you explore Oracle workloads on Azure.
-author: martinekuan
-ms.author: martinek
+author: kisshetty
+ms.author: kishetty
 ms.date: 08/31/2022
 ms.topic: conceptual
 ms.service: architecture-center

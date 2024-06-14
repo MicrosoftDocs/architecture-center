@@ -33,7 +33,7 @@ Microservices offer many benefits:
 - You can deploy each service independently.
 - Fault isolation is straightforward when you confine functionality to separate containers.
 - They fit well in a DevOps environment.
-- They decrease time to market by speeding up the software development lifecycle.
+- They decrease time to market by speeding up the software development life cycle.
 
 An efficient way to implement microservices is to use a serverless technology. This solution uses Functions, an Azure offering that provides a serverless compute experience. The solution uses Azure Cosmos DB for data storage. Azure Cosmos DB offers a change feed that integrates with Functions.
 
@@ -75,5 +75,5 @@ See the following architectures that feature Azure Cosmos DB:
 
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
-- [Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)
+- [Deliver highly scalable customer service and enterprise resource planning (ERP) applications](/azure/architecture/solution-ideas/articles/erp-customer-service)
 - [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)

@@ -137,7 +137,7 @@ Choose the best load balancer for your web app. Azure has several load balancers
 
 ### Web application firewall
 
-Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) (WAF) is Azure's web application firewall and provides centralized protection of from common web exploits and vulnerabilities.
+Choose a web application firewall to protect your web app from web attacks. [Azure Web Application Firewall](/azure/web-application-firewall/overview) is Azure's web application firewall (WAF) and provides centralized protection of from common web exploits and vulnerabilities.
 
 *Example:* Relecloud needed to protect the web app from web attacks. They used Azure Web Application Firewall for the following reasons:
 

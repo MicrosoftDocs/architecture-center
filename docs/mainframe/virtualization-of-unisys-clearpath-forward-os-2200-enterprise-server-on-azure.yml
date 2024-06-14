@@ -3,8 +3,8 @@ metadata:
   title: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
   titleSuffix: Azure Architecture Center
   description: Learn how to use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado enterprise server.
-  author: martinekuan
-  ms.author: martinek
+  author: pbrooks
+  ms.author: pbrooks
   ms.date: 10/25/2023
   ms.topic: conceptual
   ms.service: architecture-center

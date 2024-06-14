@@ -17,13 +17,13 @@ It should also be acknowledged that cyber-attacks, particularly ransomware, now 
 The scope of this article series includes:
 
 - The service recovery of an Azure data platform from a physical disaster for an illustrative persona of the customer. This illustrative customer is:
-    - a mid-large organization with a defined operational support function, following an ITIL based service management methodology
+    - a mid-large organization with a defined operational support function, following an Information Technology Infrastructure Library (ITIL) based service management methodology
     - not cloud-native, with its core enterprise, shared services like access and authentication management and incident management remain on premises
     - on the journey of cloud migration to Azure, enabled by automation
 - The Azure data platform has implemented the following designs within the customer’s Azure tenancy
-    - [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, security etc.
+    - [Enterprise Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) – Providing the platform foundation, including networking, monitoring, security, and so on.
     - [Azure Analytics Platform](https://github.com/Azure/azure-synapse-analytics-end2end) - Providing the data components that support the various solutions and data products provided by the service
-- This process will be executed by an Azure technical resource rather than a specialist Azure SME. As such, the resource(s) should have the following level of knowledge/skills
+- This process will be executed by an Azure technical resource rather than a specialist Azure subject matter expert (SME). As such, the resource(s) should have the following level of knowledge/skills
     - [Azure Fundamentals](/certifications/exams/az-900) – working knowledge of Azure, its core services, and data components
     - Working knowledge of Azure DevOps. Able to navigate source control and execute pipeline deployments
 - This process describes the Failover process, from the primary to the secondary region
@@ -33,9 +33,9 @@ The scope of this article series includes:
 The following items are considered out-of-scope for this article series:
 
 - The Fallback process, from the secondary region back to the primary region  
-- Any non-Azure applications, components, or systems – this includes but isn't limited to on-premises, other cloud vendors, third party web services etc.
-- Recovery of any upstream services, such as on-premises networks, gateways, enterprise shared services, etc., that are prerequisites to this process
-- Recovery of any downstream services, such as on-premises operational systems, third party reporting systems, data modeling or data science applications, etc., that are dependent on this process to recover their own services
+- Any non-Azure applications, components, or systems – this includes but isn't limited to on-premises, other cloud vendors, third party web services, and so on.
+- Recovery of any upstream services, such as on-premises networks, gateways, enterprise shared services, and so on. that are prerequisites to this process
+- Recovery of any downstream services, such as on-premises operational systems, third party reporting systems, data modeling or data science applications, and so on. that are dependent on this process to recover their own services
 - Data Loss scenarios, including recovery from [ransomware or similar data security incidents](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
 - Data Backup strategies and data restore plans
 - Establishing the Root cause of a DR event
@@ -48,8 +48,8 @@ The key assumptions for this DR worked example are
 
 - The Organization follows an ITIL based service management methodology for operational support of the Azure data platform 
 - The Organization has an existing disaster recovery process as part of its service restoration framework for IT assets 
-- “[Infrastructure as Code](/azure/architecture/framework/devops/automation-infrastructure)” (IaC) has been used to deploy the Azure data platform enabled by an automation service, such as Azure DevOps or similar
-- Each solution hosted by the Azure data platform has completed a Business Impact Assessment or similar, providing clear service requirements for RPO, RTO and MTO
+- “[Infrastructure as Code](/azure/architecture/framework/devops/automation-infrastructure)” (infrastructure as code (IaC)) has been used to deploy the Azure data platform enabled by an automation service, such as Azure DevOps or similar
+- Each solution hosted by the Azure data platform has completed a Business Impact Assessment or similar, providing clear service requirements for recovery point objective (RPO), recovery time objective (RTO) and MTO
 
 ## Next steps
 

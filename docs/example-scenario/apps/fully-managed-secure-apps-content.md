@@ -30,10 +30,10 @@ Consider this scenario for the following use cases:
 ### Components
 
 - The [App Service Environment][intro-to-app-svc-env] provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, because the App Service Environment and the workloads that run on it are behind a virtual network, it also provides an extra layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB App Service Environment.
-- This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.
+- This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, solid-state drive (SSD) storage, and double the memory-to-core ratio compared to Standard.
 - Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated service plan, which also offers autoscaling, custom domains, and so on, but in a dedicated tier.
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes extra overhead from the web servers hosting the web app to decrypt traffic again.
-- [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses OWASP rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
+- [Web Application Firewall (WAF)][docs-waf] is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses Open Worldwide Application Security Project (OWASP) rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
 - [Azure SQL Database][docs-sql-database] was selected because most of the data in this application is relational data, with some data as documents and Blobs.
 - [Azure Networking][azure-networking] provides various networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] is used to help teams collaborate during sprints, using features that support Agile Development, and to create build and release pipelines.
@@ -44,7 +44,7 @@ Consider this scenario for the following use cases:
 An App Service Environment can run regular web apps on Windows or, as in this example, web apps deployed inside the environment that are each running as Linux containers. An App Service Environment was selected to host these single-instance containerized applications. There are alternatives available&mdash;review the considerations below when designing your solution.
 
 - [Azure Service Fabric][docs-service-fabric]: If your environment is mostly Windows-based, and your workloads are primarily .NET Framework-based, and you aren't considering rearchitecting to .NET Core, then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java programming APIs, and for developing native microservices, the clusters can be provisioned on Windows or Linux.
-- [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is required to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
+- [Azure Kubernetes Service (AKS)][docs-kubernetes-service] is an open-source project and an orchestration platform more suited to hosting complex multicontainer applications that typically use a microservices-based architecture. AKS is a managed Azure service that abstracts away the complexities of provisioning and configuring a Kubernetes cluster. However, significant knowledge of the Kubernetes platform is required to support and maintain it, so hosting a handful of single-instance containerized web applications might not be the best option.
 
 Other options for the data tier include:
 
@@ -52,7 +52,7 @@ Other options for the data tier include:
 
 ## Considerations
 
-There are certain considerations when dealing with certificates on ILB App Service Environment. You need to generate a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server where the cert will eventually be stored. With Internet Information Services (IIS), for example, the first step is to generate a CSR from your IIS server and then send it to the SSL certificate-issuing authority.
+There are certain considerations when dealing with certificates on ILB App Service Environment. You need to generate a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server where the cert will eventually be stored. With Internet Information Services (IIS), for example, the first step is to generate a certificate signing request (CSR) from your IIS server and then send it to the SSL certificate-issuing authority.
 
 You can't issue a CSR from the Internal Load Balancer (ILB) of an App Service Environment. The way to handle this limitation is to use [the wildcard procedure][create-wildcard-cert-letsencrypt].
 
@@ -62,16 +62,16 @@ Make self-signed or internally issued SSL cert work if you want to make secure c
 
 While provisioning the App Service Environment, consider the following limitations when choosing a domain name for the environment. Domain names can't be:
 
-- net
-- azurewebsites.net
-- p.azurewebsites.net
-- nameofthease.p.azurewebsites.net
+- `net`
+- `azurewebsites.net`
+- `p.azurewebsites.net`
+- `nameofthease.p.azurewebsites.net`
 
 Additionally, the custom domain name used for apps and the domain name used by the ILB App Service Environment can't overlap. For an ILB App Service Environment with the domain name contoso.com, you can't use custom domain names for your apps like:
 
-- www\.contoso.com
-- abcd.def.contoso.com
-- abcd.contoso.com
+- `www.contoso.com`
+- `abcd.def.contoso.com`
+- `abcd.contoso.com`
 
 Choose a domain for the ILB App Service Environment that won't conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your environment for this example, because that won't conflict with custom domain names that end in .contoso.com.
 
@@ -97,7 +97,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Resiliency
 
@@ -117,7 +117,7 @@ Explore the cost of running this scenario. All of the services are pre-configure
 
 We've provided three sample cost profiles based on amount of traffic you expect to get:
 
-- [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a basic tier that will minimize cost but still ensure that there's SLA support and enough capacity to handle a production-level workload.
+- [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a basic tier that will minimize cost but still ensure that there's service-level agreement (SLA) support and enough capacity to handle a production-level workload.
 - [Medium][medium-pricing]: This pricing example represents the components needed for a moderate size deployment. Here we estimate approximately 100,000 users over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage, high performance, premium tier web apps deployed in multiple regions fronted by traffic manager are required. Data consists of the following components: storage, databases, and CDN, all configured for terabytes of data.
 
@@ -139,7 +139,7 @@ Principal author:
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
-- [High availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+- [high-availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 - [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
 <!-- links -->

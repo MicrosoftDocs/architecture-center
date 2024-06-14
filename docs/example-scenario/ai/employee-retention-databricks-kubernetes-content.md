@@ -1,6 +1,6 @@
 This solution demonstrates how a machine-learning team can use Azure Databricks and Azure Kubernetes Service to develop and deploy machine learning, as an API, to predict the likelihood of employee attrition. The API can be integrated with external applications that are used by the Human Resources team to provide additional insights into the likelihood of attrition for a given employee within the organization. This information can be used to retain high-impact employees who are likely to leave the organization by providing Human Resources with the ability to proactively incentivize such employees to stay.
 
-_Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks._
+*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -12,13 +12,13 @@ _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trade
 
 At a high level, this solution design addresses each stage of the machine-learning lifecycle:
 
-- _Data preparation_, which includes sourcing, cleaning, and transforming the data for processing and analysis. Data can live in a data lake or data warehouse and be stored in a feature store after it's curated.
+- *Data preparation*, which includes sourcing, cleaning, and transforming the data for processing and analysis. Data can live in a data lake or data warehouse and be stored in a feature store after it's curated.
 
-- _Model development_, which includes core components of the process of model development, such as experiment tracking and model registration by using [MLflow](/azure/databricks/applications/mlflow).
+- *Model development*, which includes core components of the process of model development, such as experiment tracking and model registration by using [MLflow](/azure/databricks/applications/mlflow).
 
-- _Model deployment_, which includes implementing a continuous integration/continuous delivery (CI/CD) pipeline to containerize machine-learning models as API services. These services are deployed to Azure Kubernetes clusters for end users to consume.
+- *Model deployment*, which includes implementing a continuous integration and continuous delivery (CI/CD) pipeline to containerize machine-learning models as API services. These services are deployed to Azure Kubernetes clusters for end users to consume.
 
-- _Model monitoring_, which includes monitoring the API performance and model data drift by analyzing log telemetry with Azure Monitor.
+- *Model monitoring*, which includes monitoring the API performance and model data drift by analyzing log telemetry with Azure Monitor.
 
 After the machine-learning team has deployed the machine-learning model as an API for real-time inference, developers can easily integrate the API with external applications that are used by external teams, such as Human Resources. Telemetry is collected when an external team uses the model service. The machine-learning team can use this telemetry to determine when the model needs to be redeployed. This approach allows teams to work independently and allows external teams to benefit from the skills of the centralized machine-learning team.
 
@@ -52,7 +52,7 @@ The following components are used as part of this design:
 
 ## Scenario details
 
-The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This trend, in which employees voluntarily resign from their jobs en masse, is popularly known as _the Great Resignation_. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
+The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This trend, in which employees voluntarily resign from their jobs en masse, is popularly known as *the Great Resignation*. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
 
 This example scenario illustrates an operating model of centralized machine learning. This  comprises a central team that's responsible for building and deploying machine-learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a team that's dedicated to machine learning while the organization aims to infuse advanced analytics into all products and processes.
 
@@ -96,7 +96,7 @@ A proof-of-concept implementation of this scenario is available on GitHub at [Em
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architecture.*
 
-This proof-of-concept illustrates:
+This proof of concept illustrates:
 
 - How to train an MLflow model for employee attrition on Azure Databricks.
 - How to package models as a web service by using open-source tools.
@@ -109,7 +109,7 @@ This proof-of-concept illustrates:
 
 Principal author:
 
-* [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
+- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 
 ## Next steps
 

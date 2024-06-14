@@ -74,7 +74,7 @@ A Natural Language Toolkit (NLTK) algorithm runs on the ingested messages. Senti
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
-- [Data Factory](https://azure.microsoft.com/services/data-factory) provides batch transformation services for various sources and sinks. As a key component of big data processing, Data Factory helps to simplify extract-transform-load (ETL) workloads. Data Factory also handles the complexities and scale challenges of big data integration.
+- [Data Factory](https://azure.microsoft.com/services/data-factory) provides batch transformation services for various sources and sinks. As a key component of big data processing, Data Factory helps to simplify extract, transform, load (ETL) workloads. Data Factory also handles the complexities and scale challenges of big data integration.
 
 - [NiFi](https://nifi.apache.org) automates the flow of data among software systems. NiFi offers security features, an extensible architecture, and a flexible scaling model. It handles multiple sources and multiple sinks with different types of processors. NiFi functionality includes:
 
@@ -88,7 +88,7 @@ A Natural Language Toolkit (NLTK) algorithm runs on the ingested messages. Senti
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service for data warehouses and big data systems. It centralizes data in the cloud for easy access.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database for modern app development. By providing single-digit millisecond response times and automatic and instant scalability, Azure Cosmos DB guarantees speed at any scale. Its SLA-backed availability and enterprise-grade security provide business continuity.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database for modern app development. By providing single-digit millisecond response times and automatic and instant scalability, Azure Cosmos DB guarantees speed at any scale. Its service-level agreement (SLA)-backed availability and enterprise-grade security provide business continuity.
 
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) consists of cloud-based services that provide AI functionality. The REST APIs and client library SDKs help you build cognitive intelligence into apps even if you don't have AI or data science skills.
 
@@ -137,7 +137,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 In production environments, evaluate your recovery time objective (RTO) and recovery point objective (RPO). All disaster recovery decisions and scenarios depend on those evaluations.
 
-In most cases, you need a high availability service for each tool. For effective disaster recovery, it's important to reduce your RTO. But if you have high availability, you can avoid disaster scenarios. For instance, you might create services in another region.
+In most cases, you need a high-availability service for each tool. For effective disaster recovery, it's important to reduce your RTO. But if you have high availability, you can avoid disaster scenarios. For instance, you might create services in another region.
 
 ### Security
 
@@ -185,6 +185,6 @@ Principal authors:
 
 ## Related resources
 
-- [Extract, transform, and load (ETL) using HDInsight](../../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)
+- [Extract, transform, load (ETL) using HDInsight](../../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)
 - [Knowledge mining for customer feedback](../../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Apache NiFi on Azure](../data/azure-nifi.yml)

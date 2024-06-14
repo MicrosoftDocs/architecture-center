@@ -1,4 +1,4 @@
-The following architecture outlines the use of Delphix Continuous Compliance in an Azure Data Factory (ADF) [extract, transform, and load](/azure/architecture/data-guide/relational-data/etl) (ETL) pipeline to identify and mask sensitive data.
+The following architecture outlines the use of Delphix Continuous Compliance in an Azure Data Factory (ADF) [extract, transform, load (ETL)](/azure/architecture/data-guide/relational-data/etl) pipeline to identify and mask sensitive data.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ The data flows through the scenario as follows:
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It includes Azure Data Factory pipelines to provide data integration.
 - [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from source datastore(s) and the masked data that will be loaded into destination data store(s).
 - Optional: [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
@@ -42,7 +42,7 @@ Breaking down data silos is difficult:
 
 ### What is Azure Data Factory (ADF)?
 
-[Azure Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.  Data factory pipelines are also available in Azure Synapse Analytics.
+[Azure Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and extract, load, transform (ELT) processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.  Data factory pipelines are also available in Azure Synapse Analytics.
 
 ### What is Delphix Continuous Compliance (Delphix CC)?
 
@@ -155,7 +155,7 @@ For optimal performance for datasets larger than 1 TB in size, [Delphix Hypersca
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -189,7 +189,7 @@ Learn more about the key Azure services in this solution:
 
 ## Related resources
 
-- [Extract, transform, and load](/azure/architecture/data-guide/relational-data/etl)
+- [Extract, transform, load](/azure/architecture/data-guide/relational-data/etl)
 - [Batch integration with Azure Data Factory for Azure Digital Twins](/azure/architecture/example-scenario/iot/batch-integration-azure-data-factory-digital-twins)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
 - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)

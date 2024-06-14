@@ -4,7 +4,7 @@ In this example scenario, you integrate Azure Digital Twins into line-of-busines
 
 :::image type="content" alt-text="Diagram that shows the architecture of this example, including business systems, Azure Data Factory, Azure Batch, Azure Digital Twins, Azure Storage, data pipelines, and activities." source="media/batch-integration-azure-data-factory-digital-twins-diagram.png" lightbox="media/batch-integration-azure-data-factory-digital-twins-diagram.png":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 

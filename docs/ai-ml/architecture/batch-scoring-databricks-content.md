@@ -61,7 +61,7 @@ Databricks is set up so you can load and deploy your trained models to make pred
 - Unlimited clusters that can scale to any size.
 - Advanced security, role-based access controls, and audit logs.
 
-To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface][cli] (CLI). Access the Databricks CLI from any platform that supports Python 2.7.9 to 3.6.
+To interact with the Azure Databricks service, use the Databricks [Workspace][workspace] interface in a web browser or the [command-line interface (CLI)][cli]. Access the Databricks CLI from any platform that supports Python 2.7.9 to 3.6.
 
 The reference implementation uses [notebooks][notebooks] to execute tasks in sequence. Each notebook stores intermediate data artifacts (training, test, scoring, or results data sets) to the same data store as the input data. The goal is to make it easy for you to use it as needed in your particular use case. In practice, you would connect your data source to your Azure Databricks instance for the notebooks to read and write directly back into your storage.
 

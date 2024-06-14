@@ -8,6 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
@@ -24,7 +25,7 @@ categories:
 This article provides guidance for objectives that you set when you implement comprehensive data science solutions with Azure technologies. You're guided through:
 
 - Understanding an analytics workload.
-- Using the Team Data Science Process.
+- Using the Team Data Science Process (TDSP).
 - Using Azure Machine Learning.
 - Understanding the foundations of data transfer and storage.
 - Providing data source documentation.
@@ -39,7 +40,7 @@ You can use the items in the following table to guide your own self-study. Read 
 |Objective | Topic  | Description  | Knowledge check |
 |------------|------------|----------------|-----------|
 | Understand the processes for developing analytic projects                                 | [An introduction to the Team Data Science Process](overview.yml)       | We begin by covering an overview of the TDSP. This process guides you through each step of an analytics project. Read through each of these sections to learn more about the process and how you can implement it.         | Review and [download the TDSP project structure artifacts to your local machine](https://github.com/Azure/Azure-TDSP-ProjectTemplate) for your project.          |
-|                                                                                           | [Agile development](https://www.visualstudio.com/agile/)   | The TDSP works well with many different programming methodologies. In this Learning Path, we use Agile software development. Read through the "What is Agile Development?" and "Building Agile Culture" articles, which cover the basics of working with Agile. There are also other references at this site where you can learn more.                     | Explain Continuous Integration and Continuous Delivery to a colleague.       |
+|                                                                                           | [Agile development](https://www.visualstudio.com/agile/)   | The TDSP works well with many different programming methodologies. In this Learning Path, we use Agile software development. Read through the "What is Agile Development?" and "Building Agile Culture" articles, which cover the basics of working with Agile. There are also other references at this site where you can learn more.                     | Explain continuous integration and continuous delivery (CI/CD) to a colleague.       |
 |                                                                                           | [DevOps for data science](https://mva.microsoft.com/training-courses/devops-an-it-pro-guide-8286?l=GVFXzCXy_8104984382)                        | Developer operations (DevOps) involves people, processes, and platforms you can use to work through a project and integrate your solution into an organization's standard IT. This integration is essential for adoption, safety, and security. In this online course, you learn about DevOps practices and understand some of the toolchain options you have.      | Prepare a 30-minute presentation to a technical audience on how DevOps is essential for analytics projects.     |
 | Understand the technologies for data storage and processing                               | [Microsoft business analytics and AI](https://www.microsoft.com/cloud-platform/what-is-cortana-intelligence)                                   | We focus on a few technologies in this Learning Path that you can use to create an analytics solution, but Microsoft has many more. To understand the options you have, it's important to review the platforms and features available in Microsoft Azure, the Azure Stack, and on-premises options. Review this resource to learn the various tools you have available to answer analytics question.    | [Download and review the presentation materials from this workshop](https://info.microsoft.com/CO-Azure-CNTNT-FY16-Oct2015-Cortana-Registration.html).      |
 | Set up and configure your training, development, and production environments               | [Microsoft Azure](https://azure.microsoft.com/training/learning-paths/azure-solution-architect/)          | Now let's create an account in Microsoft Azure for training and learn how to create development and test environments. These free training resources get you started. Complete the *Beginner* and *Intermediate* paths.          | [If you don't have an Azure account, create one](https://azure.microsoft.com/free/?v=17.39&WT.srch=1&WT.mc_id=AID559320_SEM_2kAfgmyQ&lnkd=Bing_Azure_Brand). Sign in to the Azure portal and [create one resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) for training.         |

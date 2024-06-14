@@ -20,10 +20,11 @@ The following sections describe the various stages of the data extraction proces
    - [Invoice][Form Recognizer invoice model]
    - [Receipt][Form Recognizer receipt model]
    - [ID document][Form Recognizer ID document model]
-   - [Business card][Form Recognizer business card model]
-   - [General document][Form Recognizer general document model (preview)], which is in preview
+   - [General document][Form Recognizer general document model]
+   - [US tax document models](/azure/ai-services/document-intelligence/concept-tax-document)
+   - [US mortgage document model](/azure/ai-services/document-intelligence/concept-mortgage-documents)
 
-   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions. Azure AI Document Intelligence also assigns [confidence values][Characteristics and limitations of Form Recognizer - Customer evaluation] to the extracted data.
+   The response from Azure AI Document Intelligence contains raw optical character recognition (OCR) data and structured extractions.
 
 1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
@@ -189,7 +190,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
+- Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Worldwide Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
 - To improve App Service security, consider these options:
 
@@ -311,12 +312,12 @@ Principal author:
 [Durability and availability parameters]: /azure/storage/common/storage-redundancy#durability-and-availability-parameters
 [Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
-[Form Recognizer business card model]: /azure/applied-ai-services/form-recognizer/concept-business-card
-[Form Recognizer general document model (preview)]: /azure/applied-ai-services/form-recognizer/concept-general-document
+[Form Recognizer general document model]: /azure/applied-ai-services/form-recognizer/concept-general-document
 [Form Recognizer ID document model]: /azure/applied-ai-services/form-recognizer/concept-id-document
 [Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
 [Form Recognizer layout model]: /azure/applied-ai-services/form-recognizer/concept-layout
 [Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
+[US tax document models]: /azure/ai-services/document-intelligence/concept-tax-document
 [Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
 [How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits

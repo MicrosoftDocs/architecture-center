@@ -1,4 +1,4 @@
-This architectural pattern demonstrates how you can incorporate MDM into the Azure data services ecosystem to improve the quality of data used for analytics and operational decision making. MDM solves several common challenges, including:
+This architectural pattern demonstrates how you can incorporate master data management (MDM) into the Azure data services ecosystem to improve the quality of data used for analytics and operational decision making. MDM solves several common challenges, including:
 
 - Identifying and managing duplicate data (match and merge).
 - Flagging and resolving data quality issues.
@@ -43,7 +43,7 @@ The following dataflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a hybrid data integration service that lets you create, schedule, and orchestrate your ETL and ELT workflows.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a hybrid data integration service that lets you create, schedule, and orchestrate your extract, transform, load (ETL) and extract, load, transform (ELT) workflows.
 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides limitless storage for analytics data.
 
@@ -108,7 +108,7 @@ In an analytical MDM use case, data often processes through the MDM solution aut
 
 #### 1. Source data load
 
-Source data loads into the MDM solution from source systems, including lineage information. In this case, we have two source records, one from CRM and one from the ERP application. Upon visual inspection, the two records appear to both represent the same person.
+Source data loads into the MDM solution from source systems, including lineage information. In this case, we have two source records, one from customer relationship management (CRM) and one from the enterprise resource planning (ERP) application. Upon visual inspection, the two records appear to both represent the same person.
 
 | Source Name | Source Address | Source State | Source Phone | Source ID | Standard Address | Standard State | Standard Name | Standard Phone | Similarity |
 | --------------- | ------------------------- | ----------------- | ----------------------- | -------------------- | --------------------- | ------------------- | ------------------ | ------------------- | -------------- |
@@ -219,7 +219,7 @@ Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. You c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Profisee authenticates users through OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Microsoft Entra ID. This process ensures enterprise policies for authentication get applied and enforced.
+Profisee authenticates users through OpenID Connect, which implements an Open Authorization (OAuth) 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Microsoft Entra ID. This process ensures enterprise policies for authentication get applied and enforced.
 
 ### Cost optimization
 
@@ -258,7 +258,7 @@ Principal author:
 
 ### Architecture guides
 
-- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
+- [Extract, transform, load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 

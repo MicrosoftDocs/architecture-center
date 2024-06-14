@@ -1,8 +1,8 @@
 ---
 title: Advanced analytics
 description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
-author: martinekuan
-ms.author: pnp
+author: pratimav0420
+ms.author: prvalava
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual

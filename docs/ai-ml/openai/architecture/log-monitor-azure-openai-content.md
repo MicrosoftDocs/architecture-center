@@ -15,9 +15,9 @@ This solution provides comprehensive logging and monitoring and enhanced securit
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
 3. Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
-   a. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
-   b. Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
-   c. Monitoring provides detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
+   1. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
+   1. Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
+   1. Monitoring provides detailed Azure OpenAI model usage key performance indicators (KPIs) and metrics, including prompt information and token statistics for usage traceability.
 4. API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
 5. Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
 
@@ -34,9 +34,9 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 
 ### Alternatives
 
-Azure OpenAI provides native logging and monitoring. You can use this native functionality to track telemetry of the service, but the default cognitive service logging doesn't track or record inputs and outputs of the service, like prompts, tokens, and models. These metrics are especially important for compliance and to ensure that the service operates as expected. Also, by tracking interactions with the large language models deployed to Azure OpenAI, you can analyze how your organization is using the service to identify cost and usage patterns that can help inform decisions on scaling and resource allocation.
+Azure OpenAI provides native logging and monitoring. You can use this native functionality to track telemetry of the service, but the default cognitive service logging doesn't track or record inputs and outputs of the service, like prompts, tokens, and models. These metrics are especially important for compliance and to ensure that the service operates as expected. Also, by tracking interactions with the language models deployed to Azure OpenAI, you can analyze how your organization is using the service to identify cost and usage patterns that can help inform decisions on scaling and resource allocation.
 
-The following table provides a comparison of the metrics provided by the default Azure OpenAI logging and those provided by this solution. 
+The following table provides a comparison of the metrics provided by the default Azure OpenAI logging and those provided by this solution.
 
 |Metric |Default Azure OpenAI logging|This solution|
 |-|-|-|
@@ -114,7 +114,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This scenario ensures high availability of the large language models for your enterprise users. The Azure application gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at enterprise scale.
+This scenario ensures high availability of the language models for your enterprise users. The Azure application gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at enterprise scale.
 
 ### Security
 

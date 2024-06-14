@@ -4,7 +4,7 @@ This article describes a solution that you can use to ingest and process million
 
 *Apache®, [Apache Kafka](https://kafka.apache.org), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries or regions. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-*[Delta Lake](https://delta.io/) Project is the registered trademark of The Linux Foundation in the U.S. and/or other countries.*
+*[Delta Lake](https://delta.io/) Project is the registered trademark of The Linux Foundation in the United States and/or other countries.*
 
 ## Architecture
 
@@ -13,7 +13,6 @@ This article describes a solution that you can use to ingest and process million
 *Download a [Visio file](https://arch-center.azureedge.net/hdinsight-kafka-spark-delta-lake.vsdx) of this architecture.*
 
 *The [Jupyter Notebook](https://jupyter.org/) logo is a trademark of their respective company. No endorsement is implied by the use of this mark.*
- 
 
 ### Dataflow
 
@@ -23,10 +22,10 @@ The following dataflow corresponds to the preceding architecture.
 
 1. [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) processes the data in near real-time.
 1. Apache Spark provides sinks for writing transformed and calculated analytics. Processed data is stored in an [Azure Data Lake Storage account](https://azure.microsoft.com/services/storage/data-lake-storage) in [Delta Lake table format](https://delta.io/).
-1. Processed data is continuously ingested into Apache Kafka. 
+1. Processed data is continuously ingested into Apache Kafka.
 1. The data in the Azure Data Lake Storage account can provide insights for:
    - Near real-time dashboards in Power BI.
-   - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to use with machine learning tools. 
+   - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) to use with machine learning tools.
    - Jupyter Notebook by using PySpark or Scala to consume Delta Lake tables.
 
 ### Components
@@ -54,7 +53,7 @@ Business scenarios include:
 - Account sign-in fraud detection
 - Analysis of current market conditions
 - Analysis of real-time stock market data
-- Credit card fraud detection 
+- Credit card fraud detection
 - Digital image and video processing
 - Drug research and discovery
 - Middleware for enterprise big data solutions
@@ -79,7 +78,7 @@ This solution applies to the following industries:
 
 Principal authors:
 
-- [Arun Sethia](https://www.linkedin.com/in/arun-sethia-0a91aa5/) | Principal Program Manager 
+- [Arun Sethia](https://www.linkedin.com/in/arun-sethia-0a91aa5/) | Principal Program Manager
 - [Sairam Yeturi](https://www.linkedin.com/in/sairam-y-78a4202a/) | Principal Product Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -92,7 +91,7 @@ Principal authors:
 - [Quickstart: Create an Apache Kafka cluster in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-get-started)
 - [Overview of enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 - [HDInsight 5.0 with Spark 3.x—Part 1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hdinsight-5-0-with-spark-3-x-part-1/ba-p/3777416)
-- [HDInsight—Iceberg open-source table format](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hdinsight-iceberg-open-source-table-format/ba-p/3754126)	
+- [HDInsight—Iceberg open-source table format](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hdinsight-iceberg-open-source-table-format/ba-p/3754126)
 - [Build a data lakehouse by using Azure HDInsight](https://murggu.medium.com/building-a-data-lakehouse-using-azure-hdinsight-d41f7c3547d8)
 - [Use a shared Hive metastore across Azure Synapse, HDInsight, and Databricks](https://murggu.medium.com/using-a-shared-hive-metastore-across-azure-synapse-hdinsight-and-databricks-72c53acda778)
 

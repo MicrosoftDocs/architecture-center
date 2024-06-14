@@ -8,30 +8,29 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-precisely1.vsdx) of this architecture.*
 
-
 ### Workflow
 
-1.	A Connect agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
-2.	For mainframe systems, a publisher component on the mainframe manages data migration.
-3.	For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
-4.	The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
-5.	The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
-6.	The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs. 
-7.	The changed data is consumed by Azure Databricks and applied to Azure data platform services.
-8.	The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
+1. A Connect agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
+2. For mainframe systems, a publisher component on the mainframe manages data migration.
+3. For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
+4. The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
+5. The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
+6. The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs.
+7. The changed data is consumed by Azure Databricks and applied to Azure data platform services.
+8. The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
 
 ### Components
 
 #### Networking and identity
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks to the Azure cloud platform over a private connection from a connectivity provider. 
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks to the Azure cloud platform over a private connection from a connectivity provider.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with on-premises Active Directory.
 
 #### Storage
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is part of the Azure SQL family. It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. 
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 - [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
@@ -49,13 +48,13 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 - [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) can integrate data from multiple sources and provide real-time replication to Azure. You can use it to replicate data without making changes to your application. Connect can also improve the performance of extract, transform, load (ETL) jobs.
 - [Azure Databricks](https://azure.microsoft.com/products/databricks) is based on Apache Spark and integrates with open-source libraries. It provides a unified platform for running analytics workloads. You can use Python, Scala, R, and SQL languages to frame ETL pipelines and orchestrate jobs.
-- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time ingestion service that can process millions of records per second. You can ingest data from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data.  
+- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time ingestion service that can process millions of records per second. You can ingest data from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data.
 
 ## Scenario details
 
  You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
-Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Azure Synapse Analytics, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network. 
+Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Azure Synapse Analytics, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network.
 
 ### Potential use cases
 
@@ -63,7 +62,7 @@ This solution applies to the following scenarios:
 
 - Data replication from mainframe and midrange data sources to the Azure data platform.
 - In a hybrid cloud architecture, data sync between mainframe or midrange systems and the Azure data platform.
-- Near real-time analytics on Azure, based on operational data from mainframe or midrange systems. 
+- Near real-time analytics on Azure, based on operational data from mainframe or midrange systems.
 - Migration of data from mainframe or midrange systems to Azure without affecting applications.
 
 ## Considerations
@@ -78,7 +77,7 @@ Use [Azure Monitor](https://azure.microsoft.com/services/monitor) and [Applicati
 
 ### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). 
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Replicating data to Azure and processing it in Azure services can be more cost effective than maintaining it in a mainframe system.
 - The Cost Management tool in the Azure portal provides a cost analysis view that can help you analyze your spending.
