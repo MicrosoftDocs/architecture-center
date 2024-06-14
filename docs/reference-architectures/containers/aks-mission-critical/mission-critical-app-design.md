@@ -295,7 +295,7 @@ app.Use(async (context, next) =>
 
 You can use diagnostic settings to send AKS logs and metrics to Azure Monitor Logs. You can also use the container insights feature with AKS. Enable container insights to deploy the OMSAgentForLinux through a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux can collect more logs and metrics from within the Kubernetes cluster and send them to its corresponding Azure Monitor Logs workspace. This workspace contains granular data about pods, deployments, services, and the overall health of the cluster.
 
-Extensive logging can negatively affect cost and doesn't provide benefits. For this reason, *stdout* log collection and Prometheus scraping is disabled for the workload pods in the container insights configuration because all traces are already captured through Application Insights, which generates duplicate records.
+Extensive logging can negatively affect cost and doesn't provide benefits. For this reason, *stdout* log collection and Prometheus scraping are disabled for the workload pods in the container insights configuration because all traces are already captured through Application Insights, which generates duplicate records.
 
 The following code block appears in the reference implementation:
 
