@@ -37,11 +37,11 @@ As described in the [baseline architecture](azure-data-factory-on-azure-landing-
 - A new [operating model](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/organize-roles-teams) allows business groups to optionally build their own stack of model-and-serve components, which they control and maintain going forward.
   - Domains operate within guardrails, based upon enterprise requirements and are enabled to perform well-defined and controlled experiments.
 - The data science capability is delivered via:
-  - [Power BI](https://learn.microsoft.com/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code, simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
-  - [Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/?view=azureml-api-2) and AI service offerings, supporting the full set of use cases and [end-user maturity](/azure/machine-learning/tutorial-first-experiment-automated-ml?view=azureml-api-2).
+  - [Power BI](/power-bi/connect-data/service-tutorial-build-machine-learning-model) for low code, simple or medium complexity use cases across tabular data. This model is an ideal starting point for data citizens.
+  - [Azure Machine Learning](/azure/machine-learning/?view=azureml-api-2) and AI service offerings, supporting the full set of use cases and [end-user maturity](/azure/machine-learning/tutorial-first-experiment-automated-ml?view=azureml-api-2).
   - [Azure Databricks](/azure/databricks/lakehouse-architecture/performance-efficiency/best-practices#use-parallel-computation-where-it-is-beneficial) for large enterprise volume use cases with significant processing demands.
-  - An innovation sandbox supports any proof-of-concept work for new technologies or techniques in a logically segregated area.
-- Azure Data Factory capabilities to cover near-real time and micro-batch ingestion use cases is provided with [Change-Data-Capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality combined with Azure Databricks [Structured streaming](/azure/databricks/structured-streaming/), and [Power BI](https://learn.microsoft.com/power-bi/connect-data/service-real-time-streaming) supports the end-to-end solution. 
+  - An innovation sandbox supports any proof-of-concept work for new technologies or techniques in an isolated environment, segregated from production and pre-production.
+- [Azure Data Factory](/azure/data-factory/introduction) capabilities to cover near-real time and micro-batch ingestion use cases is provided with [change data capture](/azure/data-factory/concepts-change-data-capture) functionality. This functionality combined with Azure Databricks [Structured streaming](/azure/databricks/structured-streaming/), and [Power BI](https://learn.microsoft.com/power-bi/connect-data/service-real-time-streaming) supports the end-to-end solution. 
 - The use of Power BI allows data sharing with external parties, as required, with [Microsoft Entra B2B](/power-bi/enterprise/service-admin-azure-ad-b2b) authorization and access controls.
 
 ## Architecture
@@ -84,7 +84,7 @@ The design callouts for the hardened architecture are:
 - Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure. Consider deploying the VM in Azure as part of the shared support resource landing zone to simplify governance and security. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
 - ML-assisted data labeling doesn't support default storage accounts as they're secured behind a virtual network. First create a storage account for ML-assisted data labeling, apply the labeling and secure it behind the virtual network.
 
-**[Private Endpoints](/azure/private-link/private-endpoint-overview):** provide a private IP address from your VNet to an Azure service, effectively bringing the service into your VNet. This functionality makes the service accessible only from your VNet or connected networks, ensuring a more secure and private connection. Private Endpoints use Azure Private Link, which secures the connection to the PaaS service. If your workload uses any resources that don't support Private Endpoints, you may be able to use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). Private Endpoints are the recommended solution for mission-critical workloads, so default to using them whenever possible and practical.
+**[Private Endpoints](/azure/private-link/private-endpoint-overview):** provide a private IP address from your VNet to an Azure service, effectively bringing the service into your VNet. This functionality makes the service accessible only from your VNet or connected networks, ensuring a more secure and private connection. Private Endpoints use [Azure Private Link](/azure/private-link/private-link-overview), which secures the connection to the PaaS service. If your workload uses any resources that don't support Private Endpoints, you may be able to use [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview). Private Endpoints are the recommended solution for mission-critical workloads, so default to using them whenever possible and practical.
 
 ### Data Science Capability
 
@@ -123,7 +123,7 @@ The following considerations provide guidance for implementing the pillars of th
 
 The delta this architecture provides, includes:
 - The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution still meet the uplifted requirements, so no high-availability or multi-regional uplift is required.
-- Uplift the [DR strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and stakeholder RACI. This must be regularly tested to ensure it remains "fit-for-purpose."
+- Uplift the [disaster recovery strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and stakeholder RACI. This must be regularly tested to ensure it remains "fit-for-purpose."
 - Solution components utilize zone-redundancy features to protect against localized service issues. The following table shows the resiliency types for the services in this architecture:
 
 **Service**|**Resiliency type**
@@ -156,14 +156,14 @@ The delta this architecture provides, includes:
 - Skilling the domain teams to ensure they understand the discipline of [cost optimization](/azure/well-architected/cost-optimization/) and their responsibilities under the new operating model.
 - Extending the [cost management alerting](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending) to the domains and business stakeholders, providing transparency and observability. 
 
-### Operational efficiency
+### Operational excellence
 
 [Operational excellence](/azure/well-architected/operational-excellence/) ensures workload quality through standardized processes and team cohesion. 
 
 The delta this architecture provides includes:
 - Evolving the operating model to account for the new domain model, stakeholders, governance structures, persona-based training and RACI. 
 - Extending the [tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) to account for domain model.
-- Developing a central [NFR](/azure/architecture/guide/design-principles/build-for-business) register and adopting a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that can be referenced by any platform solution, in any developer area. These standards should be supported by a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) integrated into the CI/CD practice.
+- Developing a central [nonfunctional requirements](/azure/architecture/guide/design-principles/build-for-business) register and adopting a standard of [software development best practices](/azure/architecture/best-practices/index-best-practices) that can be referenced by any platform solution, in any developer area. These standards should be supported by a robust [testing framework](/devops/develop/shift-left-make-testing-fast-reliable) integrated into the continuous integration and continuous deployment (CI/CD) practice.
 
 ### Performance efficiency
 
