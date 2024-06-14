@@ -2192,8 +2192,6 @@ items:
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT Edge data storage and processing
         href: solution-ideas/articles/data-storage-edge.yml
-      - name: Light and power for emerging markets
-        href: solution-ideas/articles/iot-power-management.yml
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
@@ -2857,8 +2855,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
       - name: Oracle Database with Azure NetApp Files
         href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-      - name: Run Oracle databases on Azure
-        href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml
       - name: SAP deployment using an Oracle database
         href: example-scenario/apps/sap-production.yml
   - name: SAP
@@ -4456,8 +4452,6 @@ items:
         href: example-scenario/iot/smart-places.yml
       - name: Governance of Teams guest users
         href: example-scenario/governance/governance-teams-guest-users.yml
-      - name: Knowledge mining for content research
-        href: solution-ideas/articles/content-research.yml
       - name: Moodle deployment with NetApp Files
         href: example-scenario/file-storage/moodle-azure-netapp-files.yml
       - name: Predict student attrition
@@ -4832,8 +4826,6 @@ items:
           href: example-scenario/analytics/synapse-customer-insights.yml
         - name: Facilities management with MR
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
-        - name: IoT connected light, power, and internet
-          href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
         - name: Smart places with Azure Digital Twins
