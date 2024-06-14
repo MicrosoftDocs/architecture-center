@@ -129,6 +129,8 @@ Relevant Azure service:
 
 Non-relational data stores often use a different storage architecture from that used by relational databases. Specifically, they tend toward having no fixed schema. Also, they tend not to support transactions, or else restrict the scope of transactions, and they generally don't include secondary indexes for scalability reasons.
 
+Compared to many traditional relational databases, NoSQL databases often offer a desirable level of schema flexibility and platform scalability but sometimes those benefits come at the cost of weaker consistency. Even though you can store your data flexibly, you still need to identify and analyze your data access patterns, then design an appropriate data schema otherwise your NoSQL database can suffer under heavy workload or unexpected usage patterns.
+
 The following compares the requirements for each of the non-relational data stores:
 
 | Requirement | Document data | Column-family data | Key/value data | Graph data |
