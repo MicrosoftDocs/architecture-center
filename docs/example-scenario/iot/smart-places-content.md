@@ -326,7 +326,6 @@ Other contributor:
 - [End-to-end manufacturing using computer vision on the edge][End-to-end manufacturing using computer vision on the edge]
 - [COVID-19 safe environments with IoT Edge monitoring and alerting][COVID-19 safe environments with IoT Edge monitoring and alerting]
 - [IoT analytics with Azure Data Explorer][IoT analytics with Azure Data Explorer]
-- [Cognizant Safe Buildings with IoT and Azure][Cognizant Safe Buildings with IoT and Azure]
 
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
@@ -358,7 +357,6 @@ Other contributor:
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Brookfield sets a new standard for innovation in real estate with WillowTwin and Azure Digital Twins]: https://customers.microsoft.com/story/855907-brookfield-properties-professional-services-azure
 [Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet.yml
-[Cognizant Safe Buildings with IoT and Azure]: ../../solution-ideas/articles/safe-buildings.yml
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake
 [Develop with Azure Digital Twins]: /training/paths/develop-azure-digital-twins

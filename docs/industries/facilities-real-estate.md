@@ -43,7 +43,6 @@ The following articles provide detailed analysis of architectures created and re
 |Architecture|Summary|Technology focus|
 |---|---|---|
 |[Azure IoT reference architecture](../reference-architectures/iot.yml) |Learn about a recommended architecture for IoT applications that use Azure platform as a service (PaaS) components. Apply this architecture to smart buildings and other facilities scenarios.|IoT|
-|[Cognizant Safe Buildings with IoT and Azure](../solution-ideas/articles/safe-buildings.yml) |Deploy Cognizant Safe Buildings, IoT, and Azure services to help protect buildings from COVID-19 outbreaks.|IoT|
 |[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml) |Create an environment that monitors social distance, mask/PPE use, and occupancy requirements by using CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning.|Containers|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml) |Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.|IoT|
 |[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) |Learn how to perform image-based modeling on Azure infrastructure as a service (IaaS). You can use this technology to model and measure buildings.|Compute|
@@ -52,7 +51,6 @@ The following articles provide detailed analysis of architectures created and re
 |[IoT device connectivity for healthcare facilities](../networking/idea/healthcare-network.yml)|Learn how to reliably connect building and campus IoT devices to the cloud with improved security and scalability. |Networking|
 |[IoT measure and control loops](../example-scenario/iot/measure-control-loop.yml)|Learn how an IoT measure and control loop keeps an IoT device within the tolerable range of setpoint configuration. This technology applies to smoke sensors, thermostats, and solar panels.|IoT|
 |[IoT monitor and manage loops](../example-scenario/iot/monitor-manage-loop.yml)|Learn about an IoT monitor and manage loop—a supervisory system that continually monitors a physical system that's controlled by a set of networked IoT devices. This technology applies to smart campuses and smart metering. |IoT|
-|[UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml) |Learn about a system that uses IoT and Azure Sphere to provide smart virus disinfection and healthy, human-optimized lighting.|IoT|
 
 ## Solution ideas for facilities and real estate 
 The following are other ideas that you can use as a starting point for your facilities and real estate solution.

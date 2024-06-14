@@ -1051,8 +1051,6 @@ items:
       items:
       - name: Supply chain management with Kaleido
         href: guide/blockchain/blockchain-service.yml
-      - name: Supply chain track and trace
-        href: solution-ideas/articles/supply-chain-track-and-trace.yml
   - name: Compute + HPC
     items:
     - name: Get started
@@ -2184,14 +2182,10 @@ items:
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: COVID-19 solutions
         items:
-        - name: Cognizant Safe Buildings with IoT
-          href: solution-ideas/articles/safe-buildings.yml
         - name: Contactless IoT interfaces
           href: solution-ideas/articles/contactless-interfaces.yml
         - name: COVID-19 IoT safe environments
           href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-        - name: Lighting and disinfection system
-          href: solution-ideas/articles/uven-disinfection.yml
       - name: Environment monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
@@ -2919,8 +2913,6 @@ items:
         href: guide/sap/sap-s4hana.yml
     - name: Solution ideas
       items:
-      - name: SAP NetWeaver on SQL Server
-        href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
       - name: SAP S/4 HANA for Large Instances
         href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
       - name: SAP workload automation using SUSE
@@ -4180,8 +4172,6 @@ items:
         href: solution-ideas/articles/quality-assurance.yml
       - name: Real-time asset tracking and management
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
-      - name: Supply chain track and trace
-        href: solution-ideas/articles/supply-chain-track-and-trace.yml
         maintainContext: true
     - name: Compliance solutions
       items:
@@ -4836,8 +4826,6 @@ items:
           href: /azure/architecture/browse/?terms=facilities
         - name: Azure digital twins (construction)
           href: solution-ideas/articles/azure-digital-twins-builder.yml
-        - name: Cognizant Safe Buildings with IoT
-          href: solution-ideas/articles/safe-buildings.yml
         - name: COVID-19 IoT safe environments
           href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
         - name: Customer 360 for property management
@@ -4848,8 +4836,6 @@ items:
           href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
-        - name: Lighting and disinfection system
-          href: solution-ideas/articles/uven-disinfection.yml
         - name: Smart places with Azure Digital Twins
           href: example-scenario/iot/smart-places.yml
     - name: Aerospace

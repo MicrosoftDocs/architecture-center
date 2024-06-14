@@ -94,12 +94,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[SMB disaster recovery with Azure Site Recovery](../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)|Learn how small and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using Azure Site Recovery or Double-Take DR.|Management|
 |[SMB disaster recovery with Double-Take DR](../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)|Learn how small and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using a partner solution like Double-Take DR.|Management|
 
-## Episerver
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[Scalable Episerver marketing website](../solution-ideas/articles/digital-marketing-episerver.yml)|Run multi-channel digital marketing websites on one platform. Start and stop campaigns on demand. Manage site and campaign performance by using Episerver.|Web|
-
 ## Gremlin
 
 |Architecture|Summary|Technology focus|
@@ -221,7 +215,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
 |[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml)|Review a set of guiding tenets to help ensure the quality of SAP workloads that run on Azure.|SAP|
-|[SAP NetWeaver on SQL Server](../solution-ideas/articles/sap-netweaver-on-sql-server.yml)|Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
 |[SAP S/4HANA for Large Instances](../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
