@@ -81,7 +81,6 @@ The following sections provide links to reference architectures in some key mana
 - [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Deploy highly available NVAs](../../networking/guide/nva-ha.yml)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Run a highly available SharePoint Server 2016 farm in Azure](../../reference-architectures/sharepoint/index.yml)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 
 ### Compliance and governance

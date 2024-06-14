@@ -90,6 +90,5 @@ By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other
 ## Related resources
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 - [UVEN smart and secure disinfection and lighting](uven-disinfection.yml)

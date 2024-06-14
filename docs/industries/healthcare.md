@@ -66,6 +66,4 @@ The following are some additional ideas that you can use as a starting point for
 - [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Predict Length of Stay in Hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
-- [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)
-- [COVID-19 Safe Solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml)

@@ -86,7 +86,6 @@ For information about solutions in which Azure services integrate with the other
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server.|Hybrid|
 |[Multitier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) |Learn how to create a resilient multitier web application that's built for high availability and disaster recovery on Azure. Applies to applications like SharePoint.|Networking|
 |[On-premises data gateway for Logic Apps](../hybrid/gateway-logic-apps.yml) |Review a reference architecture that illustrates a logic app that runs in Azure and connects to on-premises resources like SharePoint Server.|Hybrid|
-|[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server 2016 farm on Azure.|Management|
 
 ## SQL Server
 
@@ -105,7 +104,6 @@ For information about solutions in which Azure services integrate with the other
 |[Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml) |Learn how to use Azure Arc for the management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments.|Databases|
 |[Oracle database migration: Rearchitect](../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml) |Rearchitect your Oracle database by using Azure SQL Managed Instance.|Migration|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for Windows Server Update Services (WSUS). SQL Server is the recommended database for servers that support a high number of client computers.|Management|
-|[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server 2016 farm on Azure by using MinRole topology and SQL Server Always On availability groups.|Management|
 |[SAP NetWeaver on SQL Server](../solution-ideas/articles/sap-netweaver-on-sql-server.yml) |Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. |Databases|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml) |Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
@@ -123,7 +121,6 @@ For information about solutions in which Azure services integrate with the other
 |[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about providing disaster recovery for Azure Stack Hub VMs that run Windows Server operating systems.|Hybrid|
 |[Manage hybrid Azure workloads using Windows Admin Center](../hybrid/hybrid-server-os-mgmt.yml) |Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and on Azure.|Hybrid|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for WSUS.|Management|
-|[Run a highly available SharePoint Server 2016 farm on Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server farm on Azure. Windows Server Active Directory domain controllers run in the virtual network and have a trust relationship with the on-premises Windows Server Active Directory forest.|Management|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure.|SAP|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. Use the Azure shared disks feature and a Windows Server 2008 R2 failover cluster to replicate your on-premises deployment on Azure.|Databases|
 

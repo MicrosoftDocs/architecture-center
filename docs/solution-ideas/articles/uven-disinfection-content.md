@@ -75,6 +75,5 @@ This solution is ideal for the healthcare and facilities industries. We recommen
 
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [Cognizant Safe Buildings with IoT and Azure](safe-buildings.yml)
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 

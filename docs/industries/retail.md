@@ -73,7 +73,6 @@ The following articles provide detailed analysis of architectures developed and 
 | [IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml) | With a dynamically adaptable infrastructure, businesses can realize and launch their products quickly to delight their users. Learn how to migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. | Mainframe |
 | [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml) | Use Azure Cognitive Search, a dedicated search service, to dramatically increase the relevance of search results for your e-commerce customers. | Web |
 | [Magento e-commerce platform in Azure Kubernetes Service](../example-scenario/magento/magento-azure.yml) | Learn how to deploy and host Magento, an open-source e-commerce platform, on Azure. | Web |
-| [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml) | Build a highly scalable and resilient architecture for online order processing, using managed Azure services, such as Azure Cosmos DB and HDInsight. | Web |
 | [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml) | Use Azure Databricks to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
 | [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml) | Use Azure Stream Analytics to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
 
@@ -85,7 +84,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Optimize Marketing with Machine Learning](../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
-- [Personalized marketing solutions](../ai-ml/idea/personalized-marketing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
 - [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 

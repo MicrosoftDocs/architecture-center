@@ -153,7 +153,6 @@ This diagram summarizes options for the multiparty computing with Azure services
 
 - [Supply chain track and trace](../../solution-ideas/articles/supply-chain-track-and-trace.yml)
 - [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
-- [Multi-cloud blockchain DLT](../../example-scenario/blockchain/multi-cloud-blockchain.yml)
 - [Decentralized trust between banks](../../example-scenario/apps/decentralized-trust.yml)
 - [Authenticating Azure confidential ledger nodes](/azure/confidential-ledger/authenticate-ledger-nodes)
 - [Azure Confidential Ledger Architecture](/azure/confidential-ledger/architecture)

@@ -4743,6 +4743,51 @@
       "source_path": "docs/databases/architecture/sql-managed-instance-cmk.yml",
       "redirect_url": "/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql-mi",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/contactless-interfaces.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/sharepoint/index.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/industries/finance/actuarial-risk-analysis-financial-model.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/iot/azure-iot-client-sdk-support.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot/iot-architecture-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/linux-vdi-citrix.yml",
+      "redirect_url": "/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/landing-zone-citrix/citrix-enterprise-scale-landing-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/ecommerce-order-processing.yml",
+      "redirect_url": "/azure/architecture/industries/retail",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/personalized-marketing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/blockchain/multi-cloud-blockchain.yml",
+      "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
+      "redirect_document_id": false
     }
   ]
 }

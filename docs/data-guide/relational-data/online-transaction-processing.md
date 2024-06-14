@@ -170,5 +170,4 @@ Principal author:
 ## Related resources
 
 - [Azure Data Architecture Guide](../index.md)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)

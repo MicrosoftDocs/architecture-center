@@ -837,8 +837,6 @@ items:
           href: data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml
       - name: Industry guidance
         items:
-        - name: Actuarial risk analysis
-          href: industries/finance/actuarial-risk-analysis-financial-model.yml
         - name: Financial institutions with data mesh
           href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
           maintainContext: true
@@ -1045,8 +1043,6 @@ items:
         maintainContext: true
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.yml
-      - name: Multicloud blockchain DLT
-        href: example-scenario/blockchain/multi-cloud-blockchain.yml
     - name: Solution ideas
       items:
       - name: Supply chain management with Kaleido
@@ -1149,8 +1145,6 @@ items:
         href: example-scenario/infrastructure/image-modeling.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
-      - name: Linux virtual desktops with Citrix
-        href: example-scenario/infrastructure/linux-vdi-citrix.yml
       - name: Manage virtual machine compliance
         href: example-scenario/security/virtual-machine-compliance.yml
       - name: Move Azure resources across regions
@@ -2152,8 +2146,6 @@ items:
         href: guide/iot/migrate-iot-solution-azure.yml
       - name: Scale your Azure IoT solutions
         href: guide/iot/scale-iot-solution-azure.md
-      - name: Azure IoT client SDK support
-        href: guide/iot/azure-iot-client-sdk-support.yml
       - name: Moving from test to production
         href: example-scenario/iot/iot-move-to-production.yml
     - name: Architectures
@@ -2186,10 +2178,6 @@ items:
         items:
         - name: Cognizant Safe Buildings with IoT
           href: solution-ideas/articles/safe-buildings.yml
-        - name: Contactless IoT interfaces
-          href: solution-ideas/articles/contactless-interfaces.yml
-        - name: COVID-19 IoT safe environments
-          href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
         - name: Lighting and disinfection system
           href: solution-ideas/articles/uven-disinfection.yml
       - name: Environment monitoring
@@ -2410,8 +2398,6 @@ items:
         href: example-scenario/forensics/index.yml
       - name: End-to-end governance when using CI/CD
         href: example-scenario/governance/end-to-end-governance-in-azure.yml
-      - name: Highly available SharePoint Server 2016
-        href: reference-architectures/sharepoint/index.yml
       - name: Hybrid management
         items:
         - name: Azure Arc hybrid management with AKS
@@ -3455,8 +3441,6 @@ items:
       - name: Out of stock detection (retail)
         href: /hybrid/app-solutions/pattern-out-of-stock-at-edge
         maintainContext: true
-      - name: Scalable order processing
-        href: example-scenario/data/ecommerce-order-processing.yml
       - name: Video capture and analytics for retail
         href: solution-ideas/articles/video-analytics.yml
     - name: Datasets
@@ -3577,8 +3561,6 @@ items:
         href: industries/finance/risk-grid-banking-solution-guide.yml
       - name: Big compute for financial risk modeling
         href: guide/architecture-styles/big-compute.yml
-      - name: Actuarial risk analysis
-        href: industries/finance/actuarial-risk-analysis-financial-model.yml
     - name: Architectures
       items:
       - name: All finance architectures
@@ -4838,8 +4820,6 @@ items:
           href: solution-ideas/articles/azure-digital-twins-builder.yml
         - name: Cognizant Safe Buildings with IoT
           href: solution-ideas/articles/safe-buildings.yml
-        - name: COVID-19 IoT safe environments
-          href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
         - name: Customer 360 for property management
           href: example-scenario/analytics/synapse-customer-insights.yml
         - name: Facilities management with MR
