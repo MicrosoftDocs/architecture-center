@@ -55,5 +55,4 @@ The following articles provide detailed analysis of architectures created and re
 ## Solution ideas for education
 The following are other ideas that you can use as a starting point for your education solution.
 - [COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
-- [IoT connected light, power, and internet for emerging markets](../solution-ideas/articles/iot-power-management.yml)
 - [Project 15 Open Platform IoT sustainability](../solution-ideas/articles/project-15-iot-sustainability.yml)

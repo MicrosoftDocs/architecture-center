@@ -1051,8 +1051,6 @@ items:
       items:
       - name: Supply chain management with Kaleido
         href: guide/blockchain/blockchain-service.yml
-      - name: Supply chain track and trace
-        href: solution-ideas/articles/supply-chain-track-and-trace.yml
   - name: Compute + HPC
     items:
     - name: Get started
@@ -1211,6 +1209,8 @@ items:
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
+          - name: Use Azure Front Door to secure AKS workloads
+            href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Deploy web apps on Azure Red Hat OpenShift
             href: reference-architectures/containers/aro/ha-zr-aro.yml
           - name: Running Windows containers on AKS
@@ -1289,8 +1289,6 @@ items:
             href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
             href: guide/aks/aks-firewall.yml
-          - name: Use Azure Front Door to secure AKS workloads
-            href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Overview of migration from Service Fabric to AKS
             href: guide/aks/service-fabric-azure-kubernetes-service.md
           - name: Multitenancy with AKS and AGIC
@@ -2184,22 +2182,16 @@ items:
         href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: COVID-19 solutions
         items:
-        - name: Cognizant Safe Buildings with IoT
-          href: solution-ideas/articles/safe-buildings.yml
         - name: Contactless IoT interfaces
           href: solution-ideas/articles/contactless-interfaces.yml
         - name: COVID-19 IoT safe environments
           href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-        - name: Lighting and disinfection system
-          href: solution-ideas/articles/uven-disinfection.yml
       - name: Environment monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: IoT analytics with Azure Data Explorer
         href: solution-ideas/articles/iot-azure-data-explorer.yml
       - name: IoT Edge data storage and processing
         href: solution-ideas/articles/data-storage-edge.yml
-      - name: Light and power for emerging markets
-        href: solution-ideas/articles/iot-power-management.yml
       - name: Process real-time vehicle data using IoT
         href: example-scenario/data/realtime-analytics-vehicle-iot.yml
       - name: Project 15 IoT sustainability
@@ -2863,8 +2855,6 @@ items:
           href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
       - name: Oracle Database with Azure NetApp Files
         href: example-scenario/file-storage/oracle-azure-netapp-files.yml
-      - name: Run Oracle databases on Azure
-        href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml
       - name: SAP deployment using an Oracle database
         href: example-scenario/apps/sap-production.yml
   - name: SAP
@@ -2919,8 +2909,6 @@ items:
         href: guide/sap/sap-s4hana.yml
     - name: Solution ideas
       items:
-      - name: SAP NetWeaver on SQL Server
-        href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
       - name: SAP S/4 HANA for Large Instances
         href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
       - name: SAP workload automation using SUSE
@@ -4180,8 +4168,6 @@ items:
         href: solution-ideas/articles/quality-assurance.yml
       - name: Real-time asset tracking and management
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
-      - name: Supply chain track and trace
-        href: solution-ideas/articles/supply-chain-track-and-trace.yml
         maintainContext: true
     - name: Compliance solutions
       items:
@@ -4466,8 +4452,6 @@ items:
         href: example-scenario/iot/smart-places.yml
       - name: Governance of Teams guest users
         href: example-scenario/governance/governance-teams-guest-users.yml
-      - name: Knowledge mining for content research
-        href: solution-ideas/articles/content-research.yml
       - name: Moodle deployment with NetApp Files
         href: example-scenario/file-storage/moodle-azure-netapp-files.yml
       - name: Predict student attrition
@@ -4836,20 +4820,14 @@ items:
           href: /azure/architecture/browse/?terms=facilities
         - name: Azure digital twins (construction)
           href: solution-ideas/articles/azure-digital-twins-builder.yml
-        - name: Cognizant Safe Buildings with IoT
-          href: solution-ideas/articles/safe-buildings.yml
         - name: COVID-19 IoT safe environments
           href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
         - name: Customer 360 for property management
           href: example-scenario/analytics/synapse-customer-insights.yml
         - name: Facilities management with MR
           href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
-        - name: IoT connected light, power, and internet
-          href: solution-ideas/articles/iot-power-management.yml
         - name: IoT connectivity for healthcare facilities
           href: networking/idea/healthcare-network.yml
-        - name: Lighting and disinfection system
-          href: solution-ideas/articles/uven-disinfection.yml
         - name: Smart places with Azure Digital Twins
           href: example-scenario/iot/smart-places.yml
     - name: Aerospace

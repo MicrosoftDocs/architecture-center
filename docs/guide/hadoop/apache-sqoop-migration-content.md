@@ -236,7 +236,7 @@ For more information, see [What is a private endpoint?](/azure/private-link/priv
 
 Sqoop improves data transfer performance by using MapReduce for parallel processing. After you migrate Sqoop, Data Factory can adjust performance and scalability for scenarios that perform large-scale data migrations.
 
- A *data integration unit* (DIU) is a Data Factory unit of performance. It's a combination of CPU, memory, and network resource allocation. Data Factory can adjust up to 256 DIUs for copy activities that use the Azure integration runtime. For more information, see [Data Integration Units](/azure/data-factory/copy-activity-performance#data-integration-units).
+ A *data integration unit (DIU)* is a Data Factory unit of performance. It's a combination of CPU, memory, and network resource allocation. Data Factory can adjust up to 256 DIUs for copy activities that use the Azure integration runtime. For more information, see [Data Integration Units](/azure/data-factory/copy-activity-performance#data-integration-units).
 
 If you use self-hosted integration runtime, you can improve performance by scaling the machine that hosts the self-hosted integration runtime. The maximum scale-out is four nodes.
 
