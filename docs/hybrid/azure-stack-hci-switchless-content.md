@@ -108,7 +108,7 @@ To help design and plan an Azure Stack HCI deployment correctly, it recommended 
 The output from the Azure Stack HCI Sizer Tool will be a list of recommended hardware solution SKUs that are able to provide the required workload capacity and platform resiliency requirements, based on the input values in the Sizer Project. If you wish to browse the full list of all OEM hardware partner solutions available, see to the [Azure Stack HCI Solutions Catalog](https://aka.ms/hci-catalog#catalog).
 
 > [!IMPORTANT]
-> It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important factor this into the cluster design phase when sizing the cluster, such as allowing for any future workload capacity (_growth_) requirements.
+> It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important factor this into the cluster design phase when sizing the hardware, such as allowing for any future workload capacity (_growth_) requirements.
 
 ## Network design
 
