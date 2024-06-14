@@ -112,7 +112,7 @@ The output from the Azure Stack HCI Sizer Tool will be a list of recommended har
 The network design refers to the overall arrangement of components within the network. In the case of a three node "storage switchless" configuration for Azure Stack HCI, we have three physical nodes (_servers_) that are directly connected to each other without the use of an external switch for the storage traffic. This direct connection simplifies the network design by reducing complexity, however the maximum number of supported nodes in this configuration is three nodes.
 
 > [!IMPORTANT]
-> It is not supported to scale (_perform an Add-Node operation_) an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches / ports / physical NICs_) for storage traffic. Three nodes is the maximum supported cluster size for the "storage switchless" design, it is important factor this into the cluster design phase, when sizing the cluster and allowing for any future workload capacity (_growth_) requirements.
+> It is not supported to scale (_perform an Add-Node operation_) an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic. Three nodes is the maximum supported cluster size for the "storage switchless" design, it is important factor this into the cluster design phase, when sizing the cluster and allowing for any future workload capacity (_growth_) requirements.
 
 ### Physical network topology
 
