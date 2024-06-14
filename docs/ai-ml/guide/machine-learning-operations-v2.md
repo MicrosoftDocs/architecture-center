@@ -503,11 +503,9 @@ The suggested MVP monitoring could be scoped around the [AML workspace setup](/a
 <br/>&nbsp;&nbsp; **Environment**: Azure & CI/CD.<br/>
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Azure – [DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines).<br/>
-&nbsp;&nbsp; - [PSRule](https://azure.github.io/enterprise-azure-policy-as-code/) for Azure.
-<br/>&nbsp;&nbsp; - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/)<br/>
+&nbsp;&nbsp; - [PSRule](https://azure.github.io/enterprise-azure-policy-as-code/) for Azure provides a testing framework for Azure Infrastructure as Code (IaC).
+<br/>&nbsp;&nbsp; - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy Policies, Policy Sets, Assignments, Policy Exemptions and Role Assignments.<br/>
 &nbsp;&nbsp; **Notes**;
-<br/>&nbsp;&nbsp; - [PSRule](https://github.com/microsoft/PSRule) provides a testing framework for Azure Infrastructure as Code (IaC).<br/>
-&nbsp;&nbsp; - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy Policies, Policy Sets, Assignments, Policy Exemptions and Role Assignments.
 <br/>&nbsp;&nbsp; - Microsoft guidance is available in the [Azure guidance for AML regulatory compliance](/azure/machine-learning/security-controls-policy?view=azureml-api-2).<br/>
 
 ##### Security Scanning
