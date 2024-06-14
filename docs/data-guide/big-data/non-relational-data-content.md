@@ -10,7 +10,7 @@ NoSQL databases offer more flexibility and scalability than SQL databases but at
 > Even though NoSQL databases allow you to store your data flexibly, you still need to identify and analyze your data access patterns, then design an appropriate data schema otherwise your NoSQL database can suffer under heavy workload.
 
 
-The following sections describe the major categories of non-relational or NoSQL database.
+There are variations in implementations and specializations of NoSQL databases, like there are variations in capabilities of relational databases. These variations give each implementation their own primary strengths and come with their own learning curve and usage recommendations. The following sections describe the major categories of non-relational or NoSQL database.
 
 ## Document data stores
 
