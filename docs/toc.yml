@@ -1211,6 +1211,8 @@ items:
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
+          - name: Use Azure Front Door to secure AKS workloads
+            href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Deploy web apps on Azure Red Hat OpenShift
             href: reference-architectures/containers/aro/ha-zr-aro.yml
           - name: Running Windows containers on AKS
@@ -1289,8 +1291,6 @@ items:
             href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
             href: guide/aks/aks-firewall.yml
-          - name: Use Azure Front Door to secure AKS workloads
-            href: example-scenario/aks-front-door/aks-front-door.yml
           - name: Overview of migration from Service Fabric to AKS
             href: guide/aks/service-fabric-azure-kubernetes-service.md
           - name: Multitenancy with AKS and AGIC
