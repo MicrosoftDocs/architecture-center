@@ -192,4 +192,4 @@ Other contributors:
 
 - [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)
 - [Oracle Database with Azure NetApp Files](../../example-scenario/file-storage/oracle-azure-netapp-files.yml)
-- [Run Oracle databases on Azure](../../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)
+- [Oracle on Azure architecture design](../../solution-ideas/articles/oracle-on-azure-start-here.md)
