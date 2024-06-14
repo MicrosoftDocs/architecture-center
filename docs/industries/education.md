@@ -53,6 +53,5 @@ The following articles provide detailed analysis of architectures created and re
 |[Secure research environment for regulated data](../ai-ml/architecture/secure-compute-for-research.yml)|Learn about an architecture created for higher education research institutions. It enables researchers to access sensitive data while providing a high level of control and data protection.| Security|
  
 ## Solution ideas for education
-The following are other ideas that you can use as a starting point for your education solution.
-- [IoT connected light, power, and internet for emerging markets](../solution-ideas/articles/iot-power-management.yml)
+Use the following idea as a starting point for your education solution.
 - [Project 15 Open Platform IoT sustainability](../solution-ideas/articles/project-15-iot-sustainability.yml)

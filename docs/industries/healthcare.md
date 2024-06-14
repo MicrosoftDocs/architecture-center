@@ -66,4 +66,3 @@ The following are some additional ideas that you can use as a starting point for
 - [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Predict Length of Stay in Hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
-- [UVEN smart and secure disinfection and lighting](../solution-ideas/articles/uven-disinfection.yml)

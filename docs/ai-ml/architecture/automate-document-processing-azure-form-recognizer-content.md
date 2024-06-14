@@ -271,7 +271,6 @@ Principal author:
 ## Related resources
 
 - [Extract text from objects using Power Automate and AI Builder][Extract text from objects using Power Automate and AI Builder]
-- [Knowledge mining for content research][Knowledge mining for content research]
 
 [Achieve high availability with Azure Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
@@ -326,7 +325,6 @@ Principal author:
 [How to use named entity recognition (NER) - Data limits]: /azure/cognitive-services/language-service/named-entity-recognition/how-to-call#data-limits
 [How to use Text Analytics for health - Data limits]: /azure/cognitive-services/language-service/text-analytics-for-health/how-to/call-api?tabs=ner#data-limits
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
-[Knowledge mining for content research]: ../../solution-ideas/articles/content-research.yml
 [Language Service pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-service
 [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory]: /azure/data-factory/load-azure-data-lake-storage-gen2
 [Manage access to an Azure Machine Learning workspace]: /azure/machine-learning/how-to-assign-roles
