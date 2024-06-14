@@ -22,12 +22,12 @@ Diagram that shows a conceptual architecture for solutions where client applicat
 
 The following are the constraints in this scenario:
 
-- Client applications are using an external OpenID Connect (OIDC) enabled identity provider, such as Okta or Auth0, or
-- Client applications are authenticating against a Microsoft Entra ID tenant external to the Azure OpenID instance
+- Client applications are using an external OpenID Connect (OIDC) enabled identity provider, such as Okta, Auth0, or social identity providers.
+- Client applications are authenticating against a Microsoft Entra tenant different than the Azure OpenAI data plane's tenant.
 
-### Connecting directly to OpenAI
+### Connecting directly to Azure OpenAI
 
-If the client applications in these scenarios are connecting directly to Azure OpenAI (not using a gateway), they must use key-based authentication to authenticate to Azure OpenAI. Key-based authentication introduces extra security concerns such as securely storing the keys, rotating the keys, and the inability to provide different clients their own role-based access control (RBAC) configurations.
+If the client applications in these scenarios are connecting directly to Azure OpenAI (not using a gateway), they must use key-based authentication to authenticate to Azure OpenAI. Key-based authentication introduces extra security concerns such as securely storing the keys, rotating the keys, and the inability to provide different clients their own role-based access control (RBAC) configurations for individual model deployments.
 
 ### Introducing a gateway
 
@@ -44,7 +44,7 @@ Introducing a gateway addresses the challenges of this scenario in several ways:
 ### Recommendations and guidance for this scenario
 
 - More OAuth scopes can be added to your application registration in your identity provider to enable granular permission to consumers. These scopes allow client applications to request permission to perform specific operations in your gateway, including [access to Azure OpenAI](/azure/api-management/api-management-authenticate-authorize-azure-openai#oauth-20-authorization-using-identity-provider).
-- You can configure this scenario for Azure API Management using inbound policies. Use the [validate-jwt policy](https://learn.microsoft.com/en-us/azure/api-management/validate-jwt-policy) to enforce the existence and validity of a supported JWT.
+- You can configure this scenario for Azure API Management using inbound policies. Use the [validate-jwt policy](https://learn.microsoft.com/en-us/azure/api-management/validate-jwt-policy) to enforce the existence, validity, and attribute values of a supported JWT.
 
 ### Reasons to avoid a gateway for this scenario
 
@@ -60,14 +60,14 @@ Diagram that shows a conceptual architecture for solutions where users are authe
 
 The following are the constraints in this scenario:
 
-- There are multiple client applications.
+- You want to use certificates to authenticate client applications.
 - Client applications can't use or you don't want to use Microsoft Entra ID for authentication.
 - Clients can't use or you don't want to use federated identity for authentication.
-- You want to use certificates to authenticate client applications.
+- There are multiple client applications.
 
-These constraints can apply to scenarios where the client authenticating to Azure OpenID is a machine or device where there's no user interaction. Another reason for this scenario is your organization requires the use of certificates for authentication because of security features. Certificates aren't susceptible to token theft or replay attacks.
+These constraints can apply to scenarios where the client authenticating to Azure OpenID is a machine or device where there's no user interaction. Another reason for this scenario is your organization requires the use of certificates for authentication because of security features.
 
-### Connecting directly to OpenAI
+### Connecting directly to Azure OpenAI
 
 Azure OpenAI doesn't natively support client certification authentication. To support this scenario without a gateway, the intelligent application would use certificate authentication for the user and use an API key to authenticate requests to the Azure OpenAI instance. The certificate authentication logic would have to be implemented in every client. The risks and management overhead of using key-based authentication would apply if you connect directly to Azure OpenAI from clients in this scenario.
 
@@ -84,7 +84,6 @@ There are several advantages to introducing a gateway to address this scenario, 
 - Using the managed identity of the gateway vs. access keys eliminates the risk of keys being stolen and reduces the maintenance burden of rotating keys.
 - Centralizing certificate validation ensures you're using consistent security policies to evaluate client digital certificates for all intelligent applications.
 - Offloading certificate validation to the gateway can simplify client code.
-- The use of a gateway can enhance performance with cached responses, data compression, and TLS termination.
 
 ### Recommendations and guidance for this scenario
 
@@ -116,12 +115,12 @@ The following are the constraints in this scenario:
 
 These constraints can apply to scenarios where client applications are deployed across multiple environments, including Azure, other cloud providers, or on-premises. Other scenarios include environments where client applications that don't support OAuth.
 
-### Connecting directly to OpenAI
+### Connecting directly to Azure OpenAI
 
-Azure OpenAI supports key-based authentication using a shared key. While Azure OpenAI exposes a primary key and a secondary key, the purpose of the secondary key is to support key rotation. When you authenticate multiple clients directly to Azure OpenAI in this scenario, each client shares the same key. The following are challenges with this implementation:
+Azure OpenAI supports key-based authentication using shared keys. While Azure OpenAI exposes a primary key and a secondary key, the purpose of the secondary key is to support key rotation not for client identity isolation. When you authenticate multiple clients directly to Azure OpenAI in this scenario, each client shares the same key. The following are challenges with this implementation:
 
 - You don't have the ability to revoke permissions for specific clients because every client is sharing the same key.
-- You can't give different clients different access rights.
+- You can't give different clients different access rights to different models in the same Azure OpenAI instance deployment.
 - You can't differentiate one client from another from a logging perspective.
 
 ### Introducing a gateway
@@ -141,7 +140,7 @@ There are several advantages to introducing a gateway to address this scenario, 
 ### Recommendations and guidance for this scenario
 
 - Since using a managed identity might reduce traceability of the end user and client application, enhance monitoring on metrics related to API requests. The gateway should provide any extra tracing metadata associated with the request, such as the requesting client and user IDs.
-- When routing multiple client application requests through a gateway to a shared Azure OpenAI service, consider implementing retry policies for transient failures. For more best practices in gateway implementations for Azure OpenAI deployments, see [using a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.yml).
+- When routing multiple client application requests through a gateway to a shared Azure OpenAI service, make sure the gateway is making routing decisions based on client identity to appropriate model deployments. For more best practices in gateway implementations for multiple Azure OpenAI deployments, see [using a gateway in front of multiple Azure OpenAI deployments](./azure-openai-gateway-multi-backend.yml).
 
 ## Client applications accessing multiple Azure OpenAI instances
 
@@ -155,7 +154,6 @@ The following are the constraints in this scenario:
 
 - Client applications are connecting to multiple Azure OpenAI instances in one or more regions.
 - Clients can't use or you don't want to use Microsoft Entra ID.
-- Clients can't use or you don't want to use federated identity.
 - You want to use key-based authentication for client applications.
 
 These constraints can apply to scenarios where:
@@ -164,7 +162,7 @@ These constraints can apply to scenarios where:
 - Client applications use failover scenarios where they have a provisioned throughput deployment and a pay as you go deployment.
 - Client applications taking advantage of multiple model capabilities not available in a single region.
 
-### Connecting directly to OpenAI
+### Connecting directly to Azure OpenAI
 
 When client applications connect directly to multiple OpenAI instances, each client must store the key for each instance. Along with the security considerations of using keys, there's an increased management burden regarding rotating keys.
 
@@ -191,7 +189,7 @@ Additionally, the gateway can introduce latency, which could be detrimental in p
 
 When you integrate Azure OpenAI services through a gateway, there are several cross-cutting recommendations to consider that apply in all scenarios.
 
-Opting for Azure API Management (APIM) instead of creating your own solution has several benefits. It provides efficient API orchestration, easy integration with other Azure services, and cost savings by lowering development and maintenance efforts. APIM provides secure API management by supporting authentication and authorization directly. It integrates with identity providers, such as Microsoft Entra ID, enabling OAuth 2.0, and offers policy-based authorization. Additionally, it can take advantage of managed identities for secure access to Azure OpenAI.
+Opting for Azure API Management (APIM) instead of creating your own solution has several benefits. It provides efficient API orchestration, easy integration with other Azure services, and cost savings by lowering development and maintenance efforts. APIM provides secure API management by supporting authentication and authorization directly. It integrates with identity providers, such as Microsoft Entra ID, enabling OAuth 2.0, and offers policy-based authorization. Additionally, it can take advantage of managed identities for secure, and low maintenance access to Azure OpenAI.
 
 ### Gateway policy enforcement
 
@@ -199,11 +197,13 @@ Before requests to Azure OpenAI instances are sent via a gateway, inbound authen
 
 Implementing more authorization scoping with roles and permissions for client applications in your gateway also enables granular control. These scopes allow specific operations to be permitted based on the client application's needs, enhancing security and manageability.
 
+For access token validation, be sure to validate all key registered claims such as `iss`, `aud`, `exp`, and `nbf` in addition to any relevant workload specific claims such as group memberships or application roles.
+
 ### Use Azure managed identities
 
 Using Azure managed identities simplifies authentication across all client application scenarios by centralizing authentication management. This approach reduces the complexity and risks associated with managing multiple API keys or credentials in client applications.
 
-As managed identities inherently support Azure role-based access control, they ensure the gateway has only the right level of permission to access Azure OpenAI instances. Managed identities reduce the risk of unauthorized access and simplify compliance with security policies.
+As managed identities inherently support Azure role-based access control, they ensure the gateway has only the lowest level of permission necessary to access Azure OpenAI instances. Combined with disabling alternative authentication methods, managed identities reduce the risk of unauthorized access and simplify compliance with security policies.
 
 ### Implement comprehensive observability
 
