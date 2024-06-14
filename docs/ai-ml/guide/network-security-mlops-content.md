@@ -378,10 +378,12 @@ As shown in the preceding code block, the Terraform script calls *agent_init.sh*
 ...
 
 # Creates directory and downloads Azure DevOps agent installation files
+# Find more agent versions at https://github.com/microsoft/azure-pipelines-agent/releases
+export AGENT_VERSION="3.240.1"
 sudo mkdir /myagent 
 cd /myagent
-sudo wget https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz
-sudo tar zxvf ./vsts-agent-linux-x64-2.194.0.tar.gz
+sudo wget https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz
+sudo tar zxvf ./vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz
 sudo chmod -R 777 /myagent
 
 # Unattended installation
