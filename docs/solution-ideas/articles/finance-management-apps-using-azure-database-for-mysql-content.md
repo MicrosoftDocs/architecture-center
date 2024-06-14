@@ -4,9 +4,9 @@ This article outlines a three-tier application for securely storing data and pro
 
 ## Architecture
 
-:::image type="content" source="../media/finance-management-apps-using-azure-database-for-mysql.png" alt-text="Architecture diagram of a three-tier application. Data flows from a browser and other sources to hosts, into a database, and on to analytics services." border="false":::
+:::image type="content" source="../media/finance-management-apps-using-azure-database-for-mysql.svg" alt-text="Architecture diagram of a three-tier application. Data flows from a browser and other sources to hosts, into a database, and on to analytics services." border="false":::
 
-*Download an [SVG](../media/finance-management-apps-using-azure-database-for-mysql.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/finance-management-apps-mysql.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -19,7 +19,7 @@ The architecture shows the flow of data in a common three-tier application desig
 
 ### Components
 
-- [App Service](https://azure.microsoft.com/products/app-service) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure.
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service that's powered by the MySQL community edition.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
@@ -57,6 +57,5 @@ Principal author:
 ## Related resources
 
 - [Finance management apps using Azure Database for PostgreSQL](./finance-management-apps-using-azure-database-for-postgresql.yml)
-- [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
 - [Tier applications and data for analytics](./tiered-data-for-analytics.yml)

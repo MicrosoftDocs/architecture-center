@@ -18,7 +18,7 @@ For example, a motor sends temperature data. You use this data to evaluate wheth
 
 #### Devices
 
-Azure IoT supports a large range of devices, from microcontrollers running [Azure RTOS](/azure/rtos) and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as [Azure IoT Edge](/azure/iot-edge), or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+Azure IoT supports a large range of devices, from microcontrollers running [Azure RTOS](/azure/rtos) and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to developer boards like MX Chip and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as [Azure IoT Edge](/azure/iot-edge), or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
 When devices are connected to the cloud, there are several services that assist with ingesting data. [Azure IoT Hub](/azure/iot-hub) is a cloud gateway service that can securely connect and manage devices. [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps) enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. [Azure Digital Twins](/azure/digital-twins) enables virtual models of real world systems.
 
@@ -51,7 +51,7 @@ You can use the following services for management and business integration:
 - [Microsoft Power Automate (Microsoft Flow)](/power-automate/getting-started) is a SaaS offering for automating workflows across applications and other SaaS services.
 - [Azure Logic Apps](/azure/logic-apps) creates and automates workflows that integrate your apps, data, services, and systems.
 
-Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include [Azure Monitor](/azure/azure-monitor). Security services such as [Azure Active Directory (Azure AD)](/azure/active-directory) and [Microsoft Defender for IoT](/azure/defender-for-iot) help you control, view, and manage security settings and threat detection and response.
+Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include [Azure Monitor](/azure/azure-monitor). Security services such as [Microsoft Entra ID](/azure/active-directory) and [Microsoft Defender for IoT](/azure/defender-for-iot) help you control, view, and manage security settings and threat detection and response.
 
 ### Components
 
@@ -73,13 +73,13 @@ Azure also provides several services to help you monitor your entire IoT solutio
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps)
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 - [API Management](https://azure.microsoft.com/services/api-management)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Microsoft Power Automate (Microsoft Flow)](https://powerautomate.microsoft.com)
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure AD](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender)
 
 ## Considerations
@@ -203,9 +203,7 @@ Other contributor:
 
 ## Related resources
 
-- [IoT conceptual overview](../example-scenario/iot/introduction-to-solutions.yml)
 - [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
 - [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
-- [IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)
+- [IoT architecture design](iot/iot-architecture-overview.md)

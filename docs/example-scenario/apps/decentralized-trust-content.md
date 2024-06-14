@@ -113,7 +113,6 @@ Product documentation of Azure services:
 
 ## Related resources
 
-- [Data management in banking](../../industries/finance/data-management-banking-overview.yml)
 - [Patterns and implementations for a banking cloud transformation](../../example-scenario/banking/patterns-and-implementations.yml)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
 
@@ -121,7 +120,7 @@ Product documentation of Azure services:
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[corda]: https://docs.r3.com/en/platform/corda/4.7/enterprise/network/azure-vm.html
+[corda]: https://docs.r3.com/en/platform/corda/4.8/enterprise.html
 [monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [security]: /azure/security

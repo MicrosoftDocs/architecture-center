@@ -46,7 +46,7 @@ There are two lists of components in this section, those that are in Azure publi
 
 An alternative to deploying AKS is to deploy [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) in Azure public MEC and run Azure modules that provide similar functionality to the services already mentioned. You can use:
 
-- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) to create the video processing pipeline.
+- [Azure Video Analyzer](https://azure.microsoft.com/products/ai-video-indexer/) to create the video processing pipeline.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to analyze the video to provide insights.
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to deploy analytics services on the streamed video.
 - [Azure Functions](https://azure.microsoft.com/services/functions) to run actions on the analysis and the insights.
@@ -120,6 +120,6 @@ Principal author:
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Low-latency network connections for industry](../../solution-ideas/articles/low-latency-network.yml)
-- [Video capture and analytics for retail](../../solution-ideas/articles/video-analytics.yml)
-- [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)
+- [Low-latency network connections for industry](../../networking/idea/low-latency-network.yml)
+- [Video capture and analytics for retail](../../networking/idea/video-analytics.yml)
+- [IoT device connectivity for healthcare facilities](../../networking/idea/healthcare-network.yml)

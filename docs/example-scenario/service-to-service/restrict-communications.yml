@@ -16,7 +16,7 @@ azureCategories:
   - security
 products:
   - azure
-  - azure-active-directory
+  - entra-id
   - azure-app-service
 name: Restrict interservice communications
 summary: Restrict communications between Azure backend services on both the application and network layers.

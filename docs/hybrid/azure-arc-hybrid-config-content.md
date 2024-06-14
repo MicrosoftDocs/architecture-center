@@ -1,4 +1,4 @@
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
+This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment.
 
 ## Architecture
 
@@ -145,18 +145,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ## Deploy this scenario
 
-The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro), included as part of the [Arc Jumpstart](https://azurearcjumpstart.io/) project. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
+The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro), included as part of the [Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
 
 To deploy the reference implementation, follow the steps in the GitHub repo by selecting the **Jumpstart ArcBox for IT Pros** button below.
 
 > [!div class="nextstepaction"]
-> [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
+> [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro#deployment-options-and-automation-flow)
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Pieter de Bruin](https://www.linkedin.com/in/pieterjmdebruin) | Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -180,11 +181,11 @@ Explore related architectures:
 [agent-overview]: /azure/azure-arc/servers/agent-overview
 [Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
-[Arc Jumpstart]: https://azurearcjumpstart.io
-[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
-[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
-[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
-[ArcBox workbook]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/itpro/
+[Arc Jumpstart]: https://aka.ms/AzureArcJumpstart
+[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/
+[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers/day2/
+[ArcBox for IT Pros]: https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro
+[ArcBox workbook]: https://azurearcjumpstart.com/azure_jumpstart_arcbox/workbook/flavors/ITPro/
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.pptx
 [Azure Arc docs]: /azure/azure-arc/

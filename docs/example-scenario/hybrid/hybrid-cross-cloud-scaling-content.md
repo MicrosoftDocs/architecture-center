@@ -21,7 +21,7 @@ This solution shows how to use Azure Traffic Manager to extend an app that's loc
 - **Domain Name System (DNS)** translates (or resolves) a website or service name to its IP address.
 - **The hosted build server** is an environment for hosting your build pipeline.
 - **Public IP addresses** are used to route the incoming traffic through Traffic Manager to the endpoint for the public cloud app resources.
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Alternatives
 
@@ -71,8 +71,6 @@ For comprehensive guidance about security principles, see [Security documentatio
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-For guidance about monitoring in hybrid scenarios, see [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml).
-
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
@@ -98,10 +96,6 @@ Principal author:
 
 ## Related resources
 
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components.
-
 See the following related architectures:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
-- [Hybrid availability and performance monitoring](../../hybrid/hybrid-containers.yml)

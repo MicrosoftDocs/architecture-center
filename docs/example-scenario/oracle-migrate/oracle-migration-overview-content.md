@@ -72,7 +72,7 @@ What you do next depends on where you wind up on the decision tree:
 
 * **Cross-cloud connectivity**: If you already use Oracle Cloud Infrastructure (OCI), the easy migration path for you is direct interconnection between Azure and OCI. Go to [Oracle database migration: Cross-cloud Connectivity](oracle-migration-cross-cloud.yml).
 
-* **Lift and shift on Azure VMs**: You can deploy your Oracle databases in Azure based on a "bring your own license" model. Go to [Oracle database migration: Lift and Shift](oracle-migration-lift-shift.yml).
+* **Lift and shift on Azure VMs**: You can deploy your Oracle databases in Azure based on a "bring your own license" model. Go to [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).
 
 * **Refactor**: You have legacy Oracle code and you prefer using an Azure Managed Service. Go to [Oracle database migration: Refactor](oracle-migration-refactor.yml).
 

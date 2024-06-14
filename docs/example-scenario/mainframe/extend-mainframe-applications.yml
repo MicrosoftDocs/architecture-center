@@ -19,6 +19,6 @@ products:
   - azure-monitor
 name: Extend mainframe applications to Azure by using Verastream Host Integrator
 summary: Extend your mainframe applications to Azure by using the Verastream Host Integrator (VHI). VHI simplifies mainframe and host-based application functionality into a web service.
-thumbnailUrl: /azure/architecture/browse/thumbs/extend-mainframe-architecture-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/extend-mainframe-applications-architecture-thumb.png
 content: |
   [!include[](extend-mainframe-applications-content.md)]

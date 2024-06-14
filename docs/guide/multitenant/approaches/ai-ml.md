@@ -10,7 +10,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
-  - azure-cognitive-services
+  - ai-services
   - azure-machine-learning
 categories:
   - ai-machine-learning
@@ -92,7 +92,7 @@ Consider profiling your solution's performance. For example, [Azure Machine Lear
 
 When you build a solution to use AI and ML, you can choose to use prebuilt components, or to build custom components. There are two key decisions you need to make. The first is the *platform or service* you use for AI and ML. The second is whether you use pretrained models or build your own custom models.
 
-**Platforms:** There are many Azure services that you can use for your AI and ML workloads. For example, Azure Cognitive Services and Azure OpenAI Service provide APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure Cognitive Services enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Azure Machine Learning is a platform that enables you to build, train, and use your own ML models. Azure Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../data-guide/technology-choices/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
+**Platforms:** There are many Azure services that you can use for your AI and ML workloads. For example, Azure Cognitive Services and Azure OpenAI Service provide APIs to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure Cognitive Services enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Azure Machine Learning is a platform that enables you to build, train, and use your own ML models. Azure Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../ai-ml/guide/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
 
 **Models:** Even when you don't use a full model that's provided by a service like Azure Cognitive Services, you can still accelerate your development by using a pretrained model. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique called *transfer learning* or *fine-tunning*. Transfer learning enables you to extend an existing model and apply it to a different domain. For example, if you're building a multitenant music recommendation service, you might consider building off a pretrained model of music recommendations, and use transfer learning to train the model for a specific user's music preferences.
 
@@ -104,8 +104,8 @@ Generally, AI and ML workloads incur the greatest proportion of their costs from
 
 Consider the following requirements when planning your AI and ML costs:
 
-- **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
-- **Determine compute SKUs for inference.** For an example cost estimate for inference, [refer to the guidance for Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
+- **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
+- **Determine compute SKUs for inference.** For an example cost estimate for inference, [refer to the guidance for Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
 - **Monitor your utilization.** By observing the utilization of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. See [Azure Machine Learning Monitor](/azure/machine-learning/monitor-azure-machine-learning).
 - **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster utilization or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
 - **Share your compute resources.** Consider whether you can optimize the cost of your compute resources by sharing them across multiple tenants. 
@@ -168,4 +168,5 @@ Other contributors:
 
 ## Next steps
 
-Review [Architectural approaches for compute in multitenant solutions](compute.md) approaches.
+- Review [Architectural approaches for compute in multitenant solutions](compute.md) approaches.
+- To learn more about designing Azure Machine Learning pipelines to support multiple tenants, see [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818).

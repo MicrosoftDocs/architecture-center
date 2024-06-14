@@ -8,7 +8,7 @@ This article describes a typical architecture of a consumer health portal, that 
 
 ### Workflow
 
-- This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. 
+- This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data.
 - The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
 The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Azure Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in Azure Cosmos DB, and can negatively impact its cost and performance.
@@ -23,44 +23,42 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management) aids in the publishing, routing, securing, logging, and analytics of APIs. Whether the API is only being used by the end-user or integrated with a third party for external interoperability, API management allows for flexibility in how APIs are extended and presented.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a service used to host HTTP-based web services. It supports a wide array of languages, can run on Linux or Windows, fully integrates with CI/CD pipelines, and can even run container workloads as a [PaaS](https://azure.microsoft.com/overview/what-is-paas) offering. App Service allows for both scale-up and scale-out, in addition to having native integration with identity, security, and logging services in Azure. It is able to meet the scaling needs of the consumer health portal while maintaining compliance. In this architecture, it hosts the front-end web portal.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a service used to host HTTP-based web services. It supports a wide array of languages, can run on Linux or Windows, fully integrates with CI/CD pipelines, and can even run container workloads as a [PaaS](https://azure.microsoft.com/overview/what-is-paas) offering. App Service allows for both scale-up and scale-out, in addition to having native integration with identity, security, and logging services in Azure. It is able to meet the scaling needs of the consumer health portal while maintaining compliance. In this architecture, it hosts the front-end web portal.
 
 - [Azure Function Apps](https://azure.microsoft.com/services/functions) is a serverless platform solution on Azure that allows developers to write *compute-on-demand* code, without having to maintain any of the underlying systems. In this architecture, Azure Functions can host APIs, and any work that needs to be done asynchronously, such as running periodic jobs and computing statistics over a certain period of time.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, multi-model, NoSQL database offering that offers single-digit response times, and guarantees performance at any scale. Each user in the consumer health system will have only data related to themselves, which justifies the use of a NoSQL data structure. Azure Cosmos DB has nearly limitless scale, as well as multi-region read and write. With the drastic growth of the amount of data collected by these types of consumer health systems, Azure Cosmos DB can provide appropriate security, speed, and scale, regardless of whether there are 100 or 1,000,000 active users.
 
-- [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Azure Active Directory integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
+- [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Microsoft Entra integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users might want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This method provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
+- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users might want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This method provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
 
 - [Azure Log Analytics](/azure/azure-monitor/log-query/log-analytics-overview), an Azure Monitor Logs tool, can be used for diagnostic or logging information, and for querying this data to sort, filter, or visualize them. This service is priced by consumption, and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 
 - [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), another feature of Azure Monitor, is the native Application Performance Management (APM) service in Azure. It can be easily integrated into the front-end App Service, and into all of the Azure Functions code to enable live monitoring of the applications. Application Insights can easily detect performance, usability anomalies, and faults directly generated from the applications themselves, and not just from the compute platform hosting them.
 
-- [Office 365 Email](/microsoft-365/enterprise/azure-integration) is an industry-leading service used for email and communications. Many organizations have already invested in this service. In this solution, it can be used for sending out any emails related to the consumer health portal, such as appointment confirmation or reminder emails.
+- [Azure Communication Services](https://azure.microsoft.com/products/communication-services/) are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony. In this solution, it can be used for sending out any emails, texts, or automated phone calls related to the consumer health portal, such as appointment confirmations or reminders.
 
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal, which uses a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
 
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
-  - [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction)
-  - [Microsoft Defender for Storage](/azure/security-center/defender-for-storage-introduction)
-  - [Microsoft Defender for KeyVault](/azure/security-center/defender-for-key-vault-introduction)
-  - [Microsoft Defender for Resource Manager (Preview)](/azure/security-center/defender-for-resource-manager-introduction)
-  - [Microsoft Defender for DNS](/azure/security-center/defender-for-dns-introduction)
-  - [Threat Protections for Azure WAF](/azure/security-center/other-threat-protections#threat-protection-for-other-microsoft-services-)
-  - [Threat Protections for Azure Cosmos DB (Preview)](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud/)) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
+  - [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
+  - [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)
+  - [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction)
+  - [Microsoft Defender for Resource Manager](/azure/defender-for-cloud/defender-for-resource-manager-introduction)
+  - [Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/concept-defender-for-cosmos)
 
 ### Alternatives
 
-- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer?tab=Overview) might be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost-effective solution.
-
-- [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir) might be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For example, if this solution were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
+- [Azure FHIR Service](/azure/healthcare-apis/fhir/overview) as a part of the [Azure Health Data Services](https://azure.microsoft.com/products/health-data-services/) might be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For example, if this solution were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring) architecture.
 
+- [Microsoft 365 Email](/microsoft-365/enterprise/azure-integration) is an industry-leading service used for email and communications. Many organizations have already invested in this service and it can be used as an alternative to the more full-featured Azure Communication Services. In this solution, it can be used for sending out any emails related to the consumer health portal, such as appointment confirmation or reminder emails.
+
 ## Scenario details
 
-Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits. 
+Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits.
 
 ### Potential use cases
 
@@ -81,7 +79,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You might also apply the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
 
-- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for further guidance.
+- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml) for further guidance.
 
 - Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](/azure/storage/common/storage-redundancy) article.
 
@@ -103,7 +101,7 @@ All traffic to APIM should be authenticated, either by using [Azure AD B2C APIM 
 
 #### Azure App Service
 
-All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
+All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
 
 #### Azure Functions
 
@@ -111,9 +109,9 @@ All requests to the Azure Functions in this solution should [require HTTPS](/azu
 
 #### Azure Blob Storage
 
-Where possible, restrict access to blob storage by using [Azure Active Directory](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types might not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
+Where possible, restrict access to blob storage by using [Microsoft Entra ID](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types might not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
 
-Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/security-center/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
+Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
 
 #### Azure Cosmos DB
 
@@ -121,7 +119,7 @@ Make sure to also use a [role-based access control](/azure/storage/common/storag
 
 #### Azure Key Vault
 
-Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/security-center/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
+Requests made to the Azure Key Vault should [be authenticated using Microsoft Entra ID or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
 
 #### Azure AD B2C
 
@@ -147,24 +145,25 @@ To get started, you can view the Azure Calculator Generic Estimate [here](https:
 
 Depending on the scale of your workload and requirements for enterprise functionality, using the [consumption tier of Azure API Management](https://azure.microsoft.com/pricing/details/api-management) could bring down the cost.
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Mohana Rajpalke](https://dk.linkedin.com/in/mohana-k-rajpalke-9b103058) | Senior Researcher
+* [Matt Hansen](https://www.linkedin.com/in/matthansen0/) | Cloud Program Architect
 
 ## Next steps
 
-- Learn more about [Azure API for FHIR](/azure/healthcare-apis/overview).
+- Learn more about [Azure FHIR Service](/azure/healthcare-apis/fhir/overview)
+- Learn more about [Azure Health Data Services](/azure/healthcare-apis/overview).
 - Learn more about [publishing internal APIs externally](../apps/publish-internal-apis-externally.yml).
 
 ## Related resources
 
+- [Azure Health Data Services Architecture Guide](/azure/architecture/guide/data/azure-health-data-services)
 - [HIPAA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
-- [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
-- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
+- [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Baseline zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)

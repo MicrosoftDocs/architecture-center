@@ -3,6 +3,7 @@ title: Serverless Functions app development and deployment
 titleSuffix: Azure Example Scenarios
 description: Examine patterns and practices of serverless application development, configure DevOps pipelines, and implement site reliability engineering (SRE) best practices.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -122,12 +123,11 @@ For information about factors that impact Functions app scalability, see:
 ### Implement SRE practices
 Site Reliability Engineering (SRE) is a proven approach to maintaining crucial system and application reliability, while iterating at the speed the marketplace demands. For more information, see:
 - [Introduction to Site Reliability Engineering (SRE)](/training/modules/intro-to-site-reliability-engineering)
-- [DevOps at Microsoft: Game streaming SRE](https://azure.microsoft.com/resources/devops-at-microsoft-game-streaming-sre)
 
 ## Next steps
 
 For hands-on serverless Functions app development and deployment walkthroughs, see:
-- [Serverless Functions code walkthrough](../serverless/code.yml)
+- [Serverless Functions code walkthrough](../web-apps/serverless/architectures/code.yml)
 - [CI/CD for a serverless frontend](../serverless/guide/serverless-app-cicd-best-practices.yml)
 
 For an engineering playbook to help teams and customers successfully implement serverless Functions projects, see the [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook).

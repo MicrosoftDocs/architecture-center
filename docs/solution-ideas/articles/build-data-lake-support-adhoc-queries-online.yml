@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 07/24/2022
   ms.topic: example-scenario
   ms.service: architecture-center
@@ -19,8 +19,8 @@ azureCategories:
   - databases
 summary: This architecture provides an example of the Delta Lake architecture for travel booking scenarios, where large amounts of raw documents are generated at a high frequency.
 products:
-  - azure-event-hubs	
-  - azure-data-lake-gen2
+  - azure-event-hubs
+  - azure-data-lake-storage
   - azure-databricks
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/build-data-lake-support-adhoc-queries-online-02-thumb.png

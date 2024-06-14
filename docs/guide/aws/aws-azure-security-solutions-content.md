@@ -1,6 +1,6 @@
 This guide shows how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 
-AWS organizations that use Azure Active Directory (Azure AD) for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Azure AD for AWS accounts](../../reference-architectures/aws/aws-azure-ad-security.yml), often without additional cost.
+AWS organizations that use Microsoft Entra ID for Microsoft 365 or hybrid cloud identity and access protection can quickly and easily [deploy Microsoft Entra ID for AWS accounts](../../reference-architectures/aws/aws-azure-ad-security.yml), often without additional cost.
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 
 ### Workflow
 
-- Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication* and the *conditional access* feature. Azure AD supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Azure AD identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml). Microsoft Entra Permissions Management is a *cloud infrastructure entitlement management (CIEM)* product that provides comprehensive visibility and control over permissions for any AWS identity or resource. You can use Entra Permissions Management to:
+- Microsoft Entra ID provides centralized *single sign-on (SSO)* and strong authentication through *multifactor authentication* and the *conditional access* feature. Microsoft Entra ID supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Microsoft Entra identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml). Microsoft Entra Permissions Management is a *cloud infrastructure entitlement management (CIEM)* product that provides comprehensive visibility and control over permissions for any AWS identity or resource. You can use Microsoft Entra Permissions Management to:
 
   - Get a multi-dimensional view of your risk by assessing identities, permissions, and resources.
   - Automate the enforcement of the [least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege) policy in your entire multicloud infrastructure.
@@ -21,7 +21,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
   For more information and detailed onboarding instructions, see [Onboard an Amazon Web Services (AWS) account](/azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws).
 
 - Defender for Cloud Apps:
-  - Integrates with the Azure AD conditional access feature to enforce additional restrictions.
+  - Integrates with the Microsoft Entra Conditional Access feature to enforce additional restrictions.
   - Helps monitor and protect sessions after sign-in.
   - Uses *user behavior analytics (UBA)* and other AWS APIs to monitor sessions and users and to support information protection.
 
@@ -34,7 +34,7 @@ This diagram summarizes how AWS installations can benefit from key Microsoft sec
 - [Microsoft Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps)
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud)
 - [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 
 ### Defender for Cloud Apps for visibility and control
 
@@ -49,7 +49,7 @@ Defender for Cloud Apps provides several capabilities that can integrate with AW
 - Session Controls for AWS block potential malware uploads or downloads based on Microsoft Defender Threat Intelligence or real-time content inspection.
 - Session controls can also use real-time content inspection and sensitive data detection to impose *data loss prevention (DLP)* rules that prevent cut, copy, paste, or print operations.
 
-Defender for Cloud Apps is available standalone, or as part of Microsoft Enterprise Mobility + Security E5, which includes Azure AD Premium P2. For pricing and licensing information, see [Enterprise Mobility + Security pricing options](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing).
+Defender for Cloud Apps is available standalone, or as part of Microsoft Enterprise Mobility + Security E5, which includes Microsoft Entra ID P2. For pricing and licensing information, see [Enterprise Mobility + Security pricing options](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing).
 
 ### Defender for Cloud for CSPM and CWP platforms (CWPP)
 
@@ -76,11 +76,11 @@ You can connect AWS and Defender for Cloud Apps with Microsoft Sentinel. Then yo
 
 Microsoft offers several security solutions that can help secure and protect AWS accounts and environments.
 
-Other Microsoft security components can integrate with Azure AD to provide additional security for AWS accounts:
+Other Microsoft security components can integrate with Microsoft Entra ID to provide additional security for AWS accounts:
 
-- Defender for Cloud Apps backs up Azure AD with session protection and user-behavior monitoring.
+- Defender for Cloud Apps backs up Microsoft Entra ID with session protection and user-behavior monitoring.
 - Defender for Cloud provides threat protection to AWS workloads. It also helps proactively strengthen security for AWS environments and uses an agentless approach to connect to those environments.
-- Microsoft Sentinel integrates with Azure AD and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
+- Microsoft Sentinel integrates with Microsoft Entra ID and Defender for Cloud Apps to detect and automatically respond to threats against AWS environments.
 
 These Microsoft security solutions are extensible and offer multiple levels of protection. You can implement one or more of these solutions along with other types of protection for a full-security architecture that helps protect current and future AWS deployments.
 
@@ -101,7 +101,7 @@ The following principles and guidelines are important for any cloud security sol
 - Follow least privilege and [zero trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that users can access only the specific resources that they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights that they need for the role that they perform. Review regularly.
 - Continuously monitor platform configuration changes, especially if they provide opportunities for privilege escalation or attack persistence.
 - Prevent unauthorized data exfiltration by actively inspecting and controlling content.
-- Take advantage of solutions that you might already own, like Azure AD Premium P2, that can increase security without additional expense.
+- Take advantage of solutions that you might already own, like Microsoft Entra ID P2, that can increase security without additional expense.
 
 #### Basic AWS account security
 
@@ -120,7 +120,7 @@ Take the steps in the following sections to implement a security solution.
 
 ### Plan and prepare
 
-To prepare for deployment of Azure security solutions, review and record current AWS and Azure AD account information. If you've deployed more than one AWS account, repeat these steps for each account.
+To prepare for deployment of Azure security solutions, review and record current AWS and Microsoft Entra account information. If you've deployed more than one AWS account, repeat these steps for each account.
 
 1. In the [AWS Billing Management Console](https://console.aws.amazon.com/billing/home?#/account), record the following current AWS account information:
    - **AWS Account ID**, a unique identifier
@@ -130,8 +130,8 @@ To prepare for deployment of Azure security solutions, review and record current
    - **Security questions**, securely updated and recorded for emergency access
    - **AWS regions** that are enabled or disabled to comply with data security policy
 
-1. In the [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Azure AD tenant:
-   - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [advanced Azure AD identity management](../../reference-architectures/aws/aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Microsoft Entra tenant:
+   - Assess **Tenant information** to see whether the tenant has a Microsoft Entra ID P1 or P2 license. A P2 license provides [advanced Microsoft Entra identity management](../../reference-architectures/aws/aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
 ### Deploy Defender for Cloud Apps
@@ -147,7 +147,7 @@ To deploy Defender for Cloud Apps:
 1. Configure Defender for Cloud Apps monitoring policies for AWS activities.
 1. Create an enterprise application for SSO to AWS.
 1. Create a conditional access app control application in Defender for Cloud Apps.
-1. Configure Azure AD session policies for AWS activities.
+1. Configure Microsoft Entra session policies for AWS activities.
 1. Test Defender for Cloud Apps policies for AWS.
 
 #### Add an AWS app connector
@@ -197,11 +197,11 @@ As Defender for Cloud Apps detects alerts, it displays them on the **Alerts** pa
 
 #### Create an enterprise application for SSO to AWS
 
-Follow the instructions at [Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS single sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial?WT.mc_id=wwc_spark) to create an enterprise application for SSO to AWS. Here's a summary of the procedure:
+Follow the instructions at [Tutorial: Microsoft Entra single sign-on (SSO) integration with AWS single sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial?WT.mc_id=wwc_spark) to create an enterprise application for SSO to AWS. Here's a summary of the procedure:
 
 1. Add AWS SSO from the gallery.
-1. Configure and test Azure AD SSO for AWS SSO:
-   1. Configure Azure AD SSO.
+1. Configure and test Microsoft Entra SSO for AWS SSO:
+   1. Configure Microsoft Entra SSO.
    1. Configure AWS SSO.
    1. Create an AWS SSO test user.
    1. Test SSO.
@@ -249,11 +249,13 @@ Follow the instructions at [Tutorial: Azure Active Directory single sign-on (SSO
 
    :::image type="content" source="media/verify-settings.png" alt-text="Screenshot of the Add a SAML application with your identity provider page. Under Verify your settings, two steps are visible.":::
 
-#### Configure Azure AD session policies for AWS activities
+<a name='configure-azure-ad-session-policies-for-aws-activities'></a>
 
-Session policies are a powerful combination of Azure AD conditional access policies and the reverse proxy capability of Defender for Cloud Apps. These policies provide real-time suspicious behavior monitoring and control.
+#### Configure Microsoft Entra session policies for AWS activities
 
-1. In Azure AD, create a new conditional access policy with the following settings:
+Session policies are a powerful combination of Microsoft Entra Conditional Access policies and the reverse proxy capability of Defender for Cloud Apps. These policies provide real-time suspicious behavior monitoring and control.
+
+1. In Microsoft Entra ID, create a new conditional access policy with the following settings:
    - Under **Name**, enter **AWS Console – Session Controls**.
    - Under **Users and Groups**, select the two role groups that you created earlier:
      - **AWS-Account1-Administrators**
@@ -267,7 +269,7 @@ Session policies are a powerful combination of Azure AD conditional access polic
 
 1. Select **Create**.
 
-After you create the Azure AD conditional access policy, set up a Defender for Cloud Apps session policy to control user behavior during AWS sessions.
+After you create the Microsoft Entra Conditional Access policy, set up a Defender for Cloud Apps session policy to control user behavior during AWS sessions.
 
 1. In the Defender for Cloud Apps portal, expand **Control** and then select **Policies**.
 
@@ -390,11 +392,11 @@ The following table shows the rule templates that are available for checking AWS
 
 | Analytic template name                                                 | Data sources                                                           |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| Known IRIDIUM IP                                                       | DNS, Azure Monitor, Cisco ASA, Palo Alto Networks, Azure AD, Azure Activity, AWS |
+| Known IRIDIUM IP                                                       | DNS, Azure Monitor, Cisco ASA, Palo Alto Networks, Microsoft Entra ID, Azure Activity, AWS |
 | Full Admin policy created and then attached to Roles, Users, or Groups | AWS                                                                              |
-| Failed AzureAD logons but success logon to AWS Console                 | Azure AD, AWS                                                                    |
-| Failed AWS Console logons but success logon to AzureAD                 | Azure AD, AWS                                                                    |
-| Multifactor authentication disabled for a user                         | Azure AD, AWS                                                                    |
+| Failed AzureAD logons but success logon to AWS Console                 | Microsoft Entra ID, AWS                                                                    |
+| Failed AWS Console logons but success logon to AzureAD                 | Microsoft Entra ID, AWS                                                                    |
+| Multifactor authentication disabled for a user                         | Microsoft Entra ID, AWS                                                                    |
 | Changes to AWS Security Group ingress and egress settings              | AWS                                                                              |
 | Monitor AWS Credential abuse or hijacking                              | AWS                                                                              |
 | Changes to AWS Elastic Load Balancer security groups                   | AWS                                                                              |
@@ -439,7 +441,7 @@ Principal author:
 
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices).
 - For the latest Microsoft security information, see [Microsoft Security](https://www.microsoft.com/security).
-- For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
+- For full details of how to implement and manage Microsoft Entra ID, see [Securing Azure environments with Microsoft Entra ID](https://aka.ms/AzureADSecuredAzure).
 - For an overview of AWS asset threats and corresponding protective measures, see [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
 - For information about connectors and how to establish connections, see these resources:
   - [Connect your AWS accounts to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-aws?pivots=env-settings)
@@ -450,4 +452,4 @@ Principal author:
 ## Related resources
 
 - For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
-- For guidance for deploying Azure AD identity and access solutions for AWS, see [Azure AD identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml).
+- For guidance for deploying Microsoft Entra identity and access solutions for AWS, see [Microsoft Entra identity and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml).

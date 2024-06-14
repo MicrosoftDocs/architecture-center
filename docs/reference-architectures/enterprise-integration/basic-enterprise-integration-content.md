@@ -20,7 +20,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 - **Azure DNS**. Azure DNS provides name resolution by using the Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing that you use for your other Azure services. To use a custom domain name, such as contoso.com, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in API Management][apim-domain].
 
-- **Azure Active Directory (Azure AD)**. Use [Azure AD][aad] to authenticate clients that call the API gateway. Azure AD supports the OpenID Connect (OIDC) protocol. Clients obtain an access token from Azure AD, and API Gateway [validates the token][apim-jwt] to authorize the request. If you use the Standard or Premium tier of API Management, Azure AD can also help secure access to the developer portal.
+- **Microsoft Entra ID**. Use [Microsoft Entra ID][aad] to authenticate clients that call the API gateway. Microsoft Entra ID supports the OpenID Connect (OIDC) protocol. Clients obtain an access token from Microsoft Entra ID, and API Gateway [validates the token][apim-jwt] to authorize the request. If you use the Standard or Premium tier of API Management, Microsoft Entra ID can also help secure access to the developer portal.
 
 ### Components
 
@@ -28,7 +28,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 - [Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless platform for building enterprise workflows that integrate applications, data, and services.
 - [API Management](https://azure.microsoft.com/products/api-management) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests.
 - [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for DNS domains.
-- [Azure AD](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Enterprise employees can use Azure AD to access external and internal resources.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Enterprise employees can use Microsoft Entra ID to access external and internal resources.
 
 ## Scenario details
 
@@ -97,7 +97,7 @@ Although this list doesn't completely describe all security best practices, here
 
 - To make sure users have appropriate access levels, use Azure role-based access control (Azure RBAC).
 
-- Secure public API endpoints in API Management by using OAuth or OpenID Connect. To secure public API endpoints, configure an identity provider, and add a JSON Web Token (JWT) validation policy. For more information, see [Protect an API by using OAuth 2.0 with Azure Active Directory and API Management][apim-oauth].
+- Secure public API endpoints in API Management by using OAuth or OpenID Connect. To secure public API endpoints, configure an identity provider, and add a JSON Web Token (JWT) validation policy. For more information, see [Protect an API by using OAuth 2.0 with Microsoft Entra ID and API Management][apim-oauth].
 
 - Connect to back-end services from API Management by using mutual certificates.
 

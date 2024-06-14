@@ -4,7 +4,7 @@ In this example scenario, you integrate Azure Digital Twins into line-of-busines
 
 :::image type="content" alt-text="Diagram that shows the architecture of this example, including business systems, Azure Data Factory, Azure Batch, Azure Digital Twins, Azure Storage, data pipelines, and activities." source="media/batch-integration-azure-data-factory-digital-twins-diagram.png" lightbox="media/batch-integration-azure-data-factory-digital-twins-diagram.png":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azure-data-factory-digital-twins-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -26,7 +26,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 
 - [Azure Batch](https://azure.microsoft.com/services/batch) runs the Custom activity code.
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
 
 ### Alternatives
 
@@ -137,4 +137,3 @@ Other contributors:
 - [Azure Digital Twins builder](/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
 - [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
 - [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
-- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)

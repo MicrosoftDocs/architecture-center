@@ -101,7 +101,7 @@ The following links address governance and compliance for DTL:
 
 #### Identity and Access Management
 
-Enterprise organizations typically follow a least-privileged approach to operational access designed through Azure AD, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions. The RBAC roles enable management of DTL resources, such as create virtual machines, create environments, and start, stop, restart, delete, and apply artifacts.
+Enterprise organizations typically follow a least-privileged approach to operational access designed through Microsoft Entra ID, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions. The RBAC roles enable management of DTL resources, such as create virtual machines, create environments, and start, stop, restart, delete, and apply artifacts.
 
 - Access to labs can be configured to segregate duties within your team into different [roles](/azure/devtest-labs/devtest-lab-add-devtest-user). Three of these RBAC roles are Owner, DevTest Labs User, and Contributor. The DTL resource should be owned by those who understand the project and team requirements for budget, machines, and required software. A common model is the project-lead or the app-admin as the lab owner and the team members as lab users. The Contributor role can be assigned to app-infra members who need permissions to manage lab resources. Lab owner is responsible for configuring the policies and adding the required users to the lab.
 - For enterprises that require users to connect with domain-based identities, a domain controller added to the Platform subscription can be used to domain-join DTL VMs. [DTL artifacts](/azure/devtest-labs/devtest-lab-concepts#artifacts) provide a way to domain-join VMs automatically. By default, DTL virtual machines use a local admin account.
@@ -150,7 +150,7 @@ In the context of DTL, automation involves:
 
 - Provisioning of DTL instance. Consistent and repeatable deployment of DTL with policies using [ARM/Bicep templates](/azure/templates/microsoft.devtestlab/labs?tabs=bicep) stored in GIT repository. Automation can be achieved through any CI/CD framework.
 - Provisioning of resources within DTL using Azure DevOps. Automation with the Azure Pipelines Marketplace extension, [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) to create and delete lab VMs, custom images, and environments.
-- Provisioning of Artifacts and PaaS [Environments](/azure/devtest-labs/devtest-lab-create-environment-from-arm) with DTL built-in automation. Configure [private custom repository](/azure/devtest-labs/devtest-lab-add-artifact-repo) (ADO or GitHub) in the lab or use the [public repository](https://github.com/Azure/azure-devtestlab) available for storing and automating artifacts and environment templates deployment.
+- Provisioning of Artifacts and PaaS [Environments](/azure/devtest-labs/devtest-lab-create-environment-from-arm) with DTL built-in automation. Configure [private custom repository](/azure/devtest-labs/devtest-lab-add-artifact-repo) (ADO or GitHub) in the lab or use the [Azure Lab Services Community](https://github.com/Azure/azure-devtestlab) repository content available for storing and automating artifacts and environment templates deployment.
 
 There are many other ways to automate Azure and DevTest Labs, including REST APIs, PowerShell, Azure CLI, and Azure SDK.
 
@@ -183,6 +183,5 @@ Principal author:
 ## Related resources
 
 - [Azure DevTest Labs reference architecture for enterprises](/azure/devtest-labs/devtest-lab-reference-architecture)
-- [DevTest Labs in the enterprise](/azure/devtest-labs/devtest-lab-guidance-prescriptive-adoption)
 - [Migrate a dev/test environment to Azure DevTest Labs](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-devtest-to-labs)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)

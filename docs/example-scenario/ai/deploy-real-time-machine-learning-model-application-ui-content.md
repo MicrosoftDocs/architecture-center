@@ -51,7 +51,7 @@ The ability to rapidly prototype and validate an AI application in a real-world 
 **Machine Learning**
 
 - Supports no-code to fully coded machine learning development
-- Has a flexible, low-code GUI
+- Has a flexible, low-code graphical user interface (GUI)
 - Enables users to rapidly source and prep data
 - Enables users to rapidly build and deploy models
 - Has advanced, automated machine learning capabilities for machine learning algorithm development
@@ -86,7 +86,7 @@ The applicability of this example workload *isn't limited to a specific industry
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-In the world of machine learning and custom model training and deployment, you should consider implementing more governance and adopt practices for operations like [MLOps](https://azure.microsoft.com/services/machine-learning/mlops/?msclkid=582fd3e1b10711ecb0ef71c8772fc3df), [DevOps](https://azure.microsoft.com/overview/what-is-devops), and continuous integration/continuous delivery (CI/CD).
+In the world of machine learning and custom model training and deployment, you should consider implementing more governance and adopt practices for operations like [MLOps](https://azure.microsoft.com/services/machine-learning/mlops/?msclkid=582fd3e1b10711ecb0ef71c8772fc3df), [DevOps](https://azure.microsoft.com/overview/what-is-devops), and continuous integration and continuous delivery (CI/CD).
 
 ### Reliability
 
@@ -122,7 +122,7 @@ You can use Power Automate to build a low-code workflow to parse a user's input,
 
 :::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the dashboard workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
 
-To deploy this end-to-end example, follow the [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
+To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure ML + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
 
 ## Contributors
 
@@ -155,7 +155,6 @@ Other contributors:
 
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
 - [Artificial intelligence (AI) architecture design](/azure/architecture/data-guide/big-data/ai-overview)
-- [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../mlops/mlops-technical-paper.yml)

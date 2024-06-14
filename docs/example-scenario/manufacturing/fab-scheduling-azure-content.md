@@ -174,20 +174,18 @@ Other contributors:
 ## Next steps 
 
 - [What is AKS?](/azure/aks/intro-kubernetes)
-- [Virtual machines in Azure](/azure/virtual-machines/windows/overview) 
-- [Use Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms) 
-- [Introduction to Azure Storage](/azure/storage/common/storage-introduction) 
-- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)  
-- [Using containers on Azure Batch](https://github.com/Azure/batch-shipyard) 
+- [Virtual machines in Azure](/azure/virtual-machines/windows/overview)
+- [Use Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [RDMA-capable VM Instances](/azure/virtual-machines/sizes-hpc#rdma-capable-instances) 
 - [HPC cluster configuration options](/azure/virtual-machines/sizes-hpc?branch=main#cluster-configuration-options)
-- [DeepSim product description](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWRwHJ) 
-- [minds.ai semiconductor solutions](https://minds.ai/semiconductor/) 
-- [DeepSim training platform](https://minds.ai/platform/) 
-- [Vestas supercharges its wind farm control models for sustainable energy with Azure HPC](https://customers.microsoft.com/story/1430379358742351454-vestas-energy-azure-hpc) 
+- [DeepSim product description](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWRwHJ)
+- [minds.ai semiconductor solutions](https://minds.ai/semiconductor/)
+- [DeepSim training platform](https://minds.ai/platform/)
+- [Vestas supercharges its wind farm control models for sustainable energy with Azure HPC](https://customers.microsoft.com/story/1430379358742351454-vestas-energy-azure-hpc)
 
 ## Related resources
 
-- [HPC for manufacturing](../../industries/manufacturing/compute-manufacturing-overview.yml)
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Use subject matter expertise in machine teaching and reinforcement learning](../../solution-ideas/articles/machine-teaching.yml)

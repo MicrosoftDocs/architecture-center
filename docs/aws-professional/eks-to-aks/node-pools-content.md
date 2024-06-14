@@ -62,7 +62,7 @@ az aks nodepool add \
 
 A spot node pool is a node pool backed by a [spot virtual machine scale set](/azure/virtual-machine-scale-sets/use-spot). Using spot virtual machines for nodes with your AKS cluster takes advantage of unutilized Azure capacity at a significant cost savings. The amount of available unutilized capacity varies based on many factors, including node size, region, and time of day.
 
-When deploying a spot node pool, Azure allocates the spot nodes if there's capacity available. But there's no SLA for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts spot nodes, and you get at most a 30-second notice before eviction. Be aware that a spot node pool can't be the cluster's default node pool. A spot node pool can be used only for a secondary pool.
+When deploying a spot node pool, Azure allocates the spot nodes if there's capacity available. But there's no service-level agreement (SLA) for the spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain and offers no high-availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts spot nodes, and you get at most a 30-second notice before eviction. Be aware that a spot node pool can't be the cluster's default node pool. A spot node pool can be used only for a secondary pool.
 
 Spot nodes are for workloads that can handle interruptions, early terminations, or evictions. For example, batch processing jobs, development and testing environments, and large compute workloads are good candidates for scheduling on a spot node pool. For more details, see the [spot instance's limitations](/azure/virtual-machines/spot-vms#limitations).
 
@@ -94,7 +94,7 @@ By contrast, ephemeral OS disks are stored only on the host machine, like a temp
 > [!IMPORTANT]
 > If you don't explicitly request managed disks for the OS, AKS defaults to an ephemeral OS if possible for a given node pool configuration.
 
-To use ephemeral OS, the OS disk must fit in the VM cache. Azure VM documentation shows VM cache size in parentheses next to IO throughput as **cache size in GiB**.
+To use ephemeral OS, the OS disk must fit in the VM cache. Azure VM documentation shows VM cache size in parentheses next to IO throughput as **cache size in gibibytes (GiB)**.
 
 For example, the AKS default Standard_DS2_v2 VM size with the default 100-GB OS disk size supports ephemeral OS, but has only 86 GB of cache size. This configuration defaults to managed disk if you don't explicitly specify otherwise. If you explicitly request ephemeral OS for this size, you get a validation error.
 
@@ -114,7 +114,7 @@ The following `az aks nodepool add` command shows how to add a new node pool to 
         --node-osdisk-size 48
   ```
 
-For more information about ephemeral OS disks, see [Ephemeral OS](/azure/aks/cluster-configuration#ephemeral-os).
+For more information about ephemeral OS disks, see [Ephemeral OS](/azure/aks/concepts-storage#ephemeral-os-disk).
 
 ### Virtual nodes
 
@@ -162,34 +162,36 @@ In the **Virtual node usage** column:
 - **Virtual node subnet name** is the subnet that deploys virtual node pods into Azure Container Instances.
 - **Virtual node virtual network** is the virtual network that contains the virtual node subnet.
 
+<!-- docutune:ignoredCasing io/os instance-sku os-sku -->
+
 | Label | Value | Example, options | Virtual node usage |
 | ---- | --- | --- | --- |
-| kubernetes.azure.com/agentpool| `<agent pool name>` | `nodepool1` | Same |
-| kubernetes.io/arch | amd64 | `runtime.GOARCH` | N/A |
-| kubernetes.io/os| `<OS Type>` | `Linux` or `Windows` | `Linux` |
-| node.kubernetes.io/instance-type| `<VM size>` | `Standard_NC6` | `Virtual` |
-| topology.kubernetes.io/region| `<Azure region>` | `westus2` | Same |
-| topology.kubernetes.io/zone| `<Azure zone>` | `0` | Same |
-| kubernetes.azure.com/cluster| `<MC_RgName>` | `MC_aks_myAKSCluster_westus2` | Same |
-| kubernetes.azure.com/mode| `<mode>` | `User` or `System` | `User` |
-| kubernetes.azure.com/role | agent | `Agent` | Same |
-| kubernetes.azure.com/scalesetpriority| `<scale set priority>` | `Spot` or `Regular` | N/A |
-| kubernetes.io/hostname| `<hostname>` | `aks-nodepool-00000000-vmss000000` | Same |
-| kubernetes.azure.com/storageprofile| `<OS disk storage profile>` | `Managed` | N/A |
-| kubernetes.azure.com/storagetier| `<OS disk storage tier>` | `Premium_LRS` | N/A |
-| kubernetes.azure.com/instance-sku| `<SKU family>` | `Standard_N` | `Virtual` |
-| kubernetes.azure.com/node-image-version| `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
-| kubernetes.azure.com/subnet| `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
-| kubernetes.azure.com/vnet| `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
-| kubernetes.azure.com/ppg | `<nodepool ppg name>` | `ppgName` | N/A |
-| kubernetes.azure.com/encrypted-set| `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
-| kubernetes.azure.com/accelerator| `<accelerator>` | `Nvidia` | N/A |
-| kubernetes.azure.com/fips_enabled| `<fips enabled>` | `True` | N/A |
-| kubernetes.azure.com/os-sku| `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
+| `kubernetes.azure.com/agentpool` | `<agent pool name>` | `nodepool1` | Same |
+| `kubernetes.io/arch` | `amd64` | `runtime.GOARCH` | N/A |
+| `kubernetes.io/os` | `<OS Type>` | `Linux` or `Windows` | `Linux` |
+| `node.kubernetes.io/instance-type` | `<VM size>` | `Standard_NC6` | `Virtual` |
+| `topology.kubernetes.io/region` | `<Azure region>` | `westus2` | Same |
+| `topology.kubernetes.io/zone` | `<Azure zone>` | `0` | Same |
+| `kubernetes.azure.com/cluster` | `<MC_RgName>` | `MC_aks_myAKSCluster_westus2` | Same |
+| `kubernetes.azure.com/mode` | `<mode>` | `User` or `System` | `User` |
+| `kubernetes.azure.com/role` | `agent` | `Agent` | Same |
+| `kubernetes.azure.com/scalesetpriority` | `<scale set priority>` | `Spot` or `Regular` | N/A |
+| `kubernetes.io/hostname` | `<hostname>` | `aks-nodepool-00000000-vmss000000` | Same |
+| `kubernetes.azure.com/storageprofile` | `<OS disk storage profile>` | `Managed` | N/A |
+| `kubernetes.azure.com/storagetier` | `<OS disk storage tier>` | `Premium_LRS` | N/A |
+| `kubernetes.azure.com/instance-sku` | `<SKU family>` | `Standard_N` | `Virtual` |
+| `kubernetes.azure.com/node-image-version` | `<VHD version>` | `AKSUbuntu-1804-2020.03.05` | Virtual node version |
+| `kubernetes.azure.com/subnet` | `<nodepool subnet name>` | `subnetName` | Virtual node subnet name |
+| `kubernetes.azure.com/vnet` | `<nodepool virtual network name>` | `vnetName` | Virtual node virtual network |
+| `kubernetes.azure.com/ppg` | `<nodepool ppg name>` | `ppgName` | N/A |
+| `kubernetes.azure.com/encrypted-set` | `<nodepool encrypted-set name>` | `encrypted-set-name` | N/A |
+| `kubernetes.azure.com/accelerator` | `<accelerator>` | `Nvidia` | N/A |
+| `kubernetes.azure.com/fips_enabled` | `<fips enabled>` | `True` | N/A |
+| `kubernetes.azure.com/os-sku` | `<os/sku>` | See [Create or update OS SKU](/rest/api/aks/agent-pools/create-or-update#ossku) | Linux SKU |
 
 ### Windows node pools
 
-AKS supports creating and using Windows Server container node pools through the [Azure CNI](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
+AKS supports creating and using Windows Server container node pools through the [Azure container network interface (CNI)](/azure/aks/concepts-network#azure-cni-advanced-networking) network plugin. To plan the required subnet ranges and network considerations, see [configure Azure CNI networking](/azure/aks/configure-azure-cni).
 
 The following `az aks nodepool add` command adds a node pool that runs Windows Server containers.
 
@@ -420,4 +422,3 @@ Other contributors:
 - [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service/)
 - [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
 - [Optimize compute costs on Azure Kubernetes Service (AKS)](/learn/modules/aks-optimize-compute-costs/)
-

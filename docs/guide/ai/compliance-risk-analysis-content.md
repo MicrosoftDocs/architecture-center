@@ -10,7 +10,7 @@ Compliance teams work to mitigate these risks. Part of their work is monitoring 
 
 Azure Cognitive Search can help you automate and improve the quality of risk assessment. It has built-in AI, extensible AI, and intelligent search capabilities. The compliance risk analysis solution presented in this article shows you how to identify risks, like misconduct of financial traders, by consolidating and analyzing content from various communication channels. The potential risks that can be identified in this unstructured content include signals of market manipulation, insider trading, mutual fund fraud, and others.
 
-The solution architecture uses Azure Cognitive Services and Azure Cognitive Search. The scenario targets communication risks in the financial sector, but the design pattern transfers to other industries and sectors, such as government and health care. Organizations can adapt the architecture by developing and integrating risk assessment models that apply to their business scenarios. For example, the [Wolters Kluwer demo app](http://wolterskluwereap.azurewebsites.net) provides attorneys the ability to quickly find relevant information in Securities and Exchange Commission (SEC) filings and correspondence. It identifies risks related to financing, including cybersecurity and intellectual property risks.
+The solution architecture uses Azure Cognitive Services and Azure Cognitive Search. The scenario targets communication risks in the financial sector, but the design pattern transfers to other industries and sectors, such as government and health care. Organizations can adapt the architecture by developing and integrating risk assessment models that apply to their business scenarios. For example, the [Wolters Kluwer demo app](https://www.wolterskluwer.com/solutions/transactional-law-suite/rbsourcefilings) provides attorneys the ability to quickly find relevant information in Securities and Exchange Commission (SEC) filings and correspondence. It identifies risks related to financing, including cybersecurity and intellectual property risks.
 
 Azure Cognitive Search has built-in AI and custom skills that improve business process performance and the productivity of compliance teams. It's especially useful for the following situations:
 
@@ -85,8 +85,7 @@ Implementing a risk analysis solution is a multidisciplinary exercise that requi
 
 > [!TIP]
 >
-> - Refer to this [step-by-step guide](https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/22-azure-search.md) for a hands-on experience of creating an Azure Cognitive Search solution.
-> - Check out the [documentation](/azure/search/search-what-is-azure-search) for more information about Azure Cognitive Search.
+> - Check out the [documentation](/azure/search/search-what-is-azure-search) for more information about Azure AI Search.
 
 ## Data Ingestion
 
@@ -190,7 +189,7 @@ The following diagram shows an audio ingestion and speech-to-text pipeline. The 
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
-In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Azure Active Directory and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
+In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Microsoft Entra ID and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
 
 After the files are uploaded, an Azure Event Grid trigger is emitted to invoke an Azure function. The function then processes the audio file by using the Cognitive Services Speech-to-Text API. The transcribed JSON document is then stored in a separate blob container, which can be ingested as a data source by Azure Cognitive Search.
 
@@ -198,7 +197,7 @@ After the files are uploaded, an Azure Event Grid trigger is emitted to invoke a
 >
 > Refer to the following article for details on integrating speech transcription:
 >
-> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 
 ## Search solution
 
@@ -390,9 +389,8 @@ For information about how to use the Azure Cognitive Search REST API to programm
 > [!TIP]
 >
 > - [Quickstart: Create a knowledge store in the Azure portal](/azure/search/knowledge-store-create-portal)
-> - [Create a Knowledge Store with Azure Cognitive Search](https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/24-knowledge-store.md)
-> - [Knowledge store in Azure Cognitive Search](/azure/search/knowledge-store-concept-intro?tabs=portal)
-> - [Semantic search in Azure Cognitive Search](/azure/search/semantic-search-overview)
+> - [Knowledge store in Azure AI Search](/azure/search/knowledge-store-concept-intro?tabs=portal)
+> - [Semantic search in Azure AI Search](/azure/search/semantic-search-overview)
 > - [Tutorial: Use REST and AI to generate searchable content from Azure blobs](/azure/search/cognitive-search-tutorial-blob)
 
 ## AI enrichments
@@ -558,7 +556,6 @@ The architecture can be reused to integrate more advanced NLP models (for exampl
 >
 > How to implement:
 >
-> - Refer to this [step-by-step guide](https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/23-search-skills.md) from Microsoft Learn for a hands-on experience to create a custom skill for Azure Cognitive Search.
 > - This [example from the documentation](/azure/search/cognitive-search-custom-skill-python) was used as starting point for building the risk analysis solution described in this guide.
 > - Use this guide to [build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill).
 
@@ -613,7 +610,7 @@ After a search solution is implemented, you can query the index directly by usin
 
 A customized user interface, focusing on the user experience, is useful to show the true value of the search solution and to make it possible for organizations to identify and review risk communications across a range of channels and sources.
 
-The [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
+The [Knowledge Mining Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
 
 In a few steps, the template UI can be configured to connect and query the search index, rendering a simple web page to search and visualize the results. This template can be further customized to enhance the experience of retrieving and analyzing risk communications.
 
@@ -672,7 +669,7 @@ This section summarizes organizational and technical best practices for developi
 - Inclusiveness
 - Transparency and accountability
 
-The evaluation of employee communications requires special attention and raises ethical concerns. In some countries, automated monitoring of employees is subject to strict legal restrictions. For all these reasons, make responsible innovation a cornerstone of your project plan. Microsoft offers several frameworks and tools for this purpose. For more information, refer to the **Tip** box at the end of this section.
+The evaluation of employee communications requires special attention and raises ethical concerns. In some countries/regions, automated monitoring of employees is subject to strict legal restrictions. For all these reasons, make responsible innovation a cornerstone of your project plan. Microsoft offers several frameworks and tools for this purpose. For more information, refer to the **Tip** box at the end of this section.
 
 **Automate your development iterations:** The Import data wizard makes it easy to get started, but for more complex solutions and productive use cases, we recommend that you create assets such as data sources, indexers, indexes, and skillsets in code. Automation dramatically speeds up development cycles and ensures a consistent deployment to production. The assets are specified in JSON format. You can copy JSON definitions from the portal, modify them as needed, and then provide them in the request body of calls to the Azure Cognitive Search REST APIs.
 
@@ -680,7 +677,7 @@ The evaluation of employee communications requires special attention and raises 
 
 In cases where the risk signs are more subtle and span several sentences, training a state-of-the-art NLP model is likely the better choice. However, this approach typically requires significantly more training data. We recommend using, whenever possible,  the real-world data when the solution is in production, to adjust for potential mispredictions and to continuously retrain the model to improve its performance over time.
 
-**Adapt the UI based on your specific requirements:** A rich user interface can make available all the added value of Azure Cognitive Search and the AI enrichments. Although the [Azure Cognitive Search UI Template](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/main/02%20-%20Web%20UI%20Template) provides an easy and quick way to implement an initial web application, it probably has to be adapted to integrate additional features. It also needs to accommodate the types of communications that are processed, the types of AI enrichments that are used, and any additional business requirements. Continuous collaboration and iteration between front-end developers, business stakeholders, and end users will help enhance the value of the solution by optimizing the user experience of finding and reviewing relevant communications.
+**Adapt the UI based on your specific requirements:** A rich user interface can make available all the added value of Azure Cognitive Search and the AI enrichments. Although the [Azure AI Search UI Template](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/main/02%20-%20Web%20UI%20Template) provides an easy and quick way to implement an initial web application, it probably has to be adapted to integrate additional features. It also needs to accommodate the types of communications that are processed, the types of AI enrichments that are used, and any additional business requirements. Continuous collaboration and iteration between front-end developers, business stakeholders, and end users will help enhance the value of the solution by optimizing the user experience of finding and reviewing relevant communications.
 
 **Optimize costs for translation services:** By default, all documents flow through the AI enrichment pipeline. This means that English language documents are passed to the translation service even though no actual translation is needed. However, because the content is processed by the Translation API, charges nevertheless apply. In our solution, we use language detection in conjunction with conditional skills to avoid translation in these cases. If the detected language of the original document isn't English, the content is copied to a specific field for non-English content and then passed to the translation service. If the document is in English, this field is empty and no translation charges are generated. Finally, all content (originally English or translated) is merged into a common field for further processing. You can also [enable caching](/azure/search/cognitive-search-incremental-indexing-conceptual) to reuse existing enrichments.
 
@@ -702,7 +699,7 @@ This guide provides comprehensive guidance for setting up a solution that uses A
 You can extend the architecture to include other data sources and AI capabilities, such as:
 
 - Ingesting structured data, such as market data (for example, stock quotes) and transaction information.
-- Attaching classification models that are designed to extract content from paper-based sources, by using capabilities such as the [Azure Form Recognizer](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio) and the Azure Read API.
+- Attaching classification models that are designed to extract content from paper-based sources, by using capabilities such as the [Azure Form Recognizer](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0) and the Azure Read API.
 - Ingesting social networking information by using Azure Language Studio capabilities to categorize and filter relevant topics, or Azure Sentiment Analysis to capture opinion trends.
 - Using Microsoft Graph to assemble and consolidate information from Microsoft 365, such as interpersonal interactions, companies that people work with, or information that they access. When you save this data in Azure Storage, you can easily search it.
 
@@ -723,14 +720,10 @@ Principal authors:
 ## Next Steps
 
 - [Quickstart: Create an Azure Cognitive Search index in the Azure portal](/azure/search/search-get-started-portal)
-- [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining)
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance)
 - [Knowledge mining for customer support and feedback analysis](/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
 - [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 - [Large-scale custom natural language processing](/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing)
 - [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)
-- [Knowledge mining in contract management](/azure/architecture/solution-ideas/articles/contract-management)
-- [Knowledge mining in digital asset management](/azure/architecture/solution-ideas/articles/digital-asset-management)

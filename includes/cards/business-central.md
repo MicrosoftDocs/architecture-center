@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/business-central"><img src="/azure/architecture/browse/thumbs/business-central.png" class="diagram" alt="Thumbnail of Dynamics Business Central as a Service on Azure Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solutions/dynamics-365-scenarios"><img src="/azure/architecture/browse/thumbs/business-central.png" class="diagram" alt="Thumbnail of Dynamics Business Central as a Service on Azure Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/business-central">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/solutions/dynamics-365-scenarios">
             <p>Dynamics Business Central as a Service on Azure</p>
         </a>
         <ul class="card-content-metadata">

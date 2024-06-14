@@ -12,7 +12,6 @@ categories:
 products:
 - azure-monitor
 ms.custom:
-  - seojan19
   - guide
 ---
 

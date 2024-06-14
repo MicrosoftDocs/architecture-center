@@ -39,7 +39,7 @@ With the geo-distributed pattern, your app spans regions. You can default to the
 
 #### Scalability considerations
 
-The solution you'll build with this article isn't to accommodate scalability. However, if used in combination with other Azure and on-premises solutions, you can accommodate scalability requirements. For information on creating a hybrid solution with autoscaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](solution-deployment-guide-cross-cloud-scaling.md).
+The solution you'll build with this article isn't to accommodate scalability. However, if used in combination with other Azure and on-premises solutions, you can accommodate scalability requirements.
 
 #### Availability considerations
 
@@ -57,15 +57,15 @@ As is the case with scalability considerations, this solution doesn't directly a
 
 Before building out a distributed app footprint, it helps to know the following things:
 
-- **Custom domain for the app:** What's the custom domain name that customers will use to access the app? For the sample app, the custom domain name is *www\.scalableasedemo.com.*
+- **Custom domain for the app:** What's the custom domain name that customers will use to access the app? For the sample app, the custom domain name is `www.scalableasedemo.com`.
 
-- **Traffic Manager domain:** A domain name is chosen when creating an [Azure Traffic Manager profile](/azure/traffic-manager/traffic-manager-manage-profiles). This name is combined with the *trafficmanager.net* suffix to register a domain entry that's managed by Traffic Manager. For the sample app, the name chosen is *scalable-ase-demo*. As a result, the full domain name that's managed by Traffic Manager is *scalable-ase-demo.trafficmanager.net*.
+- **Traffic Manager domain:** A domain name is chosen when creating an [Azure Traffic Manager profile](/azure/traffic-manager/traffic-manager-manage-profiles). This name is combined with the `trafficmanager.net` suffix to register a domain entry that's managed by Traffic Manager. For the sample app, the name chosen is `scalable-ase-demo`. As a result, the full domain name that's managed by Traffic Manager is `scalable-ase-demo.trafficmanager.net`.
 
 - **Strategy for scaling the app footprint:** Decide whether the app footprint will be distributed across multiple App Service environments in a single region, multiple regions, or a mix of both approaches. The decision should be based on expectations of where customer traffic will originate and how well the rest of an app's supporting back-end infrastructure can scale. For example, with a 100% stateless app, an app can be massively scaled using a combination of multiple App Service environments per Azure region, multiplied by App Service environments deployed across multiple Azure regions. With 15+ global Azure regions available to choose from, customers can truly build a world-wide hyper-scale app footprint. For the sample app used here, three App Service environments were created in a single Azure region (South Central US).
 
 - **Naming convention for the App Service environments:** Each App Service environment requires a unique name. Beyond one or two App Service environments, it's helpful to have a naming convention to help identify each App Service environment. For the sample app used here, a simple naming convention was used. The names of the three App Service environments are *fe1ase*, *fe2ase*, and *fe3ase*.
 
-- **Naming convention for the apps:** Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app. With App Service Environment for Power Apps, the same app name can be used across multiple environments. Since each App Service environment has a unique domain suffix, developers can choose to reuse the exact same app name in each environment. For example, a developer could have apps named as follows: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, and so on. For the app used here, each app instance has a unique name. The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
+- **Naming convention for the apps:** Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app. With App Service Environment for Power Apps, the same app name can be used across multiple environments. Since each App Service environment has a unique domain suffix, developers can choose to reuse the exact same app name in each environment. For example, a developer could have apps named as follows: `myapp.foo1.p.azurewebsites.net`, `myapp.foo2.p.azurewebsites.net`, `myapp.foo3.p.azurewebsites.net`, and so on. For the app used here, each app instance has a unique name. The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
 
 > [!Tip]
 > ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
@@ -91,13 +91,13 @@ An Azure subscription and Azure Stack Hub installation are required.
 
 ### Obtain a custom domain and configure DNS
 
-Update the DNS zone file for the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
+Update the DNS zone file for the domain. Microsoft Entra ID can then verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
 
 1. Register a custom domain with a public registrar.
 
 2. Sign in to the domain name registrar for the domain. An approved admin may be required to make the DNS updates.
 
-3. Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD. The DNS entry doesn't change behaviors such as mail routing or web hosting.
+3. Update the DNS zone file for the domain by adding the DNS entry provided by Microsoft Entra ID. The DNS entry doesn't change behaviors such as mail routing or web hosting.
 
 ### Create web apps and publish
 
@@ -262,13 +262,13 @@ To complete this solution:
 
 - Purchase a domain name and ensure access to the DNS registry for the domain provider.
 
-Update the DNS zone file for the domain. Azure AD will verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
+Update the DNS zone file for the domain. Microsoft Entra ID will verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
 
 - Register a custom domain with a public registrar.
 
 - Sign in to the domain name registrar for the domain. (An approved admin may be required to make DNS updates.)
 
-- Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD.
+- Update the DNS zone file for the domain by adding the DNS entry provided by Microsoft Entra ID.
 
 For example, to add DNS entries for northwindcloud.com and www\.northwindcloud.com, configure DNS settings for the northwindcloud.com root domain.
 

@@ -10,7 +10,7 @@ Automating workflows and repetitive tasks on the cloud, by using [serverless tec
 
 This article illustrates two key cloud automation scenarios:
 
-1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Azure Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/) or the [MSAL for Python library](https://github.com/AzureAD/microsoft-authentication-library-for-python).
+1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Azure Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Microsoft Entra ID, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Microsoft Entra ID are mocked out for simplicity. Microsoft Entra ID can also be integrated using the [Microsoft Graph PowerShell module](/powershell/microsoftgraph/overview) or the [Microsoft Authentication Library (MSAL) for Python](https://github.com/AzureAD/microsoft-authentication-library-for-python).
 
 1. **Throttling response**: This example monitors an Azure Cosmos DB database for throttling. [Azure Monitor alerts](/azure/azure-monitor/overview#alerts) are triggered when data access requests to Azure Cosmos DB exceed the [capacity in Request Units (or RUs)](/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts.
 
@@ -79,7 +79,7 @@ The architecture consists of the following components:
 
 - [Azure Monitor](https://azure.microsoft.com/products/monitor). Azure Monitor alerts can monitor for critical conditions, and take corrective action using Azure Monitor action groups. These action groups are easily integrated with Azure Functions. This is useful to watch for and fix any error conditions in your infrastructure, such as database throttling.
 
-- **Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a database to provision as in the second scenario.
+- **Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Microsoft Entra ID for tag validation as in the first scenario, or a database to provision as in the second scenario.
 
 ## Considerations
 
@@ -107,7 +107,7 @@ Verify the concurrency requirement for your automation function. Concurrency is 
 
 ##### Idempotency
 
-Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., your resource is *being provisioned*, *created successfully*, etc., or even send false alerts due to a misconfiguration. Make sure your function acts only on the relevant alerts and events, and ignores all others, so that false or misconfigured events do not cause unwanted results. For more information, see [Designing Azure Functions for identical input](/azure/azure-functions/functions-idempotent).
+Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, or *in progress*, and your resource is *being provisioned*, *created successfully*, and so on. or even send false alerts due to a misconfiguration. Make sure your function acts only on the relevant alerts and events, and ignores all others, so that false or misconfigured events do not cause unwanted results. For more information, see [Designing Azure Functions for identical input](/azure/azure-functions/functions-idempotent).
 
 #### Event Grid
 
@@ -167,7 +167,7 @@ To compare pricing and features between these options, read [Azure Functions sca
 
 #### Control what the function can access
 
-[Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), an Azure Active Directory feature, simplifies how the function authenticates and accesses other Azure resources and services. The code does not need to manage the authentication credentials, since it is managed by Azure AD.
+[Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), a Microsoft Entra feature, simplifies how the function authenticates and accesses other Azure resources and services. The code does not need to manage the authentication credentials, since it is managed by Microsoft Entra ID.
 
 There are two types of managed identities:
 
@@ -211,7 +211,7 @@ Azure Functions are available with [the following three pricing plans](/azure/az
 
 - **App Service plan**. Hybrid automation scenarios that use the [Azure App Service Hybrid Connections](/azure/app-service/app-service-hybrid-connections), will need to use the App Service plan. The functions created under this plan can run for unlimited duration, similar to a web app.
 
-In these automation scenarios Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing Azure Cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not long-running.
+In these automation scenarios Azure Functions are used for tasks such as updating tags in Microsoft Entra ID, or changing Azure Cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not long-running.
 
 #### Azure Cosmos DB
 
@@ -225,7 +225,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 
 ### Deployment considerations
 
-For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](../../reference-architectures/serverless/web-app.yml#back-end-deployment).
+For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](../../web-apps/serverless/architectures/web-app.yml#back-end-deployment).
 
 If the automation covers multiple applications, keep the resources required by the automation in a [separate resource group](/azure/azure-resource-manager/resource-group-overview#resource-groups). A single resource group can be shared between automation and application resources, if the automation covers a single application.
 
@@ -251,7 +251,7 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 ## Related resources
 
-- [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Code walkthrough: Serverless application with Functions](../../web-apps/serverless/architectures/code.yml)
 - [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
 - [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
 

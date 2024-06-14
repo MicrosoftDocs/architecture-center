@@ -21,7 +21,7 @@ azureCategories:
   - storage
 summary: With identity-based authentication, you can control access to Azure file shares by using Active Directory Directory Services users and groups.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-files
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-file-share.png
 content: |

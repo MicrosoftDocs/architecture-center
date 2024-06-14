@@ -4,9 +4,9 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ## Architecture
 
-:::image type="content" source="images/analytics-dataflow.png" alt-text="Diagram that shows the analytics dataflow for automotive streaming data and files." border="false" lightbox="images/analytics-dataflow.png":::
+:::image type="content" source="images/analytics-dataflow.svg" alt-text="Diagram that shows the analytics dataflow for automotive streaming data and files." border="false" lightbox="images/analytics-dataflow.svg":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/NextGenerationTelemetryAnalyticsforAutomotive.pptx) with all the diagrams in this article.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/next-generation-telemetry-analytics-automotive.pptx) with all the diagrams in this article.*
 
 ### Dataflow
 
@@ -30,7 +30,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ### Azure Data Explorer schema
 
-:::image type="content" source="images/data-explorer-schema.png" alt-text="Diagram that shows the Azure Data Explorer functions and methods for extracting, expanding, and enriching data." border="false":::
+:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the Azure Data Explorer functions and methods for extracting, expanding, and enriching data." border="false":::
 
 1. The `Update()` function uses methods such as:
 
@@ -60,7 +60,7 @@ The following key technologies implement this workload:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
 - [Azure Functions](https://azure.microsoft.com/services/functions)
 - [Azure Managed Grafana](https://azure.microsoft.com/services/managed-grafana)
-- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps)
 - [Azure API Management](https://azure.microsoft.com/services/api-management)
 - [Power BI](https://powerbi.microsoft.com)
@@ -69,7 +69,7 @@ The following key technologies implement this workload:
 
 [Azure Batch](https://azure.microsoft.com/services/batch) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or type.
 
-:::image type="content" source="images/batch-workflow.png" alt-text="Diagram that shows an alternative Azure Batch method for decoding complex files." border="false":::
+:::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Azure Batch method for decoding complex files." border="false":::
 
 1. Uploading a recorded data file to Blob Storage triggers a Functions app to schedule decoding.
 1. The Functions app creates a batch job, taking into consideration the file type, size, and required decoding algorithm. The app selects a suitable virtual machine (VM) from the pool and starts the job.
@@ -118,7 +118,7 @@ It's important to understand the division of responsibility between the automoti
 
 - Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 - Encryption at rest and in transit.
-- Identity and access management that uses Azure Active Directory (Azure AD) identities and [Azure AD Conditional Access](/azure/active-directory/conditional-access) policies.
+- Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 - [Row Level Security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for Azure Data Explorer.
 - Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 - Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).

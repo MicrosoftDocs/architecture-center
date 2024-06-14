@@ -36,7 +36,7 @@ The first step is to collect data for research and training purposes. Then, the 
 
    - [Azure Key Vault](/azure/key-vault/general/overview) to securely store connection strings, passwords, and secrets that different components use.
    - [Azure Monitor](/azure/azure-monitor/overview) to monitor service health and performance.
-   - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) as the identity and access management provider.
+   - [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) as the identity and access management provider.
    - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) to manage the Machine Learning lifecycle and orchestration.
 
 ### Components
@@ -59,7 +59,7 @@ The first step is to collect data for research and training purposes. Then, the 
 
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
 
-- [Azure AD](https://azure.microsoft.com/products/active-directory) is an Azure cloud-based identity and access management service.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an Azure cloud-based identity and access management service.
 
 - [Azure DevOps](https://azure.microsoft.com/products/devops) is a set of modern developer services that supports collaborative continuous integration and continuous deployment (CI/CD).
 
@@ -75,7 +75,7 @@ The first step is to collect data for research and training purposes. Then, the 
 
 Genomics quantifies the entirety of an organism's genes, called its *genome*. Healthcare and genomics researchers with bioinformatics expertise analyze large amounts of complex DNA sequence data for variations that affect health, diseases, or drug response. Genomics has achieved great breakthroughs in the past couple of decades, but the challenge of processing enormous amounts of genomic data requires complex algorithms and HPC power. To analyze this complex data for meaningful patterns, researchers use AI and machine learning.
 
-Ray is an open-source unified compute framework that makes it easy to scale AI workloads for large-scale machine learning applications. Ray-on-AML offers scalable computational power, high availability, and parallel computing on multinode clusters. The Ray-on-AML library turns Machine Learning compute instances and compute clusters into Ray and [Dask](https://docs.ray.io/en/latest/data/dask-on-ray.html) clusters that give Machine Learning powerful computational performance to handle complex genomics data.
+Ray is an open-source unified compute framework that makes it easy to scale AI workloads for large-scale machine learning applications. Ray-on-AML offers scalable computational power, high availability, and parallel computing on multinode clusters. The Ray-on-AML library turns Machine Learning compute instances and compute clusters into Ray and [Dask](https://docs.ray.io/en/latest/data/api/input_output.html#dask) clusters that give Machine Learning powerful computational performance to handle complex genomics data.
 
 The virtual cross match use case dwells solely within the Machine Learning ecosystem, so it's easy to integrate its components. This use case also demonstrates how to use research projects for viable applications that can generate social and economic value, while keeping the research project separate.
 
@@ -105,7 +105,7 @@ The components in this architecture feature high availability. However, machine 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The components in this scenario have built-in security. You can also manage permissions via Azure AD authentication or role-based access control. Follow [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
+The components in this scenario have built-in security. You can also manage permissions via Microsoft Entra authentication or role-based access control. Follow [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
 To store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security, follow the [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) architecture.
 
@@ -160,10 +160,8 @@ Other contributors:
 
 ## Related resources
 
-- [Batch scoring of Python models on Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python)
-- [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
-- [MLOps for Python models using Azure Machine Learning](/azure/architecture/reference-architectures/ai/mlops-python)
+- [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)
+- [MLOps for Python models using Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-python)
 - [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai)
 - [Precision medicine pipeline with genomics](/azure/architecture/example-scenario/precision-medicine/genomic-analysis-reporting)
 - [Health data consortium on Azure](/azure/architecture/example-scenario/data/azure-health-data-consortium)
-

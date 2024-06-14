@@ -1,8 +1,8 @@
 ---
 title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
-author: martinekuan
-mas.author: architectures
+author: nabilshams
+ms.author: nasiddi
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -25,7 +25,7 @@ ms.custom:
 >
 > Unless you already have an Azure Data Lake Storage Gen1 account, you cannot create new ones.
 
-This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
+This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or real-time streaming ingestion.
 
 ## What are your options when choosing data storage in Azure?
 
@@ -58,9 +58,9 @@ Azure Blob storage can be accessed from Hadoop (available through HDInsight). HD
 Other features that make Azure Storage a good choice are:
 
 - [Multiple concurrency strategies](/azure/storage/common/storage-concurrency).
-- [Disaster recovery and high availability options](/azure/storage/common/storage-disaster-recovery-guidance).
+- [Disaster recovery and high-availability options](/azure/storage/common/storage-disaster-recovery-guidance).
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
-- [Azure role-based access control (Azure RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Azure Active Directory users and groups.
+- [Azure role-based access control (RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Microsoft Entra users and groups.
 
 ## Azure Data Lake Storage Gen1
 
@@ -121,15 +121,15 @@ The following tables summarize the key differences in capabilities.
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Azure Active Directory Identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
-| Authentication protocol | OAuth 2.0. Calls must contain a valid JWT (JSON web token) issued by Azure Active Directory | Hash-based message authentication code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
-| Authorization | POSIX access control lists (ACLs). ACLs based on Azure Active Directory identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
+| Authentication | Based on [Microsoft Entra identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
+| Authentication protocol | Open Authorization (OAuth) 2.0. Calls must contain a valid JWT (JSON web token) issued by Microsoft Entra ID | Hash-based Message Authentication Code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
+| Authorization | Portable Operating System Interface (POSIX) access control lists (ACLs). ACLs based on Microsoft Entra identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
 | Auditing | Available.  |Available |
 | Encryption at rest | Transparent, server side | Transparent, server side; Client-side encryption |
 | Developer SDKs | .NET, Java, Python, Node.js | .NET, Java, Python, Node.js, C++, Ruby |
 | Analytics workload performance | Optimized performance for parallel analytics workloads, High Throughput and IOPS | Not optimized for analytics workloads |
 | Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](/azure/azure-subscription-service-limits#storage-limits) |
-| Geo-redundancy | Locally-redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [here](/azure/storage/common/storage-redundancy) for more information |
+| Geo-redundancy | Locally-redundant (locally redundant storage (LRS)), globally redundant (geo-redundant storage (GRS)), read-access globally redundant (read-access geo-redundant storage (RA-GRS)), zone-redundant (zone-redundant storage (ZRS)). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [here](/azure/storage/common/storage-redundancy) for more information |
 
 ### NoSQL database capabilities
 
@@ -150,8 +150,8 @@ The following tables summarize the key differences in capabilities.
 | Primary database model|Relational (column store), telemetry, and time series store|
 | SQL language support|Yes|
 | Pricing model| Elastically scalable cluster instances|
-| Authentication| Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md)|
-| Encryption at rest| Supported, customer managed keys|
+| Authentication| Based on Microsoft Entra identities|
+| Encryption at rest| Supported, customer-managed keys|
 | Analytics workload performance| Optimized performance for parallel analytics workloads|
 | Size limits| Linearly scalable|
 

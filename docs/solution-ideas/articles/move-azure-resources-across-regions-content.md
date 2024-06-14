@@ -2,7 +2,9 @@ This solution moves Azure resources across regions efficiently, securely, and se
 
 ## Architecture
 
-![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
+:::image type="content" border="false" source="../media/move-azure-resources-architecture-diagram.svg" alt-text="Diagram that shows the dataflow of moving Azure resources across regions solution." lightbox="../media/move-azure-resources-architecture-diagram.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/move-azure-resources-across-regions.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -28,10 +30,10 @@ The example architecture uses the following components:
 
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 * [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
-* [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds)
+* [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds)
 * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-* [Azure App Service](https://azure.microsoft.com/services/app-service)
+* [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps)
 * [Cognitive services](https://azure.microsoft.com/services/cognitive-services)
 * [Azure Automation](https://azure.microsoft.com/services/automation)
 
@@ -90,7 +92,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Consider the following points when making a cross-regional move:
 
-* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multi-cloud strategy containing private or public deployments.
+* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multicloud strategy containing private or public deployments.
 
 * Move resource types together. By combining the move of similar resource types (for example, 50 virtual machines or 20 SQL databases), you can plan the preparation step of your move more easily and ensure that long-running operations complete together, which helps reduce downtime.
 

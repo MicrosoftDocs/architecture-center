@@ -93,9 +93,9 @@ Set the IP address of the preferred and secondary domain name service (DNS) serv
 
 The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS. Perform the following tasks before configuring the first AD FS server in the farm:
 
-1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name clients use to access the federation service. This can be the DNS name registered for the load balancer, for example, *adfs.contoso.com* (avoid using wildcard names such as **.contoso.com*, for security reasons). Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own.
+1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name clients use to access the federation service. This can be the DNS name registered for the load balancer, for example, `adfs.contoso.com` (avoid using wildcard names such as `*.contoso.com`, for security reasons). Use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own.
 
-    The *subject alternative name* is used by the device registration service (DRS) to enable access from external devices. This should be of the form *enterpriseregistration.contoso.com*.
+    The *subject alternative name* is used by the device registration service (DRS) to enable access from external devices. This should be of the form `enterpriseregistration.contoso.com`.
 
     For more information, see [Obtain and Configure a Secure Sockets Layer (SSL) Certificate for AD FS][adfs_certificates].
 
@@ -123,7 +123,7 @@ For more information, see [Establishing Federation Trust][establishing-federatio
 
 Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
 
-AD FS supports token transformation and augmentation. Azure Active Directory doesn't provide this feature. With AD FS, when you set up the trust relationships, you can:
+AD FS supports token transformation and augmentation. Microsoft Entra ID doesn't provide this feature. With AD FS, when you set up the trust relationships, you can:
 
 - Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that Active Directory DS can authorize in your organization.
 - Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.1 if your application only supports SAML 1.1 claims.
@@ -135,6 +135,8 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 - Events that the AD FS service records in its event logs.
 - The performance data that the AD FS performance counters collect.
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
+
+Another option is [Monitor AD FS using Microsoft Entra Connect Health](/azure/active-directory/hybrid/connect/how-to-connect-health-adfs). [Microsoft Entra Connect Health](/azure/active-directory/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
 
 ## Considerations
 
@@ -173,7 +175,7 @@ Configure the load balancers for the AD FS VMs and WAP VMs as follows:
   > AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
   >
 
-- Add a DNS *A* record to the domain for the AD FS load balancer. Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name clients and the WAP servers use to access the AD FS server farm.
+- Add a DNS *A* record to the domain for the AD FS load balancer. Specify the IP address of the load balancer, and give it a name in the domain (such as `adfs.contoso.com`). This is the name clients and the WAP servers use to access the AD FS server farm.
 
 You can use either SQL Server or the Windows Internal Database to hold AD FS configuration information. The Windows Internal Database provides basic redundancy. Changes are written directly to only one of the AD FS databases in the AD FS cluster, while the other servers use pull replication to keep their databases up to date. Using SQL Server can provide full database redundancy and high availability using failover clustering or mirroring.
 
@@ -201,9 +203,11 @@ Here are cost considerations for the services used in this architecture.
 
 Consider having Active Directory Domain Services as a shared service that is consumed by multiple workloads to lower costs. For more information, see [Active Directory Domain Services pricing][ADDS-pricing].
 
-#### Azure AD Federation Services
+<a name='azure-ad-federation-services'></a>
 
-For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
+#### Active Directory Federation Services
+
+For information about the editions offered by Microsoft Entra ID, see [Microsoft Entra pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
 
 ### Operational Excellence
 
@@ -236,7 +240,7 @@ Principal author:
 ## Related resources
 
 - [Deploy AD DS in an Azure virtual network](adds-extend-domain.yml)
-- [Azure Active Directory identity management and access management for AWS](../aws/aws-azure-ad-security.yml)
+- [Microsoft Entra identity management and access management for AWS](../aws/aws-azure-ad-security.yml)
 
 <!-- links -->
 

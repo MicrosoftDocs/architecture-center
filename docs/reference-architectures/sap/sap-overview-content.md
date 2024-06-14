@@ -12,7 +12,7 @@ We recommend using the SAP cloud adoption guidance as you start your cloud adopt
 The SAP workload guidance designed to be applied to a single SAP workload. This content gives architecture design recommendations that you should follow throughout the lifecycle of an SAP workload. It encourages the use of assessments and health checks to inform your design decisions and continuously align them to best practices.
 
 >[!div class="nextstepaction"]
-> [Well-Architected Framework - SAP workload]( /azure/architecture/framework/sap/overview)
+> [Well-Architected Framework - SAP workload](/azure/architecture/framework/sap/overview)
 
 ## SAP architecture guidance
 

@@ -1,8 +1,10 @@
-This example shows how to establish a development and test environment for SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB. (AnyDB is the SAP term for any supported DBMS that isn't SAP HANA.)
+This example shows how to establish a development and test environment for SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB. (AnyDB is the SAP term for any supported database management system (DBMS) that isn't SAP HANA.)
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for S A P workloads.](./media/architecture-sap-dev-test-architecture.png)
+[ ![Architecture diagram for dev/test environments for SAP workloads.](./media/architecture-sap-dev-test-architecture.svg)](./media/architecture-sap-dev-test-architecture.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-sap-dev-test-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -47,7 +49,7 @@ Keep the following points in mind when establishing a development and test envir
 
 ### Availability
 
-Microsoft offers a service level agreement (SLA) for single VM instances. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)
+Microsoft offers a service-level agreement (SLA) for single VM instances. For more information on Microsoft Azure service-level agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)
 
 ### Scalability
 
@@ -141,4 +143,4 @@ Explore related architectures:
 [sap-netweaver]: /azure/architecture/guide/sap/sap-netweaver
 [sap-hana]: /azure/architecture/guide/sap/sap-s4hana
 [sap-large]: ../../reference-architectures/sap/hana-large-instances.yml
-[hub-spoke]: ../../reference-architectures/hybrid-networking/hub-spoke.yml
+[hub-spoke]: ../../networking/architecture/hub-spoke.yml

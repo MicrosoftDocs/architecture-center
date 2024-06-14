@@ -54,7 +54,7 @@ Although this list provides a comprehensive view of all the potential roles that
   - The Data Scientist uses it to quickly query data in the data lake and develop prediction models by using Spark notebooks.
   - The BI Analyst uses it to run queries using familiar SQL syntax.
 - [Microsoft Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights. The BI Analyst uses Power BI to develop visualizations from the data, such as a map of each patient's home location and nearest hospital.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. In this architecture, it controls access to the Azure services.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. In this architecture, it controls access to the Azure services.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service that provides a secure store for secrets such as keys, passwords, and certificates. Key Vault holds the secrets that Databricks uses to gain write access to the data lake.
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is a unified infrastructure security management system that strengthens the security posture of data centers, and provides advanced threat protection across hybrid workloads in the cloud and on-premises. You can use it to monitor security threats against the Azure environment.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
@@ -149,7 +149,7 @@ Principal authors:
 - [Unleash the power of predictive analytics in Azure Synapse with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
 - [What is Microsoft Defender for Cloud?](/azure/security-center/security-center-introduction)
 
@@ -163,10 +163,10 @@ Principal authors:
 
 ## Related resources
 
-- [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
 - [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Population Health Management for Healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)

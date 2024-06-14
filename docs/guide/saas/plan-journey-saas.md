@@ -3,7 +3,7 @@ title: Overview of the journey for designing SaaS and multitenant solutions
 description: This guide provides an overview of the journey to create a SaaS solution. It also provides links to resources used in many SaaS, multitenant, Azure Marketplace, and ISV & Startup scenarios.
 author: landonpierce 
 ms.author: landonpierce 
-ms.date: 04/21/2023
+ms.date: 06/05/2024 
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -40,7 +40,7 @@ In addition to your application requirements, also consider these few things tha
 - [Microsoft SaaS Academy](https://www.microsoft.com/en-us/saas-academy/main) - Free SaaS learning courses.
 - [Pricing model considerations](../multitenant/considerations/pricing-models.md) - Important technical considerations to keep in mind when deciding on a pricing strategy.
 - [Microsoft for Startups Founders Hub](https://www.microsoft.com/startups) - A resource center for startups building solutions on Azure that provides business and technical mentoring, such as Microsoft software for running your business including LinkedIn, Microsoft 365 and GitHub Enterprise, and Azure credits.
-- [Microsoft SaaS Stories](https://aka.ms/saasstories) - A series of video interviews with some of Microsoft's ISV partners that highlight their experiences building SaaS.
+- [Microsoft SaaS Stories](https://aka.ms/saas-stories) - A series of video interviews with some of Microsoft's ISV partners that highlight their experiences building SaaS.
 
 ## 2. Design and architect a SaaS solution
 
@@ -60,7 +60,7 @@ After deciding what your business requirements are, the next stage in the journe
 You need to implement the architecture you developed. In this stage, you develop and iterate on your SaaS product using the normal software development life cycle (SDLC) process. It's important in this stage to not put too many requirements into development at one time. Try to figure out which features would provide the most benefit to your customers and start from a minimum viable product (MVP). More iterations with smaller improvements over time are easier to implement than larger chunks of development. For more information, see these articles:
 
 - [SaaS starter web app architecture](../../example-scenario/apps/saas-starter-web-app.yml) - A reference architecture for a starter web-based SaaS application.
-- [Azure SaaS Dev Kit](https://github.com/azure/azure-saas) - A modular implementation of the architecture designed to provide a starting place for building a SaaS application in .NET.
+- [Azure SaaS Development Kit (ASDK)](https://github.com/azure/azure-saas) - A modular implementation of the architecture designed to provide a starting place for building a SaaS application in .NET.
 
 ## 4. Operate your SaaS solution
 
@@ -110,6 +110,6 @@ Other contributors:
 
 ## Related resources
 
-- [SaaS and multitenant solution architecture](overview.md)
+- [SaaS and multitenant solution architecture](../saas-multitenant-solution-architecture/index.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
 - [Learn about multitenant architectural approaches](../multitenant/overview.md)

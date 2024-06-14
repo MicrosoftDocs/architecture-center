@@ -2,9 +2,11 @@
 
 This solution outlines a modern data architecture. Azure Databricks forms the core of the solution. This platform works seamlessly with other services, such as Azure Data Lake Storage Gen2, Azure Data Factory, Azure Synapse Analytics, and Power BI.
 
+*Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
-:::image type="complex" source="../media/azure-databricks-modern-analytics-architecture-diagram.png" alt-text="Architecture diagram showing how a modern data architecture collects, processes, analyzes, and visualizes data." border="false":::
+:::image type="complex" source="../media/azure-databricks-modern-analytics-architecture.svg" alt-text="Architecture diagram showing how a modern data architecture collects, processes, analyzes, and visualizes data." lightbox="../media/azure-databricks-modern-analytics-architecture.svg" border="false":::
    The diagram contains several gray rectangles. Labels on the rectangles read Ingest, Process, Serve, Store, and Monitor and govern. Each rectangle contains icons that represent Azure or partner services. The Azure Databricks icon is at the center, along with the Data Lake Storage Gen2 icon. Arrows point back and forth between icons. The arrows show how data flows through the system, as the diagram explanation steps describe. The lowest rectangle extends across the bottom of the diagram. It contains icons for services that monitor and govern operations and information.
 :::image-end:::
 
@@ -60,14 +62,14 @@ This solution outlines a modern data architecture. Azure Databricks forms the co
    - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
    - Azure DevOps offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
    - Azure Key Vault securely manages secrets, keys, and certificates.
-   - Azure Active Directory (Azure AD) provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Azure AD for these tasks:
+   - Microsoft Entra ID provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Microsoft Entra ID for these tasks:
 
      - Creating new users.
      - Assigning each user an access level.
      - Removing users and denying them access.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
+   - Microsoft Cost Management provides financial governance services for Azure workloads.
 
 ### Components
 
@@ -109,11 +111,11 @@ The solution uses the following components.
 
 - [Azure Key Vault][Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-- [Azure AD][Azure Active Directory] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Microsoft Entra ID][Azure Active Directory] offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Azure Cost Management and Billing][Azure Cost Management and Billing] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Microsoft Cost Management][Microsoft Cost Management] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Scenario details
 
@@ -140,8 +142,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 ## Next steps
 
-- [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI][Swiss Re builds a digital payment platform by using Azure Databricks and Power BI].
-- [AGL achieves machine learning at scale][AGL achieves machine learning at scale] with a standardized platform that uses Azure Databricks and Machine Learning.
+- [Tutorial: Build an end-to-end data pipeline in Databricks](/azure/databricks/getting-started/data-pipeline-get-started).
 
 ## Related resources
 
@@ -161,9 +162,8 @@ To learn about related solutions, see this information:
 - [Observability patterns and metrics for performance tuning][Observability patterns and metrics for performance tuning]
 - [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
-[AGL achieves machine learning at scale]: https://customers.microsoft.com/story/844796-agl-energy-azure
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
-[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
+[Microsoft Cost Management]: https://azure.microsoft.com/services/cost-management
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage Gen2]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
@@ -172,9 +172,9 @@ To learn about related solutions, see this information:
 [Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
-[Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
+[Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
-[Compare the machine learning products and technologies from Microsoft]: ../../data-guide/technology-choices/data-science-and-machine-learning.md
+[Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
@@ -190,7 +190,6 @@ To learn about related solutions, see this information:
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
 [Spark SQL pools]: /azure/synapse-analytics/spark/apache-spark-overview
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
-[Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
 [DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops
 [What is Microsoft Purview?]: /azure/purview/overview
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview

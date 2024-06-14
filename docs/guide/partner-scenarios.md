@@ -2,8 +2,8 @@
 title: Microsoft partner and third-party scenarios on Azure
 description: Review an extensive list of architectures and solutions that use Microsoft partner and third-party solutions.
 author: martinekuan
-ms.author: architectures
-ms.date: 07/26/2022
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -11,7 +11,7 @@ products:
   - azure-kubernetes-service
   - azure-netapp-files
   - azure-virtual-machines
-  - azure-active-directory
+  - entra-id
   - azure-virtual-desktop
 categories:
   - databases
@@ -29,7 +29,7 @@ categories:
   - mobile
   - security
   - networking
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 ms.custom: fcp
 ---
 
@@ -65,22 +65,21 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[IBM z/OS mainframe migration with Avanade AMT](../example-scenario/mainframe/asysco-zos-migration.yml)|Learn how to use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.|Mainframe|
+|[IBM z/OS mainframe migration with Avanade AMT](../example-scenario/mainframe/avanade-amt-zos-migration.yml)|Learn how to use the Avanade Automated Migration Technology (AMT) framework to migrate IBM z/OS mainframe workloads to Azure.|Mainframe|
 |[Unisys mainframe migration with Avanade AMT](../reference-architectures/migration/unisys-mainframe-migration.yml)|Learn options for using the AMT framework to migrate Unisys mainframe workloads to Azure.|Mainframe|
 
 ## CluedIn
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Master Data Management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.|Databases|
-|[Migrate master data services to Azure with CluedIn and Azure Purview](../reference-architectures/data/migrate-master-data-services-with-cluedin.yml)|Use CluedIn to migrate your master data services solution to Azure by using CluedIn and Azure Purview.|Databases|
+|[Master Data Management with Azure and CluedIn](../databases/architecture/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.|Databases|
+|[Migrate master data services to Azure with CluedIn and Azure Purview](../databases/architecture/migrate-master-data-services-with-cluedin.yml)|Use CluedIn to migrate your master data services solution to Azure by using CluedIn and Azure Purview.|Databases|
 
 ## Confluent
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Kafka is used with Confluent Schema Registry for streaming.|Migration|
-|[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. Kafka, which is available via ConfluentCloud, is recommended for real-time message ingestion.  |Databases|
 
 ## Couchbase
 
@@ -105,7 +104,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Build web and mobile applications](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more. Azure Cosmos DB for Apache Gremlin is used to store graphical data in Azure Cosmos DB.|Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use technologies like Kafka, Kubernetes, Gremlin, PostgreSQL, and Redis components.|Analytics|
 
 ## Infinite i
@@ -137,7 +135,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and IoT Edge, Stream Analytics, and Azure Machine Learning. MongoDB is used to store cloud data for Power BI analytics and visualizations.|IoT|
 |[Data considerations for microservices](../microservices/design/data-considerations.yml)|Learn about managing data in a microservices architecture. The MongoDB API is used with Azure Cosmos DB in an example scenario.|Microservices|
 |[High availability in Azure public MEC](../example-scenario/hybrid/multi-access-edge-compute-ha.yml)|Learn how to deploy workloads in active-standby mode to achieve high availability and disaster recovery in Azure public multiaccess edge compute. MongoDB can provide IaaS services that support geo-replication.|Hybrid|
-|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)|Use the proven practices in this reference architecture to improve scalability and performance in an App Service web application. MongoDB is recommended for non-relational data. |Web|
+|[Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)|Use the proven practices in this reference architecture to improve redundancy, scalability and performance in an App Service web application. MongoDB is recommended for non-relational data. |Web|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, MongoDB, PostgreSQL, and Redis components.|Analytics|
 |[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. In this solution, microservices store data in Azure Cosmos DB, using the MongoDB Node.js driver.|Security|
 
@@ -152,7 +150,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[FSLogix configuration examples](/fslogix/concepts-configuration-examples)|Learn how to build virtual desktop infrastructure solutions at enterprise scale by using FSLogix. Azure NetApp Files is recommended for storing profiles.  |Hybrid|
 |[General mainframe refactor to Azure](../example-scenario/mainframe/general-mainframe-refactor.yml)|Learn how to refactor mainframe applications to run more cost-effectively and efficiently on Azure. Azure NetApp Files is recommended for file storage. |Mainframe|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.|Storage|
-|[Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)|Learn how to create multiple Active Directory forests with Azure Virtual Desktop. Azure NetApp Files is one recommended storage solution for the scenario.|Virtual Desktop|
+|[Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/azure-virtual-desktop/multi-forest.yml)|Learn how to create multiple Active Directory forests with Azure Virtual Desktop. Azure NetApp Files is one recommended storage solution for the scenario.|Virtual Desktop|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 |[Refactor mainframe computer systems that run Adabas & Natural](../example-scenario/mainframe/refactor-adabas-aks.yml)|Learn how to modernize mainframe computer systems that run Adabas & Natural and move them to the cloud. Azure NetApp Files is used to store persistent data.|Mainframe|
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high-availability, small-scale production environment of SAP BW/4HANA on Azure. Azure NetApp Files is used by a high-availability cluster for shared file storage. |SAP|
@@ -166,11 +164,10 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Master data management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations. CluedIn takes input from on-premises accessible systems like Oracle.|Databases|
+|[Master data management with Azure and CluedIn](../databases/architecture/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations. CluedIn takes input from on-premises accessible systems like Oracle.|Databases|
 |[Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame provides. OpenFrame can integrate with RDBMSs like Oracle.|Mainframe|
-|[Oracle Database migration to Azure](../solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml)|Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.|Oracle|
+|[Oracle Database migration to Azure](../databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml)|Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.|Oracle|
 |[Oracle Database migration: Cross-cloud connectivity](../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml)|Create a connection between your existing Oracle database and your Azure applications.|Oracle|
-|[Oracle Database migration: Lift and shift](../example-scenario/oracle-migrate/oracle-migration-lift-shift.yml)|Lift and shift your Oracle database from an Oracle environment to Azure Virtual Machines.|Oracle|
 |[Oracle Database migration: Refactor](../example-scenario/oracle-migrate/oracle-migration-refactor.yml)|Refactor your Oracle database by using Azure Database Migration Service, and move it to PostgreSQL.|Oracle|
 |[Oracle Database migration: Rearchitect](../example-scenario/oracle-migrate/oracle-migration-rearchitect.yml)|Rearchitect your Oracle database by using Azure SQL Managed Instance.|Oracle|
 |[Oracle Database with Azure NetApp Files](../example-scenario/file-storage/oracle-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for Oracle Database workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
@@ -189,14 +186,14 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |--|--|--|
 |[Design APIs for microservices](../microservices/design/api-design.yml)|Learn about good API design in a microservices architecture. IDLs used to define APIs can be consumed by API testing tools like Postman.|Microservices|
 |[Gridwich local development environment setup](../reference-architectures/media-services/set-up-local-environment.yml)|Set up a local development environment to work with Gridwich. Postman is an optional component in the configuration.|Media|
-|[Unified logging for microservices apps](../example-scenario/logging/unified-logging.yml)|Learn about logging, tracing, and monitoring for microservices apps.|Microservices|
+|[Monitor a microservices application in AKS](/azure/architecture/microservices/logging-monitoring)|Learn about logging, tracing, and monitoring for microservices apps.|Microservices|
 
 ## Profisee
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management.|Databases|
-|[Master data management with Profisee and Azure Data Factory](../reference-architectures/data/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications. Postman is recommended for synthetic logging.|Databases|
+|[Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management.|Databases|
+|[Master data management with Profisee and Azure Data Factory](../databases/architecture/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications. Postman is recommended for synthetic logging.|Databases|
 
 ## Qlik
 
@@ -215,9 +212,8 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Add a mobile front end to a legacy app](../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)|Learn about a solution that uses Azure SQL Database and SAP to consolidate data from multiple business systems and surface it through web and mobile front ends. |Mobile|
-|[Custom mobile workforce app](../solution-ideas/articles/custom-mobile-workforce-app.yml)|Learn about a mobile workforce app architecture that uses Active Directory to secure corporate data from an SAP back-end system.|Mobile|
 |[Development and test environments for SAP workloads on Azure](../example-scenario/apps/sap-dev-test.yml)|Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.|SAP|
-|[Master data management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations. CluedIn takes input from on-premises accessible systems like SAP.|Databases|
+|[Master data management with Azure and CluedIn](../databases/architecture/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations. CluedIn takes input from on-premises accessible systems like SAP.|Databases|
 |[Multitier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)|Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure. Common scenarios include any mission-critical application that runs on Windows or Linux, including applications like SAP. |Networking|
 |[Run SAP BW/4HANA with Linux VMs](../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)|Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability small-scale production environment of SAP BW/4HANA on Azure.|SAP|
 |[Run SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability scale-up environment that supports disaster recovery.|SAP|
@@ -240,7 +236,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
+|[Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
 
 ## Skytap
 

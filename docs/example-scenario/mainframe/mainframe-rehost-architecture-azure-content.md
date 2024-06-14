@@ -18,7 +18,7 @@ Many scenarios can benefit from rehosting on Azure. Here are some possible use c
 
 This is the pre-migration architecture.
 
-:::image type="content" source="./media/azure-mainframe-rehost-premigration-diagram.png" alt-text="Diagram that shows the mainframe applications before migration to Azure." lightbox="./media/azure-mainframe-rehost-premigration-diagram.png":::
+:::image type="content" source="./media/azure-mainframe-rehost-premigration-diagram.svg" alt-text="Diagram that shows the mainframe applications before migration to Azure." lightbox="./media/azure-mainframe-rehost-premigration-diagram.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-mainframe-rehost-premigration-diagram.vsdx) of this architecture.*
 
@@ -46,7 +46,7 @@ This is the pre-migration architecture.
 
 This architecture showcases a solution that is rehosted on Microsoft Azure.
 
-:::image type="content" source="./media/azure-mainframe-rehost-postmigration-diagram.png" alt-text="Diagram that shows the mainframe applications after migration to Azure." lightbox="./media/azure-mainframe-rehost-postmigration-diagram.png":::
+:::image type="content" source="./media/azure-mainframe-rehost-postmigration-diagram.svg" alt-text="Diagram that shows the mainframe applications after migration to Azure." lightbox="./media/azure-mainframe-rehost-postmigration-diagram.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-mainframe-rehost-postmigration-diagram.vsdx) of this architecture.*
 

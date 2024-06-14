@@ -26,7 +26,7 @@ When configuring access to resources in Azure, you should apply fine-grained con
 
 Authorizing access to Azure Event Hubs resources can be done using the following security constructs:
 
-- **Azure Active Directory:** Azure Active Directory (Azure AD) provides role-based access control (RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Azure AD will authorize requests using an OAuth 2.0 access token.
+- **Microsoft Entra ID:** Microsoft Entra ID provides role-based access control (RBAC) for granular control over a client's access to Event Hubs resources. Based on roles and permissions granted, Microsoft Entra ID will authorize requests using an OAuth 2.0 access token.
 
 - **Shared access signature:** A shared access signature (SAS) offers the ability to protect Event Hubs resources based on authorization rules. You define authorization policies by selecting one or more [policy rules](/azure/event-hubs/authorize-access-shared-access-signature#shared-access-authorization-policies), such as the ability to send messages, listen to messages, and manage the entities in the namespace.
 
@@ -42,7 +42,7 @@ When using a shared access signature with Azure Functions and Event Hubs, the fo
 
 ### Managed identity
 
-An Active Directory identity can be assigned to a managed resource in Azure such as a function app or web app. Once an identity is assigned, it has the capabilities to work with other resources that use Azure AD for authorization, much like a [service principal](/azure/active-directory/develop/app-objects-and-service-principals).
+An Active Directory identity can be assigned to a managed resource in Azure such as a function app or web app. Once an identity is assigned, it has the capabilities to work with other resources that use Microsoft Entra ID for authorization, much like a [service principal](/azure/active-directory/develop/app-objects-and-service-principals).
 
 Function apps can be assigned a [managed identity](/azure/app-service/overview-managed-identity) and take advantage of identity-based connections for a subset of services, including Event Hubs. Identity-based connections provide support for both the trigger and output binding extensions and must use the [Event Hubs extension 5.x and higher](/azure/azure-functions/functions-bindings-event-hubs#event-hubs-extension-5x-and-higher) for support.
 
@@ -80,7 +80,7 @@ Principal author:
 
 Before continuing, consider reviewing these related articles:
 
-- [Authorize access with Azure Active Directory](/azure/event-hubs/authorize-access-azure-active-directory)
+- [Authorize access with Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory)
 - [Authorize access with a shared access signature in Azure Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature)
 - [Configure an identity-based resource](/azure/azure-functions/functions-reference#configure-an-identity-based-connection)
 
@@ -91,4 +91,3 @@ Before continuing, consider reviewing these related articles:
 
 - [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md) provides guidance on monitoring serverless event-driven architectures.
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
-- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml) describes in more detail how these portions of the reference architecture work.

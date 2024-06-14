@@ -1,4 +1,4 @@
-This article describes [Microsoft Entra](https://www.microsoft.com/security/business/microsoft-entra) Azure Active Directory (Azure AD) credentials capabilities and advanced features that can help financial services industries (FSIs) deliver on jurisdictional and government regulatory requirements. These features allow access to client data within line-of-business (LOB) applications from approved locations only. Microsoft Authenticator provides users' GPS locations to Azure AD for Conditional Access authentication context policy evaluation.
+This article describes [Microsoft Entra](https://www.microsoft.com/security/business/microsoft-entra) credential capabilities and advanced features that can help financial services industries (FSIs) deliver on jurisdictional and government regulatory requirements. These features allow access to client data within line-of-business (LOB) applications from approved locations only. Microsoft Authenticator provides users' GPS locations to Microsoft Entra ID for Conditional Access authentication context policy evaluation.
 
 ## Architecture
 
@@ -16,11 +16,11 @@ Application developers **(B)** make their apps aware of the application context,
 
 1. Action 1 requires authentication context claim `C1` to run successfully. If the current token doesn't have a claim `C1`, it triggers a claims challenge.
 
-1. Azure AD runs Conditional Access policy `C1` that maps claim `C1` to GPS location `CH (Switzerland)`, and requests location from the user's Authenticator app.
+1. Microsoft Entra ID runs Conditional Access policy `C1` that maps claim `C1` to GPS location `CH (Switzerland)`, and requests location from the user's Authenticator app.
 
 1. The user consents if it's the first time they're sharing location data, and provides location information.
 
-1. If the location information matches `CH (Switzerland)`, Azure AD issues a new access token with claim `C1`.
+1. If the location information matches `CH (Switzerland)`, Microsoft Entra ID issues a new access token with claim `C1`.
 
 1. The call comes back to App 1 with the new access token and claim `C1`, and Action 1 runs successfully.
 
@@ -28,9 +28,9 @@ Application developers **(B)** make their apps aware of the application context,
 
 This solution uses the following components:
 
-- [Azure AD](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access. This solution uses the following Azure AD features:
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access. This solution uses the following Microsoft Entra features:
 
-  - [Azure AD Conditional Access authentication context](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#authentication-context) can further secure data and actions in applications. This scenario uses a GPS-based named location authentication context.
+  - [Microsoft Entra Conditional Access authentication context](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#authentication-context) can further secure data and actions in applications. This scenario uses a GPS-based named location authentication context.
 
   - [Named locations](/azure/active-directory/conditional-access/location-condition) can use either IP addresses or GPS coordinates to control users' access to apps and data. This solution uses GPS-based named locations for conditional access.
 
@@ -38,7 +38,7 @@ This solution uses the following components:
 
 ### Alternatives
 
-This article illustrates Azure AD Conditional Access with an authentication context that includes the GPS location condition. Named locations can also use IP addresses. Azure AD can also use authentication context with other conditions, such as requiring multifactor authentication or requiring devices to be marked as compliant.
+This article illustrates Microsoft Entra Conditional Access with an authentication context that includes the GPS location condition. Named locations can also use IP addresses. Microsoft Entra ID can also use authentication context with other conditions, such as requiring multifactor authentication or requiring devices to be marked as compliant.
 
 ## Scenario details
 
@@ -46,12 +46,12 @@ Today, FSIs face challenges like increasing competition, cultural shift, dynamic
 
 Some countries/regions have local and global regulatory requirements or data residency requirements. Enterprises also need the ability to allow or block access to data based on user location. So, in addition to controls such as multifactor authentication (MFA), role-based access control (RBAC), and attribute-based access control (ABAC), FSIs must consider user location at the time of data access.
 
-The GPS location-based Conditional Access policy uses the following key Authenticator and Azure AD Conditional Access capabilities:
+The GPS location-based Conditional Access policy uses the following key Authenticator and Microsoft Entra Conditional Access capabilities:
 
 - Authenticator with precision GPS access to the device, including *jailbroken detection* and *rooted device detection*.
-- Azure AD authentication context integration with Conditional Access.
-- Azure AD named **Countries** locations.
-- Advanced Azure AD Conditional Access policy integration with applications, services, and workloads.
+- Microsoft Entra authentication context integration with Conditional Access.
+- Microsoft Entra named locations.
+- Advanced Microsoft Entra Conditional Access policy integration with applications, services, and workloads.
 
 This scenario also illustrates passwordless strong authentication with Microsoft Authenticator phone sign-in, and shows Temporary Access Pass (TAP) as an option to onboard users to Authenticator. Passwordless phone sign-in and TAP aren't required to enforce the GPS location condition.
 
@@ -75,7 +75,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-The key components of this solution are part of Azure AD. Resilience depends on Azure AD service resilience. For more information, see [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1).
+The key components of this solution are part of Microsoft Entra ID. Resilience depends on Microsoft Entra service resilience. For more information, see [SLA for Microsoft Entra ID](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1).
 
 ### Security
 
@@ -89,24 +89,24 @@ Technologies like data classification and encryption, data leak prevention (DLP)
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The key components are part of Azure AD P2. For more information, see [Pricing - Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/#pricing).
+The key components are part of Microsoft Entra ID P2. For more information, see [Pricing - Microsoft Entra ID](https://azure.microsoft.com/pricing/details/active-directory/#pricing).
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Operations fall under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility). The key solution components are part of the Azure AD software as a service (SaaS) that Microsoft provides. Customers need to appropriately configure the infrastructure components, and appropriately manage and monitor usage.
+Operations fall under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility). The key solution components are part of the Microsoft Entra software as a service (SaaS) that Microsoft provides. Customers need to appropriately configure the infrastructure components, and appropriately manage and monitor usage.
 
 Application developers must follow the appropriate guidance to correctly integrate the solution and deliver the best user experience. For more information, see:
 
-- [Developer guidance for Azure AD Conditional Access](/azure/active-directory/develop/v2-conditional-access-dev-guide)
-- [Developer guidance for Azure AD Conditional Access authentication context](/azure/active-directory/develop/developer-guide-conditional-access-authentication-context)
+- [Developer guidance for Microsoft Entra Conditional Access](/azure/active-directory/develop/v2-conditional-access-dev-guide)
+- [Developer guidance for Microsoft Entra Conditional Access authentication context](/azure/active-directory/develop/developer-guide-conditional-access-authentication-context)
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Performance of this solution depends on Azure AD. Developers should follow appropriate guidance to ensure a smooth experience for their application users that doesn't degrade performance.
+Performance of this solution depends on Microsoft Entra ID. Developers should follow appropriate guidance to ensure a smooth experience for their application users that doesn't degrade performance.
 
 ## Deploy this scenario
 
@@ -121,7 +121,7 @@ Also see [Use the Conditional Access auth context to perform step-up authenticat
 Principal authors:
 
 - [Caleb Baker](https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
-- [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Senior Program Manager - Cloud for Industry (FSI)
+- [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Principal Program Manager - Cloud for Industry (FSI)
 - [Paresh Nhathalal](https://www.linkedin.com/in/paresh-nhathalal-72613b2) | Senior Customer Engineering Manager - Identity Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -129,10 +129,10 @@ Principal authors:
 ## Next steps
 
 - [Passwordless sign-in with Microsoft Authenticator](/azure/active-directory/authentication/howto-authentication-passwordless-phone)
-- [Azure AD Conditional Access documentation](/azure/active-directory/conditional-access)
-- [Location condition in Azure AD Conditional Access](/azure/active-directory/conditional-access/location-condition)
+- [Microsoft Entra Conditional Access documentation](/azure/active-directory/conditional-access)
+- [Location condition in Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/location-condition)
 - [Manage site access based on sensitivity label - SharePoint in Microsoft 365](/sharepoint/authentication-context-example)
-- [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management)
 
 ## Related resources
 
@@ -140,4 +140,3 @@ Principal authors:
 - [Conditional Access for zero trust](../../guide/security/conditional-access-zero-trust.md)
 - [Conditional Access architecture](../../guide/security/conditional-access-architecture.yml)
 - [Conditional Access framework and policies](../../guide/security/conditional-access-framework.md)
-

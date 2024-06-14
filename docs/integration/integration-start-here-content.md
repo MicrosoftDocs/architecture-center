@@ -17,7 +17,7 @@ Azure provides a wide range of integration tools and capabilities, including the
 - [Azure Functions][Azure Functions ACOM page]. Simplify complex orchestration problems with an event-driven serverless compute platform.
 - [Azure Data Factory][Data Factory ACOM page]. Visually integrate data sources to accelerate data transformation and support enterprise workflows.
 
-For information about more Azure networking services, see [Integration Services][Integration Services].
+For information about more Azure integration services, see [Integration Services][Integration Services].
 
 Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
 
@@ -181,7 +181,6 @@ The following resources provide practical recommendations and information for sp
 [API Management ACOM page]: https://azure.microsoft.com/services/api-management
 [Architect API integration in Azure]: /training/paths/architect-api-integration
 [Asynchronous messaging options]: ../guide/technology-choices/messaging.yml
-[Automated Jupyter Notebooks for diagnostics]: ../example-scenario/data/automating-diagnostic-jupyter-notebook.yml
 [AWS to Azure services comparison—Miscellaneous backend process logic]: ../aws-professional/services.md#miscellaneous
 [Azure digital twins builder]: ../solution-ideas/articles/azure-digital-twins-builder.yml
 [Azure Functions ACOM page]: https://azure.microsoft.com/services/functions
@@ -238,6 +237,5 @@ The following resources provide practical recommendations and information for sp
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [SWIFT Alliance Connect in Azure]: ../example-scenario/finance/swift-on-azure-srx.yml
 [SWIFT Alliance Connect Virtual in Azure]: ../example-scenario/finance/swift-on-azure-vsrx.yml
-[Tiered data for analytics]: ../example-scenario/hybrid/hybrid-tiered-data-analytics.yml
-[Transactional Outbox pattern with Azure Cosmos DB]: ../best-practices/transactional-outbox-cosmos.yml
+[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Bring workflows together and automate processes by connecting apps, data, services, and devices. See resources with integration guidelines and recommendations.
   author: martinekuan
-  ms.author: architectures
+  ms.author: pnp
   ms.date: 07/26/2022
   ms.topic: conceptual
   ms.service: architecture-center

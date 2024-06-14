@@ -6,7 +6,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/26/2022
-ms.author: architectures
+ms.author: pnp
 categories:
   - hybrid
   - management-and-governance
@@ -20,7 +20,7 @@ products:
 
 # Hybrid architecture design
 
-Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
 ## Learn about hybrid solutions
 
@@ -43,7 +43,6 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
-- [Run containers](hybrid-containers.yml)
 - [Use Azure file shares](azure-file-share.yml)
 - [Back up files](azure-stack-backup.yml)
 - [Manage workloads](hybrid-server-os-mgmt.yml)
@@ -64,6 +63,5 @@ The typical hybrid solution journey ranges from learning how to get started with
 Here are some example implementations to consider:
 
 - [Cross-cloud scaling](../solution-ideas/articles/cross-cloud-scaling.yml)
-- [Cross-platform chat](../solution-ideas/articles/cross-platform-chat.yml)
 - [Hybrid connections](../solution-ideas/articles/hybrid-connectivity.yml)
 - [Unlock legacy data with Azure Stack](../solution-ideas/articles/unlock-legacy-data.yml)

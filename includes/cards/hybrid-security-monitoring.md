@@ -6,12 +6,12 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/hybrid/hybrid-security-monitoring"><img src="/azure/architecture/browse/thumbs/hybrid-security-monitoring.png" class="diagram" alt="Thumbnail of Hybrid Security Monitoring using Azure Security Center and Azure Sentinel Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/hybrid/hybrid-security-monitoring"><img src="/azure/architecture/browse/thumbs/hybrid-security-monitoring.png" class="diagram" alt="Thumbnail of Hybrid Security Monitoring using Microsoft Defender for Cloud and Azure Sentinel Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/hybrid/hybrid-security-monitoring">
-            <p>Hybrid Security Monitoring using Azure Security Center and Azure Sentinel</p>
+            <p>Hybrid Security Monitoring using Microsoft Defender for Cloud and Azure Sentinel</p>
         </a>
         <ul class="card-content-metadata">
             <li>8/19/2020</li>

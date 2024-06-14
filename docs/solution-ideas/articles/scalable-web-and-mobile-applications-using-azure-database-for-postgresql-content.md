@@ -9,7 +9,7 @@ This solution is for any organization that utilizes both web and mobile applicat
 ## Architecture
 
 ![Architecture diagram shows browser or mobile app requests to Azure App Services to Azure Database for Postgres S Q L.](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png)
-_Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.svg) of this architecture._
+*Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.svg) of this architecture.*
 
 ### Dataflow
 
@@ -20,7 +20,7 @@ _Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-dat
 
 ### Components
 
-- [Azure App Services](https://azure.microsoft.com/services/app-service)
+- [Azure App Services](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql)
 
 ## Contributors
@@ -44,5 +44,3 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
-- [Social app for mobile and web with authentication](./social-mobile-and-web-app-with-authentication.yml)
-- [Task-based consumer mobile app](./task-based-consumer-mobile-app.yml)

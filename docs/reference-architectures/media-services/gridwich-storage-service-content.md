@@ -1,5 +1,3 @@
-
-
 The Gridwich Azure Storage Service, [Gridwich.SagaParticipants.Storage.AzureStorage][StorageService], provides blob and container operations for Azure Storage Accounts that are configured for Gridwich. Example storage operations are **Create blob**, **Delete container**, **Copy blob**, or **Change storage tier**.
 
 Gridwich requires its storage mechanisms to work for both Azure Storage block blobs and containers. With distinct classes and Storage Service operations for blobs and containers, there's no ambiguity about whether a given storage operation relates to a blob or to a container. This article applies to both blobs and containers, except where noted.
@@ -14,7 +12,7 @@ Gridwich uses classes from the Azure Storage SDK to interact with Azure Storage,
 
 These SDK client classes currently allow only indirect access to the two HTTP headers Gridwich needs to manipulate, `x-ms-client-request-id` for operation context and `ETag` for object version.
 
-In Gridwich, a pair of provider classes dispense [BlobBaseClientProvider][ProvB] and [BlobContainerClientProvider][ProvC] functionality in units called *sleeves*. For details about sleeves, see [Storage sleeves](#storage-sleeves).
+In Gridwich, a pair of provider classes dispenses [BlobBaseClientProvider][ProvB] and [BlobContainerClientProvider][ProvC] functionality in units called *sleeves*. For details about sleeves, see [Storage sleeves](#storage-sleeves).
 
 The following diagram illustrates the structure of the SDK and Gridwich classes, and how instances relate to each other. The arrows indicate "has a reference to."
 
@@ -58,7 +56,7 @@ The context for both the blob and container [storage types](#storage-sleeves) is
     bool    TrackingETag { get; set; }
 ```
 
-The first two properties are different representations of the operation context that was used to initialize the [StorageClientProviderContext][SCPC] instance. The class has a variety of constructors, including a copy constructor. Additional methods include `ResetTo`, to allow in-place state duplication, and a static `CreateSafe` method to ensure that problematic initializations don't throw exceptions.
+The first two properties are different representations of the operation context that was used to initialize the [StorageClientProviderContext][SCPC] instance. The class has various constructors, including a copy constructor. Additional methods include `ResetTo`, to allow in-place state duplication, and a static `CreateSafe` method to ensure that problematic initializations don't throw exceptions.
 
 The class also contains special handling for creating contexts based on GUIDs and empty strings. The Azure Storage Notification handlers for blob [Created][NotifyC] and [Deleted][NotifyD], which also process notifications arising from external agents, require the GUID form.
 
@@ -101,6 +99,7 @@ To use the `ETag` for the preceding example:
 If the two `ETag` values are different, the delete operation fails. The failure implies that some other operation changed the blob between steps 2 and 3. Repeat the process from step 1.
 
 `ETag` is a parameter of constructors and a string property of the [StorageClientProviderContext class][SCPC]. Only the Gridwich-specific [BlobClientPipelinePolicy][Pipeline] manipulates the `ETag` value.
+
 ### Control ETag use
 
 The `TrackingETag` property controls whether to send the `ETag` value on the next request. The value `true` means that the service sends an `ETag` if one is available.
@@ -117,7 +116,7 @@ A pair of provider classes, one for [blobs][ProvB] and one for [containers][Prov
 
 ### Sleeve structure
 
-The *sleeve* is a container for the SDK Client object instance and a storage context. Storage provider functions reference the sleeve via the two properties `Client` and `Context`. There is a sleeve type for [blobs][SleeveB] and another for [containers][SleeveC], which have have `Client` properties of type [`BlobBaseClient`][SDK_BlobClient] and [`BlobContainerClient`][SDK_ContainerClient], respectively.
+The *sleeve* is a container for the SDK Client object instance and a storage context. Storage provider functions reference the sleeve via the two properties `Client` and `Context`. There's a sleeve type for [blobs][SleeveB] and another for [containers][SleeveC], which have have `Client` properties of type [`BlobBaseClient`][SDK_BlobClient] and [`BlobContainerClient`][SDK_ContainerClient], respectively.
 
 The general sleeve structure for blobs looks like:
 
@@ -168,13 +167,13 @@ In conjunction with the sleeve `Service` member, which is an instance of the [Az
 
 Subclassing the SDK client types adds two simple properties to the client, one for each HTTP header value, to completely hide the interaction with the pipeline policy. But because of a deep [Moq](https://github.com/moq/moq4) bug, it's not possible to create unit tests via `mock` for these derived types. Gridwich uses Moq, so didn't use this subclassing approach.
 
-The Moq bug relates to its mishandling of cross-assembly subclassing in the presence of internal-scope virtual functions. The SDK client classes make use of internal-scope virtual functions involving internal-scope types that are invisible to normal outside users. When Moq tries to create a `mock` of the subclass, which is in one of the Gridwich assemblies, it fails at test execution time as it can't find the internal-scope virtuals in the SDK client classes from which the Gridwich classes are derived. There is no workaround without changes in the Moq Castle proxy generation.
+The Moq bug relates to its mishandling of cross-assembly subclassing in the presence of internal-scope virtual functions. The SDK client classes make use of internal-scope virtual functions involving internal-scope types that are invisible to normal outside users. When Moq tries to create a `mock` of the subclass, which is in one of the Gridwich assemblies, it fails at test execution time as it can't find the internal-scope virtuals in the SDK client classes from which the Gridwich classes are derived. There's no workaround without changes in the Moq Castle proxy generation.
 
 ### Storage Service and dependency injection
 
 Gridwich currently registers the Storage Service as a `Transient` dependency injection service. That is, each time dependency injection is asked for the service, it creates a new instance. The current code should also work correctly if the registration changes to `Scoped`, implying one instance per request, for example the external system's request.
 
-However, there will be issues if the registration changes to `Singleton`, one instance across the Gridwich Function app. The Gridwich caching mechanism for sleeves and data byte ranges then won't distinguish between different requests. Also, the cache model isn't a check-out one, so Gridwich doesn't remove the instance from the cache while it's in use. Since the SDK client classes aren't guaranteed to be thread-safe, coordination would require a number of changes.
+However, there will be issues if the registration changes to `Singleton`, one instance across the Gridwich Function app. The Gridwich caching mechanism for sleeves and data byte ranges then won't distinguish between different requests. Also, the cache model isn't a check-out one, so Gridwich doesn't remove the instance from the cache while it's in use. Since the SDK client classes aren't guaranteed to be thread-safe, coordination would require many changes.
 
 For these reasons, don't change the Gridwich Storage Service, as is, to `Singleton` dependency injection registration. Gridwich follows this rule in [dependency injection registration][StorageServiceDI] and includes a unit test, [CheckThatStorageServiceIsNotASingleton][SSTest], to enforce it.
 
@@ -193,10 +192,8 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
 - [Gridwich project naming and namespaces](gridwich-project-names.yml)
 - [Logging in Gridwich](gridwich-logging.yml)
-
 
 [StorageService]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage
 [SCPC]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Models/StorageClientProviderContext.cs "StorageClientProviderContext.cs"
@@ -208,7 +205,6 @@ Microsoft Learn modules:
 [ProvC]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/BlobContainerClientProvider.cs "BlobContainerClientProvider.cs"
 [NotifyD]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobDeletedHandler.cs "BlobDeletedHandler.cs"
 [NotifyC]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/EventGridHandlers/BlobCreatedHandler.cs "BlobCreatedHandler.cs"
-[JSONHelpers]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/Helpers/JSONHelpers.cs "JSONHelpers.cs"
 [StorageServiceDI]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/StorageExtensions.cs "StorageExtension.cs"
 [SSTest]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Host.FunctionApp/tests/Services/ServiceConfigurationTests.cs "ServiceConfigurationTests.cs"
 [StorMgmt]: https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Storage.AzureStorage/src/Services/AzureStorageManagement.cs "AzureStorageManagement.cs"

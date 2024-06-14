@@ -4,11 +4,11 @@ description: Learn about considerations and approaches for using Azure Active Di
 author: landonpierce
 ms.author: landonpierce 
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 06/06/2024
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-active-directory-b2c
+ - entra-external-id
 categories:
  - web 
 ms.category:
@@ -19,7 +19,7 @@ ms.custom:
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
 
-Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
+Azure Active Directory (Azure AD) B2C provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
 One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers so that your users can sign in with a pre-existing account. If you use Azure AD B2C, you can implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) that's specific to your application.
 
@@ -44,12 +44,12 @@ In multitenant solutions, it's common to combine multiple identity services to a
 - **Customer identities**, which are for end-user accounts. They control how your tenants' users get access to your applications.
 - **Internal identities**, which handle how your own team manages your solution.
 
-These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
+These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
 
 Consider an example multitenant solution built by Fabrikam. The solution uses a combination of the two services to meet Fabrikam's requirements:
 
 - Fabrikam implements Azure AD B2C so that the company's customers (tenants) can sign in to applications.
-- Employees of Fabrikam use their organization's Azure AD directory to gain access to their solution for management and administration purposes. They use the same identities that they use for accessing other Fabrikam resources, like Microsoft Office.
+- Employees of Fabrikam use their organization's Microsoft Entra directory to gain access to their solution for management and administration purposes. They use the same identities that they use for accessing other Fabrikam resources, like Microsoft Office.
 
 The following diagram illustrates this example:
 
@@ -61,7 +61,7 @@ When you use Azure AD B2C, you need to decide how to isolate your user accounts 
 
 You need to consider questions like:
 
-- Do you need to federate sign-ins to your customer's identity providers? For example, do you need to enable federation to SAML, Azure AD, social sign-in providers, or other sources?
+- Do you need to federate sign-ins to your customer's identity providers? For example, do you need to enable federation to SAML, Microsoft Entra ID, social sign-in providers, or other sources?
 - Do you or your tenants have data residency requirements?
 - Does the user need to access more than one application tenant?
 - Do you need complex permissions and/or role-based access control (RBAC)?
@@ -125,7 +125,7 @@ The following diagram illustrates the vertically partitioned Azure AD B2C tenant
 
 If you provision an Azure AD B2C tenant for each application tenant, you can customize many factors for each tenant. However, this approach creates a significant increase in overhead. You need to develop a deployment and [maintenance](#maintenance) strategy for a potentially large number of Azure AD B2C tenants.
 
-You also need to be aware of service limits. Azure subscriptions allow you to deploy only a [limited number](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of Azure AD B2C tenants. If you need to deploy more than the limit allows, you need to consider an appropriate [subscription design](../approaches/resource-organization.yml#bin-packing) so you can balance your Azure AD B2C tenants across multiple subscriptions. There are other [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well, like the number of directories a single user can create and the number of directories a user can belong to.
+You also need to be aware of service limits. Azure subscriptions allow you to deploy only a [limited number](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of Azure AD B2C tenants. If you need to deploy more than the limit allows, you need to consider an appropriate [subscription design](../approaches/resource-organization.yml#bin-packing) so you can balance your Azure AD B2C tenants across multiple subscriptions. There are other [Microsoft Entra limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well, like the number of directories a single user can create and the number of directories a user can belong to.
 
 > [!WARNING]
 > Because of the complexity of this approach, we strongly recommend that you consider the other isolation models first. This option is included here for the sake of completeness, but it's not the right approach for most use cases.
@@ -173,12 +173,12 @@ There is no single approach to authorization, and you should consider the needs 
 
 ## Maintenance
 
-When you plan a multitenant deployment of Azure AD B2C, you need to think about the long-term maintenance of your Azure AD B2C resources. An Azure AD B2C tenant, like your organizational Azure AD tenant, is a resource that you need to create, maintain, operate, and secure. Although the following list isn't comprehensive, you should consider the maintenance incurred in areas like these:  
+When you plan a multitenant deployment of Azure AD B2C, you need to think about the long-term maintenance of your Azure AD B2C resources. An Azure AD B2C tenant, like your organizational Microsoft Entra tenant, is a resource that you need to create, maintain, operate, and secure. Although the following list isn't comprehensive, you should consider the maintenance incurred in areas like these:  
 
 - **Tenant governance.** Who maintains the Azure AD B2C tenant? What elevated roles do these administrators need? How do you configure Conditional Access and MFA policies for the administrators? How do you monitor the Azure AD B2C tenant in the long term?
 - [**User journey configuration**](/azure/active-directory-b2c/user-flow-overview). How do you deploy changes to your Azure AD B2C tenant or tenants? How do you test changes to your user flows or custom policies before you deploy them?
 - [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you allow each of your customers to bring their own identity provider, how do you manage that at scale?
-- **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these secrets or certificates when you need to?
+- **App registrations.** Many Microsoft Entra app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these secrets or certificates when you need to?
 - [**Policy keys**](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy). If you use custom policies, how do you rotate the policy keys when you need to?
 - **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets a password and requires administrator or customer service intervention?
 
@@ -203,19 +203,21 @@ For more information about automated deployments and management of Azure AD B2C,
 > [!IMPORTANT]
 > Some of the endpoints that are used to manage Azure AD B2C programmatically aren't generally available. APIs in the beta version of Microsoft Graph are subject to change at any time and are subject to prerelease terms of service.
 
-## Comparing Azure AD B2B to Azure AD B2C
+<a name='comparing-azure-ad-b2bto-azure-ad-b2c'></a>
 
-[Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of Azure AD External Identities that you can use to invite guest users into your *organizational* Azure AD tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Azure AD tenant.
+## Comparing Microsoft Entra B2B to Azure AD B2C
 
-[Azure AD External Identities](/azure/active-directory/external-identities/external-identities-overview) is the set of approaches that you can use to interact with users outside of your organization. Azure AD B2C is one of the Azure AD External Identities capabilities, but it provides a different set of features than other external identities approaches. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Azure AD tenant.
+[Microsoft Entra B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of [Microsoft Entra External ID](/entra/external-id/external-identities-overview) that you can use to invite guest users into your *organizational* Microsoft Entra tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Microsoft Entra tenant.
 
-Depending on your user personas and scenarios, you might need to use Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Azure AD B2B and Azure AD B2C together to meet this requirement.
+Azure AD B2C is a unique product apart from Microsoft Entra External ID that provides a different set of features. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Microsoft Entra tenant.
+
+Depending on your user personas and scenarios, you might need to use Microsoft Entra B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Microsoft Entra B2B and Azure AD B2C together to meet this requirement.
 
 For more information, see:
 
-- [Use Azure AD or Azure AD B2C?](../approaches/identity.md#use-azure-ad-or-azure-ad-b2c)
+- [Use Microsoft Entra ID or Azure AD B2C?](../approaches/identity.md#use-azure-ad-or-azure-ad-b2c)
 - [Comparing External Identities feature sets](/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets)
-- [Woodgrove demo](https://aka.ms/CIAMdemo). An example application that uses Azure AD B2B and Azure AD B2C.
+- [Woodgrove demo](https://aka.ms/CIAMdemo). An example application that uses Microsoft Entra B2B and Azure AD B2C.
 
 ## Contributors
 

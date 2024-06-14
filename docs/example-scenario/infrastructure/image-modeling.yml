@@ -3,7 +3,7 @@ metadata:
   title: Digital image-based modeling on Azure
   description: Learn how to perform image-based modeling on Azure infrastructure-as-a-service (IaaS) by following the architecture and design guidance in an example scenario.
   author: martinekuan
-  ms.author: architectures 
+  ms.author: pnp 
   ms.date: 08/22/2022
   ms.topic: example-scenario
   ms.service: architecture-center
@@ -16,7 +16,7 @@ metadata:
     - Linux
     - HPC
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-image-modeling.png
+    - linux-related-content
 name: Digital image-based modeling on Azure
 azureCategories:
   - compute

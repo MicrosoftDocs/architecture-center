@@ -27,7 +27,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 - [Azure CDN][docs-cdn] delivers static, cached content from locations close to users to reduce latency.
 - [Azure Traffic Manager][docs-traffic-manager] controls the distribution of user traffic for service endpoints in different Azure regions.
 - [App Services - Web Apps][docs-webapps] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
-- [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
+- [Azure Active Directory B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
 - [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application.
 - [Functions][docs-functions] are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 - [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into applications.
@@ -43,7 +43,6 @@ Many other technologies are available for building a customer-facing application
 
 Other options for the web tier and functions include:
 
-- [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 - [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. The platform provides the agility of different components of the application, to scale independently, on demand.
 - [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
 - [Service Bus][service-bus] could be used in place of a Storage Queue.
@@ -106,7 +105,7 @@ Explore the cost of running this scenario, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. The other components are each scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
+- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. The other components are each scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is service-level agreement (SLA) support and enough capacity to handle a production level workload.
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 
@@ -131,6 +130,7 @@ Principal author:
 
 ## Related resources
 
+- [Baseline architecture for a zone-redundant web application][baseline-web-app]
 - [Reference architecture for a multi-region web application][multi-region-web-app]
 - [eShop on containers reference example][microservices-ecommerce]
 - [Circuit Breaker pattern][circuit-breaker]
@@ -141,7 +141,7 @@ Principal author:
 [small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
-[app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
+[app-service-reference-architecture]: /azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant
 [availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [circuit-breaker]: ../../patterns/circuit-breaker.yml
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
@@ -156,7 +156,6 @@ Principal author:
 [docs-functions]: https://www.microsoft.com/azure/azure-functions/functions-overview
 [docs-redis-cache]: https://www.microsoft.com/azure/redis-cache/cache-overview
 [docs-search]: https://www.microsoft.com/azure/search/search-what-is-azure-search
-[docs-service-fabric]: https://www.microsoft.com/azure/service-fabric
 [docs-sentiment-analysis]: https://www.microsoft.com/azure/cognitive-services/welcome
 [docs-sql-database]: https://www.microsoft.com/azure/sql-database/sql-database-technical-overview
 [docs-storage-blobs]: https://www.microsoft.com/azure/storage/blobs/storage-blobs-introduction
@@ -164,8 +163,9 @@ Principal author:
 [docs-traffic-manager]: https://www.microsoft.com/azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: https://www.microsoft.com/azure/app-service/app-service-web-overview
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
-[microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
-[multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
+[microservices-ecommerce]: https://github.com/dotnet/eShop
+[multi-region-web-app]: ../../web-apps/app-service/architectures/multi-region.yml
+[baseline-web-app]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: /azure/architecture/framework/resiliency/principles

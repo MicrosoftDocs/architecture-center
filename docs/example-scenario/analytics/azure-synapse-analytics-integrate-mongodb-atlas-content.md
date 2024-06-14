@@ -8,9 +8,9 @@ This article presents a solution for deriving insights from MongoDB Atlas operat
 
 The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real time.
 
-:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" border="false":::
+:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1987245-azure-synapse-analytics-integrate-mongodb-atlas.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-synapse-analytics-integrate-mongodb-atlas.pptx) of all diagrams in this article.*
 
 ### Dataflow
 
@@ -36,7 +36,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Change streams](https://www.mongodb.com/docs/manual/changeStreams) in MongoDB Atlas give applications access to real-time data changes so that the apps can immediately react to those changes. The change streams provide a way for applications to receive notifications about changes to a particular collection, database, or entire deployment cluster.
 
-- [App Service](https://azure.microsoft.com/services/app-service) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps) and its Web Apps, Mobile Apps, and API Apps features provide a framework for building, deploying, and scaling web apps, mobile apps, and REST APIs. This solution uses web apps that are programmed in ASP.NET. The code is available on GitHub:
 
   - [Event Grid version](https://github.com/Azure/SynapseRTSEventGrid)
   - [Storage version](https://github.com/Azure/SynapseRTSStorage)
@@ -45,7 +45,7 @@ The solution presents two options for triggering the pipelines that capture the 
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides capabilities for storing and processing data. As a data lake that's built on top of [Blob Storage](https://azure.microsoft.com/services/storage/blobs), Data Lake Storage provides a scalable solution for managing large volumes of data from multiple, heterogeneous sources.
 
-- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, and load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
+- [Azure Synapse Analytics pipelines](/azure/synapse-analytics/get-started-pipelines) are used to perform extract, transform, load (ETL) operations on data. Azure Data Factory provides a similar service, but you can create Azure Synapse Analytics pipelines within Synapse Studio. You can use multiple activities within the same pipeline. You can also create dependency endpoints to connect one activity with another activity in the pipeline.
 
 - [Mapping data flows](/azure/data-factory/concepts-data-flow-overview) are visually designed data transformations in Azure Synapse Analytics. Data flows provide a way for data engineers to develop data transformation logic without writing code. You can run the resulting data flows as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. You can put data flow activities into operation by using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
 
@@ -67,7 +67,7 @@ In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises ins
 
 With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for specific periods by using a filter in batch mode. Then you can use SQL pools and Apache Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
 
-:::image type="content" source="./media/azure-synapse-analytics-mongodb-connectors.png" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./media/azure-synapse-analytics-mongodb-connectors.png" border="false":::
+:::image type="content" source="./media/azure-synapse-analytics-mongodb-connectors.svg" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./media/azure-synapse-analytics-mongodb-connectors.svg" border="false":::
 
 For more information about how to set up and configure the connectors, see these resources:
 
@@ -253,5 +253,4 @@ For information about Azure solution components, see these resources:
 - [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 - [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../ai/speech-to-text-transcription-analytics.yml)
-- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
+- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)

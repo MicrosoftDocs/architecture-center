@@ -4,6 +4,8 @@ Microsoft patterns & practices
 
 <https://aka.ms/architecture>
 
+<!-- docutune:disable -->
+
 ## Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content

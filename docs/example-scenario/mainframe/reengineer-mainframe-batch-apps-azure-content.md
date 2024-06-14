@@ -4,7 +4,7 @@ This reference architecture shows how you can use Azure to re-engineer a z/OS ma
 
 The first diagram shows the architecture of a typical batch application running on a z/OS mainframe.
 
-:::image type="content" source="media/mainframe-batch-application-diagram.png" alt-text="Diagram of a typical batch application running on a z/OS mainframe.":::
+:::image type="content" source="media/mainframe-batch-application-diagram.svg" alt-text="Diagram of a typical batch application running on a z/OS mainframe." lightbox="media/mainframe-batch-application-diagram.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-mainframe-batch-application-example.vsdx) of this architecture.*
 
@@ -31,7 +31,7 @@ The first diagram shows the architecture of a typical batch application running 
 
 The second diagram shows how you can use Azure services to re-engineer a similar application with added capabilities and flexibility.
 
-:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture-expanded.png":::
+:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.svg" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-azure-reengineer-mainframe-batch-example.vsdx) of this architecture.*
 
@@ -66,7 +66,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
     You can use the output of Log Analytics and Application Insights to create alerts and dashboards, or export to external services. You can also use the output to do an action like the scaling of a VM.
 
-1. This tier provides Azure services for source control, security, and output management. These services might consist of Azure DevOps and Azure Active Directory (Azure AD).
+1. This tier provides Azure services for source control, security, and output management. These services might consist of Azure DevOps and Microsoft Entra ID.
 
 ### Components
 
@@ -74,7 +74,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Office 365.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-- [Azure AD](https://azure.microsoft.com/services/active-directory): Azure AD is an identity and access management service that can sync with an on-premises directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Microsoft Entra ID is an identity and access management service that can sync with an on-premises directory.
 
 #### Application
 
@@ -85,7 +85,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 - [AKS](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
 - [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It's a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
 - [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
-- [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
 
 #### Storage
@@ -148,7 +148,7 @@ This solution is ideal for the finance, insurance, healthcare, and retail indust
 ### Security
 
 - This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- You can authenticate Azure resources by using Azure AD. You can manage permissions with role-based access control (RBAC).
+- You can authenticate Azure resources by using Microsoft Entra ID. You can manage permissions with role-based access control (RBAC).
 - Database services in Azure support various security options like Data Encryption at Rest.
 - For more information on designing secure solutions, see [Azure security documentation](/azure/security).
 

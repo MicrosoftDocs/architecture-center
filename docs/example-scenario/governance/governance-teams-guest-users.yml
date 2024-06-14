@@ -2,9 +2,9 @@
 metadata:
   title: Governance of Teams guest users
   titleSuffix: Azure Architecture Center
-  description: Learn how to use Microsoft Teams and Azure AD entitlement management to collaborate with other organizations, while maintaining control over resource use.
-  author: martinekuan
-  ms.author: martin.boam
+  description: Learn how to use Microsoft Teams and Microsoft Entra entitlement management to collaborate with other organizations, while maintaining control over resource use.
+  author: martinboam
+  ms.author: maboam
   ms.date: 02/23/2023
   ms.topic: example-scenario
   ms.service: architecture-center
@@ -15,11 +15,11 @@ azureCategories:
   - management-and-governance
   - identity
 products:
-  - azure-active-directory
+  - entra-id
   - m365
   - office-teams
 name: Governance of Microsoft Teams guest users
-summary: Learn how to use Microsoft Teams and Azure AD entitlement management to collaborate with other organizations, while maintaining control over resource use.
+summary: Learn how to use Microsoft Teams and Microsoft Entra entitlement management to collaborate with other organizations, while maintaining control over resource use.
 thumbnailUrl: /azure/architecture/browse/thumbs/governance-teams-guest-users.png
 content: |
   [!include[](governance-teams-guest-users-content.md)]

@@ -17,7 +17,7 @@
             <li>3/12/2020</li>
             <li>13 min read</li>
         </ul>
-        <p class="card-content-description">How a developer can use Azure Active Directory and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.</p>
+        <p class="card-content-description">How a developer can use Microsoft Entra ID and the Microsoft identity platform to implement secure authentication and authorization for SaaS apps that manage cloud-connected IoT devices.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

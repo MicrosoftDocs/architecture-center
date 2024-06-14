@@ -37,7 +37,7 @@ This scenario uses the following components:
 - [Power Platform](https://powerplatform.microsoft.com) analyzes data, builds solutions, automates processes, and creates virtual agents.
   - [Power Platform environments](/power-platform/admin/environments-overview) store, manage, and share an organization's business data, apps, chatbots, and flows.
   - [Power Platform Solutions](/power-platform/alm/solution-concepts-alm) are the mechanism for implementing [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) in Power Apps and Power Automate.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a universal platform to manage and secure identities.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a universal platform to manage and secure identities.
 
 ### Alternatives
 
@@ -89,7 +89,7 @@ Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/
 
 ### Security
 
-- Entitlement management for flows you create under Solutions is different from flows outside Solutions. With flows outside Solutions, you can give permissions to a SharePoint site list or library to initiate the flow. Flows in Solutions tie permissions to a Dataverse Environment-based group called *Group Team*, which you can map to an Azure AD group. You can then manage users in the Azure AD group.
+- Entitlement management for flows you create under Solutions is different from flows outside Solutions. With flows outside Solutions, you can give permissions to a SharePoint site list or library to initiate the flow. Flows in Solutions tie permissions to a Dataverse Environment-based group called *Group Team*, which you can map to a Microsoft Entra group. You can then manage users in the Microsoft Entra group.
 
 - All users except the environment administrator must be given read/execute-only permissions in Production environments, so end users can't create any components.
 
@@ -129,4 +129,4 @@ Principal author:
 
 - [CI/CD for Azure Power Platform](../../solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)
 - [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml)
-- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology in Azure](../../networking/architecture/hub-spoke.yml)

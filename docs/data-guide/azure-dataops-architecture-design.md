@@ -2,7 +2,7 @@
 title: DataOps architecture design
 description: DataOps is a lifecycle approach to data analytics that uses agile practices to deliver high-quality data.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -29,7 +29,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 There are many tools and capabilities to implement DataOps processes, like:
 
 - [Apache NiFi](https://nifi.apache.org/). Apache NiFi provides a system for processing and distributing data.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based ETL and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based extract, transform, load (ETL) and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks). Use Azure Databricks to unlock insights from all your data and build AI solutions. You can also quickly set up your Apache Spark environment, autoscale, and collaborate on shared projects.
 - [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage). Use a single data storage platform to optimize costs and protect your data with encryption at rest and advanced threat protection.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). A limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
@@ -83,14 +83,14 @@ To learn about scenario-specific architectures, see the solutions in the followi
 You can integrate Profisee data management with Azure Purview to build a foundation for data governance and management.
 
 > [!div class="nextstepaction"]
-> [Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)
+> [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)
 
 ### Modern data warehouse
 
 Apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.
 
 > [!div class="nextstepaction"]
-> [DataOps for the modern data warehouse](../example-scenario/data-warehouse/dataops-mdw.yml)
+> [DataOps for the modern data warehouse](../databases/architecture/dataops-mdw.yml)
 
 ### Modernize a mainframe
 
@@ -119,7 +119,6 @@ DataOps uses many tools and techniques to deliver data. The following resources 
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
 - [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [Data management across Azure Data Lake with Azure Purview](../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
-- [Hybrid ETL with Azure Data Factory](../example-scenario/data/hybrid-etl-with-adf.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 ### Amazon Web Services (AWS) or Google Cloud professionals

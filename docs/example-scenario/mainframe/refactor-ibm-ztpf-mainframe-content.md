@@ -4,7 +4,9 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 
 ### Mainframe architecture
 
-:::image type="content" border="false" source="media/mainframe-migration-before.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.png":::
+:::image type="content" border="false" source="media/mainframe-migration-before.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-migration-after.vsdx) of this architecture.*
 
 #### Dataflow
 
@@ -19,7 +21,7 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 
 ### Azure architecture
 
-:::image type="content" border="false" source="media/mainframe-migration-after.png" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.png"::: 
+:::image type="content" border="false" source="media/mainframe-migration-after.svg" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.svg"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-migration-after.vsdx) of this architecture.*
 
@@ -98,7 +100,7 @@ Kubernetes provides a cluster autoscaler that adjusts the number of nodes requir
 
 ### Security 
 
-This architecture is primarily built on Kubernetes, which includes security components like [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret). Azure provides additional security features, like Azure Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
+This architecture is primarily built on Kubernetes, which includes security components like [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret). Azure provides additional security features, like Microsoft Entra ID, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
 
 [Azure Bastion](/azure/bastion/bastion-overview) improves security for admin access by minimizing open ports. Azure Bastion provides highly secure RDP or SSH connectivity to virtual network VMs directly from the Azure portal, over TLS. 
 

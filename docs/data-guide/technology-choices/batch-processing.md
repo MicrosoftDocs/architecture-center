@@ -1,9 +1,9 @@
 ---
 title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
-author: martinekuan
+author: pratimav0420
+ms.author: prvalava
 categories: azure
-ms.author: architectures
 ms.reviewer: tozimmergren
 ms.date: 10/03/2022
 ms.topic: conceptual
@@ -55,7 +55,7 @@ HDInsight is a managed Hadoop service. Use it to deploy and manage Hadoop cluste
 - Fast cluster start times, autotermination, autoscaling.
 - Manages the Spark cluster for you.
 - Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure Synapse, and other services. See [Data Sources](/azure/databricks/data/data-sources/).
-- User authentication with Azure Active Directory.
+- User authentication with Microsoft Entra ID.
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
 
@@ -80,12 +80,12 @@ The following tables summarize the key differences in capabilities.
 | Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
-| Relational data store | Yes | Yes | No | No |
-| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
+| Relational data store | Yes | Yes | No | Yes |
+| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks unit (DBU)<sup>2</sup> + cluster hour |
 
 [1] With manual configuration.
 
-[2] A Databricks Unit (DBU) is a unit of processing capability per hour.
+[2] A Databricks unit (DBU) is a unit of processing capability per hour.
 
 ### Capabilities
 
@@ -95,11 +95,11 @@ The following tables summarize the key differences in capabilities.
 | Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |
 | In-memory caching of data | No | Yes | Yes | No | Yes | Yes |
 | Query from external relational stores | Yes | No | Yes | No | No | Yes |
-| Authentication  | Azure AD | SQL / Azure AD | No | Azure AD<sup>1</sup> | Azure AD<sup>1</sup> | Azure AD |
+| Authentication  | Microsoft Entra ID | SQL / Microsoft Entra ID | No | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID |
 | Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
-| Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |
-| Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
+| Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
+| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes |
+| Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
@@ -131,4 +131,3 @@ Principal author:
 - [Choose an analytical data store in Azure](analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
-- [Batch processing](../big-data/batch-processing.yml)

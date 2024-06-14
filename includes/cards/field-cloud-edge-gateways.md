@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/iot/field-cloud-edge-gateways"><img src="/azure/architecture/browse/thumbs/field-cloud-edge-gateways.png" class="diagram" alt="Thumbnail of Field and cloud edge gateways Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/iot/iot-architecture-overview"><img src="/azure/architecture/browse/thumbs/field-cloud-edge-gateways.png" class="diagram" alt="Thumbnail of Field and cloud edge gateways Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/iot/field-cloud-edge-gateways">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/iot/iot-architecture-overview">
             <p>Field and cloud edge gateways</p>
         </a>
         <ul class="card-content-metadata">

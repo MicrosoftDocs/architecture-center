@@ -1,10 +1,10 @@
 ---
 title: Azure Storage considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
+description: This article describes the features of Azure Storage that are useful when working with multitenant systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/08/2022
+ms.date: 07/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -30,7 +30,7 @@ Azure Storage includes many features that support multitenancy.
 
 ### Shared access signatures
 
-When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This connection helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
+When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This connection helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature (SAS)](/azure/storage/common/storage-sas-overview) enables you to securely provide your client applications with access to objects in Azure Storage.
 
 Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and you store all of tenant A's data in a blob container named `tenanta`, you can create an SAS that only permits tenant A's users to access that container. For more information, see [Isolation models](#isolation-models) to explore the approaches you can use to isolate your tenants' data in a storage account.
 
@@ -40,7 +40,7 @@ The [Valet Key pattern](../../../patterns/valet-key.yml) is useful as a way to i
 
 ### Identity-based access control
 
-Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Azure Active Directory (Azure AD). This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
+Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Microsoft Entra ID. This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
 
 ### Lifecycle management
 
@@ -72,7 +72,7 @@ Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encr
 
 ### Monitoring
 
-When working with a multitenant solution, consider whether you need to [measure the consumption for each tenant](../considerations/measure-consumption.md), and define the specific metrics you need to track, such as the amount of storage used for each tenant (the capacity), or the number of operations performed for each tenant's data.
+When working with a multitenant solution, consider whether you need to [measure the consumption for each tenant](../considerations/measure-consumption.md), and define the specific metrics you need to track, such as the amount of storage used for each tenant (the capacity), or the number of operations performed for each tenant's data. You can also use [cost allocation](../approaches/cost-management-allocation.yml) to track the cost of each tenant's usage and enable chargeback across multiple subscriptions.
 
 Azure Storage provides [built-in monitoring capabilities](/azure/storage/blobs/monitor-blob-storage). It's important to consider the services you'll use within the Azure Storage account. For example, when you work with [blobs](/azure/storage/blobs/monitor-blob-storage-reference), it's possible to view the total capacity of a storage account, but not a single container. In contrast, when you work with file shares, it's possible to see the capacity for each share, but not for each folder.
 
@@ -227,6 +227,7 @@ Other contributors:
  * [Patrick Horn](https://www.linkedin.com/in/patrick-horn-4383531) | Senior Customer Engineering Manager, FastTrack for Azure
  * [Ben Hummerstone](https://www.linkedin.com/in/bhummerstone) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -1,8 +1,8 @@
 ---
 title: Advanced analytics
 description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
-author: martinekuan
-ms.author: architectures
+author: pratimav0420
+ms.author: prvalava
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -95,4 +95,4 @@ Relevant Azure services:
 
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 
-- [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
+- [Choosing a machine learning technology](../../ai-ml/guide/data-science-and-machine-learning.md)

@@ -8,9 +8,9 @@ This architecture demonstrates a way to provide file shares in the cloud to on-p
 
 ### Workflow
 
-1. This solution synchronizes the on-premises AD DS and the cloud-based Azure AD. Synchronizing makes users more productive by providing a common identity for accessing both cloud and on-premises resources.
+1. This solution synchronizes the on-premises AD DS and the cloud-based Microsoft Entra ID. Synchronizing makes users more productive by providing a common identity for accessing both cloud and on-premises resources.
 
-   Azure AD Connect is the on-premises Microsoft application that does the synchronizing. For more information about Azure AD Connect, see [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect) and [Azure AD Connect sync: Understand and customize synchronization](/azure/active-directory/hybrid/how-to-connect-sync-whatis).
+   Microsoft Entra Connect is the on-premises Microsoft application that does the synchronizing. For more information about Microsoft Entra Connect, see [What is Microsoft Entra Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect) and [Microsoft Entra Connect Sync: Understand and customize synchronization](/azure/active-directory/hybrid/how-to-connect-sync-whatis).
 1. Azure Virtual Network provides a virtual network in the cloud. For this solution, it has at least two subnets, one for Azure DNS, and one for a private endpoint to access the file share.
 1. Either VPN or Azure ExpressRoute provides secure connections between the on-premises network and the virtual network in the cloud. If you use VPN, create a gateway by using Azure VPN Gateway. If you use ExpressRoute, create an ExpressRoute virtual network gateway. For more information, see [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
 1. Azure Files provides a file share in the cloud. This requires an Azure Storage account. For more information about file shares, see [What is Azure Files?](/azure/storage/files/storage-files-introduction).
@@ -40,7 +40,7 @@ Now suppose that the need arises to have file shares in the cloud.
 
 The architecture that's described here shows how to use Azure to satisfy this need, and how to do it at low cost, and by continuing to use the on-premises network, AD DS, and DNS.
 
-In this architecture, Azure Files provides the file share. Site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications use the connections to access the files. Azure Active Directory (Azure AD) and Azure DNS cooperate with on-premises AD DS and DNS to secure the access.
+In this architecture, Azure Files provides the file share. Site-to-site VPN or Azure ExpressRoute provides secure connections between the on-premises network and Azure virtual network. Users and applications use the connections to access the files. Microsoft Entra ID and Azure DNS cooperate with on-premises AD DS and DNS to secure the access.
 
 In short, if you're in the described situation, you can provide cloud files to your on-premises users at low cost, and continue to provide secure file access with your on-premises AD DS and DNS.
 
@@ -68,7 +68,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 These articles have security information for Azure components:
 
 - [Azure security baseline for Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline)
-- [Azure security baseline for Azure Private Link](/security/benchmark/azure/baselines/private-link-security-baseline)
+- [Azure security baseline for Azure Private Link](/security/benchmark/azure/baselines/azure-private-link-security-baseline)
 - [Azure security baseline for Virtual Network](/security/benchmark/azure/baselines/virtual-network-security-baseline)
 - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
 
@@ -92,9 +92,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Your Azure Storage accounts contain all of your Azure Storage data objects, including file shares. A storage account provides a unique namespace for its data, a namespace that's accessible from anywhere in the world over HTTP or HTTPS. For this architecture, your storage account contains file shares that are provided by Azure Files. For best performance, we recommend the following:
   - Don't put databases, blobs, and so on, in storage accounts that contain file shares.
   - Have no more than one highly active file share per storage account. You can group file shares that are less active into the same storage account.
-  - Use SSD-based storage rather than HDD. For more information about the scalability and performance of file shares, see [Azure Files scalability and performance targets](/azure/storage/files/storage-files-scale-targets).
-  - Don't select a general-purpose v1 storage account, because it lacks important features. The storage account types are described in [Storage account overview](/azure/storage/common/storage-account-overview).
-  - Pay attention to size, speed, and other limitations. For this information, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+  - If your workload requires large amounts of IOPS, extremely fast data transfer speeds, or very low latency, then you should choose premium (FileStorage) storage accounts. A standard general-purpose v2 account is appropriate for most SMB file share workloads. For more information about the scalability and performance of file shares, see [Azure Files scalability and performance targets](/azure/storage/files/storage-files-scale-targets).
+  - Don't use a general-purpose v1 storage account, because it lacks important features. Instead, [upgrade to a general-purpose v2 storage account](/azure/storage/common/storage-account-upgrade). The storage account types are described in [Storage account overview](/azure/storage/common/storage-account-overview).
+  - Pay attention to size, speed, and other limitations. Refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - There's little you can do to improve the performance of non-storage components, except to be sure that your deployment honors the limits, quotas, and constraints that are described in [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - For scalability information for Azure components, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
@@ -104,7 +104,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 ## Next steps
 
@@ -117,7 +117,7 @@ Principal author:
 - [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints)
 - [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
 - [Azure Firewall DNS settings](/azure/firewall/dns-settings)
-- [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions)
 
 ## Related resources
 

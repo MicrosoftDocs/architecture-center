@@ -2,9 +2,11 @@
 
 This solution idea describes how Azure Data Explorer provides near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. This analytics workflow is part of an overall IoT solution that integrates operational and analytical workloads with Azure Cosmos DB and Azure Data Explorer.
 
+Jupyter is a trademark of its respective company. No endorsement is implied by the use of this mark. Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer-new.png" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." border="false" lightbox="../media/iot-azure-data-explorer-new.png":::
+:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/iot-azure-data-explorer.vsdx) of this architecture.*
 
@@ -26,7 +28,7 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
 
    - Azure Cosmos DB transactions can trigger Azure Functions via change feed. Functions will stream data to Event Hubs for ingestion into Azure Data Explorer.
 
-     or
+     -or-
 
    - Azure Functions can invoke Azure Digital Twins through its API, which then streams data to Event Hubs for ingestion into Azure Data Explorer.
 
@@ -92,5 +94,4 @@ Principal author:
 
 - [Azure Cosmos DB in IoT workloads](iot-using-cosmos-db.yml)
 - [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Real-time analytics on big data architecture](real-time-analytics.yml)

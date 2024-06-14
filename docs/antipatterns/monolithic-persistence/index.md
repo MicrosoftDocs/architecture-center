@@ -2,7 +2,8 @@
 title: Monolithic Persistence antipattern
 titleSuffix: Azure Architecture Center
 description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application&apos;s data into a single data store.
-author: martinekuan
+ms.author: robbag
+author: RobBagby
 categories: azure
 ms.date: 06/05/2017
 ms.topic: design-pattern
@@ -112,7 +113,7 @@ Look for correlations between increased response times and increased database ac
 
 ### Identify which data stores are accessed during those periods
 
-The next graph shows the utilization of database throughput units (DTU) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where throughput peaked in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
+The next graph shows the utilization of database throughput units (DTUs) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where throughput peaked in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
 
 ![The database monitor in the Azure classic portal showing resource utilization of the database][MonolithicDatabaseUtilization]
 
@@ -151,7 +152,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 - [Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence][Data-Access-Guide]
 - [Data partitioning][DataPartitioningGuidance]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/MonolithicPersistence
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/MonolithicPersistence
 [cosmos-db]: https://azure.microsoft.com/services/cosmos-db
 [azure-cache]: /azure/azure-cache-for-redis/cache-overview
 [Data-Access-Guide]: /previous-versions/msp-n-p/dn271399(v=pandp.10)

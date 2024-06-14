@@ -41,5 +41,4 @@ This solution applies to anyone from large corporations to small content creator
 
 - [Performance tuning - Event streaming](../../performance/event-streaming.yml)
 - [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
-- [Test Media Services V3 encoding](../../reference-architectures/media-services/test-encoding.yml)
 - [Content Delivery Network analytics](../../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)

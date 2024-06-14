@@ -2,7 +2,7 @@
 title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -45,7 +45,7 @@ For real-time processing scenarios, begin choosing the appropriate service for y
 
 - Does your data arrive in formats besides Avro, JSON, or CSV? If yes, consider options that support any format using custom code.
 
-- Do you need to scale your processing beyond 1 GB/s? If yes, consider the options that scale with the cluster size.
+- Do you need to scale your processing beyond 1 GBps? If yes, consider the options that scale with the cluster size.
 
 ## Capability matrix
 
@@ -94,7 +94,6 @@ Principal author:
 
 ## Related resources
 
-- [Choose a real-time message ingestion technology](real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.yml)
 - [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 

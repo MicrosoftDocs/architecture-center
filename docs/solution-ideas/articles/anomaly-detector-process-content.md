@@ -2,7 +2,7 @@ This article presents an architecture for a near real-time implementation of an
 
 ## Architecture
 
-![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.png)
+![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/anomaly-detector-process.vsdx) of this architecture.*
 
@@ -110,11 +110,8 @@ Principal author:
 * [Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)
 * [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
 * [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
-* [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 * [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
 * [Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)
-* [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
-* [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
 
 <!-- Links -->
 [Event Grid]: https://azure.microsoft.com/services/event-grid

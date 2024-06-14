@@ -48,7 +48,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 
 **Pipeline design patterns**
 - Data pipelines are designed for reuse and use parameterization.  
-- Pipelines solve common ETL problems. 
+- Pipelines solve common extract, transform, load (ETL) problems. 
 
 **Centralized ingestion** 
 - A centralized platform hosts pipelines for all external and internal data sources. This allows for simplified management, monitoring, security, and standardization of data movement.  
@@ -114,5 +114,5 @@ Principal author:
 
 ## Related resources
 
-  - [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-  - [Team Data Science Process for DevOps](/azure/architecture/data-science-process/team-data-science-process-for-devops)
+- [DataOps for the modern data warehouse](/azure/architecture/databases/architecture/dataops-mdw)
+- [Team Data Science Process for DevOps](/azure/architecture/data-science-process/team-data-science-process-for-devops)

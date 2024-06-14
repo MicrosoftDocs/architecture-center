@@ -4,7 +4,7 @@ This solution uses Azure virtual machines (VMs) to replicate the behavior of an 
 
 ## Architecture
 
-![Diagram that shows how to deploy a DFS Namespaces failover cluster.](../media/dfs-azure-vms.png)
+:::image type="content" border="false" source="../media/dfs-azure-vms.svg" alt-text="Diagram that shows how to deploy a DFS Namespaces failover cluster." lightbox="../media/dfs-azure-vms.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/dfs-azure-vms.vsdx) of this architecture.*
 
@@ -52,7 +52,7 @@ This solution uses a quorum system that's based on a quorum disk. Another approa
 
 Azure assigns IP addresses to VMs dynamically when it creates the VMs. The DHCP service is automatically provided by Azure for each subnet, so you don't need to run a DHCP service on a VM. 
 
-Running a DHCP service in a virtual network [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). Therefore, you need to assign an IP address for the role. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
+Running a DHCP service in a virtual network to issue IPs to Azure VMs [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-in-virtual-networks). Therefore, you need to assign an IP address for the role. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
 
 ### Potential use cases
  
@@ -72,7 +72,7 @@ For scenarios where Universal Naming Convention (UNC) paths need to be kept, see
  
 Principal author:
  
-- [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | CSA-E Azure Core
+- [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | Cloud Solution Architect
 
 Other contributor:
 
@@ -89,7 +89,7 @@ Other contributor:
  
 ## Related resources
  
-* [Networking architecture design](../../guide/networking/networking-start-here.md)
+* [Networking architecture design](../../networking/index.md)
 * [Build applications on the Microsoft Cloud](../../guide/microsoft-cloud/overview.md)
 * [Storage architecture design](../../guide/storage/storage-start-here.md)
 * [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)

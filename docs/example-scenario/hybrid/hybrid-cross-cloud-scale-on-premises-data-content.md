@@ -22,7 +22,7 @@ This solution demonstrates how to build a hybrid app that takes advantage of:
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/products/app-service) makes it possible for  you to build and host web apps, RESTful API apps, and Azure functions.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) makes it possible for  you to build and host web apps, RESTful API apps, and Azure functions.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network makes it possible for multiple Azure resource types, like virtual machines (VM), to communicate with each other, the internet, and on-premises networks, all with improved security. This solution also demonstrates the use of additional networking components:
 
   - App and gateway subnets.
@@ -98,7 +98,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Use a certificate for authentication when you run an unattended script.
   For more information about service principal creation and using a certificate for credentials, see [Use an app identity to access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-- **A single, consistent identity management solution.** Azure Stack Hub works with both Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS). It works with Azure AD in connected scenarios. For environments that don't have connectivity, you can use AD FS as a disconnected solution. Service principals are used to grant access to apps, allowing them to deploy or configure resources through Azure Resource Manager.
+- **A single, consistent identity management solution.** Azure Stack Hub works with both Microsoft Entra ID and Active Directory Federation Services (AD FS). It works with Microsoft Entra ID in connected scenarios. For environments that don't have connectivity, you can use AD FS as a disconnected solution. Service principals are used to grant access to apps, allowing them to deploy or configure resources through Azure Resource Manager.
 
 ### Operational excellence
 
@@ -156,4 +156,3 @@ Principal author:
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
-- [DevOps with Azure Stack Hub](/azure/architecture/solution-ideas/articles/hybrid-continuous-integration)

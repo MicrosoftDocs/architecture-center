@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time analytics on data with Azure Service Bus and Azure Data Explorer
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
+  author: shsagir
+  ms.author: shsagir
+  ms.date: 10/30/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - analytics
+products:
+  - azure-service-bus
+  - azure-data-explorer
+  - azure-app-service
+  - azure-sql-database
+  - azure-cosmos-db
+name: Real-time analytics on data with Azure Service Bus and Azure Data Explorer
+summary: Learn how to use Azure Service Bus and Azure Data Explorer to enhance an existing message broker architecture with near real-time analytics.
+thumbnailUrl: /azure/architecture/browse/thumbs/analytics-service-bus.png
+content: |
+  [!include[](analytics-service-bus-content.md)]

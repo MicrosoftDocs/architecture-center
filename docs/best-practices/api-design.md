@@ -1,16 +1,15 @@
 ---
 title: Web API design best practices
 titleSuffix: Azure Architecture Center
-description: Learn the best practices for designing web APIs that support platform independence and service evolution.
-author: martinekuan
-ms.author: architectures
+description: Learn best practices for designing web APIs that support platform independence and service evolution.
+ms.author: robbag
+author: RobBagby
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 products:
   - aspnet
-  - seo-aac-fy21q3
 ms.custom:
   - best-practice
 keywords:
@@ -47,34 +46,34 @@ Here are some of the main design principles of RESTful APIs using HTTP:
 
 - A resource has an *identifier*, which is a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
 
-    ```http
-    https://adventure-works.com/orders/1
-    ```
+  ```http
+  https://adventure-works.com/orders/1
+  ```
 
 - Clients interact with a service by exchanging *representations* of resources. Many web APIs use JSON as the exchange format. For example, a GET request to the URI listed above might return this response body:
 
-    ```json
-    {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
-    ```
+  ```json
+  {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+  ```
 
 - REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE.
 
-- REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
+- REST APIs use a stateless request model. HTTP requests should be independent and might occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which might be hard to scale out. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
 
 - REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
 
-    ```json
-    {
-        "orderID":3,
-        "productID":2,
-        "quantity":4,
-        "orderValue":16.60,
-        "links": [
-            {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"GET" },
-            {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"PUT" }
-        ]
-    }
-    ```
+  ```json
+  {
+    "orderID":3,
+    "productID":2,
+    "quantity":4,
+    "orderValue":16.60,
+    "links": [
+      {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"GET" },
+      {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"PUT" }
+    ]
+  }
+  ```
 
 In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
 
@@ -114,7 +113,7 @@ In more complex systems, it can be tempting to provide URIs that enable a client
 > [!TIP]
 > Avoid requiring resource URIs more complex than *collection/item/collection*.
 
-Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API may require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
+Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API might require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
 
 Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
 
@@ -156,7 +155,7 @@ This section describes some typical considerations for designing an API that con
 
 As mentioned earlier, clients and servers exchange representations of resources. For example, in a POST request, the request body contains a representation of the resource to create. In a GET request, the response body contains a representation of the fetched resource.
 
-In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = application/json) and possibly XML (media type = application/xml).
+In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = `application/json`) and possibly XML (media type = `application/xml`).
 
 The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
 
@@ -177,7 +176,7 @@ GET https://adventure-works.com/orders/2 HTTP/1.1
 Accept: application/json
 ```
 
-If the server cannot match any of the media type(s) listed, it should return HTTP status code 406 (Not Acceptable).
+If the server cannot match any of the media types listed, it should return HTTP status code 406 (Not Acceptable).
 
 ### GET methods
 
@@ -246,7 +245,7 @@ If the delete operation is successful, the web server should respond with HTTP s
 
 ### Asynchronous operations
 
-Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes a while to complete. If you wait for completion before sending a response to the client, it may cause unacceptable latency. If so, consider making the operation asynchronous. Return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed.
+Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes a while to complete. If you wait for completion before sending a response to the client, it might cause unacceptable latency. If so, consider making the operation asynchronous. Return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed.
 
 You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response. For example:
 
@@ -347,7 +346,7 @@ A subsequent request from the client application can retrieve the remainder of t
 One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.
 
 > [!NOTE]
-> Currently there are no general-purpose standards that define how to model the HATEOAS principle.  The examples shown in this section illustrate one possible, proprietary solution.
+> Currently there are no general-purpose standards that define how to model the HATEOAS principle. The examples shown in this section illustrate one possible, proprietary solution.
 
 For example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation:
 
@@ -527,7 +526,7 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 
 The [Open API Initiative](https://www.openapis.org) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
 
-You may want to adopt OpenAPI for your web APIs. Some points to consider:
+You might want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - The OpenAPI Specification comes with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.
 

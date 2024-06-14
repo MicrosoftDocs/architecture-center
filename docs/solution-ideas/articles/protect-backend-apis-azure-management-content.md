@@ -4,7 +4,7 @@ In this article, we'll look at an architecture that protects backend APIs in Azu
 
 ## Architecture
 
-:::image type="content" source="../media/protect-backend-apis-azure-management.png" alt-text="Diagram of an architecture that protects backend APIs by using API Management and Azure AD B2C to validate bearer tokens. The APIs can be in Azure or other environments." border="false" lightbox="../media/protect-backend-apis-azure-management.png":::
+:::image type="content" source="../media/protect-backend-apis-azure-management.svg" alt-text="Diagram of an architecture that protects backend APIs by using API Management and Azure AD B2C to validate bearer tokens. The APIs can be in Azure or other environments." border="false" lightbox="../media/protect-backend-apis-azure-management.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1932168-protect-backend-apis-azure-management.vsdx) of this architecture.*
 
@@ -29,9 +29,9 @@ In this article, we'll look at an architecture that protects backend APIs in Azu
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) provides secure communications among Azure resources such as virtual machines (VMs). It also provides access to the internet, and to on-premises networks.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for web content and applications. It offers Layer 7 capabilities such as SSL offload, path-based routing, fast failover, and caching to improve the performance and availability of your applications.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is a Layer 7 load balancer that manages traffic to web applications.
-- [API Management](https://azure.microsoft.com/services/api-management) is a turnkey solution for publishing APIs to external and internal clients. It provides features that are useful for managing a public-facing API, including rate limiting, IP restrictions, and authentication that uses Azure AD or another IdP. API Management doesn't perform any load balancing, so you should use it with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
-- [Azure AD B2C](https://learn.microsoft.com/azure/active-directory-b2c/overview) is a highly available global identity management service, built on Azure Active Directory, for consumer-facing applications. It scales to hundreds of millions of identities. It's the IdP that this solution uses. It returns the bearer token (JWT) on successful authentication.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as in the mainframe application, and can be stateless to orchestrate a microservices-based system.
+- [API Management](https://azure.microsoft.com/services/api-management) is a turnkey solution for publishing APIs to external and internal clients. It provides features that are useful for managing a public-facing API, including rate limiting, IP restrictions, and authentication that uses Microsoft Entra ID or another IdP. API Management doesn't perform any load balancing, so you should use it with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+- [Azure AD B2C](https://learn.microsoft.com/azure/active-directory-b2c/overview) is a highly available global identity management service, built on Microsoft Entra ID, for consumer-facing applications. It scales to hundreds of millions of identities. It's the IdP that this solution uses. It returns the bearer token (JWT) on successful authentication.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as in the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - [Azure App Service Environment](/azure/app-service/environment) is a single-tenant deployment of App Service. It enables hosting of applications in a fully isolated and dedicated environment for securely running App Service apps at high scale.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a Microsoft managed Kubernetes environment for running containerized applications.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. Azure Functions runs on demand and at scale in the cloud.
@@ -48,7 +48,7 @@ Backend APIs are an entry point to your applications and data, an entry point th
 - Rate limiting
 - Request and response validation
 
-You can use any OpenID Connect identity provider (IdP), from Microsoft or another supplier, to authenticate clients. This solution uses Azure Active Directory B2C (Azure AD B2C). If you authenticate with something other than OpenID Connect you can, in most cases, use Azure AD B2C to federate. For more information, see [Add an identity provider to your Azure Active Directory B2C tenant](/azure/active-directory-b2c/add-identity-provider).
+You can use any OpenID Connect identity provider (IdP), from Microsoft or another supplier, to authenticate clients. This solution uses Azure AD B2C. If you authenticate with something other than OpenID Connect you can, in most cases, use Azure AD B2C to federate. For more information, see [Add an identity provider to your Azure Active Directory B2C tenant](/azure/active-directory-b2c/add-identity-provider).
 
 ### Potential use cases
 
@@ -84,5 +84,5 @@ Other contributors:
 
 ## Related resources
 
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml)

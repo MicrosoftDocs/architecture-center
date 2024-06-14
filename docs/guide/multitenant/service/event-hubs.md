@@ -2,9 +2,9 @@
 title: Multitenancy and Azure Event Hubs
 titleSuffix: Azure Architecture Center
 description: Learn about the Azure Event Hubs features and isolation models that you can use to implement an event-driven architecture for a multitenant system.
-author: willvelida
-ms.author: willvelida
-ms.date: 02/20/2023
+author: landonpierce
+ms.author: landonpierce
+ms.date: 06/05/2024 
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -61,7 +61,7 @@ The disadvantage of this isolation model is that, as the number of tenants grows
 
 ### Shared namespace, dedicated event hubs
 
-Even if a namespace is shared by multiple tenants, you can isolate tenants to a dedicated event hub. You can use shared access signatures or Azure Active Directory (Azure AD) identities to control access.
+Even if a namespace is shared by multiple tenants, you can isolate tenants to a dedicated event hub. You can use shared access signatures or Microsoft Entra identities to control access.
 
 As the number of tenants grows within your system, the number of event hubs also increases to accommodate each tenant. This growth can lead to higher operational costs and lower organizational agility. There's a [limit](/azure/event-hubs/compare-tiers#quotas) on the number of event hubs per namespace. Thus the number of namespaces that your system requires depends on the number of event hubs that your tenants require.
 
@@ -81,7 +81,7 @@ However, having a shared namespace can lead to the [noisy neighbor](../../../ant
 The following features of Event Hubs support multitenancy:
 
 - [Application groups](#application-groups)
-- [Azure AD authentication](#azure-ad-authentication)
+- [Microsoft Entra authentication](#azure-ad-authentication)
 - [Shared access signature](#shared-access-signature)
 - [Customer-managed keys](#customer-managed-keys)
 - [Event Hubs Capture](#event-hubs-capture)
@@ -94,21 +94,23 @@ These features are discussed in the following sections.
 
 An application group is a collection of one or more client applications that interact with the Event Hubs data plane. You can apply quota and access management policies to all the applications in the group by applying them to the group itself.
 
-Each application group can be scoped to a single Event Hubs namespace or to a single event hub. It should use a uniquely identifying condition identifier of the client applications, such as the security context, which is either a shared access signature (SAS) or an Azure AD application ID.
+Each application group can be scoped to a single Event Hubs namespace or to a single event hub. It should use a uniquely identifying condition identifier of the client applications, such as the security context, which is either a shared access signature (SAS) or a Microsoft Entra application ID.
 
 For more information, see [Resource governance with application groups](/azure/event-hubs/resource-governance-overview).
 
-### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-Event Hubs is integrated with Azure AD. Clients can authenticate to Event Hubs resources by using a managed identity with Azure AD. Event Hubs defines a set of built-in roles that you can grant to your tenants to access Event Hubs entities. For example, by using Azure AD authentication, you can grant a tenant access to an event hub that has the messages for that tenant. You can use this technique to isolate a tenant from other tenants.
+### Microsoft Entra authentication
+
+Event Hubs is integrated with Microsoft Entra ID. Clients can authenticate to Event Hubs resources by using a managed identity with Microsoft Entra ID. Event Hubs defines a set of built-in roles that you can grant to your tenants to access Event Hubs entities. For example, by using Microsoft Entra authentication, you can grant a tenant access to an event hub that has the messages for that tenant. You can use this technique to isolate a tenant from other tenants.
 
 Kafka applications can use [managed identity OAuth](/azure/event-hubs/authenticate-managed-identity#event-hubs-for-kafka) to access Event Hubs resources.
 
 
 For more information, see the following articles:
 
-- [Authenticate a managed identity with Azure Active Directory to access Event Hubs resources](/azure/event-hubs/authenticate-managed-identity?tabs=latest)
-- [Authenticate an application with Azure Active Directory to access Event Hubs resources](/azure/event-hubs/authenticate-application)
+- [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-managed-identity?tabs=latest)
+- [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application)
 
 ### Shared access signature
 
@@ -141,7 +143,7 @@ For example, if you isolate your tenants at the namespace level, you can replica
 For more information, see [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 > [!NOTE]
-> To help protect continuity of operations, Geo-disaster recovery replicates the configuration of the primary namespace to the secondary namespace. It doesn't replicate the event data, nor does it replicate any Azure AD RBAC assignments that you use for your primary namespace. For more information, see [Multi-site and multi-region federation](/azure/event-hubs/event-hubs-federation-overview).
+> To help protect continuity of operations, Geo-disaster recovery replicates the configuration of the primary namespace to the secondary namespace. It doesn't replicate the event data, nor does it replicate any Microsoft Entra RBAC assignments that you use for your primary namespace. For more information, see [Multi-site and multi-region federation](/azure/event-hubs/event-hubs-federation-overview).
 
 ### IP firewall rules
 
@@ -158,13 +160,13 @@ For more information, see:
 
 Principal author:
 
-- Will Velida | Customer Engineer 2, FastTrack for Azure
+- [Will Velida](http://linkedin.com/in/willvelida/) | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
-- John Downs | Principal Customer Engineer, FastTrack for Azure
-- Paolo Salvatori | Principal Customer Engineer, FastTrack for Azure
-- Arsen Vladimirskiy | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](http://linkedin.com/in/john-downs/) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

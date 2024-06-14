@@ -1,9 +1,9 @@
 ---
 title: Considerations for using Azure Container Apps in a multitenant solution
 description: Learn about Azure Container Apps features that are useful in multitenant systems. Get links to additional guidance.
-author: willvelida
-ms.author: willvelida
-ms.date: 12/16/2022
+author: landonpierce
+ms.author: landonpierce
+ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -70,8 +70,6 @@ This isolation model provides logical isolation between each tenant. It provides
 
 However, this approach provides no hardware or network isolation between tenants. All container apps in a single environment share the same virtual network. You need to be able to trust that the workloads deployed to the apps won't misuse the shared resources.
 
-There are also [limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the expected growth in the number of tenants before you implement this isolation model.
-
 Container Apps has built-in support for Dapr, which uses a modular design to deliver functionality as [components](/azure/container-apps/dapr-overview). In Container Apps, Dapr components are environment-level resources. When you share a single environment across multiple tenants, ensure that you properly scope the Dapr components to the correct tenant-specific container app to guarantee isolation and avoid the risk of data leakage.
 
 > [!NOTE]
@@ -101,21 +99,21 @@ In Container Apps, you manage certificates at the environment level. [Ingress](/
 
 Container Apps can [validate authentication tokens on behalf of your app](/azure/container-apps/authentication#feature-architecture). If a request doesn't contain a token, the token isn't valid, or the request isn't authorized, you can configure Container Apps to either block the request or redirect it to your identity provider so that the user can sign in.
 
-If your tenants use Azure Active Directory (Azure AD) as the identity provider, you can configure Container Apps to use the [/common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. Doing so ensures that, regardless of the user's Azure AD tenant, their tokens are validated and accepted.
+If your tenants use Microsoft Entra ID as the identity provider, you can configure Container Apps to use the [/common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. Doing so ensures that, regardless of the user's Microsoft Entra tenant, their tokens are validated and accepted.
 
 You can also integrate Container Apps with [Azure Active Directory B2C](/azure/active-directory-b2c/overview) for user authentication via partner identity providers.
 
 For more information, see these resources:
 
 - [Azure Container Apps authorization](/azure/container-apps/authentication)
-- [Enable authentication and authorization in Azure Container Apps with Azure Active Directory](/azure/container-apps/authentication-azure-active-directory)
+- [Enable authentication and authorization in Azure Container Apps with Microsoft Entra ID](/azure/container-apps/authentication-azure-active-directory)
 
 > [!NOTE]
 > The authentication and authorization features in Container Apps are similar to those in Azure App Service. However, there are some differences. For more information, see [Considerations for using built-in authentication](/azure/container-apps/authentication#considerations-for-using-built-in-authentication).
 
 ### Managed identities
 
-You can use managed identities from Azure AD to enable your container app to access other resources that are authenticated by Azure AD. When you use managed identities, your container app doesn't need to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for role-based access control.
+You can use managed identities from Microsoft Entra ID to enable your container app to access other resources that are authenticated by Microsoft Entra ID. When you use managed identities, your container app doesn't need to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for role-based access control.
 
 When you use managed identities, keep your choice of isolation model in mind. For example, suppose you share your container apps among all your tenants and deploy tenant-specific databases. You need to ensure that one tenant's application can't access a different tenant's database.
 

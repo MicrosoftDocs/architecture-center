@@ -4,14 +4,14 @@ Organizations can use this solution to help employees learn processes and materi
 
 ## Architecture
 
-![Architecture diagram shows using Azure AD to authenticate with Microsoft Hololens.](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
+![Architecture diagram shows using Microsoft Entra ID to authenticate with Microsoft Hololens.](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
 *Download an [SVG file](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
 
 ### Dataflow
 
-1. The user creating the training session authenticates using their Azure Active Directory credentials from HoloLens.
+1. The user creating the training session authenticates using their Microsoft Entra credentials from HoloLens.
 1. The client application connects to its own web service to create a training session. Metadata about that training session is stored in Azure Cosmos DB.
-1. The user scans the environment and places a first anchor where the first step of the procedure needs to happen. Azure Spatial Anchors validates that the user has sufficient permissions to create anchors via Azure AD, and then stores the anchor.
+1. The user scans the environment and places a first anchor where the first step of the procedure needs to happen. Azure Spatial Anchors validates that the user has sufficient permissions to create anchors via Microsoft Entra ID, and then stores the anchor.
 1. The user records a video of the procedure on HoloLens and uploads it to Azure.
 1. The video is encoded with Media Services and prepared for on-demand viewing, as well as processed with Video Indexer for better content search. Video Indexer stores the metadata on Azure Cosmos DB.
 1. The app saves against its web service the anchor ID for that first step, alongside a link to the video.
@@ -23,11 +23,11 @@ Organizations can use this solution to help employees learn processes and materi
 ### Components
 
 * [Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors): Create multi-user, spatially aware mixed reality experiences
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
-* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile
+* [App Service](/azure/well-architected/service-guides/app-service-web-apps): Quickly create powerful cloud apps for web and mobile
 * [Media Services](https://azure.microsoft.com/services/media-services): Encode, store, and stream video and audio at scale
-* [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer): Make your media more discoverable and accessible
+* [Video Indexer](https://azure.microsoft.com/en-us/products/ai-video-indexer/): Make your media more discoverable and accessible
 
 ## Scenario details
 
@@ -40,7 +40,7 @@ Organizations use this solution to enable employees (new and current) with learn
 ## Next steps
 
 * [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
-* [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Create a new tenant in Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 * [Build a .NET web app using Azure Cosmos DB for NoSQL and the Azure portal](/azure/cosmos-db)
 * [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
 * [Upload, encode, and stream videos using .NET](/azure/media-services/latest/samples-overview)

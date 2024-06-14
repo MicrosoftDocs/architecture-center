@@ -12,7 +12,7 @@ azureCategories:
   - analytics
 products:
   - azure-batch
-  - azure-active-directory
+  - entra-id
   - azure-expressroute
   - azure-vpn-gateway
 name: Risk grid computing solution

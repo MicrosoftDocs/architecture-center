@@ -97,4 +97,3 @@ Other contributors:
 
 - [Security design principles](/azure/well-architected/security/security-principles)
 - [Choose an IoT solution on Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [IoT conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml)

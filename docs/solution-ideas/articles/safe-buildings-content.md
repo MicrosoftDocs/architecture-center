@@ -10,7 +10,7 @@ By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other
 
 ### Dataflow
 
-1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, IR sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
+1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, infrared sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
 
 1. The server feeds the data to the Azure IoT Hub, Azure Data Factory, and Azure Blob storage.
 
@@ -68,7 +68,7 @@ By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other
 
 * [Azure Functions](https://azure.microsoft.com/services/functions) lets you build and debug locally without another setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
-* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure API Management](https://azure.microsoft.com/services/api-management), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs), [Azure Container Registry](https://azure.microsoft.com/services/container-registry), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Key Vault](https://azure.microsoft.com/services/key-vault), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs), [Azure VMs](https://azure.microsoft.com/services/virtual-machines), and [Azure Web Apps](https://azure.microsoft.com/services/app-service/web).
+* In addition, **Safe Buildings** has access to these other Azure services: [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory), [Azure API Management](https://azure.microsoft.com/services/api-management), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs), [Azure Container Registry](https://azure.microsoft.com/services/container-registry), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Key Vault](https://azure.microsoft.com/services/key-vault), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs), [Azure VMs](https://azure.microsoft.com/services/virtual-machines), and [Azure Web Apps](/azure/well-architected/service-guides/app-service-web-apps).
 
 ## Scenario details
 

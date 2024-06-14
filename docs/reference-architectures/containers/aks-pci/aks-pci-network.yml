@@ -18,8 +18,8 @@ products:
   - azure-kubernetes-service
   - azure-firewall
   - azure-application-gateway
-  - azure-active-directory
-  - azure-security-center
+  - entra-id
+  - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci-network.png
 content: |
    [!include[](aks-pci-network-content.md)]

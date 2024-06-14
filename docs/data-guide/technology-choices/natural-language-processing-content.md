@@ -35,9 +35,7 @@ Recent public benchmarks show Spark NLP as [38 and 80 times faster than spaCy](h
 
 Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy for a growing number of NLP tasks. The Spark NLP team regularly reads the latest relevant academic papers and implements state-of-the-art models. In the past two to three years, the best performing models have used deep learning. The library comes with prebuilt deep learning models for named entity recognition, document classification, sentiment and emotion detection, and sentence detection. The library also includes dozens of pre-trained language models that include support for word, chunk, sentence, and document embeddings.
 
-The library has optimized builds for CPUs, GPUS, and the latest Intel Xeon chips. You can scale training and inference processes to take advantage of Spark clusters. These processes can run in production in all popular analytics platforms.
-
-The NLP Server is available in Azure Marketplace. To explore large-scale custom NLP in Azure, see [NLP Server](https://azuremarketplace.microsoft.com/marketplace/apps/johnsnowlabsinc1646051154808.nlp_server?ocid=GTMRewards_WhatsNewBlog_nlp_server_040622).
+The library has optimized builds for CPUs, GPUs, and the latest Intel Xeon chips. You can scale training and inference processes to take advantage of Spark clusters. These processes can run in production in all popular analytics platforms.
 
 ## Challenges
 
@@ -166,7 +164,7 @@ MLflow is integrated in Azure Databricks. You can install MLflow in any other Sp
 
 Principal authors:
 
-- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-mcse-mpp-426430116) | Senior Cloud Solution Architect
+- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-426430116) | Senior Cloud Solution Architect
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) |  CEO and Architect
 
 ## Next steps
@@ -197,9 +195,8 @@ Principal authors:
 
 - [Large-scale custom natural language processing in Azure](../../solution-ideas/articles/large-scale-custom-natural-language-processing.yml)
 - [Choose a Microsoft cognitive services technology](./cognitive-services.md)
-- [Compare the machine learning products and technologies from Microsoft](./data-science-and-machine-learning.md)
-- [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
+- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
-- [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Suggest content tags with NLP using deep learning](../../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)

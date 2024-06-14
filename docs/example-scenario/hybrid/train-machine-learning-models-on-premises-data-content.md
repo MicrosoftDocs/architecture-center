@@ -24,7 +24,6 @@ This solution uses the following components:
   - [VM](/azure/virtual-machines/) running [Ubuntu](https://azure.microsoft.com/ubuntu) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker) trains the machine learning model.
   - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) stores private data.
 
-
 ## Scenario details
 
 This scenario generates portable machine learning models from data that exists only on-premises. It uses a VM that runs on Azure Stack Hub. The VM is registered as a compute target in Machine Learning, which lets it access data that is only available on-premises. In this scenario, the data is stored in Blob Storage running in the on-premises environment of Azure Stack Hub.
@@ -73,33 +72,28 @@ To enable this solution to scale, you'll need to create an appropriately sized V
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
- - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
+- Ronmia Bess | Content Developer 2
 
 Other contributors:
 
- - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-
 ## Next steps
 
-- [Deploy an Edge Training Solution](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-training). When you're ready to test the example solution, continue with this deployment guide.
 - [Azure Machine Learning documentation](/azure/machine-learning) provides an overview of machine learning and related topics.
 - [Azure Container Registry documentation](/azure/container-registry/) describes how to build, store, and manage images for container deployments.
 - [Azure App Service and Azure Functions on Azure Stack Hub overview](/azure-stack/operator/azure-stack-app-service-overview) describes the resource provider and how to deploy it.
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) describes best practices and how to get your questions answered.
 - [Azure Stack documentation](/azure-stack) provides an overview of the entire portfolio of Azure Stack products and solutions.
 
-
 ## Related resources
 
 - [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 - [Disconnected AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge-disconnected.yml)
-- [Tiered data for analytics](../../example-scenario/hybrid/hybrid-tiered-data-analytics.yml)
 - [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)

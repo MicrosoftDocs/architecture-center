@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/aks-agic/media/aks-agic.png
 name: Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service
 azureCategories:
   - containers

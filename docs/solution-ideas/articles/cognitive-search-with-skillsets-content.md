@@ -31,7 +31,7 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 #### Azure Computer Vision
 
-[Azure Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models, and is optimized for large, text-heavy documents and noisy images.
+[Azure Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models, and is optimized for large, text-heavy documents and noisy images.
 
 The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) isn't optimized for large documents, but supports more languages. OCR results can vary depending on scan and image quality. The current solution idea uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
 
@@ -51,7 +51,7 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 #### Azure App Service
 
-This solution idea also builds a standalone web app in [Azure App Service](https://azure.microsoft.com/services/app-service) to test, demonstrate, search the index, and explore connections in the enriched and indexed documents.
+This solution idea also builds a standalone web app in [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) to test, demonstrate, search the index, and explore connections in the enriched and indexed documents.
 
 ## Scenario details
 
@@ -114,8 +114,6 @@ Try the learning path:
 See the related architectures and guidance:
 
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
-- [Process free-form text for search](/azure/architecture/data-guide/scenarios/search)
 - [Keyword search and speech-to-text with OCR digital media](/azure/architecture/solution-ideas/articles/digital-media-speech-text)
 - [Suggest content tags with NLP using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
 - [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)
-- [Knowledge mining in digital asset management](/azure/architecture/solution-ideas/articles/digital-asset-management)

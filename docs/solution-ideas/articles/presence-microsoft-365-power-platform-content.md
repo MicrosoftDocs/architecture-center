@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
+This solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Microsoft Entra ID to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ This solution provides presence for a JavaScript front-end application. It uses 
 
 ### Dataflow
 
-1. A Power Automate flow gets an access token for Microsoft Graph by using Azure AD.
+1. A Power Automate flow gets an access token for Microsoft Graph by using Microsoft Entra ID.
 2. The Power Automate flow retrieves members of the selected team who are on Microsoft Teams. The flow creates a Microsoft Graph presence API subscription and updates it every hour to track changes in presence for the selected team members.
 3. When there's a change in member presence, the Microsoft Graph Change Tracking application policy gets a connection string to Event Hubs from Key Vault.
 4. When a Microsoft Graph change notification is processed, the message is placed in Event Hubs.
@@ -21,7 +21,7 @@ This solution provides presence for a JavaScript front-end application. It uses 
 ### Components
 
 - [Microsoft Graph](/graph/overview) provides a unified programmability model that you can use to access the tremendous amount of data in Microsoft 365, Windows 10, and Enterprise Mobility + Security.
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is the Microsoft cloud-based identity and access management service that helps users sign in and access resources.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is the Microsoft cloud-based identity and access management service that helps users sign in and access resources.
 - [Power Automate](https://powerautomate.microsoft.com) helps you automate repetitive manual tasks by recording mouse clicks, keystrokes, and copy-and-paste steps from your desktop.
 - [Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for storing and accessing secrets with high security.
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability.
@@ -63,7 +63,7 @@ Principal author:
 For more information about the services and products that are used in this solution, see these articles:
 
 - [Microsoft Graph](/graph/overview)
-- [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Power Automate](/power-automate)
 - [Key Vault](/azure/key-vault/general/overview)
 - [Event Hubs](/azure/event-hubs/event-hubs-features)

@@ -174,7 +174,7 @@ Using these data, core computing and head node applications can be optimized. Th
 
 The Azure portal provides a Batch monitoring dashboard that shows information about Batch as jobs are running and even account quota usage. It's sufficient for many Batch job applications.
 
-In addition to the Batch management and visualization tools available in the Azure portal, there's a free open-source tool, [BatchLabs](https://github.com/Azure/BatchLabs), for managing Batch. This is a standalone client tool to help create, debug, and monitor Azure Batch applications. Download an installation package for Mac, Linux, or Windows.
+In addition to the Batch management and visualization tools available in the Azure portal, there's a free open-source tool, [Batch Explorer](https://github.com/Azure/BatchExplorer), for managing Batch. This is a standalone client tool to help create, debug, and monitor Azure Batch applications. Download an installation package for Mac, Linux, or Windows.
 
 ## Network models
 
@@ -231,7 +231,7 @@ In this scenario, the job controller and all compute nodes live in Azure as show
 
 ### Hybrid network connectivity resources
 
-Several configurations may be applicable in your situation. To help with decisions and architectural guidance regarding connecting network connectivity to Azure, see the article _[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)_ by the patterns & practices group.
+Several configurations may be applicable in your situation. To help with decisions and architectural guidance regarding connecting network connectivity to Azure, see the article *[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)* by the patterns & practices group.
 
 - [See this article](/azure/vpn-gateway/vpn-gateway-about-vpngateways?WT.mc_id=gridbanksg-docs-dastarr) for VPN Gateway configuration alternatives.
 - Learn about [ExpressRoute connectivity models](/azure/expressroute/expressroute-connectivity-models?WT.mc_id=gridbanksg-docs-dastarr).
@@ -240,15 +240,15 @@ Several configurations may be applicable in your situation. To help with decisio
 
 ## Security considerations
 
-An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
+An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Microsoft Entra ID](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
 
-There are two ways to authenticate a Batch application using Azure Active Directory (Azure AD):
+There are two ways to authenticate a Batch application using Microsoft Entra ID:
 
-- **Integrated authentication**. A batch application using Azure AD accounts can use the account to gain resources to data stores and other resources.
+- **Integrated authentication**. A batch application using Microsoft Entra accounts can use the account to gain resources to data stores and other resources.
 
-- **Service principal**. Azure AD Service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
+- **Service principal**. Microsoft Entra service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
 
-For more information on security in batch processing with Azure AD, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
+For more information on security in batch processing with Microsoft Entra ID, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
 
 The Batch service can also authenticate with a shared key. The authentication service requires two header values to be added to the HTTP request, data and authorization. [See here for more](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service?WT.mc_id=gridbanksg-docs-dastarr) on shared key authentication.
 
@@ -274,13 +274,9 @@ While there are many places to get started with a complex domain like Batch
 computing for risk grid computing, here are some logical starting points to
 better understand the Batch technology.
 
-[This is a great place to start](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr)
-working with Batch using coding and Azure portal examples. The Azure Batch
-sample applications are also freely available [on
-GitHub](https://github.com/Azure/azure-batch-samples).
+[The Azure Batch documentation](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) is a great place to start. The documentation includes portal examples, API references, and step-by-step tutorials with code examples. The Azure Batch sample applications are also freely available [on GitHub](https://github.com/Azure-Samples/azure-batch-samples).
 
-Below are some quick tutorials to help you build a simple application to create
-and run batch compute jobs. Options for building the application are as follows:
+Below are some quick tutorials to help you build a simple application to create and run batch compute jobs. Options for building the application are as follows:
 
 - [Batch .NET API](/azure/batch/batch-dotnet-get-started?WT.mc_id=gridbanksg-docs-dastarr)
 - [Batch SDK for Python](/azure/batch/tutorial-parallel-python)
@@ -298,13 +294,13 @@ enable complex scheduling scenarios, while simpler scenarios are achievable by u
 
 - [Azure Batch](https://azure.microsoft.com/services/batch/) provides capabilities to run large-scale parallel processing jobs in the cloud.
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
 
 - [Automatic scaling formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr) are scripts uploaded to the batch processing scheduler for fine grained control of Batch scaling behaviors.
 
 - [Batch Diagnostics Logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) is a feature of Azure Batch enabling creation of a detailed log from your Batch runs and the events generated. Logs are stored in Azure Storage.
 
-- [BatchLabs](https://github.com/Azure/BatchLabs) is a standalone application for Batch monitoring and management available Windows, macOS, and Linux.
+- [Batch Explorer](https://github.com/Azure/BatchExplorer) is a standalone application for Batch monitoring and management available Windows, macOS, and Linux.
 
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute) is a high speed and reliability hybrid network solution for joining on-premises and Azure networks.
 
@@ -330,13 +326,11 @@ When considering moving forward in evaluating Azure Batch for risk grid computin
 Product documentation:
 
 - [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [What is Azure Active Directory?](/azure/active-directory)
+- [What is Microsoft Entra ID?](/azure/active-directory)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## Related resources
 
-- [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
-- [Knowledge mining in auditing, risk, and compliance management](../../solution-ideas/articles/auditing-and-risk-compliance.yml)
 - [Actuarial risk analysis and financial modeling](./actuarial-risk-analysis-financial-model.yml)

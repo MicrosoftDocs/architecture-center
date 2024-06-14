@@ -26,7 +26,7 @@ This architecture builds on the one shown in [Run Windows VMs for an N-tier appl
 
 - [Windows Server Active Directory (AD) domain controllers][Windows-Server-Active-Directory-domain-controllers] authenticate users within a domain. The domain controllers in this reference architecture run in the Azure virtual network and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the virtual network rather than sending that authentication traffic across the gateway connection to the on-premises network. In DNS, intranet A or CNAME records are created so that intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-  SharePoint Server 2016 also supports using [Azure Active Directory Domain Services][Azure-Active-Directory-Domain-Services-service-page]. Azure AD Domain Services provides managed domain services so that you don't need to deploy and manage domain controllers in Azure.
+  SharePoint Server 2016 also supports using [Microsoft Entra Domain Services][Azure-Active-Directory-Domain-Services-service-page]. Microsoft Entra Domain Services provides managed domain services so that you don't need to deploy and manage domain controllers in Azure.
 
 - [SQL Server Always On availability groups][sql-always-on] provide a high-availability and disaster-recovery solution. We recommend them for high availability of the SQL Server database. Two VMs are used for SQL Server. One contains the primary database replica, and the other contains the secondary replica.
 
@@ -140,7 +140,7 @@ The tasks to consider when managing SQL Server in a SharePoint environment may d
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers or Azure Active Directory Domain Services for domain-join and authentication processes. However, to extend the Windows Server AD identity infrastructure already in place in the intranet, this particular architecture uses two VMs as Windows Server AD replica domain controllers of an existing on-premises Windows Server AD forest.
+The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers or Microsoft Entra Domain Services for domain-join and authentication processes. However, to extend the Windows Server AD identity infrastructure already in place in the intranet, this particular architecture uses two VMs as Windows Server AD replica domain controllers of an existing on-premises Windows Server AD forest.
 
 In addition, it's always wise to plan for security hardening. Other recommendations include:
 
@@ -199,11 +199,10 @@ For more information about the individual pieces of the solution architecture, s
 - [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
 - [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-in-microsoft-azure)
 - [Azure Resource Manager resource group][resource-group]
-- [Azure Active Directory Domain Services](/azure/active-directory-domain-services)
+- [Microsoft Entra Domain Services](/azure/active-directory-domain-services)
 
 ## Related resources
 
-- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
 - [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
 - [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
@@ -256,5 +255,4 @@ For more information about the individual pieces of the solution architecture, s
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [VPN-gateway-service-page]: https://azure.microsoft.com/products/vpn-gateway
-[windows-n-tier]: ../n-tier/n-tier-sql-server.yml
 [Windows-Server-Active-Directory-domain-controllers]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview

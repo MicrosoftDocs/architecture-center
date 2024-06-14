@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
 author: martinekuan
 ms.author: prkau
-ms.date: 11/11/2022
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -81,7 +81,7 @@ Storage:
 
 Networking:
 
-- A full list of available add-ons can be found here: [Networking add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model). Some popular options include [Flannel](https://github.com/coreos/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
+- A full list of available add-ons can be found here: [Networking add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model). Some popular options include [Flannel](https://github.com/flannel-io/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
 
 ### Considerations
 

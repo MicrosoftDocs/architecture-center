@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/17/2022
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -99,7 +99,7 @@ For more information, see the guidance on [networking approaches for multitenanc
 Consider how you authenticate with each tenant when you initiate a connection. Consider the following approaches:
 
 - **Secrets**, such as API keys or certificates. It's important to plan how you'll securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting many tenants.
-- **Azure Active Directory (Azure AD) tokens**, where you use a token issued by the tenant's own Azure AD instance. The token might be issued directly to your workload by using a multitenant Azure AD application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
+- **Microsoft Entra tokens**, where you use a token issued by the tenant's own Microsoft Entra instance. The token might be issued directly to your workload by using a multitenant Microsoft Entra application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
 
 Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, then the identity that your system uses shouldn't have write permissions.
 
@@ -152,17 +152,17 @@ Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/o
 
 When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-or-user-delegated-access).
 
-For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Azure AD instance. Your solution can be granted delegated access to the data store, so that you can retrieve the data that a specific user can access.
+For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services, like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Microsoft Entra instance. Your solution can be granted delegated access to the data store, so that you can retrieve the data that a specific user can access.
 
-Delegated access is easier if the data store supports Azure AD authentication. [Many Azure services support Azure AD identities](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support).
+Delegated access is easier if the data store supports Microsoft Entra authentication. [Many Azure services support Microsoft Entra identities](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support).
 
-For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Azure AD. You might do the following steps:
+For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Microsoft Entra ID. You might do the following steps:
 
-1. [Create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) that represents your solution.
+1. [Create a multitenant Microsoft Entra application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) that represents your solution.
 1. Grant the application [delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage).
-1. Configure your application to authenticate users by using Azure AD.
+1. Configure your application to authenticate users by using Microsoft Entra ID.
 
-After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and it issues a longer-lived refresh token. Your system needs to store the refresh token securely, so that your background processes can obtain new access tokens and can continue to access Azure Storage on behalf of the user.
+After a user signs in, Microsoft Entra ID issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and it issues a longer-lived refresh token. Your system needs to store the refresh token securely, so that your background processes can obtain new access tokens and can continue to access Azure Storage on behalf of the user.
 
 ### Messaging
 

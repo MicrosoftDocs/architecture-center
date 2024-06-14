@@ -105,7 +105,7 @@ Follow these security principles when you're designing access policies:
 - Grant the least privileges--just enough to complete a task.
 - Minimize standing access.
 
-Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD). You can assign Azure AD identities to the roles and also take advantage of other capabilities.
+Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Microsoft Entra ID. You can assign Microsoft Entra identities to the roles and also take advantage of other capabilities.
 
 #### Zero-Trust access
 
@@ -117,7 +117,7 @@ You can use managed identities for Azure resources and pods and scope them to th
 
 ### Minimizing standing access
 
-Minimize standing access by using [just-in-time Azure AD group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Azure AD](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as multifactor authentication, restricting authentication to devices that are managed by your Azure AD tenant, or blocking atypical sign-in attempts.
+Minimize standing access by using [just-in-time Microsoft Entra group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Microsoft Entra ID](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as multifactor authentication, restricting authentication to devices that are managed by your Microsoft Entra tenant, or blocking atypical sign-in attempts.
 
 ## Secret management
 
@@ -215,4 +215,6 @@ The cost associated with some resources, such as Azure Firewall, can be spread a
 
 To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic.
 
-As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
+As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Microsoft Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
+
+Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.

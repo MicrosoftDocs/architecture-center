@@ -56,7 +56,6 @@ Industries that rely on knowledge mining include:
 
 ## Next steps
 
-- To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build and Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 - Explore the learning path [Knowledge mining with Azure Cognitive Search](/training/paths/implement-knowledge-mining-azure-cognitive-search).
 - To learn more about the components in this solution, see these resources:
@@ -68,8 +67,4 @@ Industries that rely on knowledge mining include:
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](./auditing-and-risk-compliance.yml)
-- [Knowledge mining in business process management](./business-process-management.yml)
-- [Knowledge mining in contract management](./contract-management.yml)
-- [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)
-- [Knowledge mining in digital asset management](./digital-asset-management.yml)
+[Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)

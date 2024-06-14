@@ -18,7 +18,7 @@ products:
   - azure-virtual-network
   - azure-container-registry
   - azure-pipelines
-name: Build a high-availability Kubernetes cluster
+name: Build a high-availability Kubernetes cluster on Azure Stack Hub
 summary: Learn how to use Azure Stack Hub to create a high-availability Kubernetes cluster solution on Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-kubernetes-thumb.png
 content: |

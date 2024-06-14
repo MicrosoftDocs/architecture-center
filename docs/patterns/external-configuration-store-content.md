@@ -56,6 +56,16 @@ This pattern is useful for:
 
 - As a way to simplify administration of multiple applications, and optionally for monitoring use of configuration settings by logging some or all types of access to the configuration store.
 
+## Workload design
+
+An architect should evaluate how the External Configuration Store pattern can be used in their workload's design to address the goals and principles covered in the [Azure Well-Architected Framework pillars](/azure/well-architected/pillars). For example:
+
+| Pillar | How this pattern supports pillar goals |
+| :----- | :------------------------------------- |
+| [Operational Excellence](/azure/well-architected/operational-excellence/checklist) helps deliver **workload quality** through **standardized processes** and team cohesion. | This separation of application configuration from application code supports environment-specific configuration and applies versioning to configuration values. External configuration stores are also a common place to manage feature flags to enable safe deployment practices.<br/><br/> - [OE:10 Automation design](/azure/well-architected/operational-excellence/enable-automation)<br/> - [OE:11 Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments) |
+
+As with any design decision, consider any tradeoffs against the goals of the other pillars that might be introduced with this pattern.
+
 ## Custom backing store example
 
 In a Microsoft Azure hosted application, a possible choice for storing configuration information externally is to use Azure Storage. This is resilient, offers high performance, and is replicated three times with automatic failover to offer high availability. Azure Table storage provides a key/value store with the ability to use a flexible schema for the values. Azure Blob storage provides a hierarchical, container-based store that can hold any type of data in individually named blobs.
@@ -104,7 +114,7 @@ Many of these features are exposed through client libraries which integrate with
 | ------- | -------------- | ----- | ---------- |
 | .NET                    | [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) | Provider for `Microsoft.Extensions.Configuration` | [Quickstart](/azure/azure-app-configuration/quickstart-aspnet-core-app) |
 | ASP.NET                 | [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) | Provider for `Microsoft.Extensions.Configuration` | [Quickstart](/azure/azure-app-configuration/quickstart-dotnet-core-app) |
-| Azure Functions in .NET | [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) | Used with Azure Function extensions to support configuration in _Startup.cs_ | [Quickstart](/azure/azure-app-configuration/quickstart-azure-functions-csharp?tabs=in-process) |
+| Azure Functions in .NET | [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) | Used with Azure Function extensions to support configuration in *Startup.cs* | [Quickstart](/azure/azure-app-configuration/quickstart-azure-functions-csharp?tabs=in-process) |
 | .NET Framework          | [Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration) | Configuration builder for `System.Configuration` | [Quickstart](/azure/azure-app-configuration/quickstart-dotnet-app) |
 | Java Spring             | [com.azure.spring > azure-spring-cloud-appconfiguration-config](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-cloud-appconfiguration-config) | Supports Spring Framework access via `ConfigurationProperties` | [Quickstart](/azure/azure-app-configuration/quickstart-java-spring-app) |
 | Python                  | [azure.appconfiguration](https://pypi.org/project/azure-appconfiguration/) | Provides an `AzureAppConfigurationClient` | [Quickstart](/azure/azure-app-configuration/quickstart-python) |

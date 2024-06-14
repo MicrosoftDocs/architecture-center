@@ -52,7 +52,6 @@ See product documentation:
 Learn about:
 
 * [Demand forecasting for shipping and distribution solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
-* [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
 
 ## Related resources
 

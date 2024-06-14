@@ -2,9 +2,9 @@ The solution described here tracks changes made by service administrators and ad
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png" alt-text="Diagram that shows the architecture for automating changes to Microsoft 365 tenant configurations." lightbox="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png":::
+:::image type="content" border="false" source="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.svg" alt-text="Diagram that shows the architecture for automating changes to Microsoft 365 tenant configurations." lightbox="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/M365DevOps.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/m365-dev-ops.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -72,7 +72,7 @@ To increase scalability even further, you can use an aggregated-configuration da
 
 ### Security
 
-Most Microsoft365DSC resources support authentication via user name and password. But we don't recommend that type of authentication because Microsoft best practices recommend multifactor authentication. Application credentials is the preferred method, where supported by the Microsoft 365 resources. For example, SharePoint Online, Azure Active Directory (Azure AD), and other resources support application credentials.
+Most Microsoft365DSC resources support authentication via user name and password. But we don't recommend that type of authentication because Microsoft best practices recommend multifactor authentication. Application credentials is the preferred method, where supported by the Microsoft 365 resources. For example, SharePoint Online, Microsoft Entra ID, and other resources support application credentials.
 
 If you build a Microsoft365DSC solution on Azure DevOps, you can also take advantage of the security in [Azure Pipelines](/azure/devops/pipelines/security/overview) and an [approval process](/azure/devops/pipelines/release/approvals/approvals) to safeguard deployment to your production tenant.
 
@@ -107,5 +107,4 @@ Principal author:
 ## Related resources
 
 - [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
-- [CI/CD for Windows desktop apps](/azure/architecture/solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps)
 - [DevOps Checklist](/azure/architecture/checklist/dev-ops)

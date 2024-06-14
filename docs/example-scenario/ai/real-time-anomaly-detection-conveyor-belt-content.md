@@ -138,7 +138,7 @@ Resources required for training don't typically require high availability. For p
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Azure Active Directory authentication or role-based access control. Consider the following [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
+This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Microsoft Entra authentication or role-based access control. Consider the following [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
 Manage security for and access to the IoT hub that interacts with the IoT sensors by following the baseline guidance in [Azure security baseline for Azure IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline).
 
@@ -161,7 +161,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
-- [MLOps v2](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9)
+- [MLOps v2](/azure/machine-learning/concept-model-management-and-deployment?view=azureml-api-2)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
@@ -206,12 +206,8 @@ Other contributors:
 ## Related resources
 
 - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
-- [Extract actionable insights from IoT data](../..//industries/manufacturing/extract-insights-iot-data.yml)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
-- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
-- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
-- [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

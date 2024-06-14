@@ -7,13 +7,13 @@ This article describes best practices for monitoring a microservices application
 
 ## Telemetry collection
 
-In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you need to collect telemetry from the application. Telemetry can be divided into these categories: _logs_, _traces_, and _metrics_.
+In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you need to collect telemetry from the application. Telemetry can be divided into these categories: *logs*, *traces*, and *metrics*.
 
 **Logs** are text-based records of events that occur while an application is running. They include things like application logs (trace statements) and web server logs. Logs are primarily useful for forensics and root cause analysis.
 
-**Traces**, also called _operations_, connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process, such as within the UI of an application, and can propagate through network services across a network of microservices that handle the request.
+**Traces**, also called *operations*, connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process, such as within the UI of an application, and can propagate through network services across a network of microservices that handle the request.
 
-- **Spans** are units of work within a trace. Each span is connected with a single trace and can be nested with other spans. They often correspond to individual _requests_ in a cross-service operation, but they can also define work in individual components within a service. Spans also track outbound calls from one service to another. (Sometimes spans are called _dependency records_.)
+- **Spans** are units of work within a trace. Each span is connected with a single trace and can be nested with other spans. They often correspond to individual *requests* in a cross-service operation, but they can also define work in individual components within a service. Spans also track outbound calls from one service to another. (Sometimes spans are called *dependency records*.)
 
 **Metrics** are numerical values that can be analyzed. You can use them to observe a system in real time (or close to real time) or to analyze performance trends over time. To understand a system holistically, you need to collect metrics at various levels of the architecture, from the physical infrastructure to the application, including:
 
@@ -75,15 +75,12 @@ There are some additional challenges for Kubernetes-based architectures:
 
 In Kubernetes, the standard approach to logging is for a container to write logs to stdout and stderr. The container engine redirects these streams to a logging driver. To make querying easier, and to prevent possible loss of log data if a node stops responding, the usual approach is to collect the logs from each node and send them to a central storage location.
 
-Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a Kusto query for showing the container logs for a specified pod:
+Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a [Kusto query for showing the container logs](/azure/azure-monitor/containers/container-insights-log-query#container-logs) for a specified pod:
 
 ```kusto
-let ContainerIdList = KubePodInventory
-| where ClusterName =~ '<cluster-name>'
-| where Name =~ '<pod-name>'
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIdList)
+ContainerLogV2
+| where PodName == "podName" //update with target pod
+| project TimeGenerated, Computer, ContainerId, LogMessage, LogSource
 ```
 
 Azure Monitor is a managed service, and configuring an AKS cluster to use Monitor is a simple configuration change in the CLI or Azure Resource Manager template. (For more information, see [How to enable Azure Monitor Container insights](/azure/azure-monitor/insights/container-insights-onboard).) Another advantage of using Azure Monitor is that it consolidates your AKS logs with other Azure platform logs to provide a unified monitoring experience.

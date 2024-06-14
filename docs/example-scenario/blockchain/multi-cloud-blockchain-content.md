@@ -55,7 +55,7 @@ This solution provides a heterogeneous, multiparty, cloud-agnostic DLT network. 
 
 - [Ambassador API Gateway](https://www.getambassador.io/products/api-gateway) manages cross-node communications, but you can use a cloud native API Gateway like Azure API Management over the internet. For more information, see [Deploy to Azure Kubernetes Service](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service).
 
-- You can also use [External-DNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
+- You can also use [ExternalDNS](https://github.com/kubernetes-sigs/external-dns) with [Azure DNS service](https://azure.microsoft.com/services/dns).
 
 - You can get Internet Protocol Security (IPSec) private connections with tools like [Submariner](https://submariner.io).
 
@@ -102,10 +102,10 @@ To estimate Azure resource costs, use the [Azure pricing calculator](https://azu
 ## Deploy this scenario
 
 1. For this example, create managed Kubernetes clusters in AKS, GKE, and EKS, and onboard the clusters to Azure Arc.
-   - [Connect an existing Kubernetes cluster to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s).
-   - [Deploy EKS cluster and connect it to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform).
-   - [Deploy GKE cluster and connect it to Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform).
-1. Follow steps for installing and configuring [BAF prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/prerequisites.html).
+   - [Connect an existing Kubernetes cluster to Azure Arc](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s/general/onboard_k8s).
+   - [Deploy EKS cluster and connect it to Azure Arc](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s/eks/eks_terraform).
+   - [Deploy GKE cluster and connect it to Azure Arc](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s/gke/gke_terraform).
+1. Follow steps for installing and configuring [BAF prerequisites](https://blockchain-automation-framework.readthedocs.io/en/latest/getting-started/prerequisites/).
 1. (Optional) [Create an Azure DevOps organization and project](/azure/devops/organizations/accounts/create-organization), and clone the BAF repo into the new Azure DevOps project.
 1. (Optional) Create an [Ansible Controller VM](https://azuredevopslabs.com/labs/vstsextend/ansible) in Azure as the custom build agent to deploy BAF components.
 
@@ -121,7 +121,7 @@ Principal author:
 
 ## Next steps
 
-- [Azure Arc Jumpstart](https://azurearcjumpstart.io)
+- [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart)
 - [Deploy Hyperledger Fabric consortium on Azure Kubernetes Service](/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service)
 - [CI/CD workflow using GitOps - Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
 

@@ -13,7 +13,6 @@ metadata:
     - kubernetes
     - aks
   ms.custom:
-    - seojul20
     - containers
     - reference-architecture
     - internal-intro

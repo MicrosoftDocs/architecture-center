@@ -14,7 +14,7 @@ Various scenarios can benefit from this solution:
 
 ## Architecture
 
-:::image type="complex" source="../media/mainframe-access-azure-databases-architecture.png" alt-text="Architecture diagram showing how mainframe applications can access Azure databases." border="false":::
+:::image type="complex" source="../media/mainframe-access-azure-databases-architecture.svg" alt-text="Architecture diagram showing how mainframe applications can access Azure databases." border="false":::
    Vertical lines divide the diagram into two parts, one for mainframe components and one for Azure components. The mainframe part has the label IBM and contains two components. The first component contains two cylinders that represent databases (Db2 for z/OS and Db2 for i). The second component is a rectangle that contains the names of mainframe languages and environments. Arrows point back and forth between the cylinder and the rectangle. The Azure part of the diagram contains two rectangles with arrows pointing back and forth between them. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. One icon has the label PaaS and shows a database in a cloud. The other icon has the label IaaS and shows a computer. Arrows also point back and forth between the mainframe database cylinder and the rectangle that represents software in the Azure part.
 :::image-end:::
 
@@ -26,7 +26,7 @@ Various scenarios can benefit from this solution:
 
 1. A mainframe or midrange application sends a SQL request to the local Db2 subsystem. Db2 configurations reroute the request to the HIS server.
 
-1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA Application Server (AS). In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
+1. The HIS server receives the request and forwards it to the target database. Microsoft Service for DRDA is a component of HIS that functions as a DRDA application server. In this role, Microsoft Service for DRDA converts the Db2 SQL statements and runs them on the Azure database.
 
 1. The target database handles the request. This solution can configure the following target databases:
 
@@ -52,7 +52,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [HIS][What is HIS] software connects IBM systems with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
 
-- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an application server that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the application server to convert Db2 SQL statements and run them on SQL Server.
 
 ## Contributors
 
@@ -103,7 +103,7 @@ Principal authors:
 [Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 [Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 [SQL Server technical documentation]: /sql/sql-server
-[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1826653-PR-2782-mainframe-access-azure-databases-architecture.vsdx
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/mainframe-access-azure-databases-architecture.vsdx
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is HIS]: /host-integration-server/what-is-his

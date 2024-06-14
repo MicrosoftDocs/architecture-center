@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Establish enhanced-security bidirectional connections to edge devices without making significant changes to the firewall or network configuration on the edge.
   author: olasowemimo
-  ms.author: olsowemi, evmolyva
+  ms.author: olsowemi
   ms.date:  04/26/2023
   ms.topic: conceptual
   ms.service: architecture-center

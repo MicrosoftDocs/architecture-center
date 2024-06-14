@@ -80,7 +80,17 @@ Application Gateway and Azure Firewall Premium handle certificates differently f
 - Application Gateway is a *reverse web proxy*. It protects web servers from malicious clients by intercepting HTTP and HTTPS requests. You declare each protected server that's in the back-end pool of Application Gateway with its IP address or fully qualified domain name. Legitimate clients should be able to access each application. So you configure Application Gateway with a digital certificate that a public CA has signed. Use a CA that any TLS client will accept.
 - Azure Firewall Premium is a *forward web proxy* or, simply, a web proxy. It protects clients from malicious web servers by intercepting TLS calls from the protected clients. When a protected client makes an HTTP request, the forward proxy impersonates the target web server by generating digital certificates and presenting them to the client. Azure Firewall Premium uses a private CA, which signs the dynamically generated certificates. You configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the private CA that Azure Firewall Premium uses.
 
-## Hub and spoke example
+## Routing and traffic forwarding
+
+Routing will be slightly different depending on the topology of your network design, the following sections will detail the specifics of Hub and Spoke, Virtual WAN and Route Server topology examples. However, there are some aspects that are common to all topologies:
+
+- Azure Application Gateway always behaves as a proxy, and Azure Firewall Premium does as well when configured for TLS inspection: the TLS sessions from clients will be terminated by Application Gateway, and new TLS sessions will be built towards Azure Firewall. Azure Firewall will receive and terminate the TLS sessions sourced from the Application Gateway, and build new TLS sessions towards the workloads. This fact has implications for the IDPS configuration of Azure Firewall Premium, sections further below contain more details around this.
+- The workload will see connections coming from the Azure Firewall's subnet IP address. The original client IP address is preserved in the `X-Forwarded-For` HTTP header inserted by the Application Gateway.
+- Traffic from the Application Gateway to the workload is typically sent to the Azure Firewall using Azure routing mechanisms, either with User-Defined Routes configured in the Application Gateway's subnet or with routes injected by Azure Virtual WAN or Azure Route Server. Although explicitly defining the Azure Firewall's private IP address in the Application Gateway's backend pool is possible, it is technically not recommended since it takes away some of the functionality of Azure Firewall such as load balancing and stickiness.
+
+The following sections go into detail for some of the most common topologies used with Azure Firewall and Application Gateway.
+
+### Hub and spoke topology
 
 Typically, a hub and spoke design deploys shared network components in the hub virtual network and application-specific components in the spokes. In most systems, Azure Firewall Premium is a shared resource. But Web Application Firewall can be a shared network device or an application-specific component. For the following reasons, it's usually best to treat Application Gateway as an application component and deploy it in a spoke virtual network:
 
@@ -118,7 +128,7 @@ Traffic can also arrive from an on-premises network instead of the public intern
 1. Application Gateway sends the packets to the virtual network gateway.
 1. The gateway answers the client.
 
-## Virtual WAN example
+### Virtual WAN topology
 
 You can also use the networking service [Virtual WAN][What is Azure Virtual WAN?] in this architecture. This component offers many benefits. For instance, it eliminates the need for user-maintained UDRs in spoke virtual networks. You can define static routes in virtual hub route tables instead. The programming of every virtual network that you connect to the hub then contains these routes.
 
@@ -152,7 +162,7 @@ With this design, you might need to modify the routing that the hub advertises t
 - Create a route table with a route for 0.0.0.0/0 and a next hop type of `Internet`. Associate that route with the subnet that you deploy Application Gateway in.
 - If you deploy Application Gateway in a dedicated spoke, disable the propagation of the default route in the settings for the virtual network connection.
 
-## Route Server example
+### Route Server topology
 
 [Route Server][What is Azure Route Server (Preview)?] offers another way to inject routes automatically in spokes. With this functionality, you avoid the administrative overhead of maintaining route tables. Route Server combines the Virtual WAN and hub and spoke variants:
 
@@ -176,6 +186,12 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 1. The gateway answers the client.
 
 As with Virtual WAN, you might need to modify the routing when you use Route Server. If you advertise the 0.0.0.0/0 route, it might propagate to the Application Gateway subnet. But Application Gateway doesn't support that route. In this case, configure a route table for the Application Gateway subnet. Include a route for 0.0.0.0/0 and a next hop type of `Internet` in that table.
+
+## IDPS and private IP addresses
+
+As explained in [Azure Firewall IDPS Rules][IDPS-rules], Azure Firewall Premium will decide which IDPS rules to apply depending on the source and destination IP addresses of the packets. Azure Firewall will treat per default private IP addresses in the RFC 1918 ranges (`10.0.0.0/8`, `192.168.0.0/16` and `172.16.0.0/12`) and RFC 6598 range (`100.64.0.0/10`) as internal. Consequently, if as in the diagrams in this article the Application Gateway is deployed in a subnet in one of these ranges (`172.16.0.0/24` in the examples above), Azure Firewall Premium will consider traffic between the Application Gateway and the workload to be internal, and only IDPS signatures marked to be applied to internal traffic or to any traffic will be used. IDPS signatures marked to be applied for inbound or outbound traffic will not be applied to traffic between the Application Gateway and the workload.
+
+The easiest way of forcing IDPS inbound signature rules to be applied to the traffic between Application Gateway and the workload is by placing the Application Gateway in a subnet with a prefix outside of the private ranges. You don't necessarily need to use public IP addresses for this subnet, but instead you can customize the IP addresses that Azure Firewall Premium treat as internal for IDPS. For example, if your organization doesn't use the `100.64.0.0/10` range, you could eliminate this range from the list of internal prefixes for IDPS (see [Azure Firewall Premium private IPDS ranges][IDPS-private-ranges] for more details on how to do this) and deploy Application Gateway in a subnet configured with an IP address in `100.64.0.0/10`.
 
 ## Contributors
 
@@ -204,11 +220,13 @@ Principal author:
 [Azure Firewall Premium certificates]: /azure/firewall/premium-certificates
 [Firewall and Application Gateway for virtual networks]: ./firewall-application-gateway.yml
 [How an application gateway works]: /azure/application-gateway/how-application-gateway-works
-[Hub-spoke network topology in Azure]: ../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli
-[Hub-spoke network topology with Azure Virtual WAN]: ../../networking/hub-spoke-vwan-architecture.yml
+[Hub-spoke network topology in Azure]: ../../networking/architecture/hub-spoke.yml
+[Hub-spoke network topology with Azure Virtual WAN]: ../../networking/architecture/hub-spoke-vwan-architecture.yml
 [IDPS]: /azure/firewall/premium-features#idps
+[IDPS-rules]: /azure/firewall/premium-features#idps-signature-rules
+[IDPS-private-ranges]: /azure/firewall/premium-features#idps-private-ip-ranges
 [Implement a secure hybrid network]: ../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal
-[Secure and govern workloads with network level segmentation]: ../../reference-architectures/hybrid-networking/network-level-segmentation.yml
+[Secure and govern workloads with network level segmentation]: ../../networking/guide/network-level-segmentation.yml
 [Secure networks with Zero Trust]: /security/zero-trust/networks
 [TLS inspection]: /azure/firewall/premium-features#tls-inspection
 [Virtual network traffic routing]: /azure/virtual-network/virtual-networks-udr-overview

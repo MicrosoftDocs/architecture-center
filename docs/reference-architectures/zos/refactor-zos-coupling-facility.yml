@@ -3,8 +3,8 @@ metadata:
   title: Refactor IBM z/OS coupling facility
   titleSuffix: Azure Reference Architectures
   description: Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.
-  author: martinekuan
-  ms.author: architectures
+  author: ashish-khandelwal-ms
+  ms.author: askhande
   ms.date: 07/28/2022
   ms.topic: reference-architecture
   ms.service: architecture-center
@@ -17,6 +17,6 @@ products:
   - azure-kubernetes-service
   - azure-virtual-machines
   - azure-virtual-network
-thumbnailUrl: /azure/architecture/browse/thumbs/ibm-mainframe.png
+thumbnailUrl: /azure/architecture/browse/thumbs/refactor-zos-coupling-facility.png
 content: |
    [!include[](refactor-zos-coupling-facility-content.md)]

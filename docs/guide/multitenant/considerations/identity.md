@@ -4,13 +4,13 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
 ms.author: dascottr
-ms.date: 06/16/2022
+ms.date: 11/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
-  - azure-active-directory
+  - entra-id
 categories:
   - identity
 ms.category:
@@ -39,10 +39,10 @@ Before defining a multitenant identity strategy, you should first consider the h
 - Will a user or [workload identities](#workload-identities) be used to access a single application or multiple applications within a product family? For example, a retail product family might have both, a point-of-sale application and an inventory management application, which share the same identity solution.
 - Are you planning on implementing modern authentication and authorization, such as OAuth2 and OpenID Connect?
 - Does your solution only provide authentication to your UI-based applications? Or, do you also provide API access to your tenants and third parties?
-- Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0, and Active Directory Federation Services (ADFS), where each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protocols influence the requirements for your own IdP.
+- Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Microsoft Entra ID, Auth0, and Active Directory Federation Services (ADFS), where each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protocols influence the requirements for your own IdP.
 - Are there specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
-- Do users of your solution require access to data from one tenant or from multiple tenants within your application? Do they need the ability to quickly switch between tenants or to view consolidated information from multiple tenants? For example, users who have signed into the Azure portal can easily switch between different Azure Active Directories and subscriptions that they have access to.
+- Do users of your solution require access to data from one tenant or from multiple tenants within your application? Do they need the ability to quickly switch between tenants or to view consolidated information from multiple tenants? For example, users who have signed into the Azure portal can easily switch between different Microsoft Entra ID directories and subscriptions that they have access to.
 
 When you've established your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up/sign-in flows.
 
@@ -54,8 +54,8 @@ When you design an identity system for your multitenant solution, you need to co
 
 - **Local identity provider.** A local identity provider allows users to sign themselves up to the service. Users provide a username, an email address, or an identifier, such as a rewards card number. They also provide a credential, like a password. The IdP stores both the user identifier and the credentials.
 - **Social identity provider.** A social identity provider allows users to use an identity that they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
-- **Use the tenant's Azure AD or Microsoft 365 directory.** Tenants might already have their own Azure AD or Microsoft 365 directory, and they might want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Azure AD application](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
-- **Federation with a tenant's identity provider.** Tenants might have their own IdP, other than Azure AD or Microsoft 365, and they might want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and it enables tenants to manage the lifecycle and security policies of their users, independently of your solution.
+- **Use the tenant's Microsoft Entra ID directory.** Tenants might already have their own Microsoft Entra ID directory, and they might want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Microsoft Entra application](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
+- **Federation with a tenant's identity provider.** Tenants might have their own IdP, other than Microsoft Entra ID, and they might want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and it enables tenants to manage the lifecycle and security policies of their users, independently of your solution.
 
 You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities, and federated identities, all within a single tenant. This requirement is common when companies use a solution that's both for their own employees and for contractors. They might use federation for their own employees' access to the solution, while also allowing access to contractors or to guest users, who don't have an account in the federated IdP.
 
@@ -64,7 +64,7 @@ You should consider if your tenants need to support multiple identity providers.
 In a multitenant solution, you need to consider where to store several types of identity information, including the following types:
 
 - Details about user and service accounts, including their names and other information that's required by your tenants.
-- Information that's required to securely authenticate your users, including information that's required to provide multi-factor authentication (MFA).
+- Information that's required to securely authenticate your users, including information that's required to provide multifactor authentication (MFA).
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
 
 > [!CAUTION]
@@ -91,7 +91,7 @@ Consider how users will be mapped to a tenant. For example, during the sign-up p
 If your solution is designed so that a single user is only ever going to access the data for a single tenant, then consider the following decisions:
 
 - How does the IdP detect which tenant a user is accessing?
-- How does the IdP communicate the tenant identifier to the application? Commonly, a tenant identifier claim is added to the token. 
+- How does the IdP communicate the tenant identifier to the application? Commonly, a tenant identifier claim is added to the token.
 
 If a single user needs to be granted access to multiple tenants, then you need to consider the following decisions:
 
@@ -106,7 +106,7 @@ Some tenants might need to allow users to sign themselves up for an identity in 
 
 - Which identity sources are users allowed to sign up from? For example, can a user create a local identity and also use a social identity provider?
 - If only local identities are allowed, will only specific email domains be allowed? For example, can a tenant specify that only users who have an @contoso.com email address are permitted to sign up?
-- What is the user principal name (UPN) that should be used to uniquely identify each local identity during the sign-in process? For example, an email address, username, phone number, and rewards card number are all common choices for UPNs. However, UPNs can change over time. When you refer to the identity in your application's authorization rules or audit logs, it's a good practice to use the underlying immutable unique identifier of the identity. Azure AD provides an object ID (OID), which is an immutable identifier.
+- What is the user principal name (UPN) that should be used to uniquely identify each local identity during the sign-in process? For example, an email address, username, phone number, and rewards card number are all common choices for UPNs. However, UPNs can change over time. When you refer to the identity in your application's authorization rules or audit logs, it's a good practice to use the underlying immutable unique identifier of the identity. Microsoft Entra ID provides an object ID (OID), which is an immutable identifier.
 - Will a user be required to verify their UPN? For example, if the user's email address or phone number is used as a UPN, how will you verify the information is accurate?
 - Do tenant administrators need to approve sign-ups?
 - Do tenants require a tenant-specific sign-up experience or URL? For example, do your tenants require a branded sign-up experience when users sign up? Do your tenants require the ability to intercept a sign-up request and perform extra validation before it proceeds?
@@ -130,7 +130,7 @@ A common requirement for corporate or enterprise customers of a solution is a se
 
 When a user signs into a multitenant application, your identity system authenticates the user. You should consider the following questions, when you plan your authentication process:
 
-- Do your tenants need to configure their own multi-factor authentication (MFA) policies? For example, if your tenants are in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
+- Do your tenants need to configure their own multifactor authentication (MFA) policies? For example, if your tenants are in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
 - Do your tenants need to configure their own conditional access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
 - Do your tenants need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
 - Do your users need to impersonate other users? For example, a support team member might wish to investigate an issue that another user has, by impersonating their user account without having to authenticate as the user.
@@ -199,13 +199,13 @@ Principal authors:
  - [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  - [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
  - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- 
+
 Other contributors:
 
  - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
  - [Sander van den Hoven](http://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
  - [Nick Ward](http://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
- 
+
 ## Next steps
 
 Review [Architectural approaches for identity in multitenant solutions](../approaches/identity.md).

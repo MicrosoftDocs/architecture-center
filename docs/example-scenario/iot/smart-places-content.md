@@ -196,7 +196,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
-- [Azure Active Directory (Azure AD)][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
+- [Microsoft Entra ID][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
 
 - [Azure Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 
@@ -304,9 +304,11 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Mark Kottke](https://www.linkedin.com/in/markkottke) | Senior Architect
 
 Other contributor:
+
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
 
 ## Next steps
@@ -319,9 +321,7 @@ Other contributor:
 ## Related resources
 
 - [Get started with Azure IoT solutions][Getting started with Azure IoT solutions]
-- [IoT solutions conceptual overview][IoT solutions conceptual overview]
 - [Vision with Azure IoT Edge][Vision with Azure IoT Edge]
-- [Azure Industrial IoT analytics guidance][Azure Industrial IoT Analytics Guidance]
 - [Choose an Internet of Things (IoT) solution in Azure][Choose an Internet of Things (IoT) solution in Azure]
 - [End-to-end manufacturing using computer vision on the edge][End-to-end manufacturing using computer vision on the edge]
 - [COVID-19 safe environments with IoT Edge monitoring and alerting][COVID-19 safe environments with IoT Edge monitoring and alerting]
@@ -330,7 +330,7 @@ Other contributor:
 
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
-[App Service overview]: https://azure.microsoft.com/services/app-service
+[App Service overview]: /azure/well-architected/service-guides/app-service-web-apps
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure API Management]: https://azure.microsoft.com/services/api-management
 [Azure Cognitive Services]: https://azure.microsoft.com/services/cognitive-services/?azure-portal=true
@@ -343,7 +343,6 @@ Other contributor:
 [Azure Digital Twins Explorer (preview)]: /azure/digital-twins/concepts-azure-digital-twins-explorer
 [Azure Digital Twins tools repository]: https://github.com/Azure/opendigitaltwins-tools
 [Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
-[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.yml
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Azure IoT reference architecture]: ../../reference-architectures/iot.yml
@@ -363,7 +362,7 @@ Other contributor:
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake
 [Develop with Azure Digital Twins]: /training/paths/develop-azure-digital-twins
-[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
 [Digital Twins Definition Language (DTDL)]: /azure/digital-twins/concepts-models
 [Digital Twins ontologies]: /azure/digital-twins/concepts-ontologies
 [Digital Twins REST API]: /rest/api/iothub/service/digitaltwin
@@ -378,7 +377,6 @@ Other contributor:
 [Ingest IoT Hub telemetry into Azure Digital Twins]: /azure/digital-twins/how-to-ingest-iot-hub-data?tabs=cli
 [Integrate Azure Digital Twins with Azure SignalR Service]: /azure/digital-twins/how-to-integrate-azure-signalr
 [IoT analytics with Azure Data Explorer]: ../../solution-ideas/articles/iot-azure-data-explorer.yml
-[IoT solutions conceptual overview]: ../../example-scenario/iot/introduction-to-solutions.yml
 [Microsoft Graph]: https://developer.microsoft.com/graph
 [Microsoft Power Apps on Azure]: https://powerapps.microsoft.com
 [Microsoft Teams]: https://www.microsoft.com/microsoft-teams/group-chat-software
@@ -387,7 +385,7 @@ Other contributor:
 [Power BI]: https://powerbi.microsoft.com
 [Power Platform]: https://powerplatform.microsoft.com
 [Power Virtual Agents]: https://powervirtualagents.microsoft.com
-[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins
+[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins/
 [Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [RealEstateCore]: https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794
 [RealEstateCore ontology]: https://github.com/azure/opendigitaltwins-building

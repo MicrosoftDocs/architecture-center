@@ -4,7 +4,9 @@ UniKix is a mainframe-rehosting software suite from NTT DATA. This suite provide
 
 The following diagram shows a legacy mainframe system before it's rehosted to the cloud:
 
-:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." lightbox="media/rehost-mainframe-ntt-data-unikix-original-architecture.png" border="false":::
+:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.svg" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." lightbox="media/rehost-mainframe-ntt-data-unikix-original-architecture.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/rehost-mainframe-ntt-data-unikix-azure-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -31,9 +33,9 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 ## Azure architecture
 
-:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-azure-architecture.png" alt-text="Architecture diagram that shows a mainframe system rehosted on Azure by using N T T DATA UniKix." lightbox="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" border="false":::
+:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" alt-text="Architecture diagram that shows a mainframe system rehosted on Azure by using NTT DATA UniKix." lightbox="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1930988-rehost-mainframe-ntt-data-unikix-azure-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/rehost-mainframe-ntt-data-unikix-azure-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -62,7 +64,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 1. Azure managed disks provide storage for shared files.
 
-1. UniKix Secure uses Azure Active Directory (Azure AD) to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
+1. UniKix Secure uses Microsoft Entra ID to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
 
 1. The solution stores database tables and, optionally, VSAM files, in Azure SQL Database. This data is replicated to another Azure region for disaster recovery purposes.
 

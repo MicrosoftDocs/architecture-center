@@ -1,8 +1,13 @@
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure. This scenario is based on an engineering software solution. However, the architecture is relevant to other industries requiring HPC resources such as image rendering, complex modeling, and financial risk calculation.
 
 ## Architecture
 
-![Architecture for a SaaS solution enabling HPC capabilities][architecture]
+![Architecture for a SaaS solution enabling HPC capabilities.][architecture]
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 ### Workflow
 
@@ -24,7 +29,7 @@ This example scenario demonstrates delivery of a software-as-a-service (SaaS) pl
 
 - [Azure CycleCloud](/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. CycleCloud supports any job scheduler or software stack.
 - [HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options) can create and manage an Azure HPC cluster for Windows Server-based workloads. HPC Pack isn't an option for Linux-based workloads.
-- [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with autoscaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell DSC configuration script.
+- [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure as code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with autoscaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell Desired State Configuration (DSC) configuration script.
 - [Azure Functions](/azure/azure-functions/functions-overview)
 
 ## Scenario details
@@ -67,21 +72,10 @@ The following considerations will drive a substantial portion of the costs for t
 - Azure virtual machine costs increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 - Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - Read the [Altair customer story][source-document]. This example scenario is based on a version of their architecture.
 - Review other [Big Compute solutions](https://azure.microsoft.com/solutions/big-compute) available in Azure.
-- [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 
 ## Related resources
 
@@ -93,6 +87,7 @@ Principal author:
 - [Monitoring and diagnostics guidance](/azure/architecture/best-practices/monitoring)
 
 <!-- links -->
-[architecture]: ./media/architecture-hpc-saas.png
+[architecture]: ./media/architecture-hpc-saas.svg
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure
 [calculator]: https://azure.com/e/3cb9ccdc893f41ffbcdb00c328178ccf
+[visio-download]: https://arch-center.azureedge.net/hpc-saas.vsdx

@@ -25,7 +25,7 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 The solution uses the following key technologies:
 
 - [API Management](https://azure.microsoft.com/services/api-management)
-- [App Service](https://azure.microsoft.com/services/app-service)
+- [App Service](/azure/well-architected/service-guides/app-service-web-apps)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 - [Container Registry](https://azure.microsoft.com/services/container-registry)
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
@@ -84,4 +84,3 @@ Microsoft training modules:
 
 - [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml)
-- [Instant IoT data streaming with AKS](aks-iot-data-streaming.yml)

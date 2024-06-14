@@ -16,7 +16,6 @@ azureCategories:
   - containers
   - management-and-governance
 products:
-  - azure-application-insights
   - azure-container-instances
   - azure-container-registry
   - azure-monitor

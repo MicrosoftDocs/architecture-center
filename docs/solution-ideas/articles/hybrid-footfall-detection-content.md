@@ -4,7 +4,7 @@ Gain insights on how customers receive their current products, in relation to st
 
 [ ![Architecture diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.svg)](../media/hybrid-footfall-detection.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -31,15 +31,15 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detec
 #### Azure Stack Hub
 
 * [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) broadens Azure, to let you run apps in an on-premises environment and to deliver Azure services in your datacenter.
-* The [App Service](https://azure.microsoft.com/services/app-service) resource provider (RP) provides a base for edge components, including hosting and management features for web apps, APIs, and Functions.
-* The [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) (AKS) engine. The AKS RP with an AKS-engine cluster is deployed into Azure Stack Hub, to provide a scalable, resilient engine that runs the Face API container.
-* [Face API containers](https://azure.microsoft.com/services/cognitive-services/face). The Azure Cognitive Services RP, with Face API containers, provides demographic, emotion, and unique visitor detection.
+* The [App Service](/azure/well-architected/service-guides/app-service-web-apps) resource provider (RP) provides a base for edge components, including hosting and management features for web apps, APIs, and Functions.
+* The [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) engine. The AKS RP with an AKS-engine cluster is deployed into Azure Stack Hub, to provide a scalable, resilient engine that runs the Face API container.
+* [Face API containers](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/). The Azure Cognitive Services RP, with Face API containers, provides demographic, emotion, and unique visitor detection.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's Blob storage.
 * [Azure Functions](https://azure.microsoft.com/services/functions). An Azure Function running on Azure Stack Hub receives input from Blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster that's located in Azure.
 
 ### Alternatives
 
-An [Azure Function that's running on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) is a great compute option. However, there are other compute options, such as a custom app that runs on [Azure App Service](/azure-stack/operator/azure-stack-app-service-deploy) or [Azure Kubernetes Service (AKS) Engine](https://github.com/Azure/aks-engine).
+An [Azure Function that's running on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) is a great compute option. However, there are other compute options, such as a custom app that runs on [Azure App Service](/azure-stack/operator/azure-stack-app-service-deploy).
 
 ## Scenario details
 
@@ -94,13 +94,13 @@ Deploy an AI-based footfall-detection solution that generates insights from real
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
 * [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -117,4 +117,4 @@ See the following articles, to learn more about the topics introduced in this ar
 
 * See the [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates other mechanisms to enrich and serve data.
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
-* [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+* [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

@@ -22,7 +22,7 @@ The focus of this article is to show a practical architecture that uses Azure se
 5. The final processed data is written to Data Lake Storage in Delta format.
 6. Transformed data that's used in the visualization layer, like Power BI, is written to an Azure SQL Database. This database becomes the data source for any reporting needs.
 7. Curated data is visualized and manipulated through Power BI, Power Apps, or a custom web application that's hosted by an Azure App Service.
-8. Azure Machine Learning builds and trains machine learning models by using data imported into Azure Machine Learning Datasets and external sources. The datasets and sources are directly linked to the Azure Machine Learning Workspace. You can control access and authentication for data and the Machine Learning workspace with Azure Active Directory (Azure AD) and Azure Key Vault. Models can also be retrained as necessary in Machine Learning.
+8. Azure Machine Learning builds and trains machine learning models by using data imported into Azure Machine Learning Datasets and external sources. The datasets and sources are directly linked to the Azure Machine Learning Workspace. You can control access and authentication for data and the Machine Learning workspace with Microsoft Entra ID and Azure Key Vault. Models can also be retrained as necessary in Machine Learning.
 9. As an alternative to storing model results in Data Lake Storage or SQL Database, you can deploy Machine Learning models to containers using Azure Kubernetes Services (AKS) as a web service and called via a REST API endpoint. The web service deploys by using an Azure App Service, and then you can send data to the REST API endpoint and receive the prediction returned by the model within the web application.
 
 Throughout the process:
@@ -41,12 +41,12 @@ Throughout the process:
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions like upgrading, patching, backups, and monitoring without user involvement. SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with high availability.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 - [Power Apps](https://powerapps.microsoft.com) is a suite of apps, services, connectors, and data platform that provides a rapid development environment to build custom apps for your business needs. By using Power Apps, you can quickly build custom business apps that connect to your data stored either in the underlying data platform or in various online and on-premises data sources like SharePoint, Microsoft 365, and Dynamics 365.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can use it with your favorite languages, like .NET, .NET Core, and Java.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can use it with your favorite languages, like .NET, .NET Core, and Java.
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) is a tool for security posture management and threat protection.
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management) helps you understand your Azure invoice, manage your billing account and subscriptions, monitor, control Azure spending, and optimize resource use.
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management) helps you understand your Azure invoice, manage your billing account and subscriptions, monitor, control Azure spending, and optimize resource use.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service for securely storing and accessing secrets.
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is an identity service that provides single sign-on, multifactor authentication, and conditional access to guard against most cybersecurity attacks.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity service that provides single sign-on, multifactor authentication, and conditional access to guard against most cybersecurity attacks.
 - [Azure DevOps](https://azure.microsoft.com/services/devops) provides developer services so that teams can plan work, collaborate on code development, and build and deploy applications. Azure DevOps supports a collaborative culture and set of processes that bring together developers, project managers, and contributors to develop software.
 
 ### Alternatives
@@ -89,7 +89,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider using the following security resources in this architecture:
 
-- [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity)
+- [Secure cluster connectivity (No Public IP (NPIP)](/azure/databricks/security/secure-cluster-connectivity)
 - [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Azure Databricks Premium](https://azure.microsoft.com/pricing/details/databricks)
@@ -107,7 +107,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-If you use Azure Data Factory Mapping Data Flows for extract, transform, and load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
+If you use Azure Data Factory Mapping Data Flows for extract, transform, load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
 
 ## Deploy this scenario
 
@@ -143,7 +143,5 @@ Other contributor:
 
 ## Related resources
 
-- [Baseball decision analysis with ML.NET and Blazor](../../data-guide/big-data/baseball-ml-workload.yml)
-- [IoT and data analytics](../data/big-data-with-iot.yml)
 - [Monitoring Azure Databricks](../../databricks-monitoring/index.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)

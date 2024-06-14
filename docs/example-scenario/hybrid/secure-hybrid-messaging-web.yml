@@ -2,7 +2,7 @@
 metadata:
   title: Enhanced-security hybrid messaging — web access
   titleSuffix: Azure Architecture Center
-  description: Enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
+  description: Enhance your security in a web access scenario by using Microsoft Entra multifactor authentication.
   author: robbagby
   ms.author: robbag
   ms.date: 11/29/2022
@@ -16,11 +16,11 @@ azureCategories:
   - "identity"
   - "web"
 products:
-  - "azure-active-directory"
+  - entra-id
   - "m365"
   - "office-365"
 name: Enhanced-security hybrid messaging infrastructure — web access
-summary: Enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication.
+summary: Enhance your security in a web access scenario by using Microsoft Entra multifactor authentication.
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-messaging-web.png
 content: |
   [!include[](secure-hybrid-messaging-web-content.md)]

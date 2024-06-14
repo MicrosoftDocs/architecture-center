@@ -3,6 +3,7 @@ title: Conduct a proof of concept or pilot
 titleSuffix: Azure Architecture Center
 description: Conduct a Proof of Concept or pilot and manage change during serverless adoption with Azure Functions.
 author: rogeriohc
+ms.author: martinek
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center

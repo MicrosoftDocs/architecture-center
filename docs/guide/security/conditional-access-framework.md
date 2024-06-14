@@ -3,12 +3,12 @@ title: Conditional Access framework and policies
 description: Get a detailed description of a recommended Conditional Access framework and a starting point for policies. 
 author: clajes
 ms.author: clajes
-ms.date: 04/11/2023
+ms.date: 05/24/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-active-directory
+  - entra-id
 categories:
   - security
   - identity
@@ -81,7 +81,7 @@ The following table describes the App component of a policy name:
 
 |App name|Description/Examples|
 |--------|--------------------|
-|AllApps|AllApps indicates that all cloud apps are targeted in the Conditional Access policy. All endpoints are covered, including those that support Conditional Access and those that don't. In some scenarios, targeting all apps doesn't work well. We recommend targeting all apps in the base policy so that all endpoints are covered by that policy. New apps that appear in Azure AD will also automatically adhere to the policy.|
+|AllApps|AllApps indicates that all cloud apps are targeted in the Conditional Access policy. All endpoints are covered, including those that support Conditional Access and those that don't. In some scenarios, targeting all apps doesn't work well. We recommend targeting all apps in the base policy so that all endpoints are covered by that policy. New apps that appear in Microsoft Entra ID will also automatically adhere to the policy.|
 |\<AppName>|\<AppName> is a placeholder for the name of an app that the policy addresses. Avoid making the name too long.<br><br>Example names: <ul><li>EXO for Exchange Online<li>SPO for SharePoint Online <br><br>|
 
 ## Platform type
@@ -109,15 +109,15 @@ The following table describes the Grant Control component of a policy name:
 |Block|The policy blocks sign-in|
 |MFA|The policy requires multi-factor authentication.|
 |Compliant|The policy requires a compliant device, as determined by Endpoint Manager, so the device needs to be managed by Endpoint Manager.|
-|CompliantorAADHJ|The policy requires a compliant device OR a Hybrid Azure AD joined device. A standard company computer that's domain joined is also Hybrid Azure AD  joined. Mobile phones and Windows 10 computers that are co-managed or Azure AD joined can be compliant.|
-|CompliantandAADHJ|The policy requires a device that's compliant AND Hybrid Azure AD joined.|
+|CompliantorAADHJ|The policy requires a compliant device OR a Microsoft Entra hybrid joined device. A standard company computer that's domain joined is also Hybrid Microsoft Entra ID  joined. Mobile phones and Windows 10 computers that are co-managed or Microsoft Entra joined can be compliant.|
+|CompliantandAADHJ|The policy requires a device that's compliant AND Microsoft Entra hybrid joined.|
 |MFAorCompliant|The policy requires a compliant device OR multi-factor authentication if it's not compliant.|
 |MFAandCompliant|The policy requires a compliant device AND multi-factor authentication.|
-|MFAorAADHJ|The policy requires a Hybrid Azure AD joined computer OR multi-factor authentication if it's not a Hybrid Azure AD joined computer.|
-|MFAandAADHJ|The policy requires a Hybrid Azure AD joined computer AND multi-factor authentication.|
+|MFAorAADHJ|The policy requires a Microsoft Entra hybrid joined computer OR multi-factor authentication if it's not a Microsoft Entra hybrid joined computer.|
+|MFAandAADHJ|The policy requires a Microsoft Entra hybrid joined computer AND multi-factor authentication.|
 |RequireApprovedClient|The policy requires approved client app.|
 |AppProtection|The policy requires app protection|
-|Unmanaged|The policy targets devices that aren't known by Azure AD. For example, you can use this grant type to allow access to Exchange Online from any device.|
+|Unmanaged|The policy targets devices that aren't known by Microsoft Entra ID. For example, you can use this grant type to allow access to Exchange Online from any device.|
 
 ## Named locations
 
@@ -153,7 +153,7 @@ Here's one approach:
 
 ![Diagram that shows a Conditional Access deployment model.](images/conditional-access-deployment.svg)
 
-The idea is to first deploy policies to a small number of users within one persona group. You can use an associated Azure AD group called Persona Ring 0 for this deployment. After you verify that everything works, you change the assignment to a group, Persona Ring 1, that has more members, and so on.
+The idea is to first deploy policies to a small number of users within one persona group. You can use an associated Microsoft Entra group called Persona Ring 0 for this deployment. After you verify that everything works, you change the assignment to a group, Persona Ring 1, that has more members, and so on.
 
 You then enable the policies by using the same ring-based approach until all policies are deployed.
 
@@ -183,4 +183,4 @@ Principal author:
 - [Conditional Access overview](/azure/architecture/guide/security/conditional-access-zero-trust)
 - [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design)
 - [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture)
-- [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
+- [Microsoft Entra IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)

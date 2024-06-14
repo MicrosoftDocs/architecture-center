@@ -5,10 +5,10 @@ This article describes a solution that uses Azure Purview to build a foundation 
 ## Architecture
 
 :::image type="complex" border="false" source="../media/data-lake-purview.svg" alt-text="Architecture diagram that shows how Azure Purview scans and classifies data.":::
- Diagram that shows how Azure Purview scans and classifies data. Data Lake Storage connects to Azure Purview via a modern data platform. Azure Purview also connects to Power BI. The diagram also shows integration among these services and Azure AD, Azure Monitor, and Azure Key Vault.
+ Diagram that shows how Azure Purview scans and classifies data. Data Lake Storage connects to Azure Purview via a modern data platform. Azure Purview also connects to Power BI. The diagram also shows integration among these services and Microsoft Entra ID, Azure Monitor, and Azure Key Vault.
 :::image-end:::
 
-_Download a [Visio file](https://arch-center.azureedge.net/data-lake-purview.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/data-lake-purview.vsdx) of this architecture.*
 
 ### Dataflow
 Azure Purview provides a single, unified data management service for the data from all sources, in the data lake, and in end reporting tools.
@@ -52,7 +52,7 @@ Scenarios for connecting Azure Purview to Data Lake services:
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets like tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, like performance metrics and activity logs.
 
@@ -90,7 +90,7 @@ Principal author:
 - [Microsoft Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
 - [What is Microsoft Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Data Factory?](/azure/data-factory/introduction)
 - [Introduction to Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)

@@ -43,15 +43,14 @@ Because this solution uses a highly scalable microservices-based architecture, c
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services
 - [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) for Java-based microservices
-- [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) for stateful and stateless microservices
 
 ## Appropriate reliability
 
 The degree of reliability that's required for a solution depends on the business context. A retail outlet store that's open for 14 hours, and that has system usage peaking within that span, has different requirements than an online business that accepts orders at all hours. SRE practices can be tailored to achieve the appropriate level of reliability.
 
-Reliability is defined and measured using *service level objectives* (SLOs) that define the target level of reliability for a service. Achieving the target level assures that consumers are satisfied. The SLO goals can evolve or change depending on the demands of the business. However, the service owners should constantly measure reliability against the SLOs to detect issues and take corrective actions. SLOs are usually defined as a percentage achievement over a period.
+Reliability is defined and measured using *service level objectives* (service-level objectives (SLOs)) that define the target level of reliability for a service. Achieving the target level assures that consumers are satisfied. The SLO goals can evolve or change depending on the demands of the business. However, the service owners should constantly measure reliability against the SLOs to detect issues and take corrective actions. SLOs are usually defined as a percentage achievement over a period.
 
-Another important term to note is *service level indicator* (SLI), which is the metric that's used to calculate the SLO. SLIs are based on insights that are derived from data that's captured as the customer consumes the service. SLIs are always measured from a customer's point of view.
+Another important term to note is *service level indicator* (service-level indicator (SLI)), which is the metric that's used to calculate the SLO. SLIs are based on insights that are derived from data that's captured as the customer consumes the service. SLIs are always measured from a customer's point of view.
 
 SLOs and SLIs always go hand in hand, and are usually defined in an iterative manner. SLOs are driven by key business objectives, whereas SLIs are driven by what's possible to be measured while implementing the service.
 
@@ -254,6 +253,5 @@ Principal author:
 
 ## Related resources
 
-- [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
-- [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
-- [Unified logging for microservices applications](../../example-scenario/logging/unified-logging.yml)
+- [Baseline web application with zone redundancy](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)

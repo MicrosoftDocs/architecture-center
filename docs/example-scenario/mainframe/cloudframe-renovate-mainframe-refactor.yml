@@ -9,6 +9,8 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom:
+    - devx-track-extended-java
 azureCategories:
   - migration
 products:

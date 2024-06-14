@@ -47,7 +47,6 @@ See product documentation:
 External links about forecasting:
 
 * [Demand forecasting and price optimization](https://gallery.azure.ai/Solution/Demand-Forecasting-and-Price-Optimization) in the Azure AI Gallery
-* [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
 
 ## Related resources
 

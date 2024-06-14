@@ -15,7 +15,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - This solution is deployed to a single region with storage, GIS desktop, GIS back end, and Azure Virtual Desktop resource groups. Each resource group contains one subnet, and all subnets are in one virtual network. All components are in a single Azure subscription.  This architecture is a three-tier deployment.
 - The application endpoints are in the on-premises network.
 - The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components like REST APIs.
-- You manage Azure Active Directory Domain Services (Azure AD DS) and Azure Active Directory (Azure AD), Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
+- You manage Microsoft Entra Domain Services and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
 - GIS analysts, administrators, and editors connect to Azure Virtual Desktop via a Remote Desktop Protocol (RDP) session. From there, ArcGIS Pro is accessed and takes advantage of the GPUs for light, medium, and heavy workflows. *Light* refers to a 2D workflow, *medium* refers to a more demanding 2D workflow, and *heavy* refers to a 2D or 3D workflow that requires GPUs. GIS administrators can also use ArcGIS Pro to publish services and administer the enterprise geodatabase. Finally, GIS editors can maintain the vector and raster layers.
 - The desktop VMs are based on [N-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/#:~:text=The%20N-series%20is%20a%20family%20of%20Azure%20Virtual,has%20three%20different%20offerings%20aimed%20at%20specific%20workloads%3A). Example VM SKUs for ArcGIS Pro: 
   - Heavy: Standard_NV16as_v4. 16 CPU, 56 GB.
@@ -37,7 +37,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) is an enterprise-class, high-performance, metered file Network Attached Storage (NAS) service.  
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a collection of tools that provides visibility into the state of your system. It helps you understand how your cloud-native services are performing and proactively identifies problems that affect them.
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps you enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view of the overall state of the environment and the ability to drill down to per-resource, per-policy granularity. It also helps you bring your resources to compliance via bulk remediation for existing resources and automatic remediation for new resources. 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) enterprise identity service provides single sign-on, multifactor authentication, and conditional access to guard against 99.9 percent of cybersecurity attacks. 
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) enterprise identity service provides single sign-on, multifactor authentication, and conditional access to guard against 99.9 percent of cybersecurity attacks. 
 - [Active Directory Domain Services (AD DS)](https://azure.microsoft.com/services/active-directory-ds) enables you to store directory data and make that data available to network users and administrators. AD DS stores information about user accounts, like names, passwords, and phone numbers, and enables other authorized users on the same network to access that information. This data store, also known as the *directory*, contains information about Active Directory objects. These objects typically include shared resources like servers, volumes, printers, and the network user and computer accounts.
 
   Security is integrated with Active Directory through sign-in authentication and controlled access to objects in the directory. With a single network sign-in, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network.
@@ -115,40 +115,40 @@ You can test your system's latency by using the [Connection Experience Indicator
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
- - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
- - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
+- [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
+- [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
 
 Other contributor:
 
- - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
- 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
- 
-- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource) 
-- [Prepare an Azure Virtual Desktop image with this script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+
+- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource)
+- Prepare an Azure Virtual Desktop image with the [Virtual Desktop Optimization Tool (VDOT)](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 - [Download and install FSLogix](/FSLogix/install-ht)
 - [Create a golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
 - [Create an Azure Virtual Desktop host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal)
 - [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql)
 - [Install ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/install/windows/welcome-to-the-arcgis-for-server-install-guide.htm)
-- [Install Portal for ArcGIS](https://enterprise.arcgis.com/en/portal/latest/install/windows/welcome-to-the-portal-for-arcgis-installation-guide.htm) 
+- [Install Portal for ArcGIS](https://enterprise.arcgis.com/en/portal/latest/install/windows/welcome-to-the-portal-for-arcgis-installation-guide.htm)
 - [Install NVIDIA GPU drivers on N-Series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
-- [Assess Azure SQL Managed Instance via SSMS](https://www.jamesserra.com/archive/2020/04/accessing-managed-instance-via-ssms) 
+- [Assess Azure SQL Managed Instance via SSMS](https://www.jamesserra.com/archive/2020/04/accessing-managed-instance-via-ssms)
 - [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure?view=azuresql)
 - [Connect to Microsoft SQL Server from ArcGIS](https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/manage-sql-server/connect-sqlserver.htm)
 - [Create Enterprise Geodatabase](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-enterprise-geodatabase.htm)
 - [Best practices for tuning ArcGIS Enterprise](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
-- [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/en-us/home)
+- [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/home)
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](../wvd/windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](../azure-virtual-desktop/azure-virtual-desktop.yml)
 - [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
-- [Multiple forests with AD DS and Azure AD](../wvd/multi-forest.yml)
+- [Multiple forests with AD DS and Microsoft Entra ID](../azure-virtual-desktop/multi-forest.yml)

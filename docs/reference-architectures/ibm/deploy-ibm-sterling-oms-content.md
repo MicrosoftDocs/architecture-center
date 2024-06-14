@@ -4,9 +4,9 @@ This architecture illustrates an implementation of a Sterling Order Management S
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of a Sterling OMS IBM order management system on Azure." source="./media/deploy-ibm-sterling-oms-architecture.png" lightbox="./media/deploy-ibm-sterling-oms-architecture.png" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of a Sterling OMS IBM order management system on Azure." source="./media/deploy-ibm-sterling-oms-architecture.svg" lightbox="./media/deploy-ibm-sterling-oms-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-2026672-deploy-ibm-sterling-oms-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-sterling-oms-architecture.vsdx) of this architecture.*
 
 You can deploy a workload so that it's internally or externally facing. Use the configuration that best suits your requirements.
 
@@ -177,7 +177,7 @@ You should configure OAuth for Azure Red Hat OpenShift. For more information, se
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure Active Directory (Azure AD) tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
 ### Cost optimization
 
@@ -243,7 +243,7 @@ IBM offers specialized services to help you with installation. Contact your IBM 
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -278,6 +278,6 @@ Other contributors:
 ## Related resources
 
 - [Deploy IBM Maximo Application Suite on Azure](../../example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
-- [JBoss deployment with Red Hat on Azure](../../solution-ideas/articles/jboss-deployment-red-hat.yml)
+- [Deploy a Java application with JBoss EAP on an ARO cluster](/azure/developer/java/ee/jboss-eap-on-aro)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Run Oracle databases on Azure](../../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)

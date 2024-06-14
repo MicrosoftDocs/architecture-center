@@ -4,7 +4,7 @@
 
 For Azure services
 
-- Be familiar with [Azure Service Health](/azure/service-health/service-health-overview) in the Azure portal. This page will act as the “one-stop shop” during an incident
+- Be familiar with [Azure Service Health](/azure/service-health/service-health-portal-update) in the Azure portal. This page will act as the “one-stop shop” during an incident
 - Consider the use of [Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal), which can be configured to automatically produce notifications when Azure incidents occur
 
 For Power BI
@@ -18,14 +18,14 @@ For Azure services
 
 - [Azure Service Health](/azure/service-health/service-health-overview) within their Azure management portal will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Azure Status page](https://status.azure.com/en-us/status)
-    - If there are ever issues accessing the Status page, go to @AzureSupport on Twitter
+    - If there are ever issues accessing the Status page, go to @AzureSupport on X (formerly Twitter)
 - If impact/issues don’t match the incident (or persist after mitigation), then [contact support](https://www.aka.ms/AzurePortalSupportRequest) to raise a service support ticket
 
 For Power BI
 
 - The [Service Health](https://portal.office.com/AdminPortal/Home) page within their Microsoft 365 admin center will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Microsoft 365 status page](https://status.office.com)
-    - If impact/issues don’t match the incident (or if issues persist after mitigation), they should contact support to raise a [service support ticket](https://dynamics.microsoft.com/en-us/support/)
+    - If impact/issues don't match the incident (or if issues persist after mitigation), you should raise a [service support ticket](/power-bi/support/create-support-ticket).
 
 ### Post Microsoft recovery
 
@@ -45,55 +45,61 @@ For Power BI
 
 The “Wait for Microsoft” process is simply waiting for Microsoft to recover all components and services in the impacted, primary region. Once recovered, validate the binding of the data platform to enterprise shared or other services, the date of the dataset, and then execute the processes of bringing the system up to the current date.  
 
-Once this process has been completed, technical and business SME validation can be completed enabling the stakeholder approval for the service recovery.
+Once this process has been completed, technical and business subject matter expert (SME) validation can be completed enabling the stakeholder approval for the service recovery.
 
 ## Redeploy on disaster
 
 For a “Redeploy on Disaster” strategy, the following high-level process flow can be described.
 
 1. **Recover Contoso – Enterprise Shared Services and source systems**  
-![Diagram showing the recovery of Contoso's shared services and source systems.](../images/dr-for-azure-data-platform-recover-contoso.png)
 
-- This step is a prerequisite to the recovery of the data platform 
-- This step would be completed by the various Contoso operational support groups responsible for the enterprise shared services and operational source systems 
+   ![Diagram showing the recovery of Contoso's shared services and source systems.](../images/dr-for-azure-data-platform-recover-contoso.png)
+
+   - This step is a prerequisite to the recovery of the data platform
+   - This step would be completed by the various Contoso operational support groups responsible for the enterprise shared services and operational source systems
 
 2. **Recover Azure services**
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
-![Diagram showing the recovery of the Azure services.](../images/dr-for-azure-data-platform-recover-azure.png)
-Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
 
-- This step is a prerequisite to the recovery of data platform
-- This step would be completed by Microsoft and other PaaS/SaaS partners
+   ![Diagram showing the recovery of the Azure services.](../images/dr-for-azure-data-platform-recover-azure.png)
+
+   Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
+
+   - This step is a prerequisite to the recovery of data platform
+   - This step would be completed by Microsoft and other platform as a service (PaaS)/software as a service (SaaS) partners
 
 3. **Recover the data platform foundation**  
-![Diagram showing the recovery of the data platform foundational systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
-- This step is the entry point for the Platform recovery activities
-- For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
-    - See the [Azure Service and Component Section](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#azure-service-and-component-view) in this series for a detailed breakdown of the components and deployment strategies
-- This process should also include activities like the binding to the enterprise shared services, ensuring connectivity to access/authentication, and validating that the log offloading is working, while also ensuring connectivity to both upstream and downstream processes
-- Data/Processing should be confirmed. For example, validation of the timestamp of the recovered platform
-    - If there are questions about data integrity, the decision could be made to roll back further in time before executing the new processing to bring the platform up to date
-    - Having a priority order for processes (based upon business impact) will help in orchestrating the recovery
-- This step should be closed out by technical validation unless business users directly interact with the services. If there is direct access, there will need to be a business validation step
-- Once validation has been completed, a handover to the individual solution teams to start their own DR recovery process happens
-    - This handover should include confirmation of the current timestamp of the data/processes
-    - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this - inbound/outbound flows, for example
+   ![Diagram showing the recovery of the data platform foundational systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
-4. **Recover the individual solutions hosted by the platform**  
-![Diagram showing the recovery of individual platform systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
+   - This step is the entry point for the Platform recovery activities
+   - For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
+     - See the [Azure Service and Component Section](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#azure-service-and-component-view) in this series for a detailed breakdown of the components and deployment strategies
+   - This process should also include activities like the binding to the enterprise shared services, ensuring connectivity to access/authentication, and validating that the log offloading is working, while also ensuring connectivity to both upstream and downstream processes
+   - Data/Processing should be confirmed. For example, validation of the timestamp of the recovered platform
+     - If there are questions about data integrity, the decision could be made to roll back further in time before executing the new processing to bring the platform up to date
+   - Having a priority order for processes (based upon business impact) will help in orchestrating the recovery
+   - This step should be closed out by technical validation unless business users directly interact with the services. If there is direct access, there will need to be a business validation step
+   - Once validation has been completed, a handover to the individual solution teams to start their own disaster recovery (DR) recovery process happens
+     - This handover should include confirmation of the current timestamp of the data/processes
+     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this - inbound/outbound flows, for example
 
-- Each individual solution should have its own DR runbook. The runbooks should at least contain the nominated business stakeholders who will test and confirm that recovery has been completed
-- Depending on resource contention or priority, key solutions/workloads may be prioritized over others - core enterprise processes over ad hoc labs, for example
-- Once the validation steps have been completed, a handover to the downstream solutions to start their DR recovery process happens
+4. **Recover the individual solutions hosted by the platform**
+
+   ![Diagram showing the recovery of individual platform systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
+
+   - Each individual solution should have its own DR runbook. The runbooks should at least contain the nominated business stakeholders who will test and confirm that service recovery has been completed
+   - Depending on resource contention or priority, key solutions/workloads may be prioritized over others - core enterprise processes over ad hoc labs, for example
+   - Once the validation steps have been completed, a handover to the downstream solutions to start their DR recovery process happens
 
 5. **Handover to downstream, dependent systems**
-![Diagram showing the dependent systems.](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
-- Once the dependent services have been recovered, the E2E DR recovery process is complete
+   ![Diagram showing the dependent systems.](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
->[!NOTE]
->While it's theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
+   - Once the dependent services have been recovered, the E2E DR recovery process is complete
+
+   >[!NOTE]
+   >While it's theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
 
 6. **Fallback to the primary region**
 Fallback is the process of moving the data platform service and its data back to the primary region, once it's available for BAU.  
@@ -102,7 +108,7 @@ Depending on the nature of the source systems and various data processes, fallba
 
 Customers are advised to review their own data platform’s dependencies (both upstream and downstream) to make the appropriate decision. The following section assumes an independent recovery of the data platform.
 
-- Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate the Microsoft recovery 
+- Once all required components/services have become available in the primary region, customers would complete a smoke-test to validate the Microsoft recovery           
 - Component/Service configuration would be validated. Deltas would be addressed via redeployment from source control
 - The system date in the primary region would be established across stateful components. The delta between the established date and the date/timestamp in the secondary region should be addressed by re-executing or replaying the data ingestion processes from that point forward
 - With approval from both business and technical stakeholders, a fallback window would be selected. Ideally, during a lull in system activity and processing
@@ -116,7 +122,7 @@ For a “Warm Spare” strategy, the high-level process flow is closely aligned 
 
 ## Hot spare process
 
-The "Hot Spare" strategy means that the Platform services including PaaS and IaaS systems will persist despite the disaster event as the secondary systems run in tandem with the primary systems.  
+The "Hot Spare" strategy means that the Platform services including PaaS and infrastructure as a service (IaaS) systems will persist despite the disaster event as the secondary systems run in tandem with the primary systems. As with the "Warm Spare" strategy, this strategy eliminates the risk of resource contention from other organizations looking to complete their own DR in that region.   
 
 Hot Spare customers would monitor the Microsoft recovery of components/services in the primary region. Once completed, customers would validate the primary region systems and complete the fallback to the primary region. This process would be similar to the DR Failover process that is, check the available codebase and data, redeploying as required.
 
@@ -178,11 +184,11 @@ An effective DR plan presents a step-by-step guide for service recovery that can
 
 ## Callouts
 
-- it's recommended to include system screenshots of each step process. These screenshots will help address the dependency on system SMEs to complete the tasks
+- It's recommended to include system screenshots of each step process. These screenshots will help address the dependency on system SMEs to complete the tasks
     - To mitigate the risk from quickly evolving Cloud services, the DR plan should be regularly revisited, tested, and executed by resources with current knowledge of Azure and its services
 - The technical recovery steps should reflect the priority of the component and solution to the organization. For example, core enterprise data flows are recovered before ad hoc data analysis labs
 - The Technical recovery steps should follow the order of the workflows (typically left to right), once the foundation components/service like Key Vault have been recovered. This strategy will ensure upstream dependencies are available and components can be appropriately tested
-- Once the step-by-step plan has been completed, a total time for activities with contingency should be obtained. If this total is over the agreed RTO, there are several options available:
+- Once the step-by-step plan has been completed, a total time for activities with contingency should be obtained. If this total is over the agreed recovery time objective (RTO), there are several options available:
     - Automate selected recovery processes (where possible)
     - Look for opportunities to run selected recovery steps in parallel (where possible). However, noting that this strategy may require additional DR executor resources.
     - Uplift key components to higher levels of service tiers such as PaaS, where Microsoft takes greater responsibility for service recovery activities
@@ -202,7 +208,7 @@ The key area to focus on during a DR test is to ensure the prescriptive steps ar
 
 - If the instructions reflect the portal screens rather than code – the instructions should be validated at least every 12 months due to the cadence of change in cloud.
 
-While the aspiration is to have a fully automated DR process, full automation may be unlikely due to the rarity of the event. Therefore, it's recommended to establish the recovery baseline with DSC IaC used to deliver the platform and then uplift as new projects build upon the baseline.
+While the aspiration is to have a fully automated DR process, full automation may be unlikely due to the rarity of the event. Therefore, it's recommended to establish the recovery baseline with Desired State Configuration (DSC) infrastructure as code (IaC) used to deliver the platform and then uplift as new projects build upon the baseline.
 
 - Over time as components and services are extended, an NFR should be enforced, requiring the production deployment pipeline to be refactored to provide coverage for DR.
 
@@ -213,9 +219,9 @@ If your runbook timings exceed your RTO, there are several options:
 
 ## Azure Chaos Studio
 
-Microsoft has recently released [Azure Chaos Studio](/azure/chaos-studio/) (late 2020). Azure Chaos Studio is a managed service for improving resilience by injecting faults into your Azure applications. Chaos Studio enables you to orchestrate fault injection on your Azure resources in a safe and controlled way, using experiments.  See the product documentation for a description of the types of faults currently supported.
+[Azure Chaos Studio](/azure/chaos-studio/) is a managed service for improving resilience by injecting faults into your Azure applications. Chaos Studio enables you to orchestrate fault injection on your Azure resources in a safe and controlled way, using experiments.  See the product documentation for a description of the types of faults currently supported.
 
-The current iteration of Chaos Studio is focused on the scope of VMs with limited faults testing for [Cosmos DB](/azure/chaos-studio/chaos-studio-fault-library#cosmos-db-failover) and [Azure Cache](/azure/chaos-studio/chaos-studio-fault-library#azure-cache-for-redis-reboot). Until more fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
+The current iteration of Chaos Studio only covers a subset of [Azure components and services](/azure/chaos-studio/chaos-studio-fault-providers). Until more fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
 
 More information on Chaos studio can be found [here](/azure/chaos-studio/)
 
@@ -238,7 +244,7 @@ There is strong guidance for:
     - [Recover from the loss of an Azure region](/azure/architecture/resiliency/recovery-loss-azure-region)
 - [Resiliency in Azure](/azure/availability-zones/overview)
     - [Business continuity management in Azure](/azure/availability-zones/business-continuity-management-program)
-- [Service Level Agreements Summary](https://azure.microsoft.com/en-us/support/legal/sla/summary/)
+- [service-level agreements (SLAs) Summary](https://azure.microsoft.com/en-us/support/legal/sla/summary/)
     - [Azure Status](https://status.azure.com/en-us/status)
     - [Azure DevOps Status](https://status.dev.azure.com/)
 - [Five Best Practices to Anticipate Failure](https://techcommunity.microsoft.com/t5/azure-architecture-blog/five-best-practices-to-anticipate-failure/ba-p/3314035)
@@ -252,4 +258,3 @@ Now that you've learned how to deploy the scenario, you can read a [summary](../
 - [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
 - [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
 - [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
-

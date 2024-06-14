@@ -48,7 +48,7 @@ You can run Azure Functions on-premises in three ways:
 
 - **[Azure Functions Core Tools][azure-functions-core-tools]**. Azure Functions Core Tools is a developer suite that typically [installs from node package manager (npm)][azure-functions-core-tools-install]. It allows developers to develop, debug, and test function apps at the command prompt on a local computer.
 - **[Azure Functions Docker container image][azure-functions-docker]**. You can use this [container image][azure-functions-docker-hub] as a base image for containers that run Azure Functions on a Docker host or in Kubernetes.
-- **[Kubernetes][kubernetes]**. Azure Functions supports [seamless event-driven scale within a Kubernetes cluster][azure-functions-kubernetes] using [Kubernetes-based Event Driven Autoscaling (KEDA)][kubernetes-keda]. To review best practices for managing [Azure Kubernetes Service][azure-kubernetes-service] clusters and [Azure Arc-enabled Kubernetes][azure-arc-kubernetes] clusters, review the [Run containers in a hybrid environment][reference-architecture-hybrid-containers] reference architecture.
+- **[Kubernetes][kubernetes]**. Azure Functions supports [seamless event-driven scale within a Kubernetes cluster][azure-functions-kubernetes] using [Kubernetes-based Event Driven Autoscaling (KEDA)][kubernetes-keda]. Review best practices for managing [Azure Kubernetes Service][azure-kubernetes-service] clusters and [Azure Arc-enabled Kubernetes][azure-arc-kubernetes] clusters.
 
 ### Network connectivity
 
@@ -94,9 +94,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Raunak Jhawar](https://www.linkedin.com/in/raunakjhawar) | Senior Cloud Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -116,7 +117,7 @@ See the following architectural guidance for Azure Functions:
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
 - [Cross-cloud scaling with Azure Functions](/azure/architecture/solution-ideas/articles/cross-cloud-scaling)
-- [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
+- [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
 
 See the following architectural guidance for Azure Virtual Networks:
 
@@ -157,4 +158,3 @@ See the following architectural guidance for Azure Virtual Networks:
 [azure-virtual-network-s2s]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [kubernetes]: https://kubernetes.io/
 [kubernetes-keda]: https://keda.sh/
-[reference-architecture-hybrid-containers]: hybrid-containers.yml

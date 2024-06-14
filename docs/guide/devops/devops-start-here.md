@@ -60,10 +60,8 @@ Plan your path to production by reviewing:
 | [DevOps checklist](../../checklist/dev-ops.md) | A list of things to consider and do when you implement DevOps attitudes and methods in culture, development, testing, release, monitoring, and management. |
 | [Operational Excellence patterns](/azure/architecture/framework/devops/devops-patterns) | A list of design patterns for achieving Operational Excellence—one of the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)—in a cloud environment. See [Cloud Design Patterns](../../patterns/index.md) for more patterns. |
 | [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
-| DevTest Labs guidance | A series of articles to help you use Azure Devtest Labs to provision development and test environments. The first article in the series is [DevTest Labs in the enterprise](/azure/devtest-labs/devtest-lab-guidance-prescriptive-adoption). |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 | [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
-| [DevOps for quantum computing](../../guide/quantum/devops-for-quantum-computing.yml) | A discussion of the DevOps requirements for hybrid quantum applications. |
 | [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
 
 ### Azure DevOps services
@@ -76,28 +74,25 @@ Plan your path to production by reviewing:
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services) | [Azure Lab Services documentation](/azure/lab-services) | A tool for setting up and providing on-demand access to preconfigured virtual machines (VMs). |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor) | [Azure Monitor documentation](/azure/azure-monitor) | Provides full observability into your applications, infrastructure, and network. |
 | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) | [Azure Pipelines documentation](/azure/devops/pipelines) | Helps you automate build and deployment by using cloud-hosted pipelines. |
-  [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project. |
+  [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project and can be configured to use GitHub Advanced Security. |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) | [Azure Resource Manager documentation](/azure/azure-resource-manager) | Provides consistent deployment, organization, and control for resource management. |
 | [Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview) | [ARM template documentation](/azure/azure-resource-manager/templates) | Templates that you can use to define the infrastructure and configuration for your project. |
 | [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans) | [Azure Test Plans documentation](/azure/devops/test) | Provides planned and exploratory testing services for your apps. |
 
 ### Example DevOps architectures
 
-The DevOps architectures are found in two sections:
+The DevOps architectures are found here:
 
 | Section | First article in the section |
 |---------|------------------------------|
-| Architectures | [Automate multistage DevOps pipelines with Azure Pipelines](../../example-scenario/devops/automate-azure-pipelines.yml) |
 | Solution ideas | [CI/CD for Azure VMs](../../solution-ideas/articles/cicd-for-azure-vms.yml) |
 
 Here are some example architectures. For each one there's a list of the key Azure services used in the architecture.
 
 | Architecture | Description | Azure services used |
 |--------------|-------------|----------------|
-| [Automate multistage DevOps pipelines with Azure Pipelines](../../example-scenario/devops/automate-azure-pipelines.yml) | Use Azure DevOps REST APIs to build CI/CD pipelines. | Azure DevOps, Logic Apps, Azure Pipelines |
 | [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml) | Apply GitOps and DevOps techniques to ensure quality APIs. | Azure Repos, API Management, Azure DevOps, Azure Pipelines, Azure Repos |
 | [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml) | Build a CI/CD pipeline by using Azure DevOps and other services. | Azure Repos, Azure Test Plans, Azure Pipelines |
-| [Teacher-provisioned virtual labs in Azure](../../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml) | Teachers can easily set up virtual machines for students to work on class exercises. | Lab Services |
 | [Enterprise monitoring with Azure Monitor](../../example-scenario/monitoring/enterprise-monitoring.yml) | Use Azure Monitor to achieve enterprise-level monitoring and centralized monitoring management. | Azure Monitor |
 
 ## Best practices
@@ -150,7 +145,6 @@ Stay current with Azure DevOps by monitoring these articles:
 
 - [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
-- [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 
 ### AWS or Google Cloud professionals
 

@@ -15,7 +15,7 @@ azureCategories:
 summary: Best practices for monitoring a PCI-DSS 3.2.1 infrastructure.
 products:
   - azure-kubernetes-service
-  - azure-security-center
+  - defender-for-cloud
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
 content: |

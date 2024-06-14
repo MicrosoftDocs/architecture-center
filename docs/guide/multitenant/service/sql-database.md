@@ -1,10 +1,10 @@
 ---
 title: Azure SQL Database considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure SQL Database that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure SQL in a multitenant solution.
+description: This article describes the features of Azure SQL Database that are useful when you design a multitenant system, and links to guidance and examples for how to use Azure SQL in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 10/08/2021
+ms.date: 12/19/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,19 +22,19 @@ ms.custom:
 
 # Multitenancy and Azure SQL Database
 
-Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we describe some of the features of Azure SQL Database that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure SQL in a multitenant solution.
+Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we describe some of the features of Azure SQL Database that are useful when you design a multitenant system. We also link to guidance and examples for how to use Azure SQL in a multitenant solution.
 
 ## Guidance
 
-The Azure SQL Database team has published extensive guidance on implementing multitenant architectures with Azure SQL Database. See [Multi-tenant SaaS patterns with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). Also, consider the guidance for [partitioning Azure SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
+The Azure SQL Database team publishes extensive guidance on implementing multitenant architectures with Azure SQL Database. See [Multi-tenant SaaS patterns with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). Also, consider the guidance for [partitioning Azure SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
 
 ## Features of Azure SQL Database that support multitenancy
 
-Azure SQL Database includes a number of features that support multitenancy.
+Azure SQL Database includes many features that support multitenancy.
 
 ### Elastic pools
 
-Elastic pools enable you to share compute resources between a number of databases on the same server. By using elastic pools, you can achieve performance elasticity for each database, while also achieving cost efficiency by sharing your provisioned resources across databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
+Elastic pools enable you to share compute resources between many databases on the same server. By using elastic pools, you can achieve performance elasticity for each database, while also achieving cost efficiency by sharing your provisioned resources across databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
 More information:
 
@@ -44,7 +44,7 @@ More information:
 
 ### Elastic database tools
 
-The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard), as well as initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
+The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard). THey also include initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
 
 More information:
 
@@ -78,7 +78,7 @@ More information:
 Principal author:
 
  * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager
 
 Other contributors:
 
@@ -97,5 +97,5 @@ Review [storage and data approaches for multitenancy](../approaches/storage-data
 
 * [Data partitioning strategies for Azure SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
 * **Case study:** [Running 1M databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
-* **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multi-tenant examples of the the same app; each explores a different database tenancy pattern on Azure SQL Database. The first uses a standalone application, per tenant with its own database. The second uses a multi-tenant app with a database, per tenant. The third sample uses a multi-tenant app with sharded multi-tenant databases.
+* **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multitenant examples of the same app; each explores a different database tenancy pattern on Azure SQL Database. The first uses a standalone application, per tenant with its own database. The second uses a multitenant app with a database, per tenant. The third sample uses a multitenant app with sharded multitenant databases.
 * **Video:** [Multitenant design patterns for SaaS applications on Azure SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)

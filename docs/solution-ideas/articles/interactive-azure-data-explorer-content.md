@@ -2,9 +2,11 @@
 
 This solution idea demonstrates how to use interactive analytics in Azure Data Explorer. It describes how you can examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries.
 
+Jupyter is a trademark of its respective company. No endorsement is implied by the use of this mark. Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
 ## Architecture
 
-:::image type="content" source="../media/interactive-azure-data-explorer.svg" alt-text="Interactive analytics with Azure Data Explorer." lightbox="../media/interactive-azure-data-explorer.png":::
+:::image type="content" source="../media/interactive-azure-data-explorer.svg" alt-text="Interactive analytics with Azure Data Explorer." lightbox="../media/interactive-azure-data-explorer.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/interactive-azure-data-explorer.vsdx) of this architecture.*
 

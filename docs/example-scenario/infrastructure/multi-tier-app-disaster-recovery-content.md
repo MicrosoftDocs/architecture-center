@@ -135,7 +135,6 @@ For additional high availability and disaster recovery reference architectures, 
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d
 [Multi-region-N-tier-application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
 [Multi-region-load-balancing]: /azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway
-[Multi-region-app-with-private-database]: /azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region
 [Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile

@@ -52,7 +52,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 1. Other Azure components provide more functionality:
 
    - Azure Functions and the API Apps feature of Azure App Service work to make device management events available in websites.
-   - Azure Active Directory (Azure AD) manages users.
+   - Microsoft Entra ID manages users.
    - API Apps and Event Grid manage external data.
    - Azure Digital Twins offers modeling capabilities for optimizing operations.
    - Microsoft Defender for Cloud secures the solution by establishing security policies and access controls.
@@ -78,7 +78,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time.
 
-- [App Service][App Service] and its [Web Apps][Web Apps] feature are fully managed platforms for building, deploying, and scaling web apps.
+- [App Service][App Service] and its [Web Apps](/azure/well-architected/service-guides/app-service-web-apps) feature are fully managed platforms for building, deploying, and scaling web apps.
 
 - [Power BI][Power BI] is a collection of software services and apps that you use to connect and visualize unrelated sources of data.
 
@@ -86,7 +86,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [API Apps][API Apps] is a feature of App Service that you can use to build and consume APIs in the cloud while using the language of your choice.
 
-- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps.
 
 - [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
 
@@ -175,4 +175,3 @@ Principal author:
 [Solution details]: #solution-details
 [Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
 [Time Series Insights]: https://azure.microsoft.com/services/time-series-insights
-[Web Apps]: https://azure.microsoft.com/services/app-service/web

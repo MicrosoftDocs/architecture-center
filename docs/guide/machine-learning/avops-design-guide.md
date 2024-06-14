@@ -3,7 +3,7 @@ title: Autonomous Vehicle Operations (AVOps) design guide
 description: Get an overview about using Azure services to build an Autonomous Vehicle Operations (AVOps) solution.
 author: rmats808
 ms.author: rmatsumura
-ms.date: 03/13/2023
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -82,7 +82,7 @@ To learn more about the information here, technology recommendations, and partne
 
 You might also find the following resources useful: 
 
-- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/cse/2023/03/02/large-scale-data-operations-platform-for-autonomous-vehicles/)
+- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/ise/large-scale-data-operations-platform-for-autonomous-vehicles/)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
 ## Related resources

@@ -22,7 +22,7 @@ A suite of Azure technologies secure and load balance the traffic.
 
 1. Azure DNS manages DNS records and ensures routing to the correct Azure Front Door endpoint.
 
-1. The architecture uses Azure Active Directory (Azure AD) as the identity provider for authentication.
+1. The architecture uses Microsoft Entra ID as the identity provider for authentication.
 
 1. Once routed to the appropriate region, Application Gateway routes and load balances, directing requests to the appropriate Azure App Service.
 
@@ -50,13 +50,13 @@ The primary components are the suggested components for the architecture in this
 
 * [Azure Front Door](https://azure.microsoft.com/services/frontdoor/): A regional load balancer that routes client traffic to the correct region. It can fail over to the second region if a regional failure happens, and it can secure the internet-facing entry point via [Azure Web Application Firewall](/azure/web-application-firewall/ag/ag-overview).
 
-* [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/): Acts as the identity provider for the entire application, enforcing authentication and end-to-end authorization of the request in the application.
 
 * [Azure DNS](https://azure.microsoft.com/services/dns/): A hosting service in Azure for domain name resolution. In a multitenant solution, multiple clients access the solution via their own individual domains. Use Azure DNS to configure and resolve client requests to their correct application stack.
 
 * [Application Gateway](https://azure.microsoft.com/services/application-gateway/): Routes and load-balances traffic internally in the application to the various services that satisfy client business needs. While Azure Front Door balances load across high-level regions, it's Application Gateway that has awareness of the load on individual services within a group. Azure Front Door and Application Gateway combine to provide complex load-balancing at all levels in a multitenant solution. For more information on load-balancing options in Azure, visit this [overview on Azure load-balancing](../../guide/technology-choices/load-balancing-overview.yml).
 
-* [App Service](https://azure.microsoft.com/services/app-service/): Azure's premier service for web applications and web-based APIs. Security integrates with services like Azure AD and [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You can configure automatic scaling. Also, the amount of resources available to scale to is flexible between the various App Service plans on which the app can run. App Service can also leverage integrated DevOps capabilities for continuous integration and deployment to multiple environments. These and other supporting features of the Azure platform allow for developers to focus on the development of their applications.
+* [App Service](/azure/well-architected/service-guides/app-service-web-apps): Azure's premier service for web applications and web-based APIs. Security integrates with services like Microsoft Entra ID and [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You can configure automatic scaling. Also, the amount of resources available to scale to is flexible between the various App Service plans on which the app can run. App Service can also leverage integrated DevOps capabilities for continuous integration and deployment to multiple environments. These and other supporting features of the Azure platform allow for developers to focus on the development of their applications.
 
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Orchestrates instances of container images deployed to a cluster. Managing multiple clients' data often involves implementing a suite of components to manage:
 
@@ -172,14 +172,14 @@ The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/det
 
 ## Next steps
 
-* [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals) is about leveraging Azure Active Directory to implement multitenant apps.
+* [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals) is about leveraging Microsoft Entra ID to implement multitenant apps.
 
 * [Multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns) covers implementing multitenancy patterns in SQL.
 
-* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Azure Active Directory to implement multitenant apps.
+* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps) is also about leveraging Microsoft Entra ID to implement multitenant apps.
 
 ## Related resources
 
-* [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.yml) is a reference for the multiregion requirement of the solution.
+* [Run a web application in multiple Azure regions for high availability](../../web-apps/app-service/architectures/multi-region.yml) is a reference for the multiregion requirement of the solution.
 
 * [Multitier web application built for high availability and disaster recovery on Azure](../infrastructure/multi-tier-app-disaster-recovery.yml) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.

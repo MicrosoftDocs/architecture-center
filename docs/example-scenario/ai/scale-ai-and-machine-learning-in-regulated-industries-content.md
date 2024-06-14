@@ -12,7 +12,7 @@ The architecture is shown in this diagram and follows the principle of [enterpri
 
 The architecture consists of the workflow described in the following sections. Each component of the architecture has a corresponding number in the diagram. We describe the main purpose of the component, how it fits into the architecture, and any other important considerations that you should take when adopting it:
 
-1. **Platform subscriptions** – Core Azure subscriptions that provide management, connectivity, and identity, through Azure Active Directory (Azure AD). They aren't outlined here in more detail and are assumed to be ready and available as part of the core enterprise-scale setup.
+1. **Platform subscriptions** – Core Azure subscriptions that provide management, connectivity, and identity, through Microsoft Entra ID. They aren't outlined here in more detail and are assumed to be ready and available as part of the core enterprise-scale setup.
 
 #### Data management
 
@@ -58,7 +58,7 @@ The architecture consists of the workflow described in the following sections. E
 
 ### Components
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure Purview](https://azure.microsoft.com/services/purview)
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
 - [Azure DevOps](https://azure.microsoft.com/services/devops)
@@ -130,7 +130,7 @@ AI and data science development activities should be carried out in production e
 
 #### Encryption
 
-IT systems accessing, storing, and processing sensitive business data are required to implement specific requirements on encryption keys management, like FIPS 140-2 level 2 or level 3 policies, with Customer-Managed Keys (CMK) integration. Protected data must always be encrypted at rest and in transit, using TLS 1.2 or higher protocols.
+IT systems accessing, storing, and processing sensitive business data are required to implement specific requirements on encryption keys management, like FIPS 140-2 level 2 or level 3 policies, with customer-managed keys (CMKs) integration. Protected data must always be encrypted at rest and in transit, using TLS 1.2 or higher protocols.
 
 During architecture design, a careful analysis of the support and integration of Azure services to an organization's CMK infrastructure is required. Any exceptions to data encryption must be documented. Support for hardware security module (HSM) vendors is always being expanded, and additional information can be found at [Azure Key Vault Managed Hardware Security Module](/azure/storage/common/customer-managed-keys-overview).
 
@@ -144,7 +144,7 @@ Enforce network access controls across several layers in the architecture, inclu
 
 AI and machine learning environments running on Azure must be integrated with an organization's main account provisioning system, where requests to grant access to critical business applications are submitted, approved, and audited.
 
-Account provisioning systems are expected to connect to an organization's Active Directory and Azure AD, so that business authorization roles map to corresponding Active Directory and Azure AD security groups.
+Account provisioning systems are expected to connect to an organization's Active Directory and Microsoft Entra ID, so that business authorization roles map to corresponding Active Directory and Microsoft Entra security groups.
 
 AI and machine learning environments follow a role-based access control model. Access level control authorizations ensure that users can only perform the tasks and actions for their job role and business requirement. Machine learning use cases are expected to be high segregated, as data scientists working in a particular use case are only allowed to access the resources part of that use case, following a principle of least privilege. These resources can include:
 
@@ -152,11 +152,11 @@ AI and machine learning environments follow a role-based access control model. A
 - Azure Machine Learning workspaces
 - Computing instances
 
-Role-based access control uses security groups in Azure AD.
+Role-based access control uses security groups in Microsoft Entra ID.
 
 #### Multifactor authentication
 
-Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high-business impact. Multifactor authentication can be enforced using Azure Active Directory multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
+Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high business impact. Multifactor authentication can be enforced using Microsoft Entra multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
 
 Multifactor authentication must be enforced to all users, including Azure service managers, data engineers, and data scientists.
 
@@ -173,7 +173,7 @@ All Azure services must ingest their security events into an organization's Secu
 - Changes to security policy
 - Changes to admin user groups, users, or roles
 - Sensitive data transfers to external locations, if applicable
-- Activation and deactivation of protection systems, such as ABAC controls
+- Activation and deactivation of protection systems, such as attribute-based access control (ABAC) controls
 - Updated access to logs and interruption to logging
 
 Azure security logs can be ingested into SOC through different patterns:
@@ -192,7 +192,7 @@ Azure environments and data science development follow iterative processes, anch
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-To scale AI and machine learning in regulated environments, and drive rapid adoption across organization's business areas, we recommend you design and put in place an adoption framework to measure, monitor, and evaluate the value created by the Azure services. From our life sciences and healthcare industry example, the following business value levers and key performance indicators (KPI) were evaluated:
+To scale AI and machine learning in regulated environments, and drive rapid adoption across organization's business areas, we recommend you design and put in place an adoption framework to measure, monitor, and evaluate the value created by the Azure services. From our life sciences and healthcare industry example, the following business value levers and key performance indicators (KPIs) were evaluated:
 
 **Scalability** – To ensure Azure architecture can scale alongside business requirements, no matter the scale point, the following KPIs are suggested:
 
@@ -266,6 +266,4 @@ Product documentation:
 
 Azure Architecture Center overview articles:
 
-- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
-- [Implementing the Azure blueprint for AI](/previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint)
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)

@@ -126,10 +126,12 @@ To deploy this solution:
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
+
 - [Tom Berzok](https://www.linkedin.com/in/thomas-berzok) | Consultant, Data & Analytics at [Slalom](https://www.slalom.com)
 - [Thomas Edmondson](https://www.linkedin.com/in/thomas-edmondson-7a2b9a2) | Principal at [Slalom](https://www.slalom.com)
 
 Other contributor:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -152,4 +154,4 @@ Microsoft Learn Training modules:
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
-- [Data governance with Profisee and Azure Purview](../../reference-architectures/data/profisee-master-data-management-purview.yml)
+- [Data governance with Profisee and Azure Purview](../../databases/architecture/profisee-master-data-management-purview.yml)

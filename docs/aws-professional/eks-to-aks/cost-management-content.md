@@ -48,7 +48,7 @@ In AKS, you create agent or worker nodes in one or more node pools, which can us
 
 AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) to get significant discounts on these resources.
 
-AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance SSD or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
+AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance solid-state drive (SSD) or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
 
 For more information about agent nodes and node pools, see the [Node pools](node-pools.yml) article in this series, and [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
@@ -116,12 +116,12 @@ Several Azure networking services can provide access to your applications that r
   - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
   - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
 
-- [Public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses) have an associated cost that depends on:
+- [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses) have an associated cost that depends on:
 
   - Reserved vs. dynamic association.
   - Basic vs. secured and zone-redundant Standard tier.
@@ -181,7 +181,7 @@ The following recommendations help you optimize your AKS cluster costs:
 
   Reservations can reduce your resource costs by up to 72% from pay-as-you-go prices, and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources. You can purchase reservations from the Azure portal, or by using Azure REST APIs, PowerShell, or Azure CLI. If you use operational tools that rely on [Log Analytics workspaces](https://azure.microsoft.com/updates/azure-monitor-log-analytics-new-capacity-based-pricing-option-is-now-available), consider using Reservations for this storage also.
 
-- Add one or more spot node pools to your AKS cluster. A spot node pool is a node pool backed by [Azure Spot Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/use-spot). Using spot VMs for your AKS cluster nodes takes advantage of unused Azure capacity at significant cost savings. The amount of available unused capacity varies based on several factors, including node size, region, and time of day. Azure allocates the spot nodes if there's capacity available, but there's no SLA for spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain, and offers no high availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts the spot nodes.
+- Add one or more spot node pools to your AKS cluster. A spot node pool is a node pool backed by [Azure Spot Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/use-spot). Using spot VMs for your AKS cluster nodes takes advantage of unused Azure capacity at significant cost savings. The amount of available unused capacity varies based on several factors, including node size, region, and time of day. Azure allocates the spot nodes if there's capacity available, but there's no SLA for spot nodes. A spot scale set that backs the spot node pool is deployed in a single fault domain, and offers no high-availability guarantees. When Azure needs the capacity back, the Azure infrastructure evicts the spot nodes.
 
   When you create a spot node pool, you can define the maximum price to pay per hour and enable the cluster autoscaler, which is recommended for spot node pools. The cluster autoscaler scales out and scales in the number of nodes in the node pool based on the running workloads. For spot node pools, the cluster autoscaler scales out the number of nodes after an eviction if the nodes are still needed. For more information, see [Add a spot node pool to an Azure Kubernetes Service (AKS) cluster](/azure/aks/spot-node-pool).
 
@@ -197,7 +197,7 @@ The following recommendations help you optimize your AKS cluster costs:
 
 - Use [ResourceQuota](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/resource-quota-v1) objects to set quotas for the total amount of memory and CPU for all pods that are running in a given [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces). The systematic use of resource quotas avoids noisy neighbor issues, improves application density, and reduces the number of agent nodes and total costs. Also use [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range) objects to configure the default CPU and memory requests for pods in a namespace.
 
-- Use Container Instances for bursting. For more information, see [Bursting from AKS with Azure Container Instances](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci).
+- Use Container Instances for bursting.
 
 - Your AKS workloads might not need to run continuously, such as specific workloads in development cluster node pools. To optimize costs, you can completely turn off an AKS cluster or stop one or more node pools in your AKS cluster. For more information, see [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster) and [Start and stop a node pool on Azure Kubernetes Service (AKS)](/azure/aks/start-stop-nodepools).
 - Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on on your cluster, and apply the default CPU requests and limits and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace), which ensure that CPU and memory resource limits are defined on cluster containers.
@@ -212,7 +212,7 @@ The cloud can significantly improve the technical performance of business worklo
 
 Cost governance is the process of continuously implementing policies or controls to limit spending and costs. Native Kubernetes tooling and Azure tools both support cost governance with proactive monitoring and underlying infrastructure cost optimization.
 
-- [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that helps you analyze, manage, and optimize your Azure workload costs. Use the suite to help ensure that your organization is taking advantage of the benefits the cloud provides.
+- [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) is a suite of Microsoft tools that helps you analyze, manage, and optimize your Azure workload costs. Use the suite to help ensure that your organization is taking advantage of the benefits the cloud provides.
 
 - Review the [Cloud Adoption Framework](/azure/architecture/framework/cost/design-governance) governance best practices for the [Cost Management Discipline](/azure/cloud-adoption-framework/govern/cost-management) to better understand how to manage and govern cloud costs.
 
@@ -249,5 +249,6 @@ Other contributors:
 
 - [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost)
 - [Cost Management discipline overview](/azure/cloud-adoption-framework/govern/cost-management)
+- [Video - Can cloud native architectures lower your long-term costs?](https://www.youtube.com/watch?v=5KVz_rz3P3w)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 - [Plan and manage your Azure costs](/learn/modules/plan-manage-azure-costs)

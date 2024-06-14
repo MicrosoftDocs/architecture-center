@@ -14,10 +14,10 @@ Model9 Gravity transforms mainframe data that's transferred to Azure Blob Storag
 
 ### Workflow
 
-1.	The Model9 agent acts as an interface for data migration between z/OS and Azure. 
-2.	The Model9 agent sends the data, which is encrypted, to Azure Blob Storage over TCP/IP.
-3.	 Model9 management server manages Model9 policies, activities, and storage.
-4.	Model9 Gravity transforms mainframe data in Azure Blob Storage into open formats that can be used by Azure services.
+1. The Model9 agent is a z/OS started task that sends mainframe data directly to Azure Blob Storage.
+2. The Model9 agent sends the data, which is encrypted, to Azure Blob Storage over TCP/IP.
+3. Model9 management server manages Model9 policies, activities, and storage.
+4. Model9 Gravity transforms mainframe data in Azure Blob Storage into open formats that can be used by Azure services.
 
 ### Components
 
@@ -43,7 +43,7 @@ The main components of Model9 cloud data platform are:
 
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between Azure Virtual Network and an on-premises location over the public internet.
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
 
 #### Application
 
@@ -127,15 +127,15 @@ Reliability ensures that your application can meet the commitments you make to y
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Authenticate Azure resources by using Azure AD. Manage permissions by using role-based access control (RBAC).
+- Authenticate Azure resources by using Microsoft Entra ID. Manage permissions by using role-based access control (RBAC).
 
-- Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. Traffic between the Model9 agent and Azure Blob Storage is encrypted. 
+- Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. Traffic between the Model9 agent and Azure Blob Storage is encrypted.
 
 - The security options in Azure database services are:
 
-    * Data encryption at rest.
-    * Dynamic data masking.
-    * Always-encrypted database.
+  - Data encryption at rest.
+  - Dynamic data masking.
+  - Always-encrypted database.
 
 - For general guidance on designing secure solutions, see [Azure security documentation](/azure/security).
 
@@ -155,12 +155,12 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-* [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan/) | Senior Engineering Architect
+- [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan/) | Senior Engineering Architect
 
 Other contributors:
 
-* [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Senior Engineering Architect 
-* [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architect Manager
+- [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Senior Engineering Architect
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architect Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

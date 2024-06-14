@@ -106,7 +106,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Use the latest implementation of SWIFT Customer Security Programme (CSP) controls in Azure. You should, however, consult your Microsoft team first.
 - Use Defender for Cloud to help protect against threats that exploit server and application vulnerabilities. Defender for Cloud can help you quickly identify threats, streamline threat investigation, and automate remediation.
-- Use Azure Active Directory (Azure AD) and role-based access control (RBAC) to limit access to application components.
+- Use Microsoft Entra ID and role-based access control (RBAC) to limit access to application components.
 - Use Microsoft Sentinel to analyze security events and other events that solution components report. This service can help you respond quickly to anomalies and potential threats.
 
 ### Cost optimization

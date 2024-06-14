@@ -11,7 +11,6 @@ ms.subservice: guide
 products:
   - azure-devops
 ms.custom:
-  - seojan19
   - guide
 ---
 
