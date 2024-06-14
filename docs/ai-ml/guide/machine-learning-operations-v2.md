@@ -439,7 +439,7 @@ The suggested MVP monitoring could be scoped around the [AML workspace setup](/a
 &nbsp;&nbsp; **Implementation**;
 <br/>&nbsp;&nbsp; - Machine Learning Services - [OnlineEndpoints](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics). <br/>
 &nbsp;&nbsp; - Count of [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints).
-<br/>&nbsp;&nbsp; **Notes**: Acceptable thresholds could be aligned to t-shirt sizing or anomalies tailored to the enterprise's need.<br/>
+<br/>&nbsp;&nbsp; **Notes**: Acceptable thresholds could be aligned to t-shirt sizing or anomalies tailored to the workload's need.<br/>
 &nbsp;&nbsp; - When a model is no longer being used, it should be retired from production. 
 
 ##### Throttling Delays
