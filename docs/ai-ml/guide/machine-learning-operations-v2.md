@@ -320,8 +320,6 @@ Consider the following common personas in a ML workload which will inform the id
 
 Using the previously described personas, here are examples of how RBAC can be applied to production (Staging / Test / Production environments based on the [current architectures](#current-architectures) section) and pre-production (Development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:  
 
-**Key:**
-
 **[Standard Roles](/azure/role-based-access-control/built-in-roles#general)**
 -  R = [Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#reader).
 -  C = [Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/general#contributor).
@@ -339,6 +337,8 @@ Using the previously described personas, here are examples of how RBAC can be ap
 - MC = [Monitoring Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor).
 - KVA = [Key Vault Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-administrator).
 - KVR = [Key Vault Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles/security#key-vault-reader).
+
+_The letters preceding these Azure RBAC roles are used in the following tables. Refer back to this list when reviewing the table._
 
 **Production Environment**
 
@@ -391,9 +391,9 @@ In the machine learning lifecycle this can introduce many challenges, such as:
 - Many of these packages are community developed, iterate with fast-paced development cycles, and required "Subject Matter Expert" (SME) knowledge to understand and use.
 - Traditional approaches to software management for this requirement, often result in expensive, toil-filled processes, which act as a bottleneck on the delivery of value.
 
-A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](https://learn.microsoft.com/azure/architecture/patterns/quarantine). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
+A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](/architecture/patterns/quarantine). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
 
-This involved safelisting three industry standard ML package repositories (Microsoft Artifact Registry, PyPI, Conda), allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
+This involved safelisting three industry standard ML package repositories (Microsoft Artifact Registry, PyPI, and Conda), allowing self-serve from individual AML workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
 
 :::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram showing the secure AML Package approach." border="false":::
 
