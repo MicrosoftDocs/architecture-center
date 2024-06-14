@@ -4,11 +4,6 @@ What all of these data stores have in common is that they don't use a [relationa
 
 The term *NoSQL* refers to data stores that do not use SQL for queries. Instead, the data stores use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional relational database management system (RDBMS) would execute the same SQL query.
 
-NoSQL databases offer more flexibility and scalability than SQL databases but at the cost of weaker consistency. You can read further about this [in here](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-nosql-database) and [here](/dotnet/architecture/cloud-native/relational-vs-nosql-data). 
-
-> [!NOTE]  
-> Even though NoSQL databases allow you to store your data flexibly, you still need to identify and analyze your data access patterns, then design an appropriate data schema otherwise your NoSQL database can suffer under heavy workload.
-
 
 There are variations in implementations and specializations of NoSQL databases, like there are variations in capabilities of relational databases. These variations give each implementation their own primary strengths and come with their own learning curve and usage recommendations. The following sections describe the major categories of non-relational or NoSQL database.
 
