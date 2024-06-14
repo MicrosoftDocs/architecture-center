@@ -399,7 +399,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ## Remote visualization
 
-Run GPU-powered virtual machines in Azure in the same region as the HPC output for the lowest latency, access, and to visualize remotely through Azure Virtual Desktop, Citrix, or VMware Horizon.
+Run GPU-powered virtual machines in Azure in the same region as the HPC output for the lowest latency, access, and to visualize remotely through Azure Virtual Desktop.
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
