@@ -123,7 +123,7 @@ The following considerations provide guidance for implementing the pillars of th
 
 The delta this architecture provides, includes:
 - The default Azure [SLAs](https://www.azure.cn/support/sla/summary/) across the solution still meet the uplifted requirements, so no high-availability or multi-regional uplift is required.
-- Uplift the [disaster recovery strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and stakeholder RACI. This must be regularly tested to ensure it remains "fit-for-purpose."
+- Uplift the [disaster recovery strategy](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview) to cover the full scope of platform services and updated target metrics. This must be regularly tested to ensure it remains "fit-for-purpose."
 - Solution components utilize zone-redundancy features to protect against localized service issues. The following table shows the resiliency types for the services in this architecture:
 
 **Service**|**Resiliency type**
