@@ -1,6 +1,6 @@
 ---
 title: Application design considerations for mission-critical workloads on Azure
-description: Learn how to implement a reference architecture for a workload that users access over a public endpoint without extra dependencies to other company resources.
+description: Learn how to implement a mission-critical workload that users access over a public endpoint without extra dependencies to other company resources.
 author: msimecek
 ms.author: msimecek
 ms.date: 06/05/2024
@@ -20,7 +20,7 @@ categories: featured
 
 # Application design considerations for mission-critical workloads
 
-The [baseline mission-critical reference architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses a simple online catalog application to create a highly reliable workload. Users can browse through a catalog of items, review item details, and post ratings and comments for items. This article focuses on the reliability and resiliency aspects of a mission-critical application, such as asynchronous request processing and how to achieve high throughput within a solution.
+The [baseline mission-critical reference architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) uses a simple online catalog application to illustrate a highly reliable workload. Users can browse through a catalog of items, review item details, and post ratings and comments for items. This article focuses on the reliability and resiliency aspects of a mission-critical application, such as asynchronous request processing and how to achieve high throughput within a solution.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) A production-grade [reference implementation](https://github.com/Azure/Mission-Critical-Online) that showcases mission-critical application development on Azure supports the guidance in this article. You can use this implementation as a basis for further solution development in your first step toward production.
@@ -49,11 +49,11 @@ Other supporting components that run in the cluster include:
 
 - An **NGINX ingress controller**: Routes incoming requests to the workload and load balances between pods. The NGINX ingress controller is exposed through Azure Load Balancer with a public IP address but can only be accessed through Azure Front Door.
 
-- **Cert manager**: Jetstack's `cert-manager` autoprovisions Secure Shell (SSL) and Transport Layer Security (TLS) certificates by using Let's Encrypt for the ingress rules.
+- **Cert manager**: Jetstack's `cert-manager` autoprovisions Transport Layer Security (TLS) certificates by using Let's Encrypt for the ingress rules.
 
 - **Secrets Store CSI Driver**: The Azure Key Vault provider for Secrets Store CSI Driver securely reads secrets, such as connection strings from Key Vault.
 
-- **Monitoring agent**: The default Azure Monitor Logs agent configuration is adjusted to reduce the amount of monitoring data that's sent to the Azure Monitor Logs workspace.
+- **Monitoring agent**: The default OMSAgentForLinux configuration is adjusted to reduce the amount of monitoring data that's sent to the Azure Monitor Logs workspace.
 
 ## Database connection
 
@@ -111,11 +111,11 @@ The key characteristics of asynchronous messaging include:
 
 - Services scale independently.
 
-- End-to-end tracing requires complex orchestration.
-
 - Downstream failures don't affect client transactions.
 
 - Transactional integrity is difficult to maintain because data creation and persistence occur in separate services. Transactional integrity is a challenge across messaging and persistence services. For more information, see [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+
+- End-to-end tracing requires complex orchestration.
 
 We recommend that you use well-known design patterns, such as the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers). These patterns distribute the load from the producer to the consumers and enable asynchronous processing by consumers. For example, the worker lets the API accept the request and quickly return to the caller, and the worker processes a database write operation separately.
 
@@ -132,7 +132,7 @@ Write operations, such as post rating and post comment, are processed asynchrono
 
 :::image type="content" source="./images/application-design-operations-2.png" alt-text="Diagram that shows the asynchronous nature of the post rating feature in the implementation." lightbox="./images/application-design-operations-2.png" border="false":::
 
-The Event Hubs processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and use checkpoints to track progress. The checkpoints don't get written to blob storage after every event because it adds an expensive delay for every message. Instead, the checkpoints are written on a timer loop, and you can configure the duration. The default setting is 10 seconds.
+The Azure Event Hubs Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and use checkpoints to track progress. The checkpoints don't get written to blob storage after every event because it adds an expensive delay for every message. Instead, the checkpoints are written on a timer loop, and you can configure the duration. The default setting is 10 seconds.
 
 The following code block appears in the reference implementation:
 
@@ -180,13 +180,13 @@ The API directly processes read operations and immediately returns data back to 
 
 :::image type="content" source="./images/application-design-operations-1.png" alt-text="Diagram that shows a read operations process." lightbox="./images/application-design-operations-1.png" border="false":::
 
-A back channel doesn't communicate to the client if the operation completes successfully. The client application must proactively poll the API for updates about the item specified in the `Location` HTTP header.
+A back-channel method isn't established to communicate to the client if the operation completes successfully. The client application must proactively poll the API for updates about the item specified in the `Location` HTTP header.
 
 ## Scalability
 
 Individual workload components should scale out independently because each component has different load patterns. The scaling requirements depend on the functionality of the service. Certain services directly affect users and must scale out aggressively to ensure fast responses and a positive user experience.
 
-The implementation packages the services as Docker containers and uses Helm charts to deploy the services to each stamp. The services are configured to have the expected Kubernetes requests and limits and a preconfigured automatic scaling rule in place. The `CatalogService` and the `BackgroundProcessor` workload components can scale in and scale out individually because both services are stateless.
+The implementation packages the services as container images and uses Helm charts to deploy the services to each stamp. The services are configured to have the expected Kubernetes requests and limits and a preconfigured automatic scaling rule in place. The `CatalogService` and the `BackgroundProcessor` workload components can scale in and scale out individually because both services are stateless.
 
 Users interact directly with the `CatalogService`, so this part of the workload must respond under any load. There are a minimum of three instances for each cluster to spread across three availability zones in an Azure region. The horizontal pod autoscaler (HPA) in AKS automatically adds more pods as needed. The Azure Cosmos DB autoscale feature can dynamically increase and reduce request units (RUs) available for the collection. The `CatalogService` and Azure Cosmos DB combine to form a scale unit within a stamp.
 
@@ -195,7 +195,7 @@ The HPA is deployed with a Helm chart that has a configurable maximum number and
 The `BackgroundProcessor` service has different requirements and is considered a background worker that has a limited effect on the user experience. So `BackgroundProcessor` has a different automatic scaling configuration compared to `CatalogService`, and it can scale between 2 and 32 instances. Determine this limit based on the number of partitions that you use in the event hubs. You don't need more workers than partitions.
 
 |Component           |`minReplicas`  |`maxReplicas`      |
-|--------------------|---------------|-------------------|
+| :----------------- | ------------: | ----------------: |
 |CatalogService      |3              |20                 |
 |BackgroundProcessor |2              |32                  |
 
@@ -240,7 +240,7 @@ This architecture implements distributed tracing with Application Insights and a
 
 ### Application monitoring implementation details
 
-The `BackgroundProcessor` component uses the `Microsoft.ApplicationInsights.WorkerService` NuGet package to get out-of-the-box instrumentation from the application. Serilog is also used for all logging inside the application. Application Insights is configured as a sink next to the console sink. A `TelemetryClient` instance for Application Insights is used directly only when it's necessary to track other metrics.
+The `BackgroundProcessor` component uses the `Microsoft.ApplicationInsights.WorkerService` NuGet package to get out-of-the-box instrumentation from the application. Serilog is also used for all logging inside the application. Application Insights is configured as a sink in addition to the console sink. A `TelemetryClient` instance for Application Insights is used directly only when it's necessary to track other metrics.
 
 The following code block appears in the reference implementation:
 
