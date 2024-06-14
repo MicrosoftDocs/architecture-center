@@ -310,7 +310,7 @@ considerations are framed in the context of these tenets.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [Lisa DenBeste](https://www.linkedin.com/in/lisa-denbeste) | Project Management Program Manager
 - Kenny Harder | Project Manager
@@ -318,7 +318,7 @@ considerations are framed in the context of these tenets.
 - [Meg Olsen](https://www.linkedin.com/in/megolsenpm) | Principal
 - [Nate Waters](https://www.linkedin.com/in/nate-waters) | Product Marketing Manager
 
-**Other contributors:**
+Other contributors:
 
 - [Walter Oliver](https://www.linkedin.com/in/walterov) | Senior Program Manager
 
@@ -326,38 +326,38 @@ considerations are framed in the context of these tenets.
 
 - [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
 
-  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
-  [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
-  [Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/Active Directory Domain Services-overview
-  [Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
-  [Workload Cluster]: /azure/aks/hybrid/kubernetes-concepts#the-workload-cluster
-  [Azure Arc]: /azure/azure-arc/overview
-  [Azure Policy]: /azure/governance/policy/overview
-  [Azure Monitor]: /azure/azure-monitor/overview
-  [Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
-  [1]: https://azure.microsoft.com/products/azure-stack/hci/
-  [Windows Server 2019/2022 datacenter failover cluster]: /windows-server/failover-clustering/failover-clustering-overview
-  [Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
-  [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
-  [An Azure subscription]: https://azure.microsoft.com
-  [2]: https://azure.microsoft.com/services/azure-arc/
-  [Azure role-based access control (RBAC)]: /azure/role-based-access-control/
-  [3]: https://azure.microsoft.com/services/monitor/
-  [4]: https://azure.microsoft.com/services/defender-for-cloud/
-  [ingress controller]: /azure/aks/hybrid/create-ingress-controller
-  [Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
-  [Flannel overlay networking.]: https://techcommunity.microsoft.com/t5/networking-blog/introducing-kubernetes-overlay-networking-for-windows/ba-p/363082
-  [Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
-  [Network ATC]: /azure-stack/hci/concepts/network-atc-overview
-  [Azure Arc–enabled Kubernetes service]: /azure/azure-arc/kubernetes/
-  [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
-  [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-  [cost optimization]: /azure/architecture/framework/cost/overview
-  [Microsoft Azure Well-Architected Framework.]: /azure/architecture/framework/
-  [manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
-  [Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
-  [Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac
-
 ## Related resources
 
 - [Baseline architecture for AKS on Azure Stack HCI](aks-baseline.yml)
+
+[Azure Stack HCI (20H2)]: /azure-stack/hci/overview
+[Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
+[Active Directory Domain Services]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+[Management cluster]: /azure/aks/hybrid/kubernetes-concepts#the-management-cluster
+[Workload Cluster]: /azure/aks/hybrid/kubernetes-concepts#the-workload-cluster
+[Azure Arc]: /azure/azure-arc/overview
+[Azure Policy]: /azure/governance/policy/overview
+[Azure Monitor]: /azure/azure-monitor/overview
+[Microsoft Defender for Cloud]: /azure/defender-for-cloud/defender-for-cloud-introduction
+[1]: https://azure.microsoft.com/products/azure-stack/hci/
+[Windows Server 2019/2022 datacenter failover cluster]: /windows-server/failover-clustering/failover-clustering-overview
+[Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/services/kubernetes-service/
+[Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
+[An Azure subscription]: https://azure.microsoft.com
+[2]: https://azure.microsoft.com/services/azure-arc/
+[Azure role-based access control (RBAC)]: /azure/role-based-access-control/
+[3]: https://azure.microsoft.com/services/monitor/
+[4]: https://azure.microsoft.com/services/defender-for-cloud/
+[ingress controller]: /azure/aks/hybrid/create-ingress-controller
+[Project Calico networking]: https://projectcalico.docs.tigera.io/security/calico-network-policy
+[Flannel overlay networking.]: https://techcommunity.microsoft.com/t5/networking-blog/introducing-kubernetes-overlay-networking-for-windows/ba-p/363082
+[Dynamic Virtual Machine Multi-Queue]: https://techcommunity.microsoft.com/t5/networking-blog/synthetic-accelerations-in-a-nutshell-windows-server-2019/ba-p/653976
+[Network ATC]: /azure-stack/hci/concepts/network-atc-overview
+[Azure Arc–enabled Kubernetes service]: /azure/azure-arc/kubernetes/
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
+[Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
+[cost optimization]: /azure/architecture/framework/cost/overview
+[Microsoft Azure Well-Architected Framework.]: /azure/architecture/framework/
+[manage your Kubernetes cluster using GitOps]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
+[Azure Arc hybrid management and deployment for Kubernetes clusters]: /azure/architecture/hybrid/arc-hybrid-kubernetes
+[Use Azure RBAC for Kubernetes Authorization]: /azure/aks/manage-azure-rbac

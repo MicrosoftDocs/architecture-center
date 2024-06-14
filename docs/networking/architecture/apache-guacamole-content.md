@@ -40,10 +40,11 @@ For more information about Guacamole and its internal components, see [Implement
 
 To provide high availability, this solution:
 
-* Uses [availability sets](/azure/virtual-machines/availability#availability-sets) for VMs. For service-level agreements (SLAs), see [SLAs for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9).
-* Uses Azure Database for MySQL, a high-availability, scalable, managed database. For SLAs, see [SLAs for Azure Database for MySQL](https://azure.microsoft.com/support/legal/sla/mysql/v1_2).
+- Uses [availability sets](/azure/virtual-machines/availability#availability-sets) for VMs. For service-level agreements (SLAs), see [SLAs for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9).
+- Uses Azure Database for MySQL, a high-availability, scalable, managed database. For SLAs, see [SLAs for Azure Database for MySQL](https://azure.microsoft.com/support/legal/sla/mysql/v1_2).
 
 The solution also uses:
+
 - Load Balancer.
 - VMs with [NGINX as a reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy).
 - [Tomcat as an application service](https://tomcat.apache.org).
@@ -51,10 +52,10 @@ The solution also uses:
 
 ### Potential use cases
 
-* Access your computers from any device. Because Guacamole requires only a reasonably fast standards-compliant browser, it runs on many devices, including mobile phones and tablets.
-* Host a computer in the cloud. Computers hosted on virtualized hardware are more resilient to failures. With the current availability of on-demand computing resources, Guacamole is a perfect way to access machines that are accessible only over the internet.
-* Provide easy access to a group of people. You can use Guacamole to centralize access to a large group of machines and specify on a per-user basis which machines can be accessed. Rather than remember a list of machines and credentials, users only need to  sign in to a central server and select one of the listed connections.
-* Add HTML5 remote access to your existing infrastructure. Because Guacamole is an API and not just a web application, you can use the core components and libraries provided by the Guacamole project to add HTML5 remote access features to an existing application. You don't need to use the main Guacamole web application. You can write or integrate with your own applications fairly easily.
+- Access your computers from any device. Because Guacamole requires only a reasonably fast standards-compliant browser, it runs on many devices, including mobile phones and tablets.
+- Host a computer in the cloud. Computers hosted on virtualized hardware are more resilient to failures. With the current availability of on-demand computing resources, Guacamole is a perfect way to access machines that are accessible only over the internet.
+- Provide easy access to a group of people. You can use Guacamole to centralize access to a large group of machines and specify on a per-user basis which machines can be accessed. Rather than remember a list of machines and credentials, users only need to  sign in to a central server and select one of the listed connections.
+- Add HTML5 remote access to your existing infrastructure. Because Guacamole is an API and not just a web application, you can use the core components and libraries provided by the Guacamole project to add HTML5 remote access features to an existing application. You don't need to use the main Guacamole web application. You can write or integrate with your own applications fairly easily.
 
 ## Considerations
 
@@ -65,7 +66,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 This solution's resiliency depends on the failure modes of individual services like Azure Virtual Machines, Azure Database for MySQL, and Azure Load Balancer. For more information, see these articles:
-- [Design for reliability](/azure/architecture/framework/resiliency/design-checklist) 
+
+- [Design for reliability](/azure/architecture/framework/resiliency/design-checklist)
 - [Resiliency in Azure](/azure/availability-zones/overview)
 - [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)
 
@@ -96,10 +98,10 @@ To better understand the cost of running this scenario on Azure, use the [pricin
 
 For more information about the cost of this solution, see:
 
-* [Linux Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux)
-* [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server)
-* [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer)
-* [Azure Reserved Virtual Machine Instances](https://azure.microsoft.com/pricing/reserved-vm-instances)
+- [Linux Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux)
+- [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server)
+- [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer)
+- [Azure Reserved Virtual Machine Instances](https://azure.microsoft.com/pricing/reserved-vm-instances)
 
 ### Operational excellence
 
@@ -108,6 +110,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 Operational excellence applies reliability, predictability, and automated operations to your architecture to keep your application running in production. Deployments must be reliable and predictable. Automated deployments reduce the chance of human error.
 
 Implement software engineering disciplines across your entire environment, including these practices:
+
 - Implement [Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code).
 - Build and release with [continuous integration](/devops/develop/what-is-continuous-integration) and [continuous delivery](/devops/deliver/what-is-continuous-delivery) (CI/CD) pipelines.
 - Use automated testing.
@@ -132,22 +135,23 @@ For deployment steps, see [Deploying Apache Guacamole on Azure](https://github.c
 
 Principal author:
 
- - [Ricardo Macedo Martins](https://www.linkedin.com/in/ricmmartins) | Sr. Customer Engineer
- 
+- [Ricardo Macedo Martins](https://www.linkedin.com/in/ricmmartins) | Sr. Customer Engineer
+
  Other contributor:
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [Apache Guacamole documentation](https://guacamole.apache.org/doc/gug/administration.html)
-* [Azure Bastion documentation](/azure/bastion/bastion-overview)
-* [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
-* [Azure Database for MySQL](/azure/mysql)
-* [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion)
-* [Learn module: Introduction to Azure Load Balancer](/training/modules/intro-to-azure-load-balancer)
- 
+- [Apache Guacamole documentation](https://guacamole.apache.org/doc/gug/administration.html)
+- [Azure Bastion documentation](/azure/bastion/bastion-overview)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [Azure Database for MySQL](/azure/mysql)
+- [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion)
+- [Learn module: Introduction to Azure Load Balancer](/training/modules/intro-to-azure-load-balancer)
+
 ## Related resources
 
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)

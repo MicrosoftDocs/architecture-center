@@ -29,7 +29,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 There are many tools and capabilities to implement DataOps processes, like:
 
 - [Apache NiFi](https://nifi.apache.org/). Apache NiFi provides a system for processing and distributing data.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based ETL and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based extract, transform, load (ETL) and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks). Use Azure Databricks to unlock insights from all your data and build AI solutions. You can also quickly set up your Apache Spark environment, autoscale, and collaborate on shared projects.
 - [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage). Use a single data storage platform to optimize costs and protect your data with encryption at rest and advanced threat protection.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). A limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.

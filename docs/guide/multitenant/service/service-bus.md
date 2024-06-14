@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Service Bus that are useful when you use it in multitenanted systems. It provides links to guidance for how to use Azure Service Bus in a multitenant solution.
 author: landonpierce
 ms.author: landonpierce
-ms.date: 02/15/2023
+ms.date: 06/05/2024 
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

@@ -100,7 +100,7 @@ If you already have SAP deployments, SAP provides reports you can use to check t
 
 ### Availability
 
-Resource redundancy is the general theme in highly available infrastructure solutions. Work with SAP, your system integrator, or Microsoft to properly architect and implement a [high availability and disaster-recovery][hli-hadr] strategy. This architecture follows the Azure [service level agreement][sla] (SLA) for HANA on Azure (Large Instances). To assess your availability requirements, consider any single points of failure, the desired level of uptime for services, and these common metrics:
+Resource redundancy is the general theme in highly available infrastructure solutions. Work with SAP, your system integrator, or Microsoft to properly architect and implement a [high availability and disaster-recovery][hli-hadr] strategy. This architecture follows the Azure [service level agreement (SLA)][sla] for HANA on Azure (Large Instances). To assess your availability requirements, consider any single points of failure, the desired level of uptime for services, and these common metrics:
 
 - Recovery Time Objective (RTO) means the duration of time in which the HANA Large Instances server is unavailable.
 

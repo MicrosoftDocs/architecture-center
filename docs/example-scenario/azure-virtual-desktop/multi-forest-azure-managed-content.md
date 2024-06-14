@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea illustrates how to deploy Azure Virtual Desktop rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of [Microsoft Entra Domain Services (Microsoft Entra Domain Services)](/azure/active-directory-domain-services/overview). Use this idea to both extend on-premises multi-forest AD DS identities to Azure without private connectivity and support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
+This solution idea illustrates how to deploy Azure Virtual Desktop rapidly in a *minimum viable product (MVP)* or a *proof of concept (POC)* environment with the use of [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview). Use this idea to both extend on-premises multi-forest AD DS identities to Azure without private connectivity and support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
 
 ## Potential use cases
 
@@ -17,7 +17,7 @@ This solution idea also applies to mergers and acquisitions, organization rebran
 The following steps show how the data flows in this architecture in the form of identity.
 
 1. Complex hybrid on-premises Active Directory environments are present, with two or more Active Directory forests. Domains live in separate forests, with distinct User Principal Name (UPN) suffixes. For example, *CompanyA.local* with UPN suffix *CompanyA.com*, *CompanyB.local* with UPN suffix *CompanyB.com*, and an additional UPN suffix, *newcompanyAB.com*.
-1. Instead of using customer-managed domain controllers, either on-premises or on Azure (that is, Azure infrastructure as a service [IaaS] domain controllers), the environment uses [the two cloud-managed domain controllers provided by Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview#how-does-azure-ad-ds-work).
+1. Instead of using customer-managed domain controllers, either on-premises or on Azure (that is, Azure infrastructure as a service (IaaS) domain controllers), the environment uses [the two cloud-managed domain controllers provided by Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview#how-does-azure-ad-ds-work).
 1. Microsoft Entra Connect syncs users from both *CompanyA.com* and *CompanyB.com* to the Microsoft Entra tenant, *newcompanyAB.onmicrosoft.com*. The user account is represented only once in Microsoft Entra ID, and private connectivity isn't used.
 1. Users then sync from Microsoft Entra ID to the managed Microsoft Entra Domain Services as a one-way sync.
 1. A custom and *routable* Microsoft Entra Domain Services domain name, *aadds.newcompanyAB.com*, is created. The newcompanyAB.com domain is a registered domain that supports LDAP certificates. We generally recommend that you *not* use non-routable domain names, such as contoso.local, because it can cause issues with DNS resolution.

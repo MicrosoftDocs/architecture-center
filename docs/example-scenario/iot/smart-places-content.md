@@ -304,9 +304,11 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Mark Kottke](https://www.linkedin.com/in/markkottke) | Senior Architect
 
 Other contributor:
+
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
 
 ## Next steps

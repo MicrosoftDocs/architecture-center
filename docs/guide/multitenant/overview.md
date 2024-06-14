@@ -79,6 +79,8 @@ For an overview of the content covered in this series, and the basic concepts of
 
 > [!VIDEO https://www.youtube.com/embed/aem8elgN7iI]
 
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
+
 ## Next steps
 
 Review the [architectural considerations for a multitenant solution](considerations/overview.yml).

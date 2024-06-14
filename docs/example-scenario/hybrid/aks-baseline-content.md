@@ -13,7 +13,7 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 The architecture consists of the following components and capabilities:
 
 - [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
-- [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
+- [Azure Kubernetes Service (AKS) on Azure Stack HCI (AKS hybrid)][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
 - [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - [Azure Policy](/azure/governance/policy/overview). A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. These standards also include [Azure Policy for Kubernetes][], which applies policies to the workloads running inside the cluster.
 - [Azure Monitor][]. A cloud-based service that maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -25,11 +25,11 @@ The architecture consists of the following components and capabilities:
 ## Components
 
 - [Azure Stack HCI (20H2)][1]
-- [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)][]
+- [Azure Kubernetes Service (AKS) on Azure Stack HCI (AKS hybrid)][]
 - [Windows Admin Center][]
 - [An Azure subscription][]
 - [Azure Arc][]
-- [Azure role-based access control (Azure RBAC)][])
+- [Azure role-based access control (Azure RBAC)][]
 - [Azure Monitor][]
 - [Microsoft Defender for Cloud][]
 
@@ -183,7 +183,7 @@ Focus on the entire stack by securing the host and containers.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [Lisa DenBeste](https://www.linkedin.com/in/lisa-denbeste) | Project Management Program Manager
 - Kenny Harder | Project Manager
@@ -191,7 +191,7 @@ Focus on the entire stack by securing the host and containers.
 - [Meg Olsen](https://www.linkedin.com/in/megolsenpm) | Principal
 - [Nate Waters](https://www.linkedin.com/in/nate-waters) | Product Marketing Manager
 
-**Other contributors:**
+Other contributors:
 
 - [Walter Oliver](https://www.linkedin.com/in/walterov) | Senior Program Manager
 
@@ -201,7 +201,7 @@ Focus on the entire stack by securing the host and containers.
 
   [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
-  [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
+  [Azure Kubernetes Service (AKS) on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
   [An Azure subscription]: https://azure.microsoft.com
   [Azure Arc]: https://azure.microsoft.com/services/azure-arc/

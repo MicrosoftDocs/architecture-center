@@ -26,6 +26,8 @@ items:
         items:
         - name: Keyword digital text processing
           href: idea/digital-media-speech-text.yml
+        - name: Use Azure OpenAI to process podcast audio files
+          href: idea/process-audio-files.yml
       - name: Predictive analytics
         items:
         - name: Customer churn prediction

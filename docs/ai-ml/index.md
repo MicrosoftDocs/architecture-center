@@ -270,7 +270,7 @@ This is a comprehensive family of AI services and cognitive APIs to help you bui
 
 ### Azure Cognitive Search
 
-This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 
 - [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
 
@@ -360,7 +360,7 @@ Different industries are applying AI in innovative and inspiring ways. Following
 
 - [Asklepios Klinik Altona: Precision surgeries with Microsoft HoloLens 2 and 3D visualization](https://customers.microsoft.com/story/770897-asklepios-apoqlar-azure-hololens-cognitive-services-health-en)
 
-- [AXA Global P&C: Global insurance firm models complex natural disasters with cloud-based HPC](https://customers.microsoft.com/story/axa-global-p-and-c)
+- [AXA Global P&C: Global insurance firm models complex natural disasters with cloud-based high-performance computing (HPC)](https://customers.microsoft.com/story/axa-global-p-and-c)
 
 [Browse more AI customer stories](https://customers.microsoft.com/en-us/search?sq=&ff=story_product_categories%26%3EArtificial%20Intelligence&p=0&so=story_publish_date%20desc)
 
