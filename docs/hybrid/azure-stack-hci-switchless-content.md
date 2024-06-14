@@ -10,7 +10,7 @@ This architecture serves as a starting point for a [3-node Azure Stack HCI clust
 
 | Architecture | Design decision | Well-Architected Framework approach|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Scenario details and benefits](#scenario-details-and-benefits) <br>&#9642; [Platform resources](#platform-resources) <br>&#9642; [Platform supporting resources](#platform-supporting-resources) <br>|&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; Disks <br> &#9642; [Networking](#network-design) <br> &#9642; Monitoring <br> &#9642; Update management|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Scenario details and benefits](#scenario-details-and-benefits) <br>&#9642; [Platform resources](#platform-resources) <br>&#9642; [Platform supporting resources](#platform-supporting-resources) <br>&#9642; [Deployment workflow](#deployment-workflow) <br>|&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Physical Disks](#physical-disks) <br> &#9642; [Networking](#network-design) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-3Nodes-Switchless-DualLink) demonstrates how to deploy a 3-node Azure Stack HCI storage switchless cluster using an ARM template and parameter file.
@@ -90,7 +90,7 @@ The architecture can incorporate the following optional supporting services that
 - **[Azure Backup][azure-backup]** service provides simple, secure, and cost-effective solutions to back up your data, including virtual machines and recover it from the Microsoft Azure cloud.
 - **[Azure Site Recovery][azure-site-recovery]** provides business continuity and disaster recovery (BC/DR) capabilities, by enabling business apps and workloads to failover in the event of a disaster or outage. Site Recovery manages replication and failover of workloads running on both physical and virtual machines, between their primary site (on-premises) and a secondary location (Azure).
 
-### Cluster design choices
+## Cluster design choices
 
 When designing an Azure Stack HCI cluster it is important to understand the workload performance and resiliency requirements, such as the RTO / RPO times and compute (CPU), memory and storage requirements for all of the workload that is planned to run on the Azure Stack HCI cluster. Several characteristics of the workload influence the decision-making process, including:
 
@@ -109,6 +109,8 @@ The output from the Azure Stack HCI Sizer Tool will be a list of recommended har
 
 > [!IMPORTANT]
 > It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important factor this into the cluster design phase when sizing the hardware, in terms of allowing for  future workload capacity growth requirements.
+
+### Physical Disks
 
 ## Network design
 
@@ -151,6 +153,12 @@ The logical network topology provides an overview for how the network data flows
   - Intent-based policies define how the pNICs should behave, and which network traffic classes should be used on which pNICs, such as the "Storage", "Management" and "Compute" intents, that are associated with the correct pNICs as part of the Azure Stack HCI cloud deployment process.
 
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
+
+### Monitoring
+
+### Update management
+
+## Deployment workflow
 
 ## Well-Architected Framework considerations
 
