@@ -130,4 +130,4 @@ FSI companies can use robust observability tools and practices to proactively de
 
 ## Next step
 
-- The [Azure Red Hat OpenShift landing zone accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator) is an open-source repo that consists of an Azure CLI reference implementation and Critical Design Area recommendations.
+The [Azure Red Hat OpenShift landing zone accelerator](https://github.com/Azure/ARO-Landing-Zone-Accelerator) is an open-source repo that consists of an Azure CLI reference implementation and Critical Design Area recommendations.
