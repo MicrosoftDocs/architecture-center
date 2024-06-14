@@ -112,11 +112,11 @@ The output from the Azure Stack HCI Sizer Tool will be a list of recommended har
 
 ### Physical Disks
 
-## Network design
+### Network design
 
 The network design refers to the overall arrangement of components within the network. In the case of a three node "storage switchless" configuration for Azure Stack HCI, we have three physical nodes (_servers_) that are directly connected to each other without the use of an external switch for the storage traffic. This direct connection simplifies the network design by reducing complexity, however the maximum number of supported nodes in this configuration is three nodes.
 
-### Physical network topology
+#### Physical network topology
 
 The physical network topology shows the actual physical connections between nodes and networking components. Below is what this looks like for a 3-node storage switchless Azure Stack HCI deployment:
 
@@ -136,7 +136,7 @@ The physical network topology shows the actual physical connections between node
 
 [![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
 
-### Logical network topology
+#### Logical network topology
 
 The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a 3-node storage switchless Azure Stack HCI cluster:
 
