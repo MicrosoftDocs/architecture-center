@@ -8,7 +8,7 @@ This architecture serves as a starting point for a [3-node Azure Stack HCI clust
 
 ## Article layout
 
-| Architecture | Design decision | Well-Architected Framework approach|
+| Architecture | Design decisions | Well-Architected Framework approach|
 |---|---|---|
 |&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Scenario details and benefits](#scenario-details-and-benefits) <br>&#9642; [Platform resources](#platform-resources) <br>&#9642; [Platform supporting resources](#platform-supporting-resources) <br>&#9642; [Deployment workflow](#deployment-workflow) <br>|&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Physical Disks](#physical-disks) <br> &#9642; [Networking](#network-design) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
 
