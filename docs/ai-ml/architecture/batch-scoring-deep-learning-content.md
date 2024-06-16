@@ -149,7 +149,6 @@ Principal author:
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [Batch scoring of Python models on Azure](batch-scoring-python.yml)
-- [Batch scoring with R models to forecast sales](batch-scoring-R-models.yml)
 
 ## Related resources
 

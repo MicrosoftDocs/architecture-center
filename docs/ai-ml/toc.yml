@@ -112,8 +112,6 @@ items:
           href: architecture/batch-scoring-deep-learning.yml
         - name: Batch scoring with Python
           href: architecture/batch-scoring-python.yml
-        - name: Batch scoring with R
-          href: architecture/batch-scoring-R-models.yml
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
       - name: Recommendations
