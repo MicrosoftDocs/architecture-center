@@ -77,15 +77,6 @@ Other tools:
 - [Data warehouses](./data-warehousing.yml)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Raunak Jhawar](https://www.linkedin.com/in/raunakjhawar) | Senior Cloud Architect
-- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
-
 ## Next steps
 
 - [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
