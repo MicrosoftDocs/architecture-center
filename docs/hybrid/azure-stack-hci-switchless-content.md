@@ -160,9 +160,9 @@ When designing and planning IP address requirements for Azure Stack HCI, conside
 
 Enable [Azure Monitor Insights on Azure Stack HCI](/azure-stack/hci/concepts/monitoring-overview) to enhance monitoring and alerting, which provides the ability to seamlessly scale monitoring and management of multiple on-premises clusters using native Azure capabilities.
 
-Insights is capable of monitoring key Azure Stack HCI features using the cluster Performance counters and Event Log Channels that are collected by the data collection rule (DCR).
+Insights is capable of monitoring key Azure Stack HCI features using the cluster Performance counters and Event Log Channels that are collected by the data collection rule (DCR) configured using Azure Monitor and Log Analytics.
 
-Because Azure Stack HCI Insights uses Azure resources, it is an always up to date scalable solution that is highly customizable, providing access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Stack HCI. This provides near real-time monitoring and you can create graphs and customized visualization using aggregation and filter functionality and configuring custom alert rules.
+Because Azure Stack HCI Insights is built using Azure services, it is an always up to date, scalable solution that is highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Stack HCI. This components provide a near real-time monitoring solution, with the ability to create graphs, customize visualization using aggregation and filtering functionality and configuring custom resource health alert rules.
 
 ### Update management
 
