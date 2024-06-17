@@ -166,6 +166,15 @@ Because Azure Stack HCI Insights is built using Azure services, it is an always 
 
 ### Update management
 
+Azure Stack HCI is continually updated to enhance customer experience and provide additional features and functionality, this process is delivered using "Release Trains" that provide new "Baseline Builds" which can be applied to Azure Stack HCI clusters to keep them up to date. In addition to regular Baseline Build updates, Azure Stack HCI is updated with OS security and reliability updates on a monthly basis.
+
+Azure Update Manager is an Azure service that allows you to apply, view, and manage updates for Azure Stack HCI. This provides a mechanism to view all Azure Stack HCI clusters across your entire infrastructure and edge locations using Azure portal for a centralized management experience. For additional information review the following resources:
+
+- [About Azure Stack HCI Release Information](/azure-stack/hci/release-information-23h2#about-azure-stack-hci-version-23h2-releases)
+- [Azure Stack HCI Lifecycle cadence](/azure-stack/hci/update/about-updates-23h2#lifecycle-cadence)
+- [Review update phases of Azure Stack HCI](/azure-stack/hci/update/update-phases-23h2)
+- [Use Azure Update Manager to update Azure Stack HCI](/azure-stack/hci/update/azure-update-manager-23h2)
+
 ## Deployment workflow
 
 ## Well-Architected Framework considerations
