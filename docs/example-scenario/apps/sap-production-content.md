@@ -161,6 +161,5 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 See these articles for more information and for examples of SAP workloads that use some of the same technologies:
 
-- [SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)
 - [Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)
 - [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)

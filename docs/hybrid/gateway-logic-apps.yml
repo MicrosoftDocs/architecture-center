@@ -12,7 +12,7 @@ metadata:
     - hybrid
     - integration
   ms.custom:
-    - fcp
+    - arb-integrations
     - reference-architecture
     - e2e-hybrid
 name: On-premises data gateway for Azure Logic Apps

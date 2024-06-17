@@ -513,14 +513,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Create personalized marketing solutions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/ai-ml/idea/personalized-marketing</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/idea/personalized-marketing"/>
-        <updated>2024-05-06T16:09:41.000Z</updated>
-        <summary type="html"><![CDATA[Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Customer lifetime value and churn prediction with Azure AI services]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/customer-lifecycle-churn</id>
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/customer-lifecycle-churn"/>

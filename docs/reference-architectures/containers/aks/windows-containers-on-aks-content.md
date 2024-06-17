@@ -79,7 +79,7 @@ The larger image sizes associated with Windows server-based images requires the 
 
 ## Identity management
 
-Windows containers cannot be domain joined, so if you require Active Directory authentication and authorization, you can use [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (gMSA). In order to use gMSA, you must enable the gMSA profile on your AKS cluster running Windows nodes. Refer to the [gMSA AKS documentation](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) for a full review of the architecture and a guide on enabling the profile.  
+Windows containers cannot be domain joined, so if you require Active Directory authentication and authorization, you can use [Group Managed Service Accounts (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). In order to use gMSA, you must enable the gMSA profile on your AKS cluster running Windows nodes. Refer to the [gMSA AKS documentation](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) for a full review of the architecture and a guide on enabling the profile.  
 
 ## Node and pod scaling
 
