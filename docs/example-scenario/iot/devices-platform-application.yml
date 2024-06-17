@@ -11,9 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - iot
-  ms.custom:
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: IoT solution architecture
 azureCategories:
   - iot

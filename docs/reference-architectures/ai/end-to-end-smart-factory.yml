@@ -8,10 +8,7 @@ metadata:
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
-  ms.custom:
-    - reference-architecture
-    - ai-machine-learning
-    - fcp
+  ms.custom: arb-iot
 name: End-to-end computer vision at the edge for manufacturing
 azureCategories:
   - ai-machine-learning
