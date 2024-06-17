@@ -1,6 +1,6 @@
 This reference architecture illustrates how to design Azure Stack HCI 23H2 (_and later_) infrastructure, to provide a platform to run highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
 
-This architecture design provides guidance and recommendations for configuring Azure Stack HCI as a resilient platform to deploy and manage end user applications or business systems (_workload_), however this architecture is workload agnostic. Resource components covered include design choice decisions for the physical nodes, to provide the compute, storage and networking capabilities, in addition to information for using Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
+This architecture design provides guidance and recommendations for configuring Azure Stack HCI as a resilient platform to deploy and manage end user applications or business systems (_workload_), however this architecture is workload agnostic. Resource components covered include cluster design choice decisions for the physical nodes that provide the local compute, storage and networking capabilities, in addition to information for how to use Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
 
 For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_Azure Stack HCI workloads_" navigation menu.
 
