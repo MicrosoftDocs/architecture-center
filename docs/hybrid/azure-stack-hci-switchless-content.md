@@ -150,6 +150,12 @@ The logical network topology provides an overview for how the network data flows
 
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
 
+#### IP address requirements
+
+To deploy a three-node storage switchless configuration of Azure Stack HCI, the cluster infrastructure platform requires a minimum of 14 x IP addresses to be allocated. Additional IP addresses are required if using microsegmentation and/or software defined networking (SDN). [Review three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements) for additional information.
+
+When designing and planning IP address and network range requirements for Azure Stack HCI, consider your workload requirements, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components.
+
 ### Monitoring
 
 ### Update management
