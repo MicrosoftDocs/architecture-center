@@ -3268,7 +3268,7 @@
     {
       "source_path": "docs/reference-architectures/ai/batch-scoring-deep-learning.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/ai/batch-scoring-python.yml",
