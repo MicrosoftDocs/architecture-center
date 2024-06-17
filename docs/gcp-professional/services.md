@@ -186,7 +186,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](/azure/purview) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
+| [Dataplex](https://cloud.google.com/data-catalog) | [Microsoft Purview](/azure/purview) | Microsoft Purview is a comprehensive portfolio of products spanning data governance, data security, and risk and compliance solutions. |
 
 ## Compute
 
