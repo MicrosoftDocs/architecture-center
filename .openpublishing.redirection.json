@@ -3870,6 +3870,11 @@
       "redirect_url": "/windows-server/manage/windows-admin-center/azure/use-azure-network-adapter",
       "redirect_document_id": false
     },
+    {	
+      "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",	
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",	
+      "redirect_document_id": true	
+    },
     {
       "source_path": "docs/architecture/solution-ideas/articles/digital-media-video.md",
       "redirect_url": "/azure/architecture/guide/media/start-here",
