@@ -4,7 +4,7 @@ This solution idea uses Azure services with a bot assistant to improve interacti
 
 ## Architecture
 
-[ ![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services](_images/retail-assistant-or-vacation-planner-with-visual-capabilities.svg).](_images/retail-assistant-or-vacation-planner-with-visual-capabilities.svg#lightbox)
+[ ![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](_images/retail-assistant-or-vacation-planner-with-visual-capabilities.svg)](_images/retail-assistant-or-vacation-planner-with-visual-capabilities.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/retail-assistant-or-vacation-planner-with-visual-capabilities.vsdx) of this architecture.*
 

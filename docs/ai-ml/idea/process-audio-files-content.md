@@ -18,7 +18,7 @@ This article provides an example design of a pipeline that you can use to proces
 
 1. After Blob Storage detects that a new file is uploaded, another function is invoked that converts the audio to text by using Azure AI Speech. The transcription results are stored in a text file format and uploaded to another container.
 
-1. A third function uses generative AI to detect and process the transcriptions and generate summaries, search engine-optimized (search engine optimization (SEO)) keywords, and translations.
+1. A third function uses generative AI to detect and process the transcriptions and generate summaries, search engine-optimized keywords, and translations.
 
 ### Components
 
@@ -103,7 +103,7 @@ Principal authors:
 
 Other contributors:
 
-- [Andy Beach](https://www.linkedin.com/in/andrewbeach/) | chief technical officer (CTO), Media and Entertainment Worldwide
+- [Andy Beach](https://www.linkedin.com/in/andrewbeach/) | Chief Technical Officer (CTO), Media and Entertainment Worldwide
 - [Simon Powell](https://www.linkedin.com/in/asbpowell/) | Principal Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
