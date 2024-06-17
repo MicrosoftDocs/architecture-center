@@ -57,7 +57,6 @@ The following are other ideas that you can use as a starting point for your ener
 
 - [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)
-- [Machine teaching with the Microsoft Autonomous Systems platform](../solution-ideas/articles/autonomous-systems.yml)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
 - [Predictive insights with vehicle telematics](../solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml)
 - [Real-time asset tracking and management](../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)

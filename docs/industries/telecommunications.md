@@ -42,7 +42,6 @@ The following articles provide detailed analysis of architectures created and re
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Anomaly detector process](../solution-ideas/articles/anomaly-detector-process.yml)|Learn about Anomaly Detector and how anomaly detection models are selected for time-series data. You can use time-series data to predict mobile traffic and service needs. |Analytics|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml)|Learn how Azure Arc extends Kubernetes cluster management and configuration across your datacenters, edge locations, and multiple cloud environments.| Hybrid/Multicloud|
 |[Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline)|Build an audio ingestion and speech-to-text transcription pipeline by using Cognitive Services. Speech recognition can be used to analyze customer calls. |AI / Machine learning|
 |[Customer churn prediction using real-time analytics](../solution-ideas/articles/customer-churn-prediction.yml) |Predict customer churn and find patterns in existing data that's associated with the predicted churn rate by using the Microsoft AI platform.|AI / Machine learning |

@@ -201,6 +201,5 @@ Other contributors: 
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
-- [High availability and disaster recovery scenarios for infrastructure as a service (IaaS) apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Choose a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 - [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance?toc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2flearn.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)

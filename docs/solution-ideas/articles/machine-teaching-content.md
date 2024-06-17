@@ -8,7 +8,7 @@ Artificial intelligence (AI) and machine learning (ML) offer unique opportunitie
 
 Machine learning focuses on developing novel learning algorithms or improving existing algorithms. Machine teaching focuses on the efficacy of the teachers themselves. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates powerful AI and ML models that turn automated control systems into *autonomous systems*.
 
-This article discusses historical AI developments and concepts used in machine teaching. A related article discusses [autonomous systems](./autonomous-systems.yml) in detail.
+This article discusses historical AI developments and concepts used in machine teaching.
 
 ## History of automation
 
@@ -295,7 +295,7 @@ The following diagram shows the phases of iterative machine teaching model devel
 4. Measure real system dynamics and test trained model on real equipment.
 5. Expand model to cover more equipment variation.
 
-Defining exact parameters for machine teaching projects requires quite a bit of experimentation and empirical exploration. A machine teaching platform like Bonsai in the [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonomous-systems-platform) uses DRL innovations and simulations to help simplify AI model development.
+Defining exact parameters for machine teaching projects requires quite a bit of experimentation and empirical exploration.
 
 ### Example project
 
@@ -361,8 +361,6 @@ Principal author:
 
 ## Next steps
 
-- [Machine teaching for autonomous systems](autonomous-systems.yml)
-- [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Machine teaching: How people's expertise makes AI even more powerful](https://blogs.microsoft.com/ai/machine-teaching/)
 - [Microsoft broadens availability of autonomous systems tools for engineers and developers](https://blogs.microsoft.com/ai-for-business/build-bonsai-public-preview/)
@@ -384,7 +382,6 @@ Learn more about machine teaching:
 
 ## Related resources
 
-- [Machine teaching for autonomous systems](autonomous-systems.yml)
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [Compare Microsoft machine learning products and technologies](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)

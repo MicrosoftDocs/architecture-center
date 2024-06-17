@@ -66,8 +66,6 @@ items:
         items:
         - name: Azure Machine Learning architecture
           href: idea/azure-machine-learning-solution-architecture.yml
-        - name: Autonomous systems
-          href: ../solution-ideas/articles/autonomous-systems.yml
         - name: Data science and machine learning
           href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
     - name: Design architectures
@@ -98,8 +96,6 @@ items:
           href: architecture/intelligent-apps-image-processing.yml
       - name: Audio processing
         items:
-        - name: Speech transcription pipeline
-          href: architecture/speech-to-text-transcription-analytics.yml
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
       - name: Predictive analytics

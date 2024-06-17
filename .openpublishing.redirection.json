@@ -3276,11 +3276,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "docs/reference-architectures/ai/batch-scoring-databricks.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-databricks",
       "redirect_document_id": true
@@ -3880,14 +3875,59 @@
       "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
-    {        
+    {
+      "source_path": "docs/architecture/guide/ai/bank-fraud-solution.md",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false 
+    },
+    {    
+      "source_path": "docs/architecture/example-scenario/precision-medicine/genomic-analysis-reporting.md",
+      "redirect_url": "/azure/architecture/industries/healthcare",
+      "redirect_document_id": false
+    },
+    {     
+      "source_path": "docs/architecture/hybrid/azure-functions-hybrid.md",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender.md",
+      "redirect_url": "/azure/architecture/industries/retail",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-science-process/ci-cd-flask.yml",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery.md",
+      "redirect_url": "/azure/architecture/virtual-machines/baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-science-process/environment-setup.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/architecture/solution-ideas/articles/autonomous-systems.md",
+      "redirect_url": "/azure/architecture/industries/automotive/automotive-connected-fleets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/architecture/solution-ideas/articles/machine-teaching.md",
+      "redirect_url": "/azure/architecture/industries/manufacturing",
+      "redirect_document_id": false
+    },
+    {  
+     "source_path": "docs/architecture/solution-ideas/articles/anomaly-detector-process.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "docs/architecture/example-scenario/apps/telehealth-system.md",
+      "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
     {

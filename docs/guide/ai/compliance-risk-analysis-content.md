@@ -193,12 +193,6 @@ In this reference architecture, audio files are uploaded to Blob Storage via a c
 
 After the files are uploaded, an Azure Event Grid trigger is emitted to invoke an Azure function. The function then processes the audio file by using the Cognitive Services Speech-to-Text API. The transcribed JSON document is then stored in a separate blob container, which can be ingested as a data source by Azure Cognitive Search.
 
-> [!TIP]
->
-> Refer to the following article for details on integrating speech transcription:
->
-> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
-
 ## Search solution
 
 As described, multiple data sources such as emails, transcriptions, and news are created and then stored in Blob Storage. Each data source is then transformed and enriched in its own way. All the resulting output is mapped to the same index, consolidating data from all types of source documents.

@@ -64,7 +64,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender) | This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. | AI/ML |
 | [Build a Real-time Recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml) | Build a recommendation engine that can be generalized for products, movies, news, and other consumer services, using Azure Databricks, Azure Machine Learning, Azure Cosmos DB, and Azure Kubernetes Service. | AI/ML |
 | [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) | Build an insightful sales and marketing solution with a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. | Analytics |
 | [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml) | Implement a scalable and cost-effective e-commerce front end using Azure platform as a service (PaaS) tools. | Web |

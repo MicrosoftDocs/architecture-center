@@ -172,7 +172,6 @@ Principal author:
 
 ## Next steps
 
-- [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai)
@@ -181,6 +180,5 @@ Principal author:
 
 ## Related resources
 
-- [Use subject matter expertise in machine teaching and reinforcement learning](machine-teaching.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)

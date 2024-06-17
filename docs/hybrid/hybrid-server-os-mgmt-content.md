@@ -218,7 +218,6 @@ More about Azure Automation:
 
 ## Related resources
 
-- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-stack-hci-dr)
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office](/azure/architecture/hybrid/azure-stack-robo)
@@ -235,7 +234,6 @@ More about Azure Automation:
 [about-p2s-vpn]: /azure/vpn-gateway/point-to-site-about
 [wac-deploy-ha]: /windows-server/manage/windows-admin-center/deploy/high-availability
 [azure-vm-availability]: /azure/virtual-machines/windows/availability
-[iaas-ha-dr]: ../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
 [wac-manage-servers]: /windows-server/manage/windows-admin-center/use/manage-servers
 [wac-manage-hyper-converged]: /windows-server/manage/windows-admin-center/use/manage-hyper-converged
 [azure-hybrid-services-tool]: ./images/hybrid-server-os-mgmt-wac-azure-hybrid-services-tool.png

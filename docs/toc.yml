@@ -81,8 +81,6 @@ items:
       items:
       - name: Azure compute services
         href: guide/technology-choices/compute-decision-tree.yml
-      - name: High availability and disaster recovery
-        href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
       - name: Microservices compute options
         href: /azure/architecture/microservices/design/compute-options
       - name: Web apps and single page apps
@@ -869,8 +867,6 @@ items:
         href: example-scenario/dataplate2e/data-platform-end-to-end.yml
       - name: Analyze MongoDB Atlas data
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
-      - name: Anomaly detector process
-        href: solution-ideas/articles/anomaly-detector-process.yml
       - name: Apache NiFi on Azure
         href: example-scenario/data/azure-nifi.yml
       - name: Automated enterprise BI
@@ -917,8 +913,6 @@ items:
         href: example-scenario/data/real-time-lakehouse-data-processing.yml
       - name: Partitioning in Event Hubs and Kafka
         href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
-      - name: Precision medicine pipeline with genomics
-        href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
       - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
         href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
       - name: Relationship mesh solution on Azure
@@ -1428,8 +1422,6 @@ items:
         maintainContext: true
     - name: Architectures
       items:
-      - name: Anomaly detector process
-        href: solution-ideas/articles/anomaly-detector-process.yml
       - name: Apache NiFi on Azure
         href: example-scenario/data/azure-nifi.yml
       - name: Automated enterprise BI
@@ -1600,8 +1592,6 @@ items:
             href: serverless/event-hubs-functions/observability.yml
       - name: Architectures
         items:
-        - name: Azure Functions in a hybrid environment
-          href: hybrid/azure-functions-hybrid.yml
         - name: Event-based cloud automation
           href: reference-architectures/serverless/cloud-automation.yml
         - name: Multicloud with Serverless Framework
@@ -1814,8 +1804,6 @@ items:
         href: hybrid/azure-files-private.yml
       - name: Azure files secured by AD DS
         href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
-      - name: Azure Functions in a hybrid environment
-        href: hybrid/azure-functions-hybrid.yml
       - name: Azure Stack HCI stretched clusters for DR
         href: hybrid/azure-stack-hci-dr.yml
       - name: Azure Stack HCI switchless interconnect
@@ -1843,8 +1831,6 @@ items:
         maintainContext: true
       - name: Connect on-premises with ExpressRoute
         href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-      - name: Connect standalone servers
-        href: hybrid/azure-network-adapter.yml
       - name: Deploy AI and ML with Azure Stack Edge
         href: ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml
       - name: Design a hybrid Domain Name System
@@ -2501,10 +2487,6 @@ items:
         href: /azure/architecture/serverless-quest/serverless-overview
       - name: Keyword search in videos
         href: ai-ml/idea/digital-media-speech-text.yml
-      - name: Live streaming digital media
-        href: solution-ideas/articles/digital-media-live-stream.yml
-      - name: Video-on-demand digital media
-        href: solution-ideas/articles/digital-media-video.yml
   - name: Migration
     items:
     - name: Get started
@@ -2870,8 +2852,6 @@ items:
         maintainContext: true
     - name: Architectures
       items:
-      - name: Dev/test for SAP
-        href: example-scenario/apps/sap-dev-test.yml
       - name: SAP BusinessObjects BI platform
         href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide
         maintainContext: true
@@ -3414,8 +3394,6 @@ items:
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Build a real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.yml
-      - name: Content-based recommendation
-        href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
       - name: E-commerce front end
         href: example-scenario/apps/ecommerce-scenario.yml
       - name: Interactive price analytics
@@ -3538,8 +3516,6 @@ items:
           maintainContext: true
       - name: Compliance risk analysis
         href: guide/ai/compliance-risk-analysis.yml
-      - name: Detect mobile bank fraud
-        href: guide/ai/bank-fraud-solution.yml
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true
@@ -3701,8 +3677,6 @@ items:
         href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
       - name: Analyze observational patient data
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
-      - name: Build a telehealth system with Azure
-        href: example-scenario/apps/telehealth-system.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
       - name: Confidential computing for healthcare
@@ -3723,8 +3697,6 @@ items:
         href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
       - name: Predict patient length of stay and flow
         href: example-scenario/digital-health/predict-patient-length-of-stay.yml
-      - name: Precision medicine pipeline
-        href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
       - name: Remote patient monitoring
         href: example-scenario/digital-health/remote-patient-monitoring.yml
       - name: Virtual network for patient records
@@ -4063,8 +4035,6 @@ items:
       items:
       - name: AI and ML scenarios
         items:
-        - name: Machine teaching for manufacturing
-          href: solution-ideas/articles/machine-teaching.yml
         - name: MLOps to upscale ML lifecycle
           href: ai-ml/guide/mlops-technical-paper.yml
         - name: Predictive maintenance in manufacturing
@@ -4132,8 +4102,6 @@ items:
           href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
-      - name: Anomaly detector process
-        href: solution-ideas/articles/anomaly-detector-process.yml
       - name: Automated fab scheduling and dispatching
         href: example-scenario/manufacturing/fab-scheduling-azure.yml
       - name: Batch integration in a factory
@@ -4330,8 +4298,6 @@ items:
         href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
       - name: IoT Edge railroad maintenance and safety
         href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
-      - name: Machine teaching for autonomous vehicles
-        href: solution-ideas/articles/autonomous-systems.yml
       - name: Predictive insights with vehicle telematics
         href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
       - name: Process vehicle data using IoT
@@ -4692,8 +4658,6 @@ items:
           href: solution-ideas/articles/azure-batch-rendering.yml
         - name: Image classification on Azure
           href: ai-ml/architecture/intelligent-apps-image-processing.yml
-        - name: Live streaming digital media
-          href: solution-ideas/articles/digital-media-live-stream.yml
         - name: Mixed reality solutions
           items:
           - name: Design review
@@ -4931,11 +4895,6 @@ items:
         - name: Sports analytics on Azure
           href: example-scenario/analytics/sports-analytics-architecture-azure.yml
         - name: Stream sporting events
-          items:
-          - name: Live stream sports
-            href: solution-ideas/articles/digital-media-live-stream.yml
-          - name: Video-on-demand digital media
-            href: solution-ideas/articles/digital-media-video.yml
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md
 - name: Cloud Adoption Framework
