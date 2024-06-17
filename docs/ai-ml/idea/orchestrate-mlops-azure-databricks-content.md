@@ -10,7 +10,7 @@ This article provides a [machine learning operations (MLOps)](/azure/cloud-adopt
 
 ### Workflow
 
-This solution provides a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book [The Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). This e-book explores the architecture described here in more detail.
+This solution provides a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book The [Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). This e-book explores the architecture described here in more detail.
 
 - **Source control:** This project's code repository organizes the notebooks, modules, and pipelines. Data scientists create development branches to test updates and new models. Code is developed in notebooks or in IDEs, backed by Git, with [Databricks Repos](/azure/databricks/repos) integration for syncing with your Azure Databricks workspaces. Source control promotes machine learning pipelines from development, through staging (for testing), to production (for deployment).
 
@@ -61,7 +61,7 @@ Machine learning engineers manage the production environment, where machine lear
 - [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning lifecycle. These are its main components:
   - [**Tracking**](/azure/databricks/applications/mlflow/tracking) allows you to track experiments to record and compare parameters, metrics, and model artifacts.
     - [**Databricks Autologging**](/azure/databricks/applications/mlflow/databricks-autologging) extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments, automatically logging model parameters, metrics, files, and lineage information.
-  - [**MLflow Model**](/azure/databricks/applications/mlflow/models) allows you to store and deploy models from any machine learning library to various model serving and inference platforms.
+  - [**MLflow Model**](/azure/databricks/applications/mlflow/models) allows you to store and deploy models from any Machine Learning library to various model serving and inference platforms.
   - [**Model Registry**](/azure/databricks/applications/mlflow/model-registry) provides a centralized model store for managing model lifecycle stage transitions from development to production.
   - [**Model Serving**](/azure/databricks/applications/mlflow/model-serving) enables you to host MLflow models as REST endpoints.
 - [**Azure Databricks**](https://azure.microsoft.com/services/databricks). Azure Databricks provides a managed MLflow service with enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
@@ -98,7 +98,7 @@ This architecture applies to all types of machine learning, deep learning, and a
 - Modern deep learning, like TensorFlow and PyTorch.
 - Custom analytics, like statistics, Bayesian methods, and graph analytics.
 
-The architecture supports both small data (single machine) and large data (distributed computing and GPU-accelerated). In each stage of the architecture, you can choose compute resources and libraries to adapt to your data and problem dimensions.
+The architecture supports both small data (single machine) and large data (distributed computing and graphics processing unit (GPU)-accelerated). In each stage of the architecture, you can choose compute resources and libraries to adapt to your data and problem dimensions.
 
 The architecture applies to all types of industries and business use cases. Azure Databricks customers using this and similar architectures include small and large organizations in industries like these:
 
@@ -125,7 +125,7 @@ Other contributor:
 
 ## Next steps
 
-- [The Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops)
+- The [Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops)
 - [Need for Data-centric machine learning Platforms](https://databricks.com/blog/2021/06/23/need-for-data-centric-ml-platforms.html) (introduction to MLOps)
 - [Databricks Machine Learning in-product quickstart](/azure/databricks/applications/machine-learning/ml-quickstart)
 - [10-minute tutorials: Get started with machine learning on Azure Databricks](/azure/databricks/applications/machine-learning/tutorial)
