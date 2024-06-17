@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: RobBagby
-ms.date: 06/03/2024
+ms.date: 06/17/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: robbag
@@ -27,10 +27,59 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Use Azure Front Door to secure AKS workloads](./example-scenario/aks-front-door/aks-front-door.yml)
+- [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure](./example-scenario/mainframe/deploy-ibm-power-workloads.yml)
 - [Use Azure OpenAI to process podcast audio files](./ai-ml/idea/process-audio-files.yml)
 
 ### Updated articles
 
+- [Run a Capture the Flag game service with CTFd on Azure PaaS](./example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml)  ([#a67e0fa22b](https://github.com/MicrosoftDocs/architecture-center/commit/a67e0fa22b))
+- [Personalized offers](./ai-ml/idea/personalized-offers.yml)  ([#6087dd76ec](https://github.com/MicrosoftDocs/architecture-center/commit/6087dd76ec))
+- [Retail assistant with visual capabilities](./ai-ml/idea/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#6087dd76ec](https://github.com/MicrosoftDocs/architecture-center/commit/6087dd76ec))
+- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)  ([#84ce263b83](https://github.com/MicrosoftDocs/architecture-center/commit/84ce263b83))
+- [Azure Kubernetes Service (AKS) baseline architecture for AKS on Azure Stack HCI](./example-scenario/hybrid/aks-baseline.yml)  ([#3eb3a589bd](https://github.com/MicrosoftDocs/architecture-center/commit/3eb3a589bd))
+- [Deploy and operate apps with AKS enabled by Arc on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)  ([#3eb3a589bd](https://github.com/MicrosoftDocs/architecture-center/commit/3eb3a589bd))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#47279a2709](https://github.com/MicrosoftDocs/architecture-center/commit/47279a2709))
+- [N-tier architecture style](./guide/architecture-styles/n-tier.yml)  ([#cd6203d3ec](https://github.com/MicrosoftDocs/architecture-center/commit/cd6203d3ec))
+- [Automate document processing with AI Document Intelligence](./ai-ml/architecture/automate-document-processing-azure-form-recognizer.yml)  ([#eb648ef0c2](https://github.com/MicrosoftDocs/architecture-center/commit/eb648ef0c2))
+- [Refactor mainframe computer systems that run Adabas &amp; Natural](./example-scenario/mainframe/refactor-adabas-aks.yml)  ([#0bf799e475](https://github.com/MicrosoftDocs/architecture-center/commit/0bf799e475))
+- [Run Apache Cassandra on Azure VMs](./databases/guide/cassandra.md)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics](./databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Starter web app for SaaS development](./example-scenario/apps/saas-starter-web-app.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Azure Kubernetes Service (AKS) network architecture for AKS on Azure Stack HCI](./example-scenario/hybrid/aks-network.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Run HP-UX workloads in Azure with Stromasys Charon-PAR](./example-scenario/mainframe/hp-ux-stromasys-charon-par.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Migrate mainframe data to Azure](./example-scenario/mainframe/mainframe-data-replication-azure-rdrs.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Windows 365 Azure network connection](./guide/virtual-desktop/windows-365-azure-network-connection.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Implement an open-source jump server solution on Azure](./networking/architecture/apache-guacamole.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Create an Autonomous Vehicle Operations (AVOps) solution](./solution-ideas/articles/avops-architecture.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Deploy AKS and API Management with mTLS](./solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml)  ([#b357b857d9](https://github.com/MicrosoftDocs/architecture-center/commit/b357b857d9))
+- [Cloud design patterns](./patterns/index.md)  ([#489ea14073](https://github.com/MicrosoftDocs/architecture-center/commit/489ea14073))
+- [Design and implementation patterns](./patterns/category/design-implementation.md)  ([#0c85a6c591](https://github.com/MicrosoftDocs/architecture-center/commit/0c85a6c591))
+- [Orchestrate MLOps by using Azure Databricks](./ai-ml/idea/orchestrate-mlops-azure-databricks.yml)  ([#396a0b6b9f](https://github.com/MicrosoftDocs/architecture-center/commit/396a0b6b9f))
+- [Access Azure OpenAI and other language models through a gateway](./ai-ml/guide/azure-openai-gateway-guide.yml)  ([#dd52b35cce](https://github.com/MicrosoftDocs/architecture-center/commit/dd52b35cce))
+- [Use a gateway in front of multiple Azure OpenAI deployments or instances](./ai-ml/guide/azure-openai-gateway-multi-backend.yml)  ([#dd52b35cce](https://github.com/MicrosoftDocs/architecture-center/commit/dd52b35cce))
+- [Azure OpenAI chat baseline architecture in an Azure landing zone](./ai-ml/architecture/azure-openai-baseline-landing-zone.yml)  ([#8270921687](https://github.com/MicrosoftDocs/architecture-center/commit/8270921687))
+- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)  ([#8270921687](https://github.com/MicrosoftDocs/architecture-center/commit/8270921687))
+- [Multilayered protection for Azure virtual machines](./solution-ideas/articles/multilayered-protection-azure-vm.yml)  ([#8b7e62185c](https://github.com/MicrosoftDocs/architecture-center/commit/8b7e62185c))
+- [Build and deploy custom document processing models on Azure](./ai-ml/architecture/build-deploy-custom-models.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./databases/guide/teradata-vantage-data-factory.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Azure Synapse Analytics for landing zones](./example-scenario/analytics/synapse-analytics-landing-zone.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](./example-scenario/analytics/synapse-customer-insights.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/avanade-amt-zos-migration.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Refactor mainframe architecture by using CloudFrame Renovate](./example-scenario/mainframe/cloudframe-renovate-mainframe-refactor.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Modernize mainframe workloads by using Model9](./example-scenario/mainframe/mainframe-modernization-model9.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Replicate mainframe data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Move archive data from mainframe systems to Azure](./example-scenario/mainframe/move-archive-data-mainframes.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Enable machine learning inference on an Azure IoT Edge device](./guide/iot/machine-learning-inference-iot-edge.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Solutions for the energy and environment industries](./industries/energy-environment.md)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Azure landing zones - Terraform module design considerations](./landing-zones/terraform/landing-zone-terraform.md)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Virtual WAN architecture optimized for department-specific requirements](./networking/architecture/performance-security-optimized-vwan.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
+- [Improved-security access to multitenant web apps from an on-premises network](./web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)  ([#4e8429182b](https://github.com/MicrosoftDocs/architecture-center/commit/4e8429182b))
 - [Developing a RAG solution - Information retrieval phase](./ai-ml/guide/rag/rag-information-retrieval.yml)  ([#9e61a65255](https://github.com/MicrosoftDocs/architecture-center/commit/9e61a65255))
 - [Guide to designing and developing a RAG solution](./ai-ml/guide/rag/rag-solution-design-and-evaluation-guide.yml)  ([#9e61a65255](https://github.com/MicrosoftDocs/architecture-center/commit/9e61a65255))
 
@@ -101,7 +150,6 @@ The following new and updated articles have recently been published in the Azure
 - [Large-scale custom natural language processing](./ai-ml/idea/large-scale-custom-natural-language-processing.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
 - [Many models machine learning with Azure Machine Learning](./ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
 - [Many models machine learning with Spark](./ai-ml/idea/many-models-machine-learning-azure-spark.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
-- [Create personalized marketing solutions](./ai-ml/idea/personalized-marketing.yml)  ([#aa9967e7d1](https://github.com/MicrosoftDocs/architecture-center/commit/aa9967e7d1))
 - [Customer lifetime value and churn prediction with Azure AI services](./ai-ml/architecture/customer-lifecycle-churn.yml)  ([#8420397885](https://github.com/MicrosoftDocs/architecture-center/commit/8420397885))
 
 ## April 2024
