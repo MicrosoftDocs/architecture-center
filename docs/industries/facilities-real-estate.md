@@ -43,7 +43,6 @@ The following articles provide detailed analysis of architectures created and re
 |Architecture|Summary|Technology focus|
 |---|---|---|
 |[Azure IoT reference architecture](../reference-architectures/iot.yml) |Learn about a recommended architecture for IoT applications that use Azure platform as a service (PaaS) components. Apply this architecture to smart buildings and other facilities scenarios.|IoT|
-|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml) |Create an environment that monitors social distance, mask/PPE use, and occupancy requirements by using CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning.|Containers|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml) |Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.|IoT|
 |[Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) |Learn how to perform image-based modeling on Azure infrastructure as a service (IaaS). You can use this technology to model and measure buildings.|Compute|
 |[Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)|Improve uptime and operations with mixed reality and IoT. Visualize a virtual replica of your physical space with real-time data in the context of your environment.|Mixed reality|
@@ -55,7 +54,6 @@ The following articles provide detailed analysis of architectures created and re
 The following are other ideas that you can use as a starting point for your facilities and real estate solution.
 
 - [Azure digital twins builder](../solution-ideas/articles/azure-digital-twins-builder.yml)
-- [Contactless IoT interfaces with Azure intelligent edge](../solution-ideas/articles/contactless-interfaces.yml)
 - [Control IoT devices using a voice assistant](../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
 - [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml) 

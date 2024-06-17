@@ -75,8 +75,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 The following are other ideas that you can use as a starting point for your manufacturing solution.
 
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
-- [Create personalized marketing solutions in near real time](../ai-ml/idea/personalized-marketing.yml)
 - [Demand forecasting](../solution-ideas/articles/demand-forecasting.yml)
 - [Demand forecasting for shipping and distribution](../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)

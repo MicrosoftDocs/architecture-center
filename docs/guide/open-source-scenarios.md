@@ -68,7 +68,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml)|Learn how Azure Arc extends Kubernetes cluster management and configuration across datacenters, edge locations, and multiple cloud environments. This architecture uses CNCF-certified Kubernetes clusters.|Hybrid|
 |[Build CNCF projects by using Azure Kubernetes Service (AKS)](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
-|[Multicloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)|See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multiparty DLTs to build a cross-cloud blockchain solution. This architecture uses CNCF-certified Kubernetes clusters.|Blockchain|
 
 ## Elastic
 
@@ -295,7 +294,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Azure Cache for Redis is used in a Publish-Subscribe messaging pattern for bank transactions. |Containers|
-|[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning. Redis is used to store cloud data for analytics and visualization.|IoT|
 |[Data cache](../databases/idea/data-cache-with-redis-cache.yml)| Azure Cache for Redis provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more by using a common cache-aside pattern.|Databases|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors. Azure Cache for Redis is used to cache processed data.|Containers|
 |[Messaging](../databases/idea/messaging.yml)|Learn how Azure Cache for Redis routes real-time messages in publish and subscribe systems.|Databases|

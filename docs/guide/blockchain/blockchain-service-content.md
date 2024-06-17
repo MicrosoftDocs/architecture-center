@@ -114,4 +114,3 @@ Other contributors:
 ## Related resources
 
 - [Multiparty computing architecture design](multiparty-compute.yml)
-- [Multicloud blockchain distributed ledger technology (DLT)](../../example-scenario/blockchain/multi-cloud-blockchain.yml)
