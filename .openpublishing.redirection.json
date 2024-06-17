@@ -3876,6 +3876,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "solution-ideas/articles/digital-media-live-stream.yml",
+      "redirect_url": "/azure/architecture/guide/media/start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/architecture/guide/ai/bank-fraud-solution.md",
       "redirect_url": "/azure/architecture/industries/finance",
       "redirect_document_id": false 
