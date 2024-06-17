@@ -46,7 +46,7 @@ Azure and Azure Arc integration extends the capabilities of Azure Stack HCI virt
 - [Azure Arc enabled data services][arc-enabled-data-services] for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that use Arc-enabled AKS hosted on Azure Stack HCI.
 - [Azure Arc-enabled Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) using an Azure Kubernetes Service (AKS) cluster deployed on Azure Stack HCI, as the compute target to run Azure Machine Learning, providing capabilities to train or deploy ML models at the edge.
 
-With the scope of Azure Arc extended to Azure Stack HCI VMs, addition capabilities such as [automating Guest OS configuration using Azure Arc VM extensions][arc-vm-extensions] and evaluating [compliance against industry regulations or corporate standards using Azure Policy][arc-azure-policy] can be achieved using Azure portal or automation.
+Through Azure Arc connected workloads, the ability to use Azure Policy can provide additional Azure consistency and automation for workloads deployed on Azure Stack HCI, such as [automating Guest OS configuration using Azure Arc VM extensions][arc-vm-extensions] or evaluating [compliance against industry regulations or corporate standards using Azure Policy][arc-azure-policy], which can be enabled using Azure portal or IaC automation.
 
 #### Azure Stack HCI default security configuration provides defense in depth approach, simplifying security and compliance costs
 
