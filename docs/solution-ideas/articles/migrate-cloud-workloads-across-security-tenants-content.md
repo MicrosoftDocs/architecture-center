@@ -6,12 +6,12 @@ To address business transformations like acquisitions or divesture, teams need t
 
 :::image type="content" source="../media/cross-tenant-migration-strategy.svg" alt-text="Diagram that shows a cross-tenant migration architecture." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. 
-   a. Extract the Azure Resource Manager (ARM) template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
+1.
+   a. Extract the Azure Resource Manager template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
    b. Deploy the artifacts (infrastructure and configuration) to the target resource group or groups in the new tenant subscription.
 
