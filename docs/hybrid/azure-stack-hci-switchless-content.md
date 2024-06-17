@@ -4,7 +4,7 @@ This architecture design provides guidance and recommendations for configuring A
 
 For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_Azure Stack HCI workloads_" navigation menu.
 
-This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure Stack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place. These workload design aspects have been intentionally excluded from this guidance to maintain the focus on the HCI infrastructure (_platform_). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
+This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure Stack HCI cluster should also be well-architected; such as deploying multiple instances (_high-availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place, such as backup and DR failover. These _workload_ design aspects have been intentionally excluded from this article, to maintain the focus on the HCI infrastructure (platform). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
 
 ## Article layout
 
@@ -294,15 +294,9 @@ Microsoft Learn modules:
 [azure-site-recovery]: /azure/site-recovery/site-recovery-overview
 [key-vault]: /azure/key-vault/general/basic-concepts
 [s2d-resiliency]: /windows-server/storage/storage-spaces/storage-spaces-fault-tolerance
-[azs-hci-vm-dr]: /azure-stack/hci/manage/azure-site-recovery
-[azs-hci-monitor]: /azure-stack/hci/manage/azure-monitor
-[az-auto-ct-and-inv]: /azure/automation/change-tracking
-[azs-hci-vm-backup]: /azure-stack/hci/manage/use-azure-backup
-[az-file-sync]: /azure/storage/files/storage-sync-files-planning
-[azs-hci-aks]: /azure-stack/aks-hci/overview
 [azs-hci-avd]: /azure/virtual-desktop/deploy-azure-virtual-desktop?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&tabs=portal
 [arc-enabled-vms]: /azure-stack/hci/manage/azure-arc-vm-management-overview
-[arc-enabled-aks]: /azure/aks/hybrid/aks-create-clusters-portal
+[arc-enabled-aks]: /azure/aks/hybrid/cluster-architecture
 [azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
 [azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
 [azs-hybrid-benefit]: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
