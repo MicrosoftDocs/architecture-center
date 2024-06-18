@@ -1,4 +1,4 @@
-Decompose a task that performs complex processing into a series of separate elements that can be reused. Doing so can improve performance, scalability, and reusability by allowing task elements that perform the processing to be deployed and scaled independently.
+Decompose a task that performs complex processing into a series of separate elements that can be reused. This architectural style is the underlying principle behind shell languages.
 
 ## Context and problem
 
@@ -14,7 +14,7 @@ There are other challenges with a monolithic implementation unrelated to multipl
 
 ## Solution
 
-Break down the processing required for each stream into a set of separate components (or filters), each performing a single task. The filters are composed into pipelines by connecting the filters with pipes. Filters receive messages from an inbound pipe and publish messages to a different outbound pipe. Pipes don't perform routing or any other logic. They only connect filters, passing the output message from one filter as the input to the next.
+Break down the processing required for each stream into a set of separate filters (or components), each performing a single task. Composite tasks should use multiple filters rather than one. The filters are composed into pipelines by connecting the filters with pipes. Filters are independent, self-contained and typically stateless. Filters receive messages from an inbound pipe and publish messages to a different outbound pipe. Filters can transform the message or test it against one or more criteria. Pipes don't perform routing or any other logic. They only connect filters,  passing the output message from one filter as the input to the next. Pipes and filters architecture encourages compositional reuse. This architecture style is monolith in nature so the entire monolith has to be tested and deployed for any change. It's primary strengths are overall cost to build and maintain, simplicity and modularity. On the other hand, it's primary weaknesses are low elasticity and fault-tolerance. If one part of the application fails, it can impact the entire application.
 
 Filters act independently and are unaware of other filters. They're only aware of their input and output schemas. As such, the filters can be arranged in any order so long as the input schema for any filter matches the output schema for the previous filter. Using a standardized schema for all filters enhances the ability to reorder filters.
 
@@ -32,7 +32,7 @@ The loose coupling of filters makes it easy to:
 
 The time it takes to process a single request depends on the speed of the slowest filters in the pipeline. One or more filters could be bottlenecks, especially if a high number of requests appear in a stream from a particular data source. The ability to run parallel instances of slow filters enables the system to spread the load and improve throughput.
 
-The ability to run filters on different compute instances enables them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that's computationally intensive can run on high-performance hardware, while other less-demanding filters can be hosted on less-expensive commodity hardware. The filters don't even need to be in the same datacenter or geographic location, enabling each element in a pipeline to run in an environment that's close to the resources it requires. This diagram shows an example applied to the pipeline for the data from Source 1:
+The ability to run filters on different compute instances enables them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that's computationally intensive can run on high-performance hardware, while other less-demanding filters can be hosted on less-expensive commodity hardware. The filters don't even need to be in the same datacenter or geographic location, enabling each element in a pipeline to run in an environment that's close to the resources it requires. But note that these efforts require complex design techniques and due to its monolithic nature, pipes and filters architecture can scale to a certain point.  This diagram shows an example applied to the pipeline for the data from Source 1:
 
 ![Diagram that shows an example applied to the pipeline for the data from Source 1.](./_images/pipes-and-filters-load-balancing.png)
 
