@@ -6,7 +6,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read the
 
 :::image type="content" source="./images/fsi-architecture.png" alt-text="Diagram that shows the Azure Red Hat OpenShift hybrid architecture FSI scenario." border="false" lightbox="./images/fsi-architecture.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/fsi-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
