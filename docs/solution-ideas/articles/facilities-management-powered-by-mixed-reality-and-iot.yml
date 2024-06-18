@@ -12,19 +12,7 @@ metadata:
   ms.category:
     - mixed-reality
     - iot
-  ms.custom:
-    - acom-architecture
-    - iot
-    - Azure Spatial Anchors
-    - Azure Digital Twins
-    - Azure Active Directory
-    - Cosmos DB
-    - Event Hubs
-    - Functions
-    - Web Service
-    - Microsoft HoloLens
-    - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/facilities-management-powered-by-mixed-reality-and-iot"
+  ms.custom: arb-iot
 name: Facilities management powered by mixed reality and IoT
 azureCategories:
   - mixed-reality

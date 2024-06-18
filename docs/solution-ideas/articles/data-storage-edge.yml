@@ -11,9 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - iot
-  ms.custom:
-    - fcp
-    - solution-idea
+  ms.custom: arb-iot
 name: IoT Edge data storage and processing
 azureCategories:
   - iot

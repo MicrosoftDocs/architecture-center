@@ -9,9 +9,7 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: IoT measure and control loops
 summary: Learn how an IoT measure and control loop keeps an IoT device within the tolerable range of setpoint configuration, through a real-time, closed-loop control process.
 products:
