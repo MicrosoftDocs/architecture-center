@@ -205,10 +205,10 @@ Reliability considerations include:
 - An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
 
 
-  Weekly: 20m 9.6s
-  Monthly: 1h 26m 56s
-  Quarterly: 4h 20m 49s
-  Yearly: 17h 23m 16s
+  Weekly: 20 minutes and 9.6 seconds
+  Monthly: 1 hour, 26 minutes and 56 seconds
+  Quarterly: 4 hours, 20 minutes and 49 seconds
+  Yearly: 17 hours, 23 minutes and 16 seconds
 
 
 - **To help achieve the SLO targets** Contoso Manufacturing have implemented the _principle of least privilege_ to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This helps prevent downtime due to any inadvertent or accidental actions being performed on production resources. Furthermore, the on-premises Active Directory Domain Services (AD DS) domain controllers security event logs are monitored to detect and report any user account group membership changes (_add / remove actions_) for the "Azure Stack HCI cluster administrators" group using a security information event management (SIEM) solution. In addition to increasing Reliability, this monitoring also improves the Security of the solution.
