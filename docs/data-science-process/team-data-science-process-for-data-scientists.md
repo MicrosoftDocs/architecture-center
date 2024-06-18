@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 06/18/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -22,7 +22,11 @@ categories:
 
 # Team Data Science Process for data scientists
 
-This article provides guidance for objectives that you set when you implement comprehensive data science solutions with Azure technologies. You're guided through:
+This article provides guidance for objectives that you set when you implement comprehensive data science solutions with Azure technologies. 
+
+## Curated Links
+
+In this curation list, you're guided through:
 
 - Understanding an analytics workload.
 - Using the Team Data Science Process (TDSP).
@@ -33,35 +37,192 @@ This article provides guidance for objectives that you set when you implement co
 
 These training materials are related to the Team Data Science Process (TDSP) and Microsoft open-source software and toolkits, which are helpful for envisioning, executing, and delivering data science solutions.
 
-## Lesson path
+### Understanding an Analytics Workload
 
-You can use the items in the following table to guide your own self-study. Read the *Description* to follow the path, select the *Topic* to see study references, and check your skills by using the *Knowledge check*.
+1.  [Azure Monitor
+    overview](https://docs.microsoft.com/azure/azure-monitor/overview) -
+    Provides an understanding of monitoring and analytics services in
+    Azure.
 
-|Objective | Topic  | Description  | Knowledge check |
-|------------|------------|----------------|-----------|
-| Understand the processes for developing analytic projects                                 | [An introduction to the Team Data Science Process](overview.yml)       | We begin by covering an overview of the TDSP. This process guides you through each step of an analytics project. Read through each of these sections to learn more about the process and how you can implement it.         | Review and [download the TDSP project structure artifacts to your local machine](https://github.com/Azure/Azure-TDSP-ProjectTemplate) for your project.          |
-|                                                                                           | [Agile development](https://www.visualstudio.com/agile/)   | The TDSP works well with many different programming methodologies. In this Learning Path, we use Agile software development. Read through the "What is Agile Development?" and "Building Agile Culture" articles, which cover the basics of working with Agile. There are also other references at this site where you can learn more.                     | Explain continuous integration and continuous delivery (CI/CD) to a colleague.       |
-|                                                                                           | [DevOps for data science](https://mva.microsoft.com/training-courses/devops-an-it-pro-guide-8286?l=GVFXzCXy_8104984382)                        | Developer operations (DevOps) involves people, processes, and platforms you can use to work through a project and integrate your solution into an organization's standard IT. This integration is essential for adoption, safety, and security. In this online course, you learn about DevOps practices and understand some of the toolchain options you have.      | Prepare a 30-minute presentation to a technical audience on how DevOps is essential for analytics projects.     |
-| Understand the technologies for data storage and processing                               | [Microsoft business analytics and AI](https://www.microsoft.com/cloud-platform/what-is-cortana-intelligence)                                   | We focus on a few technologies in this Learning Path that you can use to create an analytics solution, but Microsoft has many more. To understand the options you have, it's important to review the platforms and features available in Microsoft Azure, the Azure Stack, and on-premises options. Review this resource to learn the various tools you have available to answer analytics question.    | [Download and review the presentation materials from this workshop](https://info.microsoft.com/CO-Azure-CNTNT-FY16-Oct2015-Cortana-Registration.html).      |
-| Set up and configure your training, development, and production environments               | [Microsoft Azure](https://azure.microsoft.com/training/learning-paths/azure-solution-architect/)          | Now let's create an account in Microsoft Azure for training and learn how to create development and test environments. These free training resources get you started. Complete the *Beginner* and *Intermediate* paths.          | [If you don't have an Azure account, create one](https://azure.microsoft.com/free/?v=17.39&WT.srch=1&WT.mc_id=AID559320_SEM_2kAfgmyQ&lnkd=Bing_Azure_Brand). Sign in to the Azure portal and [create one resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) for training.         |
-|     | [The Azure command-line interface (CLI)](/cli/azure/get-started-with-azure-cli)      | There are multiple ways to work with Azure, from graphical tools like Visual Studio Code and Visual Studio, to web interfaces such as the Azure portal, and from the command line, such as Azure PowerShell commands and functions. In this article, we cover the CLI, which you can use locally on your workstation, in Windows and other operating systems, and in the Azure portal.         | [Set your default subscription with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).      |
-|       | [Azure Storage](/azure/storage/common/storage-introduction)                                                | You need a place to store your data. In this article, you learn about Azure storage options, how to create a storage account, and how to copy or move data to the cloud. Read through this introduction to learn more.       | [Create a Storage account in your training resource group, create a container for a blob object, and upload and download data.](/azure/storage/blobs/storage-quickstart-blobs-cli)     |
-|                                                                                           | [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)                                  | Microsoft Entra ID forms the basis of securing your application. In this article, you learn more about accounts, rights, and permissions. Active Directory and security are complex topics, so read through this resource to understand the fundamentals.   | [Add one user to Microsoft Entra ID](/azure/active-directory/fundamentals/add-users-azure-active-directory). NOTE: You might not have permissions for this action if you aren't the administrator for the subscription. If that's the case, [review this tutorial to learn more](/azure/active-directory/fundamentals/add-users-azure-active-directory).    |
-|       | [The Azure Data Science Virtual Machine for PyTorch](/azure/machine-learning/data-science-virtual-machine/overview)    | You can install the tools for working with data science locally on multiple operating systems. But the Data Science Virtual Machine for PyTorch contains all of the tools you need and plenty of project samples to work with. In this article, you learn more about the Data Science Virtual Machine for PyTorch and how to work through its examples. This resource explains the Data Science Virtual Machine for PyTorch, how you can create one, and a few options for developing code with it. It also contains all the software you need to complete this learning path, so make sure you complete the knowledge path for this topic. | [Create a Data Science Virtual Machine for PyTorch and work through at least one lab](/azure/machine-learning/data-science-virtual-machine/provision-vm).     |
-| Install and understand the tools and technologies for working with data science solutions  | [Working with Git](https://mva.microsoft.com/training-courses/github-for-windows-users-16749?l=KTNeW39wC_6006218965)                           | To follow our DevOps process with the TDSP, we need to have a version-control system. Machine Learning uses Git, a popular open-source distributed repository system. In this article, you learn more about how to install, configure, and work with Git and a central repository, GitHub.          | [Clone this GitHub project for your learning path project structure](https://github.com/Azure/Azure-TDSP-ProjectTemplate).   |
-|                                                                                           | [Visual Studio Code](https://code.visualstudio.com/docs/getstarted/introvideos)                                                                                  | Visual Studio Code is a cross-platform integrated development environment (IDE) that you can use with multiple languages and Azure tools. You can use this single environment to create your entire solution. Watch these introductory videos to get started.            | Install Visual Studio Code, and [work through the Visual Studio Code features in the interactive editor playground](https://code.visualstudio.com/docs/introvideos/basics).          |
-|                                                                                           | [Programming with Python](https://docs.python.org/3/tutorial/index.html)                                                                             | In this solution, we use Python, one of the most popular languages in data science. This article covers the basics of writing analytic code with Python, and resources to learn more. Work through sections 1-9 of this reference, then check your knowledge.           | [Add one entity to an Azure table using Python](/azure/cosmos-db/table-storage-how-to-use-python).     |
-|                                                                                           | [Working with Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html#introduction)                                               | Notebooks are a way of introducing text and code in the same document. Machine Learning works with notebooks, so it's beneficial to understand how to use them. Read through this tutorial and give it a try in the knowledge check section.             | [Open the Jupyter webpage](https://try.jupyter.org/), and select **Welcome to Python.ipynb**. Work through the examples on that page.           |
-|                                                                                           | [Machine learning](https://mva.microsoft.com/training-courses/data-science-and-machine-learning-essentials-14100?l=UyhoTxWdB_3505050723) | Creating advanced analytic solutions involves working with data by using machine learning, which also forms the basis of working with AI and deep learning. This course teaches you more about machine learning. [For a comprehensive course on data science, see this certification](https://academy.microsoft.com/professional-program/tracks/data-science/).       | Locate a resource on machine learning algorithms. (Hint: Search "azure machine learning algorithm cheat sheet")     |
-|                                                                                           | [scikit-learn](https://scikit-learn.org/stable/tutorial/basic/tutorial.html)                                                                          | The scikit-learn set of tools allows you to perform data science tasks in Python. We use this framework in our solution. This article covers the basics and explains where you can learn more.      | Using the Iris dataset, persist an SVM model using Pickle.         |
-|                                                                                           | [Working with Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined)      | Docker is a distributed platform used to build, ship, and run applications, and is used frequently in machine learning. This article covers the basics of this technology and explains where you can go to learn more.       | Open Visual Studio Code, and [install the Docker extension](https://code.visualstudio.com/Docs/languages/dockerfile). [Create a simple Node Docker container](https://blogs.msdn.microsoft.com/vscode/2015/08/11/getting-started-with-docker/).           |
-|                                                                                           | [Azure HDInsight](/azure/hdinsight/hadoop/apache-hadoop-introduction)                                                          | HDInsight is a Hadoop open-source infrastructure, available as a service in Azure. Your machine learning algorithms might involve large sets of data, and you can use HDInsight to store, transfer, and process large-scale data. This article covers working with HDInsight.     | [Create a small HDInsight cluster](/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-portal). Use HiveQL statements [to project columns onto an /example/data/sample.log file](/azure/hdinsight/hadoop/hdinsight-use-hive). Alternatively, [you can complete this knowledge check on your local system](/azure/hdinsight/hadoop/apache-hadoop-emulator-get-started). |
-| Create a data processing flow from business requirements                                  | [Determining the question following the TDSP](https://buckwoody.wordpress.com/2017/08/31/the-keys-to-effective-data-science-projects-the-question/) | With the development environment installed and configured, and the understanding of the technologies and processes in place, it's time to put everything together using the TDSP to perform an analysis. We need to start by defining the question, selecting the data sources, and the rest of the steps in the TDSP. Keep in mind the DevOps process as we work through this process. In this article, you learn how to take the requirements from your organization and create a data flow map through your application to define your solution using the TDSP. | Locate a resource on "[The 5 data science questions](/azure/machine-learning/classic/data-science-for-beginners-the-5-questions-data-science-answers)", and describe one question your organization might have in these areas. Which algorithms should you focus on for that question?       |
-| Use Machine Learning to create a predictive solution                       | [Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)                         | Machine Learning uses AI for data wrangling and feature engineering, manages experiments, and tracks model runs. It uses a single environment, and most functions can run locally or in Azure. You can use the PyTorch framework, the TensorFlow framework, or other frameworks to create your experiments. In this article, we focus on a complete example of this process, using everything you learned so far.      |                                                     |
-| Use Power BI to visualize results                  | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI is a data visualization tool. It's available on multiple platforms, like web devices, mobile devices, and desktop computers. In this article, you learn how to work with the output of the solution you created by accessing the results from Azure Storage and creating visualizations using Power BI.      | [Complete this tutorial on Power BI.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) Then connect Power BI to the blob CSV created in an experiment run.     |
-| Monitor your solution                                                                     | [Application Insights](/azure/azure-monitor/app/app-insights-overview)                                            | There are multiple tools you can use to monitor your end solution. Application Insights makes it easy to integrate built-in monitoring into your solution.    | [Set up Application Insights to monitor an application](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                          |
-|                                                                                           | [Azure Monitor Logs](/azure/azure-monitor/logs/log-query-overview)                                                   | Another method to monitor your application is to integrate it into your DevOps process. Azure Monitor Logs provides a rich set of features to help you monitor your analytic solutions after you deploy them.    | [Complete this tutorial](/azure/azure-monitor/logs/get-started-queries) on using Azure Monitor Logs.    |
-| Complete this learning path                                                               |                                      | Congratulations! You completed this learning path.        |
+2.  [Introduction to Azure Synapse
+    Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is) -
+    Covers the basic concepts of analytics workloads within Azure
+    Synapse.
+
+3.  [Cloud Adoption Framework: Innovation with
+    AI](https://learn.microsoft.com/azure/cloud-adoption-framework/innovate/ai/) -
+    A collection of documentation, implementation guidance, best
+    practices, and tools that are proven guidance from Microsoft
+    designed to accelerate your cloud adoption lifecycle.
+
+### Using the Team Data Science Process (TDSP)
+
+1.  [Team Data Science Process
+    Overview](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) -
+    Introduces the TDSP and its lifecycle.
+
+2.  [TDSP Lifecycle and Key
+    Components](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle) -
+    Details the lifecycle stages and key components of TDSP.
+
+### Using Azure Machine Learning
+
+1.  [Azure Machine Learning
+    Documentation](https://docs.microsoft.com/azure/machine-learning/) -
+    The main documentation page for Azure Machine Learning.
+
+2.  [What is Azure Machine
+    Learning?](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2)
+    -- An overview description of Azure Machine Learning.
+
+3.  [Tutorial: Train a
+    model](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) -
+    Walks through the process of training a machine learning model.
+
+### Understanding the Foundations of Data Transfer and Storage
+
+1.  [Data Transfer
+    Options](https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer) -
+    Discusses various data transfer and storage technologies in Azure.
+
+2.  [Azure Storage
+    Documentation](https://docs.microsoft.com/azure/storage/) -
+    Comprehensive documentation on Azure Storage services.
+
+3.  [Azure Database Migration
+    Service](https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer) -
+    Azure Database Migration Service enables seamless migrations from
+    multiple database sources to Azure Data platforms with minimal
+    downtime.
+
+4.  **Related to Azure Machine Learning**: [Tutorial: Upload, access and
+    explore your data in Azure Machine
+    Learning](https://learn.microsoft.com/azure/machine-learning/tutorial-explore-data?view=azureml-api-2)
+    -- Instruction on how to upload data and create an Azure Machine
+    Learning data asset.
+
+### Providing Data Source Documentation
+
+1.  [Azure Data Catalog
+    Documentation](https://docs.microsoft.com/azure/data-catalog/) -
+    Covers how to document and manage data sources using Azure Data
+    Catalog.
+
+2.  [Azure Purview
+    Documentation](https://docs.microsoft.com/azure/purview/) -
+    Documentation for Azure Purview, a data governance solution.
+
+3.  **Related to Azure Machine Learning**: [Data Concepts in Azure
+    Machine
+    Learning](https://learn.microsoft.com/azure/machine-learning/concept-data?view=azureml-api-2) -
+    Explains key Azure Machine Learning data concepts, for use in
+    documentation.
+
+### Using Tools for Analytics Processing
+
+1.  [Azure Synapse Analytics
+    Documentation](https://docs.microsoft.com/azure/synapse-analytics/) -
+    Comprehensive documentation for Azure Synapse Analytics.
+
+2.  [Azure Data Factory
+    Documentation](https://docs.microsoft.com/azure/data-factory/) -
+    Information on using Azure Data Factory for data integration and
+    analytics processing.
+
+3.  **Related to Azure Machine Learning**: [Apache Spark in Azure
+    Machine
+    Learning](https://learn.microsoft.com/azure/machine-learning/apache-spark-azure-ml-concepts?view=azureml-api-2) -
+    Azure Machine Learning integration with Azure Synapse Analytics
+    provides easy access to distributed computation resources through
+    the Apache Spark framework.
+
+
+## Learning Paths from Microsoft Learn
+
+Whether you\'re just starting a career, or you are an experienced
+professional, our self-directed approach helps you arrive at your goals
+faster, with more confidence and at your own pace. Develop skills
+through interactive modules and paths or learn from an instructor. Learn
+and grow your way.
+
+
+### Beginner
+
+[Copilot
+Foundations](https://learn.microsoft.com/training/paths/copilot-foundations/)
+
+[Deploy and consume models with Azure Machine
+Learning](https://learn.microsoft.com/training/paths/deploy-consume-models-azure-machine-learning/)
+
+[Design a machine learning
+solution](https://learn.microsoft.com/training/paths/design-machine-learning-solution/)
+
+[Experiment with Azure Machine
+Learning](https://learn.microsoft.com/training/paths/automate-machine-learning-model-selection-azure-machine-learning/)
+
+[Explore and configure the Azure Machine Learning
+workspace](https://learn.microsoft.com/training/paths/explore-azure-machine-learning-workspace/)
+
+[Implement a data science and machine learning solution for AI in
+Microsoft
+Fabric](https://learn.microsoft.com/training/paths/implement-data-science-machine-learning-fabric/)
+
+[Manage and review models in Azure Machine
+Learning](https://learn.microsoft.com/training/paths/manage-review-models-azure-machine-learning/)
+
+[Optimize model training with Azure Machine
+Learning](https://learn.microsoft.com/training/paths/use-azure-machine-learning-pipelines-for-automation/)
+
+[Predict rocket launch delays with machine
+learning](https://learn.microsoft.com/training/paths/machine-learning-predict-launch-delay-nasa/)
+
+[Train and manage a machine learning model with Azure Machine
+Learning](https://learn.microsoft.com/training/paths/train-deploy-machine-learning-model/)
+
+[Train models with scripts in Azure Machine
+Learning](https://learn.microsoft.com/training/paths/train-models-scripts-azure-machine-learning/)
+
+[Understand data science for machine
+learning](https://learn.microsoft.com/training/paths/understand-machine-learning/)
+
+[Use notebooks for experimentation in Azure Machine
+Learning](https://learn.microsoft.com/training/paths/use-notebooks-for-experimentation-azure-machine-learning/)
+
+[Work with compute in Azure Machine
+Learning](https://learn.microsoft.com/training/paths/work-compute-azure-machine-learning/)
+
+[Work with data in Azure Machine
+Learning](https://learn.microsoft.com/training/paths/work-data-azure-machine-learning/)
+
+### Intermediate
+
+[Create custom copilots with Azure AI
+Studio](https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/)
+
+[Create machine learning
+models](https://learn.microsoft.com/training/paths/create-machine-learn-models/)
+
+[Develop Custom Object Detection Models with NVIDIA and Azure Machine
+Learning](https://learn.microsoft.com/training/paths/develop-custom-object-detection-models-with-nvidia-and-azure-machine-learning/)
+
+[End-to-end machine learning operations (MLOps) with Azure Machine
+Learning](https://learn.microsoft.com/training/paths/build-first-machine-operations-workflow/)
+
+[Implement a Machine Learning solution with Azure
+Databricks](https://learn.microsoft.com/training/paths/build-operate-machine-learning-solutions-azure-databricks/)
+
+[Train models in Azure Machine Learning with the CLI
+(v2)](https://learn.microsoft.com/training/paths/train-models-azure-machine-learning-cli-v2/)
+
+[Work with generative artificial intelligence (AI) models in Azure
+Machine
+Learning](https://learn.microsoft.com/training/paths/work-with-generative-models-azure-machine-learning/)
+
+### Advanced
+
+[Train compute-intensive models with Azure Machine
+Learning](https://learn.microsoft.com/training/paths/train-compute-intensive-models-azure-machine-learning/)
+
 
 ## Contributors
 
