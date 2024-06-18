@@ -149,20 +149,21 @@ For more information, see [Bandwidth pricing][Bandwidth pricing].
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - Jose Angel Fernandez Rodrigues | Senior Specialist GBB
+- Jose Angel Fernandez Rodrigues | Senior Specialist GBB
 
 Other contributor:
 
- - [Ivens Applyrs](https://www.linkedin.com/in/ivens-applyrs/) | Product Manager 2
- 
+- [Ivens Applyrs](https://www.linkedin.com/in/ivens-applyrs/) | Product Manager 2
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
+- [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Azure Private Link availability][Azure Private Link availability]
 - [What is Azure Private Endpoint?][What is Azure Private Endpoint?]

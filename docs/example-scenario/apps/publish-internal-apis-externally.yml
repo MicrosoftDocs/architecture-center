@@ -17,6 +17,7 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
+    - arb-integrations
 name: Publish internal APIs to external users
 azureCategories:
   - integration

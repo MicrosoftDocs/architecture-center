@@ -51,7 +51,7 @@ Alternatively, AKS main traffic can run on top of IPv6, and IPv4 ingress serves 
 
 The example consists of the following components:
 
-- **Dual-stack** [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes cluster hosted in the Azure cloud. Azure manages the Kubernetes API service. You only manage the agent nodes. Dual-stack AKS needs to run on a dual-stack Azure Virtual Network.
+- **Dual-stack** [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes cluster hosted in the Azure cloud. Azure manages the Kubernetes API service. You only manage the agent nodes. Dual-stack AKS needs to run on a dual-stack Azure Virtual Network.
 
 - **Dual-stack** [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides highly secure virtual network environments on Azure infrastructure. By default, Azure Virtual Network supports IPv4 only. Enable IPv6 during the deployment process.
 

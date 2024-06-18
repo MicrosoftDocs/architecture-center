@@ -2,7 +2,7 @@ This reference architecture illustrates how to design a hybrid update management
 
 ## Architecture
 
-[ ![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.](./images/azure-update-mgmt.svg)](./images/azure-update-mgmt.svg#lightbox)
+[![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.](./images/azure-update-mgmt.svg)](./images/azure-update-mgmt.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -235,7 +235,7 @@ Manage software updates by using:
 - Endpoint Configuration Manager
 - Azure Automation
 
-Partner updates on Windows machines can be deployed from a custom repository that [System Center Updates Publisher][27] (SCUP) provides. SCUP can import custom updates either in standalone WSUS or integrated with Endpoint Configuration Manager.
+Partner updates on Windows machines can be deployed from a custom repository that [System Center Updates Publisher (SCUP)][27] provides. SCUP can import custom updates either in standalone WSUS or integrated with Endpoint Configuration Manager.
 
 For more information, refer to [Integrate Update Management with Windows Endpoint Configuration Manager][28].
 
@@ -308,9 +308,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
@@ -342,7 +343,6 @@ More about Azure Automation:
 [5]: /azure/azure-monitor/platform/design-logs-deployment
 [6]: https://portal.azure.com/
 [7]: https://azure.microsoft.com/pricing/details/log-analytics/
-[8]: /azure/automation/how-to/region-mappings
 [8]: /azure/automation/how-to/region-mappings
 [9]: /azure/automation/update-management/update-mgmt-enable-template
 [10]: /azure/automation/update-management/update-mgmt-enable-portal

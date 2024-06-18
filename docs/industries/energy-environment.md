@@ -27,7 +27,7 @@ categories:
 
 # Solutions for the energy and environment industries
 
-Rising energy needs and sustainability targets are pushing companies to explore innovative solutions and architectures. Innovations like IoT, AI, and machine learning can help address these critical needs. 
+Rising energy needs and sustainability targets are pushing companies to explore innovative solutions and architectures. Innovations like IoT, AI, and machine learning can help address these critical needs.
 
 Power and utilities solutions can help industries build a future of optimized energy management and sustainability and respond to climate change.
 
@@ -56,16 +56,16 @@ The following articles provide detailed analysis of architectures developed and 
 ## Solution ideas for energy and the environment
 
 The following are other ideas that you can use as a starting point for your energy or environment solution.
--	[Azure IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
--	[Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
--	[Demand forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
--	[Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization) 
--	[Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
--	[IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)
--	[IoT-connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
--	[IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
--	[IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
--	[Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
--	[Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
--	[Oil and gas tank-level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)
--	[Stromasys Charon-SSP Solaris emulator on Azure VMs](/azure/architecture/solution-ideas/articles/solaris-azure)
+
+- [Azure IoT Edge data storage and processing](/azure/architecture/solution-ideas/articles/data-storage-edge)
+- [Data science and machine learning with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-data-science-machine-learning)
+- [Demand forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
+- [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
+- [Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
+- [IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)
+- [IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
+- [IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
+- [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)
+- [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+- [Oil and gas tank-level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)
+- [Stromasys Charon-SSP Solaris emulator on Azure VMs](/azure/architecture/solution-ideas/articles/solaris-azure)

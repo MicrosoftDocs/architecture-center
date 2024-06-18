@@ -140,7 +140,7 @@ Notes
 | Azure Virtual Machines | [SLA for Virtual Machines][sla-vm] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | Azure App Service | [SLA for App Service][sla-app-service] | Azure Traffic Manager and Azure Front Door |
 | Azure Functions | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door |
-| Azure Kubernetes Service | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Azure Kubernetes Service (AKS) | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Azure Container Apps | [SLA for Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
 | Azure Container Instances | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
 | Azure Red Hat OpenShift | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
@@ -171,7 +171,7 @@ Review and understand the available security controls and visibility for each se
 | Azure Virtual Machines | Configured in VM | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [N-tier][n-tier], [big compute][big-compute] (HPC) |
 | Azure App Service | Supported | [App Service pricing][cost-app-service] | [Web-queue-worker][w-q-w] |
 | Azure Functions | Supported | [Functions pricing][cost-functions] | [Microservices][microservices], [event-driven architecture][event-driven] |
-| Azure Kubernetes Service | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [event-driven architecture][event-driven] |
+| Azure Kubernetes Service (AKS) | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Container Apps |  [Ingress controller](/azure/container-apps/ingress) | [Container Apps pricing][cost-container-apps] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Container Instances | Use [sidecar](../../patterns/sidecar.yml) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
 | Azure Red Hat OpenShift | Supported | [Azure Red Hat OpenShift pricing][cost-aro] | [Microservices][microservices], [event-driven architecture][event-driven] |

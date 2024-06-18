@@ -95,6 +95,7 @@ Principal author:
 ### Solution templates
 
 SUSE SAP ARM template to create the SAP infrastructure:
+
 - [Infrastructure for SAP NetWeaver and SAP HANA](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/suse.suse-sap-infra?tab=Overview) (Azure Marketplace)
 - [SUSE and Microsoft Solution Templates for SAP Applications](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-AzureSolutionTemplates) (SUSE)
 - [SUSE and Microsoft Solution templates for SAP Applications](https://github.com/SUSE/azure-resource-manager-sap-solution-templates) (GitHub)

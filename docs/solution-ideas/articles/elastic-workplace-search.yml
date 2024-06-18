@@ -5,10 +5,11 @@ metadata:
   description: Elastic Enterprise Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.
   author: YenChiHo
   ms.author: yenchiho
-  ms.date: 04/11/2023
+  ms.date: 06/07/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.custom: arb-integrations
 azureCategories:
   - developer-tools
   - migration

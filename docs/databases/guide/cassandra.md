@@ -26,7 +26,6 @@ products:
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-
 This article describes performance considerations for running Apache Cassandra on Azure virtual machines.
 
 These recommendations are based on the results of performance tests, which you can find on [GitHub][repo]. You should use these recommendations as a baseline and then test against your own workload.
@@ -151,16 +150,16 @@ For more information, see [Observations on hinted handoff in cross-region replic
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
- - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
- 
- Other contributor:
+- [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
 
- - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
- 
+Other contributor:
+
+- [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
@@ -180,7 +179,6 @@ For information on general Cassandra settings, not specific to Azure, see:
 - [Linux N-tier application in Azure with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Data partitioning guidance](../../best-practices/data-partitioning.yml)
-
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
 [dsv3]: /azure/virtual-machines/dv3-dsv3-series

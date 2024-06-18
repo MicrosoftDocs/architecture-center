@@ -5,7 +5,7 @@ metadata:
   description: Use Azure Machine Learning with the Ray-on-AML library to run and train donor-patient cross match models over FHIR and health data.
   author: kunanba
   ms.author: akunanbaeva
-  ms.date: 01/24/2023
+  ms.date: 06/07/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

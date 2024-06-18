@@ -17,7 +17,7 @@ The architecture consists of the following components and capabilities:
 - [Kubernetes][kubernetes-open-source]. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
 - [Azure Kubernetes Service][azure-kubernetes-service-service-page]. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
 - [Azure Stack HCI (20H2)][azs-hci-service-page]. This is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster consists of two to 16 physical nodes.
-- [Azure Kubernetes Service on Azure Stack HCI][azure-kubernetes-service-on-azs-hci-service-page]. This is an implementation of AKS, which automates running containerized applications at scale on Azure Stack HCI.
+- [Azure Kubernetes Service (AKS) on Azure Stack HCI][azure-kubernetes-service-on-azs-hci-service-page]. This is an implementation of AKS, which automates running containerized applications at scale on Azure Stack HCI.
 - [Azure Arc-enabled Kubernetes][azure-arc-enabled-kubernetes-service-page]. This hybrid service allows you to streamline deployment and management of Kubernetes clusters inside or outside of Azure.
 - [Azure Arc enabled data services][azure-arc-enabled-data-services-service-page]. This hybrid service makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 - [Azure SQL Managed Instance][sql-managed-instance-service-page]. This intelligent, scalable cloud database service combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service.
@@ -191,7 +191,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - [Manage configurations for Azure Arc-enabled servers][Manage configurations for Azure Arc-enabled servers]
 - [Azure Arc hybrid management and deployment for Kubernetes clusters][Azure Arc hybrid management and deployment for Kubernetes clusters]
 - [Azure hybrid options][Azure hybrid options]
-- [Multicloud blockchain DLT][Multicloud blockchain DLT]
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework/
@@ -264,4 +263,3 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml
-[Multicloud blockchain DLT]: ../example-scenario/blockchain/multi-cloud-blockchain.yml
