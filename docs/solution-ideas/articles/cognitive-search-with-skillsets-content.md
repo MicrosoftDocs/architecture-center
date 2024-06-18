@@ -4,7 +4,7 @@ This article presents a solution that enriches text and image documents by using
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows Azure AI Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.svg" lightbox="../media/cognitive-search-for-ai-enrichment.svg":::
+:::image type="content" alt-text="Diagram that shows Azure AI Search architecture to convert unstructured into structured data." source="../media/ai-search-with-ai-enrichment.svg" lightbox="../media/ai-search-with-ai-enrichment.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-with-skillsets.vsdx) of this architecture.*
 
@@ -14,8 +14,8 @@ The above diagram illustrates the process of passing the unstructured JFK Files 
 
 1. Unstructured data in Azure Blob Storage, such as documents and images, ingest into Azure AI Search.
 1. The *document cracking* step initiates the indexing process by extracting images and text from the data, followed by content enrichment. The enrichment steps that occur in this process depend on the data and type of skills selected.
-1. [*Built-in skills*](/azure/search/cognitive-search-predefined-skills) based on the Computer Vision and Language Service APIs enable AI enrichments including image optical character recognition (OCR), image analysis, text translation, entity recognition, and full-text search.
-1. [*Custom skills*](/azure/search/cognitive-search-custom-skill-interface) support scenarios that require more complex AI models or services. Examples include Forms Recognizer, Azure Machine Learning models, and Azure Functions.
+1. [*Built-in skills*](/azure/search/cognitive-search-predefined-skills) based on the Azure AI Vision and AI Language APIs enable AI enrichments including image optical character recognition (OCR), image analysis, text translation, entity recognition, and full-text search.
+1. [*Custom skills*](/azure/search/cognitive-search-custom-skill-interface) support scenarios that require more complex AI models or services. Examples include AI Document Intelligence, Azure Machine Learning models, and Azure Functions.
 1. Following the enrichment process, the indexer saves the outputs into a [*search index*](/azure/search/search-what-is-an-index) that contains the enriched and indexed documents. Full-text search and other query forms can use this index.
 1. The enriched documents can also project into a [*knowledge store*](/azure/search/knowledge-store-concept-intro), which downstream apps like knowledge mining or data science can use.
 1. Queries access the enriched content in the search index. The index supports custom analyzers, fuzzy search queries, filters, and a scoring profile to tune search relevance.
@@ -29,15 +29,15 @@ Azure AI Search works with other Azure components to provide this solution.
 
 [Azure AI Search](https://azure.microsoft.com/services/search) indexes the content and powers the user experience in this solution. Azure AI Search can apply [pre-built AI skills](/azure/search/cognitive-search-predefined-skills) to the content, and the extensibility mechanism can add [custom skills](/azure/search/cognitive-search-custom-skill-interface) for specific enrichment transformations.
 
-#### Azure AI Computer Vision
+#### Azure AI Vision
 
-[Azure AI Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models, and is optimized for large, text-heavy documents and noisy images.
+[Azure AI Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models, and is optimized for large, text-heavy documents and noisy images.
 
 The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) isn't optimized for large documents, but supports more languages. OCR results can vary depending on scan and image quality. The current solution idea uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
 
-#### Azure AI Service for Language
+#### Azure AI Language
 
-[Azure AI Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) extracts text information from unstructured documents by using [text analytics](/azure/cognitive-services/language-service/overview#available-features) capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
+[Azure AI Language](https://azure.microsoft.com/services/cognitive-services/language-service) extracts text information from unstructured documents by using [text analytics](/azure/cognitive-services/language-service/overview#available-features) capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
 
 #### Azure Storage
 
@@ -59,7 +59,7 @@ Large, unstructured datasets can include typewritten and handwritten notes, phot
 
 The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Azure AI Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
 
-AI enrichment in Azure AI Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pre-trained machine learning skill sets from the AI Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [AI Service for Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure AI Search can then index and search that context.
+AI enrichment in Azure AI Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pre-trained machine learning skill sets from the AI Services [AI Vision](/azure/cognitive-services/computer-vision/home) and [AI Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure AI Search can then index and search that context.
 
 The Azure AI Search skills in this solution fall into the following categories:
 
@@ -98,10 +98,10 @@ Learn more about this solution:
 Read product documentation:
 
 - [AI enrichment in Azure AI Search](/azure/search/cognitive-search-resources-documentation)
-- [What is AI Computer Vision?](/azure/cognitive-services/computer-vision/home)
-- [What is Azure AI Service for Language?](/azure/cognitive-services/language-service/overview)
+- [What is AI Vision?](/azure/cognitive-services/computer-vision/home)
+- [What is Azure AI Language?](/azure/cognitive-services/language-service/overview)
 - [What is optical character recognition?](/azure/cognitive-services/computer-vision/overview-ocr)
-- [What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/named-entity-recognition/overview)
+- [What is Named Entity Recognition (NER) in Azure AI Language?](/azure/cognitive-services/language-service/named-entity-recognition/overview)
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 
