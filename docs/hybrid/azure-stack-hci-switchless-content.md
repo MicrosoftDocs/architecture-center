@@ -222,7 +222,7 @@ Reliability considerations include:
 - **Contoso Manufacturing perform daily, weekly and monthly backups**, retaining the last 6 x days of daily backups (_Monday to Saturdays_), the last 3 x weekly (_each Sunday_) and 3 x monthly (_Sunday week 4 is retained as the Month 1, then Month 2, and Month 3_) backups. This provides an adequate balance between the number of data recovery points available and reducing costs for the offsite / cloud backup storage service.
 <br>
 - **The data backup and recovery process is tested** for each business system every six months, this provides assurance the business continuity and disaster recovery (BCDR) processes are valid and the business would be protected in the event of a datacenter disaster or cyber incident.
-- The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectivity scale and manage the Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
+- The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectivity scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
 
 ### Security
 
