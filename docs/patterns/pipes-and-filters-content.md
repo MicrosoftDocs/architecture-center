@@ -1,4 +1,4 @@
-Decompose a task that performs complex processing into a series of separate elements that can be reused. Pipes and Filters pattern is simple to understand, has a low overall cost to build and to maintain, and supports a high level of modularity. Shell languages such as Bash and some MapReduce tools use this pattern.
+Decompose a task that performs complex processing into a series of separate elements that can be reused. Pipes and Filters pattern is simple to understand, has a low overall cost and supports a high level of modularity. Shell languages such as Bash and some MapReduce tools use this pattern.
 
 ## Context and problem
 
@@ -32,7 +32,7 @@ The loose coupling of filters makes it easy to:
 
 The time it takes to process a single request depends on the speed of the slowest filters in the pipeline. One or more filters could be bottlenecks, especially if a high number of requests appear in a stream from a particular data source. The ability to run parallel instances of slow filters enables the system to spread the load and improve throughput.
 
-The ability to run filters on different compute instances enables them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that's computationally intensive can run on high-performance hardware, while other less-demanding filters can be hosted on less-expensive commodity hardware. The filters don't even need to be in the same datacenter or geographic location, enabling each element in a pipeline to run in an environment that's close to the resources it requires. But note that these efforts require complex design techniques and can only go so far. Due to its monolithic nature, pipes and filters architecture can scale only to a certain point.  This diagram shows an example applied to the pipeline for the data from Source 1:
+The ability to run filters on different compute instances enables them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that's computationally intensive can run on high-performance hardware, while other less-demanding filters can be hosted on less-expensive commodity hardware. The filters don't even need to be in the same datacenter or geographic location, enabling each element in a pipeline to run in an environment that's close to the resources it requires. But note that these efforts require complex design techniques such as messaging, multi-threading, etc and they can only go so far: due to its monolithic nature, pipes and filters architecture can scale only to a certain point.  This diagram shows an example applied to the pipeline for the data from Source 1:
 
 ![Diagram that shows an example applied to the pipeline for the data from Source 1.](./_images/pipes-and-filters-load-balancing.png)
 
