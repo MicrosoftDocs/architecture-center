@@ -18,7 +18,7 @@ products:
 
 This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). The series highlights key similarities and differences between these two managed Kubernetes solutions.
 
-The series articles compare AKS with Amazon EKS for the following Kubernetes design areas:
+The articles compare AKS with Amazon EKS for the following Kubernetes design areas:
 
 - [Identity and access management](workload-identity.yml)
 - [Cluster logging and monitoring](monitoring.yml)
@@ -73,9 +73,7 @@ Other contributors:
 - [Kubernetes node and node pool management](node-pools.yml)
 - [Cluster governance](governance.md)
 
-
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
 - [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
-

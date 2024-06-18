@@ -31,7 +31,7 @@ Managed identities are essentially wrappers around service principals that simpl
 
 AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable. When you create or use an AKS virtual network, attached Azure disk, static IP address, route table, or user-assigned `kubelet` identity with resources outside the [node resource group](/azure/aks/faq#why-are-two-resource-groups-created-with-aks), the Azure CLI adds the role assignment automatically.
 
-If you use another method to create the AKS cluster, such as a Bicep template, Azure Resource Manager (ARM) template, or Terraform module, you need to use the principal ID of the cluster managed identity to do a role assignment. The AKS cluster identity must have at least [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role on the subnet within your virtual network. To define a custom role instead of using the built-in Network Contributor role, you need the following permissions:
+If you use another method to create the AKS cluster, such as a Bicep template, Azure Resource Manager template, or Terraform module, you need to use the principal ID of the cluster managed identity to do a role assignment. The AKS cluster identity must have at least [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role on the subnet within your virtual network. To define a custom role instead of using the built-in Network Contributor role, you need the following permissions:
 
 - `Microsoft.Network/virtualNetworks/subnets/join/action`
 - `Microsoft.Network/virtualNetworks/subnets/read`
