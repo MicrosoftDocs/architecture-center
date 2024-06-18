@@ -177,6 +177,12 @@ Azure Update Manager is an Azure service that allows you to apply, view, and man
 
 ## Deployment workflow
 
+The following section provides an _example list of the high-level tasks or typical workflow_ used to deploy Azure Stack HCI for reference architecture. This workflow list is intended as an **example guide only**, it is not an exhaustive list of all actions or steps required, as these can vary based on organizational, geographic or project specific requirements.
+
+1. **There is a project requirement to deploy a hybrid cloud solution** in an on-premises or edge location to provide local compute or data processing capabilities with an Azure consistent management and billing experience. Additional details are outlined in the [Potential use cases](#potential-use-cases) section of this article. Azure Stack HCI has been selected as the solution.
+1. **Workload and use case requirements should be gathered from relevant stakeholders**, to confirm that the features and capabilities of Azure Stack HCI meet the workload scale and feature requirements. This review process should include understanding the workload scale and features, in addition to the RTO, RPO and non-functional performance requirements.
+1.
+
 ## Well-Architected Framework considerations
 
 The Microsoft [Azure Well-Architected Framework (WAF)][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
