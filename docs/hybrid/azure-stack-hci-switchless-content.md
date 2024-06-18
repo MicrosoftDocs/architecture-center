@@ -43,7 +43,7 @@ Azure and Azure Arc integration extends the capabilities of Azure Stack HCI virt
 - [Azure Arc VMs][arc-enabled-vms] for traditional applications or services that run in virtual machines (VM) on Azure Stack HCI.
 - [Azure Kubernetes Service (AKS) on HCI][arc-enabled-aks] for containerized applications or services that will benefit from using Kubernetes as their orchestration platform.
 - [Azure Virtual Desktop (AVD)][azs-hci-avd]. Deploy your node pools for AVD workloads on Azure Stack HCI (_on-premises_), using the control and management plane in Azure.
-- [Azure Arc enabled data services][arc-enabled-data-services] for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that use Arc-enabled AKS hosted on Azure Stack HCI.
+- [Azure Arc-enabled Data Services][arc-enabled-data-services] for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that use Arc-enabled AKS hosted on Azure Stack HCI.
 - [Azure Arc-enabled Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) using an Azure Kubernetes Service (AKS) cluster deployed on Azure Stack HCI, as the compute target to run Azure Machine Learning, providing capabilities to train or deploy ML models at the edge.
 
 Through Azure Arc connected workloads, the ability to use Azure Policy can provide additional Azure consistency and automation for workloads deployed on Azure Stack HCI, such as [automating Guest OS configuration using Azure Arc VM extensions][arc-vm-extensions] or evaluating [compliance against industry regulations or corporate standards using Azure Policy][arc-azure-policy], which can be enabled using Azure portal or IaC automation.
@@ -181,7 +181,7 @@ Azure Update Manager is an Azure service that allows you to apply, view, and man
 
 The following section provides an _example list of the high-level tasks or typical workflow_ used to deploy an Azure Stack HCI solution. This workflow list is intended as an **example guide only**, it is not an exhaustive list of all actions or steps required, as these can vary based on organizational, geographic or project specific requirements.
 
-1. **Workload and use case requirements should be gathered from relevant stakeholders**, to enable the project leads to confirm that the features and capabilities of Azure Stack HCI meet the workload scale and functionality requirements. This review process should include understanding the workload scale (size) and required features such as Arc VMs, Azure Kubernetes Service, AVD host pools, or Arc-enabled Data Services or AI/ML. The workload RTO and RPO (_reliability_) values and other non-functional requirements (_performance / load scalability_) should be documented as part of this requirements gathering step.
+1. **Workload and use case requirements should be gathered from relevant stakeholders**, to enable the project leads to confirm that the features and capabilities of Azure Stack HCI meet the workload scale and functionality requirements. This review process should include understanding the workload scale (size) and required features such as Arc VMs, Azure Kubernetes Service, AVD host pools, or Arc-enabled Data Services or Arc-enabled Machine Learning (ML). The workload RTO and RPO (_reliability_) values and other non-functional requirements (_performance / load scalability_) should be documented as part of this requirements gathering step.
 1. **Use the [Azure Stack HCI Sizer Tool][azs-hci-sizer-tool] to create a new Project that will model the workload type and scale**, this will include the size and number of VMs and their storage requirements. These details are inputted together with choices for the System type, preferred CPU family and your Resiliency requirements for high availability and Storage fault tolerance, as explained in the earlier [Cluster design choices](#cluster-design-choices) section.
 1. **Review the Azure Stack HCI Sizer output for the recommended OEM hardware partner solution**, this will include details of the recommended physical server hardware (_make and model_), number of physical nodes and the specifications for the CPU, Memory and Storage configuration of each physical node that will be required to deploy and run the Workloads you inputted into the Sizer Project requirements (_in step 3 above_).
 1. **Contact your preferred OEM hardware / solution builder partner to further quality the suitability** of the recommended hardware SKU vs the workload requirements. This step typically includes discussions with the hardware or SI partner for the commercial aspects of the solution, such as quotations, availability of hardware, lead times and any professional or value-add services that the partner offers to help accelerate your project or business outcomes.
@@ -281,7 +281,7 @@ Product documentation:
 - [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
 - [Manage registered servers with Azure File Sync](/azure/storage/file-sync/file-sync-server-registration)
 - [Update Management overview](/azure/automation/update-management/overview)
-- [What are Azure Arc-enabled data services?](/azure/azure-arc/data/overview)
+- [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
 - [What is Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is the Azure Backup service?](/azure/backup/backup-overview)
 
