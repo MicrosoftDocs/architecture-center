@@ -9,7 +9,7 @@ The TDSP has the following key components:
 - A **data science lifecycle** definition
 - A **standardized project structure**
 - **Infrastructure and resources** recommended for data science projects
-- **Tools and utilities** recommended for project execution
+- **Responsible AI**: We are committed to the advancement of AI driven by ethical principles
 
 ### Data science lifecycle
 
@@ -86,19 +86,83 @@ The TDSP provides recommendations for managing shared analytics and storage infr
 - Cloud file systems for storing datasets
 - Databases
 - Big data clusters, for example SQL or Spark
-- Machine learning services
+- AI and machine learning services
 
-You can place the analytics and storage infrastructure, where raw and processed datasets are stored, in the cloud or on-premises. This infrastructure enables reproducible analysis. It also prevents duplication, which can lead to inconsistencies and unnecessary infrastructure costs. The infrastructure has tools to provision the shared resources, track them, and allow each team member to connect to those resources securely. It's also a good practice to have project members create a consistent compute environment. Various team members can then replicate and validate experiments.
+**Cloud File Systems for Storing Datasets**
 
-Here's an example of a team working on multiple projects and sharing various cloud analytics infrastructure components:
+1.  [[Azure Blob
+    Storage]](https://docs.microsoft.com/azure/storage/blobs/) -
+    Comprehensive documentation on Azure Blob Storage, a scalable object
+    storage service for unstructured data.
 
-[![Diagram that shows the infrastructure of a team.](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox)
+2.  [[Azure Data Lake
+    Storage]](https://docs.microsoft.com/azure/storage/data-lake-storage/) -
+    Information on Azure Data Lake Storage Gen2, designed for big data
+    analytics and supporting large-scale datasets.
 
-### Tools and utilities
+3.  [[Azure
+    Files]](https://docs.microsoft.com/azure/storage/files/) -
+    Details on Azure Files, providing fully managed file shares in the
+    cloud.
 
-In most organizations, it's challenging to introduce processes. The infrastructure provides tools to implement the TDSP and lifecycle help lower the barriers to and increase the consistency of their adoption.
+**Databases**
 
-With Machine Learning, data scientists can apply open-source tooling as part of the data science pipeline or workflow. Within Machine Learning, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
+1.  [[Azure SQL
+    Database]](https://docs.microsoft.com/azure/azure-sql/database/) -
+    Documentation on Azure SQL Database, a fully managed relational
+    database service.
+
+2.  [[Azure Cosmos
+    DB]](https://docs.microsoft.com/azure/cosmos-db/) -
+    Information on Azure Cosmos DB, a globally distributed, multi-model
+    database service.
+
+3.  [[Azure Database for
+    PostgreSQL]](https://docs.microsoft.com/azure/postgresql/) -
+    Guide to Azure Database for PostgreSQL, a managed database service
+    for app development and deployment.
+
+4.  [[Azure Database for
+    MySQL]](https://docs.microsoft.com/azure/mysql/) -
+    Details on Azure Database for MySQL, a managed service for MySQL
+    databases.
+
+**Big Data Clusters (e.g., SQL or Spark)**
+
+1.  [[Apache Spark in Azure Machine
+    Learning]](https://learn.microsoft.com/azure/machine-learning/apache-spark-azure-ml-concepts?view=azureml-api-2) -
+    Azure Machine Learning integration with Azure Synapse Analytics
+    provides easy access to distributed computation resources through
+    the Apache Spark framework.
+
+2.  [[Azure Synapse
+    Analytics]](https://docs.microsoft.com/azure/synapse-analytics/) -
+    Comprehensive documentation for Azure Synapse Analytics, integrating
+    big data and data warehousing.
+
+3.  [[Azure
+    HDInsight]](https://docs.microsoft.com/azure/hdinsight/) -
+    Information on Azure HDInsight, a cloud distribution of Hadoop
+    components including Spark.
+
+**AI and Machine Learning Services**
+
+1.  [[Azure Machine
+    Learning]](https://docs.microsoft.com/azure/machine-learning/) -
+    The main documentation page for Azure Machine Learning, covering
+    setup, model training, deployment, and more.
+
+2.  [[AI
+    Services]](https://docs.microsoft.com/azure/cognitive-services/) -
+    Information on AI Services, offering pre-built AI models for vision,
+    speech, language, and decision-making tasks.
+
+These references provide detailed information on each topic within
+Microsoft\'s documentation ecosystem.
+
+### Responsible AI
+
+With AI or Machine Learning solutions, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
 
 ## Peer-reviewed citations
 
