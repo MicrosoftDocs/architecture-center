@@ -200,19 +200,19 @@ Reliability ensures your application can meet the commitments you make to your b
 
 Reliability considerations include:
 
-- For the deployment of this reference architecture, a fictitious customer "Contoso Manufacturing" has an internal Service Level Objective (SLO) of 99.9% agreed with business and application stakeholders. An SLO of 99.9% uptime/availability results in the following periods of allowed downtime / unavailability for the applications deployed within Arc VMs running on Azure Stack HCI:
-
-  Weekly: 10m 4.8s
-  Monthly: 43m 28s
-  Quarterly: 2h 10m 24s
-  Yearly: 8h 41m 38s
-
+- For the deployment of this reference architecture, a fictitious customer "Contoso Manufacturing" has an internal Service Level Objective (SLO) of 99.8% agreed with business and application stakeholders. An SLO of 99.9% uptime/availability results in the following periods of allowed downtime / unavailability for the applications deployed within Arc VMs running on Azure Stack HCI:
+\n
+Weekly: 20m 9.6s\n
+Monthly: 1h 26m 56s\n
+Quarterly: 4h 20m 49s\n
+Yearly: 17h 23m 16s\n
+<br>
 - **To help achieve the SLO targets** Contoso Manufacturing have implemented the _principle of least privilege_ to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This helps prevent downtime due to any inadvertent or accidental actions being performed on production resources. Furthermore, the on-premises Active Directory Domain Services (AD DS) domain controllers security event logs are monitored to detect and report any user account group membership changes (_add / remove actions_) for the "Azure Stack HCI cluster administrators" group using a security information event management (SIEM) solution. In addition to increasing Reliability, this monitoring also improves the Security of the solution.
 - Contoso Manufacturing have **strict change control procedures** in place for production systems, this process requires that all changes must be tested and validated in a representative test environment prior to implementation in production, all submitted changes must include a risk level and comprehensive roll back plan.
 - **Monthly security patches and quarterly baseline updates** are applied to production Azure Stack HCI clusters only after they have been validated in the pre-production environment. Azure Update Management automation and Cluster Awareness Updating automates the process of using _VM Live Migration_ to minimize downtime for business critical workloads during the monthly servicing operations. Contoso Manufacturing require the patching process to be completed for all production systems within four weeks of the update release date.
 - **Contoso Manufacturing perform daily, weekly and monthly backups**, retaining the last 6 x days of daily backups (_Monday to Saturdays_), the last 3 x weekly (_each Sunday_) and 3 x monthly (_Sunday week 4 is retained as the Month 1, then Month 2, and Month 3_) backups. This provides an adequate balance between the number of data recovery points available and reducing costs for the offsite / cloud backup storage service.
 - **The data backup and recovery process is tested** for each business system every six months, this provides assurance the business continuity and disaster recovery (BCDR) processes are valid and the business would be protected in the event of a datacenter disaster or cyber incident.
-- The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.9% Service Level Objective (SLO) target and effectivity scale and manage the Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
+- The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectivity scale and manage the Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
 
 ### Security
 
