@@ -205,7 +205,7 @@ Reliability considerations include:
 - An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
 
 
-  Weekly: 20 minutes and 9.6 seconds
+  Weekly: 20 minutes and 10 seconds
   Monthly: 1 hour, 26 minutes and 56 seconds
   Quarterly: 4 hours, 20 minutes and 49 seconds
   Yearly: 17 hours, 23 minutes and 16 seconds
