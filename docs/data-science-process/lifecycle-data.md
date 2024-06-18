@@ -6,7 +6,7 @@ manager: marktab
 editor: marktab
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/15/2024
+ms.date: 06/18/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
