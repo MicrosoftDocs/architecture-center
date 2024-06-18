@@ -3,6 +3,7 @@ title: "AKS day-2 guide: Patch and upgrade guidance"
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes versions.
 author: aionic
+ms.author: anevico
 ms.date: 12/28/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -59,7 +60,7 @@ To ensure the smooth operation of your AKS cluster during maintenance, follow th
   - Clusters that are based on Azure CNI assign IP addresses to individual pods, so there needs to be sufficient IP space for pod movement.
   - Your cluster continues to operate during upgrades. Be sure that there's enough IP space left to allow node scaling (if it's enabled).
 - **Set up multiple environments.** We recommend that you set up separate environments, like development, staging, and production, to enable you to test and validate changes before you roll them out to production.
-- **Tune surge upgrade values.** By default, AKS has a surge value of 1, which means that one extra node is created at a time as part of the upgrade process. You can increase the speed of an AKS upgrade by increasing this value. 33% surge is the recommended maximum value for workloads that are sensitive to disruptions. For more information, see [Upgrade options for AKS](/azure/aks/upgrade-cluster#customize-node-surge-upgrade).
+- **Tune surge upgrade values.** By default, AKS has a surge value of 1, which means that one extra node is created at a time as part of the upgrade process. You can increase the speed of an AKS upgrade by increasing this value. 33% surge is the recommended maximum value for workloads that are sensitive to disruptions. For more information, see [Customize node surge upgrade](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade).
 - **Tune node drain timeout.** [Node drain timeout](/azure/aks/upgrade-aks-cluster#set-node-drain-timeout-value) specifies the maximum amount of time a cluster will wait while attempting to reschedule pods on a node that's updating. The default value for this is 30 minutes. For workloads that struggle to reschedule pods it can be helpful to adjust this default value.
 - **Plan and schedule maintenance windows.** Upgrade processes might affect the overall performance of your Kubernetes cluster. Schedule in-place upgrade processes outside of peak usage windows, and monitor cluster performance to ensure adequate sizing, especially during update processes.
 - **Check other dependencies in your cluster.** Kubernetes operators often deploy other tooling to the Kubernetes cluster as part of operations, like KEDA scalers, Dapr, and service meshes. When you plan your upgrade processes, check release notes for any components that you're using to ensure compatibility with the target version.
@@ -68,12 +69,12 @@ To ensure the smooth operation of your AKS cluster during maintenance, follow th
 
 Microsoft creates a new node image for AKS nodes approximately once per week. A node image contains up-to-date OS security patches, OS kernel updates, Kubernetes security updates, updated versions of binaries like kubelet, and component version updates that are listed in the [release notes](https://github.com/Azure/AKS/releases).
 
-When a node image is updated, a _cordon and drain_ action is triggered on the target node pool's nodes:
+When a node image is updated, a *cordon and drain* action is triggered on the target node pool's nodes:
 
-- A node with the updated image is added to the node pool. The number of nodes added at a time is governed by the surge value.
-- One of the existing nodes is _cordoned_ and _drained_. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
-- After the node is fully drained, it's removed from the node pool. The updated node added by the surge replaces it.
-- This process is repeated for each node that needs to be updated in the node pool.
+- A node with the updated image is added to the node pool. The number of nodes added at the same time is governed by the surge value.
+- Depending on the surge value, a batch of existing nodes are *cordoned* and *drained*. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
+- After these nodes are fully drained, they are removed from the node pool. The updated nodes added by the surge replace them.
+- This process is repeated for each remaining batch of nodes that needs to be updated in the node pool.
 
 A similar process occurs during a cluster upgrade.
 
@@ -84,11 +85,13 @@ Generally speaking, most clusters should use the `NodeImage` update channel. Thi
 Available channels include the following:
 
 - `None`. No updates are automatically applied.
-- `Unmanaged`. Ubuntu and Azure Linux updates are applied by the OS on a nightly basis. Reboots must be managed separately.
-- `SecurityPatch`. Nightly security patches are deployed as an OS image update.
-- `NodeImage`. Weekly AKS patches and nightly security patches are combined.
+- `Unmanaged`. Ubuntu and Azure Linux updates are applied by the OS on a nightly basis. Reboots must be managed separately. AKS is neither able to test this nor control the cadence of this. 
+- `SecurityPatch`. OS security patches which are AKS-tested, fully managed, and applied with safe deployment practices. It does not contain any OS bug fixes just security updates. 
+- `NodeImage`. AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. This is fully tested and deployed with safe deployment practices. For real time information on currently deployed node images, please refer to [AKS Node images section in the Release tracker][release-tracker].
 
-If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/). If you choose the `SecurityPatch` update channel, updates can be applied as frequently as nightly. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. Additionally, you need to combine the `SecurityPatch` configuration with a `NodeImage` configuration to enable a complete node patching process.
+To understand the default cadences without a maintenance window established, please refer to [update ownership and cadence](/azure/aks/auto-upgrade-node-os-image#update-ownership-and-schedule).
+
+If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/). `Unmanaged` does not come with AKS-provided safe deployment practices and will not work under maintenance windows. If you choose the `SecurityPatch` update channel, updates can be applied as frequently as weekly. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. Control when the `SecurityPatch` is applied by setting an appropriate `aksManagedNodeOSUpgradeSchedule` that aligns to a cadence that works best for your workload. For more information, see [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window). If you also need bug fixes that come typically with new node images (VHD), then you need to choose the `NodeImage` channel instead of `SecurityPatch`.
 
 As a best practice, use the `NodeImage` update channel and configure an `aksManagedNodeOSUpgradeSchedule` maintenance window to a time when the cluster is outside of peak usage windows.
 See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes that you can use to configure the cluster maintenance window. The key attributes are:
@@ -103,7 +106,7 @@ See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-m
 This example sets a weekly maintenance window to 8:00 PM Eastern Time on Saturdays:
 
 ```azurecli
-az aks maintenanceconfiguration add -g <ResourceGroupName> --cluster-name <AKSClusterName> --name aksManagedNodeOSUpgradeSchedule --utcOffset -05:00 --start-time 20:00 --day-of-week Saturday --schedule-type weekly --duration 4
+az aks maintenanceconfiguration add -g <ResourceGroupName> --cluster-name <AKSClusterName> --name aksManagedNodeOSUpgradeSchedule --utc-offset=-05:00 --start-time 20:00 --day-of-week Saturday --schedule-type weekly --duration 4
 ```
 
 For more examples, see [Add a maintenance window configuration with Azure CLI](/azure/aks/planned-maintenance#add-a-maintenance-window-configuration-with-azure-cli).
@@ -123,6 +126,13 @@ az aks maintenanceconfiguration show -g <ResourceGroupName> --cluster-name <AKSC
 ```
 
 If a cluster maintenance window isn't configured, node image updates occur biweekly. As much as possible, AKS maintenance occurs within the configured window, but the time of maintenance isn't guaranteed.
+
+> [!IMPORTANT]
+> If you have a node pool with a large number of nodes but it is not configured with [node surge](/azure/aks/upgrade-aks-cluster#customize-node-surge-upgrade), the auto upgrade event might not trigger. Node images in a node pool will only be upgraded while the estimated total upgrade time is within 24 hours.
+>
+> In this situation, you can consider one of the following:
+> - splitting nodes into different node pools if your vCPU quota is almost full and you cannot increase the vCPU quota
+> - configuring node surge to decrease the estimated upgrade time if your vCPU quota is enough
 
 You can check the status of upgrade events through your [Azure activity logs](/azure/azure-monitor/essentials/activity-log), or by reviewing the [resource logs](/azure/aks/monitor-aks-reference#resource-logs) on your cluster.
 
@@ -328,6 +338,7 @@ Other contributors:
 ## Next steps
 
 - [AKS product documentation](/azure/aks/)
+- [AKS release tracker](https://releases.aks.azure.com/webpage/index.html)
 - [AKS roadmap](https://aka.ms/aks/roadmap)
 - [AKS landing zone accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator)
 - [Troubleshoot AKS Issues](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes)

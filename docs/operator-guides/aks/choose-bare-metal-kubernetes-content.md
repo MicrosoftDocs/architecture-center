@@ -65,7 +65,7 @@ Kubeadm is a plain vanilla installation of Kubernetes from the ground up.
 
 -   The control-plane node must be a machine running a deb/rpm-compatible Linux OS.
 
--   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to _kubeadm_ and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
+-   [The Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions) applies to *kubeadm* and to Kubernetes overall. Check that policy to learn about what versions of Kubernetes and kubeadm are supported.
 
 ## Management/Automation
 

@@ -17,7 +17,7 @@ This article describes how to extract insights from customer conversations at a 
 
 1. [Azure OpenAI](/azure/ai-services/openai/overview) is used to process the transcript and extract entities, [summarize the conversation](/azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio#try-text-summarization), and analyze sentiments. The processed output is stored in Blob Storage and then analyzed and visualized by using other services. You can also store the output in a datastore for keeping track of metadata and for reporting. Use Azure OpenAI to process the stored transcription information.
 
-1. [Power BI](/power-bi/fundamentals/power-bi-overview) or a custom web application that's hosted by [App Service](/azure/app-service/overview) is used to visualize the output. Both options provide near real-time insights. You can store this output in a CRM, so agents have contextual information about why the customer called and can quickly solve potential problems. This process is fully automated, which saves the agents time and effort.
+1. [Power BI](/power-bi/fundamentals/power-bi-overview) or a custom web application that's hosted by [App Service](/azure/app-service/overview) is used to visualize the output. Both options provide near real-time insights. You can store this output in a customer relationship management (CRM), so agents have contextual information about why the customer called and can quickly solve potential problems. This process is fully automated, which saves the agents time and effort.
 
 ### Components
 
@@ -57,7 +57,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- Find the availability service level agreement (SLA) for each component in [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+- Find the availability service-level agreement (SLA) for each component in [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 - To design high-availability applications with Storage accounts, see [the configuration options](/azure/storage/common/geo-redundant-design).
 - To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see the [resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
 - [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
@@ -101,6 +101,8 @@ The batch speech API is designed for high volumes, but other AI services APIs mi
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+<!-- docutune:ignoredChange ISV -->
+
 Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
@@ -126,4 +128,3 @@ Principal authors:
 - [Deploy a custom speech-to-text solution](/azure/architecture/guide/ai/custom-speech-text-deploy)
 - [Create custom language and acoustic models](/azure/architecture/solution-ideas/articles/speech-services)
 - [Deploy a custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy)
-

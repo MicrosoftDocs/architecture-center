@@ -26,7 +26,7 @@ If you're not familiar with the Azure service selected in the previous section, 
 - [Azure Virtual Machines](/azure/virtual-machines): A service where you deploy and manage virtual machines (VMs) inside an Azure virtual network.
 - [Azure App Service](/azure/app-service): A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 - [Azure Functions](/azure/azure-functions/functions-overview): A managed function as a service.
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS): A managed Kubernetes service for running containerized applications.
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes): A managed Kubernetes service for running containerized applications.
 - [Azure Container Apps](/azure/container-apps): A managed service built on Kubernetes, which simplifies the deployment of containerized applications in a serverless environment.
 - [Azure Container Instances](/azure/container-instances/container-instances-overview): This service is a fast and simple way to run a container in Azure. You don't have to provision any VMs or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift): A fully managed OpenShift cluster for running containers in production with Kubernetes.
@@ -140,7 +140,7 @@ Notes
 | Azure Virtual Machines | [SLA for Virtual Machines][sla-vm] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | Azure App Service | [SLA for App Service][sla-app-service] | Azure Traffic Manager and Azure Front Door |
 | Azure Functions | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door |
-| Azure Kubernetes Service | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
+| Azure Kubernetes Service (AKS) | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Azure Container Apps | [SLA for Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
 | Azure Container Instances | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
 | Azure Red Hat OpenShift | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
@@ -171,7 +171,7 @@ Review and understand the available security controls and visibility for each se
 | Azure Virtual Machines | Configured in VM | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [N-tier][n-tier], [big compute][big-compute] (HPC) |
 | Azure App Service | Supported | [App Service pricing][cost-app-service] | [Web-queue-worker][w-q-w] |
 | Azure Functions | Supported | [Functions pricing][cost-functions] | [Microservices][microservices], [event-driven architecture][event-driven] |
-| Azure Kubernetes Service | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [event-driven architecture][event-driven] |
+| Azure Kubernetes Service (AKS) | [Ingress controller](/azure/aks/ingress) | [AKS pricing][cost-acs] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Container Apps |  [Ingress controller](/azure/container-apps/ingress) | [Container Apps pricing][cost-container-apps] | [Microservices][microservices], [event-driven architecture][event-driven] |
 | Azure Container Instances | Use [sidecar](../../patterns/sidecar.yml) container | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances) | [Microservices][microservices], task automation, batch jobs |
 | Azure Red Hat OpenShift | Supported | [Azure Red Hat OpenShift pricing][cost-aro] | [Microservices][microservices], [event-driven architecture][event-driven] |

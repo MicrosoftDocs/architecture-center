@@ -104,8 +104,8 @@ Generally, AI and ML workloads incur the greatest proportion of their costs from
 
 Consider the following requirements when planning your AI and ML costs:
 
-- **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
-- **Determine compute SKUs for inference.** For an example cost estimate for inference, [refer to the guidance for Azure ML](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
+- **Determine compute SKUs for training.** For example, refer to [guidance on how to do this with Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-training).
+- **Determine compute SKUs for inference.** For an example cost estimate for inference, [refer to the guidance for Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost#determine-the-compute-size-for-inference).
 - **Monitor your utilization.** By observing the utilization of your compute resources, you can determine whether you should decrease or increase their capacity by deploying different SKUs, or scale the compute resources as your requirements change. See [Azure Machine Learning Monitor](/azure/machine-learning/monitor-azure-machine-learning).
 - **Optimize your compute clustering environment.** When you use compute clusters, monitor cluster utilization or configure [autoscaling](/python/api/azureml-core/azureml.core.compute.amlcompute.scalesettings) to scale down compute nodes.  
 - **Share your compute resources.** Consider whether you can optimize the cost of your compute resources by sharing them across multiple tenants. 
@@ -168,4 +168,5 @@ Other contributors:
 
 ## Next steps
 
-Review [Architectural approaches for compute in multitenant solutions](compute.md) approaches.
+- Review [Architectural approaches for compute in multitenant solutions](compute.md) approaches.
+- To learn more about designing Azure Machine Learning pipelines to support multiple tenants, see [A Solution for ML Pipeline in Multi-tenancy Manner](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/a-solution-for-ml-pipeline-in-multi-tenancy-manner/ba-p/4124818).

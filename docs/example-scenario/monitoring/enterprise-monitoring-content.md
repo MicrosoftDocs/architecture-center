@@ -42,14 +42,14 @@ This architecture includes the following components:
 
 - [Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) collects numeric data from monitored resources into a time series database. Metrics in Monitor are lightweight and support near real-time scenarios, so they're useful for alerting and fast detection of issues.
 - [Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, including Azure [platform logs](/azure/azure-monitor/essentials/platform-logs-overview), into a single workspace. You can analyze the data by using a [sophisticated query language](/azure/azure-monitor/logs/log-query-overview) in Log Analytics.
-- [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) can send data to both Monitor Logs and Monitor Metrics. The Azure Monitor agent uses configurable [Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-overview) (DCRs), and doesn't require workspace keys to connect.
+- [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) can send data to both Monitor Logs and Monitor Metrics. The Azure Monitor agent uses configurable [Data Collection Rules (DCRs)](/azure/azure-monitor/agents/data-collection-rule-overview), and doesn't require workspace keys to connect.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors live applications on a wide variety of platforms across cloud, hybrid, and on-premises environments. Application Insights automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you understand usage and diagnose issues.
 - [Azure Virtual Desktop insights](/azure/virtual-desktop/azure-monitor) uses Monitor for Azure Virtual Desktop to help IT professionals understand their Azure Virtual Desktop environments.
 - [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitors the performance and health of Kubernetes clusters and other container-based workloads.
 - [Network insights](/azure/azure-monitor/insights/network-insights-overview) provides a comprehensive view of health and metrics for all deployed network resources.
 - [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitors health and help you diagnose problems and tune performance for any product in the Azure SQL family.
 - [VM insights](/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of VMs and virtual machine scale sets. VM insights include running processes and dependencies on other resources.
-- [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview) (ITSMC) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve work items faster.
+- [IT Service Management Connector (ITSMC)](/azure/azure-monitor/alerts/itsmc-overview) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve work items faster.
 - [Azure Workbooks for Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) provides a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
@@ -120,7 +120,7 @@ This solution can help with the following use cases:
 - Consolidated monitoring for different cloud and on-premises workloads.
 - Monitoring for container, Azure SQL, and Azure Virtual Desktop workloads.
 - Expanded monitoring scope, such as connecting Monitor to Microsoft Sentinel.
-- Hybrid and heterogenous cloud monitoring across networks, identity providers, operating systems, and other domains.
+- Hybrid and heterogeneous cloud monitoring across networks, identity providers, operating systems, and other domains.
 
 ## Considerations
 

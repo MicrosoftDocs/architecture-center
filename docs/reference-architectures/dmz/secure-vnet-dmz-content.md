@@ -65,7 +65,7 @@ We recommend creating the following resource groups:
 
 ### Networking recommendations
 
-To accept inbound traffic from the internet, add a [Destination Network Address Translation](/azure/firewall/tutorial-firewall-dnat) (DNAT) rule to Azure Firewall.
+To accept inbound traffic from the internet, add a [Destination Network Address Translation (DNAT)](/azure/firewall/tutorial-firewall-dnat) rule to Azure Firewall.
 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.

@@ -100,8 +100,7 @@ It's important to understand networking design early in your planning processes 
 
 - [Container Apps](https://azure.microsoft.com/products/container-apps) is a PaaS offering that provides many Azure-managed networking features, like service discovery and internal managed domains. Workload teams that need a bit more configurability can use workload/dedicated profiles before considering alternatives to maximize their networking options.
 - [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. Workload teams can take advantage of various Azure managed [networking add-ons](/azure/aks/integrations), as well as install and operate any add-ons from the broader Kubernetes ecosystem.
-
-- [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/) is feature of App Service. Thus, the networking concepts, especially private networking integration, are very specific to App Service. This service will be familiar to workload teams that already use App Service. Teams that don't have experience with App Service and that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
+- [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/) is feature of [App Service](/azure/well-architected/service-guides/app-service-web-apps). Thus, the networking concepts, especially private networking integration, are very specific to App Service. This service will be familiar to workload teams that already use App Service. Teams that don't have experience with App Service and that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
 
 Keep in mind that networking is a foundational infrastructure layer. It's often difficult to make changes in design without re-deploying the workload, which can lead to downtime. Therefore, if your workload has specific networking requirements, review this section carefully before you narrow down your Azure container service selection.
 
@@ -240,7 +239,7 @@ Both Container Apps and Web App for Containers provide out-of-the-box solutions 
 | **Managed TLS for Azure FQDNs** | Out of the box | N/A | Out of the box |
 | **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | Out of the box or BYO |
 
-AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS does not offer managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
+AKS users are responsible for managing DNS, cluster configurations and TLS certificates for their custom domains. Although AKS does not offer managed TLS, customers can leverage software from the Kubernetes ecosystem, for example the popular [cert-manager](https://www.cncf.io/projects/cert-manager/) to manage TLS certificates.
 
 ### Mutual TLS
 

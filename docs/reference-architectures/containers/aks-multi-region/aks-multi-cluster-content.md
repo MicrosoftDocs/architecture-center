@@ -187,7 +187,7 @@ Positioning a container registry in each region in which an AKS cluster is deplo
 
 The AKS multi-region reference implementation created a single Container Registry instance and replicas of this instance into each cluster region. For more information on Azure Container Registry replication, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
 
-_Image showing multiple ACR replicas from within the Azure portal._
+*Image showing multiple ACR replicas from within the Azure portal.*
 
 ![Image showing multiple ACR replicas from within the Azure portal.](./images/acr-replicas.png)
 
@@ -239,7 +239,7 @@ For more information on managing AKS cluster access with Microsoft Entra ID, see
 
 ### Data, state, and cache
 
-When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workloads that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependant state store or caching solution? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Due to regional access and complexity concerns, consider designing your applications to use a globally distributed state store service.
+When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workloads that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependent state store or caching solution? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Due to regional access and complexity concerns, consider designing your applications to use a globally distributed state store service.
 
 The multi-cluster reference implementation doesn't include a demonstration or configuration for state concerns. If you run applications across clustered AKS instances, consider architecting your workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db).
 

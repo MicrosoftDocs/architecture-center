@@ -107,7 +107,6 @@ Principal author:
 ## Related resources
 
 * [Quality assurance](/azure/architecture/solution-ideas/articles/quality-assurance)
-* [Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)
 * [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
 * [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
 * [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)

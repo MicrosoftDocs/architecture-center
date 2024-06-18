@@ -49,7 +49,7 @@ The guidance provided in this series is applicable to anyone building a multiten
 Some of the content in this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure. Other content is more technically focused and is targeted at solution architects and engineers who implement a multitenant solution.
 
 > [!NOTE]
-> *Managed service providers* (MSPs) manage and operate Azure environments on behalf of their customers, and work with multiple Microsoft Entra tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resources across multiple Microsoft Entra tenants. This series isn't intended to provide guidance on these matters.
+> *Managed service providers (MSPs)* manage and operate Azure environments on behalf of their customers, and work with multiple Microsoft Entra tenants in the process. This is another form of multitenancy, but it's focused on managing Azure resources across multiple Microsoft Entra tenants. This series isn't intended to provide guidance on these matters.
 >
 > However, the series is likely to be helpful for ISVs who build software for MSPs, or for anyone else who builds and deploys multitenant software.
 
@@ -78,6 +78,8 @@ For an overview of the content covered in this series, and the basic concepts of
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/aem8elgN7iI]
+
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
 
 ## Next steps
 

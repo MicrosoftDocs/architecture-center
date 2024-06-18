@@ -1,50 +1,80 @@
-Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+Decentralize workflow logic and distribute the responsibilities to other components within a system.
 
 ## Context and problem
 
-In microservices architecture, it's often the case that a cloud-based application is divided into several small services that work together to process a business transaction end-to-end. To lower coupling between services, each service is responsible for a single business operation. Some benefits include faster development, smaller code base, and scalability. However, designing an efficient and scalable workflow is a challenge and often requires complex interservice communication.
+A cloud-based application is often divided into several small services that work together to process a business transaction end-to-end. Even a single operation (within a transaction) can result in multiple point-to-point calls among all services. Ideally, those services should be loosely coupled. It's challenging to design a workflow that's distributed, efficient, and scalable because it often involves complex interservice communication.
 
-The services communicate with each other by using well-defined APIs. Even a single business operation can result in multiple point-to-point calls among all services. A common pattern for communication is to use a centralized service that acts as the orchestrator. It acknowledges all incoming requests and delegates operations to the respective services. In doing so, it also manages the workflow of the entire business transaction. Each service just completes an operation and is not aware of the overall workflow.
+A common pattern for communication is to use a centralized service or an *orchestrator*. Incoming requests flow through the orchestrator as it delegates operations to the respective services. Each service just completes their responsibility and isn't aware of the overall workflow.
 
-The orchestrator pattern reduces point-to-point communication between services but has some drawbacks because of the tight coupling between the orchestrator and other services that participate in processing of the business transaction. To execute tasks in a sequence, the orchestrator needs to have some domain knowledge about the responsibilities of those services. If you want to add or remove services, existing logic will break, and you'll need to rewire portions of the communication path. While you can configure the workflow, add or remove services easily with a well-designed orchestrator, such an implementation is complex and hard to maintain.
+![A diagram of a workflow that processes requests using a central orchestrator.](./_images/orchestrator.png)
 
-![Processing a request using a central orchestrator](./_images/orchestrator.png)
+The orchestrator pattern is typically implemented as custom software and has domain knowledge about the responsibilities of those services. A benefit is that the orchestrator can consolidate the status of a transaction based on the results of individual operations conducted by the downstream services. 
+
+However, there are some drawbacks. Adding or removing services might break existing logic because you need to rewire portions of the communication path. This dependency makes orchestrator implementation complex and hard to maintain. The orchestrator might have a negative impact on the reliability of the workload. Under load, it can introduce performance bottleneck and be the single point of failure. It can also cause cascading failures in the downstream services.
+
 
 ## Solution
 
-Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
+Delegate the transaction handling logic among the services. Let each service decide and participate in the communication workflow for a business operation.
 
-One way to implement choreography is to use the [asynchronous messaging pattern](./publisher-subscriber.yml) to coordinate the business operations.
+> The pattern is a way to minimize dependency on custom software that centralizes the communication workflow. The components implement common logic as they choreograph the workflow among themselves without having direct communication with each other.
 
-![Processing a request using a choreographer](./_images/choreography-pattern.png)
+A common way to implement choreography is to use a message broker that buffers requests until downstream components claim and process them. The image shows request handling through a [publisher-subscriber model](./publisher-subscriber.yml).
 
-A client request publishes messages to a message queue. As messages arrive, they are pushed to subscribers, or services, interested in that message. Each subscribed service does their operation as indicated by the message and responds to the message queue with success or failure of the operation. In case of success, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If an operation fails, the message bus can retry that operation.
+![A diagram showing processing of a request using a message broker.](./_images/choreography-pattern.png)
 
-This way, the services choreograph the workflow among themselves without depending on an orchestrator or having direct communication between them.
 
-Because there isn't point-to-point communication, this pattern helps reduce coupling between services. Also, it can remove the performance bottleneck caused by the orchestrator when it has to deal with all transactions.
+1. A client requests are queued as messages in a message broker. 
 
-## When to use this pattern
+1. The services or the subscriber poll the broker to determine if they can process that message based on their implemented business logic. The broker can also push messages to subscribers who are interested in that message. 
 
-Use the choreography pattern if you expect to update or replace services frequently, and add or remove some services eventually. The entire app can be modified with less effort and minimal disruption to existing services.
+1. Each subscribed service does their operation as indicated by the message and responds to the broker with success or failure of the operation. 
 
-Consider this pattern if you experience performance bottlenecks in the central orchestrator.
+1. If successful, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If the operation fails, the message broker works with other services to compensate that operation or the entire transaction.
 
-This pattern is a natural model for the serverless architecture where all services can be short lived, or event driven. Services can spin up because of an event, do their task, and are removed when the task is finished.
+
 
 ## Issues and considerations
 
 Decentralizing the orchestrator can cause issues while managing the workflow.
 
-If a service fails to complete a business operation, it can be difficult to recover from that failure. One way is to have the service indicate failure by firing an event. Another service subscribes to those failed events takes necessary actions such as applying [compensating transactions](./compensating-transaction.yml) to undo successful operations in a request. The failed service might also fail to fire an event for the failure. In that case, consider using a retry and, or time out mechanism to recognize that operation as a failure. For an example, see the [Example](#example) section.
+- Handing failures can be challenging. Components in an application might conduct atomic tasks but they might still have a level of dependency. Failure in one component can impact others, which might cause delays in completing the overall request. 
 
-It's simple to implement a workflow when you want to process independent business operations in parallel. You can use a single message bus. However, the workflow can become complicated when choreography needs to occur in a sequence. For instance, Service C can start its operation only after Service A and Service B have completed their operations with success. One approach is to have multiple message buses that get messages in the required order. For more information, see the [Example](#example) section.
+   To handle failures gracefully, implementing [compensating transactions](./compensating-transaction.yml) might introduce complexity. Failure handling logic, such as compensating transactions, is also prone to failures.
 
-The choreography pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
+    ![A flowchart showing error handling in the choreography pattern.](./_images/choreography-pattern-handling-errors.png)
 
-The orchestrator centrally manages the resiliency of the workflow and it can become a single point of failure. On the other hand, for choreography, the role is distributed between all services and resiliency becomes less robust.
+- The pattern is suitable for a workflow where independent business operations are processed in parallel. The workflow can become complicated when choreography needs to occur in a sequence. For instance, Service D can start its operation only after Service B and Service C have completed their operations with success.
 
-Each service isn't only responsible for the resiliency of its operation but also the workflow. This responsibility can be burdensome for the service and hard to implement. Each service must retry transient, nontransient, and time-out failures, so that the request terminates gracefully, if needed. Also, the service must be diligent about communicating the success or failure of the operation so that other services can act accordingly.
+    ![A diagram of workflow in an messaging system that implements the choregraphy pattern in parallel and subsequently.](./_images/choreography-pattern-parallel-workflow.png)
+
+- The pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
+
+- In an orchestrator-led design, the central component can partially participate and delegate resiliency logic to another component that retries transient, nontransient, and time-out failures, consistently. With the dissolution of the orchestrator in the choreography pattern, the downstream components shouldn't pick up those resiliency tasks. Those must still be handled by the resiliency handler. But now, the downstream components must directly communicate with the resiliency handler, increasing point-to-point communication. 
+
+
+## When to use this pattern
+
+Use this pattern when:
+
+- The downstream components handle atomic operations independently. Think of it as a  'fire and forget' mechanism. A component is responsible for a task that doesn't need to be managed actively. When the task is complete, it sends notification to the other components.
+
+- The components are expected to get updated and replaced frequently. The pattern enables the application to be modified with less effort and minimal disruption to existing services.
+
+- The pattern is a natural fit for serverless architectures that are appropriate for simple workflows. The components can be short-lived and event-driven. When an event occurs, components are spun up, perform their tasks, and removed once the task is completed.
+
+- This pattern can be a good choice for communications between bounded contexts. For communications inside an individual bounded context, an orchestrator pattern might be considered.
+
+- There's performance bottleneck introduced by the central orchestrator.
+
+This pattern might not be useful when:
+
+- The application is complex and requires a central component to handle shared logic to keep the downstream components lightweight.
+
+- There are situations where point-to-point communication between the components is inevitable.
+
+- You need to consolidate all operations handled by downstream components, by using business logic. 
+
 
 ## Workload design
 
@@ -59,93 +89,39 @@ As with any design decision, consider any tradeoffs against the goals of the oth
 
 ## Example
 
-This example shows the choreography pattern with the [Drone Delivery app](https://github.com/mspnp/microservices-reference-implementation). When a client requests a pickup, the app assigns a drone and notifies the client.
+This example shows the choreography pattern by creating an event driven, cloud native workload running functions along with microservices. When a client requests a package to be shipped, the workload assigns a drone. Once the package is ready to pick up by the scheduled drone, the delivery process gets started. While in-transit the workload handles the delivery until it gains the shipped status.
 
-![GitHub logo](../_images/github.png) An example of this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/choreography).
+This example is a refactoring of the [Drone Delivery implementation](https://github.com/mspnp/microservices-reference-implementation) that replaces the Orchestrator pattern with the Choreography pattern.
 
-![A close up of a map Description automatically generated](./_images/choreography-example.png)
+![Diagram of an event driven cloud native example workload implementing choreography pattern](./_images/choreography-example.png)
 
-A single client business transaction requires three distinct business operations: creating or updating a package, assigning a drone to deliver the package, and checking the delivery status. Those operations are performed by three microservices: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to collaborate and coordinate the request among themselves.
+The Ingestion service handles client requests and converts them into messages including the delivery details. Business transactions are initiated after consuming those new messages.
+
+A single client business transaction requires three distinct business operations: 
+
+1. Create or update a package
+2. Assign a drone to deliver the package
+3. Handle the delivery that consists of checking and eventually raising awareness when shipped. 
+
+Three microservices perform the business processing: Package, Drone Scheduler, and Delivery services. Instead of a central orchestrator, the services use messaging to communicate among themselves. Each service would be responsible to implement a protocol in advance that coordinates in a decentralized way the business workflow.
 
 ### Design
 
-The business transaction is processed in a sequence through multiple hops. Each hop has a message bus and the respective business service.
+The business transaction is processed in a sequence through multiple hops. Each hop is sharing a single message bus among all the business services.
 
-When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, raises an operation event, and sends it to a message bus. The bus invokes the subscribed business service and sends the event in a POST request. On receiving the event, the business service can complete the operation with success, failure, or the request can time out. If successful, the service responds to the bus with the Ok status code, raises a new operation event, and sends it to the message bus of the next hop. In case of a failure or time-out, the service reports failure by sending the BadRequest code to the message bus that sent the original POST request. The message bus retries the operation based on a retry policy. After that period expires, message bus flags the failed operation and further processing of the entire request stops.
+When a client sends a delivery request through an HTTP endpoint, the Ingestion service receives it, converts such request into a message, and then publishes the message to the shared message bus. The subscribed business services are going to be consuming new messages added to the bus. On receiving the message, the business services can complete the operation with success, failure, or the request can time out. If successful, the services respond to the bus with the Ok status code, raises a new operation message, and sends it to the message bus. If there's a failure or time-out, the service reports failure by sending the reason code to the message bus. Additionally, the message is added to a dead-letter queue. Messages that couldn't be received or processed within a reasonable and appropriate amount of time are moved the DLQ as well.
 
-This workflow continues until the entire request has been processed.
+The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Service Bus](/azure/service-bus-messaging) and [Microsoft Azure Event Grid](/azure/event-grid/) are composed to provide with the messaging service platform for this design. The workload is deployed on [Azure Container Apps](/azure/container-apps/) hosting [Azure Functions](/azure/azure-functions/functions-container-apps-hosting/) for ingestion, and apps handling [event-driven processing](/azure/container-apps/scale-app?pivots=azure-cli#custom) that executes the business logic.
 
-The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Event Grid](/azure/event-grid/) provides the messaging service. The app is deployed in an [Azure Kubernetes Service (AKS)](/azure/aks/) cluster with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with Event Grid while the other runs a business service. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
+The design ensures the choreography to occur in a sequence. A single Azure Service Bus namespace contains a topic with two subscriptions and a session-aware queue. The Ingestion service publishes messages to the topic. The Package service and Drone Scheduler service subscribe to the topic and publish messages communicating the success to the queue. Including a common session identifier which a GUID associated to the delivery identifier, enables the ordered handling of unbounded sequences of related messages. The Delivery service awaits two related messages per transaction. The first message indicates the package is ready to be shipped, and the second signals that a drone is scheduled.
 
-To avoid cascading retry operations that might lead to multiple efforts, only Event Grid retries an operation instead of the business service. It flags a failed request by sending a messaging to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues).
+This design uses Azure Service Bus to handle high-value messages that can't be lost or duplicated during the entire delivery process. When the package is shipped, it's also published a change of state to Azure Event Grid. In this design, the event sender has no expectation about how the change of state is handled. Downstream organization services that aren't included as part of this design could be listening to this event type, and react executing specific business purpose logic (that is, email the shipped order status to the user).
+
+> If you are planning to deploy this into another compute service such as [AKS](/azure/aks/) pub-sub pattern application boilerplate could be implemented with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with your message bus of preference while the another executes the business logic. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
+
+To avoid cascading retry operations that might lead to multiple efforts, business services should immediately flag unacceptable messages. It's possible to enrich such messages using well-known reason codes or a defined application code, so it can be moved to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues). Consider managing consistency issues implementing [Saga](/azure/architecture/reference-architectures/saga/saga) from downstream services. For example, another service could handle dead lettered messages for remediation purposes only by executing a compensation, rety or pivot transaction.
 
 The business services are idempotent to make sure retry operations don't result in duplicate resources. For example, the Package service uses upsert operations to add data to the data store.
-
-The example implements a custom solution to correlate calls across all services and Event Grid hops.
-
-Here's a code example that shows the choreography pattern between all business services. It shows the workflow of the Drone Delivery app transactions. Code for exception handling and logging have been removed for brevity.
-
-```csharp
-[HttpPost]
-[Route("/api/[controller]/operation")]
-[ProducesResponseType(typeof(void), 200)]
-[ProducesResponseType(typeof(void), 400)]
-[ProducesResponseType(typeof(void), 500)]
-
-public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
-{
-
-   if (events == null)
-   {
-       return BadRequest("No Event for Choreography");
-   }
-
-   foreach(var e in events)
-   {
-
-        List<EventGridEvent> listEvents = new List<EventGridEvent>();
-        e.Topic = eventRepository.GetTopic();
-        e.EventTime = DateTime.Now;
-        switch (e.EventType)
-        {
-            case Operations.ChoreographyOperation.ScheduleDelivery:
-            {
-                var packageGen = await packageServiceCaller.UpsertPackageAsync(delivery.PackageInfo).ConfigureAwait(false);
-                if (packageGen is null)
-                {
-                    //BadRequest allows the event to be reprocessed by Event Grid
-                    return BadRequest("Package creation failed.");
-                }
-
-                //we set the event type to the next choreography step
-                e.EventType = Operations.ChoreographyOperation.CreatePackage;
-                listEvents.Add(e);
-                await eventRepository.SendEventAsync(listEvents);
-                return Ok("Created Package Completed");
-            }
-            case Operations.ChoreographyOperation.CreatePackage:
-            {
-                var droneId = await droneSchedulerServiceCaller.GetDroneIdAsync(delivery).ConfigureAwait(false);
-                if (droneId is null)
-                {
-                    //BadRequest allows the event to be reprocessed by Event Grid
-                    return BadRequest("could not get a drone id");
-                }
-                e.Subject = droneId;
-                e.EventType = Operations.ChoreographyOperation.GetDrone;
-                listEvents.Add(e);
-                await eventRepository.SendEventAsync(listEvents);
-                return Ok("Drone Completed");
-            }
-            case Operations.ChoreographyOperation.GetDrone:
-            {
-                var deliverySchedule = await deliveryServiceCaller.ScheduleDeliveryAsync(delivery, e.Subject);
-                return Ok("Delivery Completed");
-            }
-            return BadRequest();
-    }
-}
-```
 
 ## Related resources
 
@@ -157,6 +133,8 @@ Consider these patterns in your design for choreography.
 
 - Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.yml).
 
-- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operation fails.
+- Use [compensating transactions](./compensating-transaction.yml) to undo a series of successful operations in case one or more related operations fail.
 
 - For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](../guide/technology-choices/messaging.yml).
+
+- [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services)

@@ -102,8 +102,6 @@ items:
           href: ../example-scenario/infrastructure/wordpress-app-service.yml
         - name: VM hosting
           href: ../example-scenario/infrastructure/wordpress-iaas.yml
-      - name: Episerver
-        href: hosting-applications/digital-marketing-episerver.yml
       - name: Sitecore
         href: hosting-applications/digital-marketing-sitecore.yml
       - name: Umbraco

@@ -4,7 +4,7 @@ description: Learn about considerations and approaches for using Azure Active Di
 author: landonpierce
 ms.author: landonpierce 
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 06/06/2024
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
@@ -19,7 +19,7 @@ ms.custom:
 
 # Considerations for using Azure Active Directory B2C in a multitenant architecture
 
-Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
+Azure Active Directory (Azure AD) B2C provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
 One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers so that your users can sign in with a pre-existing account. If you use Azure AD B2C, you can implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) that's specific to your application.
 
@@ -44,7 +44,7 @@ In multitenant solutions, it's common to combine multiple identity services to a
 - **Customer identities**, which are for end-user accounts. They control how your tenants' users get access to your applications.
 - **Internal identities**, which handle how your own team manages your solution.
 
-These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) (Microsoft Entra ID) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
+These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
 
 Consider an example multitenant solution built by Fabrikam. The solution uses a combination of the two services to meet Fabrikam's requirements:
 
@@ -207,9 +207,9 @@ For more information about automated deployments and management of Azure AD B2C,
 
 ## Comparing Microsoft Entra B2B to Azure AD B2C
 
-[Microsoft Entra B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of Microsoft Entra External ID that you can use to invite guest users into your *organizational* Microsoft Entra tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Microsoft Entra tenant.
+[Microsoft Entra B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of [Microsoft Entra External ID](/entra/external-id/external-identities-overview) that you can use to invite guest users into your *organizational* Microsoft Entra tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Microsoft Entra tenant.
 
-[Microsoft Entra External ID](/azure/active-directory/external-identities/external-identities-overview) is the set of approaches that you can use to interact with users outside of your organization. Azure AD B2C is one of the Microsoft Entra External ID capabilities, but it provides a different set of features than other external identities approaches. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Microsoft Entra tenant.
+Azure AD B2C is a unique product apart from Microsoft Entra External ID that provides a different set of features. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Microsoft Entra tenant.
 
 Depending on your user personas and scenarios, you might need to use Microsoft Entra B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Microsoft Entra B2B and Azure AD B2C together to meet this requirement.
 

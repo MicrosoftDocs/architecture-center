@@ -1,7 +1,8 @@
 ---
 title: Message encoding considerations
 description: Review how to choose an encoding format for asynchronous messaging. Explore encoding format considerations and choices for encoding formats.
-author: PageWriter-MSFT
+ms.author: robbag
+author: RobBagby
 ms.date: 03/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -150,7 +151,7 @@ Being a text-based format, it isn't efficient over the wire and not an ideal cho
 
 Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.
 
-There are other variations of JSON such as [BSON](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
+There are other variations of JSON such as [binary JSON (BSON)](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
 
 ### Comma-Separated Values (CSV)
 
@@ -176,7 +177,7 @@ The preamble can hold the header or a schema identifier. Because of the smaller 
 
 ### CBOR
 
-[Concise Binary Object Representation](http://cbor.io) (CBOR) (Specification) is a binary format that offers small encoding size. The advantage of CBOR over MessagePack is that its compliant with IETF in RFC7049.
+[Concise Binary Object Representation (CBOR)](http://cbor.io) (Specification) is a binary format that offers small encoding size. The advantage of CBOR over MessagePack is that its compliant with IETF in RFC7049.
 
 ## Next steps
 

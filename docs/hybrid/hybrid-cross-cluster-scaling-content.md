@@ -50,7 +50,7 @@ Overall, this workflow involves building and deploying applications, load balanc
 
 ### Components
 
-- [Azure Front Door]( https://azure.microsoft.com/products/frontdoor/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web applications deployed on Stack HCI Cluster. You can also use a [web application firewall (WAF)](/azure/frontdoor/waf-overview) with Azure Front Door that protects the application from common exploits and vulnerabilities, and a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design to reduce latency and to improve content load time by caching the content at the edge locations.
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web applications deployed on Stack HCI Cluster. You can also use a [web application firewall (WAF)](/azure/frontdoor/waf-overview) with Azure Front Door that protects the application from common exploits and vulnerabilities, and a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design to reduce latency and to improve content load time by caching the content at the edge locations.
 
 - [Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer and a viable load-balancing option. Use it to control the distribution of application traffic to service endpoints in different data centers. Here's how the Traffic Manager configuration works:
 
@@ -76,7 +76,7 @@ Overall, this workflow involves building and deploying applications, load balanc
 
     c. Configure authentication to Azure by setting up service principals or using managed identities.
 
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a service that provides CI/CD and manages hosted build and release agents and definitions. Development pipeline can use various code repositories, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos]( https://azure.microsoft.com/products/devops/repos).
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a service that provides CI/CD and manages hosted build and release agents and definitions. Development pipeline can use various code repositories, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos](https://azure.microsoft.com/products/devops/repos).
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects telemetry data and monitors the performance of clusters and workloads. It also lets you configure alerts to trigger an Azure Function or to notify an administrator if any cluster becomes unhealthy or if predefined thresholds are exceeded. You can use Azure Automation or Azure Logic Apps to automate scaling actions based on the monitoring data.
 - [Azure Policy](https://azure.microsoft.com/products/azure-policy/) acts as a governance and compliance enforcer, guaranteeing that Stack HCI clusters and associated SDN resources operate within the defined guidelines and standards. Here are some examples to enhance the security of the environment through Azure Policy:
   - Enforcing Container Insight Addon
@@ -90,7 +90,7 @@ Overall, this workflow involves building and deploying applications, load balanc
 - [Container insights](/azure/azure-monitor/containers/container-insights-overview) is a monitoring and observability solution provided by Azure Monitor that lets you gain insights into the performance and health of containers running in AKS clusters. With Azure Arc enabled for AKS, you can extend the capabilities of Container insights to monitor and manage your AKS clusters that are running outside of Azure, such as for on-premises or multicloud environments.
 - [Arc-Enabled SQL Managed Instances](https://azure.microsoft.com/products/azure-arc/hybrid-data-services/) is an Azure SQL data service that can be created on the Stack HCI infrastructure and managed by using Azure Arc.
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) lets you securely store and manage cryptographic keys, secrets, and certificates. While Azure Key Vault is primarily a cloud service, it can also be used with Azure Stack HCI deployments to store and manage sensitive information securely on-premises.
-- [SDN Infrastructure](/azure-stack/hci/concepts/plan-software-defined-networking-infrastructure). In an AKS hybrid deployment on Azure Stack HCI, load balancing is achieved through the Software Load Balancer SDN (SLB). SLB manages the AKS-HCI infrastructure and applications within the SDN (Software-Defined Networking) Virtual Network, including the necessary SDN network infrastructure resources like Mux load balancer VMs, Gateway VMs, and Network Controllers.
+- [SDN Infrastructure](/azure-stack/hci/concepts/plan-software-defined-networking-infrastructure). In an AKS hybrid deployment on Azure Stack HCI, load balancing is achieved through the Software Load Balancer (SLB) SDN. SLB manages the AKS-HCI infrastructure and applications within the SDN (Software-Defined Networking) Virtual Network, including the necessary SDN network infrastructure resources like Mux load balancer VMs, Gateway VMs, and Network Controllers.
 
 Here's a breakdown of the components involved:
 
@@ -226,17 +226,17 @@ The major benefit of cross-cluster scaling is the ability to deliver on-demand s
 
 Principal authors:
 
-[Mayuri Bhavsar]( https://www.linkedin.com/in/mayuri-bhavsar-2ba0911a/) | Senior Cloud Solution Architect
+[Mayuri Bhavsar](https://www.linkedin.com/in/mayuri-bhavsar-2ba0911a/) | Senior Cloud Solution Architect
 
-[Vidya Narasimhan]( https://www.linkedin.com/in/vidya-narasimhan-124ba393/) | Principal Cloud Solution Architect
+[Vidya Narasimhan](https://www.linkedin.com/in/vidya-narasimhan-124ba393/) | Principal Cloud Solution Architect
 
 Other contributors:
 
-[Himanshu Amodwala]( https://www.linkedin.com/in/himanshu-a-5919b4112/) | Senior Cloud Solution Architect
+[Himanshu Amodwala](https://www.linkedin.com/in/himanshu-a-5919b4112/) | Senior Cloud Solution Architect
 
-[Nakul Joshi]( https://www.linkedin.com/in/nakul-joshi-24884430/) | Principal Software Engineering Manager
+[Nakul Joshi](https://www.linkedin.com/in/nakul-joshi-24884430/) | Principal Software Engineering Manager
 
-[Vineeth Marar]( https://www.linkedin.com/in/vineeth-marar-2a835832/) | Senior Cloud Solution Architect
+[Vineeth Marar](https://www.linkedin.com/in/vineeth-marar-2a835832/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

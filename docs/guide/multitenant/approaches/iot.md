@@ -63,6 +63,18 @@ You can isolate and distribute tenants across the IoT control, management, and c
 
 IoT solutions tend to be very data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
 
+### Security
+
+IoT solutions often have security considerations at multiple layers, especially in solutions that are deployed in a cloud-modified [Purdue Enterprise Reference Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) or [Industry 4.0](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/extending-operational-technology-to-azure/ba-p/3265466) solutions.  The design approach selected from those below will impact what network layers and boundaries exist; once the physical design is selected, the security implementation can be selected.  Tools that may be used in any approach include:
+
+- [Microsoft Defender for IoT](/azure/defender-for-iot/), a comprehensive IoT monitoring solution you should consider that offers a [per-device EIoT license](https://www.microsoft.com/security/business/endpoint-security/microsoft-defender-iot-pricing) and [OT site licenses](https://www.microsoft.com/security/business/endpoint-security/microsoft-defender-iot-pricing#x99b0961a86984d6581c616046ffdb573) for each customer device and/or site. Depending on the approach selected from later in this article, the Microsoft 365 named user licensing scenario may not be possible. In that case, the per-device and site license options are available, which are license options independent of Microsoft 365 tenant licenses.
+
+- [Azure Firewall](/azure/firewall/) or a third-party firewall appliance, which you should consider for isolating the network layers as well as monitoring network traffic. The exact choice of approach will impact where workloads will have network isolation versus a shared network, as addressed below.
+
+- [Azure IoT Edge](https://azure.microsoft.com/products/iot-edge/) or [Azure IoT Operations](https://azure.microsoft.com/products/iot-operations/), which you should consider as part of device connectivity to Azure-hosted services without directly exposing devices to direct Internet access.  As Azure IoT Operations is in preview at this time, this document does not describe use of that offering in general.  A future revision of this document will address this.
+
+Most of these security topics apply in a multitenant solution similar to how they would in a single tenant solution, with the variations tied to the selected approach. One component that is going to likely be substantially different in an overall IoT solution is user and application identity. [Architectural approaches for identity in multitenant solutions](/azure/architecture/guide/multitenant/approaches/identity) discusses this aspect of an overall multitenant solution.
+
 ## Approaches to consider
 
 All the considerations that you'd normally make in an IoT architecture, for all the primary components (such as management, ingestion, processing, storage, security, and so on), are all choices you still must make when pursuing a multi-tenant solution. The primary difference is how you arrange and utilize the components to support multi-tenancy. For example, common decision points for storage might be deciding whether to use SQL Server or Azure Data Explorer, or perhaps on the ingestion and management tier, you'd choose between IoT Hub and IoT Central.
@@ -260,13 +272,13 @@ When you expand the scale of a solution to very large deployments, there are spe
 
 Principal authors:
 
- - [Michael C. Bazarewsky](https://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
- - [David Crook](https://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
+- [Michael C. Bazarewsky](https://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+- [David Crook](https://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
- - [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

@@ -73,7 +73,7 @@ To improve the quality of your Azure solutions, follow the recommendations and g
 To create a design that respects these recommendations, consider the following services:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Identity services, single sign-on, and multifactor authentication across Azure workloads.
-- [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
+- [Microsoft Cost Management](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Secure credential and certificate management.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Collection, analysis, and display of telemetry from your Azure resources. Use Monitor to proactively identify problems to maximize performance and reliability.
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.
@@ -92,7 +92,7 @@ Because of a well-known high failure rate to such initiatives, the ability to ra
 
 - **An ML toolkit for all skill levels**
   - Supports no-code to fully coded ML development
-  - Has a flexible, low-code GUI
+  - Has a flexible, low-code graphical user interface (GUI)
   - Enables users to rapidly source and prep data
   - Enables users to rapidly build and deploy models
   - Has advanced, automated ML capabilities for ML algorithm development
@@ -133,7 +133,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 **Azure pricing:** First-party infrastructure as a service (IaaS) and platform as a service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
-**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are SaaS applications and have their own pricing models, including per app plan and per user.
+**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software as a service (SaaS) applications and have their own pricing models, including per app plan and per user.
 
 ## Deploy this scenario
 

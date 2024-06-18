@@ -19,13 +19,13 @@ ms.custom:
 
 # Monitor workload deployments
 
-_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
+*This article is part of a series. Start with the [overview](aks-triage-practices.md).*
 
 It's important to monitor the health and performance of your Kubernetes workloads to ensure that they run optimally. Azure Kubernetes Service (AKS) has several tools that you can use to check the health and performance of your deployments, `DaemonSet` features, and services.
 
 ## Tools
 
-It's important to determine whether all deployments and `DaemonSet` features are running. This article describes how to determine whether the replicas in the _ready_ and _available_ states match the expected replica count by using:  
+It's important to determine whether all deployments and `DaemonSet` features are running. This article describes how to determine whether the replicas in the *ready* and *available* states match the expected replica count by using:  
 
 - The Azure portal.
 - The container insights feature of Azure Monitor.
@@ -38,7 +38,7 @@ You can use the Azure portal to verify the health of the following components in
 
 #### Deployment, `ReplicaSet`, `StatefulSet`, and `DaemonSet`
 
-Verify that the number of replicas that are in a _ready_ state matches the number of desired replicas. The portal shows:
+Verify that the number of replicas that are in a *ready* state matches the number of desired replicas. The portal shows:
 
 - The number of replicas that are currently available and ready to serve traffic. These replicas have been successfully scheduled onto worker nodes, completed their startup process, and passed their readiness checks.
 
@@ -46,11 +46,11 @@ Verify that the number of replicas that are in a _ready_ state matches the numbe
 
 #### Services and ingresses
 
-Ensure that the status is _ok_ for all services and ingresses.
+Ensure that the status is *ok* for all services and ingresses.
 
 #### Storage
 
-Ensure that the status is _bound_ for all the persistent volume claims and persistent volumes.
+Ensure that the status is *bound* for all the persistent volume claims and persistent volumes.
 
 ### Container insights
 
@@ -105,11 +105,11 @@ To list the pods running in all namespaces, run the following command:
 kubectl get pod -A
 ```
 
-In the output from the command, the _READY_ column provides important information about the readiness state of the pod's containers.
+In the output from the command, the *READY* column provides important information about the readiness state of the pod's containers.
 
-The first number signifies the count of containers that are currently in a _ready_ state. These containers have passed the readiness probes and are prepared to handle incoming traffic. The second number represents the total count of containers that are defined within the pod, regardless of their readiness state. It includes containers that are ready and those that are still being initialized or experiencing issues.
+The first number signifies the count of containers that are currently in a *ready* state. These containers have passed the readiness probes and are prepared to handle incoming traffic. The second number represents the total count of containers that are defined within the pod, regardless of their readiness state. It includes containers that are ready and those that are still being initialized or experiencing issues.
 
-Ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, some containers might not be ready or there might be issues preventing them from reaching the _ready_ state.
+Ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, some containers might not be ready or there might be issues preventing them from reaching the *ready* state.
 
 #### Deployment, `StatefulSet`, `DaemonSet`, and `StatefulSet`
 
@@ -119,7 +119,7 @@ Run the following command to retrieve the [deployments](https://kubernetes.io/do
 kubectl get deploy -A
 ```
 
-In the output of the `kubectl get deploy` command, the numbers in the _READY_ column indicate the current readiness state of the replicas in a deployment.
+In the output of the `kubectl get deploy` command, the numbers in the *READY* column indicate the current readiness state of the replicas in a deployment.
 
 The first number represents the number of replicas that are ready and available to serve traffic. These replicas have successfully started and passed their readiness checks. The second number represents the desired number of replicas specified in the deployment configuration. It's the target number of replicas that the deployment aims to maintain.
 
@@ -149,7 +149,7 @@ Likewise, if you configure your AKS cluster to collect Prometheus metrics in [Mo
 kubectl get ds ama-metrics-node --namespace=kube-system
 ```
 
-This output provides information about the `DaemonSet` features in your cluster. Examine the output to ensure that the number of pods in the _ready_, _current_, and _desired_ states are the same. If they're the same, the desired number of pods specified in the `DaemonSet` configuration is equal to the number of pods that are currently running and ready.
+This output provides information about the `DaemonSet` features in your cluster. Examine the output to ensure that the number of pods in the *ready*, *current*, and *desired* states are the same. If they're the same, the desired number of pods specified in the `DaemonSet` configuration is equal to the number of pods that are currently running and ready.
 
 We recommended that you perform the same check for [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset) features. You can use the following command to retrieve the `ReplicaSet` features in all namespaces:
 
@@ -177,7 +177,7 @@ If you suspect that a specific resource like a deployment, `DaemonSet`, or `Repl
 
 ### In-cluster monitoring with Prometheus and Grafana
 
-If you deploy [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard presents information that's gathered from the Prometheus cluster metrics, such as CPU and memory usage, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and _systemd_ services.
+If you deploy [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard presents information that's gathered from the Prometheus cluster metrics, such as CPU and memory usage, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and *systemd* services.
 
 To ensure the health and performance of your deployments, jobs, pods, and containers, you can use the features in the dashboard. Select **Deployments** to view the number of replicas for each deployment and the total number of replicas. Select **Containers** to view a chart that shows the running, pending, failed, and succeeded containers.
 
@@ -185,28 +185,28 @@ To ensure the health and performance of your deployments, jobs, pods, and contai
 
 You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
 
-Install the [prebuilt dashboards](https://aka.ms/azureprometheus-mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. For detailed installation instructions, see [Prometheus monitoring mixin for Kubernetes](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use). The dashboards are provisioned in the specified Azure Managed Grafana instance in the _Managed Prometheus_ folder. Some dashboards include:
+Install the [prebuilt dashboards](https://aka.ms/azureprometheus-mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. For detailed installation instructions, see [Prometheus monitoring mixin for Kubernetes](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use). The dashboards are provisioned in the specified Azure Managed Grafana instance in the *Managed Prometheus* folder. Some dashboards include:
 
-- _Kubernetes / Compute Resources / Cluster_
-- _Kubernetes / Compute Resources / Namespace (Pods)_
-- _Kubernetes / Compute Resources / Node (Pods)_
-- _Kubernetes / Compute Resources / Pod_
-- _Kubernetes / Compute Resources / Namespace (Workloads)_
-- _Kubernetes / Compute Resources / Workload_
-- _Kubernetes / Kubelet_
-- _Node Exporter / USE Method / Node_
-- _Node Exporter / Nodes_
-- _Kubernetes / Compute Resources / Cluster (Windows)_
-- _Kubernetes / Compute Resources / Namespace (Windows)_
-- _Kubernetes / Compute Resources / Pod (Windows)_
-- _Kubernetes / USE Method / Cluster (Windows)_
-- _Kubernetes / USE Method / Node (Windows)_
+- *Kubernetes / Compute Resources / Cluster*
+- *Kubernetes / Compute Resources / Namespace (Pods)*
+- *Kubernetes / Compute Resources / Node (Pods)*
+- *Kubernetes / Compute Resources / Pod*
+- *Kubernetes / Compute Resources / Namespace (Workloads)*
+- *Kubernetes / Compute Resources / Workload*
+- *Kubernetes / Kubelet*
+- *Node Exporter / USE Method / Node*
+- *Node Exporter / Nodes*
+- *Kubernetes / Compute Resources / Cluster (Windows)*
+- *Kubernetes / Compute Resources / Namespace (Windows)*
+- *Kubernetes / Compute Resources / Pod (Windows)*
+- *Kubernetes / USE Method / Cluster (Windows)*
+- *Kubernetes / USE Method / Node (Windows)*
 
 These built-in dashboards are widely used in the open-source community for monitoring Kubernetes clusters with Prometheus and Grafana. Use these dashboards to see metrics, such as resource usage, pod health, and network activity. You can also create custom dashboards that are tailored to your monitoring needs. Dashboards help you to effectively monitor and analyze Prometheus metrics in your AKS cluster, which enables you to optimize performance, troubleshoot issues, and ensure smooth operation of your Kubernetes workloads.
 
-You can use the _Kubernetes / Compute Resources / Node (Pods)_ dashboard to see metrics for your Linux agent nodes. You can visualize the CPU usage, CPU quota, memory usage, and memory quota for each pod.
+You can use the *Kubernetes / Compute Resources / Node (Pods)* dashboard to see metrics for your Linux agent nodes. You can visualize the CPU usage, CPU quota, memory usage, and memory quota for each pod.
 
-The _Kubernetes / Compute Resources / Pod_ Grafana dashboard provides insights about the resource consumption and performance metrics of a selected cluster, namespace, and pod. You can use this dashboard to get metrics related to CPU usage, CPU throttling, the CPU quota, memory usage, the memory quota, networking metrics, and storage metrics. In the dashboard, select an AKS cluster, namespace, and pod within the chosen namespace to see the following details:
+The *Kubernetes / Compute Resources / Pod* Grafana dashboard provides insights about the resource consumption and performance metrics of a selected cluster, namespace, and pod. You can use this dashboard to get metrics related to CPU usage, CPU throttling, the CPU quota, memory usage, the memory quota, networking metrics, and storage metrics. In the dashboard, select an AKS cluster, namespace, and pod within the chosen namespace to see the following details:
 
 - **CPU usage**: This chart displays the CPU usage over time for the selected pod. You can review the CPU consumption pattern and identify potential spikes or abnormalities.
 
@@ -217,7 +217,7 @@ The _Kubernetes / Compute Resources / Pod_ Grafana dashboard provides insights a
 - **Networking metrics**: These charts show the received and transmitted bandwidth, and the rate of received and transmitted packets. These metrics help you monitor network usage and detect any potential networking bottlenecks or anomalies.
 - **Storage metrics**: This section provides information about storage-related metrics, such as I/O operations per second (IOPS) and throughput. Monitor these metrics to help gauge the performance and efficiency of the pod storage.
 
-You can use the _Kubernetes / Compute Resources / Pod_ Grafana dashboard to get insights about the resource usage, performance, and behavior of pods in your Kubernetes cluster. Use this information to optimize resource allocation, troubleshoot performance issues, and make informed decisions to ensure the smooth operation of your containerized workloads.
+You can use the *Kubernetes / Compute Resources / Pod* Grafana dashboard to get insights about the resource usage, performance, and behavior of pods in your Kubernetes cluster. Use this information to optimize resource allocation, troubleshoot performance issues, and make informed decisions to ensure the smooth operation of your containerized workloads.
 
 ## Contributors
 

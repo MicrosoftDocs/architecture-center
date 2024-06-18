@@ -3,7 +3,7 @@ title: Azure for AWS professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the AWS and Azure platforms.
 author: martinekuan
 categories: azure
-ms.author: architectures
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -39,7 +39,7 @@ To quickly find the comparable services across the different technology categori
 
 ## Similarities and differences
 
-Like AWS, Microsoft Azure builds on a core set of compute, storage, database, and networking services. In many cases, the platforms offer similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software (OSS) technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
+Like AWS, Microsoft Azure builds on a core set of compute, storage, database, and networking services. In many cases, the platforms offer similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
 
 While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. Exact one-to-one correspondences between the services that you need to build a solution aren't always clear.
 

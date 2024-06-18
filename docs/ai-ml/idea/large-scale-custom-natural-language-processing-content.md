@@ -32,7 +32,7 @@ During the processing steps, Azure Databricks, Azure Synapse Analytics, and Azur
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests data streams that client applications generate. Event Hubs stores the streaming data and preserves the sequence of received events. Consumers can connect to hub endpoints to retrieve messages for processing. Event Hubs integrates with Data Lake Storage, as this solution shows.
 - [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks with Azure HDInsight, such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, and R.
 - [Data Factory](https://azure.microsoft.com/services/data-factory) automatically moves data between storage accounts of differing security levels to ensure separation of duties.
-- [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition APIs](/azure/cognitive-services/computer-vision/overview-ocr) to recognize text in images and extract that information. [The Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest recognition models, and is optimized for large, text-heavy documents and noisy images. [The OCR API](/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) isn't optimized for large documents but supports more languages than the Read API. This solution uses OCR to produce data in the [hOCR](https://en.wikipedia.org/wiki/HOCR) format.
+- [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition APIs](/azure/cognitive-services/computer-vision/overview-ocr) to recognize text in images and extract that information. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest recognition models, and is optimized for large, text-heavy documents and noisy images. The [OCR API](/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api) isn't optimized for large documents but supports more languages than the Read API. This solution uses OCR to produce data in the [hOCR](https://en.wikipedia.org/wiki/HOCR) format.
 
 ## Scenario details
 
@@ -44,20 +44,20 @@ For customized NLP workloads, the open-source library Spark NLP serves as an eff
 
 ### Potential use cases
 
-- **Document classification**: Spark NLP offers several options for text classification:
+- **Document classification:** Spark NLP offers several options for text classification:
 
   - Text preprocessing in Spark NLP and machine learning algorithms that are based on Spark ML
   - Text preprocessing and word embedding in Spark NLP and machine learning algorithms such as GloVe, BERT, and ELMo
   - Text preprocessing and sentence embedding in spark NLP and machine learning algorithms and models such as the Universal Sentence Encoder
   - Text preprocessing and classification in Spark NLP that uses the ClassifierDL annotator and is based on TensorFlow
 
-- **Name entity extraction (NER)**: In Spark NLP, with a few lines of code, you can train a NER model that uses BERT, and you can achieve state-of-the-art accuracy. NER is a subtask of information extraction. NER locates named entities in unstructured text and classifies them into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, and percentages. Spark NLP uses a state-of-the-art NER model with BERT. The model is inspired by a former NER model, bidirectional LSTM-CNN. That former model uses a novel neural network architecture that automatically detects word-level and character-level features. For this purpose, the model uses a hybrid bidirectional LSTM and CNN architecture, so it eliminates the need for most feature engineering.
+- **Name entity extraction (NER):** In Spark NLP, with a few lines of code, you can train a NER model that uses BERT, and you can achieve state-of-the-art accuracy. NER is a subtask of information extraction. NER locates named entities in unstructured text and classifies them into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, and percentages. Spark NLP uses a state-of-the-art NER model with BERT. The model is inspired by a former NER model, bidirectional LSTM-CNN. That former model uses a novel neural network architecture that automatically detects word-level and character-level features. For this purpose, the model uses a hybrid bidirectional LSTM and CNN architecture, so it eliminates the need for most feature engineering.
 
-- **Sentiment and emotion detection**: Spark NLP can automatically detect positive, negative, and neutral aspects of language.
+- **Sentiment and emotion detection:** Spark NLP can automatically detect positive, negative, and neutral aspects of language.
 
-- **Part of speech (POS)**: This functionality assigns a grammatical label to each token in input text.
+- **Part of speech (POS):** This functionality assigns a grammatical label to each token in input text.
 
-- **Sentence detection (SD)**: SD is based on a general-purpose neural network model for sentence boundary detection that identifies sentences within text. Many NLP tasks take a sentence as an input unit. Examples of these tasks include POS tagging, dependency parsing, named entity recognition, and machine translation.
+- **Sentence detection (SD):** SD is based on a general-purpose neural network model for sentence boundary detection that identifies sentences within text. Many NLP tasks take a sentence as an input unit. Examples of these tasks include POS tagging, dependency parsing, named entity recognition, and machine translation.
 
 ### Spark NLP functionality and pipelines
 
@@ -67,7 +67,7 @@ Spark NLP is by far the fastest open-source NLP library. Recent public benchmark
 
 Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy for a growing number of NLP tasks. The Spark NLP team regularly reads the latest relevant academic papers and produces the most accurate models.
 
-For the execution order of an NLP pipeline, Spark NLP follows the same development concept as traditional Spark ML machine learning models. But Spark NLP applies NLP techniques. The following diagram shows the core components of a Spark NLP pipeline.
+For the execution order of an NLP pipeline, Spark NLP follows the same development concept as traditional Spark machine learning models. But Spark NLP applies NLP techniques. The following diagram shows the core components of a Spark NLP pipeline.
 
 :::image type="content" source="_images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows N L P pipeline stages, such as document assembly, sentence detection, tokenization, normalization, and word embedding." border="false":::
 

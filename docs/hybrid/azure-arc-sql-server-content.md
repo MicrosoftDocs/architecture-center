@@ -17,11 +17,13 @@ The architecture consists of the following components and capabilities:
 - [Kubernetes][kubernetes-open-source]. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
 - [Azure Kubernetes Service][azure-kubernetes-service-service-page]. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
 - [Azure Stack HCI (20H2)][azs-hci-service-page]. This is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster consists of two to 16 physical nodes.
-- [Azure Kubernetes Service on Azure Stack HCI][azure-kubernetes-service-on-azs-hci-service-page]. This is an implementation of AKS, which automates running containerized applications at scale on Azure Stack HCI.
+- [Azure Kubernetes Service (AKS) on Azure Stack HCI][azure-kubernetes-service-on-azs-hci-service-page]. This is an implementation of AKS, which automates running containerized applications at scale on Azure Stack HCI.
 - [Azure Arc-enabled Kubernetes][azure-arc-enabled-kubernetes-service-page]. This hybrid service allows you to streamline deployment and management of Kubernetes clusters inside or outside of Azure.
 - [Azure Arc enabled data services][azure-arc-enabled-data-services-service-page]. This hybrid service makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 - [Azure SQL Managed Instance][sql-managed-instance-service-page]. This intelligent, scalable cloud database service combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service.
 - [Azure Arc enabled SQL Managed Instance][azure-arc-enabled-sql-managed-instance-service-page]. This Azure SQL data service can be created on your choice of infrastructure that hosts Azure Arc enabled data services.
+- [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview) is an Azure Arc service that helps you simplify the management of your hybrid IT estate distributed across VMware vSphere and Azure.
+- [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview) is an Azure Arc service that helps you simplify the management of your hybrid IT estate distributed across SCVMM managed environment and Azure.
 - [Azure Resource Manager][azure-resource-manager-service-page]. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags to secure and organize your resources after deployment.
 - [Azure Monitor][azure-monitor-service-page]. This cloud-based service maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
 - [Log Analytics][azure-log-analytics-service-page]. This is the primary tool in the Azure portal for writing log queries and interactively analyzing their results.
@@ -73,7 +75,7 @@ Azure Arc enabled SQL Managed Instance offers [near 100% compatibility][azure-ar
 <!--LM: Please check that "becomes" retains the meaning in the following paragraph.-->
 Azure Arc enabled SQL Managed Instance relies on Azure Arc data controller to establish and maintain a logical connection to the Azure Resource Manager control plane. The data controller becomes a group of pods running within the local Kubernetes or AKS cluster. The pods orchestrate SQL Managed Instance management and operational tasks, such as provisioning and deprovisioning, automatic failover, updates, scaling, backup and restoration, and monitoring.
 
-When planning for Azure Arc enabled data services, you need to decide whether the data controller will operate in the [Directly Connected or Indirectly Connected connectivity mode][azure-arc-data-services-connectivity-modes]. Your decision has important implications for the management capabilities and the amount of data being sent to Azure. If the Azure Arc enabled data services are directly connected to Azure, then you can manage them by using the standard Azure Resource Manager-based interfaces and tools, including the Azure portal, Azure Command-Line Interface (Azure CLI), or Azure Resource Manager templates. If the Azure Arc enabled data services are indirectly connected to Azure, then Azure Resource Manager provides their read-only inventory. Similarly, the Directly Connected mode is necessary if you want to provide Azure Arc enabled data services with support for Microsoft Entra ID, Azure role-based access control (Azure RBAC), or integrate them with such Azure services as Microsoft Defender for Cloud, Azure Monitor, or Azure Backup.
+When planning for Azure Arc enabled data services, you need to decide whether the data controller will operate in the [Directly Connected or Indirectly Connected connectivity mode][azure-arc-data-services-connectivity-modes]. Your decision has important implications for the management capabilities and the amount of data being sent to Azure. If the Azure Arc enabled data services are directly connected to Azure, then you can manage them by using the standard Azure Resource Manager-based interfaces and tools, including the Azure portal, Azure command-line interface (CLI), or Azure Resource Manager templates. If the Azure Arc enabled data services are indirectly connected to Azure, then Azure Resource Manager provides their read-only inventory. Similarly, the Directly Connected mode is necessary if you want to provide Azure Arc enabled data services with support for Microsoft Entra ID, Azure role-based access control (Azure RBAC), or integrate them with such Azure services as Microsoft Defender for Cloud, Azure Monitor, or Azure Backup.
 
 > [!CAUTION]
 > The Indirectly Connected connectivity mode requires a minimal amount of data to be delivered to Azure for inventory and billing purposes at least once per month.
@@ -189,7 +191,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - [Manage configurations for Azure Arc-enabled servers][Manage configurations for Azure Arc-enabled servers]
 - [Azure Arc hybrid management and deployment for Kubernetes clusters][Azure Arc hybrid management and deployment for Kubernetes clusters]
 - [Azure hybrid options][Azure hybrid options]
-- [Multicloud blockchain DLT][Multicloud blockchain DLT]
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework/
@@ -262,4 +263,3 @@ Security provides assurances against deliberate attacks and the abuse of your va
 [Manage configurations for Azure Arc-enabled servers]: ./azure-arc-hybrid-config.yml
 [Azure Arc hybrid management and deployment for Kubernetes clusters]: ./arc-hybrid-kubernetes.yml
 [Azure hybrid options]: ../guide/technology-choices/hybrid-considerations.yml
-[Multicloud blockchain DLT]: ../example-scenario/blockchain/multi-cloud-blockchain.yml

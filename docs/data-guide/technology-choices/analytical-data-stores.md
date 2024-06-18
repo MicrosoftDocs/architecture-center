@@ -1,8 +1,8 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: martinekuan
-ms.author: martinek
+author: raunakjhawar
+ms.author: rajhawar
 ms.date: 03/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
@@ -20,7 +20,7 @@ ms.custom:
 
 In a [big data](../big-data/index.yml) architecture, there is often a need for an analytical data store that serves processed data in a structured format that can be queried using analytical tools. Analytical data stores that support querying of both hot-path and cold-path data are collectively referred to as the serving layer, or data serving storage.
 
-The serving layer deals with processed data from both the hot path and cold path. In the [lambda architecture](../big-data/index.yml#lambda-architecture), the serving layer is subdivided into a _speed serving_ layer, which stores data that has been processed incrementally, and a _batch serving_ layer, which contains the batch-processed output. The serving layer requires strong support for random reads with low latency. Data storage for the speed layer should also support random writes, because batch loading data into this store would introduce undesired delays. On the other hand, data storage for the batch layer does not need to support random writes, but batch writes instead.
+The serving layer deals with processed data from both the hot path and cold path. In the [lambda architecture](../big-data/index.yml#lambda-architecture), the serving layer is subdivided into a *speed serving* layer, which stores data that has been processed incrementally, and a *batch serving* layer, which contains the batch-processed output. The serving layer requires strong support for random reads with low latency. Data storage for the speed layer should also support random writes, because batch loading data into this store would introduce undesired delays. On the other hand, data storage for the batch layer does not need to support random writes, but batch writes instead.
 
 There is no single best data management choice for all data storage tasks. Different data management solutions are optimized for different tasks. Most real-world cloud apps and big data processes have a variety of data storage requirements and often use a combination of data storage solutions.
 
@@ -42,10 +42,10 @@ There are several options for data serving storage in Azure, depending on your n
 These options provide various database models that are optimized for different types of tasks:
 
 - [Key/value](../big-data/non-relational-data.yml#keyvalue-data-stores) databases hold a single serialized object for each key value. They're good for storing large volumes of data where you want to get one item for a given key value and you don't have to query based on other properties of the item.
-- [Document](../big-data/non-relational-data.yml#document-data-stores) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
+- [Document](../big-data/non-relational-data.yml#document-data-stores) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or binary JSON (BSON), but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
 - [Column store](../big-data/non-relational-data.yml#columnar-data-stores) databases are key/value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not just single columns. For example, a census database might have a column family for a person's name (first, middle, last), a family for the person's address, and a family for the person's profile information (date of birth, gender). The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
 - [Graph](../big-data/non-relational-data.yml#graph-data-stores) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
-- Telemetry and time series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
+- Telemetry and time-series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
 
 ## Key selection criteria
 
@@ -91,7 +91,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Authentication  | SQL / Microsoft Entra ID | SQL / Microsoft Entra ID | Microsoft Entra ID | local / Microsoft Entra ID <sup>1</sup> | local / Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | database users / Microsoft Entra ID via access control (IAM) |
+| Authentication  | SQL / Microsoft Entra ID | SQL / Microsoft Entra ID | Microsoft Entra ID | local / Microsoft Entra ID <sup>1</sup> | local / Microsoft Entra ID <sup>1</sup> | Microsoft Entra ID | database users / Microsoft Entra ID via access control (identity and access management (IAM)) |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
 | Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
@@ -99,7 +99,7 @@ The following tables summarize the key differences in capabilities.
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
-[2] Requires using transparent data encryption (TDE) to encrypt and decrypt your data at rest.
+[2] Requires using transparent data encryption to encrypt and decrypt your data at rest.
 
 [3] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
 

@@ -19,7 +19,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 ### Components
 
-- [Azure App Service - Web Apps][docs-webapps-service-page] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service - Web Apps](/azure/well-architected/service-guides/app-service-web-apps) hosts web applications allowing autoscale and high availability without having to manage infrastructure.
 - [Azure SQL Database][docs-sql-database-service-page] is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 - [AI Search][docs-search-service-page] is a cloud solution that provides a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 - [Azure AI Bot Service][docs-botservice-service-page] provides tools to build, test, deploy, and manage intelligent bots.
@@ -119,7 +119,7 @@ Principal author:
 
 ## Next steps
 
-To learn more about AI Search, visit the [documentation center][docs-search], check out the [samples][search-samples], or see a full-fledged [demo site][search-demo] in action.
+To learn more about AI Search, visit the [documentation center][docs-search] or check out the [samples][search-samples].
 
 To find out more about other Azure components, see these resources:
 
@@ -143,7 +143,6 @@ To find out more about other Azure components, see these resources:
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-sql-database-service-page]: https://azure.microsoft.com/products/azure-sql/database
 [docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-webapps-service-page]: https://azure.microsoft.com/products/app-service/web/
 [docs-botservice]: /azure/bot-service/
 [docs-botservice-service-page]: https://azure.microsoft.com/products/bot-services
 [docs-cognitive]: /azure/cognitive-services/what-are-cognitive-services
@@ -160,7 +159,6 @@ To find out more about other Azure components, see these resources:
 [search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
-[search-demo]: https://azjobsdemo.azurewebsites.net/
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd
 [medium-pricing]: https://azure.com/e/a5ad0706c9e74add811e83ef83766a1c
 [large-pricing]: https://azure.com/e/57f95a898daa487795bd305599973ee6

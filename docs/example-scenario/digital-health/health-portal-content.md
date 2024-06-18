@@ -8,7 +8,7 @@ This article describes a typical architecture of a consumer health portal, that 
 
 ### Workflow
 
-- This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. 
+- This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data.
 - The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
 The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Azure Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in Azure Cosmos DB, and can negatively impact its cost and performance.
@@ -23,7 +23,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management) aids in the publishing, routing, securing, logging, and analytics of APIs. Whether the API is only being used by the end-user or integrated with a third party for external interoperability, API management allows for flexibility in how APIs are extended and presented.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) is a service used to host HTTP-based web services. It supports a wide array of languages, can run on Linux or Windows, fully integrates with CI/CD pipelines, and can even run container workloads as a [PaaS](https://azure.microsoft.com/overview/what-is-paas) offering. App Service allows for both scale-up and scale-out, in addition to having native integration with identity, security, and logging services in Azure. It is able to meet the scaling needs of the consumer health portal while maintaining compliance. In this architecture, it hosts the front-end web portal.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) is a service used to host HTTP-based web services. It supports a wide array of languages, can run on Linux or Windows, fully integrates with CI/CD pipelines, and can even run container workloads as a [PaaS](https://azure.microsoft.com/overview/what-is-paas) offering. App Service allows for both scale-up and scale-out, in addition to having native integration with identity, security, and logging services in Azure. It is able to meet the scaling needs of the consumer health portal while maintaining compliance. In this architecture, it hosts the front-end web portal.
 
 - [Azure Function Apps](https://azure.microsoft.com/services/functions) is a serverless platform solution on Azure that allows developers to write *compute-on-demand* code, without having to maintain any of the underlying systems. In this architecture, Azure Functions can host APIs, and any work that needs to be done asynchronously, such as running periodic jobs and computing statistics over a certain period of time.
 
@@ -31,13 +31,13 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Microsoft Entra integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users might want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This method provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
+- [Azure Active Directory B2C](/azure/active-directory-b2c/overview) provides business-to-consumer identity-as-a-service at massive scale, the cost for which scales along with your active user count. In consumer-facing applications like this solution, instead of creating a new account, users might want to bring their own identity. It can be anything from a social ID, to an email account, or any SAML provider identity service. This method provides an easier onboarding experience for the user. The solution provider only needs to reference the user identities, and does not need to host and maintain them.
 
 - [Azure Log Analytics](/azure/azure-monitor/log-query/log-analytics-overview), an Azure Monitor Logs tool, can be used for diagnostic or logging information, and for querying this data to sort, filter, or visualize them. This service is priced by consumption, and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 
 - [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), another feature of Azure Monitor, is the native Application Performance Management (APM) service in Azure. It can be easily integrated into the front-end App Service, and into all of the Azure Functions code to enable live monitoring of the applications. Application Insights can easily detect performance, usability anomalies, and faults directly generated from the applications themselves, and not just from the compute platform hosting them.
 
-- [Office 365 Email](/microsoft-365/enterprise/azure-integration) is an industry-leading service used for email and communications. Many organizations have already invested in this service. In this solution, it can be used for sending out any emails related to the consumer health portal, such as appointment confirmation or reminder emails.
+- [Azure Communication Services](https://azure.microsoft.com/products/communication-services/) are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony. In this solution, it can be used for sending out any emails, texts, or automated phone calls related to the consumer health portal, such as appointment confirmations or reminders.
 
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal, which uses a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
 
@@ -50,15 +50,15 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 ### Alternatives
 
-- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer?tab=Overview) might be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost-effective solution.
-
-- [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir) might be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For example, if this solution were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
+- [Azure FHIR Service](/azure/healthcare-apis/fhir/overview) as a part of the [Azure Health Data Services](https://azure.microsoft.com/products/health-data-services/) might be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For example, if this solution were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring) architecture.
 
+- [Microsoft 365 Email](/microsoft-365/enterprise/azure-integration) is an industry-leading service used for email and communications. Many organizations have already invested in this service and it can be used as an alternative to the more full-featured Azure Communication Services. In this solution, it can be used for sending out any emails related to the consumer health portal, such as appointment confirmation or reminder emails.
+
 ## Scenario details
 
-Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits. 
+Throughout the health and life sciences industry, organizations are adopting a *digital health* strategy. One of the core pillars and a necessary component of a digital health solution is a *consumer health portal*. A consumer health portal might be used for tracking progress and statistics from a wearable device, engaging with a medical provider, or even tracking healthy eating habits.
 
 ### Potential use cases
 
@@ -145,22 +145,23 @@ To get started, you can view the Azure Calculator Generic Estimate [here](https:
 
 Depending on the scale of your workload and requirements for enterprise functionality, using the [consumption tier of Azure API Management](https://azure.microsoft.com/pricing/details/api-management) could bring down the cost.
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Mohana Rajpalke](https://dk.linkedin.com/in/mohana-k-rajpalke-9b103058) | Senior Researcher
+* [Matt Hansen](https://www.linkedin.com/in/matthansen0/) | Cloud Program Architect
 
 ## Next steps
 
-- Learn more about [Azure API for FHIR](/azure/healthcare-apis/overview).
+- Learn more about [Azure FHIR Service](/azure/healthcare-apis/fhir/overview)
+- Learn more about [Azure Health Data Services](/azure/healthcare-apis/overview).
 - Learn more about [publishing internal APIs externally](../apps/publish-internal-apis-externally.yml).
 
 ## Related resources
 
+- [Azure Health Data Services Architecture Guide](/azure/architecture/guide/data/azure-health-data-services)
 - [HIPAA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
 - [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)

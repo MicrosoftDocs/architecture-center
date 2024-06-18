@@ -107,7 +107,7 @@ The spoke virtual network contains the AKS cluster and other related resources. 
 
 #### Subnet to host Azure Application Gateway
 
-Azure [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer operating at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Web Application Firewall](/azure/application-gateway/waf-overview) (WAF). WAF secures incoming traffic from common web traffic attacks, including bots. The instance has a public frontend IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
+Azure [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer operating at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Web Application Firewall (WAF)](/azure/application-gateway/waf-overview). WAF secures incoming traffic from common web traffic attacks, including bots. The instance has a public frontend IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
 
 #### Subnet to host the ingress resources
 
@@ -216,7 +216,7 @@ Of the two ways, managed identities is recommended. With service principals, you
 
 It's recommended that [managed identities is enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can enable this setting only during cluster creation. Even if Microsoft Entra ID isn't used immediately, you can incorporate it later.
 
-By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, etc. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
+By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, and so on. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
 
 As an example for the inside-out case, let's study the use of managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. One way is to store that information in the form of Kubernetes Secrets object and use `imagePullSecrets` to retrieve the secret. That approach isn't recommended because of security complexities. Not only do you need prior knowledge of the secret but also disclosure of that secret through the DevOps pipeline. Another reason is the operational overhead of managing the rotation of the secret. Instead, grant `acrPull` access to the kubelet managed identity of the cluster to your registry. This approach addresses those concerns.
 
@@ -240,7 +240,7 @@ Kubernetes supports role-based access control (RBAC) through:
 
 - A set of permissions. Defined by a `Role` or `ClusterRole` object for cluster-wide permissions.
 
-- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `CluserRoleBinding` object.
+- Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `ClusterRoleBinding` object.
 
 Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Microsoft Entra users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
@@ -293,7 +293,7 @@ The ingress controller is a critical component of cluster. Consider these points
 > [!NOTE]
 > The choice for the appropriate ingress controller is driven by the requirements the workload, the skill set of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation.
 >
-> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for _illustrative_ purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
+> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for *illustrative* purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
 >
 > Another choice is Azure Application Gateway Ingress Controller, and it's well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because it's integrated with WAF. Also, it provides the opportunity to do TLS termination.
 
@@ -363,9 +363,9 @@ The architecture only accepts TLS encrypted requests from the client. TLS v1.2 i
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-tls-termination.vsdx) of this architecture.*
 
-1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
+1. The client sends an HTTPS request to the domain name: `bicycle.contoso.com`. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
 
-2. Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for bicycle.contoso.com, allowing only secure ciphers. Application Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault. It's accessed using a user-assigned managed identity integrated with Application Gateway. For information about that feature, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
+2. Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for `bicycle.contoso.com`, allowing only secure ciphers. Application Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault. It's accessed using a user-assigned managed identity integrated with Application Gateway. For information about that feature, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
 
 3. As traffic moves from Application Gateway to the backend, it's encrypted again with another TLS certificate (wildcard for \*.aks-ingress.contoso.com) as it's forwarded to the internal load balancer. This re-encryption makes sure traffic that is not secure doesn't flow into the cluster subnet.
 
@@ -401,7 +401,7 @@ Enable network policy when the cluster is provisioned because it can't be added 
 For more information, see [Differences between Azure Network Policy and Calico policies and their capabilities](/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities).
 
 > [!NOTE]
-> AKS supports these networking models: kubenet, Azure Container Networking Interface (CNI), and Azure CNI Overlay. The CNI models are the more advanced models and a CNI-based model is required for enabling Azure Network Policy. In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. NAT isn't needed for routing that traffic. Both CNI models are highly performant, with performance between pods on par with virtual machines in a virtual network. Azure CNI also offers enhanced security control because it enables the use Azure Network Policy. It's recommended that Azure CNI Overlay be used for IP address constrained deployments, which only allocates IP addressess from the nodepool subnet(s) for the nodes and uses a highly optimized overlay layer for pod IPs. A CNI-based networking model is recommended.
+> AKS supports these networking models: kubenet, Azure Container Networking Interface (CNI), and Azure CNI Overlay. The CNI models are the more advanced models and a CNI-based model is required for enabling Azure Network Policy. In the non-overlay CNI model, every pod gets an IP address from the subnet address space. Resources within the same network (or peered resources) can access the pods directly through their IP address. NAT isn't needed for routing that traffic. Both CNI models are highly performant, with performance between pods on par with virtual machines in a virtual network. Azure CNI also offers enhanced security control because it enables the use Azure Network Policy. It's recommended that Azure CNI Overlay be used for IP address constrained deployments, which only allocates IP addresses from the nodepool subnet(s) for the nodes and uses a highly optimized overlay layer for pod IPs. A CNI-based networking model is recommended.
 > 
 > For information about the models, see [Choosing a CNI network model to use](/azure/aks/azure-cni-overlay#choosing-a-network-model-to-use) and [Compare kubenet and Azure CNI network models](/azure/aks/concepts-network#compare-network-models).
 
@@ -439,7 +439,7 @@ An effective way to manage an AKS cluster is by enforcing governance through pol
 
 There are two different scenarios that Azure Policy delivers for managing your AKS clusters:
 
-* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, etc.
+* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, and so on.
 * Secure your AKS cluster through Azure Policy for Kubernetes.
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
@@ -478,7 +478,7 @@ As a general approach, start by performance testing with a minimum number of pod
 
 ### Horizontal Pod Autoscaler
 
-The [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA) is a Kubernetes resource that scales the number of pods.
+The [Horizontal Pod Autoscaler (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is a Kubernetes resource that scales the number of pods.
 
 In the HPA resource, setting the minimum and maximum replica count is recommended. Those values constrain the autoscaling bounds.
 
@@ -593,7 +593,7 @@ AKS can be used as a free service, but that tier doesn't offer a financially bac
 
 ### Tradeoff
 
-There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Azure Container Registry, are available in premium SKUs, which is more expensive. The cost will also increase because bandwidth charges that are applied when traffic moves across zones and regions.
+There's a cost-to-availability tradeoff for deploying the architecture across zones and especially regions. Some replication features, such as geo-replication in Azure Container Registry, are available in premium SKUs, which is more expensive. For multi-region deployments, the cost will also increase because bandwidth charges that are applied when traffic moves across regions.
 
 Also, expect additional network latency in node communication between zones or regions. Measure the impact of this architectural decision on your workload.
 
@@ -709,7 +709,7 @@ Another portion could be to integrate the basic workload with Microsoft Entra ID
 
 ### Use Infrastructure as Code (IaC)
 
-Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates. Another is Terraform.
+Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is using [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview). Another is Terraform.
 
 Make sure as you provision resources as per the governing policies. For example, when selecting the right VM sizes, stay within the cost constraints, availability zone options to match the requirements of your application.
 
@@ -800,7 +800,7 @@ To review cost management considerations specific to Windows-based workloads inc
 
 - Data transfers between availability zones in a region are not free. If your workload is multi-region or there are transfers across availability zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
 
-- Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Azure Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
+- Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Microsoft Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
 
 ### Monitor
 
@@ -808,7 +808,7 @@ In order to monitor cost of the entire cluster, along with compute cost, also ga
 
 - [Azure Advisor](/azure/advisor/advisor-get-started)
 
-- [Azure Cost Management](/azure/cost-management-billing/costs/)
+- [Microsoft Cost Management](/azure/cost-management-billing/costs/)
 
 Ideally, monitor cost in real time or at least at a regular cadence to take action before the end of the month when costs are already calculated. Also monitor the monthly trend over time to stay in the budget.
 
@@ -839,7 +839,7 @@ Continue learning about the AKS baseline architecture:
 
 ### Learn more about AKS
 
-- Review the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+- To review the AKS product roadmap, see the public [Azure Kubernetes Service roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 - If you need a refresher on Kubernetes, complete the [Intro to Kubernetes](/training/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/training/paths/develop-deploy-applications-kubernetes/) learning paths.
 
 ## Related resources

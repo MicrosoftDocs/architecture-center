@@ -152,7 +152,7 @@ Besides ingress traffic to the application, you also need to consider outbound, 
 - Emitting Application Insights data or other monitoring data
 - Connecting to external applications
 
-Some enterprise environments might require the use of _transparent_ or _non-transparent_ proxy servers. These servers require specific configuration on various components of the cluster. The AKS Engine documentation contains details on how to accommodate network proxies. For more information, see [AKS Engine and proxy servers](https://github.com/Azure/aks-engine-azurestack/blob/master/docs/topics/proxy-servers.md).
+Some enterprise environments might require the use of *transparent* or *non-transparent* proxy servers. These servers require specific configuration on various components of the cluster. The AKS Engine documentation contains details on how to accommodate network proxies. For more information, see [AKS Engine and proxy servers](https://github.com/Azure/aks-engine-azurestack/blob/master/docs/topics/proxy-servers.md).
 
 Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The solution described here consists of individual Kubernetes clusters that run on individual Azure Stack Hub instances. Traffic between them, like the replication traffic between two databases, is considered external traffic. External traffic must be routed through either a site-to-site VPN or Azure Stack Hub public IP addresses. Site-to-site VPN offers more security for data transfers and is preferred.
 

@@ -34,7 +34,7 @@ The data flows as follows:
 ### Alternatives
 
 - In an [Azure lift and shift scenario][azure-vm-lift-shift] deployed into an Azure Virtual Network, back-end servers could be directly addressed through private IP addresses.
-- If using on-premises resources, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [ExpressRoute][azure-er] making a [hybrid Azure and on-premises scenario][azure-hybrid].
+- If using on-premises resources, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site Internet Protocol Security (IPSec) VPN connection][azure-vpn] or [ExpressRoute][azure-er] making a [hybrid Azure and on-premises scenario][azure-hybrid].
 - Existing or open-source DNS providers could be used instead of the Azure-based DNS Service.
 - Internal APIs deployed outside of Azure can still benefit by exposing the APIs through API Management Service.
 
@@ -137,9 +137,9 @@ You need to further configure the components deployed using the preceding Resour
    - Refer to the [deployment guidelines][dnsguide] for more information
 3. App Service Environment with Internal Load Balancer (ILB) option: `aseinternal` (DNS: `aseinternal.contoso.org`). Once the Deployment is complete, upload the wild-card cert for the ILB
 4. App Service Plan with ASE as location
-5. An API App (App Services for simplicity) - `srasprest` (URL: `https://srasprest.contoso.org`) – ASP.NET MVC-based web API. After the deployment, configure:
+5. An API App (App Services for simplicity) - `srasprest` (URL: `https://srasprest.contoso.org`) – ASP.NET Model-View-Controller (MVC)-based web API. After the deployment, configure:
    - Web app to use the TLS certificate
-   - Application Insights to the preceding apps: api-insights
+   - Application Insights to the preceding apps: `api-insights`
    - Create an Azure Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
    - Create DNS entries on the Private DNS zone created
    - You can make use of Azure Pipelines to configure the agents on Virtual Machines to deploy the code for Web App on internal Network
@@ -147,20 +147,20 @@ You need to further configure the components deployed using the preceding Resour
 6. Create API Management service: `apim-internal`
 7. Configure the service to connect to internal VNet on Subnet: `apimsubnet`. After the deployment is complete, perform the following additional steps:
    - Configure custom domains for APIM Services using TLS
-     - API portal (api.contoso.org)
-     - Dev Portal (portal.contoso.org)
+     - API portal (`api.contoso.org`)
+     - Dev Portal (`portal.contoso.org`)
      - In the APIs section, configure the ASE Apps using ASE's DNS name added Policy for HOST Header for the Web app
      - Use the preceding created test VM to test the API Management service internal on the Virtual Network
 
     > [!NOTE]
-    > Testing the APIM APIs from the Azure portal won't work, because api.contoso.org isn't able to be publicly resolved.*
+    > Testing the APIM APIs from the Azure portal won't work, because `api.contoso.org` isn't able to be publicly resolved.*
 
-8. Configure the Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the Application Gateway and corresponding health probes and http settings. Also configure the Rules and Listeners to use the TLS cert.
+8. Configure the Application Gateway to access the API service: `apim-gateway` on port 80. Add TLS certs to the Application Gateway and corresponding health probes and HTTP settings. Also configure the Rules and Listeners to use the TLS cert.
 
-Once the preceding steps are successfully completed, configure the DNS entries in the web registrar CNAME entries of api.contoso.org and portal.contoso.org with the Application Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
+Once the preceding steps are successfully completed, configure the DNS entries in the web registrar CNAME entries of `api.contoso.org` and `portal.contoso.org` with the Application Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
 
 > [!NOTE]
-> It's not a good practice to use the same URL for internal and external endpoints for the APIM services (though in this demo, both URLs are the same). If you choose to have different URLs for internal and external endpoints, you can make use of Application Gateway WAF v2, which supports http redirection and much more.
+> It's not a good practice to use the same URL for internal and external endpoints for the APIM services.
 
 ## Contributors
 

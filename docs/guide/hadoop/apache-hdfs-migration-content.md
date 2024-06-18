@@ -40,7 +40,7 @@ The Azure Blob Filesystem (ABFS) driver provides an interface that makes it poss
 |**Access that's compatible with Hadoop**|You can manage and access data just as you would with HDFS. The ABFS driver is available in all Apache Hadoop environments, including Azure HDInsight and Azure Databricks.|A MapR cluster can access an external HDFS cluster with the hdfs:// or webhdfs:// protocols|
 |**POSIX permissions**|The security model for Data Lake Gen2 supports access control list (ACL) and POSIX permissions along with some extra granularity that's specific to Data Lake Storage Gen2. Settings can be configured by using admin tools or frameworks like Apache Hive and Apache Spark.|Jobs that require file system features like strictly atomic directory renames, fine-grained HDFS permissions, or HDFS symlinks can only work on HDFS.|
 |**Cost effectiveness**|Data Lake Storage offers low-cost storage capacity and transactions. Azure Blob Storage lifecycles help to lower costs by adjusting billing rates as data moves through its lifecycle.||
-|**Optimized driver**|The ABFS driver is optimized for big data analytics. The corresponding REST APIs are provided through the distributed file system (DFS) endpoint, dfs.core.windows.net.||
+|**Optimized driver**|The ABFS driver is optimized for big data analytics. The corresponding REST APIs are provided through the distributed file system (DFS) endpoint, `dfs.core.windows.net`.||
 |**Block Size**|**Blocks** is equivalent to a single **Append** API invocation (the **Append** API creates a new block) and is limited to 100 MB per invocation. However, the write pattern supports calling **Append** many times per file (even in parallel) to a maximum of 50,000 and then calling **Flush** (equivalent to **PutBlockList**). This is the way the maximum files size of 4.75TB is achieved.|HDFS stores the data in a data block. You set the block size by setting a value in the hdfs-site.xml file in the Hadoop directory. The default size is 128 MB.|
 |**Default ACLS**|Files don't have default ACLs and aren't enabled by default.|Files don't have default ACLs.|
 |**Binary Files**|Binary files can be moved to Azure Blob Storage in a non-hierarchical namespace. Objects in Blob Storage are accessible via the Azure Storage REST API, Azure PowerShell, Azure CLI, or an Azure Storage client library. Client libraries are available for different languages, including .NET, Java, Node.js, Python, Go, PHP, and Ruby|Hadoop provides the ability to read and write binary files. SequenceFile is a flat file that consists of a binary key and value pairs. The SequenceFile provides Writer, Reader, and Sorter classes for writing, reading, and sorting. Convert the image or video file into a SequenceFile and store it in HDFS. Then use the HDFS SequenceFileReader/Writer methods or the put command: `bin/hadoop fs -put /src_image_file /dst_image_file`|
@@ -124,7 +124,7 @@ HDFS commands for getting assessment metrics from HDFS include:
   `hadoop fs -du -s -h command`
 
   The `hadoop fs -du -s -h` command displays the size of the HDFS files and directory. Since the Hadoop file system replicates every file, the actual physical size of the file is the number of file replicas multiplied by the size of one replica.
-- Determine whether ACLs are enabled. To do this, obtain the value of dfs.namenode.acls.enabled in Hdfs-site.xml. Knowing the value helps in planning access control on the Azure Storage account. For information about the contents of this file, see [Default file settings](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
+- Determine whether ACLs are enabled. To do this, obtain the value of `dfs.namenode.acls.enabled` in Hdfs-site.xml. Knowing the value helps in planning access control on the Azure Storage account. For information about the contents of this file, see [Default file settings](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
 
 Partner tools such as Unravel provide assessment reports for planning data migration. The tools must run in the on-premises environment or connect to the Hadoop cluster to generate reports.
 
@@ -222,7 +222,7 @@ Data must be transferred to Azure as outlined in your migration plan. Transferri
 
           Data Factory is a data-integration service that helps create data-driven workflows that orchestrate and automate data movement and data transformation. You can use it when there's sufficient network bandwidth available and there's a requirement to orchestrate and monitor data migration. You can use Data Factory for regular incremental loadings of data when the incremental data arrives on the on-premises system as a first hop and can't be directly transferred to the Azure storage account because of security restrictions.
 
-         For more |information about the various transfer approaches, see [Data transfer for large datasets with moderate to high network bandwidth](/azure/storage/common/storage-solution-large-dataset-moderate-high-network).
+         For more information about the various transfer approaches, see [Data transfer for large datasets with moderate to high network bandwidth](/azure/storage/common/storage-solution-large-dataset-moderate-high-network).
 
          For information about using Data Factory to copy data from HDFS, see [Copy data from the HDFS server using Azure Data Factory or Synapse Analytics](/azure/data-factory/connector-hdfs)
       1. **Partner solutions such as WANdisco LiveData migration**
@@ -249,7 +249,7 @@ Other contributors:
 - [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
-- [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
+- [Ben Sadeghi](https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
 - [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering

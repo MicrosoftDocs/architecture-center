@@ -8,6 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 02/15/2024
 ms.author: tdsp
 ms.custom:
@@ -66,7 +67,7 @@ Researchers publish peer-reviewed literature about the TDSP. Review the followin
 
 - [How to Conduct Rigorous Supervised Machine Learning in Information Systems Research: The Supervised Machine Learning Report Card (pages 589-615)](https://doi.org/10.17705/1CAIS.04845)
 
-- [Data Science in the Business Environment: Customer Analytics Case Studies in SMEs (pages 689–713)](https://doi.org/10.1108/JM2-11-2019-0274)
+- [Data Science in the Business Environment: Customer Analytics Case Studies in subject matter experts (SMEs) (pages 689–713)](https://doi.org/10.1108/JM2-11-2019-0274)
 
 - [CRISP-DM Twenty Years Later: From Data Mining Processes to Data Science Trajectories (pages 3048–3061)](https://doi.org/10.1109/TKDE.2019.2962680)
 

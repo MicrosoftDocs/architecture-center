@@ -43,7 +43,7 @@ There are two main options for physically transporting data to Azure:
 
 ### The Azure Import/Export service
 
-The [Azure Import/Export service](/azure/import-export/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA HDDs or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have the drives shipped to you for loading on-premises.
+The [Azure Import/Export service](/azure/import-export/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA hard disk drives (HDDs) or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have the drives shipped to you for loading on-premises.
 
 ### Azure Data Box
 
@@ -83,7 +83,7 @@ Consider the following options if you're only transferring a few files or data o
 
 - [Pipelines and activities](/azure/data-factory/concepts-pipelines-activities) in Data Factory and Azure Synapse Analytics can be used to construct end-to-end data-driven workflows for your data movement and data processing scenarios. Additionally, the [Azure Data Factory integration runtime](/azure/data-factory/concepts-integration-runtime) is used to provide data integration capabilities across different network environments.
 
-- [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) transfers data to and from Azure, but it's a virtual appliance, not a hard drive. Virtual machines residing in your on-premises network write data to Data Box Gateway by using the NFS and SMB protocols. The device then transfers your data to Azure.
+- [Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) transfers data to and from Azure, but it's a virtual appliance, not a hard drive. Virtual machines residing in your on-premises network write data to Data Box Gateway by using the Network File System (NFS) and SMB protocols. The device then transfers your data to Azure.
 
 ## Key selection criteria
 

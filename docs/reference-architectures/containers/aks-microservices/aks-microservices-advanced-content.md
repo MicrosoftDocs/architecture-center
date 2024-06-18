@@ -1,6 +1,6 @@
 This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application.
 
-This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for Azure Kubernetes Service (AKS) infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
@@ -50,7 +50,7 @@ The AKS infrastructure features used in this architecture include:
 
 **[Azure Private Link](https://azure.microsoft.com/services/private-link)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
-**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress) (AGIC) as the Kubernetes ingress controller.
+**[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** with web application firewall (WAF) exposes HTTP(S) routes to the AKS cluster and load balances web traffic to the web application. This architecture uses [Azure Application Gateway Ingress Controller (AGIC)](https://github.com/Azure/application-gateway-kubernetes-ingress) as the Kubernetes ingress controller.
 
 **[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** provides secure remote desktop protocol (RDP) and secure shell (SSH) access to VMs in the virtual networks by using a secure socket layer (SSL), without the need to expose the VMs through public IP addresses.
 
@@ -125,7 +125,7 @@ spec:
   - Egress
 ```
 
-Once a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the network policy is applied to any pod in the backend-dev namespace with a label that matches *app.kubernetes.io/component: backend*. The policy denies any traffic unless sourced from a pod with a label that matches *app.kubernetes.io/part-of: dronedelivery*.
+Once a restrictive policy is in place, begin to define specific network rules to allow traffic into and out of each pod in the microservice. In the following example, the network policy is applied to any pod in the backend-dev namespace with a label that matches `app.kubernetes.io/component: backend`. The policy denies any traffic unless sourced from a pod with a label that matches `app.kubernetes.io/part-of: dronedelivery`.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -184,7 +184,7 @@ Kubernetes supports *autoscaling* to increase the number of pods allocated to a 
 
 #### Cluster autoscaling
 
-The *cluster autoscaler* (CA) scales the number of nodes. Suppose pods can't be scheduled because of resource constraints; the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
+The *cluster autoscaler (CA)* scales the number of nodes. Suppose pods can't be scheduled because of resource constraints; the cluster autoscaler provisions more nodes. You define a minimum number of nodes to keep the AKS cluster and your workloads operational and a maximum number of nodes for heavy traffic. The CA checks every few seconds for pending pods or empty nodes and scales the AKS cluster appropriately.
 
 The following example shows the CA configuration from the ARM template:
 

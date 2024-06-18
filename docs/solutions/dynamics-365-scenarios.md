@@ -66,6 +66,8 @@ Watch this short video to learn how Dynamics 365 can help you streamline busines
 
 > [!VIDEO https://www.youtube.com/embed/HgX-GDWgs_I]
 
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](/entra/fundamentals/new-name).
+
 ## Solutions across Azure and Dynamics 365
 
 ### Dynamics 365 CRM and ERP (general)

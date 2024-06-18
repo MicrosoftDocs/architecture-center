@@ -92,9 +92,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Your Azure Storage accounts contain all of your Azure Storage data objects, including file shares. A storage account provides a unique namespace for its data, a namespace that's accessible from anywhere in the world over HTTP or HTTPS. For this architecture, your storage account contains file shares that are provided by Azure Files. For best performance, we recommend the following:
   - Don't put databases, blobs, and so on, in storage accounts that contain file shares.
   - Have no more than one highly active file share per storage account. You can group file shares that are less active into the same storage account.
-  - Use SSD-based storage rather than HDD. For more information about the scalability and performance of file shares, see [Azure Files scalability and performance targets](/azure/storage/files/storage-files-scale-targets).
-  - Don't select a general-purpose v1 storage account, because it lacks important features. The storage account types are described in [Storage account overview](/azure/storage/common/storage-account-overview).
-  - Pay attention to size, speed, and other limitations. For this information, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+  - If your workload requires large amounts of IOPS, extremely fast data transfer speeds, or very low latency, then you should choose premium (FileStorage) storage accounts. A standard general-purpose v2 account is appropriate for most SMB file share workloads. For more information about the scalability and performance of file shares, see [Azure Files scalability and performance targets](/azure/storage/files/storage-files-scale-targets).
+  - Don't use a general-purpose v1 storage account, because it lacks important features. Instead, [upgrade to a general-purpose v2 storage account](/azure/storage/common/storage-account-upgrade). The storage account types are described in [Storage account overview](/azure/storage/common/storage-account-overview).
+  - Pay attention to size, speed, and other limitations. Refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - There's little you can do to improve the performance of non-storage components, except to be sure that your deployment honors the limits, quotas, and constraints that are described in [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - For scalability information for Azure components, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
@@ -104,7 +104,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal author:
 
-- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+- [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-oliveira-69443523/) | Senior Customer Engineer
 
 ## Next steps
 

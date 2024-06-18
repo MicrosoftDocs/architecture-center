@@ -22,7 +22,7 @@ This solution demonstrates how to build a hybrid app that takes advantage of:
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/products/app-service) makes it possible for  you to build and host web apps, RESTful API apps, and Azure functions.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) makes it possible for  you to build and host web apps, RESTful API apps, and Azure functions.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network makes it possible for multiple Azure resource types, like virtual machines (VM), to communicate with each other, the internet, and on-premises networks, all with improved security. This solution also demonstrates the use of additional networking components:
 
   - App and gateway subnets.

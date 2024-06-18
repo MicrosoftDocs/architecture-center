@@ -40,7 +40,7 @@ Metadata and data flow include these steps, which are shown in the preceding fig
 
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that delivers insights throughout your organization. You can use Power BI to connect to hundreds of data sources, simplify data preparation, and drive improvised analysis. You can also produce first-rate reports and then publish them for your organization to consume on the web and on mobile devices.
 
-- [Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service. You can use Data Factory to create, schedule, and orchestrate extract, transform, and load (ETL) and extract, load, and transform (ELT) workflows. Data Factory also offers more than 100 prebuilt connectors and a REST gateway that you can use to extract data from source systems.
+- [Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service. You can use Data Factory to create, schedule, and orchestrate extract, transform, load (ETL) and extract, load, transform (ELT) workflows. Data Factory also offers more than 100 prebuilt connectors and a REST gateway that you can use to extract data from source systems.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast, flexible, and trusted cloud data warehouse that uses a massive parallel processing architecture. You can use Azure Synapse Analytics to scale, compute, and store data elastically and independently.
 

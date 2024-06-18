@@ -79,7 +79,7 @@ The solution also uses the following Azure components:
 
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools for analyzing data and sharing insights. Power BI can query a semantic model stored in Azure Analysis Services, or can query Synapse Analytics directly.
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) builds web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) lets third-party apps consume APIs based on data from the serving layer.
+- [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) builds web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) lets third-party apps consume APIs based on data from the serving layer.
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform that can operate at scale in the cloud, and integrate services by using triggers and bindings. Azure Functions can translate IoT message formats, or trigger actions when connected to Azure Cosmos DB change feed.
 

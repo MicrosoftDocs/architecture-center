@@ -3,7 +3,7 @@ metadata:
   title: Move an IoT solution from test to production
   description: Learn what to avoid doing when moving from a test environment to a production environment.
   author: mcosner
-  ms.author: mcosner, ansyeo
+  ms.author: mcosner
   ms.date: 01/06/2023
   ms.topic: conceptual
   ms.service: architecture-center

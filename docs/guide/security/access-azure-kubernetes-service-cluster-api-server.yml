@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: "Learn various ways to connect to an Azure Kubernetes Service (AKS) cluster's API server. Possibilities include Azure Bastion, ExpressRoute, and Cloud Shell."
   author: ArielRam99
-  ms.author: arrami, aayodeji, bahramr
+  ms.author: arrami
   ms.date: 01/11/2024
   ms.topic: conceptual
   ms.service: architecture-center

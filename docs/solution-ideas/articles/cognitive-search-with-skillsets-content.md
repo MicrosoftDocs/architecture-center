@@ -51,7 +51,7 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 #### Azure App Service
 
-This solution idea also builds a standalone web app in [Azure App Service](https://azure.microsoft.com/services/app-service) to test, demonstrate, search the index, and explore connections in the enriched and indexed documents.
+This solution idea also builds a standalone web app in [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) to test, demonstrate, search the index, and explore connections in the enriched and indexed documents.
 
 ## Scenario details
 
@@ -116,4 +116,3 @@ See the related architectures and guidance:
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
 - [Keyword search and speech-to-text with OCR digital media](/azure/architecture/solution-ideas/articles/digital-media-speech-text)
 - [Suggest content tags with NLP using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
-- [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)

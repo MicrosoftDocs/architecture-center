@@ -94,15 +94,15 @@ To get all the logs and information of the process, set up Azure Log Analytics a
 
 The steps to set up performance tuning for a big data system are as follows:
 
-1. In the Azure portal, [create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Copy and save the Azure subscription ID (a GUID), resource group name, Databricks workspace name, and workspace portal URL for later use.
+1. In the Azure portal, [create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Copy and save the Azure subscription ID (a globally unique identifier (GUID)), resource group name, Databricks workspace name, and workspace portal URL for later use.
 1. In a web browser, go to the Databricks workspace URL and [generate a Databricks personal access token](/azure/databricks/dev-tools/api/latest/authentication#--generate-a-personal-access-token). Copy and save the token string that appears (which begins with `dapi` and a 32-character hexadecimal value) for later use.
 1. Clone the [mspnp/spark-monitoring](https://github.com/mspnp/spark-monitoring) GitHub repository onto your local computer. This repository has the source code for the following components:
-    - The Azure Resource Manager (ARM) template for creating an Azure Log Analytics workspace, which also installs prebuilt queries for collecting Spark metrics
+    - The Azure Resource Manager template (ARM template) for creating an Azure Log Analytics workspace, which also installs prebuilt queries for collecting Spark metrics
     - Azure Databricks monitoring libraries
     - The sample application for sending application metrics and application logs from Azure Databricks to Azure Monitor
 1. Using the [Azure CLI](/cli/azure) command for deploying an ARM template, [create an Azure Log Analytics workspace with prebuilt Spark metric queries](https://github.com/mspnp/spark-monitoring/blob/main/perftools/deployment/readme.md#step-1-deploy-log-analytics-with-spark-metrics). From the command output, copy and save the generated name for the new Log Analytics workspace (in the format *spark-monitoring-\<randomized-string>*).
 1. In the Azure portal, copy and save your Log Analytics [workspace ID and key](/azure/azure-monitor/agents/log-analytics-agent#workspace-id-and-key) for later use.
-1. Install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), an integrated development environment (IDE) that has built-in support for the [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK) and [Apache Maven](https://maven.apache.org/). Add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala).
+1. Install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), an integrated development environment (IDE) that has built-in support for the [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) and [Apache Maven](https://maven.apache.org/). Add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala).
 1. Using IntelliJ IDEA, [build the Azure Databricks monitoring libraries](https://github.com/mspnp/spark-monitoring/blob/main/README.md#option-2-maven). To do the actual build step, select **View** > **Tool Windows** > **Maven** to show the Maven tools window, and then select **Execute Maven Goal** > **mvn package**.
 1. Using a [Python](https://www.python.org/downloads/windows/) package installation tool, install the [Azure Databricks CLI](/azure/databricks/dev-tools/cli/) and set up authentication with the Databricks personal access token you copied earlier.
 1. [Configure the Azure Databricks workspace](https://github.com/mspnp/spark-monitoring/blob/main/README.md#configure-the-databricks-workspace) by modifying the Databricks init script with the Databricks and Log Analytics values you copied earlier, and then using the Azure Databricks CLI to copy the init script and the Azure Databricks monitoring libraries to your Databricks workspace.
@@ -119,6 +119,8 @@ The steps to set up performance tuning for a big data system are as follows:
 #### Access prebuilt queries
 
 The prebuilt query names for retrieving Spark metrics are listed below.
+
+<!-- docutune:disable -->
 
 :::row:::
     :::column:::
@@ -167,6 +169,8 @@ The prebuilt query names for retrieving Spark metrics are listed below.
         - Tasks Per Stage
     :::column-end:::
 :::row-end:::
+
+<!-- docutune:enable -->
 
 #### Write custom queries
 
@@ -326,11 +330,11 @@ To diagnose these issues, you used the following metrics:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [David McGhee](https://www.linkedin.com/in/drmcghee/) | Principal Program Manager
+- [David McGhee](https://www.linkedin.com/in/drmcghee/) | Principal Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

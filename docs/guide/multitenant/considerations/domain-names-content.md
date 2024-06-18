@@ -4,7 +4,7 @@ In many multitenant web applications, a domain name can be used as a way to iden
 
 Each tenant might get a unique subdomain under a common shared domain name, using a format like `tenant.provider.com`.
 
-Let's consider an example multitenant solution built by Contoso. Customers purchase Contoso's product to help manage their invoice generation. All of Contoso's tenants might be assigned their own subdomain, under the `contoso.com` domain name. Or, if Contoso uses regional deployments, they might assign subdomains under the `us.contoso.com` and `eu.contoso.com` domains. In this article, we refer to these as _stem domains_. Each customer gets their own subdomain under your stem domain. For example, Tailwind Toys might be assigned `tailwind.contoso.com`, and Adventure Works might be assigned `adventureworks.contoso.com`.
+Let's consider an example multitenant solution built by Contoso. Customers purchase Contoso's product to help manage their invoice generation. All of Contoso's tenants might be assigned their own subdomain, under the `contoso.com` domain name. Or, if Contoso uses regional deployments, they might assign subdomains under the `us.contoso.com` and `eu.contoso.com` domains. In this article, we refer to these as *stem domains*. Each customer gets their own subdomain under your stem domain. For example, Tailwind Toys might be assigned `tailwind.contoso.com`, and Adventure Works might be assigned `adventureworks.contoso.com`.
 
 > [!NOTE]
 > Many Azure services use this approach. For example, when you create an Azure storage account, it is assigned a set of subdomains for you to use, such as `<your account name>.blob.core.windows.net`.
@@ -84,15 +84,15 @@ You can also consider rewriting host headers, so that regardless of the incoming
 
 ### Domain validation
 
-It's important to validate the ownership of custom domains before onboarding them. Otherwise, you risk a customer accidentally or maliciously _parking_ a domain name.
+It's important to validate the ownership of custom domains before onboarding them. Otherwise, you risk a customer accidentally or maliciously *parking* a domain name.
 
-Let's consider Contoso's onboarding process for Adventure Works, who have asked to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the _s_. So, they set it up as `invoices.adventurework.com`. Not only does the traffic not flow correctly for Adventure Works, but when another company named _Adventure Work_ tries to add their custom domain to Contoso's platform, they're told the domain name is already in use.
+Let's consider Contoso's onboarding process for Adventure Works, who have asked to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the *s*. So, they set it up as `invoices.adventurework.com`. Not only does the traffic not flow correctly for Adventure Works, but when another company named *Adventure Work* tries to add their custom domain to Contoso's platform, they're told the domain name is already in use.
 
 When working with custom domains, especially within a self-service or automated process, it's common to require a domain verification step. This might require that the CNAME records be set up before the domain can be added. Alternatively, Contoso might generate a random string and ask Adventure Works to add a DNS TXT record with the string value. That would prevent the domain name from being added, until the verification is completed.
 
 ### Dangling DNS and subdomain takeover attacks
 
-When you work with custom domain names, you are potentially vulnerable to a class of attack called [_dangling DNS_ or _subdomain takeover_](/azure/security/fundamentals/subdomain-takeover). This attack happens when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a non-existent resource and is vulnerable to a takeover.
+When you work with custom domain names, you are potentially vulnerable to a class of attack called [_dangling DNS_ or *subdomain takeover*](/azure/security/fundamentals/subdomain-takeover). This attack happens when customers disassociate their custom domain name from your service, but they don't delete the record from their DNS server. This DNS entry then points to a non-existent resource and is vulnerable to a takeover.
 
 Let's consider how Fabrikam's relationship with Contoso might change:
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 03/24/2023
+ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -49,13 +49,13 @@ Whichever approach you use to scale, you typically need to plan the triggers tha
 
 ### State
 
-Compute resources can be _stateless_, or they can be _stateful_. Stateless components don't maintain any data between requests. From a scalability perspective, stateless components are often easy to scale out because you can quickly add new workers, instances, or nodes, and they can immediately start to process requests. If your architecture allows for it, you can also repurpose instances that are assigned to one tenant and allocate them to another tenant.
+Compute resources can be *stateless*, or they can be *stateful*. Stateless components don't maintain any data between requests. From a scalability perspective, stateless components are often easy to scale out because you can quickly add new workers, instances, or nodes, and they can immediately start to process requests. If your architecture allows for it, you can also repurpose instances that are assigned to one tenant and allocate them to another tenant.
 
-Stateful resources can be further subdivided, based on the type of state they maintain. _Persistent state_ is data that needs to be permanently stored. In cloud solutions, you should avoid storing a persistent state in your compute tier. Instead, use storage services like databases or storage accounts. _Transient state_ is data that is stored temporarily, and it includes read-only in-memory caches, and the storage of temporary files on local disks.
+Stateful resources can be further subdivided, based on the type of state they maintain. *Persistent state* is data that needs to be permanently stored. In cloud solutions, you should avoid storing a persistent state in your compute tier. Instead, use storage services like databases or storage accounts. *Transient state* is data that is stored temporarily, and it includes read-only in-memory caches, and the storage of temporary files on local disks.
 
 Transient state is often useful to improve the performance of your application tier, by reducing the number of requests to backend storage services. For example, when you use an in-memory cache, you might be able to serve read requests, without connecting to a database, and without performing an intensive query that you recently performed when you served another request.
 
-In latency-sensitive applications, the cost of cache hydration can become significant. A multitenant solution can exacerbate this issue, if each tenant requires different data to be cached. To mitigate this issue, some solutions use _session affinity_ to ensure that all requests for a specific user or tenant are processed by the same compute worker node. Although session affinity can improve the ability of the application tier to use its cache effectively, it also makes it harder to scale and to balance the traffic load across workers. This tradeoff needs to be carefully considered. For many applications, session affinity is not required.
+In latency-sensitive applications, the cost of cache hydration can become significant. A multitenant solution can exacerbate this issue, if each tenant requires different data to be cached. To mitigate this issue, some solutions use *session affinity* to ensure that all requests for a specific user or tenant are processed by the same compute worker node. Although session affinity can improve the ability of the application tier to use its cache effectively, it also makes it harder to scale and to balance the traffic load across workers. This tradeoff needs to be carefully considered. For many applications, session affinity is not required.
 
 It's also possible to store data in external caches, such as Azure Cache for Redis. External caches are optimized for low-latency data retrieval, while keeping the state isolated from the compute resources, so they can be scaled and managed separately. In many solutions, external caches enable you to improve application performance, while you keep the compute tier stateless.
 
@@ -142,7 +142,7 @@ Compute tiers can be subject to cross-tenant data leakage, if they are not prope
 
 To avoid the [Busy Front End antipattern](../../../antipatterns/busy-front-end/index.md), avoid your front end tier doing a lot of the work that could be handled by other components or tiers of your architecture. This antipattern is particularly important when you create shared front-ends for a multitenant solution, because a busy front end will degrade the experience for all tenants.
 
-Instead, consider using asynchronous processing by making use of queues or other messaging services. This approach also enables you to apply _quality of service_ (QoS) controls for different tenants, based on their requirements. For example, all tenants might share a common front end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
+Instead, consider using asynchronous processing by making use of queues or other messaging services. This approach also enables you to apply *quality of service (QoS)* controls for different tenants, based on their requirements. For example, all tenants might share a common front end tier, but tenants who [pay for a higher service level](../considerations/pricing-models.md) might have a higher set of dedicated resources to process the work from their queue messages.
 
 ### Inelastic or insufficient scaling
 

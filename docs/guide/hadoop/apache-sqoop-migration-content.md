@@ -116,10 +116,10 @@ If these private connection methods don't meet your needs, consider Azure Data F
 When you migrate on-premises Sqoop to Azure virtual machines, include the following data and settings:
 
 - **Sqoop config files:** It depends on your environment, but the following files are often included:
-  - sqoop-site.xml
-  - sqoop-env.xml
-  - password-file
-  - oraoop-site.xml, if you use Oraoop
+  - `sqoop-site.xml`
+  - `sqoop-env.xml`
+  - `password-file`
+  - `oraoop-site.xml`, if you use Oraoop
 - **Saved jobs**: If you saved jobs in the Sqoop metastore by using the `sqoop job --create` command, you need to migrate them. The save destination of metastore is defined in sqoop-site.xml. If the shared metastore isn't set, look for the saved jobs in the .sqoop subdirectory of the home directory of the user that runs metastore.
 
   You can use the following commands to see information about the saved jobs.
@@ -190,7 +190,7 @@ If you're trying to integrate data in a private network environment where there'
 
 Self-hosted integration runtime is only supported on Windows. You can also achieve scalability and high availability by installing and associating self-hosted integration runtimes on multiple machines. Self-hosted integration runtime is also responsible for dispatching data transformation activities to resources that aren't on-premises or in the Azure virtual network.
 
-For |information about how to set up self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime).
+For information about how to set up self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime).
 
 ##### Managed virtual network by using a private endpoint
 
@@ -236,7 +236,7 @@ For more information, see [What is a private endpoint?](/azure/private-link/priv
 
 Sqoop improves data transfer performance by using MapReduce for parallel processing. After you migrate Sqoop, Data Factory can adjust performance and scalability for scenarios that perform large-scale data migrations.
 
- A *data integration unit* (DIU) is a Data Factory unit of performance. It's a combination of CPU, memory, and network resource allocation. Data Factory can adjust up to 256 DIUs for copy activities that use the Azure integration runtime. For more information, see [Data Integration Units](/azure/data-factory/copy-activity-performance#data-integration-units).
+ A *data integration unit (DIU)* is a Data Factory unit of performance. It's a combination of CPU, memory, and network resource allocation. Data Factory can adjust up to 256 DIUs for copy activities that use the Azure integration runtime. For more information, see [Data Integration Units](/azure/data-factory/copy-activity-performance#data-integration-units).
 
 If you use self-hosted integration runtime, you can improve performance by scaling the machine that hosts the self-hosted integration runtime. The maximum scale-out is four nodes.
 
@@ -297,7 +297,7 @@ Sqoop doesn't provide scheduler functionality. If you're running Sqoop jobs on a
   - **Storage event trigger:** A storage event trigger triggers the pipeline in response to a storage event such as creating, deleting, or writing to a file.
   - **Custom event trigger:** A custom-event trigger triggers the pipeline in response to an event that's sent to a custom topic in an event grid. For information about custom topics, see [Custom topics in Azure Event Grid](/azure/event-grid/custom-topics).
 
-For more |information about triggers, see [Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics](/azure/data-factory/concepts-pipeline-execution-triggers).
+For more information about triggers, see [Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics](/azure/data-factory/concepts-pipeline-execution-triggers).
 
 ## Contributors
 
@@ -319,7 +319,7 @@ Other contributors:
 - [Daman Kaur](https://www.linkedin.com/in/damkaur) | Cloud Solution Architect
 - [Danny Liu](https://www.linkedin.com/in/geng-liu) | Senior Cloud Solution Architect - Engineering
 - [Jose Mendez](https://www.linkedin.com/in/jos%C3%A9-m%C3%A9ndez-de-la-serna-946985aa) Senior Cloud Solution Architect
-- [Ben Sadeghi]( https://www.linkedin.com/in/bensadeghi) | Senior Specialist
+- [Ben Sadeghi](https://www.linkedin.com/in/bensadeghi) | Senior Specialist
 - [Sunil Sattiraju](https://www.linkedin.com/in/sunilsattiraju) | Senior Cloud Solution Architect
 - [Amanjeet Singh](https://www.linkedin.com/in/amanjeetsingh2004) | Principal Program Manager
 - [Nagaraj Seeplapudur Venkatesan](https://www.linkedin.com/in/nagaraj-venkatesan-b6958b6) | Senior Cloud Solution Architect - Engineering

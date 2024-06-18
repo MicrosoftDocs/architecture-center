@@ -22,7 +22,7 @@ ms.custom:
 
 A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product. On this page, we provide guidance for technical decision-makers about the pricing models you can consider and the tradeoffs involved.
 
-When you determine the pricing model for your product, you need to balance the _return on value_ (ROV) for your customers with the _cost of goods sold_ (COGS) to deliver the service. Offering more flexible commercial models (for a solution) might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution (and therefore also increase your COGS).
+When you determine the pricing model for your product, you need to balance the *return on value (ROV)* for your customers with the *cost of goods sold (COGS)* to deliver the service. Offering more flexible commercial models (for a solution) might increase the ROV for customers, but it might also increase the architectural and commercial complexity of the solution (and therefore also increase your COGS).
 
 Some important considerations that you should take into account, when developing pricing models for a solution, are as follows:
 
@@ -50,7 +50,7 @@ There are many common pricing models that are often used with multitenant soluti
 
 ### Consumption-based pricing
 
-A consumption model is sometimes referred to as _pay-as-you-go_, or _PAYG_. As the use of your service increases, your revenue increases:
+A consumption model is sometimes referred to as *pay-as-you-go*, or *PAYG*. As the use of your service increases, your revenue increases:
 
 ![Diagram showing revenue increase, as the level of consumption increases.](media/pricing-models/consumption.png)
 
@@ -60,7 +60,7 @@ When you measure consumption, you can consider simple factors, such as the amoun
 
 **Complexity and operational cost:** Consumption models rely on accurate measurements of usage and on splitting this usage by tenant. This can be challenging, especially in a solution with many distributed components. You need to keep detailed consumption records for billing and auditing as well as providing methods for customers to get access to their consumption data.
 
-**Risks:** Consumption pricing can motivate your customers to reduce their usage of your system, in order to reduce their costs. Additionally, consumption models result in unpredictable revenue streams. You can mitigate this by offering _capacity reservations_, where customers pay for some level of consumption upfront. You, as the service provider, can use this revenue to invest in improvements in the solution, to reduce the operational cost or to increase the return on value by adding features.
+**Risks:** Consumption pricing can motivate your customers to reduce their usage of your system, in order to reduce their costs. Additionally, consumption models result in unpredictable revenue streams. You can mitigate this by offering *capacity reservations*, where customers pay for some level of consumption upfront. You, as the service provider, can use this revenue to invest in improvements in the solution, to reduce the operational cost or to increase the return on value by adding features.
 
 > [!NOTE]
 > Implementing and supporting capacity reservations may increase the complexity of the billing processes within your application. You might also need to consider how customers get refunds or exchange their capacity reservations, and these processes can also add commercial and operational challenges.
@@ -85,7 +85,7 @@ This model is similar to [per-user pricing](#per-user-pricing), but rather than 
 
 ![Diagram showing revenue increasing as the number of active users increases, and not as the number of users increases.](media/pricing-models/per-active-user.png)
 
-You can measure this in whatever period makes sense. Monthly periods are common, and then this metric is often recorded as _monthly active users_ or _MAU_.
+You can measure this in whatever period makes sense. Monthly periods are common, and then this metric is often recorded as *monthly active users* or *MAU*.
 
 **Benefits:** From your customers' perspective, this model requires a low investment and risk, because there's minimal waste; unused licenses aren't billable. This makes it particularly attractive when marketing the solution or growing the solution for larger enterprise customers. From your perspective as the service owner, your ROV is more accurately reflected to the customer by the number of monthly active users.
 
@@ -95,7 +95,7 @@ You can measure this in whatever period makes sense. Monthly periods are common,
 
 ### Per-unit pricing
 
-In many systems, the number of users isn't the element that has the greatest effect on the overall COGS. For example, in device-oriented solutions, also referred to as the _internet of things_ or _IoT_, the number of devices often has the greatest impact on COGS. In these systems, a per-unit pricing model can be used, where you define what a _unit_ is, such as a device. See the following diagram.
+In many systems, the number of users isn't the element that has the greatest effect on the overall COGS. For example, in device-oriented solutions, also referred to as the *internet of things* or *IoT*, the number of devices often has the greatest impact on COGS. In these systems, a per-unit pricing model can be used, where you define what a *unit* is, such as a device. See the following diagram.
 
 ![Diagram showing revenue increase, as the number of devices increases.](media/pricing-models/per-unit.png)
 
@@ -139,7 +139,7 @@ The free tier may also be offered as a time-limited trial, and during the trial 
 
 ### Cost of goods sold pricing
 
-You might choose to price your solution so that each tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model - also called _pass through cost or pricing_ - is sometimes used for multitenant solutions that aren't intended to be a profit center.
+You might choose to price your solution so that each tenant only pays the cost of operating their share of the Azure services, with no added profit margin. This model - also called *pass through cost or pricing* - is sometimes used for multitenant solutions that aren't intended to be a profit center.
 
 ![Diagram showing revenue varying over time with amount of use changing to match.](media/pricing-models/cost-of-goods-sold.png)
 
@@ -169,7 +169,7 @@ This is the simplest model to implement and for customers to understand, and it'
 
 ## Discount pricing
 
-Once you've defined your pricing model, you might choose to implement commercial strategies to incentivize growth through discount pricing. _Discount pricing_ can be used with consumption, per-user, and per-unit pricing models.
+Once you've defined your pricing model, you might choose to implement commercial strategies to incentivize growth through discount pricing. *Discount pricing* can be used with consumption, per-user, and per-unit pricing models.
 
 > [!NOTE]
 > Discount pricing doesn't typically require architectural considerations, beyond adding support for a more complex billing structure. A complete discussion into the commercial benefits of discounting is beyond the scope of this document.
@@ -218,7 +218,7 @@ In the case that you inadvertently create an unprofitable pricing model, there a
 
 ### Risky pricing models
 
-When implementing a pricing model for a solution, you'll usually have to make assumptions about how it will be used. If these assumptions turn out to be incorrect or the usage patterns change over time, then your pricing model may become unprofitable. Pricing models that are at risk of becoming unprofitable are known as _risky pricing_ models. For example, if you adopt a pricing model that expects users to self-limit the amount that they use your solution, then you may have implemented a risky pricing model.
+When implementing a pricing model for a solution, you'll usually have to make assumptions about how it will be used. If these assumptions turn out to be incorrect or the usage patterns change over time, then your pricing model may become unprofitable. Pricing models that are at risk of becoming unprofitable are known as *risky pricing* models. For example, if you adopt a pricing model that expects users to self-limit the amount that they use your solution, then you may have implemented a risky pricing model.
 
 Most SaaS solutions will add new features regularly. This increases the ROV to users, which may also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable, if the use of new features drives usage, but the pricing model doesn't factor this in.
 
@@ -226,7 +226,7 @@ For example, if you introduce a new video upload feature to your solution, which
 
 ## Usage limits
 
-_Usage limits_ enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services, where a single tenant can impact the experience of other tenants by over-consuming resources.
+*Usage limits* enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services, where a single tenant can impact the experience of other tenants by over-consuming resources.
 
 > [!NOTE]
 > It's important to make your customers aware that you apply usage limits. If you implement usage limits without making your customers aware of the limit, then it will result in customer dissatisfaction. This means that it's important to identify and plan usage limits ahead of time. The goal should be to plan for the limit, and to then communicate the limits to customers before they become necessary.
@@ -271,13 +271,13 @@ When changing pricing models, you'll need to consider the following factors:
 - Will new pricing models expose your service to risk? For example, are you removing rate limits that are currently protecting critical resources from overuse?
 - Do tenants have a clear path for migrating to the new pricing model?
 - How will you prevent tenants from using older pricing models, so that you can retire them?
-- Are tenants likely to receive _bill shock_ (a negative reaction to an unexpected bill) upon changing pricing models?
+- Are tenants likely to receive *bill shock* (a negative reaction to an unexpected bill) upon changing pricing models?
 - Are you monitoring the performance and utilization of your services, for new or changed pricing models, so that you can ensure continued profitability?
 - Are you able to clearly communicate the ROV for new pricing models, to your existing tenants?
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -291,7 +291,7 @@ Other contributors:
 - [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

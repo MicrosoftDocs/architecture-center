@@ -15,7 +15,7 @@ This article is about the open-source version of Magento, an e-commerce platform
 - [Azure Files Premium](https://azure.microsoft.com/products/storage/files), [Azure NetApp Files](https://azure.microsoft.com/products/netapp), or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or Azure NetApp Files. [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). It is highly recommended that you test input/output operations per second (IOPS) throughput and choose the options that work for you.
 - A [content delivery network (CDN)](https://azure.microsoft.com/products/cdn) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Redis](https://redis.io) stores session data. Hosting Redis on containers is recommended for performance reasons.
-- AKS uses an [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
+- AKS uses a [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores the private [Docker](https://www.docker.com) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. The default Magento install writes some secrets to the image.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
 
@@ -82,7 +82,7 @@ There are several ways to optimize scalability for this scenario:
 
 #### Media and static files
 
-- Adequately provision Azure Files, Azure NetApp Files, or another network-attached storage (NAS) system. Magento can store thousands of media files such as product images. _Be sure to provision NAS products with sufficient input/output operations per second (IOPS) to handle demand_.
+- Adequately provision Azure Files, Azure NetApp Files, or another network-attached storage (NAS) system. Magento can store thousands of media files such as product images. *Be sure to provision NAS products with sufficient input/output operations per second (IOPS) to handle demand*.
 
 - Minimize the size of static content such as HTML, CSS, and JavaScript. [Minification](https://devdocs.magento.com/cloud/deploy/static-content-deployment.html#minify-content) can reduce bandwidth costs and provide a more responsive experience for users.
 
@@ -194,5 +194,4 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - [All retail architectures](/azure/architecture/browse/?terms=retail)
 - [Elastic Workplace Search on Azure](../../solution-ideas/articles/elastic-workplace-search.yml)
-- [Scalable order processing](../data/ecommerce-order-processing.yml)
 - [Application data protection for AKS workloads on Azure NetApp Files](../file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)

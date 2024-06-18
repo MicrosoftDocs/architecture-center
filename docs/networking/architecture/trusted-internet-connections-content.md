@@ -64,7 +64,7 @@ For more information on CLAW, TIC 3.0, and MTIPS, see:
 - [TIC 3.0 core guidance documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
 - [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/publication/national-cybersecurity-protection-system-documents)
 - [EINSTEIN](https://www.cisa.gov/einstein)
-- [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/technology-products-services/it-security/trusted-internet-connections-tics)
+- [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 
 ### Potential use cases
 
@@ -270,7 +270,7 @@ Other contributor:
 - [TIC 3.0 core guidance documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
 - [National Cybersecurity Protection System (NCPS) documents](https://www.cisa.gov/publication/national-cybersecurity-protection-system-documents)
 - [EINSTEIN](https://www.cisa.gov/einstein)
-- [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/technology-products-services/it-security/trusted-internet-connections-tics)
+- [Managed Trusted Internet Protocol Services (MTIPS)](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/trusted-internet-connections-tic/mtips-features-and-price-structure)
 - [Azure Trusted Internet Connection - Extended](https://github.com/Azure/trusted-internet-connection)
 - [Federal App Innovation - TIC 3.0](https://github.com/microsoft/Federal-App-Innovation-Community/tree/main/topics/infrastructure/solutions/tic3.0)
 - [What is Azure Firewall?](/azure/firewall/overview)

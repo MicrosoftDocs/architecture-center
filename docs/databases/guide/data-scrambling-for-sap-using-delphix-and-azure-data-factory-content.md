@@ -10,7 +10,7 @@ The following architecture outlines the use of Delphix CC in an Azure Data Facto
 
 ## What is Azure Data Factory?
 
-[Azure Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct ETL and ELT processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
+[Azure Data Factory](/azure/data-factory/introduction) is a fully managed, serverless data integration service. It provides a rich visual experience for integrating data sources with more than 100 built-in, maintenance-free connectors at no added cost. Easily construct extract, transform, load (ETL) and extract, load, transform (ELT) processes code-free in an intuitive environment or write your own code. Then, deliver integrated data to Azure Synapse Analytics to unlock your data’s power through business insights.
 
 ## What is Delphix Continuous Compliance (Delphix CC)?
 
@@ -22,7 +22,7 @@ The movement of secure data is a challenge for all organizations. Delphix makes 
 
 By using the data source connectors offered by Azure Data Factory, we've created an ETL pipeline that allows an end user to automate the following steps:
 
-1. Read data from the system of record (SAP HANA) and write it to CSV files on Azure Storage. 
+1. Read data from the system of record (SAP HANA) and write it to CSV files on Azure Storage.
 1. Execute a Delphix masking job against the files to replace sensitive data elements with similar but fictitious values.
 1. Load the compliant data to Azure Synapse Analytics.
 
@@ -41,28 +41,28 @@ The data flows through the scenario as follows:
 
 ## Components
 
-* [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. 
-* [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from sourandce datastore(s) and the masked data that will be loaded into destination data store(s).
-* [Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
-* [Self Hosted Integration Runtime ](https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) must be set up and an SAP HANA ODBC driver must be installed for data extraction from SAP HANA.
-* Optional: [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is Azure's cloud extract, transform, load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
+- [Azure Storage](https://azure.microsoft.com/services/storage) stores the data extracted from sourandce datastore(s) and the masked data that will be loaded into destination data store(s).
+- [Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources. Resource groups organize everything related to this project in the Azure console.
+- [Self Hosted Integration Runtime](https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory) must be set up and an SAP HANA ODBC driver must be installed for data extraction from SAP HANA.
+- Optional: [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) provides private networking capabilities for Azure resources that aren't a part of the Azure Synapse workspace. It allows you to manage access, security, and routing between resources.
 
 ## Potential use cases
 
-* Automatically move compliant data from SAP applications (the architecture described here's specific to SAP applications with a HANA backend) to Microsoft Synapse to get analysts the data they need for testing in a cost-sensitive, fast, and scalable manner. Perform millions of scrambling operations in minutes.
-* Automatically put the exhaustive Delphix Algorithm framework to work addressing any regulatory requirements for your data (for example, to comply with GDPR, CCPA, LGPD, and HIPAA).
-* Mask/Scramble data consistently across data sources, while maintaining referential integrity for integrated application testing. For example, the name George must always be masked to Elliot or a given social security number (SSN) must always be masked to the same fictitious SSN, whether George and his SSN appear in SAP, Oracle, Salesforce, or any other application.
-* Mask/Scramble data in a manner that doesn't increase training cycles, and that doesn't impact model or prediction accuracy.
-* Configure a solution that works for both on-premises and the cloud, simply by altering the source connectors. For example, one might pull data from an on-premises SAP application, replicate that data to the cloud, and ensure compliance before loading into Synapse.
+- Automatically move compliant data from SAP applications (the architecture described here's specific to SAP applications with a HANA backend) to Microsoft Synapse to get analysts the data they need for testing in a cost-sensitive, fast, and scalable manner. Perform millions of scrambling operations in minutes.
+- Automatically put the exhaustive Delphix Algorithm framework to work addressing any regulatory requirements for your data (for example, to comply with General Data Protection Regulation (GDPR), CCPA, LGPD, and HIPAA).
+- Mask/Scramble data consistently across data sources, while maintaining referential integrity for integrated application testing. For example, the name George must always be masked to Elliot or a given social security number (SSN) must always be masked to the same fictitious SSN, whether George and his SSN appear in SAP, Oracle, Salesforce, or any other application.
+- Mask/Scramble data in a manner that doesn't increase training cycles, and that doesn't impact model or prediction accuracy.
+- Configure a solution that works for both on-premises and the cloud, simply by altering the source connectors. For example, one might pull data from an on-premises SAP application, replicate that data to the cloud, and ensure compliance before loading into Synapse.
 
 ## Key benefits
 
-* Realistic, deterministic masking/scrambling that maintains referential integrity
-* Preemptive identification of sensitive data for most common SAP tables and modules
-* Native cloud execution
-* Template-based deployment
-* Scalable
-* Low-cost alternative to expensive in-memory HANA HW
+- Realistic, deterministic masking/scrambling that maintains referential integrity
+- Preemptive identification of sensitive data for most common SAP tables and modules
+- Native cloud execution
+- Template-based deployment
+- Scalable
+- Low-cost alternative to expensive in-memory HANA HW
 
 ## Getting started
 
@@ -89,13 +89,13 @@ Delphix CC irreversibly masks data values with realistic data that remains fully
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-By adjusting values on the Azure pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator/), you can see how your particular requirements impact cost.
+By adjusting values on the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/), you can see how your particular requirements impact cost.
 
 Azure Synapse: You can scale compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
 
 Data Factory: Costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
 
-Delphix CC: Unlike other data compliance products on the market, masking doesn't require a full physical copy of the environment being masked. Environment redundancy can be expensive because of the time to set up and maintain the infrastructure, the cost of the infrastructure itself, and the time spent repeatedly loading physical data into the masking environment. 
+Delphix CC: Unlike other data compliance products on the market, masking doesn't require a full physical copy of the environment being masked. Environment redundancy can be expensive because of the time to set up and maintain the infrastructure, the cost of the infrastructure itself, and the time spent repeatedly loading physical data into the masking environment.
 
 ## Performance efficiency
 
@@ -105,24 +105,26 @@ Delphix CC is horizontally and vertically scalable. The transformations occur in
 
 Masking streams can be increased to engage multiple CPU cores in a job. (Configuration recommendations, and how to alter memory allocation can be found here: https://maskingdocs.delphix.com/Securing_Sensitive_Data/Creating_Masking_Job/)
 
-For optimal performance for datasets larger than 1 TB in size, Delphix Hyperscale Masking (https://hyperscale-compliance.delphix.com/3.0.0/) breaks the large and complex datasets into numerous modules and then orchestrates the masking jobs across multiple Continuous Compliance Engines.
+For optimal performance for datasets larger than 1 TB in size, [Delphix Hyperscale Masking](https://hyperscale-compliance.delphix.com/3.0.0/) breaks the large and complex datasets into numerous modules and then orchestrates the masking jobs across multiple Continuous Compliance Engines.
 
 ## Contributors
 
 This article was written by the following contributors.
 
-Principal authors: 
-* [Tess Maggio](https://www.linkedin.com/in/tessmaggio) – Product Manager 2
-* [Arun Saju](https://www.linkedin.com/in/arunsajukurian) – Senior Staff Engineer
-* [Mick Shieh](https://www.linkedin.com/in/mick-shieh-9219641/) – SAP Global Practice Leader
+Principal authors:
+
+- [Tess Maggio](https://www.linkedin.com/in/tessmaggio) – Product Manager 2
+- [Arun Saju](https://www.linkedin.com/in/arunsajukurian) – Senior Staff Engineer
+- [Mick Shieh](https://www.linkedin.com/in/mick-shieh-9219641/) – SAP Global Practice Leader
 
 Other contributors:
-* [Michael Torok](https://www.linkedin.com/in/michaelatorok/) – Senior Director of Digital Customer Experience
-* [Abhishek Narain](https://www.linkedin.com/in/narain-abhishek/) - Senior Program Manager
-* [Jon Burchel](https://www.linkedin.com/in/jon-burchel-8068917b) - Senior Content Developer
+
+- [Michael Torok](https://www.linkedin.com/in/michaelatorok/) – Senior Director of Digital Customer Experience
+- [Abhishek Narain](https://www.linkedin.com/in/narain-abhishek/) - Senior Program Manager
+- [Jon Burchel](https://www.linkedin.com/in/jon-burchel-8068917b) - Senior Content Developer
 
 ## Next steps
 
-* [Learn about getting set up with Delphix CC](https://maskingdocs.delphix.com/)
-* [Learn about consistent data masking across SAP and other data sources](https://www.delphix.com/video/data-compliance-and-security-across-datasets)
-* [Learn more about customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)
+- [Learn about getting set up with Delphix CC](https://maskingdocs.delphix.com/)
+- [Learn about consistent data masking across SAP and other data sources](https://www.delphix.com/video/data-compliance-and-security-across-datasets)
+- [Learn more about customers using Delphix on Azure](https://www.delphix.com/solutions/cloud/azure)

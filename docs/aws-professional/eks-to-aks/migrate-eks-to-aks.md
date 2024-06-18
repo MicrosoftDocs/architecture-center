@@ -135,12 +135,14 @@ Follow these steps to back up persistent data:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors**:
+<!-- docutune:ignoredChange ISV -->
+
+Principal authors:
 
 - Dixit Arora | Senior Customer Engineer, ISV DN CoE
 - [Ketan Chawda](https://www.linkedin.com/in/ketanchawda1402) | Senior Customer Engineer, ISV DN CoE
 
-**Other contributors**:
+Other contributors:
 
 - [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, ISV & DN CoE
 - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Principal Cloud Solution Architect

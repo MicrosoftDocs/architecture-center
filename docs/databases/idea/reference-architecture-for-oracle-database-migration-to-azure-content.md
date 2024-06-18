@@ -27,7 +27,7 @@ This solution migrates an Oracle database and its applications to Azure. We use 
 
 ### Alternatives
 
-If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
+If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial *bulk* data transfer, which provides a minimal downtime migration.
 
 #### SQL Server Migration Assistant for Oracle
 
@@ -35,7 +35,7 @@ If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recover
 
 ## Scenario details
 
-Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It's assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
+Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options, wherein Oracle Active Data Guard is used to migrate the Database. It's assumed that Oracle Data Guard (or Active Data Guard) is used for high availability (HA)/disaster recovery (DR) purposes. Depending on the application, either the application can be migrated first or the database. In this case, the application is migrated to Azure using Azure Load Balancer. This enables you to split your traffic between on-premises and Azure, allowing you to gradually migrate your application tier. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
 
 ### Potential use cases
 
@@ -66,7 +66,7 @@ Use multiple premium or ultra disks (managed disks) for performance and availabi
 We recommend the following tests to validate your application against your new Oracle database:
 
 * Run performance tests to ensure that they meet your business expectations.
-* Test database failover, recovery, and restoration to make sure that you're meeting RPO and RTO requirements.
+* Test database failover, recovery, and restoration to make sure that you're meeting recovery point objective (RPO) and recovery time objective (RTO) requirements.
 * List all critical jobs and reports, and run them on new Oracle instance to evaluate their performance against your service-level agreements (SLAs).
 * Finally, when migrating or creating applications for the cloud, it's important to tweak your application code to add cloud-native patterns such as retry pattern and circuit breaker pattern. Other patterns defined in the Cloud Design Patterns guide could help your application be more resilient.
 
@@ -82,7 +82,7 @@ Optionally use Azure Blob Fuse to mount a highly redundant Azure Blob Storage ac
 
 #### Security
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Business continuity and disaster recovery
 
@@ -92,7 +92,7 @@ For business continuity and disaster recovery, consider deploying the following 
 * Oracle Data Guard Far Sync for zero data loss protection.
 * Oracle GoldenGate for multi-primary or active-active mode on Azure availability set or availability zone depends on SLA requirements.
 
-Use Availability Zones to achieve high availability in-region. For more information, see the [Reference architectures for Oracle databases on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture).
+Use Availability Zones to achieve high-availability in-region. For more information, see the [Reference architectures for Oracle databases on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture).
 
 An uptime availability of 99.99% for your database tier can be achieved by using a combination of Azure Availability Zones and Oracle Active DataGuard with FSFO.
 
@@ -116,7 +116,7 @@ Learn more about the various architectural components:
 * [Introduction to Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 * [Oracle Data Guard Broker Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
 * [Configuring Oracle GoldenGate for Active-Active High Availability](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
-* [Oracle Active Data Guard Far Sync Zero Data Loss at Any Distance](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)
+* [Oracle Active Data Guard Far Sync Zero Data Loss at Any Distance](https://www.oracle.com/docs/tech/database/disaster-recovery.pdf)
 * [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager)
 * [Azure Proximity Placement Groups](/azure/virtual-machines/co-location#proximity-placement-groups)
 * [Oracle Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)

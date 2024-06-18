@@ -20,7 +20,7 @@ The following workflow corresponds to the preceding diagram:
 
 ### Components
 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services. 
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services.
 - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes). You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc data services to it, services like Azure Arc-enabled SQL Managed Instance.
 - [Azure Arc data controller](/azure/azure-arc/data/create-data-controller-direct-cli). Azure Arc data controller is the orchestrator in the Azure Arc-enabled data services architecture. It manages services like provisioning, elasticity, recoverability, monitoring, and high availability.
 - [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
@@ -84,7 +84,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-- Define your targets for [recovery point objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) (RPO) and [recovery time objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) (RTO).
+
+- Define your targets for [recovery point objective (RPO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) and [recovery time objective (RTO)](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto).
 - Configure [point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore) so that you can restore your databases to a previous point in time.
 - Determine how many replicas, between one and three, to deploy in the Business Critical service tier.
 - Determine the number of secondary replicas to deploy in the Business Critical service tier. When you deploy an instance in a Business Critical service tier with two or more replicas, you can configure the secondary replicas as readable. For information on changing the number, see [Configure readable secondaries](/azure/azure-arc/data/configure-managed-instance#configure-readable-secondaries).
@@ -135,7 +136,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc. 
+You can find the reference implementation of this architecture in [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), which is part of the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be self-contained in a single Azure subscription and [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group). ArcBox can help you get hands-on experience with Azure Arc.
 
 To get started, go to Jumpstart ArcBox for DataOps:
 
@@ -147,9 +148,11 @@ To get started, go to Jumpstart ArcBox for DataOps:
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
+
 - [Seif Bassem](https://www.linkedin.com/in/seif-bassem) | Senior Cloud Solution Architect
 
 Other contributor:
+
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
