@@ -1,4 +1,4 @@
-Decompose a task that performs complex processing into a series of separate elements that can be reused. This architectural style is simple to understand and has a low overall cost. Shell languages such as Bash and some MapReduce tools use this architectural style.
+Decompose a task that performs complex processing into a series of separate elements that can be reused. Pipes and Filters pattern is simple to understand, has a low overall cost to build and to maintain, and supports a high level of modularity. Shell languages such as Bash and some MapReduce tools use this architectural style.
 
 ## Context and problem
 
@@ -14,7 +14,7 @@ There are other challenges with a monolithic implementation unrelated to multipl
 
 ## Solution
 
-Break down the processing required for each stream into a set of separate filters (or components), each performing a single task. Composite tasks should use multiple filters rather than one. The filters are composed into pipelines by connecting the filters with pipes. Filters are independent, self-contained and typically stateless. Filters receive messages from an inbound pipe and publish messages to a different outbound pipe. Filters can transform the message or test it against one or more criteria. Pipes don't perform routing or any other logic. They only connect filters,  passing the output message from one filter as the input to the next. Pipes and filters architecture encourages compositional reuse. This architecture style is monolith in nature so the entire monolith has to be tested and deployed for any change. It's primary strengths are overall cost to build and maintain, simplicity and modularity. On the other hand, it's primary weaknesses are low elasticity and fault-tolerance. If one part of the application fails, it can impact the entire application.
+Break down the processing required for each stream into a set of separate filters (or components), each performing a single task. Composite tasks should use multiple filters rather than one. The filters are composed into pipelines by connecting the filters with pipes. Filters are independent, self-contained and typically stateless. Filters receive messages from an inbound pipe and publish messages to a different outbound pipe. Filters can transform the message or test it against one or more criteria to create conditional logic. Pipes don't perform routing or any other logic. They only connect filters,  passing the output message from one filter as the input to the next. Pipes and filters architecture encourages compositional reuse. 
 
 Filters act independently and are unaware of other filters. They're only aware of their input and output schemas. As such, the filters can be arranged in any order so long as the input schema for any filter matches the output schema for the previous filter. Using a standardized schema for all filters enhances the ability to reorder filters.
 
@@ -43,6 +43,8 @@ Using the Pipes and Filters pattern together with the [Compensating Transaction 
 ## Issues and considerations
 
 Consider the following points when you decide how to implement this pattern:
+
+- **Monolithic nature**. This architecture style is usually implemented as a monolithic deployment, so for any change, the entire monolith has to be tested and deployed. Also, elasticity and fault-tolerance aren't well supported; if one part of the application fails, it can impact the entire application.
 
 - **Complexity**. The increased flexibility that this pattern provides can also introduce complexity, especially if the filters in a pipeline are distributed across different servers.
 
