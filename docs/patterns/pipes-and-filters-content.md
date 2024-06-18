@@ -1,4 +1,4 @@
-Decompose a task that performs complex processing into a series of separate elements that can be reused. Pipes and Filters pattern is simple to understand, has a low overall cost to build and to maintain, and supports a high level of modularity. Shell languages such as Bash and some MapReduce tools use this architectural style.
+Decompose a task that performs complex processing into a series of separate elements that can be reused. Pipes and Filters pattern is simple to understand, has a low overall cost to build and to maintain, and supports a high level of modularity. Shell languages such as Bash and some MapReduce tools use this pattern.
 
 ## Context and problem
 
@@ -44,7 +44,7 @@ Using the Pipes and Filters pattern together with the [Compensating Transaction 
 
 Consider the following points when you decide how to implement this pattern:
 
-- **Monolithic nature**. This architecture style is usually implemented as a monolithic deployment, so for any change, the entire monolith has to be tested and deployed. Also, elasticity and fault-tolerance aren't well supported; if one part of the application fails, it can impact the entire application.
+- **Monolithic nature**. This pattern is usually implemented as a monolithic deployment, so for any change, the entire monolith has to be tested and deployed. Also, elasticity and fault-tolerance aren't well supported; if one part of the application fails, it can impact the entire application.
 
 - **Complexity**. The increased flexibility that this pattern provides can also introduce complexity, especially if the filters in a pipeline are distributed across different servers.
 
