@@ -216,10 +216,6 @@ items:
           items:
           - name: For data scientists
             href: ../data-science-process/team-data-science-process-for-data-scientists.md
-        - name: How To
-          items:
-          - name: Prepare data
-            href: ../data-science-process/prepare-data.md
     - name: OpenAI
       items: 
       - name: Explore ideas about
