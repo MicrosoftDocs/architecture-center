@@ -200,7 +200,7 @@ Reliability ensures your application can meet the commitments you make to your b
 
 Reliability considerations include:
 
-- For the deployment of this reference architecture, a fictitious customer "Contoso Manufacturing" has an internal Service Level Objective (SLO) of 99.8% agreed with business and application stakeholders.
+- For the deployment of this reference architecture, a **fictitious customer "Contoso Manufacturing"** has an internal **Service Level Objective (SLO) target of 99.8%** agreed with business and application stakeholders.
 
 - An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
 
