@@ -72,7 +72,7 @@ These training materials are related to the Team Data Science Process (TDSP) and
     The main documentation page for Azure Machine Learning.
 
 2.  [What is Azure Machine
-    Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2)
+    Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
     -- An overview description of Azure Machine Learning.
 
 3.  [Tutorial: Train a
@@ -97,7 +97,7 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 4.  **Related to Azure Machine Learning**: [Tutorial: Upload, access and
     explore your data in Azure Machine
-    Learning](/azure/machine-learning/tutorial-explore-data?view=azureml-api-2)
+    Learning](/azure/machine-learning/tutorial-explore-data)
     -- Instruction on how to upload data and create an Azure Machine
     Learning data asset.
 
@@ -114,7 +114,7 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 3.  **Related to Azure Machine Learning**: [Data Concepts in Azure
     Machine
-    Learning](/azure/machine-learning/concept-data?view=azureml-api-2) -
+    Learning](/azure/machine-learning/concept-data) -
     Explains key Azure Machine Learning data concepts, for use in
     documentation.
 
@@ -131,7 +131,7 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 3.  **Related to Azure Machine Learning**: [Apache Spark in Azure
     Machine
-    Learning](/azure/machine-learning/apache-spark-azure-ml-concepts?view=azureml-api-2) -
+    Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) -
     Azure Machine Learning integration with Azure Synapse Analytics
     provides easy access to distributed computation resources through
     the Apache Spark framework.
