@@ -71,7 +71,7 @@ In active-passive mode with cold standby, the primary region has all the resourc
 
 As mentioned, active-passive mode includes failover taking some time, so it's easier to keep all data in sync. Active-passive mode with cold standby is the most cost effective approach because you don't deploy all the resources to both regions.
 
-If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources as needed. You can use Terraform, Bicep, or Azure Resource Manager (ARM) templates, and automate infrastructure setup in a continuous integration/continuous deployment (CI/CD) pipeline. You should regularly test your configuration by recreating your secondary region to ensure your templates are deployable in an emergency.
+If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources as needed. You can use Terraform, Bicep, or Azure Resource Manager templates, and automate infrastructure setup in a continuous integration/continuous deployment (CI/CD) pipeline. You should regularly test your configuration by recreating your secondary region to ensure your templates are deployable in an emergency.
 
 The [deployment stamps](../../../patterns/deployment-stamp.yml) pattern is recommended because multiple independent copies of an application or component can be deployed from a single template to multiple regions.
 
