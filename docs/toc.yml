@@ -1208,13 +1208,7 @@ items:
           - name: AKS baseline cluster
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
-            href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
-          - name: Deploy web apps on Azure Red Hat OpenShift
-            href: reference-architectures/containers/aro/ha-zr-aro.yml
-          - name: Solutions for financial institutions on Azure Red Hat OpenShift  
-            href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml
-          - name: Running Windows containers on AKS
-            href: reference-architectures/containers/aks/windows-containers-on-aks.yml
+            href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml  
           - name: AKS cluster for a PCI-DSS workload
             items:
             - name: Introduction
@@ -1235,6 +1229,12 @@ items:
               href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
             - name: Summary
               href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
+          - name: Deploy web apps on Azure Red Hat OpenShift
+            href: reference-architectures/containers/aro/ha-zr-aro.yml
+          - name: Running Windows containers on AKS
+            href: reference-architectures/containers/aks/windows-containers-on-aks.yml
+          - name: Use Azure Red Hat OpenShift in the financial services industry  
+            href: reference-architectures/containers/aro/azure-redhat-openshift-financial-services-workloads.yml    
       - name: Guides
         items:
         - name: Application

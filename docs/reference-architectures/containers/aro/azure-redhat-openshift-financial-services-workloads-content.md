@@ -124,6 +124,8 @@ FSI companies can use robust observability tools and practices to proactively de
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+Principal author:
+
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
