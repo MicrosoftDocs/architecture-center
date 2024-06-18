@@ -18,6 +18,10 @@
     "Dictionary-AAC.ps1"
   ],
   "RemoveTermSets": [
-    "*-llm-*"
+    "*-cni-*",
+    "*-llm-*",
+    "*-nlp-*",
+    "*-tts-*",
+    "*-stt-*"
   ]
 }

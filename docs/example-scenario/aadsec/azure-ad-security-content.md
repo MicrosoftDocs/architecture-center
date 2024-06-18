@@ -163,5 +163,4 @@ Microsoft Entra pricing ranges from free, for features like SSO and MFA, to Prem
 ## Related resources
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
 - [Security considerations for highly sensitive infrastructure as a service (IaaS) apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)

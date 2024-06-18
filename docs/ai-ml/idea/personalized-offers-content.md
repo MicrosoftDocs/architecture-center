@@ -44,7 +44,7 @@ Marketers now have the opportunity to deliver highly relevant and personalized o
 
 Intelligent Recommendations offers capabilities to drive desired outcomes, such as item recommendations that are based on user interactions and metadata. It can be used to promote and personalize any content type, such as sellable products, media, documents, offers, and more.
 
-Azure Personalizer is a service that's part of Azure Cognitive Services. It can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This process ensures that the service is learning continuously, and it enhances Personalizer's ability to select the best items based on the contextual information received.
+Azure Personalizer is a service that's part of Azure AI services. It can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This process ensures that the service is learning continuously, and it enhances Personalizer's ability to select the best items based on the contextual information received.
 
 Microsoft Azure provides advanced analytics tools in the areas of data ingestion, data storage, data processing, and advanced analytics components—all the essential elements for building a personalized offer solution.
 
@@ -54,17 +54,17 @@ You can save time when you implement this solution by hiring a trained system in
 
 ### Potential use cases
 
-This solution applies to the marketing of goods and services based on customer data (products viewed and / or purchased). This could be applicable in the following areas:
+This solution applies to the marketing of goods and services based on customer data (products viewed or purchased). This could be applicable in the following areas:
 
-* **E-commerce** - This is an area where personalization is widely used with customer behavior and product recommendations.
+- **E-commerce** - This is an area where personalization is widely used with customer behavior and product recommendations.
 
-* **Retail** - Based on prior purchase data, recommendations and offers can be provided on products.
+- **Retail** - Based on prior purchase data, recommendations and offers can be provided on products.
 
-* **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited.
+- **Telecom** - Based on user interaction in this area, recommendations can be provided. Compared to other industries, the product and offer ranges might be limited.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 

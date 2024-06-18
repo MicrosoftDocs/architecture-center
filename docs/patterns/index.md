@@ -24,6 +24,19 @@ These design patterns are useful for building reliable, scalable, secure applica
 
 Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Microsoft Azure. Most patterns include code samples or snippets that show how to implement the pattern on Azure. However, most patterns are relevant to any distributed system, whether hosted on Azure or other cloud platforms.
 
+Cloud workloads are prone to the [fallacies of distributed computing](https://wikipedia.org/wiki/Fallacies_of_distributed_computing). Some examples of cloud design fallacies are:
+
+- The network is reliable
+- Latency is zero
+- Bandwidth is infinite
+- The network is secure
+- Topology doesn't change
+- There is one administrator
+- Component versioning is simple
+- Observability implementation can be delayed
+
+Design patterns don't eliminate notions such as these but can help bring awareness, compensations, and mitigations of them. Each cloud pattern has its own trade-offs. You need to pay attention more to why you're choosing a certain pattern than to how to implement it.
+
 ## Challenges in cloud development
 
 <table>

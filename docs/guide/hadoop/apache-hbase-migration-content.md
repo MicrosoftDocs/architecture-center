@@ -61,7 +61,7 @@ The following diagram illustrates these concepts.
 HBase uses a combination of data structures that reside in memory and in persistent storage to deliver fast writes. When a write occurs, the data is first written to a write-ahead log (WAL), which is a data structure that's stored on persistent storage. The role of the WAL is to track changes so that logs can be replayed in case of a server failure. The WAL is only used for resiliency.
 After data is committed to the WAL, it's written to MemStore, which is an in-memory data structure. At this stage, a write is complete.
 
-For long-term data persistence, HBase uses a data structure called an *HBase file* (HFile). An HFile is stored on HDFS. Depending on MemStore size and the data flush interval, data from MemStore is written to an HFile. For information about the format of an HFile, see [Appendix G: HFile format](https://HBase.apache.org/book.html#_hfile_format_2).
+For long-term data persistence, HBase uses a data structure called an *HBase file (HFile)*. An HFile is stored on HDFS. Depending on MemStore size and the data flush interval, data from MemStore is written to an HFile. For information about the format of an HFile, see [Appendix G: HFile format](https://HBase.apache.org/book.html#_hfile_format_2).
 
 The following diagram shows the steps of a write operation.
 
