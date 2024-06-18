@@ -211,12 +211,12 @@ items:
           href: data-guide/scenarios/data-transfer.md
     - name: Choose an analytics solution
       items:
+      - name: Advanced analytics
+        href: data-guide/scenarios/advanced-analytics.md
       - name: Analytical data stores
         href: data-guide/technology-choices/analytical-data-stores.md
       - name: Analytics and reporting
         href: data-guide/technology-choices/analysis-visualizations-reporting.md
-      - name: Advanced analytics
-        href: data-guide/scenarios/advanced-analytics.md
       - name: Batch processing
         href: data-guide/technology-choices/batch-processing.md
       - name: Microsoft Fabric deployment patterns
