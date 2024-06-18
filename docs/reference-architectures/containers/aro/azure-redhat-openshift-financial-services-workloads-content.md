@@ -4,7 +4,7 @@ Before you build a production environment with Azure Red Hat OpenShift, read the
 
 ## Architecture
 
-:::image type="content" source="./images/fsi-architecture.png" alt-text="Diagram that shows the Azure Red Hat OpenShift hybrid architecture FSI scenario." border="false" lightbox="./images/fsi-architecture.png":::
+:::image type="content" source="./images/fsi-architecture.svg" alt-text="Diagram that shows the Azure Red Hat OpenShift hybrid architecture FSI scenario." border="false" lightbox="./images/fsi-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/fsi-architecture.vsdx) of this architecture.*
 
