@@ -139,7 +139,7 @@ The logical network topology provides an overview for how the network data flows
 - Storage traffic:
   - The nodes communicate with each other directly for storage traffic.
   - Each node can access shared storage spaces, virtual disks, and volumes.
-  - This direct communication ensures efficient data transfer for storage-related operations.
+  - This direct communication ensures sufficient data transfer for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 - External communication:
   - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
   - The ToR switches handle routing and provide connectivity beyond the cluster to the edge border device (_firewall or router_).
@@ -162,7 +162,7 @@ Enable [Azure Monitor Insights on Azure Stack HCI](/azure-stack/hci/concepts/mon
 
 Insights is capable of monitoring key Azure Stack HCI features using the cluster Performance counters and Event Log Channels that are collected by the data collection rule (DCR) configured using Azure Monitor and Log Analytics.
 
-Because Azure Stack HCI Insights is built using Azure services, it is an always up to date, scalable solution that is highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Stack HCI. This components provide a near real-time monitoring solution, with the ability to create graphs, customize visualization using aggregation and filtering functionality and configuring custom resource health alert rules.
+Because Azure Stack HCI Insights is built using Azure Monitor and Log Analytics, it is an always up to date, scalable solution that is highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Stack HCI. This components provide a near real-time monitoring solution, with the ability to create graphs, customize visualization using aggregation and filtering functionality and configuring custom resource health alert rules.
 
 ### Update management
 
@@ -196,9 +196,11 @@ Security provides assurances against deliberate attacks and the misuse of your v
 
 Security considerations include:
 
-- [Azure Stack HCI basic security][azs-hci-basic-security]. Utilize Azure Stack HCI hardware components (such as Secure Boot, UEFI, and TPM) to build a secure foundation for Azure Stack HCI VM-level security, including Device Guard and Credential Guard. Use [Azure role-based access control][azure-rbac] to delegate management tasks by following the principle of least privilege.
-- [Azure Stack HCI security default][azs-hci-security-default]. Apply default security settings for your Azure Stack HCI cluster during deployment to keep the nodes in a known good state. You can use the security default settings to manage cluster security, drift control, and Secured core server settings on your cluster.
-You can use [Azure Stack HCI advanced security][azs-hci-advanced-security] to further harden servers running Azure Stack HCI operating system and [Microsoft Advanced Threat Analytics (ATA)][ms-ata] to detect and remediate cyber threats targeting AD DS domain controllers providing authentication services to Azure Stack HCI clusters and their Windows Server workloads.
+- [Azure Stack HCI is a secure-by-default product][azs-hci-basic-security], utilizing certified hardware components that have TPM, UEFI and Secure Boot enabled to build a secure foundation for Azure Stack HCI VM-level security. When deployed with the default / recommended security settings, the product has Windows Defender Application Control (WDAC), Credential Guard and BitLocker enabled. Use [Azure Stack HCI built-in role-based access control (RBAC) roles][azs-hci-rbac] such as 'Azure Stack HCI Administrator' for platform administrators, and 'Azure Stack HCI VM Contributor' or 'Azure Stack HCI VM Reader' for workload operators to simplify delegating permissions, using the principle of least privilege.
+- [Azure Stack HCI security default][azs-hci-security-default]. Apply default security settings for your Azure Stack HCI cluster during deployment, and [Enable Drift Control](/azure-stack/hci/manage/manage-secure-baseline)  to keep the nodes in a known good state. You can use the security default settings to manage cluster security, drift control, and Secured core server settings on your cluster.
+- Enable [Azure Stack HCI Syslog Forwarding][azs-hci-security-syslog] to integrate with security monitoring solutions, by retrieving relevant security event logs to aggregate and store events for retention in your own SIEM platform.
+- Enable [Microsoft Defender for Cloud to protect your Azure Stack HCI clusters][azs-hci-defender-for-cloud] from various cyber threats and vulnerabilities, which helps to improve the security posture of your Azure Stack HCI environment, and can protect against existing and evolving threats.
+- [Microsoft Advanced Threat Analytics (ATA)][ms-ata] can be used to detect and remediate cyber threats, such as those targeting Active Directory Domain Services (AD DS) that provides authentication services to Azure Stack HCI cluster nodes and their Windows Server VM workloads.
 
 ### Cost optimization
 
@@ -336,8 +338,9 @@ Microsoft Learn modules:
 [azs-hci-network-bandwidth-allocation]: /azure-stack/hci/concepts/plan-host-networking#traffic-bandwidth-allocation
 [azs-hci-switchless-interconnects-reqs]: /azure-stack/hci/concepts/plan-host-networking#interconnects-for-2-3-node-clusters
 [sr-resync]: /windows-server/storage/storage-spaces/understand-storage-resync
-[azs-hci-basic-security]: /azure-stack/hci/concepts/security#part-1-build-a-secure-foundation
-[azure-rbac]: /azure/role-based-access-control/overview
+[azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
+[azs-hci-rbac]: /azure-stack/hci/manage/assign-vm-rbac-roles
 [azs-hci-security-default]: /azure-stack/hci/manage/manage-secure-baseline
-[azs-hci-advanced-security]: /azure-stack/hci/concepts/security
+[azs-hci-security-syslog]: /azure-stack/hci/manage/manage-syslog-forwarding
 [ms-ata]: /advanced-threat-analytics/what-is-ata
+[azs-hci-defender-for-cloud]: /azure-stack/hci/manage/manage-security-with-defender-for-cloud
