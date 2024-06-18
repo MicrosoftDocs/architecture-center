@@ -40,17 +40,17 @@ These training materials are related to the Team Data Science Process (TDSP) and
 ### Understanding an Analytics Workload
 
 1.  [Azure Monitor
-    overview](https://docs.microsoft.com/azure/azure-monitor/overview) -
+    overview](/azure/azure-monitor/overview) -
     Provides an understanding of monitoring and analytics services in
     Azure.
 
 2.  [Introduction to Azure Synapse
-    Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is) -
+    Analytics](/azure/synapse-analytics/overview-what-is) -
     Covers the basic concepts of analytics workloads within Azure
     Synapse.
 
 3.  [Cloud Adoption Framework: Innovation with
-    AI](https://learn.microsoft.com/azure/cloud-adoption-framework/innovate/ai/) -
+    AI](/azure/cloud-adoption-framework/innovate/ai/) -
     A collection of documentation, implementation guidance, best
     practices, and tools that are proven guidance from Microsoft
     designed to accelerate your cloud adoption lifecycle.
@@ -58,80 +58,80 @@ These training materials are related to the Team Data Science Process (TDSP) and
 ### Using the Team Data Science Process (TDSP)
 
 1.  [Team Data Science Process
-    Overview](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) -
+    Overview](/azure/machine-learning/team-data-science-process/overview) -
     Introduces the TDSP and its lifecycle.
 
 2.  [TDSP Lifecycle and Key
-    Components](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle) -
+    Components](/azure/machine-learning/team-data-science-process/lifecycle) -
     Details the lifecycle stages and key components of TDSP.
 
 ### Using Azure Machine Learning
 
 1.  [Azure Machine Learning
-    Documentation](https://docs.microsoft.com/azure/machine-learning/) -
+    Documentation](/azure/machine-learning/) -
     The main documentation page for Azure Machine Learning.
 
 2.  [What is Azure Machine
-    Learning?](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2)
+    Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2)
     -- An overview description of Azure Machine Learning.
 
 3.  [Tutorial: Train a
-    model](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) -
+    model](/azure/machine-learning/tutorial-1st-experiment-sdk-setup) -
     Walks through the process of training a machine learning model.
 
 ### Understanding the Foundations of Data Transfer and Storage
 
 1.  [Data Transfer
-    Options](https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer) -
+    Options](/azure/architecture/data-guide/scenarios/data-transfer) -
     Discusses various data transfer and storage technologies in Azure.
 
 2.  [Azure Storage
-    Documentation](https://docs.microsoft.com/azure/storage/) -
+    Documentation](/azure/storage/) -
     Comprehensive documentation on Azure Storage services.
 
 3.  [Azure Database Migration
-    Service](https://learn.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer) -
+    Service](/azure/architecture/data-guide/scenarios/data-transfer) -
     Azure Database Migration Service enables seamless migrations from
     multiple database sources to Azure Data platforms with minimal
     downtime.
 
 4.  **Related to Azure Machine Learning**: [Tutorial: Upload, access and
     explore your data in Azure Machine
-    Learning](https://learn.microsoft.com/azure/machine-learning/tutorial-explore-data?view=azureml-api-2)
+    Learning](/azure/machine-learning/tutorial-explore-data?view=azureml-api-2)
     -- Instruction on how to upload data and create an Azure Machine
     Learning data asset.
 
 ### Providing Data Source Documentation
 
 1.  [Azure Data Catalog
-    Documentation](https://docs.microsoft.com/azure/data-catalog/) -
+    Documentation](/azure/data-catalog/) -
     Covers how to document and manage data sources using Azure Data
     Catalog.
 
 2.  [Azure Purview
-    Documentation](https://docs.microsoft.com/azure/purview/) -
+    Documentation](/azure/purview/) -
     Documentation for Azure Purview, a data governance solution.
 
 3.  **Related to Azure Machine Learning**: [Data Concepts in Azure
     Machine
-    Learning](https://learn.microsoft.com/azure/machine-learning/concept-data?view=azureml-api-2) -
+    Learning](/azure/machine-learning/concept-data?view=azureml-api-2) -
     Explains key Azure Machine Learning data concepts, for use in
     documentation.
 
 ### Using Tools for Analytics Processing
 
 1.  [Azure Synapse Analytics
-    Documentation](https://docs.microsoft.com/azure/synapse-analytics/) -
+    Documentation](/azure/synapse-analytics/) -
     Comprehensive documentation for Azure Synapse Analytics.
 
 2.  [Azure Data Factory
-    Documentation](https://docs.microsoft.com/azure/data-factory/) -
+    Documentation](/azure/data-factory/) -
     Information on using Azure Data Factory for data integration and
     analytics processing.
 
 3.  **Related to Azure Machine Learning**: [Apache Spark in Azure
     Machine
-    Learning](https://learn.microsoft.com/azure/machine-learning/apache-spark-azure-ml-concepts?view=azureml-api-2) -
+    Learning](/azure/machine-learning/apache-spark-azure-ml-concepts?view=azureml-api-2) -
     Azure Machine Learning integration with Azure Synapse Analytics
     provides easy access to distributed computation resources through
     the Apache Spark framework.
@@ -149,79 +149,79 @@ and grow your way.
 ### Beginner
 
 [Copilot
-Foundations](https://learn.microsoft.com/training/paths/copilot-foundations/)
+Foundations](/training/paths/copilot-foundations/)
 
 [Deploy and consume models with Azure Machine
-Learning](https://learn.microsoft.com/training/paths/deploy-consume-models-azure-machine-learning/)
+Learning](/training/paths/deploy-consume-models-azure-machine-learning/)
 
 [Design a machine learning
-solution](https://learn.microsoft.com/training/paths/design-machine-learning-solution/)
+solution](/training/paths/design-machine-learning-solution/)
 
 [Experiment with Azure Machine
-Learning](https://learn.microsoft.com/training/paths/automate-machine-learning-model-selection-azure-machine-learning/)
+Learning](/training/paths/automate-machine-learning-model-selection-azure-machine-learning/)
 
 [Explore and configure the Azure Machine Learning
-workspace](https://learn.microsoft.com/training/paths/explore-azure-machine-learning-workspace/)
+workspace](/training/paths/explore-azure-machine-learning-workspace/)
 
 [Implement a data science and machine learning solution for AI in
 Microsoft
-Fabric](https://learn.microsoft.com/training/paths/implement-data-science-machine-learning-fabric/)
+Fabric](/training/paths/implement-data-science-machine-learning-fabric/)
 
 [Manage and review models in Azure Machine
-Learning](https://learn.microsoft.com/training/paths/manage-review-models-azure-machine-learning/)
+Learning](/training/paths/manage-review-models-azure-machine-learning/)
 
 [Optimize model training with Azure Machine
-Learning](https://learn.microsoft.com/training/paths/use-azure-machine-learning-pipelines-for-automation/)
+Learning](/training/paths/use-azure-machine-learning-pipelines-for-automation/)
 
 [Predict rocket launch delays with machine
-learning](https://learn.microsoft.com/training/paths/machine-learning-predict-launch-delay-nasa/)
+learning](/training/paths/machine-learning-predict-launch-delay-nasa/)
 
 [Train and manage a machine learning model with Azure Machine
-Learning](https://learn.microsoft.com/training/paths/train-deploy-machine-learning-model/)
+Learning](/training/paths/train-deploy-machine-learning-model/)
 
 [Train models with scripts in Azure Machine
-Learning](https://learn.microsoft.com/training/paths/train-models-scripts-azure-machine-learning/)
+Learning](/training/paths/train-models-scripts-azure-machine-learning/)
 
 [Understand data science for machine
-learning](https://learn.microsoft.com/training/paths/understand-machine-learning/)
+learning](/training/paths/understand-machine-learning/)
 
 [Use notebooks for experimentation in Azure Machine
-Learning](https://learn.microsoft.com/training/paths/use-notebooks-for-experimentation-azure-machine-learning/)
+Learning](/training/paths/use-notebooks-for-experimentation-azure-machine-learning/)
 
 [Work with compute in Azure Machine
-Learning](https://learn.microsoft.com/training/paths/work-compute-azure-machine-learning/)
+Learning](/training/paths/work-compute-azure-machine-learning/)
 
 [Work with data in Azure Machine
-Learning](https://learn.microsoft.com/training/paths/work-data-azure-machine-learning/)
+Learning](/training/paths/work-data-azure-machine-learning/)
 
 ### Intermediate
 
 [Create custom copilots with Azure AI
-Studio](https://learn.microsoft.com/training/paths/create-custom-copilots-ai-studio/)
+Studio](/training/paths/create-custom-copilots-ai-studio/)
 
 [Create machine learning
-models](https://learn.microsoft.com/training/paths/create-machine-learn-models/)
+models](/training/paths/create-machine-learn-models/)
 
 [Develop Custom Object Detection Models with NVIDIA and Azure Machine
-Learning](https://learn.microsoft.com/training/paths/develop-custom-object-detection-models-with-nvidia-and-azure-machine-learning/)
+Learning](/training/paths/develop-custom-object-detection-models-with-nvidia-and-azure-machine-learning/)
 
 [End-to-end machine learning operations (MLOps) with Azure Machine
-Learning](https://learn.microsoft.com/training/paths/build-first-machine-operations-workflow/)
+Learning](/training/paths/build-first-machine-operations-workflow/)
 
 [Implement a Machine Learning solution with Azure
-Databricks](https://learn.microsoft.com/training/paths/build-operate-machine-learning-solutions-azure-databricks/)
+Databricks](/training/paths/build-operate-machine-learning-solutions-azure-databricks/)
 
 [Train models in Azure Machine Learning with the CLI
-(v2)](https://learn.microsoft.com/training/paths/train-models-azure-machine-learning-cli-v2/)
+(v2)](/training/paths/train-models-azure-machine-learning-cli-v2/)
 
 [Work with generative artificial intelligence (AI) models in Azure
 Machine
-Learning](https://learn.microsoft.com/training/paths/work-with-generative-models-azure-machine-learning/)
+Learning](/training/paths/work-with-generative-models-azure-machine-learning/)
 
 ### Advanced
 
 [Train compute-intensive models with Azure Machine
-Learning](https://learn.microsoft.com/training/paths/train-compute-intensive-models-azure-machine-learning/)
+Learning](/training/paths/train-compute-intensive-models-azure-machine-learning/)
 
 
 ## Contributors
