@@ -1,4 +1,4 @@
-Decompose a task that performs complex processing into a series of separate elements that can be reused. This architectural style is the underlying principle behind shell languages.
+Decompose a task that performs complex processing into a series of separate elements that can be reused. This architectural style is simple to understand and has a low overall cost. Shell languages such as Bash and some MapReduce tools use this architectural style.
 
 ## Context and problem
 
