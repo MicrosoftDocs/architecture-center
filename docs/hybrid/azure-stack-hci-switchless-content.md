@@ -204,25 +204,19 @@ Reliability considerations include:
 <br>
 - An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
 
-
   Weekly: 20m 9.6s
-
   Monthly: 1h 26m 56s
-
   Quarterly: 4h 20m 49s
-
   Yearly: 17h 23m 16s
 
-
-<br>
 - **To help achieve the SLO targets** Contoso Manufacturing have implemented the _principle of least privilege_ to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This helps prevent downtime due to any inadvertent or accidental actions being performed on production resources. Furthermore, the on-premises Active Directory Domain Services (AD DS) domain controllers security event logs are monitored to detect and report any user account group membership changes (_add / remove actions_) for the "Azure Stack HCI cluster administrators" group using a security information event management (SIEM) solution. In addition to increasing Reliability, this monitoring also improves the Security of the solution.
-<br>
+
 - Contoso Manufacturing have **strict change control procedures** in place for production systems, this process requires that all changes must be tested and validated in a representative test environment prior to implementation in production, all submitted changes must include a risk level and comprehensive roll back plan.
-<br>
+
 - **Monthly security patches and quarterly baseline updates** are applied to production Azure Stack HCI clusters only after they have been validated in the pre-production environment. Azure Update Management automation and Cluster Awareness Updating automates the process of using _VM Live Migration_ to minimize downtime for business critical workloads during the monthly servicing operations. Contoso Manufacturing require the patching process to be completed for all production systems within four weeks of the update release date.
-<br>
+
 - **Contoso Manufacturing perform daily, weekly and monthly backups**, retaining the last 6 x days of daily backups (_Monday to Saturdays_), the last 3 x weekly (_each Sunday_) and 3 x monthly (_Sunday week 4 is retained as the Month 1, then Month 2, and Month 3_) backups. This provides an adequate balance between the number of data recovery points available and reducing costs for the offsite / cloud backup storage service.
-<br>
+
 - **The data backup and recovery process is tested** for each business system every six months, this provides assurance their business continuity and disaster recovery (BCDR) processes are valid and the business would be protected in the event of a datacenter disaster or cyber incident.
 - The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectivity scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
 
