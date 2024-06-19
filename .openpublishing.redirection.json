@@ -4825,6 +4825,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/infrastructure/devtest-labs-reference-architecture.yml",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/blockchain/multi-cloud-blockchain.yml",
       "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
       "redirect_document_id": false
