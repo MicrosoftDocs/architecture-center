@@ -250,50 +250,46 @@ Consider the following common personas in a machine learning workload which will
 
 ##### Data scientist/ML engineer
 
-The people doing the various machine learning and data science activities across the SDLC lifecycle for a project. This role's responsibilities include break and fix activities for the machine learning models, packages, and data, which sit outside of platform support expertise.
+The people doing the various machine learning and data science activities across the SDLC lifecycle for a project. This role's responsibilities include break and fix activities for the machine learning models, packages, and data, which sit outside of platform support expertise. Their duties involve data exploration (EDA) and data preprocessing. They also drive model training, evaluation, and deployment.
 
 **Type:** Person<br/>
-**Project Specific:** Yes<br/>
-**Notes:** Involves data exploration and preprocessing to model training, evaluation, and deployment, to solve complex business problems and generate insight.
+**Project specific:** Yes
 
 ##### Data analyst
 
-The people doing the data analyst tasks required as an input to data science activities.
+The people doing the data analyst tasks required as an input to data science activities. This role involves working with data, performing analysis, and supporting model development and deployment activities.
 
 **Type:** Person<br/>
-**Project Specific:** Yes<br/>
-**Notes:** This role involves working with data, performing analysis, and supporting model development and deployment activities.
+**Project specific:** Yes
 
 ##### Model tester
 
-The people performing testing in QA & staging.
+The people performing testing in QA & staging. This role provides functional segregation from the CI/CD processes.
 
 **Type:** Person<br/>
-**Project Specific:** Yes<br/>
-**Notes:** This role provides functional segregation from the CI/CD processes.
+**Project specific:** Yes
 
 ##### Business stakeholders
 
 Business stakeholders attached to the project.
 
 **Type:** Person<br/>
-**Project Specific:** Yes<br/>
+**Project specific:** Yes<br/>
 **Notes:** This role is [read-only](/azure/role-based-access-control/built-in-roles/general#reader) for the Azure Machine Learning workspace components in development.
 
 ##### Project lead (Data science lead)
 
-The data science lead in a project administration role for the Azure Machine Learning workspace.
+The data science lead in a project administration role for the Azure Machine Learning workspace. This role would also have break-fix responsibility for the machine learning models and packages used.
 
 **Type:** Person<br/>
-**Project Specific:** Yes<br/>
-**Notes:** This role would also have break-fix responsibility for the machine learning models and packages used.
+**Project specific:** Yes
 
-##### Project/Product owner (Business owner)
+##### Project/product owner (Business owner)
 
 The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership.
 
 **Type:** Person<br/>
-**Project Specific:** Yes<br/>
+**Project specific:** Yes<br/>
 **Notes:** This role is read-only for the Azure Machine Learning workspace configuration and components in development. Production coverage will be provided by the data governance application.
 
 ##### Platform technical support
@@ -301,7 +297,7 @@ The business stakeholders responsible for the Azure Machine Learning workspace b
 The technical support staff responsible for break-fix activities across the platform. This role would cover infrastructure, service, etc. But not the machine learning models, packages or data. These elements remain under the Data scientist/ML engineer role's responsibility.
 
 **Type:** Person<br/>
-**Project Specific:** No<br/>
+**Project specific:** No<br/>
 **Notes:** While the role group is permanent, membership is only transient, based upon a [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) process for time boxed, evaluated access.
 
 ##### Model end user
@@ -320,11 +316,10 @@ The compute processes that releases/rolls back change across the platform enviro
 
 ##### Azure Machine Learning workspace
 
-The [managed identities](/azure/machine-learning/how-to-setup-authentication) used by an Azure Machine Learning workspace to interact with other parts of Azure.
+The [managed identities](/azure/machine-learning/how-to-setup-authentication) used by an Azure Machine Learning workspace to interact with other parts of Azure. This persona represents the various services that make up an Azure Machine Learning implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store.
 
 **Type:** Process<br/>
-**Project Specific:** No<br/>
-**Notes:** This persona represents the various services that make up an Azure Machine Learning implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store.
+**Project specific:** No
 
 ##### Monitoring processes
 
