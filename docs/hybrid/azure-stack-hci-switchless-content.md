@@ -268,7 +268,7 @@ Operational excellence considerations include:
 
 - Automation capabilities for Containers on AKS (Azure Kubernetes Service). Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as containers on AKS, with the [automated deployment of AKS clusters using Azure CLI][azs-hci-automate-arc-aks], with AKS workload cluster updates using Azure Arc Extension for [Kubernetes Updates][azs-hci-automate-aks-update]. Azure Stack HCI also offers support for [Azure Arc AKS management][azs-hci-aks-automate-cli] by using Azure CLI. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with Azure Arc facilitates a wide range of additional automation scenarios for [containerized][azs-hci-k8s-gitops] workloads through Azure Arc extensions.
 
-- Decreased management complexity using the Storage Switchless design, which eliminates the requirement for switch devices for the storage intent, this also removes the requirement to define and apply ToR switch settings for RoCEv2 or other similar network quality of service (QoS) settings, thus reducing complexity.
+- Decreased management complexity using the Storage Switchless design, which eliminates the requirement for switch devices for the storage intent, this also removes the requirement to define and apply ToR switch settings for RoCEv2 or other similar network quality of service (QoS) settings, thus reducing complexity and costs.
 
 ### Performance efficiency
 
