@@ -25,6 +25,8 @@ The following are the constraints in this scenario:
 - Client applications are using an external OpenID Connect (OIDC) enabled identity provider, such as Okta, Auth0, or social identity providers.
 - Client applications are authenticating against a Microsoft Entra tenant different than the Azure OpenAI data plane's tenant.
 
+These constraints can apply to scenarios in which existing client applications, already authenticating against an external OIDC provider or Microsoft Entra ID, attempt to connect to Azure OpenAI instances.
+
 ### Connecting directly to Azure OpenAI
 
 If the client applications in these scenarios are connecting directly to Azure OpenAI (not using a gateway), they must use key-based authentication to authenticate to Azure OpenAI. Key-based authentication introduces extra security concerns such as securely storing the keys, rotating the keys, and the inability to provide different clients their own role-based access control (RBAC) configurations for individual model deployments.
@@ -61,11 +63,10 @@ Diagram where users are authenticated with client applications using client cert
 The following are the constraints in this scenario:
 
 - You want to use certificates to authenticate client applications.
-- Client applications can't use or you don't want to use Microsoft Entra ID for authentication.
+- Client applications can't use or you don't want to use Microsoft Entra ID or any OIDC providers for authentication.
 - Clients can't use or you don't want to use federated identity for authentication.
-- There are multiple client applications.
 
-These constraints can apply to scenarios where the client authenticating to Azure OpenID is a machine or device where there's no user interaction. Another reason for this scenario is your organization requires the use of certificates for authentication because of security features.
+These constraints can apply to scenarios where the client authenticating to Azure OpenID is a machine or device where there's no user interaction. Another reason for this scenario is your organization requires the use of certificates for authentication, which can be validated by downstream services, because of security features.
 
 ### Connecting directly to Azure OpenAI
 
@@ -153,14 +154,9 @@ Diagram that shows client applications authenticating with multiple Azure OpenAI
 The following are the constraints in this scenario:
 
 - Client applications are connecting to multiple Azure OpenAI instances in one or more regions.
-- Clients can't use or you don't want to use Microsoft Entra ID.
-- You want to use key-based authentication for client applications.
+- You want to use subscription keys for client applications.
 
-These constraints can apply to scenarios where:
-
-- Client applications maximize tokens per minute (TPM) quotas by deploying instances across regions.
-- Client applications use failover scenarios where they have a provisioned throughput deployment and a pay as you go deployment.
-- Client applications taking advantage of multiple model capabilities not available in a single region.
+These constraints can apply to scenarios when client applications attempt to optimize their tokens per minute (TPM) quotas by deploying instances across multiple regions. This is also seen in failover situations where client applications manage a dual deployment strategy, consisting of a provisioned throughput deployment and a pay-as-you-go deployment. Additionally, constraints can be seen when client applications take advantage of diverse model capabilities that are not accessible within a single region.
 
 ### Connecting directly to multiple Azure OpenAI instances
 
