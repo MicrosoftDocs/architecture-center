@@ -206,8 +206,11 @@ Reliability considerations include:
 
 
   Weekly: 20 minutes and 10 seconds
+
   Monthly: 1 hour, 26 minutes and 56 seconds
+
   Quarterly: 4 hours, 20 minutes and 49 seconds
+
   Yearly: 17 hours, 23 minutes and 16 seconds
 
 
