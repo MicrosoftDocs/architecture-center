@@ -410,7 +410,7 @@ RBAC plays a vital role in securing and streamlining MLOps workflows. By restric
 
 ### Package management
 
-Throughout the MLOps lifecycle there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed, iterate with fast-paced development cycles, and require "Subject Matter Expert" (SME) knowledge to understand and use. This gives rise to the problem of needing to access many different assets (i.e. packages, libraries, and binaries) securely and free from vulnerabilities.
+Throughout the MLOps lifecycle there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed and iterated on with fast-paced development cycles. They also require "Subject Matter Expert" (SME) knowledge to understand and use. These factors give rise to the problem of needing to access many different assets, like packages, libraries, and binaries, securely and free from vulnerabilities.
 
 In the machine learning lifecycle this can introduce many challenges, such as:
 
