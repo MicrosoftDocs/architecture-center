@@ -88,81 +88,43 @@ The TDSP provides recommendations for managing shared analytics and storage infr
 - Big data clusters, for example SQL or Spark
 - AI and machine learning services
 
-**Cloud File Systems for Storing Datasets**
+#### Cloud file systems for storing datasets
 
-1.  [[Azure Blob
-    Storage]](/azure/storage/blobs/) -
-    Comprehensive documentation on Azure Blob Storage, a scalable object
-    storage service for unstructured data.
+1. [Azure Blob Storage](/azure/storage/blobs/) - Comprehensive documentation on Azure Blob Storage, a scalable object storage service for unstructured data.
 
-2.  [[Azure Data Lake
-    Storage]](/azure/storage/data-lake-storage/) -
-    Information on Azure Data Lake Storage Gen2, designed for big data
-    analytics and supporting large-scale datasets.
+2. [Azure Data Lake Storage](/azure/storage/data-lake-storage/) - Information on Azure Data Lake Storage Gen2, designed for big data analytics and supporting large-scale datasets.
 
-3.  [[Azure
-    Files]](/azure/storage/files/) -
-    Details on Azure Files, providing fully managed file shares in the
-    cloud.
+3. [Azure Files](/azure/storage/files/) - Details on Azure Files, providing fully managed file shares in the cloud.
 
-**Databases**
+#### Databases
 
-1.  [[Azure SQL
-    Database]](/azure/azure-sql/database/) -
-    Documentation on Azure SQL Database, a fully managed relational
-    database service.
+1. [Azure SQL Database](/azure/azure-sql/database/) - Documentation on Azure SQL Database, a fully managed relational database service.
 
-2.  [[Azure Cosmos
-    DB]](/azure/cosmos-db/) -
-    Information on Azure Cosmos DB, a globally distributed, multi-model
-    database service.
+2. [Azure Cosmos DB](/azure/cosmos-db/) - Information on Azure Cosmos DB, a globally distributed, multi-model database service.
 
-3.  [[Azure Database for
-    PostgreSQL]](/azure/postgresql/) -
-    Guide to Azure Database for PostgreSQL, a managed database service
-    for app development and deployment.
+3. [Azure Database for PostgreSQL](/azure/postgresql/) - Guide to Azure Database for PostgreSQL, a managed database service for app development and deployment.
 
-4.  [[Azure Database for
-    MySQL]](/azure/mysql/) -
-    Details on Azure Database for MySQL, a managed service for MySQL
-    databases.
+4. [[Azure Database for MySQL]](/azure/mysql/) - Details on Azure Database for MySQL, a managed service for MySQL databases.
 
-**Big Data Clusters (e.g., SQL or Spark)**
+#### Big data clusters (SQL or Spark)
 
-1.  [[Apache Spark in Azure Machine
-    Learning]](/azure/machine-learning/apache-spark-azure-ml-concepts?view=azureml-api-2) -
-    Azure Machine Learning integration with Azure Synapse Analytics
-    provides easy access to distributed computation resources through
-    the Apache Spark framework.
+1. [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
 
-2.  [[Azure Synapse
-    Analytics]](/azure/synapse-analytics/) -
-    Comprehensive documentation for Azure Synapse Analytics, integrating
-    big data and data warehousing.
+2. [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
 
-3.  [[Azure
-    HDInsight]](/azure/hdinsight/) -
-    Information on Azure HDInsight, a cloud distribution of Hadoop
-    components including Spark.
+3. [Azure HDInsight](/azure/hdinsight/) - Information on Azure HDInsight, a cloud distribution of Hadoop components including Spark.
 
-**AI and Machine Learning Services**
+#### AI and machine learning services
 
-1.  [[Azure Machine
-    Learning]](/azure/machine-learning/) -
-    The main documentation page for Azure Machine Learning, covering
-    setup, model training, deployment, and more.
+1. [Azure Machine Learning](/azure/machine-learning/) - The main documentation page for Azure Machine Learning, covering setup, model training, deployment, and more.
 
-2.  [[AI
-    Services]](/azure/cognitive-services/) -
-    Information on AI Services, offering pre-built AI models for vision,
-    speech, language, and decision-making tasks.
+2. [Azure AI Services](/azure/ai-services/) - Information on AI Services, offering pre-built AI models for vision, speech, language, and decision-making tasks.
 
-These references provide detailed information on each topic within
-Microsoft\'s documentation ecosystem.
+These references provide detailed information on each topic within Microsoft's documentation ecosystem.
 
 ### Responsible AI
 
-With AI or Machine Learning solutions, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which helps achieve Microsoft's [Responsible AI Standard](https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf).  
+With AI or machine learning solutions, Microsoft promotes [responsible AI tools](/azure/machine-learning/concept-responsible-ai), which helps achieve Microsoft's [Responsible AI Standard](https://www.microsoft.com/ai/principles-and-approach/). Your workload must still individually address AI-related harms.
 
 ## Peer-reviewed citations
 
