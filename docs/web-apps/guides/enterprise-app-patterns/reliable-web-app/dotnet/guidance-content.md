@@ -62,6 +62,9 @@ ms.custom: devx-track-dotnet
     }
     ```
 
+| Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation)) |
+| --- |
+
 ### Implement the Circuit Breaker pattern
 
 [!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
