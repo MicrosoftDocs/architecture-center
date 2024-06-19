@@ -37,7 +37,7 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 #### Azure AI Language
 
-[Azure AI Language](https://azure.microsoft.com/services/cognitive-services/language-service) extracts text information from unstructured documents by using [text analytics](/azure/cognitive-services/language-service/overview#available-features) capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
+[Azure AI Language](https://azure.microsoft.com/services/cognitive-services/language-service) extracts text information from unstructured documents by using [text analytics](/azure/cognitive-services/language-service/overview#available-features) capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases).
 
 #### Azure Storage
 
