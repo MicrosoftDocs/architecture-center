@@ -511,7 +511,7 @@ Track response code that indicate errors.
 
 ##### Deployment
 
-When monthly Operating expenses (OPEX), based on usage or cost, reaches or exceeds a predefined amount. These boundaries are based on the [workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department.
+When monthly operating expenses reach or exceed a predefined amount alerts should be generated to alert relevant stakeholders (for example project leads or project owners) based on the workspace setup boundaries. [Workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) can be based on project, team, or department related boundaries.
 
 **Environment:** All<br/>
 **Implementation:** [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts)<br/>
