@@ -240,13 +240,15 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 ## Additional considerations
 
+*TODO: No empty sections*
+
 ### Persona-based RBAC
 
 Managing access to machine learning data and resources is crucial. Role-Based Access Control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas involved in the process. Each persona has a specific role and set of responsibilities that should be reflected in their RBAC roles and group membership.
 
 #### Example personas
 
-Consider the following common personas in a machine learning workload which will inform the identity-based RBAC group design to support appropriate segmentation:
+Consider the following common personas in a machine learning workload which will inform the [identity-based RBAC](#identity-rbac) group design to support appropriate segmentation:
 
 ##### Data scientist/ML engineer
 
@@ -337,7 +339,7 @@ The compute process that scans the machine learning project and datastores for d
 
 #### Identity RBAC
 
-Using the previously described personas, here are examples of how RBAC can be applied to production (Staging / Test / Production environments based on the [current architectures](#current-architectures) section) and pre-production (Development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:
+Using the previously described personas, here are examples of how RBAC can be applied to production (staging / test / production environments based on the [current architectures](#current-architectures) section) and pre-production (development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:
 
 #### Standard roles
 
@@ -370,7 +372,7 @@ Using the previously described personas, here are examples of how RBAC can be ap
 | Model tester                     |                                  |           |                          |                 |              |                 |                         |               |
 | Business stakeholders            |                                  |           |                          |                 |              |                 |                         | MR            |
 | Project lead (Data science lead) | R                                | R, KVR    | R                        |                 |              |                 | LAR                     | MR            |
-| Project/Product owner            |                            |           |                          |                 |              |                 |                         | MR            |
+| Project/product owner            |                                  |           |                          |                 |              |                 |                         | MR            |
 | Platform technical support       | O                                | O, KVA    |                          |                 | DOPCA        | O               | O                       | O             |
 | Model end user                   |                                  |           |                          |                 |              |                 |                         |               |
 | CI/CD processes                  | O                                | O, KVA    | ACRPush                  |                 | DOPCA        | O               | O                       | O             |
@@ -380,7 +382,9 @@ Using the previously described personas, here are examples of how RBAC can be ap
 
 All personas have an access period for the life of the project except for the Platform technical support and CI/CD processes which have temporary, or just-in-time access.
 
-##### Pre-production environment
+TODO: Standing permissions called out in one example above. But not other. Where should that callout be made?
+
+##### Pre-production environments
 
 | Persona                          | Azure Machine Learning Workspace | Key Vault | Azure Container Registry | Storage Account | Azure DevOps | Azure Artifacts | Log Analytics Workspace | Azure Monitor |
 | -------------------------------- | -------------------------------- | --------- | ------------------------ | --------------- | ------------ | --------------- | ----------------------- | ------------- |
@@ -389,7 +393,7 @@ All personas have an access period for the life of the project except for the Pl
 | Model tester                     | R                                | R, KVR    | R                        | R               | R            | R               | LAR                     | MR            |
 | Business stakeholders            | R                                |           | R                        | R               | R            | R               |                         |               |
 | Project lead (Data science lead) | C                                | C, KVA    | C                        | C               | C            | C               | LAC                     | MC            |
-| Project/Product owner            | R                          |           |                          | R               |              |                 |                         | MR            |
+| Project/product owner            | R                                |           |                          | R               |              |                 |                         | MR            |
 | Platform technical support       | O                                | O, KVA    | O                        | O               | DOPCA        | O               | O                       | O             |
 | Model end user                   |                                  |           |                          |                 |              |                 |                         |               |
 | CI/CD processes                  | O                                | O, KVA    | ACRPush                  | O               | DOPCA        | O               | O                       | O             |
@@ -398,6 +402,8 @@ All personas have an access period for the life of the project except for the Pl
 | Data governance processes        | R                                |           | R                        | R               |              |                 |                         |               |
 
 All personas have an access period for the life of the project except for the Platform technical support which have temporary, or just-in-time access.
+
+TODO: CI/CD here as well?
 
 A persona-based RBAC approach should use [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
 
@@ -436,9 +442,19 @@ The suggested MVP monitoring could be scoped around the [Azure Machine Learning 
 
 #### Model performance
 
+*TODO: No empty sections*
+
+*TODO: Let's dive into each of these a bit more.*
+
+- *Why is this important? Without monitoring this, what risk is presented to the workload?*
+- *What does "Implemenation" mean?*
+- *Can the notes just be part of the description?*
+
+
+
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
 **Environment:** Production<br/>
 **Implementation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)<br/>
@@ -456,10 +472,12 @@ Use several model serving endpoint metrics to indicate quality and performance.
 Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
 
 **Environment:** Production<br/>
-**Implementation:** Azure Monitor [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
+**Implementation:** Azure Monitor [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)<br/>
 **Notes:** Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
 #### Usage metrics
+
+*TODO: No empty sections*
 
 ##### Client requests
 
@@ -493,7 +511,7 @@ Count of the client requests to the model endpoint.
 
 Track response code that indicate errors.
 
-**Environment:** Production
+**Environment:** Production<br/>
 **Implementation:**
 
 - [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
@@ -503,6 +521,8 @@ Track response code that indicate errors.
 **Notes:** All HTTP responses codes in the 400 & 500 range would be classified as an error.
 
 #### Cost optimization
+
+*TODO: No empty sections*
 
 ##### Deployment
 
@@ -519,6 +539,8 @@ When monthly operating expenses reach or exceed a predefined amount alerts shoul
 ##### Workspace staleness
 
 When an Azure Machine Learning workspace no longer appears to have active use as measured by compute use associated with the use-case a project owner might choose to decommission an Azure Machine Learning workspace if it is no longer needed for a given project.
+
+*TODO: Pre-production or development?  Let's be consistent.*
 
 **Environment:** Development<br/>
 **Implementation:**
@@ -551,9 +573,11 @@ Do not deviate from the appropriate security controls and baselines must remaine
 Implement targeted security monitoring of all Azure Machine Learning endpoints.
 
 **Environment:** All<br/>
-**Implementation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)
+**Implementation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction) - *TODO: How is this relevant to AML endpoints, this requires API Management?*
 
 #### Deployment monitoring
+
+*TODO: No empty sections*
 
 ##### Standards and governance
 
@@ -577,6 +601,8 @@ Implement automated security scans as part of the automated integration and depl
 **Notes:** This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules.
 
 ##### Ongoing service
+
+*TODO: I'm confused about development and what service means here*
 
 A development model appearing provide a regular service that should be made available in production.
 
