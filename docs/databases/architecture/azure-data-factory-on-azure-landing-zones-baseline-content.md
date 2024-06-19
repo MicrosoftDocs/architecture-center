@@ -109,7 +109,7 @@ The typical workflow of accessing and landing data through the architecture:
 
 ### Network Design
 
-![Diagram showing medallion architecture Network design.](_images/azure-data-factory-baseline-network.png)
+:::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
 
 - Azure Firewalls can be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 - Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
