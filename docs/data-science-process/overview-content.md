@@ -98,27 +98,21 @@ The TDSP provides recommendations for managing shared analytics and storage infr
 
 #### Databases
 
-1. [Azure SQL Database](/azure/azure-sql/database/) - Documentation on Azure SQL Database, a fully managed relational database service.
-
-2. [Azure Cosmos DB](/azure/cosmos-db/) - Information on Azure Cosmos DB, a globally distributed, multi-model database service.
-
-3. [Azure Database for PostgreSQL](/azure/postgresql/) - Guide to Azure Database for PostgreSQL, a managed database service for app development and deployment.
-
-4. [[Azure Database for MySQL]](/azure/mysql/) - Details on Azure Database for MySQL, a managed service for MySQL databases.
+- [Azure SQL Database](/azure/azure-sql/database/) - Documentation on Azure SQL Database, a fully managed relational database service.
+- [Azure Cosmos DB](/azure/cosmos-db/) - Information on Azure Cosmos DB, a globally distributed, multi-model database service.
+- [Azure Database for PostgreSQL](/azure/postgresql/) - Guide to Azure Database for PostgreSQL, a managed database service for app development and deployment.
+- [[Azure Database for MySQL]](/azure/mysql/) - Details on Azure Database for MySQL, a managed service for MySQL databases.
 
 #### Big data clusters (SQL or Spark)
 
-1. [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
-
-2. [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
-
-3. [Azure HDInsight](/azure/hdinsight/) - Information on Azure HDInsight, a cloud distribution of Hadoop components including Spark.
+- [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
+- [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
+- [Azure HDInsight](/azure/hdinsight/) - Information on Azure HDInsight, a cloud distribution of Hadoop components including Spark.
 
 #### AI and machine learning services
 
-1. [Azure Machine Learning](/azure/machine-learning/) - The main documentation page for Azure Machine Learning, covering setup, model training, deployment, and more.
-
-2. [Azure AI Services](/azure/ai-services/) - Information on AI Services, offering pre-built AI models for vision, speech, language, and decision-making tasks.
+- [Azure Machine Learning](/azure/machine-learning/) - The main documentation page for Azure Machine Learning, covering setup, model training, deployment, and more.
+- [Azure AI Services](/azure/ai-services/) - Information on AI Services, offering pre-built AI models for vision, speech, language, and decision-making tasks.
 
 These references provide detailed information on each topic within Microsoft's documentation ecosystem.
 
