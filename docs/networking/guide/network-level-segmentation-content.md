@@ -91,5 +91,4 @@ Explore related architectures:
 
 - [Azure firewall architecture guide](../../networking/guide/network-virtual-appliances-architecture.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

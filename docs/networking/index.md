@@ -73,7 +73,6 @@ The following sections, organized by category, provide links to sample networkin
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ### Hybrid networking 
-- [Azure Automation update management](../hybrid/azure-update-mgmt.yml)
 - [Connect standalone servers by using Azure Network Adapter](../hybrid/azure-network-adapter.yml)
 - [Design a hybrid Domain Name System solution with Azure](../hybrid/hybrid-dns-infra.yml)
 - [Hybrid availability and performance monitoring](../hybrid/hybrid-perf-monitoring.yml)

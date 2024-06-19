@@ -63,8 +63,6 @@ The following articles describe how to run an Oracle database on Azure and conne
 
 - [Oracle database migration to Azure](./reference-architecture-for-oracle-database-migration-to-azure.yml). This solution idea describes how to migrate an Oracle database to Azure by using Oracle Active Data Guard and Azure Load Balancer. This solution allows you to gradually migrate your application tier in multiple steps.
 
-- [Oracle database migration: Cross-cloud connectivity](../../example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml). This example scenario describes creation of an interconnection between Azure and OCI to allow applications that are hosted on Azure to communicate with an Oracle database that's hosted on OCI.
-
 - [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design). This article describes how to size an Oracle workload to run in Azure and decide on the best architecture solution for optimal performance.
 
 ### Backup and recovery of databases and workloads

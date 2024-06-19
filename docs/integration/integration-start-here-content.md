@@ -86,7 +86,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### E-commerce
 
-- [Modernize .NET applications][Modernize .NET applications]: Migrate the legacy .NET applications of a retail business to Azure.
 - [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
 - [Migrate a web app using Azure APIM][Migrate a web app using Azure APIM]: Modernize the legacy browser-based software stack of an e-commerce company.
 
@@ -220,7 +219,6 @@ The following resources provide practical recommendations and information for sp
 [Mainframe access to Azure databases]: ../solution-ideas/articles/mainframe-access-azure-databases.yml
 [Messaging services on Azure and AWS]: ../aws-professional/messaging.md
 [Migrate a web app using Azure APIM]: ../example-scenario/apps/apim-api-scenario.yml
-[Modernize .NET applications]: ../solution-ideas/articles/net-app-modernization.yml
 [Monitor Azure Functions and Event Hubs]: ../serverless/event-hubs-functions/observability.yml
 [On-premises data gateway for Azure Logic Apps]: ../hybrid/gateway-logic-apps.yml
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
