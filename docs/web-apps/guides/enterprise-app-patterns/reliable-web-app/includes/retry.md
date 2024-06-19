@@ -1,5 +1,3 @@
-
 *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))*
----
 
 Add the [Retry pattern](/azure/architecture/patterns/retry) to your application code to addresses temporary service disruptions, termed [transient faults](/azure/architecture/best-practices/transient-faults). Transient faults usually resolve themselves within seconds. The Retry pattern allows you to resend failed requests and configure the request delays and attempts before conceding failure.
