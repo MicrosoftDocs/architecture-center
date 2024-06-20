@@ -23,6 +23,7 @@
     "*-nlp-*",
     "*-tts-*",
     "*-stt-*",
-    "invalid-product-azure-machine-learning-*"
+    "invalid-product-azure-machine-learning-*",
+    "invalid-spelling-various-0011"
   ]
 }
