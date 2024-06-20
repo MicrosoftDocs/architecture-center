@@ -18,7 +18,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. To implement the architecture updates, follow these recommendations.
 
-### Select the right platform-as-a-service (PaaS) solutions
+### Select the right services
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
@@ -65,7 +65,7 @@ The Strangler Fig pattern incrementally migrates functionality from a monolithic
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))***
+        *Well-Architected Framework alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))*
     :::column-end:::
 :::row-end:::
 ---
@@ -84,7 +84,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        *Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
     :::column-end:::
 :::row-end:::
 ---
@@ -122,7 +122,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))***
+        *Well-Architected Framework alignment - Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*
     :::column-end:::
 :::row-end:::
 ---
@@ -190,7 +190,7 @@ Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-con
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
     :::column-end:::
 :::row-end:::
 ---
@@ -244,7 +244,7 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))***
+        *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))*
     :::column-end:::
 :::row-end:::
 ---
@@ -295,7 +295,7 @@ The following sections provide guidance on implementing the configuration update
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))***
+        *Well-Architected Framework alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))*
     :::column-end:::
 :::row-end:::
 ---
@@ -357,7 +357,7 @@ To configure authentication and authorization on users (*user identities*), foll
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))***
+        *Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
     :::column-end:::
 :::row-end:::
 ---
@@ -404,7 +404,7 @@ scaleMinReplicas: 0
 
 :::row:::
     :::column:::
-        ***Well-Architected Framework alignment - Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))***
+        *Well-Architected Framework alignment - Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))*
     :::column-end:::
 :::row-end:::
 ---
