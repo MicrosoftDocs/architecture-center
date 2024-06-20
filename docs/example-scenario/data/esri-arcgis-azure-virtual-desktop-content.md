@@ -160,12 +160,6 @@ The following table provides examples for multi-session ArcGIS Pro scenarios:
 
 - [ArcGIS Pro on Microsoft Azure Cloud](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-on-azure-cloud.htm)
 
-### General virtual machine recommendations
-
-Graphics processing units (GPUs) are a good choice for users who regularly use graphics-intensive programs for video rendering, 3D design, and simulations. Azure has several graphics acceleration deployment options and multiple available GPU VM sizes. Learn more at [GPU optimized virtual machine sizes](/azure/virtual-machines/windows/sizes-gpu). For more general information about graphics acceleration in Remote Desktop Services, see [Remote Desktop Services - GPU acceleration](rds-graphics-virtualization.md)
-
-[Sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes) and the pricing information on the [Virtual Machine series](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
