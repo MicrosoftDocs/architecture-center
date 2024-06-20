@@ -57,7 +57,6 @@ This solution applies to scenarios that can benefit from the ability to search r
 - [Run Web Apps in the cloud](/azure/app-service/overview)
 - [Indexing media files](/azure/media-services/previous/media-services-index-content)
 
-## Related resources
+## Related resource
 
 - [Gridwich cloud media system](../../reference-architectures/media-services/gridwich-architecture.yml)
-- [Live stream digital media](../../solution-ideas/articles/digital-media-live-stream.yml)
