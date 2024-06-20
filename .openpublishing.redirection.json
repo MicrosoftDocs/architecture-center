@@ -4831,7 +4831,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/net-app-modernization.yml",
-      "redirect_url": "/azure/guide/migration/migration-start-here",
+      "redirect_url": "/azure/architecture/guide/migration/migration-start-here",
       "redirect_document_id": false
     },
     {
