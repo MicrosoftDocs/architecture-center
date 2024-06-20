@@ -181,7 +181,6 @@ Principal author:
 ## Related resources
 
 - [Apache NiFi on Azure][Apache NiFi on Azure]
-- [Apache NiFi monitoring with MonitoFi][Apache NiFi monitoring with MonitoFi]
 - [Microservices architecture on Azure Kubernetes Service (AKS)][Microservices architecture on Azure Kubernetes Service (AKS)]
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture][Advanced Azure Kubernetes Service (AKS) microservices architecture]
 
@@ -190,7 +189,6 @@ Principal author:
 [Apache NiFi on Azure]: ../../example-scenario/data/azure-nifi.yml
 [Apache NiFi Docker Image]: https://hub.docker.com/r/apache/nifi
 [Apache NiFi Dockerfile on GitHub]: https://github.com/apache/nifi/blob/main/nifi-docker/dockerhub/Dockerfile
-[Apache NiFi monitoring with MonitoFi]: ./monitor-apache-nifi-monitofi.yml
 [Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
 [Helm]: https://helm.sh/docs
 [Helm charts]: https://helm.sh/docs/chart_template_guide/getting_started

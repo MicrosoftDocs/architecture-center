@@ -4825,6 +4825,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/infrastructure/devtest-labs-reference-architecture.yml",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/net-app-modernization.yml",
+      "redirect_url": "/azure/architecture/guide/migration/migration-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/hybrid-server-os-mgmt.yml",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-update-mgmt.yml",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/azure-automation-hybrid.yml",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/data/monitor-apache-nifi-monitofi.yml",
+      "redirect_url": "/azure/architecture/example-scenario/data/azure-nifi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-rearchitect.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-overview.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-cross-cloud.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/oracle-migrate/oracle-migration-refactor.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/blockchain/multi-cloud-blockchain.yml",
       "redirect_url": "/azure/architecture/guide/blockchain/blockchain-service",
       "redirect_document_id": false
