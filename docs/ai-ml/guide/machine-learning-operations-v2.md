@@ -437,30 +437,14 @@ The suggested MVP monitoring could be scoped around the [Azure Machine Learning 
 
 #### Model performance
 
-*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor model performance. 1-2 sentences.*
-
-*TODO: Let's dive into each of these a bit more.*
-
-- *Why is this important? Without monitoring this, what risk is presented to the workload?*
-- *Can the notes just be part of the description?*
-
-
+Monitoring model performance is essential for early detection of model issue and performance degradation. By tracking performance an organization can ensure models remain accurate, reliable, and aligned with business objectives.
 
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. *TODO-NM: This helps detect unrepresented data source changes so that it can be corrected.* Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. These changes can be attributed to changes in market dynamics, feature transformation changes, or upstream data changes. Such changes can degrade model performance therefore it's important to monitor for drift to ensure timely remediation. Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
 **Environment:** Production<br/>
 **Azure facilitation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
-
-##### Usage
-
-*TODO-NM: Maybe rename or change this, since this ONE item is kinda the same as the whole "usage metrics" section below*
-
-Use several model serving endpoint metrics to indicate quality and performance. This is learning from production to help drive future investments or changes.
-
-**Environment:** All<br/>
-**Azure facilitation:** Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 
 ##### Prediction drift
 
@@ -469,16 +453,23 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 **Environment:** Production<br/>
 **Azure facilitation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
+##### Resource
+
+Use several model serving endpoint metrics to indicate quality and performance, for example, CPU or memory utilization. This is learning from production to help drive future investments or changes.
+
+**Environment:** All<br/>
+**Azure facilitation:** [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
+
 #### Usage metrics
 
-*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor usage metrics. 1-2 sentences.*
+Monitoring the usage of endpoints is crucial ensure you are meeting organization-specific KPIs, tracking usage patterns, and diagnose and remediate issues your users are experiencing. 
 
 ##### Client requests
 
 Count of the client requests to the model endpoint. This helps a workload understand the active usage profile of the endpoints which can feed into scaling or cost optimization efforts.
 
 **Environment:** Production<br/>
-**Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), for example [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints) *TODO-NM: look into these*
+**Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), for example RequestsPerMinute.
 
 **Notes:**
 
@@ -487,19 +478,19 @@ Count of the client requests to the model endpoint. This helps a workload unders
 
 ##### Throttling delays
 
-[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. *TODO-NM: Add one more sentence*
+[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer.Throttling happens at two levels - the Azure Resource Manager and the service - therefore it's important to track metrics at both levels.
 
 **Environment:** Production<br/>
 **Azure facilitation:**
 
-- Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), Sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs
-- Azure Machine Learning - [Online endpoint traffic log](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)  *TODO-NM: Verify both of these*
+- Azure Monitor - [Azure Resource Manager](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), Sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs
+- Azure Machine Learning - [Online endpoint traffic log](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
 
 **Notes:** Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
 
 ##### Errors generated
 
-Track response code that indicate errors. *TODO-NM: Add one more sentence*
+Track response code errors to assist is measuring service reliability and ensure early detection of service issues. For example, a sudden increase in 500 (server error) responses could indicate a critical issue that needs immediate attention.
 
 **Environment:** Production<br/>
 **Azure facilitation:**
