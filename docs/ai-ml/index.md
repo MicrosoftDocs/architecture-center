@@ -70,6 +70,8 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
 
+- [Autonomous systems and solutions from Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
+
 ### General info on Microsoft AI
 
 Learn more about Microsoft AI, and keep up-to-date with related news:
