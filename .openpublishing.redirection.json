@@ -3851,12 +3851,12 @@
       "redirect_document_id": false
     },
     {    
-      "source_path": "docs/architecture/example-scenario/apps/sap-dev-test.yml",
+      "source_path": "docs/example-scenario/apps/sap-dev-test.yml",
       "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/example-scenario/apps/sap-dev-test-content.md",
+      "source_path": "docs/example-scenario/apps/sap-dev-test-content.md",
       "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
       "redirect_document_id": false
     },
@@ -3906,32 +3906,32 @@
       "redirect_document_id": false
     },
     {  
-      "source_path": "docs/architecture/guide/ai/bank-fraud-solution-content.md",
+      "source_path": "docs/guide/ai/bank-fraud-solution-content.md",
       "redirect_url": "/azure/architecture/industries/finance",
       "redirect_document_id": false 
     },
     { 
-      "source_path": "docs/architecture/guide/ai/bank-fraud-solution.yml",
+      "source_path": "docs/guide/ai/bank-fraud-solution.yml",
       "redirect_url": "/azure/architecture/industries/finance",
       "redirect_document_id": false 
     },
     {     
-      "source_path": "docs/architecture/example-scenario/precision-medicine/genomic-analysis-reporting-content.md",
+      "source_path": "docs/example-scenario/precision-medicine/genomic-analysis-reporting-content.md",
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/example-scenario/precision-medicine/genomic-analysis-reporting.yml",
+      "source_path": "docs/example-scenario/precision-medicine/genomic-analysis-reporting.yml",
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
     {       
-      "source_path": "docs/architecture/hybrid/azure-functions-hybrid-content.md",
+      "source_path": "docs/hybrid/azure-functions-hybrid-content.md",
       "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/hybrid/azure-functions-hybrid.yml",
+      "source_path": "docs/hybrid/azure-functions-hybrid.yml",
       "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
       "redirect_document_id": false
     },
@@ -3951,12 +3951,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery-content.md",
+      "source_path": "docs/example-scenario/infrastructure/iaas-high-availability-disaster-recovery-content.md",
       "redirect_url": "/azure/architecture/virtual-machines/baseline",
       "redirect_document_id": false
     },
     {
-     "source_path": "docs/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml",
+     "source_path": "docs/example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml",
       "redirect_url": "/azure/architecture/virtual-machines/baseline",
       "redirect_document_id": false
     },
@@ -4001,12 +4001,12 @@
       "redirect_document_id": false
     },
     {   
-      "source_path": "docs/architecture/example-scenario/apps/telehealth-system-content.md",
+      "source_path": "docs/example-scenario/apps/telehealth-system-content.md",
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/example-scenario/apps/telehealth-system.yml",
+      "source_path": "docs/example-scenario/apps/telehealth-system.yml",
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
