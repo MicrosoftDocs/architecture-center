@@ -157,7 +157,7 @@ Principal author:
 
 Other contributors:
 
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) |  Principal Customer Engineer
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
 
 ## Next steps
 
