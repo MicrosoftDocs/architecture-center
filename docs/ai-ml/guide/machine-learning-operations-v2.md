@@ -240,7 +240,7 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 ## Additional considerations
 
-*TODO-NM: No empty sections*
+Underpinning the above MLOPs V2 architectural pattern are several critical considerations. These include role-based access control aligned to business stakeholders, efficient package management, and robust monitoring mechanisms. These elements collectively contribute to the successful implementation and management of machine learning workflows.
 
 ### Persona-based RBAC
 
@@ -287,7 +287,7 @@ The data science lead in a project administration role for the Azure Machine Lea
 
 ##### Project/product owner (Business owner)
 
-The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership. *TODO-NM: Production coverage will be provided by the data governance application. <Delete/change>*
+The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership. 
 
 **Type:** Person<br/>
 **Project specific:** Yes
@@ -336,7 +336,9 @@ The compute process that scans the machine learning project and datastores for d
 
 #### Entra group membership
 
-*TODO-NM: Add a paragraph talking about mapping personas to Entra groups*
+When implementing role-based access control (RBAC) [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across the different personas. Microsoft Entra groups are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
+
+In the context of this architectural pattern these groups can be coupled with the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. By associating users with groups defined as described, administrators can define fine-grained access policies, granting or restricting permissions based on job functions, project requirements, or other criteria, to different Azure Machine Learning workspaces. For example, having a group that grants all data scientists access to a development workspace for a certain use-case.
 
 #### Identity RBAC
 
