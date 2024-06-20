@@ -3861,17 +3861,17 @@
       "redirect_document_id": false
     },
     {        
-      "source_path": "docs/architecture/ai-ml/architecture/batch-scoring-r-models.yml",
+      "source_path": "docs/ai-ml/architecture/batch-scoring-r-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/ai-ml/architecture/speech-to-text-transcription-analytics.yml",
+      "source_path": "docs/ai-ml/architecture/speech-to-text-transcription-analytics.yml",
       "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
       "redirect_document_id": false  
     },
     {
-      "source_path": "docs/architecture/ai-ml/architecture/speech-to-text-transcription-analytics-content.md",
+      "source_path": "docs/ai-ml/architecture/speech-to-text-transcription-analytics-content.md",
       "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
       "redirect_document_id": false  
     },
@@ -3886,22 +3886,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/solution-ideas/articles/digital-media-video-content.md",
+      "source_path": "docs/solution-ideas/articles/digital-media-video-content.md",
       "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
     {
-     "source_path": "docs/architecture/solution-ideas/articles/digital-media-video.yml",
+     "source_path": "docs/solution-ideas/articles/digital-media-video.yml",
       "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
     { 
-      "source_path": "solution-ideas/articles/digital-media-live-stream.yml",
+      "source_path": "docs/solution-ideas/articles/digital-media-live-stream.yml",
       "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
     {
-      "source_path": "solution-ideas/articles/digital-media-live-stream-content.md",
+      "source_path": "docs/solution-ideas/articles/digital-media-live-stream-content.md",
       "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
@@ -3936,12 +3936,12 @@
       "redirect_document_id": false
     },
     {  
-      "source_path": "docs/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender-content.md",
+      "source_path": "docs/solution-ideas/articles/build-content-based-recommendation-system-using-recommender-content.md",
       "redirect_url": "/azure/architecture/industries/retail",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml",
+      "source_path": "docs/solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml",
       "redirect_url": "/azure/architecture/industries/retail",
       "redirect_document_id": false
     },
@@ -3966,12 +3966,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/solution-ideas/articles/autonomous-systems-content.md",
+      "source_path": "docs/solution-ideas/articles/autonomous-systems-content.md",
       "redirect_url": "/WindowsServerDocs/manage/windows-admin-center/azure/use-azure-network-adapter",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/solution-ideas/articles/autonomous-systems.yml",
+      "source_path": "docs/solution-ideas/articles/autonomous-systems.yml",
       "redirect_url": "/WindowsServerDocs/manage/windows-admin-center/azure/use-azure-network-adapter",
       "redirect_document_id": false
     },
@@ -3981,22 +3981,22 @@
       "redirect_document_id": false
     },
     {  
-      "source_path": "docs/architecture/solution-ideas/articles/machine-teaching-content.md",
+      "source_path": "docs/solution-ideas/articles/machine-teaching-content.md",
       "redirect_url": "/azure/architecture/industries/manufacturing",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/solution-ideas/articles/machine-teaching.yml",
+      "source_path": "docs/solution-ideas/articles/machine-teaching.yml",
       "redirect_url": "/azure/architecture/industries/manufacturing",
       "redirect_document_id": false
     },
     {    
-     "source_path": "docs/architecture/solution-ideas/articles/anomaly-detector-process-content.md",
+     "source_path": "docs/solution-ideas/articles/anomaly-detector-process-content.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/architecture/solution-ideas/articles/anomaly-detector-process.yml",
+      "source_path": "docs/solution-ideas/articles/anomaly-detector-process.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
       "redirect_document_id": false
     },
