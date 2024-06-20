@@ -17,7 +17,7 @@ Azure AI services includes:
 - **Speech.** Speech to text, text to speech, speech translation, and Speaker Recognition
 - **Language.** Entity recognition, sentiment analysis, question answering, conversational language understanding, and translator
 - **Vision.** Computer vision and Face API
-- **Decision.** Anomaly detector, Content Moderator, and Personalizer
+- **Decision.** Anomaly Detector, Content Moderator, and Personalizer
 - **OpenAI Service.** Advanced language models
 
 When the pre-built baseline models don't perform accurately enough on your data, you can customize them by adding training data that's relative to the problem domain. This customization requires the extra effort of gathering adequate data to train and evaluate an acceptable model. Azure AI services that are customizable include [Custom Vision](/azure/cognitive-services/custom-vision-service/overview), [Custom Translator](/azure/cognitive-services/translator/custom-translator/overview), [Custom Speech](/azure/cognitive-services/speech-service/custom-speech-overview), and [CLU](/azure/cognitive-services/language-service/conversational-language-understanding/overview). Extending pre-built Azure AI services models is in the center of the spectrum. Most of this article is focused on that central area.

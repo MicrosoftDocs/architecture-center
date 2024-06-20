@@ -9,12 +9,7 @@ metadata:
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - acom-architecture
-    - bot service
-    - luis
-    - iot
-    - "https://azure.microsoft.com/solutions/architecture/iot-devices"
+  ms.custom: arb-iot
 name: Control IoT devices with a voice assistant app
 azureCategories:
   - iot

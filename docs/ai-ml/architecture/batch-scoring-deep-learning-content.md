@@ -133,7 +133,7 @@ Azure Machine Learning will automatically log all stdout/stderr to the associate
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
 
-You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service. Follow the steps described in this [GitHub repo][deployment2].
+You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service (AKS). Follow the steps described in this [GitHub repo][deployment2].
 
 ## Contributors
 

@@ -17,7 +17,7 @@ This architecture shows you the components used to build, deploy, and manage hig
 1. Use Apache Spark in Azure Synapse Analytics to clean, transform, and analyze datasets.
 1. Build and train machine learning models in Azure Machine Learning.
 1. Control access and authentication for data and the machine learning workspace with Microsoft Entra ID and Azure Key Vault. Manage containers with Azure Container Registry.
-1. Deploy the machine learning model to a container using Azure Kubernetes Services, securing and managing the deployment with Azure VNets and Azure Load Balancer.
+1. Deploy the machine learning model to a container using Azure Kubernetes Service (AKS), securing and managing the deployment with Azure VNets and Azure Load Balancer.
 1. Using log metrics and monitoring from Azure Monitor, evaluate model performance.
 1. Retrain models as necessary in Azure Machine Learning.
 1. Visualize data outputs with Power BI.

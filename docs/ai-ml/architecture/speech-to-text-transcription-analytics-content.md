@@ -33,7 +33,7 @@ The architecture consists of two pipelines: A transcription pipeline to convert 
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs). Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high performance computing, and machine learning. In this solution, it stores the audio files and transcription results and serves as a data lake for downstream analytics.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs). Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this solution, it stores the audio files and transcription results and serves as a data lake for downstream analytics.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps). An integration platform as a service (iPaaS) that's built on a containerized runtime. In this solution, it integrates storage and speech AI services.
 - [AI Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services). An AI-based API that provides speech capabilities like speech to text, text to speech, speech translation, and Speaker Recognition. Its batch transcription functionality is used in this solution.
 - [AI Language](https://azure.microsoft.com/services/cognitive-services/language-service). An AI-based managed service that provides natural language capabilities like sentiment analysis, entity extraction, and automated question answering.

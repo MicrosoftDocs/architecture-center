@@ -91,7 +91,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. Grafana is used to display data and send alerts.|Analytics|
 |[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Use Grafana to build near real-time analytics dashboards.|Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Grafana is a core component for providing monitoring and observability in this solution.|Migration|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. Grafana is recommended as a platform for logging and metrics.|Containers|
@@ -109,7 +108,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. MonitoFi uses local instances of InfluxDB to provide real-time monitoring and alerts. |Analytics|
 |[Monitor a microservices app in AKS](../microservices/logging-monitoring.yml)|Learn best practices for monitoring a microservices application that runs on AKS. Includes information about using InfluxDB for metrics when data rates trigger throttling.|Microservices|
 
 ## Jenkins
@@ -239,8 +237,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)|Learn about a data-first approach to middleware integration that enables IBM message queues. This approach supports Azure Database for PostgreSQL.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. PostgreSQL is the main database for a common AIML use case. |Mainframe|
 |[Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of OLTP, which manages transactional data and supports querying. Azure Database for PostgreSQL is one Azure data store that meets the requirements for OLTP.|Databases|
-|[Oracle database migration: Refactor](../example-scenario/oracle-migrate/oracle-migration-refactor.yml)|Refactor your Oracle database by using Azure Database Migration Service, and move it to PostgreSQL.|Migration|
-|[Overview of Oracle database migration](../example-scenario/oracle-migrate/oracle-migration-overview.yml)|Learn about Oracle database migration paths and the methods you can use to migrate your schema to SQL or PostgreSQL.|Migration|
 |[Scalable apps using Azure Database for PostgreSQL](../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.|Mobile|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for PostgreSQL is one example of a relational database.|Databases|

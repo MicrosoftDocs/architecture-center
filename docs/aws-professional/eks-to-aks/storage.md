@@ -42,7 +42,7 @@ By adding drivers and storage classes, you can use storage services such as:
 
 - Lustre, an open-source file system commonly used in high-performance computing (HPC). In Azure, you can use Ultra Disks or Azure HPC Cache for workloads where speed matters, such as machine learning and HPC.
 
-- NetApp ONTAP, fully managed ONTAP shared storage in Amazon Web Services (AWS). Azure NetApp Files is a similar Azure file storage service built on NetApp technology.
+- NetApp ONTAP, fully managed ONTAP shared storage in Amazon Web Services (AWS). Azure NetApp Files is a similar file storage service in Azure built on NetApp technology.
 
 ## AKS storage options
 

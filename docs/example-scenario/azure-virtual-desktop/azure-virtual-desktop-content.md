@@ -178,7 +178,7 @@ You can architect your Azure Virtual Desktop solution to realize cost savings. H
 
 ## Deploy this scenario
 
-Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
+Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only the Azure Resource Manager Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
 
 
 ## Contributors

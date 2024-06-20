@@ -88,9 +88,9 @@ In Bonsai, managed Azure graphics processing unit (GPU) clusters run AI training
 
 The Bonsai platform runs on Azure and charges resource costs to your Azure subscription.
 
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry) (basic tier) for storing exported brains and uploaded simulators.
-* [Azure Container Instances](https://azure.microsoft.com/services/container-instances) for running simulations.
-* [Azure Storage](https://azure.microsoft.com/services/storage) for storing uploaded simulators as ZIP files.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) (basic tier) for storing exported brains and uploaded simulators.
+- [Azure Container Instances](https://azure.microsoft.com/services/container-instances) for running simulations.
+- [Azure Storage](https://azure.microsoft.com/services/storage) for storing uploaded simulators as ZIP files.
 
 #### Inkling
 
@@ -160,7 +160,7 @@ AirSim works as a plug-in to the [Unreal Engine](https://www.unrealengine.com) e
 
 This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information to improve the design of the system.
 
-You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment, and code and debug a Python application connected to AirSim in Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure).
+You can use an [Azure Resource Manager template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment, and code and debug a Python application connected to AirSim in Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure).
 
 ## Contributors
 
