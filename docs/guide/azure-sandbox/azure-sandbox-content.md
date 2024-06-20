@@ -132,10 +132,10 @@ Also, consider these [Secure Futures Initiative](https://www.microsoft.com/micro
 
 ### Secure operations
 
-- Enable Microsoft Defender for Cloud CSPM on sandbox subscriptions.
-- Enable Azure Update Manager on all virtual machines used in sandbox environments, and set a regular patching schedule.
-  - For SQL Server virtual machines, enable first-party updates in Windows Update to ensure that SQL Server is patched.
-- Monitor activity and diagnostic logs with Azure Monitor and/or Azure Sentinel.
+- Enable [Microsoft Defender for Cloud CSPM](/azure/defender-for-cloud/concept-cloud-security-posture-management) on sandbox subscriptions.
+- Enable [Azure Update Manager](/azure/update-manager/overview) on all virtual machines used in sandbox environments, and set a regular patching schedule.
+  - For SQL Server virtual machines, [enable first-party updates](/azure/update-manager/configure-wu-agent#enable-updates-for-other-microsoft-products) in Windows Update to ensure that SQL Server is patched.
+- Monitor activity and diagnostic logs with [Azure Monitor](/azure/azure-monitor/overview) and/or [Microsoft Sentinel](/en-us/azure/sentinel/overview).
 - Decommission individual sandbox resources and whole sandboxes that are no longer in use.
 
 ## Contributors
