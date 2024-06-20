@@ -41,11 +41,9 @@ Explore some options for [connecting an on-premises network to Azure](../referen
 
 When you adopt a hybrid model, you can choose from multiple solutions to confidently deliver hybrid workloads. See these documents for information on running Azure data services anywhere, modernizing applications anywhere, and managing your workloads anywhere:
 
-- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](arc-hybrid-kubernetes.yml)
 - [Use Azure file shares](azure-file-share.yml)
 - [Back up files](azure-stack-backup.yml)
-- [Manage workloads](hybrid-server-os-mgmt.yml)
 - [Monitor performance](hybrid-perf-monitoring.yml)
 - [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 

@@ -136,7 +136,6 @@ Other contributors:
 
 ## Related resources
 
-- [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
 - [CI/CD pipeline for container-based workloads](../../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)

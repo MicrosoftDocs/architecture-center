@@ -179,7 +179,6 @@ Microsoft Learn modules:
 
 - [Hybrid architecture design](hybrid-start-here.md)
 - [Azure hybrid options](/azure/architecture/guide/technology-choices/hybrid-considerations)
-- [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)

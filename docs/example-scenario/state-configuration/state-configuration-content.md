@@ -176,7 +176,6 @@ For detailed information and additional deployment options, see the ARM template
 - [Azure Monitor documentation](/azure/azure-monitor)
 - [PowerShell documentation](/powershell)
 
-## Related resources
+## Related resource
 
 - [Browse additional solutions](/azure/architecture/browse)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)

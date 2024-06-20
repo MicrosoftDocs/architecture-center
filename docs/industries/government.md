@@ -52,8 +52,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Azure Automation in a hybrid environment](../hybrid/azure-automation-hybrid.yml) | Extend automated management and configuration from Azure to on-premises and other cloud providers. | Hybrid/Multicloud |
-| [Azure Automation Update Management](../hybrid/azure-update-mgmt.yml) | Design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers. | Hybrid/Multicloud |
 | [Computer forensics Chain of Custody in Azure](../example-scenario/forensics/index.yml) | Ensure a valid Chain of Custody (CoC) in acquiring, storing, and accessing of digital evidence to support criminal investigations or civil proceedings. | Management/Governance |
 | [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../hybrid/hybrid-security-monitoring.yml) | Monitor the security configuration and telemetry of on-premises and Azure operating system workloads. | Hybrid/Multicloud |
 | [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml) | Combine AI and Internet of Things (IoT) by using Azure Custom Vision to classify images taken by a simulated drone. | AI/ML |
