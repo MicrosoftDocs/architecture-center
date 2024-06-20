@@ -227,11 +227,11 @@ Customer wants to know how long they can access games after they have left Game 
 
 **Davinci result**
 
-The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. as a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
+The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for Windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. as a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
 
 **Curie result**
 
-The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
+The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
 
 ### Few-shot
 
@@ -302,7 +302,7 @@ customer wanted to know how long they could access games after they leave game p
 
 **Curie result**
 
-customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
+customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
 
 ### Fine-tuning
 
@@ -340,7 +340,7 @@ Customer wants to know how long they can access games after they have left Game 
 
 **Curie result**
 
-customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game pass catalog they'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
+customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game pass catalog they'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
 
 ## Conclusions
 
@@ -356,11 +356,11 @@ Customer wants to know how long they can access games after they have left Game 
 
 **Davinci zero-shot result**
 
-The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. As a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
+The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for Windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. As a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
 
 **Curie zero-shot result**
 
-The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
+The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
 
 **Davinci few-shot result**
 
@@ -368,11 +368,11 @@ customer wanted to know how long they could access games after they leave game p
 
 **Curie few-shot result**
 
-customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
+customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
 
 **Curie fine-tuning result**
 
-customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game pass catalog they'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
+customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game pass catalog they'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
 
 ### Evaluating summarization
 
