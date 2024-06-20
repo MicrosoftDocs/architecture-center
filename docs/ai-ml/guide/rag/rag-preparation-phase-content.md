@@ -25,7 +25,7 @@ The success factor in this step is being *qualitatively confident* that you have
 
 ### Test document guidance
 
-- Prefer real documents over synthetic. Real documents must go through a cleaning process to remove personal data.
+- Prefer real documents over synthetic. Real documents must go through a cleaning process to remove personally identifiable information (PII).
 - Consider augmenting your documents with synthetic data to ensure you're handling all kinds of scenarios.
 - If you must use synthetic data, do your best to make it as close to real data as possible.
 - Make sure that the documents can address the questions that are being gathered.
