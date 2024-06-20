@@ -86,7 +86,7 @@ The architecture can incorporate the following optional supporting services that
 
 ## Cluster design choices
 
-When designing an Azure Stack HCI cluster it is important to understand the workload performance and resiliency requirements, such as the RTO / RPO times and compute (CPU), memory and storage requirements for all workload that will be deployed on the Azure Stack HCI cluster. Several characteristics of the workload influence the decision-making process, including:
+When designing an Azure Stack HCI cluster it is important to understand the workload performance and resiliency requirements, such as the recovery time objective (_RTO_) and recovery point objective (_RPO_) times and compute (CPU), memory and storage requirements for all workload that will be deployed on the Azure Stack HCI cluster. Several characteristics of the workload influence the decision-making process, including:
 
 - Processor (_CPU_) architecture capabilities, and number of cores per socket
 - Graphics processing unit (_GPU_) requirements of the workload
