@@ -125,7 +125,7 @@ Other contributor:
 
 ## Next steps
 
-- The [Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops)
+- [`The Big Book of MLOps`](https://databricks.com/p/ebook/the-big-book-of-mlops)
 - [Need for Data-centric machine learning Platforms](https://databricks.com/blog/2021/06/23/need-for-data-centric-ml-platforms.html) (introduction to MLOps)
 - [Databricks Machine Learning in-product quickstart](/azure/databricks/applications/machine-learning/ml-quickstart)
 - [10-minute tutorials: Get started with machine learning on Azure Databricks](/azure/databricks/applications/machine-learning/tutorial)

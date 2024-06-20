@@ -59,6 +59,7 @@ Offloading the object detection functionality to Azure AI services significantly
 ### Potential use cases
 
 - Monitoring the security of a perimeter
+
 - Detecting an unsafe working environment in a factory
 
 - Detecting anomalies in an automated assembly line
