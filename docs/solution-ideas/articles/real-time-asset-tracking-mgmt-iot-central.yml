@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use Azure IoT Central to capture real-time asset data, and tools like Azure Functions, Azure Notification Hubs, and Power BI to create alerts and reports.
   author: asergaz
-  ms.author: sergaz   
+  ms.author: sergaz
   ms.date: 06/18/2024
   ms.topic: solution-idea
   ms.service: architecture-center
