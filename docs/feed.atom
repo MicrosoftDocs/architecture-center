@@ -891,10 +891,10 @@
     <entry>
         <title type="html"><![CDATA[Batch scoring for deep learning models]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning</id>
-        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning"/>	
-        <updated>2024-04-08T16:10:01.000Z</updated>	
-        <summary type="html"><![CDATA[Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.]]></summary>	
-        <category label="updated" term="updated"/>    
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning"/>
+        <updated>2024-04-08T16:10:01.000Z</updated>
+        <summary type="html"><![CDATA[Apply neural style transfer to a video using a convolutional neural network (deep learning) in an Azure Machine Learning pipeline with batch scoring.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Use Application Gateway Ingress Controller (AGIC) with a multitenant Azure Kubernetes Service]]></title>
