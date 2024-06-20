@@ -3,9 +3,9 @@ metadata:
   title: Refactor IBM z/TPF mainframe systems to Azure 
   titleSuffix: Azure Architecture Center
   description: Learn how to refactor IBM z/TPF mainframe systems to functionally equivalent systems on Microsoft Azure. 
-  author: Mvrs
-  ms.author: marljohn
-  ms.date: 07/01/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 06/20/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

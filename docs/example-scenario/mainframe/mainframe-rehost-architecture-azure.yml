@@ -3,9 +3,9 @@ metadata:
   title: Rehost a general mainframe on Azure
   titleSuffix: Azure Architecture Center
   description: Learn how to create a general mainframe rehosting architecture on Azure. Rehosting is a cost-effective method to maintain old mainframe hardware.
-  author: imsunnymaghosh
-  ms.author: sunnymaghosh
-  ms.date: 09/21/2022
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 06/20/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
