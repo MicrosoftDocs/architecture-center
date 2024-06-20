@@ -22,7 +22,7 @@ This workflow describes how the system processes the incoming data:
 
 6. The results of image analysis (detected objects and a confidence rating) are sent to the anomaly detection container.
 
-7. The anomaly detection container stores the results of image analysis and anomaly detection in the local Azure Stack Edge Azure SQL Database for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
+7. The anomaly detection container stores the results of image analysis and anomaly detection in the local Azure SQL Database instance of Azure Stack Edge for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
 
 8. Data processing is run to detect any anomalies in the incoming real-time video stream. If anomalies are detected, a front-end UI shows an alert.
 
