@@ -17,12 +17,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components like REST APIs.
 - You manage Microsoft Entra Domain Services and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
 - GIS analysts, administrators, and editors connect to Azure Virtual Desktop via a Remote Desktop Protocol (RDP) session. From there, ArcGIS Pro is accessed and takes advantage of the GPUs for light, medium, and heavy workflows. *Light* refers to a 2D workflow, *medium* refers to a more demanding 2D workflow, and *heavy* refers to a 2D or 3D workflow that requires GPUs. GIS administrators can also use ArcGIS Pro to publish services and administer the enterprise geodatabase. Finally, GIS editors can maintain the vector and raster layers.
-- The desktop VMs are based on [N-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/#:~:text=The%20N-series%20is%20a%20family%20of%20Azure%20Virtual,has%20three%20different%20offerings%20aimed%20at%20specific%20workloads%3A). Example VM SKUs for ArcGIS Pro: 
-  - Heavy: Standard_NV16as_v4. 16 CPU, 56 GB.
-  - Medium: Standard_NV8as_v4. 8 CPU, 28 GB.
-  - Light: Standard_NV4as_v4. 4 CPU, 14 GB.
-
-  For details on the VMs, see [NV-Series](/azure/virtual-machines/nv-series). The preceding groupings allow administrators to size the VMs based on workflows as opposed to VM capabilities. For example, end users see **GIS-Heavy-pool**, which indicates that the VM is for power users that need 3D-intensive workflows. 
+- The desktop VMs are based on [N-Series VMs](/azure/virtual-machines/nv-series). The preceding groupings allow administrators to size the VMs based on workflows as opposed to VM capabilities. For example, end users see **GIS-Heavy-pool**, which indicates that the VM is for power users that need 3D-intensive workflows. 
  
   Administrators can also make it possible to publish new versions of ArcGIS Pro by using semantic versioning. For example, as new versions of ArcGIS Pro are available, like ArcGIS Pro 3.0, the new version can be published in the Remote Desktop tool. As a result, users can pick that new version when they're ready to upgrade without having to perform the upgrade themselves. The GPU drivers can be included in the creation of the images that the deployments are based on.
 
