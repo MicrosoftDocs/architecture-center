@@ -240,11 +240,11 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 ## Additional considerations
 
-*TODO: No empty sections*
+*TODO-NM: No empty sections*
 
 ### Persona-based RBAC
 
-Managing access to machine learning data and resources is crucial. Role-Based Access Control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas involved in the process. Each persona has a specific role and set of responsibilities that should be reflected in their RBAC roles and group membership.
+Managing access to machine learning data and resources is crucial. Role-Based Access Control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas involved in the process. Each persona has a specific set of responsibilities that should be reflected in their RBAC roles and group membership.
 
 #### Example personas
 
@@ -252,32 +252,31 @@ Consider the following common personas in a machine learning workload which will
 
 ##### Data scientist/ML engineer
 
-The people doing the various machine learning and data science activities across the SDLC lifecycle for a project. This role's responsibilities include break and fix activities for the machine learning models, packages, and data, which sit outside of platform support expertise. Their duties involve data exploration (EDA) and data preprocessing. They also drive model training, evaluation, and deployment.
+The people doing the various machine learning and data science activities across the SDLC lifecycle for a project. Their duties involve data exploration (EDA) and data preprocessing. They also drive model training, evaluation, and deployment. This role's responsibilities also include break-fix activities for the machine learning models, packages, and data, which sit outside of platform technical support expertise.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Data analyst
 
-The people doing the data analyst tasks required as an input to data science activities. This role involves working with data, performing analysis, and supporting model development and deployment activities.
+The people doing the data analyis required as an input to data science activities, such as running SQL queries for business intelligence. This role involves working with data, performing analysis, and supporting model development and deployment activities.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Model tester
 
-The people performing testing in QA & staging. This role provides functional segregation from the CI/CD processes.
+The people performing testing in test and staging environments. This role provides functional segregation from the CI/CD processes.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Business stakeholders
 
-Business stakeholders attached to the project.
+Business stakeholders attached to the project, for example a marketing manager.
 
 **Type:** Person<br/>
 **Project specific:** Yes<br/>
-**Notes:** This role is [read-only](/azure/role-based-access-control/built-in-roles/general#reader) for the Azure Machine Learning workspace components in development.
 
 ##### Project lead (Data science lead)
 
@@ -288,19 +287,17 @@ The data science lead in a project administration role for the Azure Machine Lea
 
 ##### Project/product owner (Business owner)
 
-The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership.
+The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership. *TODO-NM: Production coverage will be provided by the data governance application. <Delete/change>*
 
 **Type:** Person<br/>
-**Project specific:** Yes<br/>
-**Notes:** This role is read-only for the Azure Machine Learning workspace configuration and components in development. Production coverage will be provided by the data governance application.
+**Project specific:** Yes
 
 ##### Platform technical support
 
-The technical support staff responsible for break-fix activities across the platform. This role would cover infrastructure, service, etc. But not the machine learning models, packages or data. These elements remain under the Data scientist/ML engineer role's responsibility.
+The technical support staff responsible for break-fix activities across the platform. This role would cover infrastructure, service, etc. but not the machine learning models, packages or data. These elements remain under the Data scientist/ML engineer role or Project lead's responsibility.
 
 **Type:** Person<br/>
-**Project specific:** No<br/>
-**Notes:** While the role group is permanent, membership is only transient, based upon a [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) process for time boxed, evaluated access.
+**Project specific:** No
 
 ##### Model end user
 
@@ -336,6 +333,10 @@ The compute process that scans the machine learning project and datastores for d
 
 **Type:** Process<br/>
 **Project specific:** No
+
+#### Entra group membership
+
+*TODO-NM: Add a paragraph talking about mapping personas to Entra groups*
 
 #### Identity RBAC
 
@@ -380,9 +381,8 @@ Using the previously described personas, here are examples of how RBAC can be ap
 | Monitoring processes             | R                                |           |                          |                 |              |                 | LAR                     | MR            |
 | Data governance processes        | R                                |           | R                        | R               | R            | R               |                         |               |
 
-All personas have an access period for the life of the project except for the Platform technical support and CI/CD processes which have temporary, or just-in-time access.
-
-TODO: Standing permissions called out in one example above. But not other. Where should that callout be made?
+> [!NOTE]
+> All personas have an access period for the life of the project except for the Platform technical support and CI/CD processes which have temporary, [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure), or just-in-time access.
 
 ##### Pre-production environments
 
@@ -401,9 +401,8 @@ TODO: Standing permissions called out in one example above. But not other. Where
 | Monitoring processes             | R                                | R         | R                        | R               | R            | R               | LAC                     |               |
 | Data governance processes        | R                                |           | R                        | R               |              |                 |                         |               |
 
-All personas have an access period for the life of the project except for the Platform technical support which have temporary, or just-in-time access.
-
-TODO: CI/CD here as well?
+> [!NOTE]
+> All personas have an access period for the life of the project except for the Platform technical support which have temporary, [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure), or just-in-time access.
 
 A persona-based RBAC approach should use [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
 
@@ -442,52 +441,48 @@ The suggested MVP monitoring could be scoped around the [Azure Machine Learning 
 
 #### Model performance
 
-*TODO: No empty sections*
+*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor model performance. 1-2 sentences.*
 
 *TODO: Let's dive into each of these a bit more.*
 
 - *Why is this important? Without monitoring this, what risk is presented to the workload?*
-- *What does "Implemenation" mean?*
 - *Can the notes just be part of the description?*
 
 
 
 ##### Data drift
 
-[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
+[Data drift](/azure/machine-learning/how-to-monitor-datasets) tracks changes in the distribution of a model's input data by comparing it to the model's training data or recent past production data. *TODO-NM: This helps detect unrepresented data source changes so that it can be corrected.* Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
 **Environment:** Production<br/>
-**Implementation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)<br/>
-**Notes:** Data drift refactoring requires recent production datasets and outputs, to be available for comparison.
+**Azure facilitation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 ##### Usage
 
-Use several model serving endpoint metrics to indicate quality and performance.
+*TODO-NM: Maybe rename or change this, since this ONE item is kinda the same as the whole "usage metrics" section below*
+
+Use several model serving endpoint metrics to indicate quality and performance. This is learning from production to help drive future investments or changes.
 
 **Environment:** All<br/>
-**Implementation:** Azure Monitor [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
+**Azure facilitation:** Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
 
 ##### Prediction drift
 
-Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
+Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data. Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.
 
 **Environment:** Production<br/>
-**Implementation:** Azure Monitor [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)<br/>
-**Notes:** Prediction drift refactoring requires recent production datasets and outputs, to be available for comparison.
+**Azure facilitation:** Azure Machine Learning – [Model Monitoring](/azure/machine-learning/concept-model-monitoring#enabling-model-monitoring)
 
 #### Usage metrics
 
-*TODO: No empty sections*
+*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor usage metrics. 1-2 sentences.*
 
 ##### Client requests
 
-Count of the client requests to the model endpoint.
+Count of the client requests to the model endpoint. This helps a workload understand the active usage profile of the endpoints which can feed into scaling or cost optimization efforts.
 
 **Environment:** Production<br/>
-**Implementation:**
-
-- Machine Learning Services - [OnlineEndpoints](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
-- Count of [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints)
+**Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), for example [RequestsPerMinute](/azure/machine-learning/monitor-azure-machine-learning-reference#supported-metrics-for-microsoftmachinelearningservicesworkspacesonlineendpoints) *TODO-NM: look into these*
 
 **Notes:**
 
@@ -496,40 +491,39 @@ Count of the client requests to the model endpoint.
 
 ##### Throttling delays
 
-[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer.
+[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. *TODO-NM: Add one more sentence*
 
 **Environment:** Production<br/>
-**Implementation:**
+**Azure facilitation:**
 
-- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
-- Sum of RequestThrottlingDelayMs
-- ResponseThrottlingDelayMs
+- Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), Sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs
+- Azure Machine Learning - [Online endpoint traffic log](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)  *TODO-NM: Verify both of these*
 
 **Notes:** Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
 
 ##### Errors generated
 
-Track response code that indicate errors.
+Track response code that indicate errors. *TODO-NM: Add one more sentence*
 
 **Environment:** Production<br/>
-**Implementation:**
+**Azure facilitation:**
 
-- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
-- Count of XRequestId by ModelStatusCode
+- Azure Machine Learning - [Online endpoint traffic log](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview) *TODO-NM: This is a log table, not a metrics table. How to handle?*
+- Count of XRequestId by ModelStatusCode *TODO-NM: These are metrics, where are they found? Not the log table.*
 - Count of XRequestId by ModelStatusCode and ModelStatusReason
 
 **Notes:** All HTTP responses codes in the 400 & 500 range would be classified as an error.
 
 #### Cost optimization
 
-*TODO: No empty sections*
+*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor cpst. 1-2 sentences.*
 
 ##### Deployment
 
 When monthly operating expenses reach or exceed a predefined amount alerts should be generated to alert relevant stakeholders (for example project leads or project owners) based on the workspace setup boundaries. [Workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) can be based on project, team, or department related boundaries.
 
 **Environment:** All<br/>
-**Implementation:** [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts)<br/>
+**Azure facilitation:** Microsoft Cost Management - [Budget Alerts](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#budget-alerts)<br/>
 **Notes:**
 
 - Budget thresholds should be set based upon the initial NFR’s and cost estimates.
@@ -540,13 +534,11 @@ When monthly operating expenses reach or exceed a predefined amount alerts shoul
 
 When an Azure Machine Learning workspace no longer appears to have active use as measured by compute use associated with the use-case a project owner might choose to decommission an Azure Machine Learning workspace if it is no longer needed for a given project.
 
-*TODO: Pre-production or development?  Let's be consistent.*
+**Environment:** Pre-production<br/>
+**Azure facilitation:**
 
-**Environment:** Development<br/>
-**Implementation:**
-
-- [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) Azure Machine Learning metrics
-- Machine Learning Services - [Workspaces](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics) - count of Active Cores over a period
+- Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
+- Azure Machine Learning - [Workspaces](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-metrics), for example count of active cores over a period
 
 **Notes:**
 
@@ -555,13 +547,13 @@ When an Azure Machine Learning workspace no longer appears to have active use as
 
 #### Security
 
-Do not deviate from the appropriate security controls and baselines must remained implemented.
+Monitor to detect deviations from appropriate security controls and baselines. *TODO-NM: add one additional sentence -- or pull notes*
 
 **Environment:** All<br/>
-**Implementation:**
+**Azure facilitation:**
 
-- Azure – [Policies](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning)
-- Including the [Audit usage of custom RBAC roles](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5)
+- Azure – [Policies](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning), for example [Audit usage of custom RBAC roles](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5)
+- ?? *TODO-NM: Add one or two more*
 
 **Notes:**
 
@@ -570,23 +562,23 @@ Do not deviate from the appropriate security controls and baselines must remaine
 
 ##### Endpoint security
 
-Implement targeted security monitoring of all Azure Machine Learning endpoints.
+Implement targeted security monitoring of all Azure Machine Learning endpoints. *TODO-NM: add one additional sentence -- or pull notes*
 
-**Environment:** All<br/>
-**Implementation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction) - *TODO: How is this relevant to AML endpoints, this requires API Management?*
+**Environment:** Production<br/>
+**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction) *TODO-NM: How is this relevant to AML endpoints, this requires API Management?  How do we actually monitor the AML endpoints?*
 
 #### Deployment monitoring
 
-*TODO: No empty sections*
+*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor cpst. 1-2 sentences.*
 
 ##### Standards and governance
 
-Ensure the appropriate standards and guardrails are adhered too.
+Monitor to detect deviations from appropriate standards and that guardrails are adhered too.
 
 **Environment:** All<br/>
-**Implementation:**
+**Azure facilitation:**
 
-- [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines)
+- [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) *TODO-NM: how does using Azure DevOps to deploy policies matter? Make a sentence maybe?*
 - [PSRule for Azure](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure infrastructure as code.
 - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy policies, policy sets, assignments, policy exemptions and role assignments.
 
@@ -597,22 +589,21 @@ Ensure the appropriate standards and guardrails are adhered too.
 Implement automated security scans as part of the automated integration and deployment processes.
 
 **Environment:** All<br/>
-**Implementation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br/>
+**Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br/>
 **Notes:** This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules.
 
 ##### Ongoing service
 
-*TODO: I'm confused about development and what service means here*
-
+*TODO-NM: fix this up. Two sentences. Is the name of this meaningful?*
 A development model appearing provide a regular service that should be made available in production.
 
 **Environment:** Development<br/>
-**Implementation:**
+**Azure facilitation:**
 
-- [Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) Azure Machine Learning metrics
-- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month
+- Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
+- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month *TODO-NM: What does this reflect?*
 
-**Notes:** Date thresholds should be aligned to the project schedule.
+**Notes:** Date thresholds should be aligned to the project schedule. *TODO-NM: What date thresholds?  Is this something that you can include into opening text for this?*
 
 ## Contributors
 
