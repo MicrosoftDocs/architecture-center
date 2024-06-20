@@ -43,7 +43,7 @@ Depending on the number of availability zones you use, evaluate over-provisionin
 
 :::image type="content" source="images/azure-az-picture.png" alt-text="Diagram that shows Azure zones, datacenters, and geographies." lightbox="images/azure-az-picture.png":::
 
-Because of the possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, the [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) component from [FSLogix](/fslogix/overview) is used instead of specific storage replication mechanisms in this article.
+Because of the possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, the [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) component from [FSLogix](/fslogix/overview) is recommended to be used instead of storage-specific replication mechanisms.
 
 OneDrive isn't considered in this context. For more information on redundancy and high-availability, see [SharePoint and OneDrive data resiliency in Microsoft 365](/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency).
 
@@ -132,7 +132,9 @@ Review the [Business continuity and disaster recovery options for FSLogix](/fslo
 
 There are limits for Virtual Desktop resources. For more information, see [Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
-For diagnostics and monitoring, it's recommended to use the same Log Analytics workspace for both the primary and secondary host pool since [AVD Insights](/azure/virtual-desktop/insights) offer a unified view of deployment in both regions. This could cause problems in case of entire primary region failure since the secondary region is not able to use the workspace in the primary region. If this isn't acceptable, the following solutions could be adopted:
+For diagnostics and monitoring, it's recommended to use the same Log Analytics workspace for both the primary and secondary host pool. Using this configuration, [AVD Insights](/azure/virtual-desktop/insights) offers a unified view of deployment in both regions.
+
+Using a single log destination could cause problems in case of entire primary region failure since the secondary region is not able to use the log workspace in the unavailable region. If this isn't acceptable, the following solutions could be adopted:
 
 - Use a separate Log Analytics workspace for each region, and then point AVD components to log toward the local one.
 - Test and review Logs Analytics [workspace replication and failover capabilities](/azure/azure-monitor/logs/workspace-replication).
@@ -170,9 +172,6 @@ In this guide, you use at least two separate storage accounts for each Virtual D
 
 - You can use [Azure Files](/azure/storage/files/storage-files-introduction) share and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as storage alternatives. See comparison details at FSLogix [Container storage options](/fslogix/concepts-container-storage-options).
 - Azure Files share can provide zone resiliency by using the zone-replicated storage (ZRS) resiliency option, if it's available in the region.
-
-  :::image type="content" source="images/azure-fileshare-zrs.png" alt-text="Azure Files share with premium and ZRS storage." lightbox="images/azure-fileshare-zrs.png":::
-
 - You can't use the geo-redundant storage feature in the following situations:
   - You require a nonpaired region. The region pairs for geo-redundant storage are fixed and can't be changed.
   - You're using the premium tier.
@@ -186,7 +185,7 @@ In this guide, you use at least two separate storage accounts for each Virtual D
   - Azure Virtual WAN is now supported but requires Azure NetApp Files [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
 - Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction). The following considerations apply:
   - It's not available in all regions.
-  - Region pairs are listed in [this article](/azure/azure-netapp-files/cross-region-replication-introduction) and are different from Azure storage region pairs.
+  - [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction) region pairs can be different than Azure storage region pairs.
   - It can't be used at the same time with [cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction)
   - Failover isn't transparent, and failback requires [storage reconfiguration](/azure/azure-netapp-files/cross-region-replication-manage-disaster-recovery).
 - Limits
@@ -215,7 +214,7 @@ Microsoft recommends that you use the following FSLogix configuration and featur
 - You must enable Cloud Cache twice in the session host VM registry, once for [Profile Container](/fslogix/configure-cloud-cache-tutorial#configuring-cloud-cache-for-profile-container) and once for [Office Container](/fslogix/configure-cloud-cache-tutorial#configuring-cloud-cache-for-office-container). It's possible to not enable Cloud Cache for Office Container, but not enabling it might cause a data misalignment between the primary and the secondary disaster recovery region if there's failover and failback. Test this scenario carefully before using it in production.
 - Cloud Cache is compatible with both [profile split](/fslogix/profile-container-office-container-cncpt) and [per-group](/fslogix/configure-per-user-per-group-ht) settings. per-group requires careful design and planning of active directory groups and membership. You must ensure that every user is part of exactly one group, and that group is used to grant access to host pools.
 - The *CCDLocations* parameter specified in the registry for the host pool in the secondary disaster recovery region is reverted in order, compared to the settings in the primary region. For more information, see [Tutorial: Configure Cloud Cache to redirect profile containers or office container to multiple Providers](/fslogix/configure-cloud-cache-tutorial).
-
+  > This article focuses on a specific scenario. Additional scenarios are described in [High availability options for FSLogix](/fslogix/concepts-container-high-availability) and [Business continuity and disaster recovery options for FSLogix](/fslogix/concepts-container-recovery-business-continuity).
   > [!TIP]
   > Additional scenarios FSLogix [High-Availability](/fslogix/concepts-container-high-availability) and [Disaster Recovery](/fslogix/concepts-container-recovery-business-continuity) are considered in the referenced articles. In this document focus is on a specific scenario.
 
