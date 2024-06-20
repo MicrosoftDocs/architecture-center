@@ -1,6 +1,6 @@
 This reference architecture illustrates how to design Azure Stack HCI 23H2 (_and later_) infrastructure using a "_storage switchless_" configuration, to provide a platform to run highly available virtualized and containerized workloads.
 
-The "_storage switchless_" configuration is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for smaller edge environments that do not have or require _extensive datacenter network switches_ that support 25Gbps (_or higher_) throughput for storage replication.
+The "_storage switchless_" configuration is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for smaller edge environments that do not have or require _extensive datacenter network switches_ for storage traffic.
 
 This architecture design provides workload agnostic guidance and recommendations for configuring Azure Stack HCI as a resilient platform to deploy and manage end user applications or business systems (_workload_). Resource components covered include cluster design choice decisions for the physical nodes that provide the local compute, storage and networking capabilities, in addition to information for how to use Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
 
