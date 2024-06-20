@@ -410,13 +410,7 @@ RBAC plays a vital role in securing and streamlining MLOps workflows. By restric
 
 ### Package management
 
-Throughout the MLOps lifecycle there are often dependencies on a wide range of packages, libraries, and binaries. These dependencies can be community developed and iterated on with fast-paced development cycles. They also require "Subject Matter Expert" (SME) knowledge to understand and use. These factors give rise to the problem of needing to access many different assets, like packages, libraries, and binaries, securely and free from vulnerabilities.
-
-In the machine learning lifecycle this issue can introduce many challenges, such as:
-
-- Data scientists often require large numbers of highly specialized packages, libraries or binaries as building blocks for machine learning solutions.
-- Many of these packages are community developed, iterate with fast-paced development cycles, and required "Subject Matter Expert (SME)" knowledge to understand and use.
-- Traditional approaches to software management for this requirement, often result in expensive, toil-filled processes, which act as a bottleneck on the delivery of value.
+Throughout the MLOps lifecycle, dependencies on various packages, libraries, and binaries are common. These dependencies, often community-developed and rapidly evolving, necessitate SME knowledge for proper use and understanding. The challenge lies in securely accessing diverse assets—such as packages and libraries—while avoiding vulnerabilities. Data scientists encounter this issue when assembling specialized building blocks for machine learning solutions. Traditional software management approaches can be costly and inefficient, that act as a bottleneck on the delivery of value.
 
 A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](../../patterns/quarantine.yml). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
 
