@@ -44,7 +44,7 @@ Marketers now have the opportunity to deliver highly relevant and personalized o
 
 Intelligent Recommendations offers capabilities to drive desired outcomes, such as item recommendations that are based on user interactions and metadata. It can be used to promote and personalize any content type, such as sellable products, media, documents, offers, and more.
 
-Azure Personalizer is a service that's part of Azure AI services. It can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This process ensures that the service is learning continuously, and it enhances the Personalizer ability to select the best items based on the contextual information received.
+Azure Personalizer is a service that's part of Azure AI services. It can be used to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. Personalizer acts as the additional last-step ranker. After the recommendations are shown to the user, the user's reaction is monitored and reported as a reward score back to the Personalizer service. This process ensures that the service is learning continuously, and it enhances the ability of Personalizer to select the best items based on the contextual information received.
 
 Microsoft Azure provides advanced analytics tools in the areas of data ingestion, data storage, data processing, and advanced analytics components—all the essential elements for building a personalized offer solution.
 
