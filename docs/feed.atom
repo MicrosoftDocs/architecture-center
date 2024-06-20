@@ -879,7 +879,7 @@
         <updated>2024-04-08T16:10:01.000Z</updated>
         <summary type="html"><![CDATA[Use Azure services such as AI Document Intelligence, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.]]></summary>
         <category label="updated" term="updated"/>
-        </entry>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Batch scoring with R models to forecast sales]]></title>
         <id>https://learn.microsoft.com/azure/architecture/ai-ml/architecture/batch-scoring-R-models</id>

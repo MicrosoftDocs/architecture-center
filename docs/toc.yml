@@ -1608,8 +1608,6 @@ items:
           href: solution-ideas/articles/big-data-azure-data-explorer.yml
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-        - name: Instant broadcasting with serverless
-          href: /azure/architecture/serverless-quest/serverless-overview
         - name: Serverless applications using Event Grid
           href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
         - name: Serverless apps using Azure Cosmos DB
