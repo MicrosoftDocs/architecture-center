@@ -10,11 +10,7 @@ Virtual Desktop offers business continuity and disaster recovery for its control
 
 :::image type="content" source="images/azure-virtual-desktop-logical-architecture.png" alt-text="Diagram that shows the logical architecture of Virtual Desktop." lightbox="images/azure-virtual-desktop-logical-architecture.png":::
 
-Virtual Desktop is designed to be resilient to failures of individual components, and to be able to recover from failures quickly. When an outage occurs in a region, the service infrastructure components fail over to the secondary location and continue functioning as normal.
-
-:::image type="content" source="images/service-architecture-resilience.svg" alt-text="High-level diagram showing how the Microsoft-managed components are interconnected." lightbox="images/service-architecture-resilience.svg":::
-
-You can still access service-related metadata, and users can still connect to available hosts. End-user connections stay online if the tenant environment or hosts remain accessible. [Data locations for  Virtual Desktop](/azure/virtual-desktop/data-locations) are different from the location of the host pool session host virtual machines (VMs) deployment. It's possible to locate Virtual Desktop metadata in one of the supported regions, and then deploy VMs in a different location. More details are provided in the [Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience) article.
+Virtual Desktop is designed to be resilient to failures of individual components, and to be able to recover from failures quickly. When an outage occurs in a region, the service infrastructure components fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections stay online if the tenant environment or hosts remain accessible. [Data locations for  Virtual Desktop](/azure/virtual-desktop/data-locations) are different from the location of the host pool session host virtual machines (VMs) deployment. It's possible to locate Virtual Desktop metadata in one of the supported regions, and then deploy VMs in a different location. More details are provided in the [Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience) article.
 
 ## Goals and scope
 
