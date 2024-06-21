@@ -25,7 +25,10 @@ The following are the constraints in this scenario:
 - Client applications are using an external OpenID Connect (OIDC) enabled identity provider, such as Okta, Auth0, or social identity providers.
 - Client applications are authenticating against a Microsoft Entra tenant different than the Azure OpenAI data plane's tenant.
 
-These constraints can apply to scenarios in which existing client applications, already authenticating against an external OIDC provider or Microsoft Entra ID, attempt to connect to Azure OpenAI instances.
+These constraints can apply to scenarios where:
+
+- Existing client applications that already authenticate against an external OIDC provider or Microsoft Entra ID are integrating with Azure OpenAI instances.
+- Client applications need to authenticate users from multiple identity providers in a consistent manner.
 
 ### Connecting directly to Azure OpenAI
 
@@ -66,7 +69,11 @@ The following are the constraints in this scenario:
 - Client applications can't use or you don't want to use Microsoft Entra ID or any OIDC providers for authentication.
 - Clients can't use or you don't want to use federated identity for authentication.
 
-These constraints can apply to scenarios where the client authenticating to Azure OpenID is a machine or device where there's no user interaction. Another reason for this scenario is your organization requires the use of certificates for authentication, which can be validated by downstream services, because of security features.
+These constraints can apply to scenarios where:
+
+- A client authenticating to Azure OpenAI services is a machine or device where there's no user interaction.
+- Your organization requires the use of certificates for authentication because of security standards and compliance regulations.
+- You want to provide multiple client applications with options to authenticate based on their environment, including the use of client certificates.
 
 ### Connecting directly to Azure OpenAI
 
@@ -109,12 +116,15 @@ Diagram that shows a conceptual architecture for solutions where multiple client
 
 The following are the constraints in this scenario:
 
-- There are multiple client applications.
+- Multiple client applications are accessing a shared Azure OpenAI instance.
 - Clients can't use or you don't want to use Microsoft Entra ID for authentication.
 - Clients can't use or you don't want to use federated identity for authentication.
 - You want to use key-based authentication for client applications.
 
-These constraints can apply to scenarios where client applications are deployed across multiple environments, including Azure, other cloud providers, or on-premises. Other scenarios include environments where client applications that don't support OAuth.
+These constraints can apply to scenarios where:
+
+- Client applications are deployed across multiple environments, including Azure, other cloud providers, or on-premises.
+- Organizations need to provide Azure OpenAI services to different teams, each with unique access and usage limits.
 
 ### Connecting directly to Azure OpenAI
 
@@ -137,6 +147,7 @@ There are several advantages to introducing a gateway to address this scenario, 
 - You can revoke access to a single client application without affecting other clients.
 - Rotating keys becomes less logistically challenging because you don't need to update all clients key configuration before rotating them. The dedicated keys can be rotated for each client after the client configuration is updated.
 - Each client can be uniquely identified from a logging perspective.
+- The gateway becomes responsible for enforcing rate limits and quotas for each client independently.
 
 ### Recommendations and guidance for this scenario
 
@@ -154,9 +165,15 @@ Diagram that shows client applications authenticating with multiple Azure OpenAI
 The following are the constraints in this scenario:
 
 - Client applications are connecting to multiple Azure OpenAI instances in one or more regions.
-- You want to use subscription keys for client applications.
+- Clients can't use or you don't want to use Microsoft Entra ID or any OIDC providers for authentication.
+- You want to use key-based authentication for client applications.
 
-These constraints can apply to scenarios when client applications attempt to optimize their tokens per minute (TPM) quotas by deploying instances across multiple regions. This is also seen in failover situations where client applications manage a dual deployment strategy, consisting of a provisioned throughput deployment and a pay-as-you-go deployment. Additionally, constraints can be seen when client applications take advantage of diverse model capabilities that are not accessible within a single region.
+These constraints can apply to scenarios where:
+
+- Client applications need to distribute their workloads geographically to reduce latency and improve performance.
+- Client applications attempt to optimize their tokens per minute (TPM) quotas by deploying instances across multiple regions.
+- Organizations require seamless failover and disaster recovery capabilities to ensure continuous operation by managing a dual deployment strategy, potentially consisting of a provisioned throughput deployment and a pay-as-you-go deployment.
+- Client applications need to use specific model capabilities that are only available in certain Azure regions.
 
 ### Connecting directly to multiple Azure OpenAI instances
 
@@ -180,6 +197,16 @@ Introducing a gateway to handle client applications accessing multiple Azure Ope
 When you integrate Azure OpenAI services through a gateway, there are several cross-cutting recommendations to consider that apply in all scenarios.
 
 Opting for Azure API Management (APIM) instead of creating your own solution has several benefits. It provides efficient API orchestration, easy integration with other Azure services, and cost savings by lowering development and maintenance efforts. APIM provides secure API management by supporting authentication and authorization directly. It integrates with identity providers, such as Microsoft Entra ID, enabling OAuth 2.0, and offers policy-based authorization. Additionally, it can take advantage of managed identities for secure, and low maintenance access to Azure OpenAI.
+
+### Combining scenarios for a comprehensive gateway solution
+
+In practice, your use cases can span multiple scenarios outlined in this guide. For example, you might have client applications that authenticate with an external identity provider, and require access to multiple Azure OpenAI instances.
+
+:::image type="complex" source="_images/azure-openai-gateway-identity-solution-combined.png" lightbox="_images/azure-openai-gateway-identity-solution-combined.png" alt-text="Diagram that shows client applications authenticating with an external identity provider via a gateway with access to multiple Azure OpenAI instances.":::
+Diagram that shows client applications authenticating with an external identity provider via a gateway with access to multiple Azure OpenAI instances.
+:::image-end:::
+
+Combining the recommendations from these scenarios provides a comprehensive approach to building a gateway that supports your specific requirements.
 
 ### Gateway policy enforcement
 
