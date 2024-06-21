@@ -54,7 +54,7 @@ An AKS deployment can divide into cluster level components, managed AKS componen
 | Cluster level components | Virtual machine scale sets abstracted as AKS nodes and node pools | Node status and resource utilization including CPU, memory, disk, and network |
 | Managed AKS components | AKS control plane components including API servers, cloud controller, and `kubelet` | Control plane logs and metrics from the `kube-system` namespace |
 | Kubernetes objects and workloads | Kubernetes objects such as deployments, containers, and replica sets | Resource utilization and failures |
-| Applications | Application workloads running on the AKS cluster | Monitoring specific to architecture, but including application logs and service transactions 
+| Applications | Application workloads running on the AKS cluster | Monitoring specific to architecture, but including application logs and service transactions |
 | External | External resources that aren't part of AKS but are required for cluster scalability and management | Specific to each component |
 
 - **Cluster level components:** You can use existing Container Insights views and reports to monitor cluster level components to understand their health, readiness, performance, CPU and memory resource utilization, and trends.
@@ -73,13 +73,13 @@ From the Container Insights **Containers** view, you can view the health and per
 
 Prometheus is a popular open-source metrics monitoring solution from [Cloud Native Compute Foundation](https://www.cncf.io/) and the most common tool used for collecting and analyzing metric data from Kubernetes clusters. [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) is a fully managed Prometheus-compatible monitoring solution in Azure which stores its data in an [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview), which is [linked to a Grafana workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) so that you can analyze the data with Azure Managed Grafana.
 
-Prometheus can also be deployed independently as a self-managed solutions within Azure Kubernetes clusters. You can integrate self hosted Prometheus with Azure Monitor. Container Insights provides a seamless onboarding experience to collect Prometheus metrics. You can expose the Prometheus metrics endpoint through your exporters or pod applications, and the containerized agent for Container Insights can scrape the metrics.
+Prometheus can also be deployed independently as a self-managed solution within Azure Kubernetes Service clusters. You can integrate self-hosted Prometheus with Azure Monitor. Container Insights can be configured to collect Prometheus metrics. You can expose the Prometheus metrics endpoint through your exporters or pod applications, and the containerized agent for Container Insights will scrape the metrics.
 
 #### Azure Managed Grafana
 
 [Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform built on top of the [Grafana](https://grafana.com/). It's built as a fully managed Azure service operated and supported by Microsoft. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.
 
-While Azure Managed Grafana is optimized for the Azure environment. It works seamlessly with many Azure services and provides simple integration features, you can also deploy Grafana independently as a self-managed solutions. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin)
+Azure Managed Grafana is optimized for the Azure environment and works with many Azure services and provides simple integration features. Alternatively, you can also deploy Grafana independently as a self-managed solution. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ### AKS monitoring costs
 
