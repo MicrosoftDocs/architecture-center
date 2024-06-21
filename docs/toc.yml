@@ -614,7 +614,6 @@ items:
           items:
           - name: Migrate Amazon EKS to Azure Kubernetes Service (AKS)
             href: aws-professional/eks-to-aks/migrate-eks-to-aks.md
-            maintainContext: true
       - name: Security for AWS
         items:
         - name: Azure security for AWS
