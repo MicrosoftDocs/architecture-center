@@ -1,5 +1,8 @@
 This reference architecture describes how to implement a [medallion lakehouse](/azure/databricks/lakehouse/medallion) for a solution focused use case. 
 
+> [!IMPORTANT]
+> ![GitHub logo](_images/github.svg) The guidance is backed by an [example implementation](https://github.com/adf-ra) which showcases a baseline Azure Data Factory implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+
 The solution uses a hub and spoke network topology with landing zones following the Cloud Adoption Framework (CAF) best practices.
 
 ## Context and key design decisions
@@ -110,6 +113,8 @@ The typical workflow of accessing and landing data through the architecture:
 ### Network Design
 
 :::image type="content" source="_images/azure-data-factory-baseline-network.png" alt-text="Diagram that shows a medallion architecture network design." border="false" lightbox="_images/azure-data-factory-baseline-network.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-baseline-network.svg) of this architecture.*
 
 - Azure Firewalls can be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
 - Self-hosted integration runtime (SHIR) can be deployed on a virtual machine (VM) in your on-premises environment or in Azure, with the latter being the recommendation. The SHIR can be used to securely connect to on-premises data sources and perform data integration tasks in ADF.
