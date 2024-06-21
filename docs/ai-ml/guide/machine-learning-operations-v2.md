@@ -561,7 +561,7 @@ Monitor to detect deviations from appropriate standards and that guardrails are 
 **Environment:** All<br/>
 **Azure facilitation:**
 
-- [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) *TODO-NM: how does using Azure DevOps to deploy policies matter? Make a sentence maybe?*
+- [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) to enforce compliance policies on your Azure resources before and after deployment.
 - [PSRule for Azure](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure infrastructure as code.
 - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy policies, policy sets, assignments, policy exemptions and role assignments.
 
