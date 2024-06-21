@@ -552,7 +552,7 @@ Implement targeted security monitoring of all Azure Machine Learning endpoints t
 
 #### Deployment monitoring
 
-*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor cpst. 1-2 sentences.*
+Deployment monitoring is important to ensure any endpoints you create adhere to your organisations policies and are free from vulnerabilities. This comprises of enforcing compliance policies on your Azure resources before and after deployment, continued security via vulnerability scanning and ensuring the service meets organisational SLAs while in operation.
 
 ##### Standards and governance
 
@@ -571,22 +571,19 @@ Monitor to detect deviations from appropriate standards and that guardrails are 
 
 Implement automated security scans as part of the automated integration and deployment processes.
 
-**Environment:** All<br/>
+**Environment:** Production<br/>
 **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br/>
 **Notes:** This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules.
 
 ##### Ongoing service
 
-*TODO-NM: fix this up. Two sentences. Is the name of this meaningful?*
-A development model appearing provide a regular service that should be made available in production.
+Monitoring the ongoing service of an API is crucial for performance optimization, security, and resource utilization. It ensures timely error detection, efficient troubleshooting, and compliance with standards.
 
-**Environment:** Development<br/>
+**Environment:** Production<br/>
 **Azure facilitation:**
 
 - Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
-- [Azure Machine LearningOnlineEndpointTrafficLog](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview) - count of XMSClientRequestId over a month *TODO-NM: What does this reflect?*
-
-**Notes:** Date thresholds should be aligned to the project schedule. *TODO-NM: What date thresholds?  Is this something that you can include into opening text for this?*
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your service.
 
 ## Contributors
 
