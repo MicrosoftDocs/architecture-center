@@ -503,9 +503,9 @@ Track response code errors to assist is measuring service reliability and ensure
 
 #### Cost optimization
 
-*TODO-NM: No empty sections - Can you generally sumarize why it's important to monitor cpst. 1-2 sentences.*
+Cost management and optimization in a cloud environment are crucial because they help organizations control expenses, allocate resources efficiently, and maximize value from their cloud services.
 
-##### Deployment
+##### Workspace compute
 
 When monthly operating expenses reach or exceed a predefined amount alerts should be generated to alert relevant stakeholders (for example project leads or project owners) based on the workspace setup boundaries. [Workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) can be based on project, team, or department related boundaries.
 
