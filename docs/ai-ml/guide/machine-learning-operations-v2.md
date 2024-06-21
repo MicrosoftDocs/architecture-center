@@ -540,8 +540,7 @@ Monitor to detect deviations from appropriate security controls and baselines to
 Implement targeted security monitoring of all Azure Machine Learning endpoints to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
 **Environment:** Production<br/>
-**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)  offers full lifecycle protection, detection, and response coverage for APIs.<br/>
-
+**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction) offers broad lifecycle protection, detection, and response coverage for APIs.<br/>
 **Notes:** Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. This will require integrating Azure Machine Learning online endpoints with API Management.
 
 #### Deployment monitoring
