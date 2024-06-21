@@ -30,7 +30,7 @@ For scenarios where a cluster contains a single workload, [Microsoft Cost Manage
 - Distinguishing between individual application costs and shared costs.
 - Analyzing costs across multiple clusters in the same subscription scope.
 
-To address these challenges, AKS has integrated with MCM to provide detailed cost drill-downs at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure Compute, Network, and Storage categories.
+To increase cost observability, AKS has integrated with Microsoft Cost Management to provide detailed cost drilldowns at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure compute, network, and storage categories.
 
 The AKS cost analysis addon is built on [OpenCost](https://www.opencost.io/), an open-source project for usage data collection. It provides cost visibility by reconciling data with your Azure invoice. The post-processed data is directly visible in the Cost Management cost analysis portal. For more information, see [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis).
 
