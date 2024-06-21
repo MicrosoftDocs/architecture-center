@@ -3,7 +3,7 @@ title: Storage options for a Kubernetes cluster
 description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 06/06/2024
+ms.date: 06/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -223,8 +223,8 @@ To optimize Azure Storage costs, use Azure Reservations. Make sure to [check whi
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Cloud Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Cloud Solution Architect
 
 Other contributors:
 

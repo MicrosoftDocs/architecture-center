@@ -2,8 +2,9 @@
 metadata:
   title: Cost management for Kubernetes
   description: Understand Kubernetes cluster and workload costs, see how to optimize and govern costs, and compare Azure Kubernetes Service (AKS) and Amazon EKS options.
+  author: paolosalvatori
   ms.author: paolos
-  ms.date: 06/06/2024
+  ms.date: 06/21/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

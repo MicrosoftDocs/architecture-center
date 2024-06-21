@@ -32,11 +32,11 @@ Previously, [Microsoft Cost Management (MCM)](/azure/cost-management-billing/cos
 
 To address these challenges, AKS has integrated with MCM to provide detailed cost drill-downs at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure Compute, Network, and Storage categories.
 
-The AKS cost analysis addon is built on [OpenCost](https://www.opencost.io/), an open-source project for usage data collection. It provides cost visibility by reconciling data with your Azure invoice. The post-processed data is directly visible in the MCM Cost Analysis portal. For more information, see [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis).
+The AKS cost analysis addon is built on [OpenCost](https://www.opencost.io/), an open-source project for usage data collection. It provides cost visibility by reconciling data with your Azure invoice. The post-processed data is directly visible in the Cost Management cost analysis portal. For more information, see [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis).
 
 ### Cost Definitions
 
-In the Kubernetes namespaces and assets views, you will see the following charges:
+In the Kubernetes namespaces and assets views, you will see the charges, such as:
 
 - **Idle charges:** Represents the cost of available resource capacity that wasn't used by any workloads.
 - **Service charges:** Represents the charges associated with services like Uptime SLA and Microsoft Defender for Containers.
@@ -255,8 +255,8 @@ Here are some reference materials that can help you further understand and utili
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Cloud Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Cloud Solution Architect
 
 Other contributors:
 

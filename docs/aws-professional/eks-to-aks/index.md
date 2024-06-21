@@ -3,7 +3,7 @@ title: AKS for Amazon EKS professionals
 description: Read about the Azure Kubernetes Service (AKS) managed solution, configurations, best practices, and similarities and differences with Amazon EKS.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 06/06/2024
+ms.date: 06/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,7 +29,7 @@ The series articles compare AKS with Amazon EKS for the following Kubernetes des
 - [Cluster governance](governance.md)
 - [Workload Migration](migrate-eks-to-aks.md)
 
-These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, [this](migrate-eks-to-aks.md) article provides strategies for migrating typical stateless and stateful workloads from Amazon EKS to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). For basic AKS implementation, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
+These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, the [Migrate EKS to Azure Kubernetes Service (AKS)](migrate-eks-to-aks.md) article provides strategies for migrating typical stateless and stateful workloads. For basic AKS implementation, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [AKS in an application landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate.
 
@@ -58,8 +58,8 @@ The following articles compare Azure and AWS core platform components and capabi
 
 Principal authors:
 
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Cloud Solution Architect
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Cloud Solution Architect
 
 Other contributors:
 
