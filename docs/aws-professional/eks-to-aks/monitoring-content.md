@@ -67,7 +67,7 @@ An AKS deployment can divide into cluster level components, managed AKS componen
 
 - **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications that are running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
 
-- **External components**: You can monitor external components like service mesh, ingress, and egress with Azure Monitor managed service for Prometheus and Azure Managed Grafana or other tools. You can use Azure Monitor features to monitor any platform as a service (PaaS) that your workload applications use, such as databases and other Azure resources.
+- **External components**: You can monitor external components like service mesh, ingress, and egress with [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and [Azure Managed Grafana](/azure/managed-grafana/overview) or other tools. You can use Azure Monitor features to monitor any Azure platform-as-a-service (PaaS) that your workload applications use, such as databases and other Azure resources.
 
 #### Azure Monitor managed service for Prometheus
 
