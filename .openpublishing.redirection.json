@@ -3268,7 +3268,7 @@
     {
       "source_path": "docs/reference-architectures/ai/batch-scoring-deep-learning.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/ai/batch-scoring-python.yml",
@@ -3855,11 +3855,6 @@
       "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
       "redirect_document_id": false
     },
-    {
-      "source_path": "docs/example-scenario/apps/sap-dev-test-content.md",
-      "redirect_url": "/azure/architecture/reference-architectures/sap/sap-overview",
-      "redirect_document_id": false
-    },
     {        
       "source_path": "docs/ai-ml/architecture/batch-scoring-r-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
@@ -3871,23 +3866,8 @@
       "redirect_document_id": false  
     },
     {
-      "source_path": "docs/ai-ml/architecture/speech-to-text-transcription-analytics-content.md",
-      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
-      "redirect_document_id": false  
-    },
-    {      
-      "source_path": "docs/architecture/hybrid/azure-network-adapter-content.md",
-      "redirect_url": "/windows-server/manage/windows-admin-center/azure/use-azure-network-adapter",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/solution-ideas/articles/digital-media-video-content.md",
-      "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
     {
@@ -3900,44 +3880,19 @@
       "redirect_url": "/azure/architecture/guide/media/start-here",
       "redirect_document_id": false
     },
-    {
-      "source_path": "docs/solution-ideas/articles/digital-media-live-stream-content.md",
-      "redirect_url": "/azure/architecture/guide/media/start-here",
-      "redirect_document_id": false
-    },
-    {  
-      "source_path": "docs/guide/ai/bank-fraud-solution-content.md",
-      "redirect_url": "/azure/architecture/industries/finance",
-      "redirect_document_id": false 
-    },
     { 
       "source_path": "docs/guide/ai/bank-fraud-solution.yml",
       "redirect_url": "/azure/architecture/industries/finance",
       "redirect_document_id": false 
-    },
-    {     
-      "source_path": "docs/example-scenario/precision-medicine/genomic-analysis-reporting-content.md",
-      "redirect_url": "/azure/architecture/industries/healthcare",
-      "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/precision-medicine/genomic-analysis-reporting.yml",
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
-    {       
-      "source_path": "docs/hybrid/azure-functions-hybrid-content.md",
-      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
-      "redirect_document_id": false
-    },
     {
       "source_path": "docs/hybrid/azure-functions-hybrid.yml",
       "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
-      "redirect_document_id": false
-    },
-    {  
-      "source_path": "docs/solution-ideas/articles/build-content-based-recommendation-system-using-recommender-content.md",
-      "redirect_url": "/azure/architecture/industries/retail",
       "redirect_document_id": false
     },
     {
@@ -3951,11 +3906,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/example-scenario/infrastructure/iaas-high-availability-disaster-recovery-content.md",
-      "redirect_url": "/azure/architecture/virtual-machines/baseline",
-      "redirect_document_id": false
-    },
-    {
      "source_path": "docs/example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml",
       "redirect_url": "/azure/architecture/virtual-machines/baseline",
       "redirect_document_id": false
@@ -3966,10 +3916,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/autonomous-systems-content.md",
-      "redirect_url": "/WindowsServerDocs/manage/windows-admin-center/azure/use-azure-network-adapter",
-      "redirect_document_id": false
-    },
     {
       "source_path": "docs/solution-ideas/articles/autonomous-systems.yml",
       "redirect_url": "/WindowsServerDocs/manage/windows-admin-center/azure/use-azure-network-adapter",
@@ -3980,29 +3926,14 @@
       "redirect_url": "/windows-server/manage/windows-admin-center/azure/use-azure-network-adapter",
       "redirect_document_id": false
     },
-    {  
-      "source_path": "docs/solution-ideas/articles/machine-teaching-content.md",
-      "redirect_url": "/azure/architecture/industries/manufacturing",
-      "redirect_document_id": false
-    },
     {
       "source_path": "docs/solution-ideas/articles/machine-teaching.yml",
       "redirect_url": "/azure/architecture/industries/manufacturing",
       "redirect_document_id": false
     },
-    {    
-     "source_path": "docs/solution-ideas/articles/anomaly-detector-process-content.md",
-      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
-      "redirect_document_id": false
-    },
     {
       "source_path": "docs/solution-ideas/articles/anomaly-detector-process.yml",
       "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
-      "redirect_document_id": false
-    },
-    {   
-      "source_path": "docs/example-scenario/apps/telehealth-system-content.md",
-      "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false
     },
     {
