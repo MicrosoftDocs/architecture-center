@@ -543,7 +543,7 @@ Monitor to detect deviations from appropriate security controls and baselines to
 
 ##### Endpoint security
 
-Implement targeted security monitoring of all Azure Machine Learning endpoints. *TODO-NM: add one additional sentence -- or pull notes*
+Implement targeted security monitoring of all Azure Machine Learning endpoints to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
 **Environment:** Production<br/>
 **Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)  offers full lifecycle protection, detection, and response coverage for APIs.
