@@ -2,14 +2,14 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In typical Azure IoT deployments, the client devices need to communicate directly with the Azure Storage account to upload files. Consequently, the Storage account must allow incoming Internet traffic. However, for customers with stricter networking requirements, a common practice involves restricting access to the Storage account from within a private network.
+In typical Azure IoT deployments, the client devices need to communicate directly with the Azure Storage account to upload files. Consequently, the Storage account must allow incoming Internet traffic. However, for customers with stricter landing zone and networking requirements, a common practice involves restricting access to the Storage account from within a private network.
 This solution proposes a strategy that blocks direct Internet traffic to the Storage account. Instead, only traffic routed through the inbound Application Gateway is permitted. Additionally, this setup allows for traffic inspection via Azure Firewall, providing an extra layer of security.
 
 ## Architecture
 
 ![Diagram of the <solution name> architecture.](./media/iothub-file-upload-private-link.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.* (TODO)
+*Download a [Visio file](https://arch-center.azureedge.net/azure-iot-file-upload-private-network.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -58,11 +58,11 @@ The same use case can apply to any industry where devices need to communicate wi
 Principal authors:
 
 - [Katrien De Graeve](https://linkedin.com/in/katriendg) | "Software Engineer"
-- [Vincent Misson](https://linkedin.com/in/TODO) | "Cloud Solution Architect"
+- [Vincent Misson](https://www.linkedin.com/in/vmisson/) | "Cloud Solution Architect"
 
 Other contributors:
 
-- [Nacim Allouache](https://linkedin.com/in/TODO) | "Cloud Solution Architect"
+- [Nacim Allouache](https://www.linkedin.com/in/nacim-allouache) | "Cloud Solution Architect"
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
