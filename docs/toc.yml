@@ -2463,8 +2463,6 @@ items:
       items:
       - name: HPC media rendering
         href: solution-ideas/articles/azure-batch-rendering.yml
-      - name: Instant broadcasting with serverless
-        href: /azure/architecture/serverless-quest/serverless-overview
       - name: Keyword search in videos
         href: ai-ml/idea/digital-media-speech-text.yml
   - name: Migration
