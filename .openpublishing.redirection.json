@@ -66,11 +66,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml",
-      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/solution-ideas/articles/blockchain-workflow-application.yml",
       "redirect_url": "https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021",
       "redirect_document_id": false
@@ -3916,9 +3911,8 @@
       "redirect_document_id": false
     },
     {
-    {
       "source_path": "docs/solution-ideas/articles/autonomous-systems.yml",
-      "redirect_url": "/WindowsServerDocs/manage/windows-admin-center/azure/use-azure-network-adapter",
+      "redirect_url": "/azure/architecture/industries/automotive/automotive-connected-fleets",
       "redirect_document_id": false
     },
     {  
