@@ -81,7 +81,7 @@ The design callouts for the mission-critical architecture are:
     Diagram showing an example of the workflow for a system using the valet key pattern. Boxes on the left show on-premise infrastructure and user connectivity. A box on the upper right shows ingress infrastructure in the Connectivity Hub subscription. Below that are the main components of the design all using Private Endpoints. To the right of the main infrastructure is a box with monitoring infrastructure in the shared services subscription.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-mission-critical-network.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-data-factory-mission-critical.vsdx) of this architecture.*
 
 
 - A next generation firewall, like [Azure Firewall](/azure/firewall/overview), should be used to secure network connectivity between your on-premises infrastructure and your Azure virtual network.
