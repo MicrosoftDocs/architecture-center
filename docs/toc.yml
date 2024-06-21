@@ -608,6 +608,10 @@ items:
           - name: Migrate an AWS Windows VM
             href: /azure/virtual-machines/windows/aws-to-azure
             maintainContext: true
+        - name: Containers
+          items:
+          - name: Migrate Amazon EKS to Azure Kubernetes Service (AKS)
+            href: aws-professional/eks-to-aks/migrate-eks-to-aks.md
       - name: Security for AWS
         items:
         - name: Azure security for AWS
