@@ -150,11 +150,6 @@ The following table provides examples for multi-session ArcGIS Pro scenarios:
 | Medium | NV18ads_A10_v5, NC16as_T4_v3, NV32as_v4 | 4 | Editing |
 | Heavy | NV18ads_A10_v5, NC16as_T4_v3, NV32as_v4 | 3 | Visualizing |
 
-#### For more information, see the following resources:
-- [ArcGIS Pro 3.3 system requirements](https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-system-requirements.htm)
-
-- [ArcGIS Pro on Microsoft Azure Cloud](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-on-azure-cloud.htm)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
