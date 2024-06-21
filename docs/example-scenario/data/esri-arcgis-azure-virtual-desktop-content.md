@@ -112,7 +112,7 @@ You can test your system's latency by using the [Connection Experience Indicator
 
 Whether you're running your session host virtual machines on Remote Desktop Services or Azure Virtual Desktop, different types of workloads require different virtual machine configurations. The examples in this article are generic guidelines, and you should only use them for initial performance estimates. For the best possible experience, optimize and scale your deployment depending on your users' needs.
 
-ArcGIS Pro can leverage Windows 10 and Windows 11 multisession VMs, providing additional flexibility and greater return on investment. It is necessary to allocate the appropriate VM types to give each user enough resources such as GPU, CPU, and RAM. Always consider the number of connections and limit the simultaneous user access to each VM to avoid oversaturation and hindering performance.
+ArcGIS Pro should use Windows 10 and Windows 11 multisession VMs to provide additional flexibility and greater return on investment. It is necessary to allocate the appropriate VM types to give each user enough resources such as GPU, CPU, and RAM. Always consider the number of connections and limit the simultaneous user access to each VM to avoid oversaturation and hindering performance.
 
 ### Workloads
 
