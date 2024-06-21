@@ -469,8 +469,7 @@ Monitoring the usage of endpoints is crucial ensure you are meeting organization
 Count of the client requests to the model endpoint. This helps a workload understand the active usage profile of the endpoints which can feed into scaling or cost optimization efforts.
 
 **Environment:** Production<br/>
-**Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), for example RequestsPerMinute.
-
+**Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), for example RequestsPerMinute.<br/>
 **Notes:**
 
 - Acceptable thresholds could be aligned to t-shirt sizing or anomalies tailored to the workload's need.
@@ -493,10 +492,7 @@ Count of the client requests to the model endpoint. This helps a workload unders
 Track response code errors to assist is measuring service reliability and ensure early detection of service issues. For example, a sudden increase in 500 (server error) responses could indicate a critical issue that needs immediate attention.
 
 **Environment:** Production<br/>
-**Azure facilitation:**
-
-- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, count of XRequestId by ModelStatusCode or count of XRequestId by ModelStatusCode and ModelStatusReason. Logs can be processed using a Log Analytics workspace.<br/>
-
+**Azure facilitation:** Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, count of XRequestId by ModelStatusCode or count of XRequestId by ModelStatusCode and ModelStatusReason. Logs can be processed using a Log Analytics workspace.<br/>
 **Notes:**
 
 - All HTTP responses codes in the 400 & 500 range would be classified as an error.
@@ -537,9 +533,7 @@ When an Azure Machine Learning workspace no longer appears to have active use as
 Monitor to detect deviations from appropriate security controls and baselines to ensure Azure Machine Learning workspaces are compliant with your organization's security policies. A combination of pre-defined and custom defined policies can be used.
 
 **Environment:** All<br/>
-**Azure facilitation:**
-
-- Azure – [Policies for Azure Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning).
+**Azure facilitation:** [Azure Policy for Azure Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning).
 
 ##### Endpoint security
 
@@ -596,7 +590,7 @@ Principal authors:
 
 Other contributors:
 
-- [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83) | Cloud Solution Architect
+- [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83/) | Cloud Solution Architect
 - [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect
 - [Darren Turchiarelli](https://www.linkedin.com/in/darren-turchiarelli/) | Cloud Solution Architect
 - [Leo Kozhushnik](https://www.linkedin.com/in/leo-kozhushnik-ab16707/) | Cloud Solution Architect
