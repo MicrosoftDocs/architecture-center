@@ -24,11 +24,11 @@ With On-Demand Instances, you pay for compute capacity by the second, with no lo
 
 An [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) cluster relies on various Azure resources such as virtual machines, virtual disks, load-balancers, and public IP addresses. These resources can be utilized by multiple applications, which might be managed by different teams within an organization. The consumption patterns of these resources can vary, resulting in varying contribution towards the total cluster resource cost. Additionally, some applications may have footprints across multiple clusters, making cost attribution and management a challenge.
 
-Previously, [Microsoft Cost Management (MCM)](/azure/cost-management-billing/cost-management-billing-overview) aggregated cluster resource consumption under the cluster resource group. However, there were several limitations:
+For scenarios where a cluster contains a single workload, [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) can be used to measure cluster resource consumption under the cluster resource group. However, some scenarios are not natively covered by that solution alone, for example:
 
-- Granular breakdown of resource usage, such as compute, storage, and networking, was not available.
-- Distinguishing between individual application costs and shared costs was not possible.
-- Analyzing costs across multiple clusters in the same subscription scope was not supported.
+- Granular breakdown of resource usage, such as compute, network, and storage.
+- Distinguishing between individual application costs and shared costs.
+- Analyzing costs across multiple clusters in the same subscription scope.
 
 To address these challenges, AKS has integrated with MCM to provide detailed cost drill-downs at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure Compute, Network, and Storage categories.
 
