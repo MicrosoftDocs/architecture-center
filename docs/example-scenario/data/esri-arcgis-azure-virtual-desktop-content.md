@@ -116,7 +116,7 @@ ArcGIS Pro should use Windows 10 and Windows 11 multisession VMs to provide addi
 
 ### Workloads
 
-Users can run different types of workloads on the session host virtual machines. The following table shows examples of a range of workload types to help you estimate what size your virtual machines need to be. After you set up your virtual machines, you should continually monitor their actual usage and adjust their size accordingly. If you end up needing a bigger or smaller virtual machine, you can easily scale your existing deployment up or down in Azure.
+Users can run different types of workloads on the session host virtual machines. The following table shows examples of a range of workload types to help you estimate what size your virtual machines need to be. After you set up your virtual machines, continually monitor their actual usage and adjust their size accordingly. If you end up needing a bigger or smaller virtual machine, scale your existing deployment up or down.
 
 The following table describes each ArcGIS workload. *Example users* are the types of users that might find each workload most helpful.
 
