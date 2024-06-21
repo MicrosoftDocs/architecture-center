@@ -128,7 +128,7 @@ The following table describes each ArcGIS workload. *Example users* are the type
 
 ### Single-session recommendations
 
-*Single-session* scenarios are when there's only one user signed in to a session host VM at any one time. For example, if you use personal host pools in Azure Virtual Desktop, you're using a single-session scenario.
+*Single-session* scenarios are when there's only one user signed in to a session host virtual machine at any one time. For example, if you use personal host pools in Azure Virtual Desktop, you're using a single-session scenario.
 
 The following table provides examples for single-session ArcGIS Pro scenarios:
 
