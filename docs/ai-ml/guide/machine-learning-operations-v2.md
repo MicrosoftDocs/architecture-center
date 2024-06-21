@@ -534,25 +534,21 @@ When an Azure Machine Learning workspace no longer appears to have active use as
 
 #### Security
 
-Monitor to detect deviations from appropriate security controls and baselines. *TODO-NM: add one additional sentence -- or pull notes*
+Monitor to detect deviations from appropriate security controls and baselines to ensure Azure Machine Learning workspaces are compliant with your organisation's policies. A combination of pre-defined and custom defined policies can be used.
 
 **Environment:** All<br/>
 **Azure facilitation:**
 
-- Azure – [Policies](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning), for example [Audit usage of custom RBAC roles](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5)
-- ?? *TODO-NM: Add one or two more*
-
-**Notes:**
-
-- The full listing of available [in-built policies](/azure/governance/policy/samples/built-in-policies#machine-learning) is available for Azure Machine Learning.
-- Other components/services used in this design should also have their specific in-built policies reviewed and implemented where appropriate.
+- Azure – [Policies for Azure Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning).
 
 ##### Endpoint security
 
 Implement targeted security monitoring of all Azure Machine Learning endpoints. *TODO-NM: add one additional sentence -- or pull notes*
 
 **Environment:** Production<br/>
-**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction) *TODO-NM: How is this relevant to AML endpoints, this requires API Management?  How do we actually monitor the AML endpoints?*
+**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)  offers full lifecycle protection, detection, and response coverage for APIs.
+
+**Notes:** Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. This will require integrating Azure Machine Learning online endpoints with API Management.
 
 #### Deployment monitoring
 
