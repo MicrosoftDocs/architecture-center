@@ -484,7 +484,7 @@ Count of the client requests to the model endpoint. This helps a workload unders
 **Azure facilitation:**
 
 - Azure Monitor - [Azure Resource Manager](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), Sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs
-- Azure Machine Learning - [Online endpoint traffic log](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview)
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. Logs can be processed using a Log Analytics workspace.
 
 **Notes:** Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
 
@@ -495,11 +495,11 @@ Track response code errors to assist is measuring service reliability and ensure
 **Environment:** Production<br/>
 **Azure facilitation:**
 
-- Azure Machine Learning - [Online endpoint traffic log](/azure/machine-learning/monitor-resource-reference#amlonlineendpointtrafficlog-table-preview) *TODO-NM: This is a log table, not a metrics table. How to handle?*
-- Count of XRequestId by ModelStatusCode *TODO-NM: These are metrics, where are they found? Not the log table.*
-- Count of XRequestId by ModelStatusCode and ModelStatusReason
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, Count of XRequestId by ModelStatusCode or Count of XRequestId by ModelStatusCode and ModelStatusReason. Logs can be processed using a Log Analytics workspace.
 
-**Notes:** All HTTP responses codes in the 400 & 500 range would be classified as an error.
+**Notes:** 
+
+- All HTTP responses codes in the 400 & 500 range would be classified as an error.
 
 #### Cost optimization
 
