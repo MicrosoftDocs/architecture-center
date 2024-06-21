@@ -336,7 +336,7 @@ The compute process that scans the machine learning project and datastores for d
 
 #### Entra group membership
 
-When implementing role-based access control (RBAC) [Microsoft Entra groups](https://learn.microsoft.com/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across the different personas. Microsoft Entra groups are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
+When implementing role-based access control (RBAC) [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across the different personas. Microsoft Entra groups are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
 
 In the context of this architectural pattern these groups can be coupled with the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. By associating users with groups defined as described, administrators can define fine-grained access policies, granting or restricting permissions based on job functions, project requirements, or other criteria, to different Azure Machine Learning workspaces. For example, having a group that grants all data scientists access to a development workspace for a certain use-case.
 
@@ -576,7 +576,7 @@ Monitoring the ongoing service of an API is crucial for performance optimization
 **Azure facilitation:**
 
 - Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
-- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your service.
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your service.
 
 ## Contributors
 
