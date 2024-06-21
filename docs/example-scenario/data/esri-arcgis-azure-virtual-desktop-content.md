@@ -126,6 +126,8 @@ The following table describes each ArcGIS workload. *Example users* are the type
 | Medium |2-D and 3-D map display, navigation, querying, and editing. Moderate use of GP tools. Compilation of presentation of data from multiple sources into a simple map layout. | Editing |
 | Heavy |2-D and 3-D map display, navigation, querying, and editing. Advanced use of symbology including transparency, and dynamic labeling. Heavy 2-D and 3-D analysis involving visibility, and line of sight. | Visualizing |
 
+Review the [ArcGIS Pro 3.3 system requirements](https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-system-requirements.htm) and [ArcGIS Pro on Microsoft Azure Cloud](https://pro.arcgis.com/en/pro-app/latest/get-started/pro-on-azure-cloud.htm) recommendations to complement your sizing effort.
+
 ### Single-session recommendations
 
 *Single-session* scenarios are when there's only one user signed in to a session host virtual machine at any one time. For example, if you use personal host pools in Azure Virtual Desktop, you're using a single-session scenario.
