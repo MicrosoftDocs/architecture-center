@@ -458,11 +458,11 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 Use several model serving endpoint metrics to indicate quality and performance, for example, CPU or memory utilization. This is learning from production to help drive future investments or changes.
 
 **Environment:** All<br/>
-**Azure facilitation:** [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
+**Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics)
 
 #### Usage metrics
 
-Monitoring the usage of endpoints is crucial ensure you are meeting organization-specific KPIs, tracking usage patterns, and diagnose and remediate issues your users are experiencing. 
+Monitoring the usage of endpoints is crucial ensure you are meeting organization or workload-specific KPIs, tracking usage patterns, and diagnose and remediate issues your users are experiencing.
 
 ##### Client requests
 
@@ -478,13 +478,13 @@ Count of the client requests to the model endpoint. This helps a workload unders
 
 ##### Throttling delays
 
-[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer.Throttling happens at two levels - the Azure Resource Manager and the service - therefore it's important to track metrics at both levels.
+[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. Throttling happens at two levels - the Azure Resource Manager and the service - therefore it's important to track metrics at both levels.
 
 **Environment:** Production<br/>
 **Azure facilitation:**
 
 - Azure Monitor - [Azure Resource Manager](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), Sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs
-- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. Logs can be processed using a Log Analytics workspace.
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your endpoints' requests. Logs can be processed using a Log Analytics workspace.
 
 **Notes:** Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's non-functional requirements (NFRs).
 
@@ -495,15 +495,15 @@ Track response code errors to assist is measuring service reliability and ensure
 **Environment:** Production<br/>
 **Azure facilitation:**
 
-- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference?view=azureml-api-2#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, Count of XRequestId by ModelStatusCode or Count of XRequestId by ModelStatusCode and ModelStatusReason. Logs can be processed using a Log Analytics workspace.
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, count of XRequestId by ModelStatusCode or count of XRequestId by ModelStatusCode and ModelStatusReason. Logs can be processed using a Log Analytics workspace.<br/>
 
-**Notes:** 
+**Notes:**
 
 - All HTTP responses codes in the 400 & 500 range would be classified as an error.
 
 #### Cost optimization
 
-Cost management and optimization in a cloud environment are crucial because they help organizations control expenses, allocate resources efficiently, and maximize value from their cloud services.
+Cost management and optimization in a cloud environment are crucial because they help workloads control expenses, allocate resources efficiently, and maximize value from their cloud services.
 
 ##### Workspace compute
 
@@ -534,7 +534,7 @@ When an Azure Machine Learning workspace no longer appears to have active use as
 
 #### Security
 
-Monitor to detect deviations from appropriate security controls and baselines to ensure Azure Machine Learning workspaces are compliant with your organisation's policies. A combination of pre-defined and custom defined policies can be used.
+Monitor to detect deviations from appropriate security controls and baselines to ensure Azure Machine Learning workspaces are compliant with your organization's security policies. A combination of pre-defined and custom defined policies can be used.
 
 **Environment:** All<br/>
 **Azure facilitation:**
@@ -546,13 +546,13 @@ Monitor to detect deviations from appropriate security controls and baselines to
 Implement targeted security monitoring of all Azure Machine Learning endpoints to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
 **Environment:** Production<br/>
-**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)  offers full lifecycle protection, detection, and response coverage for APIs.
+**Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction)  offers full lifecycle protection, detection, and response coverage for APIs.<br/>
 
 **Notes:** Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. This will require integrating Azure Machine Learning online endpoints with API Management.
 
 #### Deployment monitoring
 
-Deployment monitoring is important to ensure any endpoints you create adhere to your organisations policies and are free from vulnerabilities. This comprises of enforcing compliance policies on your Azure resources before and after deployment, continued security via vulnerability scanning and ensuring the service meets organisational SLAs while in operation.
+Deployment monitoring is important to ensure any endpoints you create adhere to your workload or organization policies and are free from vulnerabilities. This comprises of enforcing compliance policies on your Azure resources before and after deployment, continued security via vulnerability scanning and ensuring the service meets service level objectives while in operation.
 
 ##### Standards and governance
 
@@ -561,7 +561,7 @@ Monitor to detect deviations from appropriate standards and that guardrails are 
 **Environment:** All<br/>
 **Azure facilitation:**
 
-- [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) to enforce compliance policies on your Azure resources before and after deployment.
+- Managed policy assignment and lifecycle through [Azure DevOps Pipelines](/azure/governance/policy/tutorials/policy-devops-pipelines) to treat policy as code.
 - [PSRule for Azure](https://azure.github.io/enterprise-azure-policy-as-code/) provides a testing framework for Azure infrastructure as code.
 - [Enterprise policy as code](https://azure.github.io/enterprise-azure-policy-as-code/) can be used in CI/CD based system deploy policies, policy sets, assignments, policy exemptions and role assignments.
 
@@ -571,7 +571,7 @@ Monitor to detect deviations from appropriate standards and that guardrails are 
 
 Implement automated security scans as part of the automated integration and deployment processes.
 
-**Environment:** Production<br/>
+**Environment:** All<br/>
 **Azure facilitation:** [Defender For DevOps](/azure/defender-for-cloud/defender-for-devops-introduction)<br/>
 **Notes:** This processes can be extended with [Azure marketplace](https://marketplace.visualstudio.com/search?term=security&target=AzureDevOps&category=All%20categories&sortBy=Relevance) for 3rd party security testing modules.
 
