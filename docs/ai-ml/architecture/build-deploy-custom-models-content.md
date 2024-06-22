@@ -22,7 +22,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
    - For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or Named Entity Recognition (NER) model in Language Studio.
 
-   - Azure Machine Learning studio can also do labeling for text classification or entity extraction with open-source frameworks like PyTorch or TensorFlow.
+   - Azure Machine Learning (AML) studio can also do labeling for text classification or entity extraction with open-source frameworks like PyTorch or TensorFlow. The AML studio also offers [Model Catalogue](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of Foundation Models with finetuning capabilities for vaious tasks like text classification, question answering, summarization etc. The fine tuning can be acheived by using the [AML studio UI](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#fine-tune-using-the-studio) or through [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
 1. To deploy the custom models and use them for inference:
 
@@ -31,6 +31,7 @@ This article describes Azure solutions for building, training, deploying, and us
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
    - Azure Machine Learning can deploy custom models to online or batch [Azure Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service by using the Azure Machine Learning SDK.
+Finetuned foundation models from Model catalogue can be deployed to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
 
 ### Components
 
@@ -44,9 +45,8 @@ This article describes Azure solutions for building, training, deploying, and us
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a set of capabilities built on Azure Blob Storage for big data analytics. Data Lake Storage retains the cost effectiveness of Blob Storage, and provides features like file-level security and file system semantics with hierarchical namespace.
 
-- [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model.
-
-  [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com) provides a UI for exploring Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
+- [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model.  
+[Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) provides a UI for exploring Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
 
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural language processing services. The suite offers prebuilt and customizable options. For more information, see the Azure AI Language [available features](/azure/cognitive-services/language-service/overview#available-features).
 
@@ -67,6 +67,8 @@ You can add more workflows to this scenario based on specific use cases.
 - You can do [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in Azure AI Language.
 
 - Use pre-processing code to do text processing steps like cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data, per document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
+  
+- [Azure AI studio](/azure/ai-studio/what-is-ai-studio) can is also another option for [finetuning](/azure/ai-studio/concepts/fine-tuning-overview) and deployment of foundation models.
 
 ## Scenario details
 
@@ -138,7 +140,7 @@ The total cost of implementing this solution depends on the pricing of the servi
 
 The major costs for this solution are:
 
-- The compute cost involved in Azure Machine Learning training. Choose the right node type, cluster size, and number of nodes to help optimize costs. Azure Machine Learning provides options to set the minimum nodes to zero and to set the idle time before the scale down. For more information, see [Manage and optimize Azure Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
+- The compute cost involved in Azure Machine Learning training and deployment of models. Choose the right node type, cluster size, and number of nodes to help optimize costs. For training, Azure Machine Learning provides options to set the minimum nodes of compute cluster to zero and to set the idle time before the scale down. For more information, see [Manage and optimize Azure Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
 - Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of Data Integration Units (DIUs) used and the execution duration. Added orchestration activity runs are also charged, based on their number.
 
@@ -150,7 +152,7 @@ The major costs for this solution are:
 
 For more information on pricing for specific components, see the following resources:
 
-- [Azure Form Recognizer pricing](https://azure.microsoft.com/pricing/details/form-recognizer)
+- [Azure AI Document Intelligence pricing](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/)
 - [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions)
 - [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Azure Data Factory pricing](https://azure.microsoft.com/en-in/pricing/details/data-factory/data-pipeline)
@@ -189,7 +191,7 @@ Principal author:
 ## Next steps
 
 - [Get started: Form Recognizer Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
-- [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api)
+- [Use Document Intelligence Models through SDKs or REST API](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Azure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
@@ -198,4 +200,4 @@ Principal author:
 
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
-- [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Automate document processing by using AI Document Intelligence](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
