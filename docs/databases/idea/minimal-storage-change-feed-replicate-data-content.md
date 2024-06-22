@@ -1,4 +1,4 @@
-This article presents a high-availability solution for a web application that uses massive amounts of data that must be available for a specific time period. It stores the data in Azure Cosmos DB, and uses the Azure Cosmos DB change feed to replicate the data to secondary storage. After the specified time period elapses, Azure Functions is used to delete the data from Azure Cosmos DB.
+This article presents a high-availability solution for a web application dealing with large volumes of data that need to be accessible within a specific timeframe. The solution involves using Azure Cosmos DB as the primary data store and leveraging the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. Once the specified time period expires, Azure Functions are employed to delete the data from Azure Cosmos DB. The data in secondary storage remains available for a longer period of time to enable other solutions for auditing and analysis purposes. The solution also provides high durability by replicating data to different data services.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ This article presents a high-availability solution for a web application that us
 1. Azure Cosmos DB holds recently generated data.
 1. Azure Cosmos DB issues a change feed that can be used to replicate changes.
 1. A function app reads the change feed and replicates the changes to Azure Table Storage tables. Another function app periodically removes expired data from Azure Cosmos DB.
-1. Table Storage provides low-cost storage.
+1. Azure Table Storage provides low-cost storage.
 
 ### Components
 
@@ -36,6 +36,7 @@ This article presents a high-availability solution for a web application that us
 
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) directs incoming DNS requests across the global Azure regions based on your choice of traffic routing methods. It also provides automatic failover and performance routing.
 - [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn) caches static content in edge servers for quick response, and uses network optimizations to improve response for dynamic content. Content Delivery Network is especially useful when the user base is global.
+- [Azure Container Apps](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. You can use it to implement a microservices architecture whose components scale independently on demand.
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) provides a quick and simple way to run tasks without having to manage infrastructure. It's useful during development or for running unscheduled tasks.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. It can be used instead of Queue Storage in this architecture. For more information, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
@@ -58,7 +59,9 @@ The architecture is appropriate for any application that:
 
 Examples include apps that:
 
+- Personalize customer experience and drive engagement through live data feeds and sensors in physical locations.
 - Track customer spending habits and shopping behavior.
+- Track vehicle fleets by collecting data on vehicle location, performance, and driver behavior for improved efficiency and safety.
 - Forecast weather.
 - Offer smart traffic systems or implement smart traffic systems or use smart technology to monitor traffic.
 - Analyze manufacturing IoT data.
