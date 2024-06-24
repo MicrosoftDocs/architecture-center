@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process for data scientists
-description: Guidance on a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies using the Team Data Science Process and Azure Machine Learning.
+description: Training guidance on a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies using the Team Data Science Process and Azure Machine Learning.
 author: marktab
 manager: marktab
 editor: marktab
@@ -22,11 +22,11 @@ categories:
 
 # Team Data Science Process for data scientists
 
-This article provides guidance for objectives that you set when you implement comprehensive data science solutions with Azure technologies. 
+This article provides training guidance for objectives that you set when you implement comprehensive data science solutions with Azure technologies. 
 
-## Curated Links
+## Objectives for Data Scientists
 
-In this curation list, you're guided through:
+This list describes the key objectives for data scientists using TDSP:
 
 - Understanding an analytics workload.
 - Using the Team Data Science Process (TDSP).
@@ -35,9 +35,28 @@ In this curation list, you're guided through:
 - Providing data source documentation.
 - Using tools for analytics processing.
 
-These training materials are related to the Team Data Science Process (TDSP) and Microsoft open-source software and toolkits, which are helpful for envisioning, executing, and delivering data science solutions.
+The sequential list provided is crucial for preparing to use
+Microsoft\'s Team Data Science Process (TDSP) because it outlines a
+comprehensive approach to effectively managing and executing data
+science projects. Here's why each step is important, along with a list of Azure resources:
 
-### Understanding an Analytics Workload
+**1. Understanding an Analytics Workload**
+
+**Importance:**
+
+-   **Identify Requirements:** This step involves understanding the
+    specific needs and goals of the analytics workload. It helps in
+    identifying the business questions to be answered and the problems
+    to be solved.
+
+-   **Define Scope:** Clearly defining the scope of the project ensures
+    that the team focuses on relevant data and analytics tasks.
+
+-   **Resource Allocation:** Understanding the workload helps in
+    determining the resources required, such as computing power,
+    storage, and human expertise.
+
+**Recommended Azure Resources**
 
 1. [Azure Monitor overview](/azure/azure-monitor/overview) - Provides an understanding of monitoring and analytics services in Azure.
 
@@ -45,13 +64,41 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 3. [Cloud Adoption Framework: Innovation with AI](/azure/cloud-adoption-framework/innovate/ai/) - A collection of documentation, implementation guidance, best practices, and tools that are proven guidance from Microsoft designed to accelerate your cloud adoption lifecycle.
 
-### Using the Team Data Science Process (TDSP)
+**2. Using the Team Data Science Process (TDSP)**
+
+**Importance:**
+
+-   **Structured Approach:** TDSP provides a structured framework for
+    executing data science projects, ensuring a systematic and
+    disciplined approach.
+
+-   **Collaboration:** TDSP promotes collaboration among team members by
+    defining clear roles and responsibilities.
+
+-   **Best Practices:** It incorporates industry best practices,
+    ensuring that projects are conducted efficiently and effectively.
+
+**Recommended Azure Resources**
 
 1. [Team Data Science Process overview](/azure/machine-learning/team-data-science-process/overview) - Introduces the TDSP and its lifecycle.
 
 2. [TDSP lifecycle and key components](/azure/machine-learning/team-data-science-process/lifecycle) - Details the lifecycle stages and key components of TDSP.
 
-### Using Azure Machine Learning
+**3. Using Azure Machine Learning**
+
+**Importance:**
+
+-   **Advanced Analytics:** Azure Machine Learning provides powerful
+    tools and services for building, training, and deploying machine
+    learning models.
+
+-   **Scalability:** Azure ML offers scalable computing resources,
+    allowing teams to handle large datasets and complex models.
+
+-   **Integration:** It integrates well with other Azure services,
+    facilitating a seamless workflow from data ingestion to deployment.
+
+**Recommended Azure Resources**
 
 1. [Azure Machine Learning documentation](/azure/machine-learning/) - The main documentation page for Azure Machine Learning.
 
@@ -59,7 +106,23 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 3. [Tutorial: Train a model](/azure/machine-learning/tutorial-1st-experiment-sdk-setup) - Walks through the process of training a machine learning model.
 
-### Understanding the foundations of data transfer and storage
+**4. Understanding the Foundations of Data Transfer and Storage**
+
+**Importance:**
+
+-   **Data Management:** Effective data transfer and storage are
+    critical for managing large volumes of data securely and
+    efficiently.
+
+-   **Accessibility:** Ensures that data is easily accessible to team
+    members and analytical tools, which is essential for collaboration
+    and real-time processing.
+
+-   **Compliance and Security:** Understanding these foundations helps
+    in ensuring that data handling complies with legal and regulatory
+    requirements and that sensitive data is protected.
+
+**Recommended Azure Resources**
 
 1. [Data transfer options](/azure/architecture/data-guide/scenarios/data-transfer) - Discusses various data transfer and storage technologies in Azure.
 
@@ -69,7 +132,23 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 4.  **Related to Azure Machine Learning**: [Tutorial: Upload, access and explore your data in Azure Machine Learning](/azure/machine-learning/tutorial-explore-data) - Instruction on how to upload data and create an Azure Machine Learning data asset.
 
-### Providing Data Source Documentation
+**5. Providing Data Source Documentation**
+
+**Importance:**
+
+-   **Data Transparency:** Documentation of data sources ensures
+    transparency about where data comes from, its quality, and its
+    limitations.
+
+-   **Reproducibility:** Proper documentation allows other team members
+    or stakeholders to understand and reproduce the data science
+    process.
+
+-   **Data Integration:** Helps in integrating various data sources
+    effectively by providing a clear understanding of the data's origin
+    and structure.
+
+**Recommended Azure Resources**
 
 1. [Azure Data Catalog documentation](/azure/data-catalog/) - Covers how to document and manage data sources using Azure Data Catalog.
 
@@ -77,7 +156,22 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 3.  [Data concepts in Azure Machine Learning](/azure/machine-learning/concept-data) - Explains key Azure Machine Learning data concepts, for use in documentation.
 
-### Using tools for analytics processing
+**6. Using Tools for Analytics Processing**
+
+**Importance:**
+
+-   **Efficiency:** Utilizing the right tools for analytics processing
+    enhances the efficiency and speed of data analysis.
+
+-   **Capabilities:** Different tools offer various capabilities, such
+    as data visualization, statistical analysis, and machine learning,
+    which are essential for comprehensive data science.
+
+-   **Productivity:** Using specialized tools can significantly improve
+    the productivity of data scientists by automating repetitive tasks
+    and providing advanced analytical functions.
+
+**Recommended Azure Resources**
 
 1. [Azure Synapse Analytics documentation](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics.
 
@@ -85,12 +179,59 @@ These training materials are related to the Team Data Science Process (TDSP) and
 
 3.  [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
 
+**Summary**
+
+Following this sequential list ensures a comprehensive preparation for
+using TDSP by:
+
+-   Establishing a clear understanding of the project requirements and
+    scope.
+
+-   Adopting a structured and collaborative approach to project
+    execution.
+
+-   Leveraging advanced tools and services for machine learning and
+    analytics.
+
+-   Ensuring efficient and secure data management.
+
+-   Maintaining transparency and reproducibility through documentation.
+
+-   Utilizing appropriate tools to enhance the efficiency and
+    effectiveness of data processing.
+
+This preparation is critical for delivering successful data science
+projects that meet business objectives and adhere to best practices.
+
 ## Training paths on Microsoft Learn
 
 Whether you're just starting a career, or you are an experienced professional, our self-directed approach helps you arrive at your goals faster, with more confidence and at your own pace. Develop skills through interactive modules and paths or learn from an instructor. Learn and grow your way.
 
+Microsoft Learn organizes its training content into three skill levels:
+beginner, intermediate, and advanced. Understanding these distinctions
+is essential for selecting the appropriate learning paths to match your
+skill level and career goals.
 
 ### Beginner
+
+**Description:**
+
+-   **Target Audience:** Individuals who are new to the technology or
+    concept being covered.
+
+-   **Content:** Basic introductions to concepts, fundamental skills,
+    and initial steps required to get started. It typically covers core
+    principles and foundational knowledge.
+
+**Purpose:**
+
+-   To build a solid foundation in a new area.
+
+-   To ensure learners understand basic concepts and terminologies.
+
+-   To prepare learners for more complex topics.
+
+**Learning Paths**
 
 - [Copilot foundations](/training/paths/copilot-foundations/)
 - [Deploy and consume models with Azure Machine Learning](/training/paths/deploy-consume-models-azure-machine-learning/)
@@ -108,7 +249,28 @@ Whether you're just starting a career, or you are an experienced professional, o
 - [Work with compute in Azure Machine Learning](/training/paths/work-compute-azure-machine-learning/)
 - [Work with data in Azure Machine Learning](/training/paths/work-data-azure-machine-learning/)
 
+
 ### Intermediate
+
+**Description:**
+
+-   **Target Audience:** Individuals who have a basic understanding of
+    the technology and are looking to deepen their knowledge.
+
+-   **Content:** More detailed and practical skills, including hands-on
+    exercises and real-world scenarios. It involves a deeper dive into
+    the subject matter.
+
+**Purpose:**
+
+-   To bridge the gap between basic understanding and advanced
+    proficiency.
+
+-   To enable learners to handle more complex tasks and scenarios.
+
+-   To prepare learners for certification exams or specialized roles.
+
+**Learning Paths**
 
 - [Create custom copilots with Azure AI Studio](/training/paths/create-custom-copilots-ai-studio/)
 - [Create machine learning models](/training/paths/create-machine-learn-models/)
@@ -119,6 +281,26 @@ Whether you're just starting a career, or you are an experienced professional, o
 - [Work with generative artificial intelligence (AI) models in Azure Machine Learning](/training/paths/work-with-generative-models-azure-machine-learning/)
 
 ### Advanced
+
+**Description:**
+
+-   **Target Audience:** Experienced professionals who are looking to
+    master their skills and tackle complex, high-level tasks.
+
+-   **Content:** In-depth technical training, advanced techniques, and
+    comprehensive coverage of specialized topics. It often includes
+    expert-level problem-solving and optimization strategies.
+
+**Purpose:**
+
+-   To provide expertise in a specific area.
+
+-   To prepare learners for expert-level certifications and advanced
+    career roles.
+
+-   To enable learners to lead projects and innovate within their field.
+
+**Learning Path(s)**
 
 - [Train compute-intensive models with Azure Machine Learning](/training/paths/train-compute-intensive-models-azure-machine-learning/)
 
