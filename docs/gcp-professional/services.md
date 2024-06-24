@@ -309,7 +309,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 <ul class="grid">
 
-[!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
 [!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
 

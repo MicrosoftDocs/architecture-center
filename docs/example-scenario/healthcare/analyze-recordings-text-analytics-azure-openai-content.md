@@ -150,7 +150,5 @@ Principal authors:
 
 ## Related resources
 
-- [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [Clinical insights with Microsoft Cloud for Healthcare](../mch-health/medical-data-insights.yml)
-- [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
 - [Other healthcare architectures](../../browse/index.yml?terms=healthcare)

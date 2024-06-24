@@ -127,9 +127,8 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 
-## Related resources
+## Related resource
 
-- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
 
 

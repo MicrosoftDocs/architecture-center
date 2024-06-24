@@ -24,7 +24,7 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 1. **Machine learning registry:** An Azure Data Factory pipeline registers the best machine learning model in the Azure Machine Learning Service according to the metrics chosen. The machine learning model is deployed by using the [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service).
 
-1. **Serving phase:** In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analyses Services.
+1. **Serving phase:** In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analysis Services.
 
 ### Components
 
@@ -104,7 +104,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Azure Databricks is a premium Apache Spark offering with an associated cost.
 
-There are standard and premium Databricks pricing tiers. For this scenario, the standard pricing tier is sufficient. If your application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, you might need the premium tier.
+There are standard and premium Databricks pricing tiers. For this scenario, the Standard pricing tier is sufficient. If your application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, you might need the Premium tier.
 
 Costs related to this use case depend on the standard pricing for the following services for your usage:
 

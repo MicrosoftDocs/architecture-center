@@ -63,21 +63,23 @@ An AKS deployment can divide into cluster level components, managed AKS componen
 
 - **Kubernetes objects and workloads:** You can use existing Container Insights views and reports to monitor deployment, controllers, pods, and containers. Use the **Nodes** and **Controllers** views to view the health and performance of the pods that are running on nodes and controllers, and their resource consumption in terms of CPU and memory.
 
-  From the Container Insights **Containers** view, you can view the health and performance of containers, or select an individual container and monitor its events and logs in real time. For details about using this view and analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](/azure/azure-monitor/containers/container-insights-analyze).
+From the Container Insights **Containers** view, you can view the health and performance of containers, or select an individual container and monitor its events and logs in real time. For details about using this view and analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](/azure/azure-monitor/containers/container-insights-analyze).
 
 - **Applications:** You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor applications that are running on AKS and other environments. Application Insights is an application performance management tool that provides support for many programming languages. Depending on your needs, you can instrument your application code to capture requests, traces, logs, exceptions, custom metrics, and end-to-end transactions, and send this data to Application Insights. If you have a Java application, you can provide monitoring without instrumenting your code. For more information, see [Zero instrumentation application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
 
-- **External components**: You can monitor external components like service mesh, ingress, and egress with Prometheus and Grafana or other tools. You can use Azure Monitor features to monitor any platform as a service (PaaS) that your workload applications use, such as databases and other Azure resources.
+- **External components**: You can use Azure Monitor features to monitor any Azure platform-as-a-service (PaaS) that your workload applications use, such as databases and other Azure resources.
 
-### Third-party monitoring solutions
+#### Azure Monitor managed service for Prometheus
 
-You can set up third-party monitoring solutions like Grafana or Prometheus in your AKS node pools.
+Prometheus is a popular open-source metrics monitoring solution from [Cloud Native Compute Foundation](https://www.cncf.io/) and the most common tool used for collecting and analyzing metric data from Kubernetes clusters. [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) is a fully managed Prometheus-compatible monitoring solution in Azure which stores its data in an [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview), which is [linked to a Grafana workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) so that you can analyze the data with Azure Managed Grafana.
 
-- For Grafana, [Grafana Labs](https://grafana.com/grafana/dashboards/12006) provides a dashboard with views of critical API server metrics. You can use this dashboard on your existing Grafana server or set up a new Grafana server in Azure. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
+Prometheus can also be deployed independently as a self-managed solution within Azure Kubernetes Service clusters. You can integrate self-hosted Prometheus with Azure Monitor. Container Insights can be configured to collect Prometheus metrics. You can expose the Prometheus metrics endpoint through your exporters or pod applications, and the containerized agent for Container Insights will scrape the metrics.
 
-- [Prometheus](https://prometheus.io) is a popular open-source metrics monitoring solution from the [Cloud Native Compute Foundation](https://www.cncf.io/). You can integrate Prometheus with Azure Monitor so you don't need to set up and manage a Prometheus server with a store.
+#### Azure Managed Grafana
 
-  Container Insights provides a seamless onboarding experience to collect Prometheus metrics. You can expose the Prometheus metrics endpoint through your exporters or pod applications, and the containerized agent for Container Insights can scrape the metrics. Container Insights complements and completes end-to-end AKS monitoring, including log collection, which Prometheus as a stand-alone tool doesn't provide. For more information, see [Configure scraping of Prometheus metrics with Container insights](/azure/azure-monitor/containers/container-insights-prometheus-integration).
+[Azure Managed Grafana](/azure/managed-grafana/overview) is a data visualization platform built on top of the [Grafana](https://grafana.com/). It's built as a fully managed Azure service operated and supported by Microsoft. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.
+
+Azure Managed Grafana is optimized for the Azure environment and works with many Azure services and provides simple integration features. Alternatively, you can also deploy Grafana independently as a self-managed solution. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ### AKS monitoring costs
 

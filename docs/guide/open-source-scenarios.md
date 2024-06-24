@@ -91,7 +91,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. Grafana is used to display data and send alerts.|Analytics|
 |[Azure Data Explorer interactive analytics](../solution-ideas/articles/interactive-azure-data-explorer.yml)|Use interactive analytics in Azure Data Explorer. Examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries. Use Grafana to build near real-time analytics dashboards.|Analytics|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Grafana is a core component for providing monitoring and observability in this solution.|Migration|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. Grafana is recommended as a platform for logging and metrics.|Containers|
@@ -109,7 +108,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)|Monitor deployments of Apache NiFi on Azure by using MonitoFi. MonitoFi uses local instances of InfluxDB to provide real-time monitoring and alerts. |Analytics|
 |[Monitor a microservices app in AKS](../microservices/logging-monitoring.yml)|Learn best practices for monitoring a microservices application that runs on AKS. Includes information about using InfluxDB for metrics when data rates trigger throttling.|Microservices|
 
 ## Jenkins
@@ -134,13 +132,11 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices. Analyze data that's stored in Azure Data Explorer by using Jupyter Notebook.|Analytics|
 [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../ai-ml/guide/mlops-technical-paper.yml)|Learn how to apply the MLOps maturity model to implement a machine learning solution for predicting product shipping levels. Initial experimental models are developed in Jupyter Notebook. |AI|
 [Many models machine learning with Spark](../ai-ml/idea/many-models-machine-learning-azure-spark.yml)|Learn about many models machine learning in Azure. Azure Machine Learning provides a hosted Jupyter Notebook environment.|AI|
-[Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)|Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis. Jupyter Notebook is used to annotate Microsoft Genomics output, merge output files with other data, and analyze data.|Analytics|
 
 ## KEDA
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Azure Functions in a hybrid environment](../hybrid/azure-functions-hybrid.yml)|View an architecture that illustrates how to use Azure Functions from on-premises virtual machines. KEDA provides event-driven scale in Kubernetes clusters.|Serverless|
 |[AKS in event stream processing](../solution-ideas/articles/serverless-event-processing-aks.yml)|View a serverless event-driven architecture that runs on AKS with a KEDA scaler. The solution ingests and processes a stream of data and writes the results to a database.|Containers|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. KEDA is used to scale a service that processes funds transfers. |Containers|
 |[Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)|View a reference architecture for a baseline infrastructure that deploys an AKS cluster. In this scenario, you can use KEDA to scale event-driven workloads.|Containers|
@@ -233,7 +229,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run PostgreSQL database workloads.|Containers|
 |[Azure Database for PostgreSQL intelligent apps](../databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.|Databases|
-|[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)|Learn how to build a telehealth system that connects a professional healthcare organization to its remote patients. Azure Database for PostgreSQL stores user and device-related data.|Databases|
 |[Data cache](../databases/idea/data-cache-with-redis-cache.yml)|Store and share database query results, session states, static contents, and more by using a common cache-aside pattern. This solution works with data stored in Azure Database for PostgreSQL and other databases.|Databases|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors. Processed data is stored in Azure Database for PostgreSQL.|Containers|
 |[Finance management apps using Azure Database for PostgreSQL](../solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to store critical data with high security and provide users with high-value analytics and insights on aggregated data.|Databases|
@@ -242,8 +237,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)|Learn about a data-first approach to middleware integration that enables IBM message queues. This approach supports Azure Database for PostgreSQL.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. PostgreSQL is the main database for a common AIML use case. |Mainframe|
 |[Online transaction processing (OLTP)](../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of OLTP, which manages transactional data and supports querying. Azure Database for PostgreSQL is one Azure data store that meets the requirements for OLTP.|Databases|
-|[Oracle database migration: Refactor](../example-scenario/oracle-migrate/oracle-migration-refactor.yml)|Refactor your Oracle database by using Azure Database Migration Service, and move it to PostgreSQL.|Migration|
-|[Overview of Oracle database migration](../example-scenario/oracle-migrate/oracle-migration-overview.yml)|Learn about Oracle database migration paths and the methods you can use to migrate your schema to SQL or PostgreSQL.|Migration|
 |[Scalable apps using Azure Database for PostgreSQL](../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)|Use Azure Database for PostgreSQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.|Mobile|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for PostgreSQL is one example of a relational database.|Databases|
