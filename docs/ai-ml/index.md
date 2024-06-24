@@ -70,8 +70,6 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
 
-- [Autonomous systems and solutions from Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
-
 ### General info on Microsoft AI
 
 Learn more about Microsoft AI, and keep up-to-date with related news:
@@ -233,8 +231,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 - [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
 - [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
-
-- [Batch scoring of R machine learning models on Azure](../ai-ml/architecture/batch-scoring-r-models.yml)
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 

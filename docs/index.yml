@@ -313,9 +313,6 @@ conceptualContent:
         - text: Automotive IoT data
           itemType: get-started
           url:  example-scenario/data/realtime-analytics-vehicle-iot.yml
-        - text: Telehealth system
-          itemType: get-started
-          url:  example-scenario/apps/telehealth-system.yml
 
     - title: Microservices
       links:
@@ -433,9 +430,6 @@ conceptualContent:
         - text: SAP deployment using an Oracle database
           itemType: architecture
           url: example-scenario/apps/sap-production.yml
-        - text: Dev/test for SAP
-          itemType: architecture
-          url: example-scenario/apps/sap-dev-test.yml
 
     - title: Web apps
       links:

@@ -124,7 +124,6 @@ Principal authors:
 
 ## Related resources
 
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 - [Deploy a custom speech-to-text solution](/azure/architecture/guide/ai/custom-speech-text-deploy)
 - [Create custom language and acoustic models](/azure/architecture/solution-ideas/articles/speech-services)
 - [Deploy a custom speech-to-text solution](/azure/architecture/ai-ml/guide/custom-speech-text-deploy)
