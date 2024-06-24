@@ -173,7 +173,7 @@ enhance collaboration, scalability, security, and efficiency in managing
 and processing data, ultimately leading to more effective and successful
 data science projects.
 
-**Recommended Azure Resources
+**Recommended Azure Resources**
 
 1. [Azure Blob Storage](/azure/storage/blobs/) - Comprehensive documentation on Azure Blob Storage, a scalable object storage service for unstructured data.
 
@@ -278,7 +278,7 @@ capabilities. They enhance collaboration, integration, and performance,
 ultimately leading to more effective and efficient data science
 projects.
 
-** Azure Resources
+**Recommended Azure Resources**
 
 - [Azure SQL Database](/azure/azure-sql/database/) - Documentation on Azure SQL Database, a fully managed relational database service.
 - [Azure Cosmos DB](/azure/cosmos-db/) - Information on Azure Cosmos DB, a globally distributed, multi-model database service.
@@ -392,7 +392,7 @@ enhance the ability to handle large datasets, perform advanced
 analytics, and integrate with various data tools and sources, ultimately
 leading to more effective and impactful data science projects.
 
-** Azure Resources
+**Recommended Azure Resources**
 
 - [Apache Spark in Azure Machine Learning](/azure/machine-learning/apache-spark-azure-ml-concepts) - Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework.
 - [Azure Synapse Analytics](/azure/synapse-analytics/) - Comprehensive documentation for Azure Synapse Analytics, integrating big data and data warehousing.
@@ -510,7 +510,7 @@ because they enhance the capabilities of data science teams, improve the
 efficiency and effectiveness of their work, and enable the development
 of sophisticated, scalable, and high-performing data science solutions.
 
-** Azure Resources
+**Recommended Azure Resources**
 - [Azure Machine Learning](/azure/machine-learning/) - The main documentation page for Azure Machine Learning, covering setup, model training, deployment, and more.
 - [Azure AI Services](/azure/ai-services/) - Information on AI Services, offering pre-built AI models for vision, speech, language, and decision-making tasks.
 
