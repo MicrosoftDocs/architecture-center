@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AI enrichment with image and text processing
+  title: Use AI enrichment with image and text processing
   titleSuffix: Azure Architecture Center
   description: Learn how to transform unstructured image and text data into full text searchable content with Azure AI Search pre-built skills and custom skills.
   author: gmndrg
