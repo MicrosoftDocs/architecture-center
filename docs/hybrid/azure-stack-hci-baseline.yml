@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Stack HCI foundational baseline reference architecture
+  title: Azure Stack HCI baseline reference architecture
   description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) for highly available virtualized and containerized workloads.
   author: neilbird
   ms.author: nebird
@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - e2e-hybrid
-name: Azure Stack HCI foundational baseline reference architecture
+name: Azure Stack HCI baseline reference architecture
 azureCategories:
   - hybrid
   - management-and-governance
