@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Cache for Redis that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Cache for Redis in a multitenant solution.
 author: landonpierce
 ms.author: landonpierce
-ms.date: 05/08/2023
+ms.date: 06/25/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -44,11 +44,11 @@ The following table summarizes the differences between the main tenancy isolatio
 
 You might consider deploying a single cache, with a single Redis database, and using it to store cached data for all of your tenants. This approach is commonly used when you have a single application tier that all of your tenants share.
 
-To isolate tenant-specific data within each cache, consider using key prefixes to prepend the tenant ID. Your application can then access specific data for a specific tenant. Alternatively, you can consider using Redis data structures, like [sets](https://redis.io/docs/latest/develop/data-types/#sets) or [hashes](https://redis.io/docs/latest/develop/data-types/#hashes), for each tenant's data. Both sets and hashes support a large number of keys, so this approach can scale to many tenants.
+To isolate tenant-specific data within each cache, consider using key prefixes to prepend the tenant ID. Your application can then access specific data for a specific tenant. If your application tier uses distinct identities for each tenant's access to the cache, consider using [access control lists](#access-control-lists) so that Azure Cache for Redis enforces the access control policy.
 
-When you use a single cache instance, the application needs to be authorized to access the entire cache. Azure Cache for Redis doesn't provide granular access control within a cache.
+Alternatively, you can consider using Redis data structures, like [sets](https://redis.io/docs/latest/develop/data-types/#sets) or [hashes](https://redis.io/docs/latest/develop/data-types/#hashes), for each tenant's data. Both sets and hashes support a large number of keys, so this approach can scale to many tenants. However, you might need to manage authorization within your application instead of within the cache.
 
-When you use this approach, consider that all of your tenants will share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis for [scaling](/azure/azure-cache-for-redis/cache-best-practices-scale), [memory management](/azure/azure-cache-for-redis/cache-best-practices-memory-management), and [server load](/azure/azure-cache-for-redis/cache-best-practices-server-load), to make the most efficient use of your cache's resources and to mitigate any noisy neighbor effects.
+When you share a cache instance and database between tenants, consider that all of your tenants will share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis for [scaling](/azure/azure-cache-for-redis/cache-best-practices-scale), [memory management](/azure/azure-cache-for-redis/cache-best-practices-memory-management), and [server load](/azure/azure-cache-for-redis/cache-best-practices-server-load), to make the most efficient use of your cache's resources and to mitigate any noisy neighbor effects.
 
 Additionally, consider monitoring your cache's resources, such as CPU and memory. If you observe resource pressure, consider the following mitigations:
 
@@ -75,6 +75,18 @@ You might consider deploying a separate instance of Azure Cache for Redis for ea
 However, each cache is billed as a separate Azure resource, so as you grow to large numbers of tenants, you might incur more cost. Furthermore, this approach often doesn't make efficient use of each cache's resources, since each Azure Cache for Redis instance generally supports large volumes of requests. It's best to only consider this isolation approach if you have strict data or performance isolation requirements.
 
 ## Features of Azure Cache for Redis that support multitenancy
+
+### Access control lists
+
+Azure Cache for Redis provides a powerful [role-based access control system](/azure/azure-cache-for-redis/cache-configure-role-based-access-control), which enables you to create comprehensive data access policies to enforce your authentication and authorization rules. These rules can be specified at varying levels of granularity, including to allow a user access to cache keys that follow a specific pattern. By using key patterns, you can share a single cache instance and database between multiple tenants, each with their own user accounts. Azure Cache for Redis enforces tenant isolation to ensure that a user can only access their own set of keys that follow the pattern.
+
+For example, suppose you have a tenant named Fabrikam. Your application tier should only be able to access cache data relating to Fabrikam, and not from other tenants. You might define a custom access policy that allows reading and setting all cache keys that begin with `Fabrikam`:
+
+```
++@read +set ~Fabrikam*
+```
+
+You can then assign the policy to the Microsoft Entra identity that your Fabrikam application instance uses. After you configure your cache, the Fabrikam user can access keys named `FabrikamData1` and `FabrikamUserDetails`, but not `ContosoData1`.
 
 ### Active geo-replication
 
