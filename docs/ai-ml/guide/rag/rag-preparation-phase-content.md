@@ -21,7 +21,7 @@ Consider these areas when evaluating potential representative test documents:
 
 The success factor in this step is being *qualitatively confident* that you have a good representation of test documents for your particular domain.
 
-<!-- docutune:ignoredChange "personally identifiable information \(PII\)" -->
+<!-- docutune:ignoredChange "personally identifiable information" "PII" -->
 
 ### Test document guidance
 

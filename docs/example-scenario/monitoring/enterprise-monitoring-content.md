@@ -120,7 +120,7 @@ This solution can help with the following use cases:
 - Consolidated monitoring for different cloud and on-premises workloads.
 - Monitoring for container, Azure SQL, and Azure Virtual Desktop workloads.
 - Expanded monitoring scope, such as connecting Monitor to Microsoft Sentinel.
-- Hybrid and heterogenous cloud monitoring across networks, identity providers, operating systems, and other domains.
+- Hybrid and heterogeneous cloud monitoring across networks, identity providers, operating systems, and other domains.
 
 ## Considerations
 

@@ -11,10 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.category:
     - iot
-  ms.custom:
-    - IoT
-    - fcp
-    - example-scenario
+  ms.custom: arb-iot
 name: Process real-time vehicle data using IoT
 azureCategories:
   - iot

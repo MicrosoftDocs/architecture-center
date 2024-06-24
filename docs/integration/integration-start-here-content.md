@@ -45,7 +45,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 
 #### Hybrid systems
 
-- [Tiered data for analytics][Tiered data for analytics]: Use Azure Stack Hub to collect, process, store, and distribute local and remote data.
 - [Cross-cloud scaling—on-premises data][Cross-cloud scaling - on-premises data]: See a hybrid app that spans Azure and Azure Stack Hub and uses a single on-premises data source, which is a compliance requirement for some organizations.
 - [Cross-cloud scaling with Traffic Manager][Cross-cloud scaling with Traffic Manager]: Use Azure Traffic Manager to extend a local app by connecting it to public cloud resources.
 
@@ -63,7 +62,6 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
-- [Rehost mainframe applications to Azure with Raincode compilers][Refactor mainframe applications to Azure with Raincode compilers]: Use the Raincode COBOL compiler to modernize mainframe legacy applications without changing code.
 - [Mainframe access to Azure databases][Mainframe access to Azure databases]: Give IBM mainframe and midrange applications access to remote Azure databases.
 
 ### Service selectors
@@ -88,7 +86,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### E-commerce
 
-- [Modernize .NET applications][Modernize .NET applications]: Migrate the legacy .NET applications of a retail business to Azure.
 - [Custom business processes][Custom business processes]: Automate workflows and connect to legacy airline systems.
 - [Migrate a web app using Azure APIM][Migrate a web app using Azure APIM]: Modernize the legacy browser-based software stack of an e-commerce company.
 
@@ -152,7 +149,6 @@ These reference architectures provide baseline implementations for various scena
 
 Deploying your workload is a significant milestone. After your integration processes are running, your focus can turn to operations. The following materials provide recommendations and reference information to help you continue to meet customer and regulatory demands:
 
-- [Automated Jupyter Notebooks for diagnostics][Automated Jupyter Notebooks for diagnostics]: Write troubleshooting guides and diagnostic steps in Jupyter Notebooks that you can reuse, test, and automate.
 - [About connectors in Azure Logic Apps][About connectors in Azure Logic Apps]: Learn how to take advantage of the hundreds of connectors that Logic Apps offers.
 - [Azure Policy Regulatory Compliance controls for Azure Logic Apps][Azure Policy Regulatory Compliance controls for Azure Logic Apps]: Make Logic Apps compliant with regulatory standards.
 
@@ -223,7 +219,6 @@ The following resources provide practical recommendations and information for sp
 [Mainframe access to Azure databases]: ../solution-ideas/articles/mainframe-access-azure-databases.yml
 [Messaging services on Azure and AWS]: ../aws-professional/messaging.md
 [Migrate a web app using Azure APIM]: ../example-scenario/apps/apim-api-scenario.yml
-[Modernize .NET applications]: ../solution-ideas/articles/net-app-modernization.yml
 [Monitor Azure Functions and Event Hubs]: ../serverless/event-hubs-functions/observability.yml
 [On-premises data gateway for Azure Logic Apps]: ../hybrid/gateway-logic-apps.yml
 [Patterns and implementations for a banking cloud transformation]: ../example-scenario/banking/patterns-and-implementations.yml
@@ -231,11 +226,9 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Rehost mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
 [Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
-[SWIFT Alliance Connect in Azure]: ../example-scenario/finance/swift-on-azure-srx.yml
 [SWIFT Alliance Connect Virtual in Azure]: ../example-scenario/finance/swift-on-azure-vsrx.yml
 [Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml

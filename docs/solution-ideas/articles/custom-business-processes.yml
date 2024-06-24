@@ -13,6 +13,8 @@ metadata:
     - mobile
     - apim
     - functions
+  ms.custom:
+  - arb-integrations
 name: Custom business processes
 azureCategories:
   - mobile

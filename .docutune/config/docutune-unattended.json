@@ -5,13 +5,13 @@
     "maxInFlightFiles": 200
   },
   "pullRequest": {
-    "title": "[DO NOT MERGE] [PLEASE IGNORE] [DocuTune-Remediation] - Test of DocuTune scheduled execution in AAC",
+    "title": "[DocuTune-Remediation] - Scheduled execution to fix known issues in Azure Architecture Center articles",
     "batchSize": 0,
     "maxBatches": 100,
     "body": "",
     "newBranchNamePrefix": "",
     "headRemote": "origin",
-    "draft": true,
+    "draft": false,
     "requestReview": true,
     "signOff": false,
     "properties": {

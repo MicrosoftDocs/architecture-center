@@ -152,7 +152,6 @@ The following sections list other serverless and Azure Functions-related referen
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml)
 - [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)
-- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 
 ### Web and mobile backend
@@ -167,8 +166,6 @@ The following sections list other serverless and Azure Functions-related referen
 
 - [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Personalized marketing solutions](../ai-ml/idea/personalized-marketing.yml)
-- [Speech transcription with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 - [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)

@@ -128,11 +128,11 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 [view all](../browse/index.yml?azure_categories=analytics)
 
-### Time series & IOT data
+### Time series & IoT data
 
 | Google Cloud service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
 #### Time series architectures
 
@@ -186,7 +186,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](/azure/purview) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
+| [Dataplex](https://cloud.google.com/dataplex) | [Microsoft Purview](/purview) | Microsoft Purview is a comprehensive portfolio of products spanning data governance, data security, and risk and compliance solutions. |
 
 ## Compute
 
@@ -272,9 +272,9 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/),[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
-| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
+| [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure Event Grid MQTT broker](/azure/event-grid/mqtt-overview)<br><br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | Gateways for managing bidirectional communication with IoT devices, securely and at scale. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | See [Messaging and eventing](#messaging-and-eventing) section | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
+| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)<br><br> [Azure IoT Operations](/azure/iot-operations/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
 ### IoT architectures
 
@@ -309,7 +309,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 <ul class="grid">
 
-[!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
 [!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
 
@@ -362,24 +361,23 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Authentication and authorization | [Cloud Identity](https://cloud.google.com/identity) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | The Microsoft Entra enterprise identity service provides single sign-on and multifactor authentication, which enable the central management of users/groups and external identities federation. |
-| | [Identity platform](https://cloud.google.com/identity-platform) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) | A highly available and global identity management service for consumer-facing applications, which scales to hundreds of millions of identities. Manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications. |
-| Multifactor authentication | [Multifactor authentication](https://cloud.google.com/identity) | [Microsoft Entra multifactor authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
+| Authentication and authorization | [Cloud Identity](https://cloud.google.com/identity) | [Microsoft Entra ID](/entra/fundamentals/whatis) | The Microsoft Entra enterprise identity service provides single sign-on and multifactor authentication, which enable the central management of users/groups and external identities federation. |
+| | [Identity platform](https://cloud.google.com/identity-platform) | [Azure Active Directory B2C](/azure/active-directory-b2c/overview) | A highly available and global identity management service for consumer-facing applications, which scales to hundreds of millions of identities. Manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications. |
+| Multifactor authentication | [Multifactor authentication](https://cloud.google.com/identity) | [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
 | RBAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
-| ABAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure attribute-based access control](/azure/role-based-access-control/conditions-overview) | Azure attribute-based access control (ABAC) is an authorization system that defines access, based on attributes that are associated with security principals, resources, and environment. |
-| Zero trust | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise) | [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/overview) | Conditional Access is the tool used by Microsoft Entra ID to bring signals together, to make decisions, and to enforce organizational policies. |
+| ABAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure attribute-based access control](/azure/role-based-access-control/conditions-overview) | Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and the environment of an access request. |
+| Zero trust | [Chrome Enterprise Premium](https://cloud.google.com/beyondcorp-enterprise) | [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/overview) | Conditional Access is the tool used by Microsoft Entra ID to bring signals together, to make decisions, and to enforce organizational policies. |
 | Resource management | [Resource Manager](https://cloud.google.com/resource-manager) | [Azure Resource Manager](/azure/azure-resource-manager/management/overview) | Provides a management layer that enables you to create, update, and delete resources in your Azure account, like access control, locks, and tags, to secure and organize your resources after deployment.|
-| Encryption | [Cloud KMS](https://cloud.google.com/kms), [Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault) | Provides a security solution and works with other services by allowing you to manage, create, and control encryption keys that are stored in hardware security modules (HSM). |
+| Encryption | [Cloud KMS](https://cloud.google.com/kms), [Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](/azure/key-vault/general/overview) | Provides a security solution and works with other services by allowing you to manage, create, and control encryption keys that are stored in hardware security modules (HSM). |
 | Data-at-rest encryption | [Encryption at rest](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
 | Data in-use | [Confidential Computing](https://cloud.google.com/confidential-computing) | [Azure Confidential Computing](/azure/confidential-computing/overview) | Encrypt data in-use. |
-| Hardware security module (HSM) | [Cloud HSM](https://cloud.google.com/kms/docs/hsm) | [Azure Dedicated HSM](/azure/dedicated-hsm/overview) | Azure service that provides cryptographic key storage in Azure, to host encryption keys and perform cryptographic operations in a high-availabilty service of FIPS 140-2 Level 3 certified hardware security modules (HSMs). |
-| Data loss prevention (DLP) | [Cloud Data Loss Prevention](https://cloud.google.com/dlp) | [Azure Information Protection](/azure/information-protection/what-is-information-protection) | Azure Information Protection (AIP) is a cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content. |
-| Security | [Security Command Center](https://cloud.google.com/security-command-center), [Web Security Scanner](https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview) | [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
-| Threat detection | [Event Threat Detection](https://cloud.google.com/event-threat-detection) | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
-| SIEM | [Chronicle](https://cloud.google.com/chronicle) | [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) | A cloud-native security information and event manager (SIEM) platform that uses built-in AI to help analyze large volumes of data from all sources, including users, applications, servers, and devices that are running on-premises or in any cloud. |
+| Hardware security module (HSM) | [Cloud HSM](https://cloud.google.com/kms/docs/hsm) | [Azure Dedicated HSM](/azure/dedicated-hsm/overview) | Azure service that provides cryptographic key storage in Azure, to host encryption keys and perform cryptographic operations in a high-availability service of FIPS 140-2 Level 3 certified hardware security modules (HSMs). |
+| Data loss prevention (DLP) | [Cloud Data Loss Prevention](https://cloud.google.com/dlp) | [Microsoft Purview Information Protection](/purview/information-protection) | Microsoft Purview Information Protection (formerly Azure Information Protection) helps you discover, classify, and protect sensitive information wherever it lives or travels. |
+| Security | [Security Command Center](https://cloud.google.com/security-command-center), [Web Security Scanner](https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview) | [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) | Microsoft Defender for Cloud is a cloud-native application protection platform (CNAPP) that is made up of security measures and practices that are designed to protect cloud-based applications. |
+| Threat detection | [Event Threat Detection](https://cloud.google.com/security-command-center/docs/how-to-use-event-threat-detection) | [Microsoft Defender for Identity](/defender-for-identity/what-is) | Microsoft Defender for Identity is a cloud-based security solution that helps secure your identity monitoring. |
+| SIEM | [Chronicle](https://cloud.google.com/chronicle) | [Microsoft Sentinel](/azure/sentinel/overview) | A cloud-native security information and event manager (SIEM) platform that uses built-in AI to analyze large volumes of data from all sources, including users, applications, servers, and devices that are running on-premises or in any cloud. |
 | Container security | [Container Security](https://cloud.google.com/containers/security) | [Container Security in Microsoft Defender for Cloud](/azure/security-center/container-security) | Microsoft Defender for Cloud is the Azure-native solution for securing your containers. |
 | | [Artifact Registry](https://cloud.google.com/artifact-registry) | [Azure Container Registry](/azure/container-registry/container-registry-intro) | A managed, private Docker registry service that's based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts that allow you to only deploy trusted containers. |
-| | [Container Analysis](https://cloud.google.com/container-analysis/docs/vulnerability-scanning) | [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) | Perform vulnerability scans on all container images when they're pushed to the registry, imported into the registry, or pulled within the last 30 days. |
 
 ### Security architectures
 

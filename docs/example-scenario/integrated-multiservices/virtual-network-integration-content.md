@@ -212,7 +212,6 @@ The following articles cover key functions scenarios:
 
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
-- [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
 - [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
 - [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)

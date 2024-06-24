@@ -13,16 +13,14 @@ products:
   - azure-iot-edge
   - azure-machine-learning
   - azure-storage
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Vision AI solutions with Azure IoT Edge
 
 This series of articles describes how to plan and design a computer vision workload that uses [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge). You can run Azure IoT Edge on devices, and integrate with Azure Machine Learning, Azure Storage, Azure App Services, and Power BI for end-to-end vision AI solutions.
 
-Visually inspecting products, resources, and environments is critical for many endeavors. Human visual inspection and analytics are subject to inefficiency and inaccuracy. Enterprises now use deep learning artificial neural networks called *convolutional neural networks* (CNNs) to emulate human vision. Using CNNs for automated image input and analysis is commonly called *computer vision* or *vision AI*.
+Visually inspecting products, resources, and environments is critical for many endeavors. Human visual inspection and analytics are subject to inefficiency and inaccuracy. Enterprises now use deep learning artificial neural networks called *convolutional neural networks (CNNs)* to emulate human vision. Using CNNs for automated image input and analysis is commonly called *computer vision* or *vision AI*.
 
 Technologies like containerization support portability, which allows migrating vision AI models to the network edge. You can train vision inference models in the cloud, containerize the models, and use them to create custom modules for Azure IoT Edge runtime-enabled devices. Deploying vision AI solutions at the edge yields performance and cost benefits.
 

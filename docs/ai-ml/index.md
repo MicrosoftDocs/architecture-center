@@ -20,7 +20,7 @@ categories:
 
 # Artificial intelligence (AI) architecture design
 
-*Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
+*Artificial intelligence (AI)* is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 
 ![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](_images/ai-overview-img-001.png)
 
@@ -69,8 +69,6 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 *Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
 
 Smart buildings use autonomous systems to automatically control operations like lighting, ventilation, air conditioning, and security. A more sophisticated example would be a self-directed robot exploring a collapsed mine shaft to thoroughly map its interior, determine which portions are structurally sound, analyze the air for breathability, and detect signs of trapped miners in need of rescue-all without a human monitoring in real time on the remote end.
-
-- [Autonomous systems and solutions from Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 
 ### General info on Microsoft AI
 
@@ -234,8 +232,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
 
-- [Batch scoring of R machine learning models on Azure](../ai-ml/architecture/batch-scoring-r-models.yml)
-
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
@@ -270,7 +266,7 @@ This is a comprehensive family of AI services and cognitive APIs to help you bui
 
 ### Azure Cognitive Search
 
-This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+This is an AI-powered cloud search service for mobile and web app development. The service can search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 
 - [Azure Cognitive Search product home page](https://azure.microsoft.com/services/search/)
 

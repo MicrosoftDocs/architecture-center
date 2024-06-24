@@ -11,9 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - iot
-  ms.custom:
-    - fcp
-    - solution-idea
+  ms.custom: arb-iot
 name: Environment monitoring and supply chain optimization with IoT
 azureCategories:
   - iot

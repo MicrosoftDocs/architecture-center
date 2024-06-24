@@ -2,8 +2,8 @@
 title: Solutions for the automotive, mobility, and transportation industries
 titleSuffix: Azure Architecture Center
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the automotive, mobility, and transportation industries.
-author: martinekuan
-ms.author: martinek
+author: msmarioo
+ms.author: marioo
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -55,10 +55,8 @@ The following articles provide detailed analysis of architectures created and re
 
 The following are other ideas that you can use as a starting point for your energy or environment solution.
 
-- [COVID-19 safe environments with IoT Edge monitoring and alerting](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [Environment monitoring and supply chain optimization with IoT](../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)
-- [Machine teaching with the Microsoft Autonomous Systems platform](../solution-ideas/articles/autonomous-systems.yml)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
 - [Predictive insights with vehicle telematics](../solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml)
 - [Real-time asset tracking and management](../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)

@@ -42,9 +42,7 @@ The following articles provide detailed analysis of architectures created and re
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Anomaly detector process](../solution-ideas/articles/anomaly-detector-process.yml)|Learn about Anomaly Detector and how anomaly detection models are selected for time-series data. You can use time-series data to predict mobile traffic and service needs. |Analytics|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml)|Learn how Azure Arc extends Kubernetes cluster management and configuration across your datacenters, edge locations, and multiple cloud environments.| Hybrid/Multicloud|
-|[Build a speech-to-text transcription pipeline with Azure Cognitive Services](/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline)|Build an audio ingestion and speech-to-text transcription pipeline by using Cognitive Services. Speech recognition can be used to analyze customer calls. |AI / Machine learning|
 |[Customer churn prediction using real-time analytics](../solution-ideas/articles/customer-churn-prediction.yml) |Predict customer churn and find patterns in existing data that's associated with the predicted churn rate by using the Microsoft AI platform.|AI / Machine learning |
 |[Deploy AI and machine learning at the edge](../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)|Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations by using Azure Stack Edge. |AI / Machine learning|
 |[Determine customer lifetime value and churn prediction with Azure AI services](../ai-ml/architecture/customer-lifecycle-churn.yml)|Learn how to create a solution for predicting customer lifetime value and churn by using Azure Machine Learning. This solution can help you tailor products and services to your best customers.|AI / Machine learning|
@@ -55,7 +53,6 @@ The following articles provide detailed analysis of architectures created and re
 ## Solution ideas for telecommunications
 The following are other ideas that you can use as a starting point for your telecommunications solution.
 - [Content Delivery Network analytics](../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)
-- [IoT-connected light, power, and internet for emerging markets](../solution-ideas/articles/iot-power-management.yml)
 - [IoT device connectivity for healthcare facilities](../networking/idea/healthcare-network.yml)
 - [IoT Edge data storage and processing](../solution-ideas/articles/data-storage-edge.yml)
 - [Low-latency network connections for industry](../networking/idea/low-latency-network.yml)

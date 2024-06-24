@@ -1,9 +1,9 @@
 ---
 title: AKS for Amazon EKS professionals
 description: Read about the Azure Kubernetes Service (AKS) managed solution, configurations, best practices, and similarities and differences with Amazon EKS.
-author: lanicolas
-ms.author: lanicola
-ms.date: 12/30/2022
+author: paolosalvatori
+ms.author: paolos
+ms.date: 06/21/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,7 +18,7 @@ products:
 
 This series of articles helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). The series highlights key similarities and differences between these two managed Kubernetes solutions.
 
-The series articles compare AKS with Amazon EKS for the following Kubernetes design areas:
+The articles compare AKS with Amazon EKS for the following Kubernetes design areas:
 
 - [Identity and access management](workload-identity.yml)
 - [Cluster logging and monitoring](monitoring.yml)
@@ -27,12 +27,18 @@ The series articles compare AKS with Amazon EKS for the following Kubernetes des
 - [Cost optimization and management](cost-management.yml)
 - [Agent node and node pool management](node-pools.yml)
 - [Cluster governance](governance.md)
+- [Workload Migration](migrate-eks-to-aks.md)
 
-These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. For basic AKS implementation, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
+These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. Specifically, the [Migrate EKS to Azure Kubernetes Service (AKS)](migrate-eks-to-aks.md) article provides strategies for migrating typical stateless and stateful workloads. For basic AKS implementation, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [AKS in an application landing zone](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
 
 AKS isn't the only way to run containers in Azure, and Amazon EKS is only one of the container options for Amazon Web Services (AWS). These articles don't compare Azure services like Azure Container Apps, Azure Container Instances, and Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate.
 
-For more information about other Azure services that can host containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options).
+For more information about other Azure services that can host containerized workloads, see the following articles:
+
+- [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)
+- [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service)
+- [Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)
+- [General architectural considerations for choosing an Azure container service](/azure/architecture/guide/container-service-general-considerations)
 
 The following articles compare Azure and AWS core platform components and capabilities:
 
@@ -52,8 +58,8 @@ The following articles compare Azure and AWS core platform components and capabi
 
 Principal authors:
 
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal Service Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Cloud Solution Architect
 
 Other contributors:
 
@@ -73,9 +79,7 @@ Other contributors:
 - [Kubernetes node and node pool management](node-pools.yml)
 - [Cluster governance](governance.md)
 
-
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
 - [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
-

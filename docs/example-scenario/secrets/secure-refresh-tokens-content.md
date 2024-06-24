@@ -1,5 +1,3 @@
-
-
 When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain. When an application needs to use access and refresh tokens indefinitely, typically in offline access scenarios, it's critical to store the refresh tokens securely.
 
 > [!WARNING]
@@ -38,7 +36,7 @@ After you set up Azure Pipelines to create and update keys, you can schedule the
 
 ## Managed identity
 
-The preferred way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager (ARM) template for IaC scenarios.
+The preferred way for an Azure service like Azure Functions to access Key Vault is to use the service's [managed identity](/azure/azure-resource-manager/managed-applications/publish-managed-identity). You can grant access through the Azure portal, Azure CLI, or through an Azure Resource Manager template (ARM template) for IaC scenarios.
 
 ### Azure portal
 

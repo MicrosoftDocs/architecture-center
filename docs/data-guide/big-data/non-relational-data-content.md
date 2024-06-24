@@ -4,7 +4,8 @@ What all of these data stores have in common is that they don't use a [relationa
 
 The term *NoSQL* refers to data stores that do not use SQL for queries. Instead, the data stores use other programming languages and constructs to query the data. In practice, "NoSQL" means "non-relational database," even though many of these databases do support SQL-compatible queries. However, the underlying query execution strategy is usually very different from the way a traditional relational database management system (RDBMS) would execute the same SQL query.
 
-The following sections describe the major categories of non-relational or NoSQL database.
+
+There are variations in implementations and specializations of NoSQL databases, like there are variations in capabilities of relational databases. These variations give each implementation their own primary strengths and come with their own learning curve and usage recommendations. The following sections describe the major categories of non-relational or NoSQL database.
 
 ## Document data stores
 
@@ -128,6 +129,8 @@ Relevant Azure service:
 
 Non-relational data stores often use a different storage architecture from that used by relational databases. Specifically, they tend toward having no fixed schema. Also, they tend not to support transactions, or else restrict the scope of transactions, and they generally don't include secondary indexes for scalability reasons.
 
+Compared to many traditional relational databases, NoSQL databases often offer a desirable level of schema flexibility and platform scalability but sometimes those benefits come at the cost of weaker consistency. Even though you can store your data flexibly, you still need to identify and analyze your data access patterns, then design an appropriate data schema otherwise your NoSQL database can suffer under heavy workload or unexpected usage patterns.
+
 The following compares the requirements for each of the non-relational data stores:
 
 | Requirement | Document data | Column-family data | Key/value data | Graph data |
@@ -178,5 +181,4 @@ Principal author:
 ## Related resources
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)
