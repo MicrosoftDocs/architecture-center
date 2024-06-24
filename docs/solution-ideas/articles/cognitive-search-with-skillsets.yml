@@ -16,7 +16,7 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-name: AI enrichment with image and text processing
+name: Use AI enrichment with image and text processing
 azureCategories:
   - ai-machine-learning
 summary: Learn how to transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built skills and custom skills.
