@@ -5,7 +5,7 @@ metadata:
   description: Learn how to transform unstructured image and text data into full text searchable content with Azure AI Search pre-built skills and custom skills.
   author: gmndrg
   ms.author: gimondra
-  ms.date: 06/21/2024
+  ms.date: 06/24/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

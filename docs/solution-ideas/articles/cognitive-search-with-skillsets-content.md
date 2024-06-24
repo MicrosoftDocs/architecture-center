@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to enrich text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. You can use Azure AI Search with AI enrichment to help identify and explore relevant content at scale. This solution uses AI enrichment to extract meaning from the original, complex, unstructured JFK Assassination Records (JFK Files) dataset.
+This article describes how to enrich text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. You can use Azure AI Search with AI enrichment to help identify and explore relevant content at scale. This solution uses AI enrichment to extract meaning from the original complex, unstructured JFK Assassination Records (JFK Files) dataset.
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows the AI Search architecture to convert unstructured into structured data." source="../media/ai-search-with-ai-enrichment.svg" lightbox="../media/ai-search-with-ai-enrichment.svg" border="false":::
+:::image type="content" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." source="../media/ai-search-with-ai-enrichment.svg" lightbox="../media/ai-search-with-ai-enrichment.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-with-skillsets.vsdx) of this architecture.*
 
@@ -124,4 +124,4 @@ Try the learning path:
 
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
 - [Keyword search and speech-to-text with OCR digital media](/azure/architecture/solution-ideas/articles/digital-media-speech-text)
-- [Suggest content tags with natural language processing using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
+- [Suggest content tags with natural language processing by using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
