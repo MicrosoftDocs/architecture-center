@@ -1820,6 +1820,8 @@ items:
         items:
         - name: Azure Stack HCI infrastructure
           items:
+          - name: Azure Stack HCI baseline architecture
+            href: hybrid/azure-stack-hci-baseline.yml
           - name: Azure Stack HCI with switchless storage
             href: hybrid/azure-stack-hci-switchless.yml
           - name: Azure Stack HCI stretched clusters for DR
