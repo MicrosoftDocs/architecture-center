@@ -26,4 +26,4 @@ name: Implement logging and monitoring for Azure OpenAI models
 summary: Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service language models.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-monitor-log.png
 content: |
-  [!include[](log-monitor-azure-openai-content.md)]
+  [!INCLUDE[](log-monitor-azure-openai-content.md)]
