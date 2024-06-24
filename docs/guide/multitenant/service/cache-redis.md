@@ -65,7 +65,7 @@ Another approach you might consider is to deploy a single cache instance, and de
 
 This approach might be useful for migration scenarios. For example, suppose you modernize a single-tenant application that isn't designed to work with multiple tenants, and you gradually convert it to be multitenancy-aware by including the tenant context in all requests. You can gain some cost efficiencies by using a single shared cache, and you don't need to update the application's logic to use tenant key prefixes or tenant-specific data structures.
 
-Azure Cache for Redis imposes [limits on the number of databases that can be created on a single cache](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits). Ensure that you understand the number of tenants that you'll grow to, before you implement this approach.
+Azure Cache for Redis imposes [limits on the number of databases that can be created on a single cache](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits). Before implementing this approach, consider the number of tenants that you expect to grow to.
 
 Additionally, this approach doesn't provide any benefits for security isolation of data. In Azure Cache for Redis, authentication and authorization are performed at the cache instance level.
 
