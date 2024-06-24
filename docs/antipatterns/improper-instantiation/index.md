@@ -9,8 +9,8 @@ ms.date: 06/05/2017
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
-azureCategories: 
-  - analytics 
+azureCategories:
+  - analytics
   - compute
   - databases
   - storage
