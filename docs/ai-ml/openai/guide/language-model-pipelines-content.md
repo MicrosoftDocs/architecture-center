@@ -26,7 +26,7 @@ After the batch pipeline is complete, the ***real-time, asynchronous*** ***pipel
    1. Top internal document chunks that are relevant to your query are retrieved from your internal database. A fast vector search is performed for the top *n* similar documents that are stored as vectors in Azure Cache for Redis.
    1. In parallel, a web search for similar external products is performed via the LangChain Bing Search language model plugin with a generated search query that the orchestrator language model composes. Results are stored in the external model memory component.
 8. The vector store database is queried and returns the top relevant product information pages (chunks and references). The system queries the vector store database by using your query embedding and returns the most relevant product information pages, along with the relevant text chunks and references. The relevant information is stored in LangChain's model memory.
-9. The system uses the information that’s stored in LangChain's model memory to create a new prompt, which is sent to the orchestrator language model to build a summary report that’s based on your query, company internal knowledge base, and external web results.
+9. The system uses the information that's stored in LangChain's model memory to create a new prompt, which is sent to the orchestrator language model to build a summary report that's based on your query, company internal knowledge base, and external web results.
 10. Optionally, the output from the previous step is passed to a moderation filter to remove unwanted information. The final competitive product report is passed to you.
 
 ## Components
