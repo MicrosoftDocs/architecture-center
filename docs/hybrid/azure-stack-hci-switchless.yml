@@ -26,6 +26,6 @@ products:
   - azure-blob-storage
   - azure-monitor
   - defender-for-cloud
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-hci-switchless.png
 content: |
    [!include[](azure-stack-hci-switchless-content.md)]
