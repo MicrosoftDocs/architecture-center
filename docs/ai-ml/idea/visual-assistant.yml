@@ -32,4 +32,4 @@ products:
   - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/visual-assistant.png
 content: |
-  [!include[](visual-assistant-content.md)]
+  [!INCLUDE[](visual-assistant-content.md)]
