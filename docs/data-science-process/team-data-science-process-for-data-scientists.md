@@ -35,20 +35,17 @@ This list describes the key objectives for data scientists using TDSP:
 - [Provide data source documentation](#provide-data-source-documentation)
 - [Use tools for analytics processing](#use-tools-for-analytics-processing)
 
-The sequential list provided is crucial for preparing to use
-Microsoft\'s Team Data Science Process (TDSP) because it outlines a
-comprehensive approach to effectively managing and executing data
-science projects. Here's why each step is important, along with a list of Azure resources:
+The these objectives are crucial for preparing to use Microsoft's Team Data Science Process (TDSP) because it outlines a comprehensive approach to effectively managing and executing data science projects. Each objective includes its importance, along with a list of educational resources.
 
 ### Understand an analytics workload
 
 **Importance:**
 
-- **Identify Requirements:** This step involves understanding the specific needs and goals of the analytics workload. It helps in identifying the business questions to be answered and the problems to be solved.
+- **Identify requirements:** This step involves understanding the specific needs and goals of the analytics workload. It helps in identifying the business questions to be answered and the problems to be solved.
 
-- **Define Scope:** Clearly defining the scope of the project ensures that the team focuses on relevant data and analytics tasks.
+- **Define scope:** Clearly defining the scope of the project ensures that the team focuses on relevant data and analytics tasks.
 
-- **Resource Allocation:** Understanding the workload helps in determining the resources required, such as computing power, storage, and human expertise.
+- **Resource allocation:** Understanding the workload helps in determining the resources required, such as computing power, storage, and human expertise.
 
 #### Recommended Azure resources to understand an analytics workload
 
@@ -62,9 +59,9 @@ science projects. Here's why each step is important, along with a list of Azure 
 
 **Importance:**
 
-- **Structured Approach:** TDSP provides a structured framework for executing data science projects, ensuring a systematic and disciplined approach.
+- **Structured approach:** TDSP provides a structured framework for executing data science projects, ensuring a systematic and disciplined approach.
 - **Collaboration:** TDSP promotes collaboration among team members by defining clear roles and responsibilities.
-- **Best Practices:** It incorporates industry best practices, ensuring that projects are conducted efficiently and effectively.
+- **Best practices:** It incorporates industry best practices, ensuring that projects are conducted efficiently and effectively.
 
 #### Recommended Azure resources for the Team Data Science Process (TDSP)
 
@@ -76,7 +73,7 @@ science projects. Here's why each step is important, along with a list of Azure 
 
 **Importance:**
 
-- **Advanced Analytics:** Azure Machine Learning provides powerful tools and services for building, training, and deploying machine learning models.
+- **Advanced analytics:** Azure Machine Learning provides powerful tools and services for building, training, and deploying machine learning models.
 
 - **Scalability:** Azure ML offers scalable computing resources, allowing teams to handle large datasets and complex models.
 
@@ -94,11 +91,11 @@ science projects. Here's why each step is important, along with a list of Azure 
 
 **Importance:**
 
-- **Data Management:** Effective data transfer and storage are critical for managing large volumes of data securely and efficiently.
+- **Data management:** Effective data transfer and storage are critical for managing large volumes of data securely and efficiently.
 
 - **Accessibility:** Ensures that data is easily accessible to team members and analytical tools, which is essential for collaboration and real-time processing.
 
-- **Compliance and Security:** Understanding these foundations helps in ensuring that data handling complies with legal and regulatory requirements and that sensitive data is protected.
+- **Compliance and security:** Understanding these foundations helps in ensuring that data handling complies with legal and regulatory requirements and that sensitive data is protected.
 
 ### Recommended Azure resources to understand the foundations of data transfer and storage
 
@@ -114,11 +111,11 @@ science projects. Here's why each step is important, along with a list of Azure 
 
 **Importance:**
 
-- **Data Transparency:** Documentation of data sources ensures transparency about where data comes from, its quality, and its limitations.
+- **Data transparency:** Documentation of data sources ensures transparency about where data comes from, its quality, and its limitations.
 
 - **Reproducibility:** Proper documentation allows other team members or stakeholders to understand and reproduce the data science process.
 
-- **Data Integration:** Helps in integrating various data sources effectively by providing a clear understanding of the data's origin and structure.
+- **Data integration:** Helps in integrating various data sources effectively by providing a clear understanding of the data's origin and structure.
 
 #### Recommended Azure resources to learn about data source documentation
 
@@ -172,7 +169,7 @@ Microsoft Learn organizes its training content into three skill levels: beginner
 
 ### Beginner
 
-- **Target Audience:** Individuals who are new to the technology or concept being covered.
+- **Target audience:** Individuals who are new to the technology or concept being covered.
 - **Content:** Basic introductions to concepts, fundamental skills, and initial steps required to get started. It typically covers core principles and foundational knowledge.
 
 **Purpose:**
@@ -201,7 +198,7 @@ Microsoft Learn organizes its training content into three skill levels: beginner
 
 ### Intermediate
 
-- **Target Audience:** Individuals who have a basic understanding of the technology and are looking to deepen their knowledge.
+- **Target audience:** Individuals who have a basic understanding of the technology and are looking to deepen their knowledge.
 - **Content:** More detailed and practical skills, including hands-on exercises and real-world scenarios. It involves a deeper dive into the subject matter.
 
 **Purpose:**
@@ -222,7 +219,7 @@ Microsoft Learn organizes its training content into three skill levels: beginner
 
 ### Advanced
 
-- **Target Audience:** Experienced professionals who are looking to master their skills and tackle complex, high-level tasks.
+- **Target audience:** Experienced professionals who are looking to master their skills and tackle complex, high-level tasks.
 - **Content:** In-depth technical training, advanced techniques, and comprehensive coverage of specialized topics. It often includes expert-level problem-solving and optimization strategies.
 
 **Purpose:**
