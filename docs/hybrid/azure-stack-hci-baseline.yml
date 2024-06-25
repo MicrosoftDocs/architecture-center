@@ -28,4 +28,4 @@ products:
   - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
 content: |
-   [!include[](azure-stack-hci-switchless-content.md)]
+   [!include[](azure-stack-hci-baseline-content.md)]
