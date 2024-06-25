@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Use AI enrichment with image and text processing
+  title: AI enrichment with image and text processing
   titleSuffix: Azure Architecture Center
-  description: Learn how to transform unstructured image and text data into full-text searchable content with Azure AI Search prebuilt skills and custom skills.
+  description: Transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: gmndrg
   ms.author: gimondra
-  ms.date: 06/24/2024
-  ms.topic: conceptual
+  ms.date: 08/08/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -16,15 +16,15 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-name: Use AI enrichment with image and text processing
+name: AI enrichment with image and text processing
 azureCategories:
   - ai-machine-learning
-summary: Learn how to transform unstructured image and text data into full-text searchable content with Azure AI Search prebuilt skills and custom skills.
+summary: Transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
 products:
   - azure-app-service
   - azure-blob-storage
   - azure-cognitive-search
   - azure-functions
-thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search-for-ai-enrichment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ai-search-ai-enrichment.png
 content: |
-  [!include[](cognitive-search-with-skillsets-content.md)]
+  [!include[](ai-search-skillsets-content.md)]
