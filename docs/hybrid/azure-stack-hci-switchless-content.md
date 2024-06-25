@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure Stack HCI baseline architecture](/azure-stack-hci-baseline.yml). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying **Azure Stack HCI using a _three-node storage switchless_** design.
+This article is part of a series that builds on the [Azure Stack HCI baseline architecture](/azure/architecture/hybrid/azure-stack-hci-baseline). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying **Azure Stack HCI using a _three-node storage switchless_** design.
 
 The "_storage switchless_" configuration is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for any smaller edge use cases  that do not have, or require _extensive datacenter network switches_ for storage replication traffic.
 
