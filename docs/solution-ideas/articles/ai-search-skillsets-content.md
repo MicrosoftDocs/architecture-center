@@ -124,6 +124,6 @@ Try the learning path:
 
 ## Related resources
 
-- [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
-- [Keyword search and speech to text](/azure/architecture/solution-ideas/articles/digital-media-speech-text)
-- [Suggest content tags with natural language processing by using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
+- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
+- [Keyword search and speech to text](../../ai-ml/idea/digital-media-speech-text.yml)
+- [Suggest content tags with natural language processing by using deep learning](../../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
