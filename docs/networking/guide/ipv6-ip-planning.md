@@ -3,7 +3,7 @@ title: Conceptual planning for IPv6 networking
 description: Learn strategies for transitioning an IPv4 network environment on Azure to IPv6. IPv6 provides a larger pool of internet addresses to accommodate growth.
 author: bsteph
 ms.author: bstephenson
-ms.date: 06/25/2024
+ms.date: 01/08/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
