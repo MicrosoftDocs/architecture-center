@@ -4,7 +4,7 @@ This article describes how to use image processing, natural language processing,
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." source="../media/ai-search-with-ai-enrichment.svg" lightbox="../media/ai-search-with-ai-enrichment.svg" border="false":::
+:::image type="content" alt-text="Diagram that shows the AI Search architecture to convert unstructured data into structured data." source="../media/ai-search-skillsets.svg" lightbox="../media/ai-search-skillsets.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-search-skillsets.vsdx) of this architecture.*
 
