@@ -1,12 +1,10 @@
-This reference architecture illustrates how to design Azure Stack HCI 23H2 (_and later_) infrastructure using a "_storage switchless_" configuration, to provide a platform to run highly available virtualized and containerized workloads.
-
-The "_storage switchless_" configuration is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for smaller edge environments that do not have or require _extensive datacenter network switches_ for storage traffic.
+This baseline reference architecture illustrates how to design Azure Stack HCI 23H2 (_and later_) infrastructure to provide a platform to run highly available virtualized and containerized workloads.
 
 This architecture design provides workload agnostic guidance and recommendations for configuring Azure Stack HCI as a resilient platform to deploy and manage end user applications or business systems (_workload_). Resource components covered include cluster design choice decisions for the physical nodes that provide the local compute, storage and networking capabilities, in addition to information for how to use Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
 
 For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_Azure Stack HCI workloads_" navigation menu.
 
-This architecture serves as a starting point for a [3-node Azure Stack HCI cluster using a storage switchless networking design](/azure-stack/hci/plan/three-node-switchless-two-switches-two-links). The workload applications deployed on an Azure Stack HCI cluster should also be well-architected, such as deploying multiple instances (_high availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place, such as backup and DR failover. These _workload_ design aspects have been intentionally excluded from this article, to maintain the focus on the HCI infrastructure (platform). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
+This architecture serves as a starting point for deploying Azure Stack HCI clusters, which can scale from one to sixteen nodes in size. The workload applications deployed on an Azure Stack HCI cluster should also be well-architected, such as deploying multiple instances (_high availability_) of any critical workload services, and with appropriate business continuity and disaster recovery (_BC/DR_) controls in place, for example regular backups and DR failover capabilities. These _workload_ design aspects have been intentionally excluded from this article, to maintain the focus on the HCI infrastructure (_platform_). For additional information review the [Azure Stack HCI Well-Architected Framework Service Guide](/azure/well-architected/service-guides/azure-stack-hci) which provides guidelines and recommendations for the five pillars of the well-architected framework.
 
 ## Article layout
 
@@ -19,7 +17,7 @@ This architecture serves as a starting point for a [3-node Azure Stack HCI clust
 
 ## Architecture
 
-[![Diagram illustrating a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates and Azure Site Recovery.](images/azure-stack-hci-switchless.png)](images/azure-stack-hci-switchless.png#lightbox)
+[![Diagram illustrating a multi-node Azure Stack HCI cluster reference architecture, with dual ToR switches for external (north/south) connectivity. The cluster uses a number of Azure services, including Azure Arc, Key Vault, Azure Storage, Azure Update Management, Azure Monitor, Azure Policy, Microsoft Defender, Azure Backup, Extended Security Updates and Azure Site Recovery.](images/azure-stack-hci-baseline.png)](images/azure-stack-hci-baseline.png#lightbox)
 
 _Download a [Visio file][architectural-diagram-visio-source] of this architecture._
 
