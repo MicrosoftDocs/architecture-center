@@ -7,7 +7,7 @@ This solution proposes a strategy that blocks direct Internet traffic to the Sto
 
 ## Architecture
 
-![Diagram of the <solution name> architecture.](./media/iothub-file-upload-private-link.png)
+![Diagram of the Azure IoT Hub File Upload feature to a private storage account architecture.](./media/iothub-file-upload-private-link.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-file-upload-private-network.vsdx) of this architecture.*
 
