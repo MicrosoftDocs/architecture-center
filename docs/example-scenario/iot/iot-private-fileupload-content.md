@@ -51,6 +51,10 @@ An industrial automation vendor offers managed connected edge controllers and se
 
 The same use case can apply to any industry where devices need to communicate with an Azure Storage account that isn't exposed publicly.
 
+## Deploy this scenario
+
+For a sample that deploys a similar architecture, see [Setting up Azure IoT Hub File Upload to Azure Storage through Private Endpoint](https://github.com/Azure-Samples/azure-edge-extensions-iothub-fileupload-privatelink). This sample deploys a simulated client device and usage of device twins for exchanging the custom domain name for the Storage account. It also contains more extensive documentation on setting up the architecture with Azure Firewall and a Hub-Spoke network topology.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -69,7 +73,6 @@ Other contributors:
 ## Next steps
 
 - [Upload files with IoT Hub](/azure/iot-hub/iot-hub-devguide-file-upload)
-- [GitHub sample: Setting up Azure IoT Hub File Upload to Azure Storage through Private Endpoint](https://github.com/Azure-Samples/azure-edge-extensions-iothub-fileupload-privatelink)
 
 ## Related resources
 
