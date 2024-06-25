@@ -55,7 +55,7 @@ See the product documentation:
 * [Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 * [Azure Machine Learning](/azure/machine-learning)
 * [Azure Cognitive Search documentation](/azure/search)
-* learn more about [Azure Container Registry](/azure/container-registry/container-registry-intro)
+* Learn more about [Azure Container Registry](/azure/container-registry/container-registry-intro)
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
 Try these Microsoft Learn modules:

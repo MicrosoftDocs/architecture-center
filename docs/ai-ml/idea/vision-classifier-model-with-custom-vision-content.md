@@ -55,9 +55,9 @@ Principal authors:
 
 ## Next steps
 
-* learn more about [Microsoft AirSim](https://github.com/microsoft/AirSim)
-* learn more about [Azure Custom Vision Cognitive Service](/azure/cognitive-services/custom-vision-service)
-* learn more about [Azure Cognitive Services](/azure/cognitive-services)
+- Learn more about [Microsoft AirSim](https://github.com/microsoft/AirSim)
+- Learn more about [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/)
+- Learn more about [Azure AI Services](/azure/ai-services/)
 
 ## Related resources
 
