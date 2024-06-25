@@ -94,7 +94,7 @@ You can use the following table to find instructions for transitioning specific 
 
 | Service/component | Transition instructions |
 |--|--|
-| Azure Application Gateway| For more information, see [Configure Application Gateway with a frontend public IPv6 address](azure/application-gateway/ipv6-application-gateway-portal). |
+| Azure Application Gateway| For more information, see [Configure Application Gateway with a frontend public IPv6 address](/azure/application-gateway/ipv6-application-gateway-portal). |
 | Azure Container Networking Interface (CNI) Overlay for AKS| For more information, see [Use Azure CNI Overlay](/azure/aks/azure-cni-overlay). |
 | Azure custom IP address prefix | You need to create new prefixes for your IPv6 address ranges. For instructions, see [Create a custom IPv6 address prefix using the Azure portal](/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal). |
 | Azure Data Explorer | You must perform an API request to update the `publicIPType` property to `DualStack`. For more information, see [Create or update clusters](/rest/api/azurerekusto/clusters/create-or-update#kustoclusterscreateorupdate). |
