@@ -27,4 +27,4 @@ products:
   - azure-functions
 thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search-for-ai-enrichment.png
 content: |
-  [!include[](cognitive-search-with-skillsets-content.md)]
+  [!include[](ai-search-skillsets-content.md)]

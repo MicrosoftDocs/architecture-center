@@ -51,7 +51,7 @@ items:
       - name: Document enrichment
         items:
         - name: Use AI enrichment with Azure AI Search
-          href: ../solution-ideas/articles/cognitive-search-with-skillsets.yml
+          href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
         - name: Orchestrate MLOps with Azure Databricks
