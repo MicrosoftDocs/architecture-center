@@ -16,9 +16,7 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-devtest-labs
-ms.custom:
-  - overview
-  - fcp
+ms.custom: arb-devops
 ---
 
 # DevOps architecture design
