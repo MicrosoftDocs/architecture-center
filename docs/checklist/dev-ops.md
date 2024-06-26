@@ -15,7 +15,7 @@ categories:
   - devops
 ms.custom:
   - checklist
-  - fcp
+  - arb-devops
 checklist:
   - devops
   - management-and-governance

@@ -9,7 +9,7 @@ This article describes how to extract insights from customer conversations at a 
 
 1. A phone call between an agent and a customer is recorded and stored in Azure Blob Storage. Audio files are uploaded to an Azure Storage account via a supported method, such as the UI-based tool, [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer), or a [Storage SDK or API](/azure/storage/blobs/reference).
 
-1. [Azure AI Speech](/azure/ai-services/speech-service/overview) is used to transcribe audio files in [batch mode](/azure/ai-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
+1. [Azure AI Speech](/azure/ai-services/speech-service/overview) is used to transcribe audio files in [Batch mode](/azure/ai-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
 
 1. [Azure AI Language](/azure/ai-services/language-service/overview) is used to [detect and redact personal data](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) in the transcript.
 
@@ -58,7 +58,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Find the availability service-level agreement (SLA) for each component in [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-- To design high-availability applications with Storage accounts, see [the configuration options](/azure/storage/common/geo-redundant-design).
+- To design high-availability applications with Storage accounts, see the [configuration options](/azure/storage/common/geo-redundant-design).
 - To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see the [resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
 - [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
