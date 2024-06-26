@@ -3,7 +3,7 @@ title: Machine learning operations (MLOps) v2
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
 author: sdonohoo
 ms.author: robbag
-ms.date: 06/24/2024
+ms.date: 06/26/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: architecture-center
@@ -77,7 +77,7 @@ The MLOps v2 architectural pattern is made up of four main modular elements that
 - Model development (inner loop)
 - Model deployment (outer loop)
 
-These elements, the relationships between them, and the personas typically associated with them are common for all MLOps v2 scenario architectures. There can be variations in the details of each, depending on the scenario.
+These elements, the relationships between them, and the personas typically associated with them are common for all MLOps v2 scenario architectures. Variations in the details of each depend on the scenario.
 
 The base architecture for MLOps v2 for Machine Learning is the classical machine learning scenario on tabular data. The CV and NLP architectures build on and modify this base architecture.
 
@@ -99,29 +99,29 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 1. Data estate
 
-   This element illustrates the data estate of the organization, and potential data sources and targets for a data science project. Data engineers are the primary owners of this element of the MLOps v2 lifecycle. The Azure data platforms in this diagram aren't exhaustive or prescriptive. The data sources and targets that represent recommended best practices based on the customer use case are indicated by a green check mark.
+   This element illustrates the data estate of the organization, and potential data sources and targets for a data science project. Data engineers are the primary owners of this element of the MLOps v2 lifecycle. The Azure data platforms in this diagram aren't exhaustive or prescriptive. A green check mark indicates the data sources and targets that represent recommended best practices based on the customer use case.
 
 1. Administration and setup
 
-   This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to creation and management of resources and roles associated with the project. These can include the following tasks, and perhaps others:
+   This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. These tasks can include the following tasks and others:
    1. Creation of project source code repositories
    1. Creation of Machine Learning workspaces by using Bicep or Terraform
    1. Creation or modification of datasets and compute resources that are used for model development and deployment
    1. Definition of project team users, their roles, and access controls to other resources
-   1. Creation of CI/CD pipelines
+   1. Creation of continuous integration and continuous delivery CI/CD pipelines
    1. Creation of monitors for collection and notification of model and infrastructure metrics
 
-   The primary persona associated with this phase is the infrastructure team, but there can also be data engineers, machine learning engineers, and data scientists.
+   The primary persona associated with this phase is the infrastructure team, but data engineers, machine learning engineers, and data scientists can also be used.
 
 1. Model development (inner loop)
 
-   The inner loop element consists of your iterative data science workflow that acts within a dedicated, secure Machine Learning workspace. A typical workflow is illustrated in the diagram. It proceeds from data ingestion, exploratory data analysis, experimentation, model development and evaluation, to registration of a candidate model for production. This modular element as implemented in the MLOps v2 accelerator is agnostic and adaptable to the process your data science team uses to develop models.
+   The inner loop element consists of your iterative data science workflow that acts within a dedicated, secure Machine Learning workspace. A typical workflow is illustrated in the diagram. It proceeds from data ingestion, exploratory data analysis (EDA), experimentation, model development and evaluation, to registration of a candidate model for production. This modular element as implemented in the MLOps v2 accelerator is agnostic and adaptable to the process your data science team uses to develop models.
 
    Personas associated with this phase include data scientists and machine learning engineers.
 
 1. Machine Learning registries
 
-   After the data science team develops a model that's a candidate for deploying to production, the model can be registered in the Machine Learning workspace registry. CI pipelines that are triggered, either automatically by model registration or by gated human-in-the-loop approval, promote the model and any other model dependencies to the model deployment phase.
+   After the data science team develops a model that's a candidate for deploying to production, you can register the model in the Machine Learning workspace registry. CI pipelines that are triggered, either automatically by model registration or by gated human-in-the-loop approval, promote the model and any other model dependencies to the model deployment phase.
 
    Personas associated with this stage are typically machine learning engineers.
 
@@ -137,7 +137,7 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 1. Production deployment
 
-   After a model passes the staging and test phase, it can be promoted to production by using a human-in-the-loop gated approval. Model deployment options include a managed batch endpoint for batch scenarios or, for online, near-real-time scenarios, either a managed online endpoint or Kubernetes deployment by using Azure Arc. Production typically takes place in one or more dedicated, secure Machine Learning workspaces.
+   After a model passes the staging and test phase, you can use a human-in-the-loop gated approval to promote it to production. Model deployment options include a managed batch endpoint for batch scenarios or, for online, near-real-time scenarios, either a managed online endpoint or Kubernetes deployment by using Azure Arc. Production typically takes place in one or more dedicated, secure Machine Learning workspaces.
 
 1. Monitoring
 
@@ -145,7 +145,7 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 1. Data and model monitoring: events and actions
 
-   Based on criteria for model and data matters of concern such as metric thresholds or schedules, automated triggers and notifications can implement appropriate actions to take. This can be regularly scheduled automated retraining of the model on newer production data and a loopback to staging and test for preproduction evaluation. Or, it can be due to triggers on model or data issues that require a loopback to the model development phase where data scientists can investigate and potentially develop a new model.
+   Based on the criteria for model and data matters of concern, such as metric thresholds or schedules, automated triggers and notifications can implement appropriate actions to take. This can be regularly scheduled automated retraining of the model on newer production data and a loopback to staging and test for preproduction evaluation. Or, it can be due to triggers on model or data issues that require a loopback to the model development phase where data scientists can investigate and potentially develop a new model.
 
 1. Infrastructure monitoring: events and actions
 
@@ -159,7 +159,7 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 #### Workflow for the CV architecture
 
-The Machine Learning CV architecture is based on the classical machine learning architecture, but it has modifications that are particular to supervised CV scenarios.
+The Machine Learning CV architecture is based on the classical machine learning architecture, but it has modifications that are specific to supervised CV scenarios.
 
 1. Data estate
 
@@ -167,7 +167,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Administration and setup
 
-   This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to creation and management of resources and roles associated with the project. For CV scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an additional step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
+   This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to creation and management of resources and roles associated with the project. For CV scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
 
 1. Model development (inner loop)
 
@@ -175,7 +175,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Machine Learning registries
 
-   After the data science team develops a model that's a candidate for deploying to production, the model can be registered in the Machine Learning workspace registry. CI pipelines that are triggered automatically by model registration or by gated human-in-the-loop approval promote the model and any other model dependencies to the model deployment phase.
+   After the data science team develops a model that's a candidate for deploying to production, you can register the model in the Machine Learning workspace registry. CI pipelines that are triggered automatically by model registration or by gated human-in-the-loop approval promote the model and any other model dependencies to the model deployment phase.
 
 1. Model deployment (outer loop)
 
@@ -209,7 +209,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 #### Workflow for the NLP architecture
 
-The Machine Learning NLP architecture is based on the classical machine learning architecture, but it has some modifications that are particular to NLP scenarios.
+The Machine Learning NLP architecture is based on the classical machine learning architecture, but it has some modifications that are specific to NLP scenarios.
 
 1. Data estate
 
@@ -231,7 +231,7 @@ The Machine Learning NLP architecture is based on the classical machine learning
    The staging and test phase can vary with customer practices, but typically includes operations such as retraining and testing of the model candidate on production data, test deployments for endpoint performance, data quality checks, unit testing, and responsible AI checks for model and data bias. This phase takes place in one or more dedicated, secure Machine Learning workspaces.
 1. Production deployment
 
-   After a model passes the staging and test phase, it can be promoted to production by a human-in-the-loop gated approval. Model deployment options include a managed batch endpoint for batch scenarios or, for online, near-real-time scenarios, either a managed online endpoint or Kubernetes deployment by using Azure Arc. Production typically takes place in one or more dedicated, secure Machine Learning workspaces.
+   After a model passes the staging and test phase, a human-in-the-loop gated approval can promote it to production. Model deployment options include a managed batch endpoint for batch scenarios or, for online, near-real-time scenarios, either a managed online endpoint or Kubernetes deployment by using Azure Arc. Production typically takes place in one or more dedicated, secure Machine Learning workspaces.
 1. Monitoring
 
    Monitoring in staging, test, and production makes it possible for you to collect and act on changes in performance of the model, data, and infrastructure. Model and data monitoring can include checking for model and data drift, model performance on new text data, and responsible AI issues. Infrastructure monitoring can watch for issues such as slow endpoint response, inadequate compute capacity, and network problems.
@@ -262,109 +262,109 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 ## Other considerations
 
-Underpinning the above MLOPs V2 architectural pattern are several critical considerations. These include role-based access control aligned to business stakeholders, efficient package management, and robust monitoring mechanisms. These elements collectively contribute to the successful implementation and management of machine learning workflows.
+The previous MLOPs (v2) architectural pattern is comprised of several critical components, including role-based access control (RBAC) aligned to business stakeholders, efficient package management, and robust monitoring mechanisms. These components collectively contribute to the successful implementation and management of machine learning workflows.
 
 ### Persona-based RBAC
 
-Managing access to machine learning data and resources is crucial. Role-based access control (RBAC) provides a robust framework for controlling who can perform specific actions and access particular areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas involved in the process. Each persona has a specific set of responsibilities that should be reflected in their RBAC roles and group membership.
+It's crucial that you manage access to machine learning data and resources. Role-based access control provides a robust framework to help you manage who can perform certain actions and access specific areas within your solution. Design your identity segmentation strategy to align with the lifecycle of machine learning models in Azure Machine Learning and the personas included in the process. Each persona has a specific set of responsibilities that are reflected in their RBAC roles and group membership.
 
 #### Example personas
 
 To support appropriate segmentation, consider the following common personas in a machine learning workload that informs the [identity-based RBAC](#identity-rbac) group design.
 
-##### Data scientist/ML engineer
+##### Data scientist and ML engineer
 
-The people doing the various machine learning and data science activities across the SDLC lifecycle for a project. Their duties involve data exploration (EDA) and data preprocessing. They also drive model training, evaluation, and deployment. This role's responsibilities also include break-fix activities for the machine learning models, packages, and data, which sit outside of platform technical support expertise.
+Data scientists and ML engineers perform various machine learning and data science activities across the software development lifecycle (SDLC) of a project. Their duties include EDA and data preprocessing. Data scientists and ML engineers are responsible for training, evaluating, and deploying models. This role's responsibilities also include break-fix activities for machine learning models, packages, and data. These duties are out of scope for the platform’s technical support team.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Data analyst
 
-The people doing the data analysis required as an input to data science activities, such as running SQL queries for business intelligence. This role involves working with data, performing analysis, and supporting model development and deployment activities.
+Data analysts provide the necessary input for data science activities, such as running SQL queries for business intelligence. This role includes working with data, performing data analysis, and supporting model development and model deployment activities.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Model tester
 
-The people performing testing in test and staging environments. This role provides functional segregation from the CI/CD processes.
+Model testers conduct tests in testing and staging environments. This role provides functional segregation from the CI/CD processes.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Business stakeholders
 
-Business stakeholders attached to the project, for example a marketing manager.
+Business stakeholders are attached to the project, such as a marketing manager.
 
 **Type:** Person<br/>
 **Project specific:** Yes<br/>
 
-##### Project lead (Data science lead)
+##### Project lead or data science lead
 
-The data science lead in a project administration role for the Azure Machine Learning workspace. This role would also have break-fix responsibility for the machine learning models and packages used.
+The data science lead is a project administration role for the Azure Machine Learning workspace. This role also has break-fix responsibility for the machine learning models and packages that are used.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
-##### Project/product owner (Business owner)
+##### Project or product owner (Business owner)
 
-The business stakeholders responsible for the Azure Machine Learning workspace based upon data ownership. 
+Business stakeholders are responsible for the Azure Machine Learning workspace according to data ownership.
 
 **Type:** Person<br/>
 **Project specific:** Yes
 
 ##### Platform technical support
 
-The technical support staff responsible for break-fix activities across the platform. This role would cover infrastructure or service but not the machine learning models, packages, or data. These elements remain under the Data scientist/ML engineer role or Project lead's responsibility.
+Platform technical support are the technical support staff responsible for break-fix activities across the platform. This role covers infrastructure or service but not the machine learning models, packages, or data. These components remain under the Data scientist or ML engineer role, and are the Project lead's responsibility.
 
 **Type:** Person<br/>
 **Project specific:** No
 
 ##### Model end user
 
-The end consumers of the machine learning model.
+Model end users are the end consumers of the machine learning model.
 
 **Type:** Person or Process<br/>
 **Project specific:** Yes
 
 ##### CI/CD processes
 
-The compute processes that releases/rolls back change across the platform environments.
+CI/CD processes release or roll back changes across platform environments.
 
 **Type:** Process<br/>
 **Project specific:** No
 
 ##### Azure Machine Learning workspace
 
-The [managed identities](/azure/machine-learning/how-to-setup-authentication) used by an Azure Machine Learning workspace to interact with other parts of Azure. This persona represents the various services that make up an Azure Machine Learning implementation, which interact with other parts of the platform, such as, the development workspace connecting with the development data store.
+Azure Machine Learning workspaces use [managed identities](/azure/machine-learning/how-to-setup-authentication) to interact with other parts of Azure. This persona represents the various services that make up an Azure Machine Learning implementation. These services interact with other parts of the platform, such as the development workspace that connects with the development data store.
 
 **Type:** Process<br/>
 **Project specific:** No
 
 ##### Monitoring processes
 
-The compute processes that monitor and alert based upon platform activities.
+Monitoring processes are compute processes that monitor and alert based on platform activities.
 
 **Type:** Process<br/>
 **Project specific:** No
 
 ##### Data governance processes
 
-The compute process that scans the machine learning project and datastores for data governance.
+Data governance processes are compute process that scan the machine learning project and datastores for data governance.
 
 **Type:** Process<br/>
 **Project specific:** No
 
 #### Entra group membership
 
-When implementing role-based access control (RBAC) [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across the different personas. Microsoft Entra groups are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
+When implementing role-based access control (RBAC), [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) provide a flexible and scalable way to manage access permissions across the different personas. You can use Microsoft Entra groups to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group.
 
-In this architectural pattern, these groups can be coupled with the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. By associating users with groups defined as described, administrators can define fine-grained access policies, granting or restricting permissions based on job functions, project requirements, or other criteria, to different Azure Machine Learning workspaces. For example, having a group that grants all data scientists access to a development workspace for a certain use-case.
+In this architectural pattern, you can couple these groups with the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup). This setup can be a project, team, or department. By associating users with defined groups, administrators can define fine-grained access policies. You can use fine-grained access policies to grant or restrict permissions based on job functions, project requirements, or other criteria, to different Azure Machine Learning workspaces. For example, you can have a group that grants all data scientists access to a development workspace for a specific use-case.
 
 #### Identity RBAC
 
-Using the previously described personas, here are examples of how RBAC can be applied to production (staging / test / production environments based on the [current architectures](#current-architectures) section) and preproduction (development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:
+Using the previously described personas, here are examples of how you can apply RBAC to production (staging / test / production environments based on the [current architectures](#current-architectures) section) and preproduction (development based on the [current architectures](#current-architectures) section) environments using the following built-in Azure RBAC roles:
 
 #### Standard roles
 
@@ -438,17 +438,17 @@ Using the previously described personas, here are examples of how RBAC can be ap
 > [!NOTE]
 > All personas have an access period for the life of the project except for the Platform technical support which have temporary, [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure), or just-in-time access.
 
-A persona-based RBAC approach should use [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) to streamline access control. [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
+A persona-based RBAC approach should use [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) to streamline access control. You can use [Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups) to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. By creating groups for each persona, you can assign the above RBAC roles that grant specific permissions based on their job function. This ensures efficient and secure access management within your MLOps environment.
 
-RBAC plays a vital role in securing and streamlining MLOps workflows. By restricting access based on assigned roles, it mitigates security risks by preventing unauthorized users from accessing sensitive data (training data, models) and critical infrastructure (production pipelines). This safeguards against unauthorized activity and ensures compliance with data privacy regulation. It also simplifies auditing by providing a clear record of access and permissions thereby making it easier to identify security gaps and track user activity.
+RBAC plays a vital role in securing and streamlining MLOps workflows. By restricting access based on assigned roles, it mitigates security risks by preventing unauthorized users from accessing sensitive data (training data, models) and critical infrastructure (production pipelines). This safeguards against unauthorized activity and ensures compliance with data privacy regulation. It also simplifies auditing by providing a clear record of access and permissions, thereby making it easier to identify security gaps and track user activity.
 
 ### Package management
 
-Throughout the MLOps lifecycle, dependencies on various packages, libraries, and binaries are common. These dependencies, often community-developed and rapidly evolving, necessitate SME knowledge for proper use and understanding. The challenge lies in securely accessing diverse assets—such as packages and libraries—while avoiding vulnerabilities. Data scientists encounter this issue when assembling specialized building blocks for machine learning solutions. Traditional software management approaches can be costly and inefficient, that act as a bottleneck on the delivery of value.
+Throughout the MLOps lifecycle, dependencies on various packages, libraries, and binaries are common. These dependencies, often community-developed and rapidly evolving, necessitate SME knowledge for proper use and understanding. The challenge lies in securely accessing diverse assets—such as packages and libraries—while avoiding vulnerabilities. Data scientists encounter this issue when assembling specialized building blocks for machine learning solutions. Traditional software management approaches can be costly and inefficient, which acts as a bottleneck on the delivery of value.
 
 A suggested approach for managing these dependencies is to use a secure, self-serve, package management process based on the [Quarantine pattern](../../patterns/quarantine.yml). This process should be designed to allow data scientists to self-serve from a curated list of packages, while ensuring that the packages are secure and compliant with organizational standards.
 
-This approach involves safe-listing three industry standard machine learning package repositories (Microsoft Artifact Registry, PyPI, and Conda), allowing self-serve from individual Azure Machine Learning workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
+This approach includes safe-listing three industry standard machine learning package repositories (Microsoft Artifact Registry, PyPI, and Conda), allowing self-serve from individual Azure Machine Learning workspaces. Then, use an automated testing process during the deployment to scan the resulting solution containers. Failures would elegantly exit the deployment process and remove the container. The below diagram and process flow illustrates this process:
 
 :::image type="content" source="_images/secure-aml-package.png" lightbox="_images/secure-aml-package.png" alt-text="Diagram that shows the secure Azure Machine Learning Package approach." border="false":::
 
@@ -456,19 +456,19 @@ This approach involves safe-listing three industry standard machine learning pac
 
 1. Data scientists working within a specific Azure Machine Learning workspace with [network configuration](/azure/machine-learning/how-to-access-azureml-behind-firewall#recommended-configuration-for-training-and-deploying-models) applied, can self-serve machine learning packages on-demand from the machine learning package repositories. An exception process is required for everything else, using the [private storage](/azure/machine-learning/how-to-use-private-python-packages#use-a-repository-of-packages-from-private-storage) pattern, seeded/maintained via a centralized function.
 
-1. Azure Machine Learning delivers machine learning solutions as docker containers. As these solutions are developed, they're uploaded to the Azure Container Registry (ACR). [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) can be used to generate vulnerability assessments for your container image.
+1. Azure Machine Learning delivers machine learning solutions as docker containers. As these solutions are developed, they're uploaded to the Azure Container Registry (ACR). You can use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to generate vulnerability assessments for your container image.
 
-1. Solution deployment occurs via a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
+1. Solution deployment occurs through a CI/CD process. [Defender for DevOps](/azure/defender-for-cloud/defender-for-devops-introduction) is used across the stack to provide security posture management and threat protection.
 
 1. Only if the solution container passes each of the security processes will it be deployed. Failure results in the deployment elegantly exiting with error notifications, full audit trails and the solution container being discarded
 
-The above process flow provides a secure, self-serve, package management process for data scientists, while ensuring that the packages are secure and compliant with organizational standards. By providing data scientists self-service access to most machine learning packages, libraries, and binaries in preproduction environments, while requiring an exception for less common packages, organizations can balance innovation and security requirements. This ensures data scientists can remain productive during development, reducing a major bottleneck during delivery. By containerizing environments for use in production environments, organizations can streamline their release processes, reducing toil while ensuring continued security via vulnerability scanning. Overall, this provides a repeatable approach that can be used across use cases to time of delivery, reducing the overall cost to build and deploy machine learning solutions within an enterprise.  
+The above process flow provides a secure, self-serve, package management process for data scientists, while ensuring that the packages are secure and compliant with organizational standards. By providing data scientists self-service access to most machine learning packages, libraries, and binaries in preproduction environments, while requiring an exception for less common packages, organizations can balance innovation and security requirements. This ensures data scientists can remain productive during development, reducing a major bottleneck during delivery. By containerizing environments for use in production environments, organizations can streamline their release processes, reducing toil while ensuring continued security via vulnerability scanning. This provides a repeatable approach that you can use across use cases to time of delivery, reducing the overall cost to build and deploy machine learning solutions within an enterprise.  
 
 ### Monitoring
 
 Monitoring in MLOps is crucial for maintaining the health and performance of machine learning systems, ensuring that models remain effective and aligned with business goals. During the inner loop (see [current architectures](#current-architectures) section) it supports governance, security, and cost controls, in addition to providing observability into the performance, model degradation, and usage when deploying solutions during the outer loop (see [current architectures](#current-architectures) section). Monitoring activities are relevant for personas such as Data Scientists, Business Stakeholders, Project Leads, Project Owners, Platform Technical Support, CI/CD processes, and Monitoring Processes.
 
-The suggested MVP monitoring could be scoped around the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which could be a project, team, or department. For the [current architectures](#current-architectures) in MLOps V2 is:
+The suggested MVP monitoring can be scoped around the [Azure Machine Learning workspace setup](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization#team-structure-and-workspace-setup) which can be a project, team, or department. For the [current architectures](#current-architectures) in MLOps V2 is:
 
 #### Model performance
 
@@ -507,18 +507,18 @@ Count of the client requests to the model endpoint. This helps a workload unders
 **Azure facilitation:** Azure Monitor - [Online endpoints metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), for example RequestsPerMinute.<br/>
 **Notes:**
 
-- Acceptable thresholds could be aligned to t-shirt sizing or anomalies tailored to the workload's need.
+- Acceptable thresholds can be aligned to t-shirt sizing or anomalies tailored to the workload's need.
 - When a model is no longer being used, it should be retired from production.
 
 ##### Throttling delays
 
-[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. Throttling happens at two levels - the Azure Resource Manager and the service - therefore it's important to track metrics at both levels.
+[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. Throttling happens at the Azure Resource Manager level and the service level, so it's important to track metrics at both levels.
 
 **Environment:** Production<br/>
 **Azure facilitation:**
 
 - Azure Monitor - [Azure Resource Manager](/azure/azure-monitor/reference/supported-metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics), Sum of RequestThrottlingDelayMs, ResponseThrottlingDelayMs
-- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your endpoints' requests. Logs can be processed using a Log Analytics workspace.
+- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your endpoints' requests. You can use a Log Analytics workspace to process logs.
 
 **Notes:** Acceptable thresholds should be aligned to the workload's Service Level Object (or Service Level Agreement) and the solution's nonfunctional requirements (NFRs).
 
@@ -527,7 +527,7 @@ Count of the client requests to the model endpoint. This helps a workload unders
 Track response code errors to assist are measuring service reliability and ensure early detection of service issues. For example, a sudden increase in 500 (server error) responses could indicate a critical issue that needs immediate attention.
 
 **Environment:** Production<br/>
-**Azure facilitation:** Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, count of XRequestId by ModelStatusCode or count of XRequestId by ModelStatusCode and ModelStatusReason. Logs can be processed using a Log Analytics workspace.<br/>
+**Azure facilitation:** Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, count of XRequestId by ModelStatusCode or count of XRequestId by ModelStatusCode and ModelStatusReason. You can use a Log Analytics workspace to process logs.<br/>
 **Notes:**
 
 - All HTTP responses codes in the 400 & 500 range would be classified as an error.
@@ -565,7 +565,7 @@ When an Azure Machine Learning workspace no longer appears to have active use as
 
 #### Security
 
-Monitor to detect deviations from appropriate security controls and baselines to ensure Azure Machine Learning workspaces are compliant with your organization's security policies. A combination of predefined and custom defined policies can be used.
+Monitor to detect deviations from appropriate security controls and baselines to ensure Azure Machine Learning workspaces are compliant with your organization's security policies. You can use a combination of predefined and custom defined policies.
 
 **Environment:** All<br/>
 **Azure facilitation:** [Azure Policy for Azure Machine Learning](/azure/machine-learning/how-to-integrate-azure-policy#policies-for-azure-machine-learning).
@@ -576,7 +576,7 @@ Implement targeted security monitoring of all Azure Machine Learning endpoints t
 
 **Environment:** Production<br/>
 **Azure facilitation:** [Defender For APIs](/azure/defender-for-cloud/defender-for-apis-introduction) offers broad lifecycle protection, detection, and response coverage for APIs.<br/>
-**Notes:** Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. This requires integrating Azure Machine Learning online endpoints with API Management.
+**Notes:** Defender for APIs currently provides security for APIs that are published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal. This requires integrating Azure Machine Learning online endpoints with API Management.
 
 #### Deployment monitoring
 
@@ -611,7 +611,7 @@ Monitoring the ongoing service of an API is crucial for performance optimization
 **Azure facilitation:**
 
 - Azure Monitor - [Azure Machine Learning metrics](/azure/azure-monitor/essentials/monitor-azure-resource)
-- Azure Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your service.
+- Azure Machine Learning - You can enable [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) to check information about your service.
 
 ## Contributors
 
@@ -652,5 +652,5 @@ Other contributors:
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
+- [Machine learning operations framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)
