@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
 ms.author: dascottr
-ms.date: 11/01/2023
+ms.date: 06/25/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -54,7 +54,7 @@ When you design an identity system for your multitenant solution, you need to co
 
 - **Local identity provider.** A local identity provider allows users to sign themselves up to the service. Users provide a username, an email address, or an identifier, such as a rewards card number. They also provide a credential, like a password. The IdP stores both the user identifier and the credentials.
 - **Social identity provider.** A social identity provider allows users to use an identity that they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
-- **Use the tenant's Microsoft Entra ID directory.** Tenants might already have their own Microsoft Entra ID directory, and they might want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Microsoft Entra application](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
+- **Use the tenant's Microsoft Entra ID directory.** Tenants might already have their own Microsoft Entra ID directory, and they might want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Microsoft Entra application](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 - **Federation with a tenant's identity provider.** Tenants might have their own IdP, other than Microsoft Entra ID, and they might want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and it enables tenants to manage the lifecycle and security policies of their users, independently of your solution.
 
 You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities, and federated identities, all within a single tenant. This requirement is common when companies use a solution that's both for their own employees and for contractors. They might use federation for their own employees' access to the solution, while also allowing access to contractors or to guest users, who don't have an account in the federated IdP.
@@ -121,7 +121,7 @@ When users are allowed to sign themselves up for an identity, there usually need
 
 ## Automated account lifecycle management
 
-A common requirement for corporate or enterprise customers of a solution is a set of features that allows them to automate account onboarding and off-boarding. Open protocols, such as [System for Cross-domain Identity Management (SCIM)](/azure/active-directory/fundamentals/sync-scim), provide an industry-standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. Consider the following questions when you implement automated account lifecycle management in a multitenant solution:
+A common requirement for corporate or enterprise customers of a solution is a set of features that allows them to automate account onboarding and off-boarding. Open protocols, such as [System for Cross-domain Identity Management (SCIM)](/entra/architecture/sync-scim), provide an industry-standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. Consider the following questions when you implement automated account lifecycle management in a multitenant solution:
 
 - Do your customers need to configure and manage an automated lifecycle process per tenant? For example, when a user is onboarded, you might need to create the identity within multiple tenants in your application, where each tenant has a different set of permissions.
 - Do you need to implement SCIM, or can you provide tenants federation instead, to keep the source of truth for users under the control of the tenant, instead of managing local users?
@@ -138,7 +138,7 @@ When a user signs into a multitenant application, your identity system authentic
 
 ## Workload identities
 
-In most solutions, an identity often represents a user. Some multitenant systems also allow [*workload identities*](/azure/active-directory/develop/workload-identities-overview) to be used by *services* and *applications*, to gain access to your application resources. For example, your tenants might need to access an API that's provided by your solution, so that they can automate some of their management tasks.
+In most solutions, an identity often represents a user. Some multitenant systems also allow [*workload identities*](/entra/workload-id/workload-identities-overview) to be used by *services* and *applications*, to gain access to your application resources. For example, your tenants might need to access an API that's provided by your solution, so that they can automate some of their management tasks.
 
 Workload identities are similar to user identities, but usually they require different authentication methods, such as keys or certificates. Workload identities don't use MFA. Instead, workload identities usually require other security controls, such as regular key-rolling and certificate expiration.
 
