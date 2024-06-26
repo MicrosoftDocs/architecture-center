@@ -122,6 +122,11 @@ Once deployed with the ability to observe multiple namespaces, AGIC will do the 
 - Compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
 - Apply the config to the associated Application Gateway via [ARM](/azure/azure-resource-manager/management/overview)
 
+> [!IMPORTANT]
+> You should not change the settings of Application Gateway directly. Every configuration change on Application Gateway should be performed from Ingress Controller side. 
+> 
+> After an Application Gateway is being linked to Application Gateway Ingress Controller (AGIC), all configuration will be synced and controlled by Ingress Controller. If you are trying to manually configure Application Gateway directly, it will be overwritten by Ingress Controller later. If there is a need to change settings on Application Gateway, you should change the relative settings, like annotations, from Application Ingress Ingress Controller.
+
 ## Scenario details
 
 A multitenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants". This definition includes Kubernetes clusters that are shared by different teams or divisions within an organization. It also includes clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other. This isolation minimizes the damage that a compromised or malicious tenant can do to the cluster and to other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
