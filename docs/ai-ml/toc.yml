@@ -176,7 +176,7 @@ items:
           href: guide/azure-openai-gateway-guide.yml
         - name: A gateway for multiple Azure OpenAI backends
           href: guide/azure-openai-gateway-multi-backend.yml
-        - name: Custom authentication for a gateway infront of Azure OpenAI
+        - name: Custom authentication for a gateway in front of Azure OpenAI
           href: guide/azure-openai-gateway-custom-authentication.yml
       - name: Team Data Science Process
         items:
