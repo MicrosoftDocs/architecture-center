@@ -1,6 +1,6 @@
 This article shows you how to implement the Modern Web App pattern. The Modern Web App pattern defines how you should modernize web apps in the cloud and introduce a service-oriented architecture. The Modern Web App pattern provides prescriptive architecture, code, and configuration guidance that aligns with the principles of the [Well-Architected Framework](/azure/well-architected/) (WAF) and builds on the [Reliable Web App pattern](../../overview.md#reliable-web-app-pattern).
 
-*Why use the Modern Web App pattern?* The Modern Web App pattern helps optimize high-demand areas of your web application. It offers detailed guidance to decouple these areas, enabling independent scaling for cost optimization. This approach allows you to allocate dedicated resources to critical components, enhancing overall performance.
+*Why use the Modern Web App pattern?* The Modern Web App pattern helps optimize high-demand areas of your web application. It offers detailed guidance to decouple these areas, enabling independent scaling for cost optimization. This approach allows you to allocate dedicated resources to critical components, enhancing overall performance. Decoupling separable services can improve reliability by preventing slowdowns in one part of the app from affecting others and enable versioning individual app components independently.
 
 *How to implement the Modern Web App pattern:* This article contains architecture, code, and configuration guidance to implement the Modern Web App pattern. Use the following links to navigate to the guidance you need:
 
@@ -56,19 +56,25 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 Update your web app code with the prescribed design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
+|Design pattern|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
+|---|---|---|---|---|---|
+| [Strangler Fig pattern](#implement-the-strangler-fig-pattern) |✔| |✔|✔| |
+| [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) |✔| |✔| |✔|
+| [Competing Consumers pattern](#implement-the-competing-consumers-pattern) |✔ | |✔ | | ✔|
+| [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) |✔| | |✔ |✔ |
+| [Retry pattern](#implement-the-retry-pattern) |✔| | | | |
+
+The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app.
+
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg)
 *Figure 2. The role of the design patterns in the web app architecture.*
 
-The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern alllows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
+To update your code with the design patterns, follow this guidance:
 
 ### Implement the Strangler Fig pattern
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))*
-    :::column-end:::
-:::row-end:::
----
+|*Well-Architected Framework alignment - Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))*|
+| --- |
 
 Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
 
@@ -78,16 +84,16 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 - *Unify the API surface area.* If your application exposes an API to callers, consider using a management platform like [Azure API Management](/azure/api-management/api-management-key-concepts). It can help unify the surface area of multiple, extracted services, making it easier for clients to consume your services.
 
-- *Manage feature rollout.* If you want an extracted service to be rolled out gradually, use ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). ASP.NET Core feature management allows you to use the new service for only a portion of requests initially, and then increase its usage over time as you gain confidence in its stability and performance. For example, the reference implementation extracts the ticket rendering functionality from a web API into a standalone service, which can be toggled via a feature flag. The extracted service was updated to run in a Linux container and shows how services can be upgraded during extraction.
+- *Manage feature rollout.* Gradually roll out a decoupled service using ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). Start with a portion of requests, then increase usage over time as you gain confidence in its stability and performance. For instance, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
+
+- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to ease versioning and deployment. For example, the reference implementation separates the ticket rendering service from the web API, eliminating the need for the service to access the API’s database. Instead, the service communicates the URL where ticket images were generated back to the web API via a Service Bus message, and the API persists the path to its database.
+
+- *Implement separate deployment pipelines for each decoupled service.* Separate deployment pipelines allows each service to be updated at its own pace. If different teams or organizations within your company own different services, having separate deployment pipelines gives each team control over their own deployments. Use CI/CD tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
 
 ### Implement the Queue-Based Load Leveling pattern
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
-    :::column-end:::
-:::row-end:::
----
+|*Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*|
+|---|
 
 Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to implement asynchronous processing to handle tasks that don't need immediate responses. It improves overall system responsiveness and scalability. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
 
@@ -118,22 +124,26 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     });
     ```
 
+- *Manage changes to the experience.* Asynchronous processing can lead to tasks not being immediately completed. This change in user experience is important to manage. Users should be made aware when their task is still being processed to set correct expectations and avoid confusion. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is done. This could be an email, a push notification, or any other method that fits your application.
+
 ### Implement the Competing Consumers pattern
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*
-    :::column-end:::
-:::row-end:::
----
+|*Well-Architected Framework alignment - Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*|
+| ---  |
 
-Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) to distribute incoming tasks across multiple instances of your decoupled services to process messages from the queue. This allows for load balancing and increases the system's ability to handle concurrent requests. Set up autoscaling policies for the decoupled services to dynamically adjust the number of instances based on the workload. This pattern is suitable when the order of messages isn't critical, malformed messages don't disrupt the queue, and processing is idempotent. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times. To implement the Competing Consumers pattern, follow these recommendations:
+Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) tto efficiently manage incoming tasks. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is particularly effective when:
+
+- The sequence of message processing is not crucial.
+- The queue remains unaffected by malformed messages.
+- The processing operation is idempotent, meaning it can be applied multiple times without changing the result beyond the initial application.
+
+In the reference implementation, for instance, the decoupled service regularly receives a high volume of work. While it needs to process this work swiftly, the order in which the tasks are completed is not significant. To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
 - *Disable prefetching.* Disable message prefetching of messages so consumers fetching messages only when they're ready.
 
-- *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retry messages that fail processing. This mode enhances reliability over deletion-first methods.
+- *Use reliable message processing modes.* Use a reliable processing mode, such as PeekLock (or its equivalent), that automatically retry messages that fail processing. This mode enhances reliability over deletion-first methods. If one worker fails to handle a message, another must be able to process it without errors, even if the message is processed multiple times.
 
 - *Implement error handling.* Route malformed or unprocessable messages to a separate, dead-letter queue. This design prevents repetitive processing. For example, you can catch exceptions during message processing and move the problematic message to the separate queue.
 
@@ -188,12 +198,8 @@ Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-con
 
 ### Implement the Health Endpoint Monitoring pattern
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
-    :::column-end:::
-:::row-end:::
----
+| *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)), Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*|
+| --- |
 
 Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) to track the health of application endpoints. Implement health endpoints for each decoupled service to ensure they function correctly. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
@@ -242,12 +248,8 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
 
 ### Implement the Retry Pattern
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))*
-    :::column-end:::
-:::row-end:::
----
+| *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))* |
+| --- |
 
 The [Retry pattern](/azure/architecture/patterns/retry) allows applications to recover from transient faults. The Retry pattern is central to the Reliable Web App pattern, so your web app should be using the Retry pattern already. Apply the Retry pattern to the messaging systems and decoupled services you extract from the web app. To implement the Retry pattern, follow these recommendations:
 
@@ -298,7 +300,6 @@ The following sections provide guidance on implementing the configuration update
         *Well-Architected Framework alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))*
     :::column-end:::
 :::row-end:::
----
 
 To configure authentication and authorization on any new Azure services (*workload identities*) you add to the web app, follow these recommendations:
 
@@ -360,7 +361,6 @@ To configure authentication and authorization on users (*user identities*), foll
         *Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
     :::column-end:::
 :::row-end:::
----
 
 The Modern Web App pattern begins breaking up the monolithic architecture and introduces service decoupling. When you decouple a web app architecture, you can scale decoupled services independently. Scaling the Azure services to support an independent web app service, rather than an entire web app, optimizes scaling costs while meeting demands. To autoscale containers, follow these recommendations:
 
@@ -407,7 +407,6 @@ scaleMinReplicas: 0
         *Well-Architected Framework alignment - Performance Efficiency ([PE:09](/azure/well-architected/performance-efficiency/prioritize-critical-flows#isolate-critical-flows), [PE:03](/azure/well-architected/performance-efficiency/select-services#evaluate-compute-requirements))*
     :::column-end:::
 :::row-end:::
----
 
 Containerization means that all dependencies for the app to function are encapsulated in a lightweight image that can be reliably deployed to a wide range of hosts. To containerize deployment, follow these recommendations:
 
