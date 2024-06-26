@@ -166,7 +166,6 @@ The following sections list other serverless and Azure Functions-related referen
 
 - [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)
 - [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
