@@ -155,6 +155,10 @@ Principal author:
 
 - [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer
 
+Other contributors:
+
+- [Paolo Salvatori](https://linkedin.com/in/paolo-salvatori/) | Principal Customer Engineer
+
 ## Next steps
 
 - For information about using AKS to deploy a cluster, see [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster][Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster].
