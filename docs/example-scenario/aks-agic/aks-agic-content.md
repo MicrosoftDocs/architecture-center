@@ -287,6 +287,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
   - [Istio traffic management](https://istio.io/latest/docs/concepts/traffic-management/)
   
 - Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry, by using its Microsoft Entra identity.
+- If there is a need to change settings on Application Gateway, make the change using the exposed configuration on the ingress controller or other Kubernetes objects, such as using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you are trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
 
 ### Monitoring considerations
 
