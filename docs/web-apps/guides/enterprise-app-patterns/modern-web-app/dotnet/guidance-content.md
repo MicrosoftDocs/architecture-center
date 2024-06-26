@@ -22,11 +22,11 @@ The Modern Web App pattern foundational architecture builds on the Reliable Web 
 
 The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
-- *Implement a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hub, and Azure Service Bus.
+- *Implement a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus.
 
   - *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
   
-  - *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with telemetry and event streams that require real-time processing.
+  - *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
   
   - *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
 
@@ -44,7 +44,7 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 - *Identify service boundaries* Apply domain driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Map the key business capabilities of your application. Services that represent distinct business functions are good candidates for decoupling. Examine the dependencies between different parts of your application. Services with fewer dependencies on other parts of the system are easier to decouple.
 
-- *Evaluate service impact.* Focus on services that benefit most from independent scaling. For example, a high-traffic service like order processing in an e-commerce application might require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these services allows for independent deployment and reduces the risk of affecting other parts of the application. Target services that are critical to performance since it can help optimize and manage performance more effectively.
+- *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, a high-traffic service like order processing in an e-commerce application might require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these services allows for independent deployment and reduces the risk of affecting other parts of the application. Target services that are critical to performance since it can help optimize and manage performance more effectively.
 
 - *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how data is managed and shared across services. Decoupled services should manage their own data and minimize direct database access across service boundaries. Ensure your existing infrastructure can support the decoupling process, including the necessary containerization and messaging systems.
 
@@ -86,9 +86,9 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 - *Manage feature rollout.* Gradually roll out a decoupled service using ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). Start with a portion of requests, then increase usage over time as you gain confidence in its stability and performance. For instance, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
 
-- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to ease versioning and deployment. For example, the reference implementation separates the ticket rendering service from the web API, eliminating the need for the service to access the API’s database. Instead, the service communicates the URL where ticket images were generated back to the web API via a Service Bus message, and the API persists the path to its database.
+- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to ease versioning and deployment. For example, the reference implementation separates the ticket rendering service from the web API and eliminates the need for the service to access the API’s database. Instead, the service communicates the URL where ticket images were generated back to the web API via a Service Bus message, and the API persists the path to its database.
 
-- *Implement separate deployment pipelines for each decoupled service.* Separate deployment pipelines allows each service to be updated at its own pace. If different teams or organizations within your company own different services, having separate deployment pipelines gives each team control over their own deployments. Use CI/CD tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
+- *Implement separate deployment pipelines for each decoupled service.* Separate deployment pipelines allow each service to be updated at its own pace. If different teams or organizations within your company own different services, having separate deployment pipelines gives each team control over their own deployments. Use CI/CD tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
 
 ### Implement the Queue-Based Load Leveling pattern
 
@@ -124,20 +124,20 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     });
     ```
 
-- *Manage changes to the experience.* Asynchronous processing can lead to tasks not being immediately completed. This change in user experience is important to manage. Users should be made aware when their task is still being processed to set correct expectations and avoid confusion. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is done. This could be an email, a push notification, or any other method that fits your application.
+- *Manage changes to the experience.* Asynchronous processing can lead to tasks not being immediately completed. This change in user experience is important to manage. Users should be made aware when their task is still being processed to set correct expectations and avoid confusion. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is done, such as an email or push notification.
 
 ### Implement the Competing Consumers pattern
 
 |*Well-Architected Framework alignment - Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*|
 | ---  |
 
-Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) tto efficiently manage incoming tasks. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is particularly effective when:
+Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) to efficiently manage incoming tasks. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
 
-- The sequence of message processing is not crucial.
+- The sequence of message processing isn't crucial.
 - The queue remains unaffected by malformed messages.
 - The processing operation is idempotent, meaning it can be applied multiple times without changing the result beyond the initial application.
 
-In the reference implementation, for instance, the decoupled service regularly receives a high volume of work. While it needs to process this work swiftly, the order in which the tasks are completed is not significant. To implement the Competing Consumers pattern, follow these recommendations:
+In the reference implementation, for instance, the decoupled service regularly receives a high volume of work. While it needs to process this work swiftly, the order in which the tasks are completed isn't significant. To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
@@ -151,7 +151,7 @@ In the reference implementation, for instance, the decoupled service regularly r
 
 - *Scale based on queue length.* Services consuming messages from a queue should autoscale based on queue length. Scale-based autoscaling allows for efficient processing of spikes of incoming messages.
 
-- *Use message-reply queue.* If the system requires notifications post-message processing, set up a dedicated reply or response queue. This divides operational messaging from notification processes.
+- *Use message-reply queue.* If the system requires notifications post-message processing, set up a dedicated reply or response queue. This setup divides operational messaging from notification processes.
 
 - *Use stateless services.* Consider using stateless services to process requests from a queue. It allows for easy scaling and efficient resource usage.
 
@@ -207,7 +207,7 @@ Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health
 
 - *Validate dependencies.* Ensure that your health checks validate the availability of key dependencies, such as the database, storage, and messaging system. The non-Microsoft package, [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), can implement health check dependency checks for many common app dependencies.
 
-    For example, the reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
+    For example, the reference implementation uses ASP.NET Core health check middleware to expose health check endpoints, using the `AddHealthChecks()` method on the `builder.Services` object. The code validates the availability of key dependencies, Azure Blob Storage, and Azure Service Bus Queue with the `AddAzureBlobStorage()` and `AddAzureServiceBusQueue()` methods, which are part of the `AspNetCore.Diagnostics.HealthChecks` package. Azure Container Apps allows configuration of [health probes](/azure/container-apps/health-probes) that are monitored to gauge whether apps are healthy or in need of recycling.
 
     ```C#
     // Add health checks, including health checks for Azure services that are used by this service.
@@ -307,7 +307,7 @@ To configure authentication and authorization on any new Azure services (*worklo
 
 - *Grant least privilege to each new service.* Assign only necessary permissions to each new service identity. For example, if an identity only needs to push to a container registry, don’t give it pull permissions. Review these permissions regularly and adjust as necessary. Use different identities for different roles, such as deployment and the application. This limits the potential damage if one identity is compromised.
 
-- *Adopt infrastructure as code (IaC).* Use Azure Bicep or similar IaC tools to define and manage your cloud resources. This ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
+- *Adopt infrastructure as code (IaC).* Use Azure Bicep or similar IaC tools to define and manage your cloud resources. IaC ensures consistent application of security configurations in your deployments and allows you to version control your infrastructure setup.
 
 The reference implementation uses IaC to assign managed identities to added services and specific roles to each identity. It defines roles and permissions access for deployment (`containerRegistryPushRoleId`), application owner (`containerRegistryPushRoleId`), and Azure Container Apps application (`containerRegistryPullRoleId`) (*see following code*).
 
@@ -414,17 +414,17 @@ Containerization means that all dependencies for the app to function are encapsu
 
 - *Create docker images.* When creating Docker images for your .NET services, use chiseled base images. These images contain only the minimal set of packages needed for .NET to run, which minimizes both the package size and the attack surface area.
 
-- *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. This helps to keep your production images small and secure.
+- *Use multi-stage Dockerfiles.* Implement multi-stage Dockerfiles to separate build-time assets from the runtime container image. It helps to keep your production images small and secure.
 
-- *Run as non-root user.* Run your .NET containers as a non-root user (via user name or UID, $APP_UID) to align with the principle of least privilege. It limits the potential impact of a compromised container.
+- *Run as nonroot user.* Run your .NET containers as a nonroot user (via user name or UID, $APP_UID) to align with the principle of least privilege. It limits the potential effects of a compromised container.
 
-- *Listen on port 8080.* When running as a non-root user, configure your application to listen on port 8080. It's a common convention for non-root users.
+- *Listen on port 8080.* When running as a nonroot user, configure your application to listen on port 8080. It's a common convention for nonroot users.
 
-- *Encapsulate dependencies.* Ensure that all dependencies for the app to function are encapsulated in the Docker container image. This allows the app to be reliably deployed to a wide range of hosts.
+- *Encapsulate dependencies.* Ensure that all dependencies for the app to function are encapsulated in the Docker container image. Encapsulation allows the app to be reliably deployed to a wide range of hosts.
 
-- *Choose the right base images.* The base image you choose depends on your deployment environment. If you’re deploying to Azure Container Apps, for instance, you’ll need to use Linux Docker images.
+- *Choose the right base images.* The base image you choose depends on your deployment environment. If you’re deploying to Azure Container Apps, for instance, you need to use Linux Docker images.
 
-For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a non-root user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included within the Docker image, as evidenced by the commands to copy project files and restore packages. The choice of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) for the runtime environment for deployment within Azure Container Apps, which requires Linux containers.
+For example, the reference implementation uses a [multi-stage](https://docs.docker.com/build/building/multi-stage/) build process. The initial stages compile and build the application using a full SDK image (`mcr.microsoft.com/dotnet/sdk:8.0-jammy`). The final runtime image is created from the `chiseled` base image, which excludes the SDK and build artifacts. The service runs as a nonroot user (`USER $APP_UID`) and exposes port 8080. The dependencies required for the application to operate are included within the Docker image, as evidenced by the commands to copy project files and restore packages. The choice of Linux-based images (`mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled`) for the runtime environment for deployment within Azure Container Apps, which requires Linux containers.
 
 ```dockerfile
 # Build in a separate stage to avoid copying the SDK into the final image
