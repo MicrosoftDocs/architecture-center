@@ -25,9 +25,10 @@ For information about these resources, see Azure product documentation listed in
 
 ## Potential use cases
 
-Typical use cases for this architecture pattern include the ability to run highly available (HA) workloads for retail, manufacturing or remote office scenarios that have  requirements such as:
+Typical use cases for using Azure Stack HCI architecture pattens include the ability to run highly available (HA) workloads in an on-premises or edge locations to provide a solution to address requirements such as:
 
-- Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
+- Provide a hybrid-cloud solution deployed on-premises to Data sovereignty, regulation & compliance and latency requirements
+- Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single or multiple locations, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - Lower the total cost of ownership (TCO) through use of Microsoft-certified solutions, cloud-based deployment, centralized management, monitoring and alerting.
 - Provide a centralized provisioning capability to deploy workloads across multiple locations consistently and securely using Azure and Azure Arc, such as using Azure portal, command-line-interface (cli) or infrastructure as code (IaC) templates to drive automation and repeatability using Kubernetes for containerization and/or traditional workload virtualization.
 - Requirement to adhere to strict security, compliance and audit requirements. Azure Stack HCI is deployed with a hardened security posture configured "by default" (_secure-by-default_), using technologies such as certified hardware, secure boot, trust platform module (TPM), virtualization-based security, credential guard and application control policies (WDAC) enforced, and the ability to integrate with modern cloud-based security & threat management services, such as Microsoft Defender for Cloud and Azure Sentinel.
@@ -46,6 +47,7 @@ Azure and Azure Arc integration extends the capabilities of Azure Stack HCI virt
 - [Azure Kubernetes Service (AKS) on HCI][arc-enabled-aks] for containerized applications or services that will benefit from using Kubernetes as their orchestration platform.
 - [Azure Virtual Desktop (AVD)][azs-hci-avd]. Deploy your session hosts for AVD workloads on Azure Stack HCI (_on-premises_), using the control and management plane in Azure to initiate the host pool creation and configuration.
 - [Azure Arc-enabled Data Services][arc-enabled-data-services] for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that use Arc-enabled AKS hosted on Azure Stack HCI.
+- [Azure Arc-enabled Event Grid extension for Kubernetes](/azure/event-grid/kubernetes/install-k8s-extension) can be used to deploy the [Event Grid broker and an Event Grid operator](/azure/event-grid/kubernetes/concepts#event-grid-on-kubernetes-components) components, enabling capabilities such as Event Grid topics and subscriptions for event processing.
 - [Azure Arc-enabled Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) using an Azure Kubernetes Service (AKS) cluster deployed on Azure Stack HCI, as the compute target to run Azure Machine Learning, providing capabilities to train or deploy ML models at the edge.
 
 Through Azure Arc connected workloads, the ability to use Azure Policy can provide additional Azure consistency and automation for workloads deployed on Azure Stack HCI, such as [automating Guest OS configuration using Azure Arc VM extensions][arc-vm-extensions] or evaluating [compliance against industry regulations or corporate standards using Azure Policy][arc-azure-policy], which can be enabled using Azure portal or IaC automation.
