@@ -132,7 +132,7 @@ The physical network topology shows the actual physical connections between node
   - Within the HCI cluster, nodes communicate directly with each other for storage replication traffic (_east/west traffic_).
   - This direct communication avoids the requirement to use additional switch ports and configuration for SMB-Direct (_RDMA_) traffic.
 
-[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
+[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-physical-network.png)](images/azure-stack-hci-baseline-physical-network.png#lightbox)
 
 #### Logical network topology
 
@@ -150,7 +150,7 @@ The logical network topology provides an overview for how the network data flows
   - The NetworkATC service is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network interface cards (_pNICs_) will be used for the different traffic types.
   - Intent-based policies define how the pNICs should behave, and which network traffic classes should be used on which pNICs, such as the "Storage", "Management" and "Compute" intents, which are associated with the correct pNICs as part of the Azure Stack HCI cloud deployment process.
 
-[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
+[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-logical-network.png)](images/azure-stack-hci-baseline-logical-network.png#lightbox)
 
 #### IP address requirements
 
