@@ -60,7 +60,7 @@ Common serverless architecture patterns include:
         IoT-connected backends in the manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and that triggers a message to the service department when a repair is required.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows IoT devices that produce requests for repair, which are sent to the IoT Hub, and are then routed for processing by using Zendesk.":::
+        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram that shows IOT devices that produce requests for repair, which are sent to the IOT Hub, and are then routed for processing by using Zendesk.":::
     :::column-end:::
 :::row-end:::
 
