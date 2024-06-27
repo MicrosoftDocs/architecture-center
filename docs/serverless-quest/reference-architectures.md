@@ -27,7 +27,7 @@ A reference architecture is a template of required components and the technical 
 
 Common serverless architecture patterns include:
 
-- Serverless APIs, mobile and web backends.
+- Serverless APIs, mobile backends, and web backends.
 - Event and stream processing, Internet of Things (IoT) data processing, big data, and machine learning pipelines.
 - Integration and enterprise service bus to connect line-of-business systems, publish and subscribe (Pub/Sub) to business events.
 - Automation and digital transformation and process automation.
@@ -140,7 +140,7 @@ Automating workflows and repetitive tasks on the cloud can dramatically improve 
 
 ### Multicloud with Serverless Framework
 
-The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
+The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
 
 ## More serverless Functions reference architectures
 
