@@ -147,7 +147,7 @@ Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-con
 - The queue remains unaffected by malformed messages.
 - The processing operation is idempotent, meaning it can be applied multiple times without changing the result beyond the initial application.
 
-In the reference implementation, for instance, the decoupled service regularly receives a high volume of work. While it needs to process this work swiftly, the order in which the tasks are completed isn't significant. To implement the Competing Consumers pattern, follow these recommendations:
+In the reference implementation, the decoupled service regularly receives a high volume of work. While it needs to process this work swiftly, the order in which the tasks are completed isn't significant. To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
