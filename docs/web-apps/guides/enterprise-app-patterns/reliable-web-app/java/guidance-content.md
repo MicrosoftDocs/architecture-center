@@ -163,31 +163,48 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 ### Configure monitoring
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes.
+[!INCLUDE [Monitoring](../includes/monitor.md)]
 
-    The reference implementation uses `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core) (*see the following code*).
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. Spring Boot registers several core metrics in Application Insights such as Java virtual machine (JVM), CPU, Tomcat, and others. Application Insights automatically collects from logging frameworks such as Log4j and Logback. For more information, see:
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-       ...
-       services.AddApplicationInsightsTelemetry(Configuration["App:Api:ApplicationInsights:ConnectionString"]);
-       ...
+- [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
+- [Configuration options - Azure Monitor Application Insights for Java - Azure Monitor](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
+- [Enable Azure Monitor OpenTelemetry for Java applications](https://learn.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+- [Using Azure Monitor Application Insights with Spring Boot](https://learn.microsoft.com/azure/azure-monitor/app/java-spring-boot).
+
+    For example, the reference implementation uses Application Insights enabled through Terraform as part of the App Service's `app_settings` configuration. (*see the following code*).
+
+    ```terraform
+    app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING = var.app_insights_connection_string
+        ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+        ...
     }
     ```
 
-- *Create custom application metrics.* Use code-based instrumentation for [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics). Add the Application Insights SDK to your code and use the Application Insights API.
+- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API.
 
-    The reference implementation gathers telemetry on events related to cart activity. `this.telemetryClient.TrackEvent` counts the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies a dictionary that has the `concertId` and `count` (*see the following code*).
+- *Monitor the platform.* Enable diagnostics for all supported services and send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics. The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the App Service.
 
-    ```csharp
-    this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
-        { "ConcertId", concertId.ToString() },
-        { "Count", count.ToString() }
-    });
+    ```terraform
+    # Configure Diagnostic Settings for App Service
+    resource "azurerm_monitor_diagnostic_setting" "app_service_diagnostic" {
+      name                           = "app-service-diagnostic-settings"
+      target_resource_id             = azurerm_linux_web_app.application.id
+      log_analytics_workspace_id     = var.log_analytics_workspace_id
+      #log_analytics_destination_type = "AzureDiagnostics"
+    
+      enabled_log {
+        category_group = "allLogs"
+    
+      }
+    
+      metric {
+        category = "AllMetrics"
+        enabled  = true
+      }
+    }
     ```
-
-- *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
 ## Deploy the reference implementation
 
