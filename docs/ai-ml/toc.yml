@@ -50,8 +50,8 @@ items:
           href: idea/video-ingestion-object-detection-edge-cloud.yml
       - name: Document enrichment
         items:
-        - name: AI enrichment with Azure AI Search
-          href: ../solution-ideas/articles/cognitive-search-with-skillsets.yml
+        - name: Use AI enrichment with Azure AI Search
+          href: ../solution-ideas/articles/ai-search-skillsets.yml
       - name: MLOps
         items:
         - name: Orchestrate MLOps with Azure Databricks
