@@ -69,12 +69,10 @@ Update your web app code with the Strangler Fig pattern, Queue-Based Load Leveli
 | [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) | Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)) <br>Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)) <br>Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition)) |
 | [Retry pattern](#implement-the-retry-pattern) |Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))|
 
-The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. 
+The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
 
-
-
-
-To update your code with the design patterns, follow this guidance:
+[![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg#lightbox)
+*Figure 3. The role of the design patterns in the web app architecture.*
 
 ### Implement the Strangler Fig pattern
 
