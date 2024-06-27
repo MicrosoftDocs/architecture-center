@@ -4,7 +4,7 @@ description: Use Azure services to build scalable, resilient, affordable, highly
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 06/21/2022
+ms.date: 06/27/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -14,8 +14,6 @@ azureCategories:
   - web
 products:
   - azure-cosmos-db
-  - azure-data-factory
-  - azure-data-lake-storage
   - azure-table-storage
   - azure-app-service
 ms.custom:
@@ -47,7 +45,7 @@ This example isn't atypical. Data grows both as you add customers, and as your c
 
 To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely accessed data in low-cost services, and frequently accessed data in higher-cost services with faster access times.
 
-The articles in the following table outline seven system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), and [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
+The articles in the following table outline three system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), and [Azure App Service](https://azure.microsoft.com/services/app-service).
 
 These examples can help you design a data storage system that accommodates your applications. The following capability matrix provides links to the articles, and summarizes the benefits and drawbacks of each architecture:
 

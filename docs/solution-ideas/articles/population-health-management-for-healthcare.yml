@@ -11,16 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-  ms.custom:
-    - acom-architecture
-    - artificial intelligence
-    - healthcare
-    - ai-ml
-    - solution architectures
-    - Azure
-    - ai gallery
-    - "https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare"
-    - ai-machine-learning
+  ms.custom: arb-healthcare
 name: Population health management for healthcare
 azureCategories:
   - ai-machine-learning

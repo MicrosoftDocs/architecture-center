@@ -3956,6 +3956,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/cognitive-search-with-skillsets.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/ai-search-skillsets",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "docs/data-science-process/move-azure-blob.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
