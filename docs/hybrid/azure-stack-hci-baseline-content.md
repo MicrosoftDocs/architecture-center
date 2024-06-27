@@ -1,6 +1,4 @@
-This baseline reference architecture illustrates how to design Azure Stack HCI 23H2 (_and later_) infrastructure to provide a platform to run highly available virtualized and containerized workloads.
-
-This architecture design provides workload agnostic guidance and recommendations for configuring Azure Stack HCI as a resilient platform to deploy and manage end user applications or business systems (_workload_). Resource components covered include cluster design choice decisions for the physical nodes that provide the local compute, storage and networking capabilities, in addition to information for how to use Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
+This architecture design provides workload agnostic guidance and recommendations for configuring Azure Stack HCI 23H2 (_and later_) infrastructure to provide a resilient platform to deploy and manage highly available virtualized and containerized workloads. Resource components covered include cluster design choice decisions for the physical nodes that provide the local compute, storage and networking capabilities, in addition to information for how to use Azure services to simplify and streamline the day-to-day management of Azure Stack HCI.
 
 For additional information on workload architectures patterns that are optimized to run on Azure Stack HCI, please review the content located under the "_Azure Stack HCI workloads_" navigation menu.
 
@@ -25,9 +23,9 @@ For information about these resources, see Azure product documentation listed in
 
 ## Potential use cases
 
-Typical use cases for using Azure Stack HCI architecture pattens include the ability to run highly available (HA) workloads in an on-premises or edge locations to provide a solution to address requirements such as:
+Typical use cases for using Azure Stack HCI include the ability to run highly available (HA) workloads in an on-premises or edge locations to provide a solution to address requirements such as:
 
-- Provide a hybrid-cloud solution deployed on-premises to Data sovereignty, regulation & compliance and latency requirements
+- Provide a hybrid-cloud solution deployed on-premises to address data sovereignty, regulation & compliance or latency requirements.
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single or multiple locations, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - Lower the total cost of ownership (TCO) through use of Microsoft-certified solutions, cloud-based deployment, centralized management, monitoring and alerting.
 - Provide a centralized provisioning capability to deploy workloads across multiple locations consistently and securely using Azure and Azure Arc, such as using Azure portal, command-line-interface (cli) or infrastructure as code (IaC) templates to drive automation and repeatability using Kubernetes for containerization and/or traditional workload virtualization.
