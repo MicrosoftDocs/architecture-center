@@ -2,7 +2,7 @@ This example workload shows several ways that small businesses (SMBs) can modern
 
 ## Architecture
 
-:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg":::
+:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-business.png" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
@@ -16,26 +16,27 @@ Legacy SMB data warehouses might contain several types of data:
 
 The following dataflow demonstrates the ingestion of your chosen data type:
 
-1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure.
+1. Microsoft Fabric Data pipelines ingest the legacy data warehouses into Azure.
 
-   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Azure platform-as-a-service (PaaS). You can modernize databases incrementally after the lift and shift.
+   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Fabric SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Microsoft Fabric software-as-a-service (SaaS). You can modernize databases incrementally after the lift and shift.
 
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
 
-1. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Synapse Serverless analysis tools. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
+1. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Fabric Serverless analysis tools. You can bring the fused, processed data back into Dynamics and use for further analysis inside Microsoft Fabric.
 
-1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately.
+1. Real-time data from streaming sources can also enter the system via Azure Event Hubs or other streaming solutions. For customers with real-time dashboard requirements, Fabric Real-Time Analytics can analyze this data immediately.
 
-1. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
+1. The data can also enter the centralized Fabric OneLake for further analysis, storage, and reporting.
 
-1. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage Gen2. Serverless pools are available on demand, and don't require any provisioned resources.
+1. Serverless analysis tools (Serverless SQL endpoint and Fabric Spark capabilities) are available inside Microsoft Fabric on demand and do not require any provisioned resources.
 
-   Serverless pools are ideal for:
-   - Ad hoc data science explorations in T-SQL format.
+   Serverless analysis tools are ideal for:
+   - ETL/ELT on OneLake data.
+   - Serving gold layer of medallion architecture to PBI reports via DirectLake capability.
+   - Ad hoc data science explorations in T-SQL format or Python.
    - Early prototyping for data warehouse entities.
-   - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
 
-Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
+Microsoft Fabricis tightly is integrated with potential consumers of your fused datasets, like Power BI frond end Reports, Azure Machine Learning, Power Apps, Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
 ### Components
 
