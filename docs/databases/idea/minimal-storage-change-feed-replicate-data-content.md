@@ -1,4 +1,4 @@
-This article presents a high-availability solution for a web application dealing with large volumes of data that need to be accessible within a specific timeframe. The solution involves using Azure Cosmos DB as the primary data store and leveraging the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. Once the specified time period expires, Azure Functions are employed to delete the data from Azure Cosmos DB. The data in secondary storage remains available for a longer period of time to enable other solutions for auditing and analysis purposes. The solution also provides high durability by replicating data to different data services.
+This article presents a high-availability solution for a web application dealing with large volumes of data that need to be accessible within a specific time frame. The solution involves using Azure Cosmos DB as the primary data store and using the Azure Cosmos DB change feed to replicate data to low-cost secondary storage. When the specified time period expires, Azure Functions is used to delete the data from Azure Cosmos DB. The data in secondary storage remains available for a longer period of time to enable other solutions for auditing and analysis purposes. The solution also provides high durability by replicating data to different data services.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ This article presents a high-availability solution for a web application dealing
 1. Azure Cosmos DB holds recently generated data.
 1. Azure Cosmos DB issues a change feed that can be used to replicate changes.
 1. A function app reads the change feed and replicates the changes to Azure Table Storage tables. Another function app periodically removes expired data from Azure Cosmos DB.
-1. Azure Table Storage provides low-cost storage.
+1. Table Storage provides low-cost storage.
 
 ### Components
 
