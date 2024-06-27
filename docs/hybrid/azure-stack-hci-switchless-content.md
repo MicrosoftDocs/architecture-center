@@ -32,7 +32,6 @@ The "_storage switchless_" configuration of Azure Stack HCI is commonly used for
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - The "storage switchless" network design removes the requirement to deploy additional ports or storage class network switches to connect the physical network interface cards (NICs) used for the Storage intent.
 - This reduces the cost for the network switches, but does increase the number of NICs required in the physical nodes, as to have redundant "dual links" between each node requires a total of six NICs per node for a three-node cluster. Two NICs as used for the uplinks to the ToRs for the Management and Compute SET Team, and four NICs are used for the interconnects for the Storage intent to provide redundant "dual links" for the storage traffic.
-- Workload scale and cluster capacity requirements will not exceed the physical properties of the three-node cluster. When using the "storage switchless" design, it is important to consider that three-nodes is the maximum supported size for the cluster. It is not possible to perform the Add-Node gesture to expand the cluster beyond three-nodes. Therefore, it is **critically important** to understand your workload capacity requirements upfront, so that you do not exceed the storage and compute capacity over the life span of the Azure Stack HCI cluster hardware.
 
 ### Scenario details and benefits
 
@@ -58,20 +57,9 @@ Review the Azure Stack HCI baseline reference architecture for details of Cluste
 
 ## Cluster design choices
 
-When designing an Azure Stack HCI cluster it is important to understand the workload performance and resiliency requirements, such as the recovery time objective (_RTO_) and recovery point objective (_RPO_) times and compute (CPU), memory and storage requirements for all workload that will be deployed on the Azure Stack HCI cluster. Several characteristics of the workload influence the decision-making process, including:
+The size and size of your workload and the resiliency requirements are the primary input needed to determine the size of an Azure Stack HCI cluster. Use the information in the baseline reference architecture for cluster design choices, together with the [Azure Stack HCI Sizer Tool][azs-hci-sizer-tool] to determine the Azure Stack HCI physical node specifications which will calculate the overall cluster capacity.
 
-- Processor (_CPU_) architecture capabilities, and number of cores per socket
-- Graphics processing unit (_GPU_) requirements of the workload
-- Memory per node, the quantity of physical memory required to run the workload
-- Storage capacity and performance requirements
-  - Total required usable storage after fault tolerance (copies) taken into consideration, and the input/output operations per second (_IOPs_) x block size = through-put requirements
-- Number of HCI cluster nodes in the cluster, one to sixteen nodes in scale (_three nodes maximum for storage switchless design_)
-  - Resiliency for Storage: It is recommended to deploy three (_or more_) nodes to enable use of the "_three-way mirror_" capability (_3 x copies of data_) for the infrastructure and user volumes, which provides increased performance in addition to maximum reliability for storage
-  - Resiliency for Compute: Requires reservation of "_N+1 nodes worth of capacity_" in the cluster, which is the minimum required to be able to drain a node to perform updates or for the workload to restart in the event of an unplanned outage of a single node, such as power or hardware failure
-
-To help design and plan an Azure Stack HCI deployment correctly, it is recommended to use the [Azure Stack HCI - Sizer Tool][azs-hci-sizer-tool] and create a "New Project" for sizing your HCI cluster(s).To use the Sizer requires that you understand your workload requirements, in terms of number and size of workload VMs that will run on the cluster, this includes number of vCPUs, and amount of Memory and Storage required for the VMs. The Sizer Tool "Preferences" section will guide you through questions that relate to the System type (_Premier, Integrated System or Validated Node_), CPU family options, and Resiliency requirements for the cluster, such as reserving a minimum of "N + 1 nodes" worth of capacity (_one node_) across the cluster. Or the option to reserve "N + 2 nodes worth of capacity" across the cluster for high availability, which provides the ability to withstand a node failure during an update, or other unplanned event that impacts two nodes simultaneously, but ensures there is sufficient capacity to be available in the cluster for the workload to run on the remaining online nodes, this scenario requires use of a "three-way mirror" for user volumes.
-
-The output from the Azure Stack HCI Sizer Tool will be a list of recommended hardware solution SKUs that are able to provide the required workload capacity and platform resiliency requirements, based on the input values in the Sizer Project. If you wish to browse the full list of all OEM hardware partner solutions available, see to the [Azure Stack HCI Solutions Catalog](https://aka.ms/hci-catalog#catalog), and also speak to your preferred hardware solution provider or SI partner to help size their solution SKUs to meet your requirements.
+When using the "_storage switchless_" design, it is important to consider that three-nodes is the maximum supported size for a switchless cluster. This is an important factor to consider for the cluster design choices, as you need to ensure that the intent workload(s) capacity requirements will not exceed the physical properties of the three-node clusters specification. Because it is not possible to perform the Add-Node gesture to expand a storage switchless cluster beyond three-nodes. Therefore, it is **critically important** to understand your workload capacity requirements upfront and planning for any future growth, so that your workload does not exceed the storage and compute capacity over the expect lifespan of the Azure Stack HCI cluster hardware.
 
 > [!IMPORTANT]
 > It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for  future workload capacity growth requirements.
@@ -98,7 +86,7 @@ The physical network topology shows the actual physical connections between node
   - Within the HCI cluster, nodes communicate directly with each other for storage replication traffic (_east/west traffic_).
   - This direct communication avoids the requirement to use additional switch ports and configuration for SMB-Direct (_RDMA_) traffic.
 
-[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
+[![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-physical-network.png)](images/azure-stack-hci-baseline-physical-network.png#lightbox)
 
 #### Logical network topology
 
@@ -116,7 +104,7 @@ The logical network topology provides an overview for how the network data flows
   - The NetworkATC service is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network interface cards (_pNICs_) will be used for the different traffic types.
   - Intent-based policies define how the pNICs should behave, and which network traffic classes should be used on which pNICs, such as the "Storage", "Management" and "Compute" intents, which are associated with the correct pNICs as part of the Azure Stack HCI cloud deployment process.
 
-[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
+[![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-logical-network.png)](images/azure-stack-hci-baseline-logical-network.png#lightbox)
 
 #### IP address requirements
 
