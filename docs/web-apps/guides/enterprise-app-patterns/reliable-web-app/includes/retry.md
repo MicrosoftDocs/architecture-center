@@ -1,6 +1,7 @@
+
 :::row:::
     :::column:::
-*Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))*
+        *Well-Architected Framework alignment - Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))*
     :::column-end:::
 :::row-end:::
 ---

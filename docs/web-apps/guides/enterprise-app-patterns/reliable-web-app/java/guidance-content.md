@@ -4,11 +4,11 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [intro](../includes/intro.md)]
 
-### Update architecture
+### Architecture guidance
 
 [!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
 
-### Update code
+### Code guidance
 
 [!INCLUDE [Code updates](../includes/code-updates.md)]
 
@@ -32,7 +32,7 @@ Use [Resilience4j](https://github.com/resilience4j/resilience4j), a lightweight,
 
 #### Implement the Circuit Breaker pattern
 
-[!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)] 
+[!INCLUDE [Circuit-breaker pattern intro](../includes/circuit-breaker.md)]
 
 Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3) to implement the Circuit-Breaker pattern. For example, the reference implementation implements the Circuit Breaker pattern by decorating methods with the Circuit Breaker attribute.
 
@@ -40,23 +40,21 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 [!INCLUDE [Cache-aside pattern intro](../includes/cache-aside.md)]
 
-- *Configure application to use a cache.* Production apps should use the Distributed Redis Cache because it's the most performant.
+- *Configure application to use a cache.* To enable caching, add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. This package provides default configurations for Redis cache.
 
-- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
+- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern. To cache specific data in your code, add the `@Cacheable` annotation. This annotation tells Spring which methods to cache the results of.
 
-- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
+- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information. The default cache settings might not  suit your web application. You can customize these settings in the `application.properties` file or the environment variables. For instance, you can modify the `spring.cache.redis.time-to-live` value (expressed in milliseconds) to control how long data should remain in the cache before it’s evicted.
 
 - *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-### Update configurations
+### Configuration guidance
 
-The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
+[!INCLUDE [configuration guidance intro](../includes/configuration.md)]
 
 #### Configure user authentication and authorization
 
-[!INCLUDE [User authN and authZ](../includes/user-auth.md)]
-
-- *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports both single-tenant and multi-tenant applications, allowing users to sign in with their Microsoft identities or social accounts.
+[!INCLUDE [User authN and authZ](../includes/authn-authz.md)]
 
     The [Spring Boot Starter for Microsoft Entra ID](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x) streamlines this process, utilizing [Spring Security](/azure/developer/java/spring-framework/spring-security-support) and Spring Boot for easy setup. It offers varied authentication flows, automatic token management, and customizable authorization policies, along with integration capabilities with Spring Cloud components. This enables straightforward Microsoft Entra ID and OAuth 2.0 integration into Spring Boot applications without manual library or settings configuration.
 
@@ -148,21 +146,12 @@ The following sections provide guidance on implementing the configurations updat
     - [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
     - [Configurable token lifetimes in the Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 
-- *Prefer temporary access to storage.* Use temporary permissions to safeguard against unauthorized access and breaches, such as [shared access signatures (SASs)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Use User Delegation SASs to maximize security when granting temporary access. It's the only SAS that uses Microsoft Entra ID credentials and doesn't require a permanent storage account key.
-
-- *Enforce authorization in Azure.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to assign least privileges to user identities. Azure RBAC determines what Azure resources identities can access, what they can do with those resources, and what areas they have access to.
-
-- *Avoid permanent elevated permissions.* Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to grant just-in-time access for privileged operations. For example, developers often need administrator-level access to create/delete databases, modify table schemas, and change user permissions. With just-in-time access, user identities receive temporary permissions to perform privileged tasks.
+[!INCLUDE [User authN and authZ](../includes/authn-authz.md)]
 
 #### Implement managed identities
 
 [!INCLUDE [Managed identity intro](../includes/managed-id.md)]
 
-- *Use managed identities for service authentication.* Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)). A managed identity allows Azure services to access other Azure services like Azure Key Vault and databases. It also facilitates CI/CD pipeline integrations for deployments. Hybrid and legacy systems can keep on-premises authentication solutions to simplify the migration but should transition to managed identities as soon as possible.
-
-- *Configure least privileges.* Use [Azure RBAC](/azure/role-based-access-control/best-practices) to grant only the permissions that are critical for the operations, such as CRUD actions in databases or accessing secrets. Workload identity permissions are persistent, so you can't provide just-in-time or short-term permissions to workload identities. If Azure RBAC doesn't cover a specific scenario, supplement Azure RBAC with Azure-service level access policies.
-
-- *Secure remaining secrets.* Store any remaining secrets in [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Load secrets from Key Vault at application startup instead of during each HTTP request. High-frequency access within HTTP requests can exceed [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions). Store application configurations in [Azure App Configuration](/azure/azure-app-configuration/overview).
 
 ## Cost optimization
 
