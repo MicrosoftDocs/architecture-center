@@ -284,9 +284,17 @@ Implement monitoring to enhance the operational excellence and performance effic
 
 - *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
-## Deploy the reference implementation
+## ## Deploy the reference implementation
 
-![GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the Reliable Web App Pattern for .NET. There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
+The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. With a positive sales forecast and anticipated increased demand, Relecloud set the following goals for their web application:
+
+- Implement low-cost, high-value code changes
+- Achieve a service level objective (SLO) of 99.9%
+- Adopt DevOps practices
+- Create cost-optimized environments
+- Enhance reliability and security
+
+Relecloud's on-premises infrastructure was not cost-effective to meet these goals, leading to the decision to migrate their web application to Azure as the most economical solution for achieving both immediate and future objectives. The following architecture represents the end-state of Relecloud's Reliable Web App pattern implementation, with a focus on .NET technologies.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
