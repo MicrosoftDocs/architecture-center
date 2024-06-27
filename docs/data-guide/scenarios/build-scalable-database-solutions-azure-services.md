@@ -4,7 +4,7 @@ description: Use Azure services to build scalable, resilient, affordable, highly
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 06/21/2022
+ms.date: 06/27/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
