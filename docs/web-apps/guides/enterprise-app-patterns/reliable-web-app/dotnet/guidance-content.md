@@ -160,16 +160,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 ## Configuration guidance
 
-The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
-
-|Configuration|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
-|---|---|---|---|---|---|
-|[Configure user authentication and authorization](#configure-user-authentication-and-authorization)||✔||✔||
-|[Implement managed identities](#implement-managed-identities)||✔||✔||
-|[Right size environments](#right-size-environments)|||✔|||
-|[Implement autoscaling](#implement-autoscaling)|✔||✔||✔|
-|[Implement infrastructure as code](#implement-infrastructure-as-code)||||✔||
-|[Implement monitoring](#implement-monitoring)|||✔|✔|✔|
+[!INCLUDE [configuration guidance intro](../includes/configuration.md)]
 
 ### Configure user authentication and authorization
 
@@ -225,42 +216,15 @@ For example, the reference implementation uses the `Authentication` argument in 
 
 ### Implement autoscaling
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Reliability ([RE:06](/azure/well-architected/reliability/scaling)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
-    :::column-end:::
-:::row-end:::
----
-
-Autoscaling ensures web app remain resilient, responsive, and capable of handling dynamic workloads efficiently. To implement autoscaling, follow these recommendations:
-
-- *Automate scale-out.* Use [Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Configure autoscaling rules to scale out based on key performance metrics, so your application can handle varying loads.
-
-- *Refine scaling triggers.* Begin with CPU utilization as your initial scaling trigger if you are unfamiliar with your application’s scaling requirements. Refine your scaling triggers to include other metrics such as RAM, network throughput, and disk I/O to better match your web application's behavior and ensure optimal performance.
-
-- *Provide a scale out buffer.* Set your scaling thresholds to trigger before reaching maximum capacity. For example, configure scaling to occur at 85% CPU utilization rather than waiting until it reaches 100%. This proactive approach helps maintain performance and avoid potential bottlenecks.
+[!INCLUDE [Autoscaling](../includes/autoscaling.md)]
 
 ### Implement infrastructure as code
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Operational Excellence ([OE:05](/azure/well-architected/operational-excellence/infrastructure-as-code-design))*
-    :::column-end:::
-:::row-end:::
----
-
-Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource. The reference implementation uses Bicep to deploy and configure all Azure resources.
+[!INCLUDE [Infrastructure as code](../includes/iac.md)]
 
 ### Implement monitoring
 
-:::row:::
-    :::column:::
-        *Well-Architected Framework alignment - Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)), Performance Efficiency ([PE:04](/azure/well-architected/performance-efficiency/collect-performance-data)*
-    :::column-end:::
-:::row-end:::
----
-
-Implement monitoring to enhance the operational excellence and performance efficiency of your web app. To implement monitoring, follow these recommendations:
+[!INCLUDE [Monitoring](../includes/monitor.md)]
 
 - *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. For example, the reference implementation uses `AddApplicationInsightsTelemetry` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core) (*see the following code*).
 
@@ -284,7 +248,7 @@ Implement monitoring to enhance the operational excellence and performance effic
 
 - *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
-## ## Deploy the reference implementation
+## Deploy the reference implementation
 
 The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. With a positive sales forecast and anticipated increased demand, Relecloud set the following goals for their web application:
 
