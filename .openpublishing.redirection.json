@@ -3882,7 +3882,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/cognitive-search-with-skillsets.yml",
-      "redirect_url": "/azure/solution-ideas/articles/ai-search-skillsets",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/ai-search-skillsets",
       "redirect_document_id": false
     },
     {  
