@@ -28,7 +28,7 @@ A reference architecture is a template of required components and the technical 
 Common serverless architecture patterns include:
 
 - Serverless APIs, mobile and web backends.
-- Event and stream processing, Internet of Things (IoT) data processing, big data and machine learning pipelines.
+- Event and stream processing, Internet of Things (IoT) data processing, big data, and machine learning pipelines.
 - Integration and enterprise service bus to connect line-of-business systems, publish and subscribe (Pub/Sub) to business events.
 - Automation and digital transformation and process automation.
 - Middleware, software-as-a-Service (SaaS) like Dynamics, and big data projects.
@@ -60,7 +60,7 @@ Common serverless architecture patterns include:
         IoT-connected backends in the manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and that triggers a message to the service department when a repair is required.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, and are then routed for processing by using Zendesk.":::
+        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows IoT devices that produce requests for repair, which are sent to the IoT Hub, and are then routed for processing by using Zendesk.":::
     :::column-end:::
 :::row-end:::
 
@@ -79,7 +79,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using OCR detection, and it adds the data to a database for easy queries.
+        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using optical character recognition (OCR) detection, and it adds the data to a database for easy queries.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/real-time-file-processing.png" alt-text="Diagram shows patient records uploaded, which is then decomposed and sent to Cognitive Services to be structured into a database.":::
