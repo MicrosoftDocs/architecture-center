@@ -30,3 +30,6 @@ The foundational architecture identifies the essential web components needed to 
     Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
 
 - *Implement private endpoints.* Use [private endpoints](/azure/architecture/framework/security/design-network-endpoints) in all production environments for all supported Azure services. Private endpoints help secure access to PaaS services and don't require any code changes, app configurations, or connection strings.
+
+[![Diagram showing the architecture of the Reliable Web App pattern plus optional elements.](../../../_images/rwa-architecture-plus-optional.svg)](../../../_images/rwa-architecture-plus-optional.svg)
+*Figure 2. Optional architectural elements of the Reliable Web App pattern (secondary region and hub virtual network).*
