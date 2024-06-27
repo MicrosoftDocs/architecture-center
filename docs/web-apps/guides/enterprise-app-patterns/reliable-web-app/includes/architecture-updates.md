@@ -1,7 +1,12 @@
 [![Diagram showing the baseline architecture of the Reliable Web App pattern.](../../../_images/rwa-architecture.svg)](../../../_images/rwa-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Reliable Web App pattern.*
 
-The foundational architecture identifies the essential web components needed to support the Reliable Web App pattern implementation (*see figure 1*). The foundational architecture requires a network perimeter to protect the web app from malicious inbound traffic. The web app hosting platform connects to supporting cloud services through private endpoints to improve security. The cache supports the implementation of the Cache-Aside pattern to reduce data latency in the web app. All the Azure services behind the network perimeter use managed identities to authenticate without managing secrets. To implement the architecture updates, follow these recommendations:
+The foundational architecture identifies the essential web components needed to support the Reliable Web App pattern implementation (*see figure 1*). The foundational architecture requires a network perimeter to protect the web app from malicious inbound traffic. The web app hosting platform connects to supporting cloud services through private endpoints to improve security. The cache supports the implementation of the Cache-Aside pattern to reduce data latency in the web app. All the Azure services behind the network perimeter use managed identities to authenticate without managing secrets. You can also implement the Reliable Web App pattern with an optional hub-and-spoke architecture and across multiple regions (*see figure 2*).
+
+[![Diagram showing the architecture of the Reliable Web App pattern plus optional elements.](../../../_images/rwa-architecture-plus-optional.svg)](../../../_images/rwa-architecture-plus-optional.svg#lightbox)
+*Figure 2. The Reliable Web App pattern architecture with optional hub-and-spoke topology and second region.*
+
+To implement the architecture updates, follow these recommendations:
 
 - *Implement platform-as-a-service solutions.* Use platform-as-a-service (PaaS) solutions to achieve cost optimization and operational efficiency by reducing infrastructure management overhead while benefiting from built-in, cloud-optimized features that enhance reliability, security, and performance. To streamline the migration, choose services that support your current web app requirements, such as services that support the same runtime, database engine, data types, and redundancy requirements.
 
@@ -30,6 +35,3 @@ The foundational architecture identifies the essential web components needed to 
 - *Implement infrastructure reliability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime. Then, calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO. The Reliable Web App pattern support multiple regions for an active-active or active-passive configuration (*see figure 2*). The reference implementation uses an active-passive configuration to meet an SLO of 99.9%.
 
     Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine an recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
-
-[![Diagram showing the architecture of the Reliable Web App pattern plus optional elements.](../../../_images/rwa-architecture-plus-optional.svg)](../../../_images/rwa-architecture-plus-optional.svg#lightbox)
-*Figure 2. Optional architectural elements of the Reliable Web App pattern (secondary region and hub virtual network).*

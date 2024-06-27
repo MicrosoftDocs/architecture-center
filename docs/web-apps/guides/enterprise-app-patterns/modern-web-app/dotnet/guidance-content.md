@@ -13,10 +13,15 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 ## Architecture guidance
 
-[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg)
+[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
-The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. To implement the architecture updates, follow these recommendations.
+The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. You can also implement the Modern Web App pattern with an optional hub-and-spoke architecture and across multiple regions (*see figure 2*).
+
+[![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg#lightbox)
+*Figure 2. The Modern Web App pattern architecture with optional hub-and-spoke topology and second region.*
+
+To implement the architecture updates, follow these recommendations.
 
 ### Select the right services
 
