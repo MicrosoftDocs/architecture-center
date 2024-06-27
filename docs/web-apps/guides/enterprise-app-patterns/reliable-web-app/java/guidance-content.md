@@ -48,11 +48,11 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 - *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
 
-### Configuration guidance
+## Configuration guidance
 
 [!INCLUDE [configuration guidance intro](../includes/configuration.md)]
 
-#### Configure user authentication and authorization
+### Configure user authentication and authorization
 
 [!INCLUDE [User authN and authZ](../includes/authn-authz.md)]
 
@@ -148,14 +148,9 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 [!INCLUDE [User authN and authZ](../includes/authn-authz.md)]
 
-#### Implement managed identities
+### Implement managed identities
 
 [!INCLUDE [Managed identity intro](../includes/managed-id.md)]
-
-
-## Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and management overhead. For more information, see the [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist). The Reliable Web App pattern implements rightsizing techniques, autoscaling, and efficient resource usage for a more cost optimized web app.
 
 ### Right size environments
 
@@ -165,13 +160,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and ma
     azd env set APP_ENVIRONMENT prod
     ```
 
-### Use autoscale
+### Implement autoscaling
 
-- *Automate scale-out.* Use [autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to automate horizontal scaling in production environments. Scale based on performance metrics.
-
-- *Refine scaling triggers.* Start with CPU utilization performance triggers if you don't understand the scaling criteria of your application. Configure and adapt scaling triggers (CPU, RAM, network, and disk) to match the behavior of your web application.
-
-- *Provide a scale out buffer.* Trigger scaling 10-15% before your web app reaches maximum capacity. For example, scale out at 85% CPU usage rather than 100%.
+[!INCLUDE [Autoscaling guidance](../includes/autoscaling.md)]
 
 ### Optimize resource usage
 
