@@ -176,6 +176,8 @@ items:
           href: guide/azure-openai-gateway-guide.yml
         - name: A gateway for multiple Azure OpenAI backends
           href: guide/azure-openai-gateway-multi-backend.yml
+        - name: Custom authentication for a gateway in front of Azure OpenAI
+          href: guide/azure-openai-gateway-custom-authentication.yml
       - name: Team Data Science Process
         items:
         - name: Overview
@@ -254,6 +256,8 @@ items:
             href: guide/azure-openai-gateway-guide.yml
           - name: A gateway for multiple Azure OpenAI backends
             href: guide/azure-openai-gateway-multi-backend.yml
+          - name: Custom authentication for a gateway in front of Azure OpenAI
+            href: guide/azure-openai-gateway-custom-authentication.yml        
         - name: Build language model pipelines
           href: openai/guide/language-model-pipelines.yml
         - name: OpenAI GPT-3 summarization
