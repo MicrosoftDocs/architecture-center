@@ -18,7 +18,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. You can also implement the Modern Web App pattern with an optional hub-and-spoke architecture and across multiple regions (*see figure 2*).
 
-[![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg#lightbox)
+[![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/mwa-architecture-plus-optional.svg)](../../../_images/mwa-architecture-plus-optional.svg#lightbox)
 *Figure 2. The Modern Web App pattern architecture with optional hub-and-spoke topology and second region.*
 
 To implement the architecture updates, follow these recommendations.
@@ -69,7 +69,12 @@ Update your web app code with the Strangler Fig pattern, Queue-Based Load Leveli
 | [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) | Reliability ([RE:07](/azure/well-architected/reliability/background-jobs), [RE:10](/azure/well-architected/reliability/monitoring-alerting-strategy)) <br>Operational Excellence ([OE:07](/azure/well-architected/operational-excellence/observability)) <br>Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition)) |
 | [Retry pattern](#implement-the-retry-pattern) |Reliability ([RE:07](/azure/well-architected/reliability/self-preservation))|
 
-The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
+The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. 
+
+
+
+
+To update your code with the design patterns, follow this guidance:
 
 ### Implement the Strangler Fig pattern
 
