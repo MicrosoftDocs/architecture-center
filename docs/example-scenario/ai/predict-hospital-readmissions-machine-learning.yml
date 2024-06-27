@@ -6,8 +6,7 @@ metadata:
   author: matthansen0
   ms.author: mahans
   ms.date: 03/04/2024
-  ms.custom:
-    - fcp
+  ms.custom: arb-healthcare
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
