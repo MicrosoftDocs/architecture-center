@@ -5,15 +5,10 @@ Blurb on who this scenario would be appealing for.. e.g.    1/2 TB<DWsize<1.5TB,
 
 ## Architecture
 
-:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg":::
+:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/yourvisiohere.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
-Legacy SMB data warehouses might contain several types of data:
-
-- Unstructured data, like documents and graphics
-- Semi-structured data, such as logs, CSVs, JSON, and XML files
-- Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
 
 ### Dataflow
 ### Components
