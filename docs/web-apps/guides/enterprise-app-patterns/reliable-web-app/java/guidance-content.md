@@ -164,25 +164,9 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 [!INCLUDE [Autoscaling guidance](../includes/autoscaling.md)]
 
-### Optimize resource usage
+### Automate resource deployment
 
-- *Delete unused environments.* Delete nonproduction environments after hours or during holidays to optimize cost. You can use infrastructure as code to delete Azure resources and entire environments. Remove the declaration of the resource that you want to delete from the template.
-
-- *Use shared services.* Centralize and share network resources in a hub virtual network.
-
-- *Colocate functionality.* Where there's spare capacity, colocate application resources and functionality on a single Azure resource. For example, multiple web apps can use a single server (App Service Plan) or a single cache can support multiple data types.
-
-    The reference implementation uses a single Azure Cache for Redis instance for session management in the front-end (shopping cart tokens and MSAL tokens) and back-end (upcoming concerts data) web apps.
-
-## Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see the [Design review checklist for Operational Excellence](/azure/well-architected/operational-excellence/checklist). The Reliable Web App pattern implements infrastructure as code for infrastructure deployments and monitoring for observability.
-
-### Automate deployment
-
-Use [infrastructure as code](/azure/well-architected/operational-excellence/infrastructure-as-code-design) and deploy through a continuous integration and continuous delivery (CI/CD) pipelines. Azure has premade [Bicep, ARM (JSON), and Terraform templates](/azure/templates/) for every Azure resource.
-
-The reference implementation uses Bicep to deploy and configure all Azure resources.
+[!INCLUDE [Automate deployment guidance](../includes/automate-deployment.md)]
 
 ### Configure monitoring
 
@@ -212,104 +196,22 @@ The reference implementation uses Bicep to deploy and configure all Azure resour
 
 - *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
-## Performance efficiency
+## Deploy the reference implementation
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist). The Reliable Web App pattern uses the Cache-Aside pattern to minimize the latency for highly requested data.
+The reference implementation guides developers through a simulated migration from an on-premises Java application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a Customer Account Management System (CAMS) web app application for the fictional company Contoso Fibre. Contoso Fiber set the following goals for their web application:
 
-### Use the Cache-Aside pattern
+- Implement low-cost, high-value code changes
+- Achieve a service level objective (SLO) of 99.9%
+- Adopt DevOps practices
+- Create cost-optimized environments
+- Enhance reliability and security
 
-Add [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to your web app to improve in-memory data management. The pattern assigns the application the responsibility of handling data requests and ensuring consistency between the cache and a persistent storage, such as a database. It shortens response times, enhances throughput, and reduces the need for more scaling. It also reduce the load on the primary datastore, improving reliability and cost optimization.
+Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution to meet these goals. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end-state of Contoso Fiber's Reliable Web App pattern implementation.
 
-The reference implementation caches upcoming concerts. The `AddAzureCacheForRedis` method configures the application to use Azure Cache for Redis (*see the following code*).
+[![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
+*Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
-```csharp
-private void AddAzureCacheForRedis(IServiceCollection services)
-{
-    if (!string.IsNullOrWhiteSpace(Configuration["App:RedisCache:ConnectionString"]))
-    {
-        services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = Configuration["App:RedisCache:ConnectionString"];
-        });
-    }
-    else
-    {
-        services.AddDistributedMemoryCache();
-    }
-}
-```
-
-For more information, see [Distributed caching in ASP.NET Core](/aspnet/core/performance/caching/distributed) and [AddDistributedMemoryCache method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache).
-
-- *Cache high-need data.* Apply the Cache-Aside pattern on high-need data to amplify its effectiveness. Use Azure Monitor to track the CPU, memory, and storage of the database. These metrics help you determine whether you can use a smaller database SKU after applying the Cache-Aside pattern.
-
-    The reference implementation caches high-need data that supports the Upcoming Concerts. The `GetUpcomingConcertsAsync` method pulls data into the Redis cache from the SQL Database and populates the cache with the latest concerts data (*see following code*).
-
-    ```csharp
-    public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
-    {
-        IList<Concert>? concerts;
-        var concertsJson = await this.cache.GetStringAsync(CacheKeys.UpcomingConcerts);
-        if (concertsJson != null)
-        {
-            // There is cached data. Deserialize the JSON data.
-            concerts = JsonSerializer.Deserialize<IList<Concert>>(concertsJson);
-        }
-        else
-        {
-            // There's nothing in the cache. Retrieve data from the repository and cache it for one hour.
-            concerts = await this.database.Concerts.AsNoTracking()
-                .Where(c => c.StartTime > DateTimeOffset.UtcNow && c.IsVisible)
-                .OrderBy(c => c.StartTime)
-                .Take(count)
-                .ToListAsync();
-            concertsJson = JsonSerializer.Serialize(concerts);
-            var cacheOptions = new DistributedCacheEntryOptions {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1)
-            };
-            await this.cache.SetStringAsync(CacheKeys.UpcomingConcerts, concertsJson, cacheOptions);
-        }
-        return concerts ?? new List<Concert>();
-    }
-    ```
-
-- *Keep cache data fresh.* Schedule regular cache updates to sync with the latest database changes. Determine the optimal refresh rate based on data volatility and user needs. This practice ensures the application uses the Cache-Aside pattern to provide both rapid access and current information.
-
-    The reference implementation caches data only for one hour and uses the `CreateConcertAsync` method to clear the cache key when the data changes (*see the following code*).
-
-    ```csharp
-    public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
-    {
-        database.Add(newConcert);
-        await this.database.SaveChangesAsync();
-        this.cache.Remove(CacheKeys.UpcomingConcerts);
-        return CreateResult.SuccessResult(newConcert.Id);
-    }
-    ```
-
-- *Ensure data consistency.* Implement mechanisms to update the cache immediately after any database write operation. Use event-driven updates or dedicated data management classes to ensure cache coherence. Consistently synchronizing the cache with database modifications is central to the Cache-Aside pattern.
-
-    The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent (*see the following code*).
-
-    ```csharp
-    public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
-    {
-       database.Update(existingConcert);
-       await database.SaveChangesAsync();
-       this.cache.Remove(CacheKeys.UpcomingConcerts);
-       return UpdateResult.SuccessResult();
-    }
-    ```
-
-### Test database performance
-
-Moving an application to the cloud can introduce extra network hops and latency to your database. Test for extra hops that the new cloud environment introduces. Use on-premises performance metrics as the initial baseline to compare performance in the cloud. Follow recommendations for [optimizing data performance](/azure/well-architected/performance-efficiency/optimize-data-performance).
-
-## Next steps
-
-Deploy the **[reference implementation](reference-implementation)** by following the instructions in the GitHub repository.
-
-[![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
-*Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
+>[!div class="nextstepaction"]
+>[Reliable Web App pattern for Java reference implementation](reference-implementation)
 
 [reference-implementation]: https://aka.ms/eap/rwa/java

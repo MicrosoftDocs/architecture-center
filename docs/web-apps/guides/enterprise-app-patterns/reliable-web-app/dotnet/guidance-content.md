@@ -209,39 +209,58 @@ For example, the reference implementation uses Bicep parameters to deploy more e
 
 [!INCLUDE [Autoscaling](../includes/autoscaling.md)]
 
-### Implement infrastructure as code
+### Automate resource deployment
 
-[!INCLUDE [Infrastructure as code](../includes/iac.md)]
+[!INCLUDE [Automate deployment guidance](../includes/automate-deployment.md)]
 
 ### Implement monitoring
 
 [!INCLUDE [Monitoring](../includes/monitor.md)]
 
-- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. For example, the reference implementation uses `AddApplicationInsightsTelemetry` to enable [telemetry collection](/azure/azure-monitor/app/asp-net-core) (*see the following code*).
+- *Collect application telemetry.* Use [autoinstrumentation](/azure/azure-monitor/app/codeless-overview) in Azure Application Insights to collect application [telemetry](/azure/azure-monitor/app/data-model-complete), such as request throughput, average request duration, errors, and dependency monitoring, with no code changes. Spring Boot registers several core metrics in Application Insights such as Java virtual machine (JVM), CPU, Tomcat, and others. Application Insights automatically collects from logging frameworks such as Log4j and Logback. For more information, see:
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-       ...
-       services.AddApplicationInsightsTelemetry(Configuration["App:Api:ApplicationInsights:ConnectionString"]);
-       ...
+- [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
+- [Configuration options - Azure Monitor Application Insights for Java - Azure Monitor](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
+- [Enable Azure Monitor OpenTelemetry for Java applications](https://learn.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+- [Using Azure Monitor Application Insights with Spring Boot](https://learn.microsoft.com/azure/azure-monitor/app/java-spring-boot).
+
+    For example, the reference implementation uses Application Insights enabled through Terraform as part of the App Service's `app_settings` configuration. (*see the following code*).
+
+    ```terraform
+    app_settings = {
+        APPLICATIONINSIGHTS_CONNECTION_STRING = var.app_insights_connection_string
+        ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+        ...
     }
     ```
 
-- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API. For example, the reference implementation gathers telemetry on events related to cart activity (*see the following code*).
+- *Create custom application metrics.* Implement code-based instrumentation to capture [custom application telemetry](/azure/azure-monitor/app/api-custom-events-metrics) by adding the Application Insights SDK and using its API.
 
-    ```csharp
-    this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
-        { "ConcertId", concertId.ToString() },
-        { "Count", count.ToString() }
-    });
+- *Monitor the platform.* Enable diagnostics for all supported services and send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics. The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the App Service.
+
+    ```terraform
+    # Configure Diagnostic Settings for App Service
+    resource "azurerm_monitor_diagnostic_setting" "app_service_diagnostic" {
+      name                           = "app-service-diagnostic-settings"
+      target_resource_id             = azurerm_linux_web_app.application.id
+      log_analytics_workspace_id     = var.log_analytics_workspace_id
+      #log_analytics_destination_type = "AzureDiagnostics"
+    
+      enabled_log {
+        category_group = "allLogs"
+    
+      }
+    
+      metric {
+        category = "AllMetrics"
+        enabled  = true
+      }
+    }
     ```
-
-- *Monitor the platform.* Enable diagnostics for all supported services and Send diagnostics to same destination as the application logs for correlation. Azure services create platform logs automatically but only stores them when you enable diagnostics. Enable diagnostic settings for each service that supports diagnostics.
 
 ## Deploy the reference implementation
 
-The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. With a positive sales forecast and anticipated increased demand, Relecloud set the following goals for their web application:
+The reference implementation guides developers through a simulated migration from an on-premises ASP.NET application to Azure, highlighting necessary changes during the initial adoption phase. This example uses a concert-ticketing application for the fictional company Relecloud, which sells tickets through its on-premises web application. Relecloud set the following goals for their web application:
 
 - Implement low-cost, high-value code changes
 - Achieve a service level objective (SLO) of 99.9%
@@ -249,31 +268,12 @@ The reference implementation guides developers through a simulated migration fro
 - Create cost-optimized environments
 - Enhance reliability and security
 
-Relecloud's on-premises infrastructure was not cost-effective to meet these goals, leading to the decision to migrate their web application to Azure as the most economical solution for achieving both immediate and future objectives. The following architecture represents the end-state of Relecloud's Reliable Web App pattern implementation, with a focus on .NET technologies.
+Relecloud's determined that their on-premises infrastructure wasn't a cost-effective solution to meet these goals. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end-state of Relecloud's Reliable Web App pattern implementation.
 
 [![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-dotnet.svg)](../../../_images/reliable-web-app-dotnet.svg)
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Reliable Web App pattern for .NET reference implementation](reference-implementation)
-
-## More resources
-
-Use the following resources to learn more about .NET applications, web apps, cloud best practices, and migration.
-
-**Upgrading .NET Framework applications**:
-
-- [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/). Get guidance based on your specific type of .NET app.
-- [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview). Learn about a console tool that can help you automate many of the tasks associated with upgrading .NET Framework projects.
-- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](https://devblogs.microsoft.com/dotnet/introducing-project-migrations-visual-studio-extension/). Learn about a Visual Studio extension that can help you with incremental migrations of web apps.
-
-**Introduction to web apps on Azure**: For a hands-on introduction to .NET web applications on Azure, see this [guidance for deploying a basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
-
-**Migration guidance**: The following tools and resources can help you migrate on-premises resources to Azure.
-
-- [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment and migration of web apps, SQL Server, and virtual machines.
-- [Azure Database Migration Guides](/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
-- [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) provides guidance for hardening and scaling App Service deployments.
-- [Azure Migrate application and code assessment](/azure/migrate/appcat/dotnet)
+>[Reliable Web App pattern for Java reference implementation](reference-implementation)
 
 [reference-implementation]: https://aka.ms/eap/rwa/dotnet
