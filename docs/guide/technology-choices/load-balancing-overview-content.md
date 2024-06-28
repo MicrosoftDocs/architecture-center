@@ -23,12 +23,12 @@ The following table summarizes the Azure load-balancing services.
 | Service                   | Global/Regional | Recommended traffic |
 | -------------------       | --------------- | ------------------- |
 | Azure Front Door          | Global          | HTTP(S)             |
-| Azure Traffic Manager     | Global          | HTTP(S)* or non-HTTP(S) |
+| Azure Traffic Manager     | Global          | Non-HTTP(S)         |
 | Azure Application Gateway | Regional        | HTTP(S)             |
-| Azure Load Balancer       | Regional or Global | HTTP(S)* or non-HTTP(S) |
+| Azure Load Balancer       | Regional or Global | Non-HTTP(S)      |
 
 > [!NOTE]
-> The HTTP(S) entries in the preceeding table marked with `*` indicates that these services support distributing HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4.
+> Azure Traffic Manager and Azure Load Balancer have the capabilities to distribute HTTP(S) traffic, but do not have any specific features to route based on protocol data unit information higher than Layer 4. They both support HTTP(S) traffic, but only at Layer 4 functionality levels.
 
 ## Azure load-balancing services
 
@@ -42,9 +42,8 @@ Here are the main load-balancing services currently available in Azure:
 
 - [Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [cross-region topology](/azure/load-balancer/cross-region-overview).
 
-### Internal cluster load balancing
-
-Clustering technology, such as Azure Container Apps or Azure Kubernetes Service contains load balancing constructs that operate mostly within the scope of their own cluster boundry, routing traffic to available application instances based on readiness and health probes. Those load balancing options are not covered in this article.
+> [!NOTE]
+> Clustering technology, such as Azure Container Apps or Azure Kubernetes Service contains load balancing constructs that operate mostly within the scope of their own cluster boundry, routing traffic to available application instances based on readiness and health probes. Those load balancing options are not covered in this article.
 
 ## Decision tree for load balancing in Azure
 
@@ -57,13 +56,13 @@ Consider these factors such as these when you select a load balancing solution:
 - **Features and limits**: What capabilities are supported on each service and what are the [Service limits](/azure/azure-subscription-service-limits) of each service?
 
 > ![TIP]
-> A questionare based experience is hosted in the Azure portal to help you narrow down load blancing options. To access this guided approach, use the [Help me choose](https://portal.azure.com/#view/Microsoft_Azure_Network/LoadBalancingHubMenuBlade/~/overview) experience on Load balancing page in the Azure portal. You can find this page by searching for **Load balancing - help me choose** in the Azure portal's **Search resources, services, and docs** search box. You'll be faced with many of the same choices as presented in following flowchart.
+> The Azure portal offers a questionnaire-based guide similar to the following flowchart. In the Azure portal, search for '**Load balancing - help me choose**'. By answering the questions, you can narrow down your load balancing options.
 
 The following flowchart helps you to choose a load-balancing solution for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
 
 Treat this flowchart as a starting point. Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation.
 
-If your workload consists of multiple load balanced services, evaluate each routing point separately. A complete solution often incorporates two or more load-balancing solutions, at different points in the workload architecture with different capabilities or roles.
+When your workload involves several services that require load balancing, it's important to assess each service individually. In many cases, an effective setup uses more than one type of load-balancing solution. You might incorporate these solutions at different places in your workload's architecture, each serving a unique function or role.
 
 ![Diagram that shows a decision tree for load balancing in Azure.](./images/load-balancing-decision-tree.png)
 
@@ -76,7 +75,7 @@ If your workload consists of multiple load balanced services, evaluate each rout
 - **Global / Deployed in multiple regions?**: If one highly-available control plane should be resposible for routing traffic to public endpoints across regions.
 
   > [!NOTE]
-  > It is possible to use a regional service, such as Application Gateway, to load balance cross backends spanning multiple regions and control routing through a single control plane. That architecture is made possible using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or even public IPs of services in other regions.
+  > It is possible to use a regional service, such as Application Gateway, to load balance across backends spanning multiple regions and control routing through a single control plane. That architecture is made possible using [cross-region Private Link](/azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions-), global virtual network peering, or even public IPs of services in other regions.
   >
   > This scenario isn't the primary point of this decision, however.
   >
