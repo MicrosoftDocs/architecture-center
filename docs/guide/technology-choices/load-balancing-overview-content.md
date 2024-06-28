@@ -10,12 +10,12 @@ Azure load-balancing services can be categorized along two dimensions: global ve
 
 ### Global vs. regional
 
-- **Global**: These load-balancing services distribute traffic across regional back-ends, clouds, or hybrid on-premises services. These services support manging a single control plane responsible for globally routing end-user traffic to an available back-end. They often react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.
+- **Global**: These load-balancing services distribute traffic across regional back-ends, clouds, or hybrid on-premises services. These services support managing a single control plane responsible for globally routing end-user traffic to an available back-end. They often react to changes in service reliability or performance to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.
 - **Regional**: These load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
 
 ### HTTP(S) vs. non-HTTP(S)
 
-- **HTTP(S)**: These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
+- **HTTP(S)**: These load-balancing services are [Layer 7](https://www.iso.org/ics/35.100.70/x/) load balancers that only accept HTTP(S) traffic. They're intended for web applications or other HTTP(S) endpoints. They might have features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
 - **Non-HTTP(S)**: These load-balancing services are [Layer 4](https://www.iso.org/ics/35.100.40/x/) load balancers that can handle non-HTTP(S) traffic, primarily TCP or UDP services.
 
 The following table summarizes the Azure load-balancing services.
@@ -93,7 +93,7 @@ When your workload involves several services that require load balancing, it's i
 
 ### Additional considerations
 
-Each load balancing service also has capability support or implementation details that needs also be considered. Here are some examples that might be relevent for your load balancing scenario.
+Each load balancing service also has capability support or implementation details that need also be considered. Here are some examples that might be relevant for your load balancing scenario.
 
 - Web Sockets support
 - HTTP/2 support (both receiving and continuing to backend nodes)
