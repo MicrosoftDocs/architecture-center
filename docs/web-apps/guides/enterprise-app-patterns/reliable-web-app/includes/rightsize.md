@@ -1,9 +1,8 @@
 :::row:::
     :::column:::
-        *Well-Architected Framework alignment - Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))*
+        *Well-Architected Framework benefit: Cost optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:06](/azure/well-architected/cost-optimization/align-usage-to-billing-increments))*
     :::column-end:::
 :::row-end:::
----
 
 Use the performance tiers (SKUs) of Azure services that meet the needs of each environment without excess. To right-size your environments, follow these recommendations:
 

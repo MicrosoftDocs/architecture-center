@@ -1,9 +1,8 @@
 :::row:::
     :::column:::
-        *Well-Architected Framework alignment - Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))*
+        *Well-Architected Framework benefit: Security ([SE:05](/azure/well-architected/security/identity-access)), Operational Excellence ([OE:10](/azure/well-architected/operational-excellence/enable-automation#authentication-and-authorization))*
     :::column-end:::
 :::row-end:::
----
 
 Use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview-for-developers) to automate the creation and management of Azure services ([workload identities](/entra/workload-id/workload-identities-overview)).
 
