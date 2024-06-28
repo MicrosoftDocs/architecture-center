@@ -35,7 +35,7 @@ Analyze IoT telemetry data by using time series techniques.
 - For more information on time series analysis, see [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis).
 - For more information on streaming ingestion considerations, see [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp).
 - For more information on disaster recovery, see [Disaster recovery configurations for Azure Data Explorer](/azure/data-explorer/business-continuity-overview#disaster-recovery-configurations).
-- For more information on Time Series Insights, see [Migrating to Azure Data Explorer](/azure/time-series-insights/migration-to-adx).
+- For more information on Time Series Insights, see [Migrating to Azure Data Explorer](/azure/time-series-insights/migration-to-fabric).
 
 ### Deploy this scenario
 
