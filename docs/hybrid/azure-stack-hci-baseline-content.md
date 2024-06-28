@@ -114,17 +114,18 @@ Storage caching optimization: Storage Spaces Direct provides a [built-in, persis
 
 Network design refers to the overall arrangement of components within the network, both physical and logical. This baseline architecture provides example guidance for deploying a **multi-node Azure Stack HCI cluster using the "storage switched" network architecture**. Although a hyperconverged networking configuration is supported, which means the management, compute and storage network intents all use the same physical network interface cards (NICs), the optimal configuration for performance and reliability is for the storage intent to use dedicated physical NICs. Therefore, the recommendations in the following sections focus on using a converged networking configuration for the management and compute intents, and dedicated NICs for the storage intent.
 
-This architecture requires two or more physical nodes (_servers_), up to a maximum of sixteen nodes in scale. Each node requires four network interface cards (NICs) that are connected to two (_separate_) top of rack (ToR) switches. The two physical NICs used for the [storage intent traffic must support remote direct memory access (RDMA)](/azure-stack/hci/concepts/host-network-requirements#rdma). The two physical NICs used for the management and compute intents are "converged" using Switch Embedded Teaming (SET), which provides resiliency and traffic load-balancing capabilities.
+This architecture requires two or more physical nodes (_servers_), up to a maximum of sixteen nodes in scale. Each node requires four network interface cards (NICs) that are connected to two top of rack (ToR) switches tha are interconnected using multi-chassis link aggregation group (MLAG) links. The two physical NICs that are used for the [storage intent traffic must support remote direct memory access (RDMA)](/azure-stack/hci/concepts/host-network-requirements#rdma), with a minimum link speed of 10Gbps, although 25Gbps (_or higher_) is recommended. The two physical NICs that are used for the management and compute intents are converged using switch embedded teaming (SET) technology, which provides link redundancy and load-balancing capabilities, these require a minimum of 1Gbps, but 10Gbps or higher is recommended.
 
 #### Physical network topology
 
-The physical network topology shows the actual physical connections between nodes and networking components. Below is what this looks like for a 3-node storage switchless Azure Stack HCI deployment:
+The physical network topology shows the actual physical connections between nodes and networking components. Below is what this looks like for a multi-node storage switched Azure Stack HCI deployment:
 
 - Two or more nodes (_servers_), up to a maximum of sixteen nodes:
   - Each node is a physical server running Azure Stack HCI OS.
-  - These nodes are interconnected using single or dual (_recommended_) dedicated physical network interface cards (NICs), that are directly connected to the other nodes using ethernet cables, forming a "full mesh network architecture" for storage traffic.
+  - Each node has two dedicated physical network interface cards (NIC) that are RDMA capable for storage intent. These NICs are connected with one path to each of the two top of rack (ToR) switches to provides dedicated bandwidth and link path redundancy for storage traffic.
+  - Each node has two physical network interface card (NICs) for the management and compute intents. These NICs are which are connected with one path to each of the two top of rack (ToR) switches, Network ATC will configured as Converged adaptors using a switch embedded team (SET).
 - Dual Top-of-Rack (ToR) Switches:
-  - Although this configuration is switchless for storage traffic, it requires links to the ToR switches for external connectivity (_north/south traffic_) for the cluster "management" intent and workload "compute" intent.
+  - it requires links to the ToR switches for external connectivity (_north/south traffic_) for the cluster "management" intent and workload "compute" intent.
   - These switches connect to the nodes using ethernet cables.
   - Using dual ToR switches is recommended to provide redundancy and load balancing for external communication.
 - External Connectivity:
