@@ -125,16 +125,14 @@ The physical network topology shows the actual physical connections between node
   - Each node has two dedicated physical network interface cards (NIC) that are RDMA capable for storage intent. These NICs are connected with one path to each of the two top of rack (ToR) switches to provides dedicated bandwidth and link path redundancy for storage traffic.
   - Each node has two physical network interface card (NICs) for the management and compute intents. These NICs are which are connected with one path to each of the two top of rack (ToR) switches, Network ATC will configured as Converged adaptors using a switch embedded team (SET).
 - Dual Top-of-Rack (ToR) Switches:
-  - Dual (two) ToR network switches are required for the solution to have redundant networking, these are used for the storage (_east / west traffic_) and for external connectivity (_north/south traffic_), such as the cluster "management" intent and the workload logical networks which use the "compute" intent.
+  - Dual (two) ToR network switches are required for the solution to have redundant and load balanced networking. The switches are used for the storage (_east / west traffic_) and for external connectivity (_north/south traffic_) for the cluster "management" intent and for the workload logical networks that use the "compute" intent.
   - These switches connect to the nodes using ethernet cables.
-  - Using dual ToR switches is recommended to provide redundancy and load balancing for external communication.
-- External Connectivity:
+  - External Connectivity:
   - The dual ToR switches connect to the external network, such as the internal corporate LAN and provide access to the required outbound URLs using your edge border network device (_firewall or router_).
   - They handle traffic going in and out of the Azure Stack HCI cluster (_north/south traffic_).
 - Storage Traffic:
-  - Within the HCI cluster, nodes communicate directly with each other for storage replication traffic (_east/west traffic_).
-  - This direct communication avoids the requirement to use additional switch ports and configuration for SMB-Direct (_RDMA_) traffic.
-
+  - Within the HCI cluster, nodes communicate directly with each other using the two network links that connect to the two top-of-rack switches, this is used by the RDMA capable NICs that are configured with the storage intent, providing dedicated bandwidth for storage replication traffic (_east/west traffic_).
+  
 [![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-physical-network.png)](images/azure-stack-hci-baseline-physical-network.png#lightbox)
 
 #### Logical network topology
