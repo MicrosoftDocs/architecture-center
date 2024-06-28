@@ -85,7 +85,7 @@ The following diagram shows this approach:
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
 For more information, see [Guide to migrating Big
-Data workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight). That article provides a link for downloading a migration guide and also provides an email address that you can use to ask questions or make suggestions.
+Data workloads to Azure HDInsight](https://azure.microsoft.com/blog/migrating-big-data-workloads-to-azure-hdinsight/). That article provides a link for downloading a migration guide and also provides an email address that you can use to ask questions or make suggestions.
 
 ### Lift and shift to Azure infrastructure as a service (IaaS)
 
