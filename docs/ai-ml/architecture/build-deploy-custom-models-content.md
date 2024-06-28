@@ -144,7 +144,7 @@ The major costs for this solution are:
 
 - The compute cost involved in Machine Learning training and deployment of models.
 
-    Choose the right node type, cluster size, and number of nodes to help optimize costs. For training, Machine Learning provides options to set the minimum nodes of compute cluster to zero and to set the idle time before the scale down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
+    Choose the right node type, cluster size, and number of nodes to help optimize costs. For training, Machine Learning provides the options to set the minimum number of compute cluster nodes to zero and to set the idle time before the scale down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
 - Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of Data Integration Units (DIUs) used and the execution duration. Added orchestration activity runs are also charged, based on their number.
 
