@@ -61,13 +61,13 @@ The Azure services you selected for the implementation of the Reliable Web App p
 
 Update your web app code with the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, Retry pattern design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
 
-|Design pattern| Well-Architected Framework alignment |
-|---|---|
-| [Strangler Fig pattern](#implement-the-strangler-fig-pattern) |
-| [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) ||
-| [Competing Consumers pattern](#implement-the-competing-consumers-pattern) | |
-| [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) |  |
-| [Retry pattern](#implement-the-retry-pattern) ||
+|Design pattern||Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
+|---|---|---|---|---|---|
+| [Strangler Fig pattern](#implement-the-strangler-fig-pattern) |✔| |✔ |✔ | |
+| [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) |✔ | |✔ | |✔|
+| [Competing Consumers pattern](#implement-the-competing-consumers-pattern) |✔ | |✔ | |✔|
+| [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) |✔ | | |✔ |✔|
+| [Retry pattern](#implement-the-retry-pattern) |✔ | | | | |
 
 The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
 
@@ -78,7 +78,7 @@ The Strangler Fig pattern incrementally migrates functionality from a monolithic
 
 :::row:::
     :::column:::
-        *Well-Architected Framework benefit: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)) <br>Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)) <br>Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))*
+        *Well-Architected Framework benefit: Reliability ([RE:08](/azure/well-architected/reliability/testing-strategy)), Cost Optimization ([CO:07](/azure/well-architected/cost-optimization/optimize-component-costs), [CO:08](/azure/well-architected/cost-optimization/optimize-environment-costs)), Operational Excellence ([OE:06](/azure/well-architected/operational-excellence/workload-supply-chain), [OE:11](/azure/well-architected/operational-excellence/safe-deployments))*
     :::column-end:::
 :::row-end:::
 
@@ -100,7 +100,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
 
 :::row:::
     :::column:::
-        *Well-Architected Framework benefit: Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)) <br>Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)) <br>Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
+        *Well-Architected Framework benefit: Reliability ([RE:06](/azure/well-architected/reliability/background-jobs), [RE:07](/azure/well-architected/reliability/handle-transient-faults)), Cost Optimization ([CO:12](/azure/well-architected/cost-optimization/optimize-scaling-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition))*
     :::column-end:::
 :::row-end:::
 
@@ -139,7 +139,7 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
 
 :::row:::
     :::column:::
-        *Well-Architected Framework benefit: Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)) <br>Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)) <br>Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*
+        *Well-Architected Framework benefit: Reliability ([RE:05](/azure/well-architected/reliability/regions-availability-zones), [RE:07](/azure/well-architected/reliability/background-jobs)), Cost Optimization ([CO:05](/azure/well-architected/cost-optimization/get-best-rates), [CO:07](/azure/well-architected/cost-optimization/optimize-component-costs)), Performance Efficiency ([PE:05](/azure/well-architected/performance-efficiency/scale-partition), [PE:07](/azure/well-architected/performance-efficiency/optimize-code-infrastructure))*
     :::column-end:::
 :::row-end:::
 
@@ -306,9 +306,9 @@ The following sections provide guidance on implementing the configuration update
 
 |Configuration|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
 |---|---|---|---|---|---|
-|[Configure authentication and authorization](#configure-authentication-and-authorization)||✔||✔||
-|[Implement independent autoscaling](#configure-independent-autoscaling)|✔||✔||✔|
-|[Containerize service deployment](#containerize-service-deployment)|||✔||✔|
+|[Configure authentication and authorization](#configure-authentication-and-authorization)| |✔| |✔| |
+|[Implement independent autoscaling](#configure-independent-autoscaling)|✔| |✔| |✔|
+|[Containerize service deployment](#containerize-service-deployment)| | |✔| |✔|
 
 ### Configure authentication and authorization
 
