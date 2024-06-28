@@ -18,11 +18,11 @@ This article describes Azure solutions for building, training, deploying, and us
 
 1. Document Intelligence Studio, Language Studio, or Azure Machine Learning studio label and tag textual data and build the custom models. You can use these three services independently or in various combinations to address different use cases.
 
-   - If the document requires extracting key-value pairs or creating a custom table from an image format or PDF, use Document Intelligence Studio to tag the data and train the custom model. Similarly, if there's a requirement to identify the type of document before invoking the right extraction model, use the Document Intelligent Studio to label the documents.
+   - If the document requires you to extract key-value pairs or create a custom table from an image format or PDF, use Document Intelligence Studio to tag the data and train the custom model. Similarly, if there's a requirement to identify the type of document before invoking the right extraction model, use Document Intelligent Studio to label the documents.
 
    - For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or Named Entity Recognition (NER) model in Language Studio.
 
-   - Machine Learning studio has data labeling capabilities for text classification or entity extraction that you can use with open-source frameworks like PyTorch or TensorFlow. AML studio provides a [model catalogue](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of foundation models with fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune the foundation model, use [AML studio UI](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#fine-tune-using-the-studio) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
+   - Machine Learning studio has data labeling capabilities for text classification or entity extraction that you can use with open-source frameworks like PyTorch or TensorFlow. Azure Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#fine-tune-using-the-studio) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
 1. To deploy the custom models and use them for inference:
 
@@ -30,9 +30,9 @@ This article describes Azure solutions for building, training, deploying, and us
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
-   - Machine Learning can deploy custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service by using the Machine Learning SDK.
+   - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service.
 
-   - You can deploy fine-tuned foundation models from the model catalog to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
+   - Fine-tuned foundation models can be deployed from the model catalog to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
 
 ### Components
 
@@ -46,7 +46,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a set of capabilities built on Azure Blob Storage for big data analytics. Data Lake Storage retains the cost effectiveness of Blob Storage, and provides features like file-level security and file system semantics with hierarchical namespace.
 
-- [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer) is part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services). Document Intelligence has built-in document analysis capabilities that you can use to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model to train and deploy custom models.
+- [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer) is part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services). Document Intelligence has built-in document analysis capabilities that you can use to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models.
 
 - [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) provides a UI for exploring Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
 
@@ -68,7 +68,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 - You can do [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in Azure AI Language.
 
-- Use preprocessing code to do text processing steps like cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data, per document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
+- Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
 - You can use [Azure AI studio](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models.
 
