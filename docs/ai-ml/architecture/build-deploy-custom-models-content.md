@@ -32,7 +32,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
    - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service.
 
-   - Fine-tuned foundation models can be deployed from the model catalog to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
+   - Fine-tuned foundation models are deployed from the model catalog to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
 
 ### Components
 
@@ -48,7 +48,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 - [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer) is part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services). Document Intelligence has built-in document analysis capabilities that you can use to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence also has a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model that you can use to train and deploy custom models.
 
-- [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) provides a UI for exploring Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
+- [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) provides a UI that you can use to explore Document Intelligence features and models, and to build, tag, train, and deploy custom models.
 
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural language processing services. The suite offers prebuilt and customizable options. For more information, see the Azure AI Language [available features](/azure/cognitive-services/language-service/overview#available-features).
 
