@@ -125,7 +125,7 @@ The physical network topology shows the actual physical connections between node
   - Each node has two dedicated physical network interface cards (NIC) that are RDMA capable for storage intent. These NICs are connected with one path to each of the two top of rack (ToR) switches to provides dedicated bandwidth and link path redundancy for storage traffic.
   - Each node has two physical network interface card (NICs) for the management and compute intents. These NICs are which are connected with one path to each of the two top of rack (ToR) switches, Network ATC will configured as Converged adaptors using a switch embedded team (SET).
 - Dual Top-of-Rack (ToR) Switches:
-  - it requires links to the ToR switches for external connectivity (_north/south traffic_) for the cluster "management" intent and workload "compute" intent.
+  - Dual (two) ToR network switches are required for the solution to have redundant networking, these are used for the storage (_east / west traffic_) and for external connectivity (_north/south traffic_), such as the cluster "management" intent and the workload logical networks which use the "compute" intent.
   - These switches connect to the nodes using ethernet cables.
   - Using dual ToR switches is recommended to provide redundancy and load balancing for external communication.
 - External Connectivity:
