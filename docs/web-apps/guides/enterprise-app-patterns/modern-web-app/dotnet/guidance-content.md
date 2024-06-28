@@ -13,55 +13,59 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 ## Architecture guidance
 
+The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few additional architectural components to implement. You need a message queue, container platform, another storage service, and a container registry (*see figure 1*).
+
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
-The Modern Web App pattern foundational architecture builds on the Reliable Web App pattern (*see figure 1*). The architecture adds the necessary web app components to decoupled and containerized web app service from the existing monolithic code base. You can also implement the Modern Web App pattern with an optional hub-and-spoke architecture and across multiple regions (*see figure 2*).
+To reach a higher service-level objective, you can use multiple region, in which case you should use a hub-and-spoke architecture to derive the benefits of shared network resources (*see figure 2*).
 
 [![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/mwa-architecture-plus-optional.svg)](../../../_images/mwa-architecture-plus-optional.svg#lightbox)
-*Figure 2. The Modern Web App pattern architecture with optional hub-and-spoke topology and second region.*
+*Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
 
-To implement the architecture updates, follow these recommendations.
+### Decouple architecture
 
-### Select the right services
+To implement the Modern Web App pattern, you need to decouple the existing web app architecture. Decoupling architecture involves breaking down a monolithic application into smaller, independent services, each responsible for a specific feature or functionality. This process entails evaluating the current web app, modifying the architecture, and finally, extracting the web app code to a container platform. The goal is to systematically identify and extract application services that will benefit most from being decoupled. To decouple your architecture, follow these recommendations:
 
-The Azure services you selected for the implementation of the Reliable Web App pattern might not support these implementation techniques. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
+- *Identify service boundaries* Apply domain driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Services that represent distinct business functions and have fewer dependencies are good candidates for decoupling.
 
-- *Implement a messaging system.* A messaging system is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus.
+- *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, a high-traffic service like order processing in an e-commerce application might require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these services allows for independent deployment and reduces the risk of affecting other parts of the application.
 
-  - *Azure Event Grid*: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
-  
-  - *Azure Event Hubs*: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
-  
-  - *Azure Service Bus*: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
+- *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how data is managed and shared across services. Decoupled services should manage their own data and minimize direct database access across service boundaries.
 
-- *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service.
+- *Deploy Azure services.* Select and deploy the Azure services you need to support the web app service you intended to extract. Use the following [Select the right Azure services](#select-the-right-azure-services) section for guidance.
 
-  - *Azure Container Apps (ACA)*: Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-  
-  - *Azure Kubernetes Service (AKS)*: Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.
-  
-  - *Web Apps for Container*: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
-
-- *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
-
-### Decouple web app
-
-- *Identify service boundaries* Apply domain driven design principles to identify bounded contexts within your monolithic application. Each bounded context represents a logical boundary and can be a candidate for a separate service. Map the key business capabilities of your application. Services that represent distinct business functions are good candidates for decoupling. Examine the dependencies between different parts of your application. Services with fewer dependencies on other parts of the system are easier to decouple.
-
-- *Evaluate service benefits.* Focus on services that benefit most from independent scaling. For example, a high-traffic service like order processing in an e-commerce application might require more frequent scaling. Consider services that undergo frequent updates or changes. Decoupling these services allows for independent deployment and reduces the risk of affecting other parts of the application. Target services that are critical to performance since it can help optimize and manage performance more effectively.
-
-- *Assess technical feasibility.* Examine the current architecture to identify technical constraints and dependencies that might affect the decoupling process. Plan how data is managed and shared across services. Decoupled services should manage their own data and minimize direct database access across service boundaries. Ensure your existing infrastructure can support the decoupling process, including the necessary containerization and messaging systems.
-
-- *Extract services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity.
+- *Extract services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, refer to the [Code guidance](#code-guidance) section.
 
 - *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
+### Select the right Azure services
+
+For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
+
+- *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.
+
+| Service| Description |
+|-------|-------|
+| Azure Service Bus | Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications. |
+| Azure Event Grid | Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.|
+| Azure Event Hubs| Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.|
+
+- *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.
+
+| Service | Description  |
+|--------|--------|
+| Azure Container Apps (ACA) | Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications. |
+| Azure Kubernetes Service (AKS) | Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  |
+| Web Apps for Container | Choose Web App for Containers on Azure App Service for the simplest PaaS experience.|
+
+- *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
+
 ## Code guidance
 
-Update your web app code with the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, Retry pattern design patterns. Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework.
+To successfully decouple and extract an independent services, ou need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework.
 
-|Design pattern||Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
+|Design pattern|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
 |---|---|---|---|---|---|
 | [Strangler Fig pattern](#implement-the-strangler-fig-pattern) |✔| |✔ |✔ | |
 | [Queue-Based Load Leveling pattern](#implement-the-queue-based-load-leveling-pattern) |✔ | |✔ | |✔|
@@ -69,7 +73,13 @@ Update your web app code with the Strangler Fig pattern, Queue-Based Load Leveli
 | [Health Endpoint Monitoring pattern](#implement-the-health-endpoint-monitoring-pattern) |✔ | | |✔ |✔|
 | [Retry pattern](#implement-the-retry-pattern) |✔ | | | | |
 
-The Strangler Fig pattern incrementally migrates functionality from a monolithic application the decoupled service. The Queue-based Load leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. To update your code with the design patterns, follow this guidance:
+- *Strangler Fig pattern* incrementally migrates functionality from a monolithic application to the decoupled service.
+- *Queue-based Load Leveling pattern* manages the flow of messages between the producer and the consumer by using a queue as a buffer.
+- *Competing Consumers pattern* allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages.
+- *Health Endpoint Monitoring pattern* exposes endpoints for monitoring the status and health of different parts of the web app.
+- *Retry pattern* handles transient failures by retrying operations that might fail intermittently.
+
+To update your code with these design patterns and effectively integrate extracted services, follow this detailed guidance:
 
 [![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg#lightbox)
 *Figure 3. The role of the design patterns in the web app architecture.*
@@ -104,7 +114,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
     :::column-end:::
 :::row-end:::
 
-Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) to implement asynchronous processing to handle tasks that don't need immediate responses. It improves overall system responsiveness and scalability. The queue smooths out workload demand and allows services to process tasks at a consistent rate. To implement the Queue-Based Load Leveling pattern, follow these recommendations:
+Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) in the decoupled service code to asynchronously handle tasks that don't need immediate responses. his pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution, allowing services to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
 
 - *Use nonblocking message queuing.* Ensure that the task queuing messages doesn't block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a standby code path that can be used until the data is available. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
 
@@ -143,13 +153,13 @@ Use [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based
     :::column-end:::
 :::row-end:::
 
-Use the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) to efficiently manage incoming tasks. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
+Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the newly decoupled service code base to efficiently manage incoming tasks. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
 
 - The sequence of message processing isn't crucial.
 - The queue remains unaffected by malformed messages.
 - The processing operation is idempotent, meaning it can be applied multiple times without changing the result beyond the initial application.
 
-In the reference implementation, the decoupled service regularly receives a high volume of work. While it needs to process this work swiftly, the order in which the tasks are completed isn't significant. To implement the Competing Consumers pattern, follow these recommendations:
+To implement the Competing Consumers pattern, follow these recommendations:
 
 - *Handle concurrent messages.* When receiving messages from a queue, ensure that your system is designed to handle multiple messages concurrently. Set the maximum concurrent calls to 1 so a separate consumer handles each message.
 
@@ -167,46 +177,48 @@ In the reference implementation, the decoupled service regularly receives a high
 
 - *Use stateless services.* Consider using stateless services to process requests from a queue. It allows for easy scaling and efficient resource usage.
 
-- *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting. For example, the reference implementation uses a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
+- *Configure logging.* Integrate logging and specific exception handling within the message processing workflow. Focus on capturing serialization errors and directing these problematic messages to a dead letter mechanism. These logs provide valuable insights for troubleshooting.
 
-  - *AutoCompleteMessages*: Automatically completes messages if processed without failure.
-  - *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
-  - *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
-  - *PrefetchCount*: Set to 0 to avoid prefetching messages.
+For example, the reference implementation uses the Competing Consumers pattern a stateless service on Azure Container App to process ticket-rendering requests from an Azure Service Bus queue. It configures a queue processor with:
 
-    The processor logs message details, deserializes the message body, and processes it. If deserialization fails, it logs an error and moves the message to a dead-letter queue. The service scales at the container level.
+- *AutoCompleteMessages*: Automatically completes messages if processed without failure.
+- *ReceiveMode*: Uses PeekLock mode and redelivers messages if they aren't settled.
+- *MaxConcurrentCalls*: Set to 1 to handle one message at a time.
+- *PrefetchCount*: Set to 0 to avoid prefetching messages.
 
-    ```C#
-    // Create a processor for the given queue that will process incoming messages
-    var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
+The processor logs message processing details, aiding in troubleshooting and monitoring. It captures deserialization errors and routes invalid messages to a dead-letter queue, preventing repetitive processing of faulty messages. The service scales at the container level, allowing for efficient handling of message spikes based on queue length.
+
+```C#
+// Create a processor for the given queue that will process incoming messages
+var processor = serviceBusClient.CreateProcessor(path, new ServiceBusProcessorOptions
+{
+    // Allow the messages to be auto-completed if processing finishes without failure
+    AutoCompleteMessages = true,
+    // PeekLock mode provides reliability in that unsettled messages will be redelivered on failure
+    ReceiveMode = ServiceBusReceiveMode.PeekLock,
+    // Containerized processors can scale at the container level and need not scale via the processor options
+    MaxConcurrentCalls = 1,
+    PrefetchCount = 0
+});
+
+// Called for each message received by the processor
+processor.ProcessMessageAsync += async args =>
+{
+    logger.LogInformation("Processing message {MessageId} from {ServiceBusNamespace}/{Path}", args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
+    // Unhandled exceptions in the handler will be caught by the processor and result in abandoning and dead-lettering the message
+    try
     {
-        // Allow the messages to be auto-completed if processing finishes without failure
-        AutoCompleteMessages = true,
-        // PeekLock mode provides reliability in that unsettled messages will be redelivered on failure
-        ReceiveMode = ServiceBusReceiveMode.PeekLock,
-        // Containerized processors can scale at the container level and need not scale via the processor options
-        MaxConcurrentCalls = 1,
-        PrefetchCount = 0
-    });
-    
-    // Called for each message received by the processor
-    processor.ProcessMessageAsync += async args =>
+        var message = args.Message.Body.ToObjectFromJson<T>();
+        await messageHandler(message, args.CancellationToken);
+        logger.LogInformation("Successfully processed message {MessageId} from {ServiceBusNamespace}/{Path}", args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
+    }
+    catch (JsonException)
     {
-        logger.LogInformation("Processing message {MessageId} from {ServiceBusNamespace}/{Path}", args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
-        // Unhandled exceptions in the handler will be caught by the processor and result in abandoning and dead-lettering the message
-        try
-        {
-            var message = args.Message.Body.ToObjectFromJson<T>();
-            await messageHandler(message, args.CancellationToken);
-            logger.LogInformation("Successfully processed message {MessageId} from {ServiceBusNamespace}/{Path}", args.Message.MessageId, args.FullyQualifiedNamespace, args.EntityPath);
-        }
-        catch (JsonException)
-        {
-            logger.LogError("Invalid message body; could not be deserialized to {Type}", typeof(T));
-            await args.DeadLetterMessageAsync(args.Message, $"Invalid message body; could not be deserialized to {typeof(T)}", cancellationToken: args.CancellationToken);
-        }
-    };
-    ```
+        logger.LogError("Invalid message body; could not be deserialized to {Type}", typeof(T));
+        await args.DeadLetterMessageAsync(args.Message, $"Invalid message body; could not be deserialized to {typeof(T)}", cancellationToken: args.CancellationToken);
+    }
+};
+```
 
 ### Implement the Health Endpoint Monitoring pattern
 
