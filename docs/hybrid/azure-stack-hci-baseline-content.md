@@ -11,7 +11,7 @@ This architecture serves as a starting point for deploying Azure Stack HCI clust
 |&#9642; [Architecture diagram](#architecture) <br>&#9642; [Potential use cases](#potential-use-cases) <br>&#9642; [Scenario details and benefits](#scenario-details-and-benefits) <br>&#9642; [Platform resources](#platform-resources) <br>&#9642; [Platform supporting resources](#platform-supporting-resources) <br>&#9642; [Deployment prerequisites and workflow](#deployment-prerequisites-and-workflow) <br>|&#9642; [Cluster design choices](#cluster-design-choices)<br> &#9642; [Physical disk drives](#physical-disk-drives) <br> &#9642; [Networking](#network-design) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management)|&#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization) <br> &#9642; [Operational Excellence](#operational-excellence) <br> &#9642; [Performance Efficiency](#performance-efficiency)|
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-3Nodes-Switchless-DualLink) demonstrates how to deploy a 3-node Azure Stack HCI storage switchless cluster using an ARM template and parameter file.
+> ![GitHub logo](../_images/github.svg) This [reference implementation](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.azurestackhci/create-cluster-2-node-switched-custom-storageip) demonstrates how to deploy a "switched MultiServer Deployment" of Azure Stack HCI using an ARM template and parameter file. Alternatively, [this example demonstrates how to use Bicep template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.azurestackhci/create-cluster-with-prereqs/) to deploy an Azure Stack HCI cluster, including prerequisites resources.
 
 ## Architecture
 
@@ -382,7 +382,6 @@ Microsoft Learn modules:
 [azs-hci-networking]: /azure-stack/hci/concepts/plan-host-networking
 [azs-hci-network-bandwidth-allocation]: /azure-stack/hci/concepts/plan-host-networking#traffic-bandwidth-allocation
 [azs-hci-switchless-interconnects-reqs]: /azure-stack/hci/concepts/plan-host-networking#interconnects-for-2-3-node-clusters
-[sr-resync]: /windows-server/storage/storage-spaces/understand-storage-resync
 [azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
 [azs-hci-rbac]: /azure-stack/hci/manage/assign-vm-rbac-roles
 [azs-hci-security-default]: /azure-stack/hci/manage/manage-secure-baseline
