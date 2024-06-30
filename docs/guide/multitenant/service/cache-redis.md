@@ -1,7 +1,7 @@
 ---
 title: Azure Cache for Redis considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Cache for Redis that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Cache for Redis in a multitenant solution.
+description: This article describes the features of Azure Cache for Redis that are useful when you work with multitenant systems, and it provides links to guidance for how to use Azure Cache for Redis in a multitenant solution.
 author: landonpierce
 ms.author: landonpierce
 ms.date: 07/01/2024
@@ -44,7 +44,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 You might consider deploying a single cache, with a single Redis database, and using it to store cached data for all of your tenants. This approach is commonly used when you have a single application instance that all of your tenants share.
 
-When you follow this approach, your application is solely responsible for keeping tenant data separated. You can use key prefixes to distinguish data from different tenants, but your application needs to be diligent about only accessing data for the tenant it's working with. Alternatively, you can consider using Redis data structures, like [sets](https://redis.io/docs/latest/develop/data-types/#sets) or [hashes](https://redis.io/docs/latest/develop/data-types/#hashes), for each tenant's data. Each of these approaches support large numbers of keys, so they can scale to many tenants. However, you need to manage authorization within your application instead of within the cache.
+When you follow this approach, your application is solely responsible for keeping tenant data separated. You can use key prefixes to distinguish data from different tenants, but your application needs to be diligent about only accessing data for the tenant it's working with. Alternatively, you can consider using Redis data structures, like [sets](https://redis.io/docs/latest/develop/data-types/#sets) or [hashes](https://redis.io/docs/latest/develop/data-types/#hashes), for each tenant's data. Each of these approaches supports large numbers of keys, so they can scale to many tenants. However, you need to manage authorization within your application instead of within the cache.
 
 When you share a cache instance and database between tenants, consider that all of your tenants share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis to make the most efficient use of your cache's resources and to mitigate any noisy neighbor effects. Best practices include:
 
@@ -59,9 +59,9 @@ Additionally, consider monitoring your cache's resources, such as CPU and memory
 
 ### Shared cache and database with access control lists
 
-If your application tier uses distinct identities to access the cache for each tenant, then you can use Redis [access control lists](#access-control-lists) to restrict access to tenants' information to the users that are allowed to access keys based on their names or prefixes. This approach can be a good fit when you have distinct application instances for each tenant, or if you have a shared application that uses multiple identities to access downstream services based on the tenant context.
+If your application tier uses distinct identities to access the cache for each tenant, use Redis [access control lists](#access-control-lists). Access control lists enable you to restrict access to tenants' information to specific identities. You identify the data the identity is allowed to access based on key names or prefixes. This approach can be a good fit when you have distinct application instances for each tenant, or if you have a shared application that uses multiple identities to access downstream services based on the tenant context.
 
-As with the previous isolation model, sharing the cache and database means that you need to take precautions to avoid the Noisy Neighbor problem.
+Similarly to the previous isolation model, sharing the cache and database means that you need to take precautions to avoid the Noisy Neighbor problem.
 
 ### Shared cache instance with a database per tenant
 
