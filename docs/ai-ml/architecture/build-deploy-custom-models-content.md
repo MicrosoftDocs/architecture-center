@@ -26,7 +26,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 1. To deploy the custom models and use them for inference:
 
-   - Azure AI Document Intelligence Service has built-in model deployment. [Use Form Recognizer SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
+   - Azure AI Document Intelligence has built-in model deployment. [Use Document Intelligence SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
@@ -64,17 +64,17 @@ This article describes Azure solutions for building, training, deploying, and us
 
 You can add more workflows to this scenario based on specific use cases.
 
-- If the document is in image or PDF format, you can extract the data by using Azure [Computer Vision](/azure/cognitive-services/computer-vision/overview-ocr), [Form Recognizer Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read?pivots=programming-language-python), or open-source libraries.
+- If the document is in image or PDF format, you can extract the data by using Azure [computer vision](/azure/cognitive-services/computer-vision/overview-ocr), [Document Intelligence Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read?pivots=programming-language-python), or open-source libraries.
 
 - You can do [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in Azure AI Language.
 
 - Use preprocessing code to perform text processing steps. These steps include cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data according to document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-- You can use [Azure AI studio](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models.
+- You can use [Azure AI Studio](/azure/ai-studio/what-is-ai-studio) to [fine-tune](/azure/ai-studio/concepts/fine-tuning-overview) and deploy foundation models.
 
 ## Scenario details
 
-Document processing is a broad area. It can be difficult to meet all your document processing needs with the prebuilt models available in Azure AI Document Intelligence and Azure AI Language. You might need to build custom models to automate document processing for different applications and domains.
+Document processing is a broad area. It can be difficult to meet all your document processing needs with the prebuilt models available in Document Intelligence and Azure AI Language. You might need to build custom models to automate document processing for different applications and domains.
 
 Major challenges in model customization include:
 
@@ -106,8 +106,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - See the availability service-level agreements (SLAs) for each component Azure service:
 
-  - Azure AI Document Intelligence - [SLA for Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0).
-  - Azure AI Language - [SLA for Azure Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1).
+  - Document Intelligence - [SLA for Azure AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0).
+  - Azure AI Language - [SLA for Azure AI services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
   - Azure Functions - [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
   - Azure Kubernetes Service (AKS) - [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1).
   - Azure Storage - [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
@@ -118,7 +118,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - Handle failure modes of individual services like Azure Functions and Azure Storage to ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
 
-- For Document Intelligence, [back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
+- For Document Intelligence, [back up and recover your Document Intelligence models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
 - For custom text classification with Azure AI Language, [back up and recover your custom text classification models](/azure/cognitive-services/language-service/custom-classification/fail-over).
 
@@ -130,7 +130,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, and [Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline).
+- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Document Intelligence and Language Studio, and [Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline).
 
 - Azure Functions can access resources in a virtual network through [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration).
 
@@ -146,7 +146,7 @@ The major costs for this solution are:
 
     Choose the right node type, cluster size, and number of nodes to help optimize costs. For training, Machine Learning provides the options to set the minimum number of compute cluster nodes to zero and to set the idle time before the scale down. For more information, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
-- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of Data Integration Units (DIUs) used and the execution duration. Added orchestration activity runs are also charged, based on their number.
+- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of data integration units (DIUs) used and the execution duration. Added orchestration activity runs are also charged, based on their number.
 
   Logic Apps pricing plans depend on the resources you create and use. The following articles can help you choose the right plan for specific use cases:
 
@@ -161,7 +161,7 @@ For more information on pricing for specific components, see the following resou
 - [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Azure Data Factory pricing](https://azure.microsoft.com/en-in/pricing/details/data-factory/data-pipeline)
 - [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
-- [Language Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
+- [Azure AI Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
 - [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/#overview)
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to add your selected component options and estimate the overall solution cost.
@@ -195,7 +195,7 @@ Principal author:
 ## Next steps
 
 - [Get started: Form Recognizer Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
-- [Use Document Intelligence Models through SDKs or REST API](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
+- [Use Document Intelligence models through SDKs or REST API](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Azure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
