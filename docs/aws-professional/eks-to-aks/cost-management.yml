@@ -22,4 +22,4 @@ name:  Cost management for Kubernetes
 summary: Understand Kubernetes cluster and workload costs, see how to optimize and govern costs, and compare Azure Kubernetes Service (AKS) and Amazon EKS options.
 thumbnailUrl: /azure/architecture/browse/thumbs/control-plane-and-nodes.png
 content: |
-   [!include[](cost-management-content.md)]
+   [!INCLUDE[](cost-management-content.md)]
