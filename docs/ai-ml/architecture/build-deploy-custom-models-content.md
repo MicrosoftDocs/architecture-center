@@ -22,17 +22,17 @@ This article describes Azure solutions for building, training, deploying, and us
 
    - For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or Named Entity Recognition (NER) model in Language Studio.
 
-   - Machine Learning studio has data labeling capabilities for text classification or entity extraction that you can use with open-source frameworks like PyTorch or TensorFlow. Azure Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#fine-tune-using-the-studio) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
+   - Machine Learning studio has data labeling capabilities for text classification or entity extraction that you can use with open-source frameworks like PyTorch or TensorFlow. Azure Machine Learning studio provides a [model catalog](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of foundation models. These foundation models have fine-tuning capabilities for various tasks like text classification, question answering, and summarization. To fine-tune foundation models, use [Machine Learning studio UI](/azure/machine-learning/how-to-use-foundation-models) or [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
 1. To deploy the custom models and use them for inference:
 
    - Azure AI Document Intelligence has built-in model deployment. [Use Document Intelligence SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Document Intelligence request URL, depending on the API version. Document Intelligence doesn't require any further deployment steps.
 
-   - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
+   - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api).
 
-   - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service.
+   - Machine Learning deploys custom models to online or batch [Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can use the Machine Learning SDK to [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service.
 
-   - Fine-tuned foundation models are deployed from the model catalog to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
+   - Fine-tuned foundation models are deployed from the model catalog to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models).
 
 ### Components
 
@@ -58,7 +58,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
   - Azure Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects).
   - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Azure Machine Learning datasets. You can use the datasets for training and deploying models in Azure Machine Learning notebooks.
-  - [Deploy models to AKS](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service for real-time inferencing at scale, or as managed endpoints for both real-time and batch inferencing.
+  - [Deploy models to AKS](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) as a web service for real-time inferencing at scale, or as managed endpoints for both real-time and batch inferencing.
 
 ### Alternatives
 
@@ -156,10 +156,10 @@ The major costs for this solution are:
 
 For more information on pricing for specific components, see the following resources:
 
-- [Azure AI Document Intelligence pricing](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/)
+- [Azure AI Document Intelligence pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/)
 - [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions)
 - [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-- [Azure Data Factory pricing](https://azure.microsoft.com/en-in/pricing/details/data-factory/data-pipeline)
+- [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline)
 - [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
 - [Azure AI Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
 - [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/#overview)
@@ -176,7 +176,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - Document Intelligence supports 15 concurrent requests per second by default. To request an increased quota, [create an Azure support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-- For Azure Machine Learning custom models hosted as web services on AKS, the [`azureml-fe`](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling) front end automatically scales as needed. This component also routes incoming inference requests to deployed services.
+- For Azure Machine Learning custom models hosted as web services on AKS, the [`azureml-fe`](/azure/machine-learning/how-to-deploy-azure-kubernetes-service) front end automatically scales as needed. This component also routes incoming inference requests to deployed services.
 
 - For deployments as managed endpoints, support [autoscaling](/azure/machine-learning/concept-endpoints#autoscaling) by integrating with the [Azure Monitor autoscale feature](/azure/azure-monitor/autoscale/autoscale-overview).
 
