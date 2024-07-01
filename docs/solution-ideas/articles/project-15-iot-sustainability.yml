@@ -11,9 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.category:
     - iot
-  ms.custom:
-    - iot
-    - fcp
+  ms.custom: arb-iot
 name: Project 15 Open Platform IoT sustainability
 azureCategories:
   - iot

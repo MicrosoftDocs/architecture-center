@@ -16,7 +16,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 1. The Spark pools use the following services:
    - AI Language, for named entity recognition (NER), key phrase extraction, and sentiment analysis
-   - Azure AI services Translator, to translate text
+   - Azure AI Translator, to translate text
    - Azure Maps, to link data to geographical coordinates
 
 1. The enriched data is stored in Data Lake.

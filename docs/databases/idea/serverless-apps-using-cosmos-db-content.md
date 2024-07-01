@@ -66,7 +66,6 @@ See the following architectures that include Functions and Azure Cosmos DB:
 See the following architectures that feature Functions:
 
 - [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
-- [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)
 - [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
@@ -74,6 +73,5 @@ See the following architectures that feature Functions:
 See the following architectures that feature Azure Cosmos DB:
 
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
-- [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
 - [Deliver highly scalable customer service and enterprise resource planning (ERP) applications](/azure/architecture/solution-ideas/articles/erp-customer-service)
 - [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)

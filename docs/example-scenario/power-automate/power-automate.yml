@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
-    - fcp
+    - arb-integrations
 azureCategories:
   - integration
 products:

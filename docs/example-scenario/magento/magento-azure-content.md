@@ -194,5 +194,4 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - [All retail architectures](/azure/architecture/browse/?terms=retail)
 - [Elastic Workplace Search on Azure](../../solution-ideas/articles/elastic-workplace-search.yml)
-- [Scalable order processing](../data/ecommerce-order-processing.yml)
 - [Application data protection for AKS workloads on Azure NetApp Files](../file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)

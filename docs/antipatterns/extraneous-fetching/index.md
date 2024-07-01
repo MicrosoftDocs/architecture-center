@@ -9,11 +9,11 @@ ms.date: 07/25/2022
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
-azureCategories: 
-  - databases 
-  - storage 
+azureCategories:
+  - databases
+  - storage
   - web
-  - compute 
+  - compute
   - devops
 products:
   - azure-sql-database
@@ -36,7 +36,7 @@ keywords:
 
 # Extraneous Fetching antipattern
 
-Anti-patterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. In an *extraneous fetching antipattern*, more than needed data is retrieved for a business operation, often resulting in unnecessary I/O overhead and reduced responsiveness.
+Antipatterns are common design flaws that can break your software or applications under stress situations and should not be overlooked. In an *extraneous fetching antipattern*, more than needed data is retrieved for a business operation, often resulting in unnecessary I/O overhead and reduced responsiveness.
 
 ## Examples of extraneous fetching antipattern
 

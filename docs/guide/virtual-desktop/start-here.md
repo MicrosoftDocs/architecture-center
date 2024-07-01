@@ -24,7 +24,7 @@ Azure provides these virtual desktop solutions:
 - [VMware Horizon Cloud on Microsoft Azure](https://azure.microsoft.com/services/virtual-desktop/vmware-horizon-cloud) is a VMware service that simplifies the delivery of virtual desktops and applications on Azure by extending Azure Virtual Desktop.
 - [Citrix Virtual Apps and Desktops for Azure](https://azure.microsoft.com/services/virtual-desktop/citrix-virtual-apps-desktops-for-azure) is a desktop and app virtualization service that you can use to provision Windows desktops and apps on Azure with Citrix and Azure Virtual Desktop.
 - [Azure Lab Services](https://azure.microsoft.com/services/lab-services) provides computer labs in the cloud.
-- [Microsoft Dev Box Preview](https://azure.microsoft.com/services/dev-box) is a service that gives developers access to ready-to-code, project-specific workstations that are preconfigured and centrally managed in the cloud.
+- [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box) is a service that gives developers access to ready-to-code, project-specific workstations that are preconfigured and centrally managed in the cloud.
 
 ## Introduction to virtual desktop architecture on Azure
 

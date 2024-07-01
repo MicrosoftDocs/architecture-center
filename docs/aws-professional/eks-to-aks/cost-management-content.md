@@ -20,6 +20,29 @@ With On-Demand Instances, you pay for compute capacity by the second, with no lo
 
 - AWS Spot Instance prices vary. AWS sets the price depending on long-term supply and demand trends for Spot Instance capacity, and you pay the price in effect for the time period the instance is up.
 
+## Azure Kubernetes Service cost analysis
+
+An [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) cluster relies on various Azure resources such as virtual machines, virtual disks, load-balancers, and public IP addresses. These resources can be utilized by multiple applications, which might be managed by different teams within an organization. The consumption patterns of these resources can vary, resulting in varying contribution towards the total cluster resource cost. Additionally, some applications may have footprints across multiple clusters, making cost attribution and management a challenge.
+
+For scenarios where a cluster contains a single workload, [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) can be used to measure cluster resource consumption under the cluster resource group. However, some scenarios are not natively covered by that solution alone, for example:
+
+- Granular breakdown of resource usage, such as compute, network, and storage.
+- Distinguishing between individual application costs and shared costs.
+- Analyzing costs across multiple clusters in the same subscription scope.
+
+To increase cost observability, AKS has integrated with Microsoft Cost Management to provide detailed cost drilldowns at Kubernetes constructs like cluster and namespace. This integration enables cost analysis at the Azure compute, network, and storage categories.
+
+The AKS cost analysis addon is built on [OpenCost](https://www.opencost.io/), an open-source project for usage data collection. It provides cost visibility by reconciling data with your Azure invoice. The post-processed data is directly visible in the Cost Management cost analysis portal. For more information, see [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis).
+
+### Cost Definitions
+
+In the Kubernetes namespaces and assets views, you will see the charges, such as:
+
+- **Idle charges:** Represents the cost of available resource capacity that wasn't used by any workloads.
+- **Service charges:** Represents the charges associated with services like Uptime SLA and Microsoft Defender for Containers.
+- **System charges:** Represents the cost of capacity reserved by AKS on each node to run system processes required by the cluster.
+- **Unallocated charges:** Represents the cost of resources that couldn't be allocated to namespaces.
+
 ## AKS cost basics
 
 Kubernetes architecture is based on two layers, the control plane and one or more nodes or node pools. The AKS pricing model is based on the two Kubernetes architecture layers.
@@ -116,7 +139,7 @@ Several Azure networking services can provide access to your applications that r
   - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
   - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, Transport Layer Security (TLS) termination, and Web Application Firewall functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
@@ -218,14 +241,22 @@ Cost governance is the process of continuously implementing policies or controls
 
 - Explore open-source tools like [KubeCost](https://www.kubecost.com) to monitor and govern AKS cluster cost. You can scope cost allocation to a deployment, service, label, pod, and namespace, which provides flexibility in showing and charging cluster users.
 
+## Reference Material
+
+Here are some reference materials that can help you further understand and utilize AKS cost analysis:
+
+- [Azure Kubernetes Service cost analysis](/azure/aks/cost-analysis)
+- [Webinar: Tools and Tips for Unparalleled Cost Transparency on AKS](https://www.youtube.com/watch?v=p15XAKy14WQ)
+- [OpenCost project on GitHub](https://github.com/opencost/opencost)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
-- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal System Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) | Principal System Engineer
+- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd/) | Cloud Solution Architect
 
 Other contributors:
 

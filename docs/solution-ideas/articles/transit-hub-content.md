@@ -59,16 +59,6 @@ This model is especially useful in the following scenarios:
 - Publishing systems that potentially need to support new or unknown data sources
 - Commerce or ticketing systems that need to continually update data and cache it for fast delivery
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
- * [Rick Weyenberg](https://www.linkedin.com/in/rickweyenberg) | Principal Cloud Solution Architect
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - [Azure Web PubSub service documentation](/azure/azure-web-pubsub)

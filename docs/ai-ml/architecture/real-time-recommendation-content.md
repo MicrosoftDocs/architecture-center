@@ -130,9 +130,7 @@ Principal authors:
 ## Related resources
 
 - [Batch scoring of Spark models on Azure Databricks][batch-scoring]
-- [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
-- [Create personalized marketing solutions in near real time](../../ai-ml/idea/personalized-marketing.yml)
 - [Personalized offers](../../solution-ideas/articles/personalized-offers.yml)
 
 <!-- links -->

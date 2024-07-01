@@ -108,4 +108,3 @@ Explore related architectures:
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Hub-spoke network topology in Azure](../architecture/hub-spoke.yml)
-- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)

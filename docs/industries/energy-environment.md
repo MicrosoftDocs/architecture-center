@@ -63,7 +63,6 @@ The following are other ideas that you can use as a starting point for your ener
 - [Energy supply optimization](/azure/architecture/solution-ideas/articles/energy-supply-optimization)
 - [Forecast energy and power demand](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
 - [IoT analyze and optimize loops](/azure/architecture/example-scenario/iot/analyze-optimize-loop)
-- [IoT-connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
 - [IoT device connectivity for healthcare facilities](/azure/architecture/solution-ideas/articles/healthcare-network)
 - [IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)

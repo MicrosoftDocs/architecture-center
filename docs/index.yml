@@ -280,9 +280,6 @@ conceptualContent:
         - text: Image modeling
           itemType: get-started
           url:  example-scenario/infrastructure/image-modeling.yml
-        - text: Linux virtual desktops
-          itemType: get-started
-          url:  example-scenario/infrastructure/linux-vdi-citrix.yml
       footerLink:
         text: Introduction to HPC on Azure
         url: topics/high-performance-computing.md
@@ -316,9 +313,6 @@ conceptualContent:
         - text: Automotive IoT data
           itemType: get-started
           url:  example-scenario/data/realtime-analytics-vehicle-iot.yml
-        - text: Telehealth system
-          itemType: get-started
-          url:  example-scenario/apps/telehealth-system.yml
 
     - title: Microservices
       links:
@@ -433,15 +427,9 @@ conceptualContent:
         - text: SAP BW/4HANA in Linux on Azure
           itemType: architecture
           url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
-        - text: SAP NetWeaver on SQL Server
-          itemType: architecture
-          url: solution-ideas/articles/sap-netweaver-on-sql-server.yml
         - text: SAP deployment using an Oracle database
           itemType: architecture
           url: example-scenario/apps/sap-production.yml
-        - text: Dev/test for SAP
-          itemType: architecture
-          url: example-scenario/apps/sap-dev-test.yml
 
     - title: Web apps
       links:

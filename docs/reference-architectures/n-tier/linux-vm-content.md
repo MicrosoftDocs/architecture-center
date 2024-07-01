@@ -154,7 +154,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 ## Related resources
 
 - [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml)
-- [Linux virtual desktops with Citrix](/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix)
 - [Run a Windows VM on Azure](windows-vm.yml)
 
 

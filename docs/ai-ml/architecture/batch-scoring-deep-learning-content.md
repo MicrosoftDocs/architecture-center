@@ -133,7 +133,7 @@ Azure Machine Learning will automatically log all stdout/stderr to the associate
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
 
-You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service. Follow the steps described in this [GitHub repo][deployment2].
+You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service (AKS). Follow the steps described in this [GitHub repo][deployment2].
 
 ## Contributors
 
@@ -149,7 +149,6 @@ Principal author:
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [Batch scoring of Python models on Azure](batch-scoring-python.yml)
-- [Batch scoring with R models to forecast sales](batch-scoring-R-models.yml)
 
 ## Related resources
 

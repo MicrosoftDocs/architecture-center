@@ -27,8 +27,8 @@ A reference architecture is a template of required components and the technical 
 
 Common serverless architecture patterns include:
 
-- Serverless APIs, mobile and web backends.
-- Event and stream processing, Internet of Things (IoT) data processing, big data and machine learning pipelines.
+- Serverless APIs, mobile backends, and web backends.
+- Event and stream processing, Internet of Things (IoT) data processing, big data, and machine learning pipelines.
 - Integration and enterprise service bus to connect line-of-business systems, publish and subscribe (Pub/Sub) to business events.
 - Automation and digital transformation and process automation.
 - Middleware, software-as-a-Service (SaaS) like Dynamics, and big data projects.
@@ -60,7 +60,7 @@ Common serverless architecture patterns include:
         IoT-connected backends in the manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and that triggers a message to the service department when a repair is required.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, and are then routed for processing by using Zendesk.":::
+        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram that shows IOT devices that produce requests for repair, which are sent to the IOT Hub, and are then routed for processing by using Zendesk.":::
     :::column-end:::
 :::row-end:::
 
@@ -79,7 +79,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using OCR detection, and it adds the data to a database for easy queries.
+        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using optical character recognition (OCR) detection, and it adds the data to a database for easy queries.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/real-time-file-processing.png" alt-text="Diagram shows patient records uploaded, which is then decomposed and sent to Cognitive Services to be structured into a database.":::
@@ -140,7 +140,7 @@ Automating workflows and repetitive tasks on the cloud can dramatically improve 
 
 ### Multicloud with Serverless Framework
 
-The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly-available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
+The [Serverless Framework architecture](../example-scenario/serverless/serverless-multicloud.yml) describes how the Microsoft Commercial Software Engineering (CSE) team partnered with a global retailer to deploy a highly available serverless solution across both Azure and Amazon Web Services (AWS) cloud platforms, using the Serverless Framework.
 
 ## More serverless Functions reference architectures
 
@@ -152,7 +152,6 @@ The following sections list other serverless and Azure Functions-related referen
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml)
 - [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)
-- [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 
 ### Web and mobile backend
@@ -167,9 +166,6 @@ The following sections list other serverless and Azure Functions-related referen
 
 - [Image classification for insurance claims](../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
-- [Personalized marketing solutions](../ai-ml/idea/personalized-marketing.yml)
-- [Speech transcription with Azure Cognitive Services](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
-- [Training a Model with AzureML and Azure Functions](/samples/azure-samples/functions-python-azureml-azurefunctions-deeplearning/training-a-model-with-azureml-and-azure-functions/)
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)
 - [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)

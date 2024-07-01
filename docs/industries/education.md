@@ -42,7 +42,6 @@ The following articles provide detailed analysis of architectures created and re
 
 |Architecture|Summary|Technology focus|
 |---|---|---|
-|[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml) | Learn how to use Azure services to build a system that connects teachers to remote students.|Containers|
 |[Computer forensics chain of custody in Azure](../example-scenario/forensics/index.yml)|Create an infrastructure to ensure a valid digital-evidence chain of custody for computer forensics in Azure.|Management|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)|Use Azure Digital Twins to create models of smart buildings and campuses from IoT device data. View and control systems, environments, and experiences.|IoT|
 |[Enhanced-security hybrid messaging — client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Learn how to enhance the security of your educational messaging infrastructure in a client access scenario by using Microsoft Entra multifactor authentication.| Hybrid|
@@ -53,7 +52,5 @@ The following articles provide detailed analysis of architectures created and re
 |[Secure research environment for regulated data](../ai-ml/architecture/secure-compute-for-research.yml)|Learn about an architecture created for higher education research institutions. It enables researchers to access sensitive data while providing a high level of control and data protection.| Security|
  
 ## Solution ideas for education
-The following are other ideas that you can use as a starting point for your education solution.
-- [COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
-- [IoT connected light, power, and internet for emerging markets](../solution-ideas/articles/iot-power-management.yml)
+Use the following idea as a starting point for your education solution.
 - [Project 15 Open Platform IoT sustainability](../solution-ideas/articles/project-15-iot-sustainability.yml)

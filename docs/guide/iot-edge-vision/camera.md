@@ -12,9 +12,7 @@ categories: iot
 products:
   - azure-iot-edge
   - azure-machine-learning
-ms.custom:
-  - guide
-  - fcp
+ms.custom: arb-iot
 ---
 
 # Camera selection for Azure IoT Edge vision AI
