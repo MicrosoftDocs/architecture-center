@@ -130,7 +130,7 @@ There are limits for Virtual Desktop resources that must be considered in the de
 
 For diagnostics and monitoring, it's recommended to use the same Log Analytics workspace for both the primary and secondary host pool. Using this configuration, [AVD Insights](/azure/virtual-desktop/insights) offers a unified view of deployment in both regions.
 
-Using a single log destination could cause problems in case of entire primary region failure since the secondary region is not able to use the log workspace in the unavailable region. If this isn't acceptable, the following solutions could be adopted:
+However, using a single log destination could cause problems in case of entire primary region failure. The secondary region won't be able to use the log workspace in the unavailable region. If this is unacceptable, the following solutions could be adopted:
 
 - Use a separate Log Analytics workspace for each region, and then point AVD components to log toward the local one.
 - Test and review Logs Analytics [workspace replication and failover capabilities](/azure/azure-monitor/logs/workspace-replication).
