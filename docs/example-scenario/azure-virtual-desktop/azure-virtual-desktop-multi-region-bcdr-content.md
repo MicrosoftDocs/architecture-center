@@ -77,9 +77,9 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
   - For each host pool in the primary region, you deploy a second host pool in the secondary region.
   - This configuration provides almost zero RTO, and RPO has an extra cost.
   - You don't require an administrator to intervene or fail over. During normal operations, the secondary host pool provides the user with Virtual Desktop resources.
-  - Each host pool has its own storage account/s for persistent user profiles.
+  - Each host pool has its own storage accounts (at least one) for persistent user profiles.
   - You should evaluate latency based on the user's physical location and connectivity available. For some Azure regions, such as Western Europe and Northern Europe, the difference can be negligible when accessing either the primary or secondary regions. You can validate this scenario using the [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) tool.
-  - Users are assigned to different application groups, like Desktop (DAG) and RemoteApp (RAG), in both the primary and secondary host pools. In this case, they see duplicate entries in their Virtual Desktop client feed. To avoid confusion, use separate Virtual Desktop workspaces with clear names and labels that reflect the purpose of each resource. Inform your users about the usage of these resources.
+  - Users are assigned to different application groups, like Desktop Application Group (DAG) and RemoteApp Application Group (RAG), in both the primary and secondary host pools. In this case, they see duplicate entries in their Virtual Desktop client feed. To avoid confusion, use separate Virtual Desktop workspaces with clear names and labels that reflect the purpose of each resource. Inform your users about the usage of these resources.
 
     :::image type="content" source="images/azure-virtual-desktop-multiple-workspaces.png " alt-text="Picture that explains the usage of multiple workspaces.":::
 
@@ -126,7 +126,7 @@ Review the [Business continuity and disaster recovery options for FSLogix](/fslo
 - [Cloud cache (active/passive)](/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover) is included in this document but is implemented it using the same host pool.
 - [Cloud cache (active/active)](/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active) is covered in the remaining part of this document.
 
-There are limits for Virtual Desktop resources. For more information, see [Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
+There are limits for Virtual Desktop resources that must be considered in the design of a Virtual Desktop architecture, be sure to validate based on the information contained in [Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) article.
 
 For diagnostics and monitoring, it's recommended to use the same Log Analytics workspace for both the primary and secondary host pool. Using this configuration, [AVD Insights](/azure/virtual-desktop/insights) offers a unified view of deployment in both regions.
 
@@ -137,7 +137,7 @@ Using a single log destination could cause problems in case of entire primary re
 
 ### Compute
 
-- For deployment of both host pools in the primary and secondary disaster recovery regions, you should use Azure Availability Zones and spread your Session Host VMs fleet over all available zones. If Availability Zones aren't available in the local region, you can use an Azure Availability Set.
+- For the deployment of both host pools in the primary and secondary disaster recovery regions, you should use Azure Availability Zones and spread your Session Host VMs fleet over all available zones. If Availability Zones aren't available in the local region, you can use an Azure Availability Set.
 - The golden image that you use for host pool deployment in the secondary disaster recovery region should be the same you use for the primary. You should store images in the Azure Compute Gallery and configure multiple image replicas in both the primary and the secondary locations. Each image replica can sustain a parallel deployment of a maximum number of VMs, and you might require more than one based on your desired deployment batch size. For more information, see [Store and share images in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries#scaling).
 
     :::image type="content" source="images/azure-compute-gallery-hires.png" alt-text="Diagram that shows Azure Compute Gallery and Image replicas." lightbox="images/azure-compute-gallery-hires.png":::
