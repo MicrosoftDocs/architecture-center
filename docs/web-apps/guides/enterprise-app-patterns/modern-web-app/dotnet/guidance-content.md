@@ -35,7 +35,11 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 - *Deploy Azure services.* Select and deploy the Azure services you need to support the web app service you intended to extract. Use the following [Select the right Azure services](#select-the-right-azure-services) section for guidance.
 
-- *Extract services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, refer to the [Code guidance](#code-guidance) section.
+- *Decouple services.* Define clear interfaces and APIs for the new services to interact with other parts of the system. Design a data management strategy that allows each service to manage its own data while ensuring consistency and integrity. For specific implementation strategies and design patterns to use during this extraction process, refer to the [Code guidance](#code-guidance) section.
+
+- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to ease versioning and deployment. For example, the reference implementation separates the ticket rendering service from the web API and eliminates the need for the service to access the API’s database. Instead, the service communicates the URL where ticket images were generated back to the web API via a Service Bus message, and the API persists the path to its database.
+
+- *Implement separate deployment pipelines for each decoupled service.* Separate deployment pipelines allow each service to be updated at its own pace. If different teams or organizations within your company own different services, having separate deployment pipelines gives each team control over their own deployments. Use CI/CD tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
 
 - *Revise security controls.* Ensure that your security controls are updated to account for the new architecture, including firewall rules and access controls.
 
@@ -94,17 +98,15 @@ To update your code with these design patterns and effectively integrate extract
 
 Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to gradually migrate functionality from the monolithic codebase to new independent services. Extract new services from the existing monolithic code base and slowly modernize critical parts of the web app. To implement the Strangler Fig pattern, follow these recommendations:
 
-- *Set up a routing layer* Implement a routing layer that directs traffic to either the monolith or the new microservices based on the endpoint. This layer allows for a seamless transition and testing.
+- *Set up a routing layer* In the monolithic web app code base, implement a routing layer that directs traffic based on endpoints. Use custom routing logic as needed to handle specific business rules for directing traffic. For example, if you have a `/users` endpoint in your monolithic app and you moved that functionality to the decoupled service, the routing layer would direct all requests to `/users` to the new service.
 
-- *Use a façade service if necessary.* In some cases, a strangler fig façade service is used to route requests to the various backend solutions while the pattern is being applied. A façade service is useful when you have multiple services running in parallel during the transition period. However, if the extracted service doesn’t have any public-facing APIs, a façade service might not be necessary.
+- *Manage feature rollout.* Use .NET Feature Management libraries to [implement feature flags](azure/azure-app-configuration/use-feature-flags-dotnet-core) and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core) to gradually rollout of the decoupled service. The existing monolithic app routing should control how many requests the decoupled services receives. Start with a small percentage of requests and increase usage over time as you gain confidence in its stability and performance.
 
-- *Unify the API surface area.* If your application exposes an API to callers, consider using a management platform like [Azure API Management](/azure/api-management/api-management-key-concepts). It can help unify the surface area of multiple, extracted services, making it easier for clients to consume your services.
+    For example, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
 
-- *Manage feature rollout.* Gradually roll out a decoupled service using ASP.NET Core feature management and [staged rollout](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core). Start with a portion of requests, then increase usage over time as you gain confidence in its stability and performance. For instance, the reference implementation extracts the ticket rendering functionality into a standalone service, which can be gradually introduced to handle a larger portion of the ticket rendering requests. As the new service proves its reliability and performance, it can eventually take over the entire ticket rendering functionality from the monolith, completing the transition.
+- *Use a façade service (if necessary).* A façade service is useful when a single request needs to interact with multiple services or when you want to hide the complexity of the underlying system from the client. However, if the decoupled service doesn’t have any public-facing APIs, a façade service might not be necessary.
 
-- *Use independent storage for decoupled services.* Each decoupled service should have its own data stores to ease versioning and deployment. For example, the reference implementation separates the ticket rendering service from the web API and eliminates the need for the service to access the API’s database. Instead, the service communicates the URL where ticket images were generated back to the web API via a Service Bus message, and the API persists the path to its database.
-
-- *Implement separate deployment pipelines for each decoupled service.* Separate deployment pipelines allow each service to be updated at its own pace. If different teams or organizations within your company own different services, having separate deployment pipelines gives each team control over their own deployments. Use CI/CD tools like Jenkins, GitHub Actions, or Azure Pipelines to set up these pipelines.
+    In the monolithic web app code base, implement a façade service to route requests to the appropriate backend (monolith or microservice). In the new decoupled service, ensure the new service can handle requests independently when accessed through the façade.
 
 ### Implement the Queue-Based Load Leveling pattern
 
@@ -114,7 +116,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
     :::column-end:::
 :::row-end:::
 
-Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) in the decoupled service code to asynchronously handle tasks that don't need immediate responses. his pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution, allowing services to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
+Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) in the decoupled service code to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution, allowing services to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
 
 - *Use nonblocking message queuing.* Ensure that the task queuing messages doesn't block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a standby code path that can be used until the data is available. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
 
@@ -228,7 +230,7 @@ processor.ProcessMessageAsync += async args =>
     :::column-end:::
 :::row-end:::
 
-Use the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) to track the health of application endpoints. Implement health endpoints for each decoupled service to ensure they function correctly. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
+Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) in the decoupled service to track the health of application endpoints. Implement health endpoints for each decoupled service to ensure they function correctly. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
 - *Implement health checks.* Use [ASP.NET Core health checks middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 
