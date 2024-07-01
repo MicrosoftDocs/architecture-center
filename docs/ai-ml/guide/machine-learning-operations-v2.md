@@ -423,8 +423,6 @@ Using the personas described previously, here are examples of how you can use th
 | Monitoring processes             | R                                |           |                          |                 |              |                 | LAR                     | MR            |
 | Data governance processes        | R                                |           | R                        | R               | R            | R               |                         |               |
 
-> [!NOTE]
-> All personas have an access period for the life of the project except for the Platform technical support and CI/CD processes which have temporary, [Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure), or just-in-time access.
 
 ##### Preproduction environments
 
@@ -505,7 +503,7 @@ Use several model serving endpoint metrics to indicate quality and performance, 
 
 #### Usage metrics
 
-Monitoring the usage of endpoints is crucial to ensure that you're meeting organization or workload-specific KPIs, tracking usage patterns, and diagnosing and remediating problems that your users are experiencing.
+Monitoring the usage of endpoints is crucial to ensure that you're meeting organization or workload-specific KPIs, tracking usage patterns, and diagnosing and remediating problems that your users experience.
 
 ##### Client requests
 
@@ -520,7 +518,7 @@ The number of client requests to the model endpoint helps a workload understand 
 
 ##### Throttling delays
 
-[Throttling Delays](/azure/azure-resource-manager/management/request-limits-and-throttling) in request and response in data transfer. Throttling happens at the Resource Manager level and the service level, so it's important to track metrics at both levels.
+[Throttling delays](/azure/azure-resource-manager/management/request-limits-and-throttling) are slowdowns in request and response in data transfer. Throttling happens at the Resource Manager level and the service level, so it's important to track metrics at both levels.
 
 **Environment:** Production<br/>
 **Azure facilitation:**
@@ -532,7 +530,7 @@ The number of client requests to the model endpoint helps a workload understand 
 
 ##### Errors generated
 
-Track response code errors to assist are measuring service reliability and ensure early detection of service problems. For example, a sudden increase in 500 (server error) responses could indicate a critical issue that needs immediate attention.
+Track response code errors to assist measure service reliability and ensure early detection of service problems. For example, a sudden increase in 500 server error responses could indicate a critical issue that needs immediate attention.
 
 **Environment:** Production<br/>
 **Azure facilitation:** Machine Learning - [Online endpoint traffic logs](/azure/machine-learning/monitor-azure-machine-learning-reference#amlonlineendpointtrafficlog-table-preview) can be enabled to check information about your request. For example, count of XRequestId by ModelStatusCode or count of XRequestId by ModelStatusCode and ModelStatusReason. You can use a Log Analytics workspace to process logs.<br/>
@@ -588,7 +586,7 @@ To gain visibility into business-critical APIs, implement targeted security moni
 
 #### Deployment monitoring
 
-Deployment monitoring ensures that any endpoints you create adhere to your workload or organization policies and are free from vulnerabilities. This process requires enforcing compliance policies on your Azure resources before and after deployment, continued security through vulnerability scanning, and ensuring that the service meets SLOs while in operation.
+Deployment monitoring ensures that any endpoints you create adhere to your workload or organization policies and are free from vulnerabilities. This process requires that you enforce compliance policies on your Azure resources before and after deployment, continued security through vulnerability scanning, and ensuring that the service meets SLOs while in operation.
 
 ##### Standards and governance
 
