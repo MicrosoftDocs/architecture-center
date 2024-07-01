@@ -4,14 +4,6 @@ As you continue to enable remote work for your organization with Virtual Desktop
 
 There are several types of disasters and outages, and each can have a different impact. Resiliency and recovery are discussed in depth for both local and region-wide events, including recovery of the service in a different remote Azure region. This type of recovery is called geo disaster recovery. It's critical to build your Virtual Desktop architecture for resiliency and availability. You should provide maximum local resiliency to reduce the impact of failure events. This resiliency also reduces the requirements to execute recovery procedures. This article also provides information about high availability and best practices.
 
-## Control plane business continuity and disaster recovery
-
-Virtual Desktop offers business continuity and disaster recovery for its control plane to preserve customer metadata during outages. The Azure platform manages this data and process; users don't need to configure or execute anything.
-
-:::image type="content" source="images/azure-virtual-desktop-logical-architecture.png" alt-text="Diagram that shows the logical architecture of Virtual Desktop." lightbox="images/azure-virtual-desktop-logical-architecture.png":::
-
-Virtual Desktop is designed to be resilient to failures of individual components, and to be able to recover from failures quickly. When an outage occurs in a region, the service infrastructure components fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections stay online if the tenant environment or hosts remain accessible. [Data locations for Virtual Desktop](/azure/virtual-desktop/data-locations) are different from the location of the host pool session host virtual machines (VMs) deployment. It's possible to locate Virtual Desktop metadata in one of the supported regions, and then deploy VMs in a different location. More details are provided in the [Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience) article.
-
 ## Goals and scope
 
 The goals of this guide are to:
@@ -66,6 +58,14 @@ In both models, deploy the primary Virtual Desktop host pool and the secondary d
 The hub eventually provides hybrid connectivity to on-premises resources, firewall services, identity resources like Active Directory Domain Controllers, and management resources like Log Analytics.
 
 You should consider any line-of-business applications and dependent resource availability when failed over to the secondary location.
+
+## Control plane business continuity and disaster recovery
+
+Virtual Desktop offers business continuity and disaster recovery for its control plane to preserve customer metadata during outages. The Azure platform manages this data and process; users don't need to configure or execute anything.
+
+:::image type="content" source="images/azure-virtual-desktop-logical-architecture.png" alt-text="Diagram that shows the logical architecture of Virtual Desktop." lightbox="images/azure-virtual-desktop-logical-architecture.png":::
+
+Virtual Desktop is designed to be resilient to failures of individual components, and to be able to recover from failures quickly. When an outage occurs in a region, the service infrastructure components fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections stay online if the tenant environment or hosts remain accessible. [Data locations for Virtual Desktop](/azure/virtual-desktop/data-locations) are different from the location of the host pool session host virtual machines (VMs) deployment. It's possible to locate Virtual Desktop metadata in one of the supported regions, and then deploy VMs in a different location. More details are provided in the [Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience) article.
 
 ## Active-Active vs. Active-Passive
 
