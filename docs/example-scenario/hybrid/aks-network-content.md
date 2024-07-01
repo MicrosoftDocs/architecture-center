@@ -1,6 +1,11 @@
+> Applies to: AKS on Azure Stack HCI 22H2, AKS on Windows Server
+
 This scenario illustrates how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS clusters.
 
 This article includes recommendations for networking design for Kubernetes nodes and Kubernetes containers. It's part of an architectural baseline guidance set of two articles. See the [baseline architecture recommendations here](aks-baseline.yml).
+
+> [!IMPORTANT]
+> The information in this article applies to [AKS on Azure Stack HCI version 22H2, and AKS-HCI on Windows Server](/azure/aks/hybrid/overview). The most recent version of AKS runs on Azure Stack HCI 23H2. For more information about the latest version, see the [AKS on Azure Stack HCI version 23H2 documentation](/azure/aks/hybrid/aks-whats-new-23h2).
 
 ## Architecture
 
