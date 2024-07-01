@@ -194,7 +194,7 @@ Principal author:
 
 ## Next steps
 
-- [Get started: Form Recognizer Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
+- [Get started: Document Intelligence Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
 - [Use Document Intelligence models through SDKs or REST API](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
