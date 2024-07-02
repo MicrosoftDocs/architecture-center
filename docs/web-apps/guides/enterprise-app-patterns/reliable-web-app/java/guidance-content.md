@@ -218,10 +218,10 @@ The reference implementation guides developers through a simulated migration fro
 
 Contoso Fiber determined that their on-premises infrastructure wasn't a cost-effective solution to meet these goals. They decided that migrating their CAMS web application to Azure was the most cost effective way to achieve their immediate and future goals. The following architecture represents the end-state of Contoso Fiber's Reliable Web App pattern implementation.
 
-[![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
+[![Diagram showing the architecture of the reference implementation.](../../../_images/reliable-web-app-java.svg)](../../../_images/reliable-web-app-java.svg#lightbox)
 *Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
 >[Reliable Web App pattern for Java reference implementation](reference-implementation)
 
-[reference-implementation]: https://aka.ms/eap/rwa/java
+[reference-implementation] : https://aka.ms/eap/rwa/java
