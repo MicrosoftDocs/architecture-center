@@ -156,7 +156,7 @@ The logical network topology provides an overview for how the network data flows
 
 #### Network switch requirements
 
-It is important that your ethernet switches comply with the various Institute of Electrical and Electronics Engineers Standards Association (IEEE SA) specification required by the Azure Stack HCI solution. This includes, but is not limited to, support for virtual local area networks (VLANs), priority flow control (PFC) and link layer discovery protocol (LLDP).
+It is important that your ethernet switches comply with the various Institute of Electrical and Electronics Engineers Standards Association (IEEE SA) specifications that are required for the Azure Stack HCI solution. To provide a an example, the required standards include, but are not limited to, support for virtual local area networks (VLANs), priority flow control (PFC) and link layer discovery protocol (LLDP).
 
 It is recommended that you review the [list of hardware vendor certified switch models](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci) to ensure network switches make and model can meet the requirements. And to review the [list of mandatory IEE standards and specifications the network switch configuration must provide](/azure-stack/hci/concepts/physical-network-requirements#network-switch-requirements), to gain an understanding of the IEEE standards required for the Azure Stack HCI solution.
 
