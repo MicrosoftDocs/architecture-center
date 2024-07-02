@@ -15,12 +15,12 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 
 The Modern Web App pattern builds on the Reliable Web App pattern. It requires a few additional architectural components to implement. You need a message queue, container platform, another storage service, and a container registry (*see figure 1*).
 
-[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/mwa-architecture.svg)](../../../_images/mwa-architecture.svg#lightbox)
+[![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
 To reach a higher service-level objective, you can use multiple region, in which case you should use a hub-and-spoke architecture to derive the benefits of shared network resources (*see figure 2*).
 
-[![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/mwa-architecture-plus-optional.svg)](../../../_images/mwa-architecture-plus-optional.svg#lightbox)
+[![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 *Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
 
 ### Decouple architecture
@@ -69,7 +69,7 @@ For every Azure service in your architecture, consult the relevant [Azure servic
 
 To successfully decouple and extract an independent services, ou need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
-[![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg#lightbox)
+[![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
 *Figure 3. The role of the design patterns in the web app architecture.*
 
 - *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. This pattern is implemented in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
@@ -493,7 +493,7 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 
 ![GitHub logo](../../../../../_images/github.svg) Deploy the reference implementation of the [Modern Web App Pattern for .NET](https://github.com/azure/modern-web-app-pattern-dotnet). There are instructions for both development and production deployment in the repository. After you deploy, you can simulate and observe design patterns.
 
-[![Diagram showing architecture of the reference implementation](../../../_images/mwa-dotnet-architecture.svg)](../../../_images/mwa-dotnet-architecture.svg)
+[![Diagram showing architecture of the reference implementation](../../../_images/modern-web-app-architecture-dotnet.svg)](../../../_images/modern-web-app-architecture-dotnet.svg)
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
