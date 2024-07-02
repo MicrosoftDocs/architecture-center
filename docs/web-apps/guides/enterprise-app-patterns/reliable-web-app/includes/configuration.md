@@ -6,5 +6,5 @@ The following sections provide guidance on implementing the configurations updat
 |[Implement managed identities](#implement-managed-identities)||✔||✔||
 |[Right size environments](#right-size-environments)|||✔|||
 |[Implement autoscaling](#implement-autoscaling)|✔||✔||✔|
-|[Implement infrastructure as code](#implement-infrastructure-as-code)||||✔||
+|[Implement infrastructure as code](#automate-resource-deployment)||||✔||
 |[Implement monitoring](#implement-monitoring)|||✔|✔|✔|
