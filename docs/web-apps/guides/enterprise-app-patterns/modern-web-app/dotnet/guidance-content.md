@@ -67,7 +67,20 @@ For the Modern Web App pattern, you need a messaging system to support asynchron
 
 ## Code guidance
 
-To successfully decouple and extract an independent services, ou need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework.
+To successfully decouple and extract an independent services, ou need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
+
+[![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg#lightbox)
+*Figure 3. The role of the design patterns in the web app architecture.*
+
+- *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. This pattern is implemented in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
+
+- *Queue-based Load Leveling pattern*: The Queue-based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. This pattern is implemented in the decoupled service to manage message flow asynchronously using a queue, enhancing scalability.
+
+- *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. This pattern is implemented in the decoupled service to distribute tasks across multiple instances, enhancing load balancing.
+
+- *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. This pattern is implemented in both the main web app and the decoupled service to track the health of endpoints, enabling monitoring and restarting of unhealthy instances.
+
+- *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. This pattern is implemented in both the main web app and the decoupled service to handle transient failures by retrying operations, ensuring reliability.
 
 | Design Pattern | Implementation Location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
@@ -76,11 +89,6 @@ To successfully decouple and extract an independent services, ou need to update 
 | [Competing Consumers Pattern](#implement-the-competing-consumers-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ |
 | [Health Endpoint Monitoring Pattern](#implement-the-health-endpoint-monitoring-pattern) | Decoupled service | ✔ |  |  | ✔ | ✔ |
 | [Retry Pattern](#implement-the-retry-pattern) | Main web app & decoupled service | ✔ |  |  |  |  |
-
-[![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg#lightbox)
-*Figure 3. The role of the design patterns in the web app architecture.*
-
-To update your code with these design patterns and effectively integrate extracted services, follow this detailed guidance:
 
 ### Implement the Strangler Fig pattern
 
