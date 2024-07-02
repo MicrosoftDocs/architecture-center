@@ -161,7 +161,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 ### Configure user authentication and authorization
 
-[!INCLUDE [User authN and authZ](../includes/user-auth.md)]
+[!INCLUDE [User authN and authZ](../includes/authn-authz.md)]
 
 - *Use an identity platform.* Use the [Microsoft Identity platform](/entra/identity-platform/v2-overview) to [set up web app authentication](/entra/identity-platform/index-web-app). This platform supports both single-tenant and multi-tenant applications, allowing users to sign in with their Microsoft identities or social accounts.
 
@@ -261,4 +261,4 @@ Relecloud's determined that their on-premises infrastructure wasn't a cost-effec
 >[!div class="nextstepaction"]
 >[Reliable Web App pattern for Java reference implementation](reference-implementation)
 
-[reference-implementation]: https://aka.ms/eap/rwa/dotnet
+[reference-implementation] : https://aka.ms/eap/rwa/dotnet
