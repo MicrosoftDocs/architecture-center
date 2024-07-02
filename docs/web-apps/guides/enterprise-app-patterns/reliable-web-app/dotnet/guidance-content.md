@@ -261,4 +261,4 @@ Relecloud's determined that their on-premises infrastructure wasn't a cost-effec
 >[!div class="nextstepaction"]
 >[Reliable Web App pattern for Java reference implementation](reference-implementation)
 
-[reference-implementation]: https://aka.ms/eap/rwa/dotnet
+[reference-implementation]: aka.ms/eap/rwa/dotnet
