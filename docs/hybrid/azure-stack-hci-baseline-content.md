@@ -154,17 +154,17 @@ The logical network topology provides an overview for how the network data flows
 
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-logical-network.png)](images/azure-stack-hci-baseline-logical-network.png#lightbox)
 
-#### IP address requirements
-
-To deploy a two-node storage switched configuration of Azure Stack HCI, the cluster infrastructure platform requires a minimum of 11 x IP addresses to be allocated. Additional IP addresses are required if using micro-segmentation and/or software defined networking (SDN). [Review two-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/two-node-ip-requirements) for additional information.
-
-When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components.
-
 #### Network switch requirements
 
 It is important that your ethernet switches comply with the various Institute of Electrical and Electronics Engineers Standards Association (IEEE SA) specification required by the Azure Stack HCI solution. This includes, but is not limited to, support for virtual local area networks (VLANs), priority flow control (PFC) and link layer discovery protocol (LLDP).
 
 It is recommended that you review the [list of hardware vendor certified switch models](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci) to ensure network switches make and model can meet the requirements. And to review the [list of mandatory IEE standards and specifications the network switch configuration must provide](/azure-stack/hci/concepts/physical-network-requirements#network-switch-requirements), to gain an understanding of the IEEE standards required for the Azure Stack HCI solution.
+
+#### IP address requirements
+
+To deploy a two-node storage switched configuration of Azure Stack HCI, the cluster infrastructure platform requires a minimum of 11 x IP addresses to be allocated. Additional IP addresses are required if using micro-segmentation and/or software defined networking (SDN). [Review two-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/two-node-ip-requirements) for additional information.
+
+When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components.
 
 ### Monitoring
 
