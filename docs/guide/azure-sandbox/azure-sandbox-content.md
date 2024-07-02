@@ -42,7 +42,7 @@ To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with 
 
 For more information, see [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments).
 
-To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started). For more information about how to deploy your sandbox environment, see [Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) and [Known issues](https://github.com/Azure-Samples/azuresandbox#known-issues).
+To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started). For more information about how to deploy your sandbox environment, see [Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) and [known issues](https://github.com/Azure-Samples/azuresandbox#known-issues).
 
 ## Use cases
 
@@ -63,7 +63,7 @@ A sandbox is ideal for accelerating Azure projects. After you deploy your sandbo
 
 Foundational prerequisites can block experimentation with certain Azure services or capabilities. A sandbox environment can accelerate your project by provisioning many of the mundane core infrastructure components. You can focus on the services or capabilities that you need to work with.
 
-For example, you can use the following capabilities and configurations that the Azure Sandbox environment provides:
+For example, you can use the following capabilities and configurations that the Azure Sandbox environment provides.
 
 - Connect to a Windows jump box VM from the internet.
   - Option 1: Internet-facing access by using a web browser and Azure Bastion
