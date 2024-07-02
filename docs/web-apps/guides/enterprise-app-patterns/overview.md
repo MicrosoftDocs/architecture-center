@@ -24,7 +24,7 @@ Enterprise Web App patterns provide a structured approach to guide developers an
 
 For each pattern, there's tailored guidance for .NET and Java web apps. These patterns serve as a roadmap to help you transform legacy web apps into cloud-optimized solutions that deliver greater business value. The guidance provided by the Enterprise Web App patterns is instrumental in ensuring a smooth and successful transition through the cloud journey.
 
-[![Diagram showing the stages of the Enterprise Web App patterns](../_images/ewap-overview.svg)](../_images/eap-overview.svg#lightbox)
+[![Diagram showing the stages of the Enterprise Web App patterns](../_images/ewap-overview.svg)](../_images/ewap-overview.svg#lightbox)
 *Figure 1. Overview of the Enterprise Web App patterns.*
 
 ## Reliable Web App pattern
@@ -42,4 +42,4 @@ The Reliable Web App pattern facilitates the initial migration of applications t
 The Modern Web App pattern provides a clear strategy for targeted modernization of web apps in the cloud. It focuses on optimizing and transforming high-demand areas by gradually decoupling them into stand-alone services, allowing for independent versioning and scaling. This approach enables performance optimization in a cost-efficient manner and serves as an intermediate step between monolithic and microservices architectures. By supporting independent development and flexible deployments, the pattern accelerates development cycles and enhances overall application performance.
 
 >[!div class="nextstepaction"]
->[Modern Web App pattern for .NET](./modern-web-app/dotnet/plan-implementation.yml)
+>[Modern Web App pattern for .NET](./modern-web-app/dotnet/guidance.yml)
