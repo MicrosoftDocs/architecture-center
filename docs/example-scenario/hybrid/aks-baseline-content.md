@@ -17,7 +17,7 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 
 The architecture consists of the following components and capabilities:
 
-- [Azure Stack HCI (20H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
+- [Azure Stack HCI (22H2)][]. A hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid on-premises environment. An Azure Stack HCI cluster is implemented as a 2-8 node cluster.
 - [Azure Kubernetes Service (AKS) on Azure Stack HCI][]. An on-premises implementation of AKS, which automates running containerized applications at scale.
 - [Azure Arc][]. A cloud-based service that extends the Azure Resource Manager–based management model to non-Azure resources including non-Azure virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - [Azure Policy](/azure/governance/policy/overview). A cloud-based service that helps enforce organizational standards and assess compliance at-scale by evaluating Azure (including Arc-enabled) resources to the properties of those resources to business rules. These standards also include [Azure Policy for Kubernetes][], which applies policies to the workloads running inside the cluster.
@@ -29,7 +29,7 @@ The architecture consists of the following components and capabilities:
 
 ## Components
 
-- [Azure Stack HCI (20H2)][1]
+- [Azure Stack HCI (22H2)][1]
 - [Azure Kubernetes Service (AKS) on Azure Stack HCI][]
 - [Windows Admin Center][]
 - [An Azure subscription][]
@@ -204,7 +204,7 @@ Other contributors:
 
 - [AKS overview](/azure/aks/hybrid/overview)
 
-  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
+  [Azure Stack HCI (22H2)]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service (AKS) on Azure Stack HCI]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
