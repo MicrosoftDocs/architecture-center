@@ -9,7 +9,7 @@ This article shows you how to implement the Modern Web App pattern. The Modern W
 - [***Configuration guidance***](#configuration-guidance): Configure authentication, authorization, autoscaling, and containerization for the decoupled components.
 
 > [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation](reference-implementation)*** (sample app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
+> ![GitHub logo](../../../../../_images/github.svg) There's a ***[reference implementation][reference-implementation]*** (sample app) of the Modern Web App pattern. It represents the end-state of the Modern Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Modern Web App pattern.
 
 ## Architecture guidance
 
@@ -491,4 +491,4 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for .NET reference implementation](reference-implementation)
 
-[reference-implementation] : https://aka.ms/eap/mwa/dotnet
+[reference-implementation]: https://aka.ms/eap/mwa/dotnet
