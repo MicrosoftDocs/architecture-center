@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Stack HCI switchless storage for retail, manufacturing or remote office scenarios
-  description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
+  title: Azure Stack HCI three-node switchless storage architecture
+  description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) using a three-node storage switchless architecture for highly available virtualized and containerized workloads.
   author: neilbird
   ms.author: nebird
-  ms.date: 06/28/2024
+  ms.date: 07/04/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -14,11 +14,11 @@ metadata:
   ms.custom:
     - fcp
     - e2e-hybrid
-name: Azure Stack HCI switchless storage for retail, manufacturing or remote office scenarios
+name: Azure Stack HCI three-node switchless storage architecture
 azureCategories:
   - hybrid
   - management-and-governance
-summary: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads for retail, manufacturing or remote office scenarios.
+summary: This reference architecture illustrates how to design Azure Stack HCI infrastructure using a three-node storage switchless architecture for highly available virtualized and containerized workloads.
 products:
   - azure-stack-hci
   - azure-arc

@@ -4,7 +4,7 @@ metadata:
   description: Learn how to design Azure Stack hyper-converged infrastructure (HCI) for highly available virtualized and containerized workloads.
   author: neilbird
   ms.author: nebird
-  ms.date: 06/28/2024
+  ms.date: 07/04/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -18,7 +18,7 @@ name: Azure Stack HCI baseline reference architecture
 azureCategories:
   - hybrid
   - management-and-governance
-summary: This reference architecture illustrates how to design infrastructure for highly available virtualized and containerized workloads.
+summary: This reference architecture illustrates how to design Azure Stack HCI infrastructure for highly available virtualized and containerized workloads.
 products:
   - azure-stack-hci
   - azure-arc
