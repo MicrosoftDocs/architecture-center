@@ -11,9 +11,7 @@ metadata:
   ms.category:
     - hybrid
     - management-and-governance
-  ms.custom:
-    - fcp
-    - e2e-hybrid
+  ms.custom: arb-hybrid
 name: Azure Stack HCI baseline reference architecture
 azureCategories:
   - hybrid
