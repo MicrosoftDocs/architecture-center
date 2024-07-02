@@ -173,11 +173,6 @@ The following new and updated articles have recently been published in the Azure
 
 - [Claim-Check pattern](./patterns/claim-check.yml)  ([#7cd4a5fc06](https://github.com/MicrosoftDocs/architecture-center/commit/7cd4a5fc06))
 - [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#d4096a7e81](https://github.com/MicrosoftDocs/architecture-center/commit/d4096a7e81))
-- [Reliable web app pattern for .NET - Apply the pattern](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/apply-pattern.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
-- [Reliable web app pattern for .NET - Plan the implementation](./web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/plan-implementation.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
-- [Reliable web app pattern for Java - Apply the pattern](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/apply-pattern.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
-- [Reliable web app pattern for Java - Plan the implementation](./web-apps/guides/enterprise-app-patterns/reliable-web-app/java/plan-implementation.yml)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
-- [Reliable Web App pattern](./web-apps/guides/enterprise-app-patterns/overview.md)  ([#c8dc2d83ac](https://github.com/MicrosoftDocs/architecture-center/commit/c8dc2d83ac))
 - [Deploy Ansys CFX on an Azure virtual machine](./guide/hpc/ansys-cfx.yml)  ([#8354c1618a](https://github.com/MicrosoftDocs/architecture-center/commit/8354c1618a))
 - [Choreography pattern](./patterns/choreography.yml)  ([#44545f677e](https://github.com/MicrosoftDocs/architecture-center/commit/44545f677e))
 - [Sharding pattern](./patterns/sharding.yml)  ([#53dea81b8b](https://github.com/MicrosoftDocs/architecture-center/commit/53dea81b8b))
