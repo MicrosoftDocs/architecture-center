@@ -65,7 +65,7 @@ For *existing or custom* deployments:
 
 1. Existing and custom **IoT workloads** can use [Azure IoT Edge](/azure/iot-edge). Existing and custom traditional, database, and cloud-native deployments can use [Azure Arc](/azure/azure-arc/overview)-enabled servers and services.
 
-1. **Container-based** deployments can use Azure Arc-enabled Kubernetes. **VM-based** deployments can use Azure Arc-enabled servers. **SQL** database deployments can use Azure Arc-enabled data services.
+1. **Container-based** deployments can use Azure Arc-enabled Kubernetes. **VM-based** deployments can use Azure Arc-enabled servers, Azure Arc-enabled VMware vSphere, or Azure Arc-enabled System Center Virtual Machine Manager. **SQL** database deployments can use Azure Arc-enabled data services.
 
 For *Azure-specified* deployments:
 
