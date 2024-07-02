@@ -52,35 +52,39 @@ Network design refers to the overall arrangement of components within the networ
 
 #### Physical network topology
 
-The physical network topology shows the actual physical connections between nodes and networking components. Below is what this looks like for a 3-node storage switchless Azure Stack HCI deployment:
+The physical network topology shows the actual physical connections between nodes and networking components. Below is what this looks like for a three-node storage switchless Azure Stack HCI deployment:
 
-- Three nodes (Servers):
+- Three nodes (_servers_):
   - Each node is a physical server running Azure Stack HCI OS.
-  - These nodes are interconnected using single or dual (_recommended_) dedicated physical network interface cards (NICs), that are directly connected to the other nodes using ethernet cables, forming a "full mesh network architecture" for storage traffic.
+  - Each node requires six physical network interface cards (NICs) in total, four RDMA capable NICs for storage and two NICs for management and compute.
 - Dual Top-of-Rack (ToR) Switches:
-  - Although this configuration is switchless for storage traffic, it requires links to the ToR switches for external connectivity (_north/south traffic_) for the cluster "management" intent and workload "compute" intent.
-  - These switches connect to the nodes using ethernet cables.
+  - Although this configuration is "switchless" for storage traffic, it does require ToR switches for the external connectivity (_north/south traffic_), such as the cluster "management" intent and the workload "compute" intent(s).
+  - The uplinks to the switches from each node use two NICSs, connected using ethernet cables, one to each ToR switch.
   - Using dual ToR switches is recommended to provide redundancy and load balancing for external communication.
 - External Connectivity:
   - The dual ToR switches connect to the external network, such as the internal corporate LAN and provide access to the required outbound URLs using your edge border network device (_firewall or router_).
   - They handle traffic going in and out of the Azure Stack HCI cluster (_north/south traffic_).
 - Storage Traffic:
-  - Within the HCI cluster, nodes communicate directly with each other for storage replication traffic (_east/west traffic_).
-  - This direct communication avoids the requirement to use additional switch ports and configuration for SMB-Direct (_RDMA_) traffic.
+  - All three nodes are interconnected using dual dedicated physical NICs for storage. This requires four RDMA capable NICs per node for the storage intents.
+  - The storage NICs are directly connected to each node using ethernet cables, forming a "full mesh network architecture" for the storage traffic.
+  - This design provides link redundancy, and dedicated low latency and high bandwidth through-put.
+  - Within the HCI cluster, nodes communicate directly with each other using these links for the storage replication traffic (_east/west traffic_).
+  - This direct communication avoids the requirement to use additional network switch ports and removes the requirement to apply quality of service (QoS) or priority flow control (PFC) configuration for SMB-Direct (_RDMA_) traffic on the network switches.
 
 [![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
 
 #### Logical network topology
 
-The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a 3-node storage switchless Azure Stack HCI cluster:
+The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a three-node storage switchless Azure Stack HCI cluster:
 
 - Storage traffic:
-  - The nodes communicate with each other directly for storage traffic.
-  - Each node can access shared storage spaces, virtual disks, and volumes.
-  - This direct communication ensures sufficient data transfer for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
+  - The nodes communicate with each other directly for storage traffic, these links use a non-routable (_layer 2_) network configuration, with no default gateway configured on the storage intent network interfaces.
+  - Each node can access shared storage spaces, virtual disks, and volumes using SMB-Direct over these dedicated "switchless" links.
+  - This direct communication ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 - External communication:
   - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
   - The ToR switches handle routing and provide connectivity beyond the cluster to the edge border device (_firewall or router_).
+  - The two physical NICs for the Management and Compute intents are "Converged", using a switch embedded team (SET) configuration, this provides redundancy and traffic load-balacing capabilities.
 - Network ATC and Intents:
   - Azure Stack HCI leverages network automation and intent-based network configuration.
   - The NetworkATC service is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network interface cards (_pNICs_) will be used for the different traffic types.
