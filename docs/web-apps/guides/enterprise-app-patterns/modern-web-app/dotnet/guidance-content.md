@@ -77,11 +77,11 @@ To successfully decouple and extract an independent services, ou need to update 
 | [Health Endpoint Monitoring Pattern](#implement-the-health-endpoint-monitoring-pattern) | Exposes endpoints for monitoring the status and health of different parts of the web app | Both | Implemented in both to track health of endpoints, enabling monitoring and restarting of unhealthy instances. | ✔ |  |  | ✔ | ✔ |
 | [Retry Pattern](#implement-the-retry-pattern) | Handles transient failures by retrying operations that might fail intermittently | Both | Implemented in both to handle transient failures by retrying operations, ensuring reliability. | ✔ |  |  |  |  |
 
-To update your code with these design patterns and effectively integrate extracted services, follow this detailed guidance:
 
 [![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/mwa-design-patterns.svg)](../../../_images/mwa-design-patterns.svg#lightbox)
 *Figure 3. The role of the design patterns in the web app architecture.*
 
+To update your code with these design patterns and effectively integrate extracted services, follow this detailed guidance:
 
 ### Implement the Strangler Fig pattern
 
