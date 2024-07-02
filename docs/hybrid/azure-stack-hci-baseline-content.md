@@ -122,8 +122,9 @@ The physical network topology shows the actual physical connections between node
 
 - Two or more nodes (_servers_), up to a maximum of sixteen nodes:
   - Each node is a physical server running Azure Stack HCI OS.
+  - Each node requires four physical network interface cards (NICs) in total, two RDMA capable NICs for storage and two NICs for management and compute.
   - Each node has two dedicated physical network interface cards (NIC) that are RDMA capable for storage intent. These NICs are connected with one path to each of the two top of rack (ToR) switches to provides dedicated bandwidth and link path redundancy for storage traffic.
-  - Each node has two physical network interface card (NICs) for the management and compute intents. These NICs are which are connected with one path to each of the two top of rack (ToR) switches, Network ATC will configured as Converged adaptors using a switch embedded team (SET).
+  - Each node has two physical network interface card (NICs) for the management and compute intents. These NICs are connected with one path to each of the two top of rack (ToR) switches.
 - Dual Top-of-Rack (ToR) Switches:
   - Dual (two) ToR network switches are required for the solution to have redundant and load balanced networking. The switches are used for the storage (_east / west traffic_) and for external connectivity (_north/south traffic_) for the cluster "management" intent and for the workload logical networks that use the "compute" intent.
   - These switches connect to the nodes using ethernet cables.
@@ -131,7 +132,7 @@ The physical network topology shows the actual physical connections between node
   - The dual ToR switches connect to the external network, such as the internal corporate LAN and provide access to the required outbound URLs using your edge border network device (_firewall or router_).
   - They handle traffic going in and out of the Azure Stack HCI cluster (_north/south traffic_).
 - Storage Traffic:
-  - Within the HCI cluster, nodes communicate directly with each other using the two network links that connect to the two top-of-rack switches, this is used by the RDMA capable NICs that are configured with the storage intent, providing dedicated bandwidth for storage replication traffic (_east/west traffic_).
+  - Within the HCI cluster, nodes communicate directly with each other using the two network links that connect to the two top-of-rack switches, this is used by the RDMA capable NICs that are configured for the storage intents, providing dedicated bandwidth for storage replication traffic (_east/west traffic_).
   
 [![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-baseline-physical-network.png)](images/azure-stack-hci-baseline-physical-network.png#lightbox)
 
@@ -140,9 +141,9 @@ The physical network topology shows the actual physical connections between node
 The logical network topology provides an overview for how the network data flows between devices, regardless of their physical connections. Below is a summarization of the logical setup for a 3-node storage switchless Azure Stack HCI cluster:
 
 - Storage traffic:
-  - The nodes communicate with each other directly for storage traffic.
-  - Each node can access shared storage spaces, virtual disks, and volumes.
-  - This direct communication ensures sufficient data transfer for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
+  - The nodes communicate with each other using two physical NICs for storage traffic, these links use a non-routable (_layer 2_) network configuration, with no default gateway configured on the storage intent network interfaces.
+  - Each node can access shared storage spaces, virtual disks, and volumes using SMB-Direct over these two dedicated storage NICs.
+  - This configuration provides sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 - External communication:
   - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
   - The ToR switches handle routing and provide connectivity beyond the cluster to the edge border device (_firewall or router_).
@@ -155,7 +156,7 @@ The logical network topology provides an overview for how the network data flows
 
 #### IP address requirements
 
-To deploy a three-node storage switchless configuration of Azure Stack HCI, the cluster infrastructure platform requires a minimum of 14 x IP addresses to be allocated. Additional IP addresses are required if using micro-segmentation and/or software defined networking (SDN). [Review three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements) for additional information.
+To deploy a two-node storage switched configuration of Azure Stack HCI, the cluster infrastructure platform requires a minimum of 11 x IP addresses to be allocated. Additional IP addresses are required if using micro-segmentation and/or software defined networking (SDN). [Review two-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/two-node-ip-requirements) for additional information.
 
 When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components.
 
