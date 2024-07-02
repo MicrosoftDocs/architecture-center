@@ -160,6 +160,12 @@ To deploy a two-node storage switched configuration of Azure Stack HCI, the clus
 
 When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components.
 
+#### Network switch requirements
+
+It is important that your ethernet switches comply with the various Institute of Electrical and Electronics Engineers Standards Association (IEEE SA) specification required by the Azure Stack HCI solution. This includes, but is not limited to, support for virtual local area networks (VLANs), priority flow control (PFC) and link layer discovery protocol (LLDP).
+
+It is recommended that you review the [list of hardware vendor certified switch models](/azure-stack/hci/concepts/physical-network-requirements#network-switches-for-azure-stack-hci) to ensure network switches make and model can meet the requirements. And to review the [list of mandatory IEE standards and specifications the network switch configuration must provide](/azure-stack/hci/concepts/physical-network-requirements#network-switch-requirements), to gain an understanding of the IEEE standards required for the Azure Stack HCI solution.
+
 ### Monitoring
 
 Enable [Azure Monitor Insights on Azure Stack HCI](/azure-stack/hci/concepts/monitoring-overview) to enhance monitoring and alerting. Insights can seamlessly scale to monitor and manage multiple on-premises clusters using an Azure consistent experience.
