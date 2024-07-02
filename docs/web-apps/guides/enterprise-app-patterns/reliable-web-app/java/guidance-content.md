@@ -224,4 +224,4 @@ Contoso Fiber determined that their on-premises infrastructure wasn't a cost-eff
 >[!div class="nextstepaction"]
 >[Reliable Web App pattern for Java reference implementation](reference-implementation)
 
-[reference-implementation]: aka.ms/eap/rwa/java
+[reference-implementation]: https://github.com/Azure/modern-web-app-pattern-java

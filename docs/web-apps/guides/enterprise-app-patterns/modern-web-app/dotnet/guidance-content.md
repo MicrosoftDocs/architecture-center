@@ -491,4 +491,4 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 >[!div class="nextstepaction"]
 >[Modern Web App pattern for .NET reference implementation](reference-implementation)
 
-[reference-implementation]: aka.ms/eap/mwa/dotnet
+[reference-implementation]: https://github.com/Azure/modern-web-app-pattern-dotnet
