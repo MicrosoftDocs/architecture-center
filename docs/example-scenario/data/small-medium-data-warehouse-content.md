@@ -10,8 +10,7 @@ Most of SMB customers who would benefit from implemeting this pattern are on pre
 
 ## Simplified Architecture
 
-// todo
-:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-business-simplified.png" alt-text="Conseptual Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-business-simplified.png":::
+:::image type="content" border="false" source="media/small-medium-data-warehouse/MDWSMB_2-brief.svg" alt-text="Conseptual Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/MDWSMB_2-brief.svg":::
 
 Conseptual modernisation opportunity is to move legacy DW solution into Microsoft Fabric SQL Database, which is a managed SQL Server inside for Fabric tenant, delivered as a SaaS. It has a wide surface of compatibility with SQL client tools like SQL Server Management Studio (SSMS), offers appealing Lift & Shift options for existing processes and has low demands for upskilling from the team who supports this solution. This solution may be an initial step towards full monernization, where organisation fully adopts lakehose approach when size of the Datawarehouse grows and skillset of the team expands. Please compare with [Article Lakehouse, greenfield, scenario 5]
 
@@ -20,8 +19,7 @@ Conseptual modernisation opportunity is to move legacy DW solution into Microsof
 
 ## Architecture
 
-//todo
-:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-business.png" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-business.png":::
+:::image type="content" border="false" source="media/small-medium-data-warehouse/MDWSMB_2.svg" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/MDWSMB_2.svg":::
 //todo
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
