@@ -1,16 +1,31 @@
-This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with tools like Azure Machine Learning, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies.
+This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end data warehousing solutions integrate easily with tools like Azure Machine Learning, Azure Open AI, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies, but offer an easy entry point to the fully managed SaaS data platfrom on Microsoft Fabric that can be expanded at a later stage. 
 
-## Architecture
-
-:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-business.png" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-business.png":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
-
+## Who may benefit from this architecure
 Legacy SMB data warehouses might contain several types of data:
-
 - Unstructured data, like documents and graphics
 - Semi-structured data, such as logs, CSVs, JSON, and XML files
 - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
+
+Most of SMB customers who would benefit from implemeting this pattern are on prem SQL Server customers with DW solution under 1/2 TB, currently using a mix of tools like SSIS, SSAS and SSRS. SQL Stored procedures are also common, as well as external ETL/ELT tool and SQL replication/snapshotting and SQL Agent jobs to engest data into Datawarehousing solution. Most of data sync operations are snapshot based and are only done once a day. No realtime reporting requirements currently. 
+
+## Simplified Architecture
+
+///todo
+:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-business-simplified.png" alt-text="Conseptual Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-business-simplified.png":::
+
+Conseptual modernisation opportunity is to move legacy DW solution into Microsoft Fabric SQL Database, which is a managed SQL Server inside for Fabric tenant, delivered as a SaaS. It has a wide surface of compatibility with SQL client tools like SQL Server Management Studio (SSMS), offers appealing Lift & Shift options for existing processes and has low demands for upskilling from the team who supports this solution. This solution may be an initial step towards full monernization, where organisation fully adopts lakehose approach when size of the Datawarehouse grows and skillset of the team expands. Please compare with [Article Lakehouse, greenfield, scenario 5]
+
+///todo
+*Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
+
+## Architecture
+
+///todo
+:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-business.png" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-business.png":::
+//todo
+*Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
+
+
 
 ### Dataflow
 
