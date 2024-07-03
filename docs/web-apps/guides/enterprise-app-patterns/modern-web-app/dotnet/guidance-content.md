@@ -67,25 +67,25 @@ For every Azure service in your architecture, consult the relevant [Azure servic
 
 ## Code guidance
 
-To successfully decouple and extract an independent services, ou need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
+To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
 [![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
 *Figure 3. The role of the design patterns in the web app architecture.*
 
 - *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. This pattern is implemented in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
-- *Queue-based Load Leveling pattern*: The Queue-based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. This pattern is implemented in the decoupled service to manage message flow asynchronously using a queue, enhancing scalability.
+- *Queue-based Load Leveling pattern*: The Queue-based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
 
-- *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. This pattern is implemented in the decoupled service to distribute tasks across multiple instances, enhancing load balancing.
+- *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. Implement this pattern in the decoupled service to distribute tasks across multiple instances.
 
-- *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. This pattern is implemented in both the main web app and the decoupled service to track the health of endpoints, enabling monitoring and restarting of unhealthy instances.
+- *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. Implement this pattern in the main web app and the decoupled service to track the health of endpoints.
 
 - *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. This pattern is implemented in both the main web app and the decoupled service to handle transient failures by retrying operations, ensuring reliability.
 
 | Design Pattern | Implementation Location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
 | [Strangler Fig Pattern](#implement-the-strangler-fig-pattern) | Main web app | ✔ |  | ✔ | ✔ |  |
-| [Queue-Based Load Leveling Pattern](#implement-the-queue-based-load-leveling-pattern) | Requester to decoupled service | ✔ |  | ✔ |  | ✔ |
+| [Queue-Based Load Leveling Pattern](#implement-the-queue-based-load-leveling-pattern) | Producer of decoupled service | ✔ |  | ✔ |  | ✔ |
 | [Competing Consumers Pattern](#implement-the-competing-consumers-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ |
 | [Health Endpoint Monitoring Pattern](#implement-the-health-endpoint-monitoring-pattern) | Main web app & decoupled service | ✔ |  |  | ✔ | ✔ |
 | [Retry Pattern](#implement-the-retry-pattern) | Main web app & decoupled service | ✔ |  |  |  |  |
@@ -118,7 +118,7 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
     :::column-end:::
 :::row-end:::
 
-Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) in the decoupled service code to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution, allowing services to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
+Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) on producer portion of the decoupled service to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution, allowing services to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
 
 - *Use nonblocking message queuing.* Ensure that the task queuing messages doesn't block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a standby code path that can be used until the data is available. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
 
