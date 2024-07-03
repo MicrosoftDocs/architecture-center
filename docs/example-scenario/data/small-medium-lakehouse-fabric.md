@@ -1,7 +1,12 @@
-Greenfiled lakehouse on Microsoft Fabric [Nicholas and Amit]
+This example workload illustrates a greenfield solution to build a robust, scalable data platform using the lakehouse design paradigm on Microsoft Fabric. Microsoft Fabric, a cutting-edge platform that seamlessly integrates data storage, processing, and analytics. Unlike traditional data warehouses, which often involve complex migrations and costly transformations, a greenfield lakehouse provides a clean slate for designing an efficient, future-proof data ecosystem.
 
-Blurb on who this scenario would be appealing for.. e.g.    1/2 TB<DWsize<1.5TB, greenfield
+## Who may benefit from this architecure
 
+The greenfield data lakehouse architecture with Microsoft Fabric is beneficial for a wide range of scenarios including:
+
+- Organisations looking to start fresh, unencumbered by legacy systems, when developing a data platfrom.
+- Have an expected data volume between 0.5 to 1.5 TB.
+- Looking for a simple and streamlined pattern that balances cost, complexity, and performance considerations.
 
 ## Architecture
 
@@ -20,5 +25,13 @@ Blurb on who this scenario would be appealing for.. e.g.    1/2 TB<DWsize<1.5TB,
 ### Operations
 ### Cost optimization
 ## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- Amit Chandra | Cloud Solution Architect
+- Nicholas Moore | Cloud Solution Architect
+
 ## Next steps
 ## Related resources
