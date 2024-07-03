@@ -1,4 +1,4 @@
-Modern data platform for small and medium business on Microsoft Fabric and Azure Databricks ![image](https://github.com/galinagpolyakova/architecture-center-pr/assets/40973152/5fc71760-76f2-4ad2-8c0f-1dd5f045d6e5)
+Modern data platform for small and medium business on Microsoft Fabric and Azure Databricks 
  [Bonita and Naren]
 
 Blurb on who this scenario would be appealing for.. e.g.    DW ~600GB, ADF for ingestion, ADB for ETL, Databrics with Fabric lakehouse. 
