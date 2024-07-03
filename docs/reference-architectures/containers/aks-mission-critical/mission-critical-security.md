@@ -6,7 +6,7 @@ ms.author: prwilk
 ms.date: 09/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
 - azure-kubernetes-service
 - azure-front-door
