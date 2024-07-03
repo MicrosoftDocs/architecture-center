@@ -69,9 +69,6 @@ For every Azure service in your architecture, consult the relevant [Azure servic
 
 To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
-[![Diagram showing the role of the design patterns in the Modern Web App pattern.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
-*Figure 3. The role of the design patterns in the web app architecture.*
-
 - *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. This pattern is implemented in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
 - *Queue-based Load Leveling pattern*: The Queue-based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
@@ -82,7 +79,7 @@ To successfully decouple and extract an independent services, you need to update
 
 - *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. This pattern is implemented in both the main web app and the decoupled service to handle transient failures by retrying operations, ensuring reliability.
 
-| Design Pattern | Implementation Location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
+| Design Pattern | Implementation location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
 | [Strangler Fig Pattern](#implement-the-strangler-fig-pattern) | Main web app | ✔ |  | ✔ | ✔ |  |
 | [Queue-Based Load Leveling Pattern](#implement-the-queue-based-load-leveling-pattern) | Producer of decoupled service | ✔ |  | ✔ |  | ✔ |
