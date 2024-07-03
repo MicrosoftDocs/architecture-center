@@ -83,7 +83,7 @@ MLOps v2 covers the following architectures that are described in this article:
 
 - [Classical machine learning architecture](#classical-machine-learning-architecture)
 - [Machine Learning CV architecture](#machine-learning-cv-architecture)
-- [Machine Learning natural language processing architecture](#machine-learning-nlp-architecture)
+- [Machine Learning natural language processing architecture](#machine-learning-natural-language-processing-architecture)
 
 ### Classical machine learning architecture
 
@@ -370,7 +370,7 @@ In this architectural pattern, you can couple these groups with a [Machine Learn
 
 ### Identity RBAC
 
-Consider how you can use the following built-in Azure RBAC roles to apply RBAC to production and preproduction environments. For the [architectures](#architectures) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following RBAC roles are based on the personas described earlier in this article.
+Consider how you can use the following built-in Azure RBAC roles to apply RBAC to production and preproduction environments. For the [architecture](#architecture) in this article, the production environments include staging, testing, and production environments. The preproduction environments include development environments. The following RBAC roles are based on the personas described earlier in this article.
 
 #### Standard roles
 
