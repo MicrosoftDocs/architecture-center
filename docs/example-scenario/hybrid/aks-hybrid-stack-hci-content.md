@@ -1,5 +1,3 @@
-> Applies to: AKS on Azure Stack HCI 22H2, AKS on Windows Server
-
 The information in this article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service enabled by Azure Arc. The apps can run on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
 
 > [!IMPORTANT]

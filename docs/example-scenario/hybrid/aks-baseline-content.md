@@ -1,5 +1,3 @@
-> Applies to: AKS on Azure Stack HCI 22H2, AKS on Windows Server
-
 This scenario illustrates how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI.
 
 This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements. It's part of an architectural baseline guidance set of two articles. See the [recommendations for network design here](aks-network.yml).
