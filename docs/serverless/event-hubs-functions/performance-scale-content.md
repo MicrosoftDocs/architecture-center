@@ -166,13 +166,15 @@ For examples of using C# to publish single and multiple events, see [Azure Event
 
 ### Output multiple events with the Isolated worker model (C#)
 
-Depending on the Functions runtime version, the Isolated worker model will support different types for the parameters that are passed to the output binding. For multiple events, an array is used to encapsulate the set. It is recommended to review the output binding attributes and usage details for the Isolated model and to make note of the differences between the extensions versions. 
+Depending on the Functions runtime version, the Isolated worker model will support different types for the parameters that are passed to the output binding. For multiple events, an array is used to encapsulate the set. It is recommended to review the output binding attributes and usage details for the Isolated model and to make note of the differences between the extension versions. 
 
 ### Throttling and back pressure
 
-Throttling considerations apply to output binding, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db). It's important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
+Throttling considerations apply to output bindings, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db). It's important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
 
 To handle downstream errors with the In-process model, you can wrap **AddAsync** and **FlushAsync** in an exception handler for .NET Functions in order to catch exceptions from IAsyncCollector. Another option is to use the Event Hubs SDKs directly instead of using output bindings.
+
+If you are leveraging the Isolated model for functions, then structured exception handling should be used to responsibly catch exceptions when returning the output values.
 
 ## Function code
 
