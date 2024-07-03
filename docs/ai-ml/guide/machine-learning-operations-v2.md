@@ -1,9 +1,9 @@
 ---
-title: Machine learning operations (MLOps) v2
+title: Machine learning operations v2
 description: Learn about a single deployable set of repeatable and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
 author: sdonohoo
 ms.author: robbag
-ms.date: 07/01/2024
+ms.date: 07/03/2024
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.service: architecture-center
@@ -18,33 +18,33 @@ categories:
   - ai-machine-learning
 ---
 
-# Machine learning operations (MLOps) v2
+# Machine learning operations
 
-This article describes three Azure architectures for machine learning operations that all have end-to-end continuous integration (CI), continuous delivery (CD), and retraining pipelines. The architectures are for these AI applications:
+This article describes three Azure architectures for machine learning operations that have end-to-end continuous integration and continuous delivery (CI/CD) pipelines and retraining pipelines. The architectures are for these AI applications:
 
 - Classical machine learning
 - Computer vision (CV)
-- Natural language processing (NLP)
+- Natural language processing
 
-These architectures were created during the MLOps v2 project and incorporate best practices that solution architects identified in the process of developing various machine learning solutions. The result is deployable, repeatable, and maintainable patterns. All three architectures use the Azure Machine Learning service.
+These architectures are the product of the MLOps v2 project. They incorporate best practices that solution architects identified in the process of developing various machine learning solutions. The result is deployable, repeatable, and maintainable patterns. All three architectures use the Azure Machine Learning service.
 
 For an implementation with sample deployment templates for MLOps v2, see [Azure MLOps v2 solution accelerator](https://github.com/Azure/mlops-v2).
 
 ## Potential use cases
 
-- Classical machine learning: Time-Series forecasting, regression, and classification on tabular structured data are the most common use cases in this category. Examples include:
+- Classical machine learning: Time-series forecasting, regression, and classification on tabular structured data are the most common use cases in this category. Examples include:
 
-  - Binary and multi-label classification
+  - Binary and multi-label classification.
   
-  - Linear, polynomial, ridge, lasso, quantile, and Bayesian regression
+  - Linear, polynomial, ridge, lasso, quantile, and Bayesian regression.
   
-  - ARIMA, autoregressive (AR), SARIMA, VAR, SES, LSTM
+  - ARIMA, autoregressive, SARIMA, VAR, SES, LSTM.
   
 - CV: The MLOps framework presented in this article focuses mostly on the CV use cases of segmentation and image classification.
 
-- NLP: This MLOps framework can implement any of the following use cases, and other use cases that aren't listed:
+- Natural language processing: You can use this MLOps framework to implement:
 
-  - Named entity recognition (NER)
+  - Named entity recognition:
   
   - Text classification
   
@@ -77,15 +77,13 @@ The MLOps v2 architectural pattern is made up of four main modular components th
 
 The preceding components, the connections between them, and the typical personas involved are standard across all MLOps v2 scenario architectures. Variations in the details of each component depend on the scenario.
 
-The base architecture for MLOps v2 for Machine Learning is the classical machine learning scenario on tabular data. The CV and NLP architectures build on and modify this base architecture.
+The base architecture for MLOps v2 for Machine Learning is the classical machine learning scenario for tabular data. The CV and NLP architectures build on and modify this base architecture.
 
-### Current architectures
-
-The architectures currently covered by MLOps v2 and described in this article are:
+MLOps v2 covers the following architectures that are described in this article:
 
 - [Classical machine learning architecture](#classical-machine-learning-architecture)
 - [Machine Learning CV architecture](#machine-learning-cv-architecture)
-- [Machine Learning NLP architecture](#machine-learning-nlp-architecture)
+- [Machine Learning natural language processing architecture](#machine-learning-nlp-architecture)
 
 ### Classical machine learning architecture
 
@@ -101,20 +99,20 @@ The architectures currently covered by MLOps v2 and described in this article ar
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles that are associated with the project. These tasks can include:
+   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles that are associated with the project. For example, the infrastructure team might:
 
-   1. Creation of project source code repositories
-   1. Creation of Machine Learning workspaces by using Bicep or Terraform
-   1. Creation or modification of datasets and compute resources that are used for model development and deployment
-   1. Definition of project team users, their roles, and access controls to other resources
-   1. Creation of continuous integration and continuous delivery (CI/CD) pipelines
-   1. Creation of monitors for the collection and notification of model and infrastructure metrics
+   1. Create project source code repositories.
+   1. Use Bicep or Terraform to create Machine Learning workspaces.
+   1. Create or modify datasets and compute resources for model development and deployment.
+   1. Define project team users, their roles, and access controls to other resources.
+   1. Create CI/CD pipelines.
+   1. Create monitoring components to collect and create alerts for model and infrastructure metrics.
 
-   The primary persona associated with this phase is the infrastructure team, but data engineers, machine learning engineers, and data scientists are also options.
+   The primary persona associated with this phase is the infrastructure team, but an organization might also have data engineers, machine learning engineers, or data scientists.
 
 1. Model development (inner loop phase)
 
-   The inner loop phase consists of your iterative data science workflow that acts within a dedicated and secure Machine Learning workspace. The diagram shows a typical workflow. The process starts with data ingestion, moves through exploratory data analysis, experimentation, model development and evaluation, and culminates in registering a model for production use. This modular component as implemented in the MLOps v2 accelerator is agnostic and adaptable to the process that your data science team uses to develop models.
+   The inner loop phase consists of an iterative data science workflow that acts within a dedicated and secure Machine Learning workspace. The preceding diagram shows a typical workflow. The process starts with data ingestion, moves through exploratory data analysis, experimentation, model development and evaluation, and then registers a model for production use. This modular component as implemented in the MLOps v2 accelerator is agnostic and adaptable to the process that your data science team uses to develop models.
 
    Personas associated with this phase include data scientists and machine learning engineers.
 
@@ -194,21 +192,21 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 1. Data and model monitoring: events and actions
 
-   The data and model monitoring and event and action phases of MLOps for NLP are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new text data for  the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
+   The data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, a human-in-the-loop process is necessary to review and annotate new text data for  the model that performs poorly. The next action often goes back to the model development loop to update the model with the new images.
 
 1. Infrastructure monitoring: events and actions
 
    Based on criteria for infrastructure matters of concern, such as endpoint response lag or insufficient compute for the deployment, automated triggers and notifications can implement appropriate actions to take. This triggers a loopback to the setup and administration phase where the infrastructure team can investigate and potentially reconfigure environment, compute, and network resources.
 
-### Machine Learning NLP architecture
+### Machine Learning natural language processing architecture
 
-:::image type="content" source="_images/natural-language-processing-architecture.png" lightbox="_images/natural-language-processing-architecture.png" alt-text="Diagram for the NP architecture." border="false":::
+:::image type="content" source="_images/natural-language-processing-architecture.png" lightbox="_images/natural-language-processing-architecture.png" alt-text="Diagram for the natural language processing architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-natural-language-processing.vsdx) of this architecture.*
 
-#### Workflow for the NLP architecture
+#### Workflow for the natural language processing architecture
 
-The Machine Learning NLP architecture is based on the classical machine learning architecture, but it has some modifications that are specific to NLP scenarios.
+The Machine Learning natural language processing architecture is based on the classical machine learning architecture, but it has some modifications that are specific to NLP scenarios.
 
 1. Data estate
 
@@ -216,7 +214,7 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 1. Administration and setup
 
-   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For NLP scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
+   This component is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to the creation and management of resources and roles associated with the project. For natural language processing scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an extra step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
 
 1. Model development (inner loop phase)
 
@@ -244,7 +242,7 @@ The Machine Learning NLP architecture is based on the classical machine learning
 
 1. Data and model monitoring: events and actions
 
-   As with the CV architecture, the data and model monitoring and event and action phases of MLOps for NLP are the key differences from classical machine learning. Automated retraining isn't typically done in NLP scenarios when model performance degradation on new text is detected. In this case, a human-in-the-loop process is necessary to review and annotate new text data for the model that performs poorly. Often the next action is to go back to the model development loop to update the model with the new text data.
+   As with the CV architecture, the data and model monitoring and event and action phases of MLOps for natural language processing are the key differences from classical machine learning. Automated retraining isn't typically done in natural language processing scenarios when model performance degradation on new text is detected. In this case, a human-in-the-loop process is necessary to review and annotate new text data for the model that performs poorly. Often the next action is to go back to the model development loop to update the model with the new text data.
 
 1. Infrastructure monitoring: events and actions
 
