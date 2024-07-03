@@ -22,7 +22,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
    - For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or Named Entity Recognition (NER) model in Language Studio.
 
-   - Azure Machine Learning (AML) studio can also do labeling for text classification or entity extraction with open-source frameworks like PyTorch or TensorFlow. The AML studio also offers [Model Catalogue](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of Foundation Models with finetuning capabilities for vaious tasks like text classification, question answering, summarization etc. The fine tuning can be acheived by using the [AML studio UI](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#fine-tune-using-the-studio) or through [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
+   - Azure Machine Learning (AML) studio can also do labeling for text classification or entity extraction with open-source frameworks like PyTorch or TensorFlow. The AML studio also offers [Model Catalogue](/azure/machine-learning/concept-model-catalog?view=azureml-api-2) of Foundation Models with finetuning capabilities for vaious tasks like text classification, question answering, summarization, and so on. The fine tuning can be acheived by using the [AML studio UI](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#fine-tune-using-the-studio) or through [code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune).
 
 1. To deploy the custom models and use them for inference:
 
@@ -31,7 +31,7 @@ This article describes Azure solutions for building, training, deploying, and us
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
    - Azure Machine Learning can deploy custom models to online or batch [Azure Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints). You can also [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service by using the Azure Machine Learning SDK.
-Finetuned foundation models from Model catalogue can be deployed to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
+Finetuned foundation models from Model catalog can be deployed to [endpoints for inferencing](/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing).
 
 ### Components
 
@@ -45,7 +45,8 @@ Finetuned foundation models from Model catalogue can be deployed to [endpoints f
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a set of capabilities built on Azure Blob Storage for big data analytics. Data Lake Storage retains the cost effectiveness of Blob Storage, and provides features like file-level security and file system semantics with hierarchical namespace.
 
-- [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model.  
+- [Azure AI Document Intelligence](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Document Intelligence has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Document Intelligence can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model.
+
 [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) provides a UI for exploring Document Intelligence features and models, and for building, tagging, training, and deploying custom models.
 
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural language processing services. The suite offers prebuilt and customizable options. For more information, see the Azure AI Language [available features](/azure/cognitive-services/language-service/overview#available-features).
@@ -67,7 +68,7 @@ You can add more workflows to this scenario based on specific use cases.
 - You can do [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in Azure AI Language.
 
 - Use pre-processing code to do text processing steps like cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data, per document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
-  
+
 - [Azure AI studio](/azure/ai-studio/what-is-ai-studio) can is also another option for [finetuning](/azure/ai-studio/concepts/fine-tuning-overview) and deployment of foundation models.
 
 ## Scenario details

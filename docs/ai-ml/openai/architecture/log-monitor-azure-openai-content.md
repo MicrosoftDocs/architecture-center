@@ -5,18 +5,18 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 :::image type="content" source="_images/openai-monitor-log.png" alt-text="Diagram that shows an architecture that provides monitoring and logging for Azure OpenAI." lightbox="_images/openai-monitor-log.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-monitor-log.vsdx) of this architecture.*
- 
+
 ### Workflow
 
 1. Client applications access Azure OpenAI endpoints to perform text generation (completions) and model training (fine-tuning).
 2. Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides load balancing for APIs.
-  
-    > [!Note]
+
+    > [!NOTE]
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
-3. Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
-   1. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
-   1. Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
+3. Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.
+   1. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.
+   1. Auditing is enabled for all interactions with the models via Azure Monitor request logging.
    1. Monitoring provides detailed Azure OpenAI model usage key performance indicators (KPIs) and metrics, including prompt information and token statistics for usage traceability.
 4. API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
 5. Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
@@ -95,17 +95,16 @@ ApiManagementGatewayLogs
 | extend prompttext = substring(parse_json(parse_json(BackendResponseBody)['choices'])[0], 0, 100)
 ```
 
-Output: 
+Output:
 
 :::image type="content" source="_images/prompt-usage.png" alt-text="Screenshot that shows the output of prompt usage monitoring." lightbox="_images/prompt-usage.png":::
-
 
 ### Potential use cases
 
 - Deployment of Azure OpenAI for internal enterprise users to accelerate productivity
 - High availability of Azure OpenAI for internal applications
 - Enhanced-security use of Azure OpenAI within regulated industries
- 
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -114,7 +113,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This scenario ensures high availability of the language models for your enterprise users. The Azure application gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at enterprise scale.
+This scenario ensures high availability of the language models for your enterprise users. The Azure Application Gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at enterprise scale.
 
 ### Security
 
@@ -138,21 +137,21 @@ The following three sample cost profiles provide estimates based on the amount o
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal authors:
 
 - [Ashish Chauhan](https://www.linkedin.com/in/a69171115/) | Cloud Solution Architect – Data / AI
 - [Jake Wang](https://www.linkedin.com/in/jake-wang/) | Cloud Solution Architect – AI / Machine Learning
 
-Other contributors: 
+Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
- 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Azure OpenAI request form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu)
-- [Best practices for prompt engineering with OpenAI API](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api) 
+- [Best practices for prompt engineering with OpenAI API](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api)
 - [Azure OpenAI: Documentation, quickstarts, API reference](/azure/cognitive-services/openai/)
 - [Azure-Samples/openai-python-enterprise-logging (GitHub)](https://github.com/Azure-Samples/openai-python-enterprise-logging)
 - [Configure Azure Cognitive Services virtual networks](/azure/cognitive-services/cognitive-services-virtual-networks)

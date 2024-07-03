@@ -12,7 +12,7 @@ The following design areas are outlined for each Fabric deployment pattern:
 
 ## Levels in a Fabric deployment
 
-A Fabric deployment has four levels: [tenant](/fabric/enterprise/licenses#tenant), [capacity](/fabric/get-started/workspaces), [workspace](/fabric/get-started/workspaces), and [item](/fabric/get-started/fabric-home). At the top level is the Fabric tenant. Each tenant can have one or more capacities, each capacity can contain one or more workspaces, and each workspace can contain zero or more Fabric items.
+A Fabric deployment has four levels: [Tenant](/fabric/enterprise/licenses#tenant), [capacity](/fabric/get-started/workspaces), [workspace](/fabric/get-started/workspaces), and [item](/fabric/get-started/fabric-home). At the top level is the Fabric tenant. Each tenant can have one or more capacities, each capacity can contain one or more workspaces, and each workspace can contain zero or more Fabric items.
 
 An organization's structure or objectives in the areas of security, scale, governance, and application lifecycle might influence its choice of deployment pattern. Different deployment patterns offer varying flexibility and emphasis in the levels of a deployment.
 
@@ -29,7 +29,7 @@ All Fabric deployment patterns:
 - Use Fabric workspaces as boundaries for scale, governance, and security.
 - Use [Fabric domains](/fabric/governance/domains) for delegation, to manage multiple workspaces that might belong to the same business unit, or when data that belongs to a business domain spans more than one workspace. You can set some tenant-level settings for managing and governing data [at the domain level](/fabric/governance/domains#domain-settings-delegation) and use domain-specific configuration for those settings.
 - Use Fabric capacities to scale compute resources while provisioning dedicated capacities per workspace when specific performance levels must be met.
-- Extend to use equivalent features from a Microsoft cloud (Microsoft Azure, Microsoft 365, and others) when a feature isn't available in Fabric.
+- Extend to use equivalent features from a Microsoft Cloud (Microsoft Azure, Microsoft 365, and others) when a feature isn't available in Fabric.
 - Use a [OneLake data hub](/fabric/get-started/onelake-data-hub) to promote discovery and the use of data assets.
 - Use OneSecurity to set up data security policies for data assets.
 
@@ -54,7 +54,7 @@ When you provision a single Fabric capacity and attach a single workspace to it,
 - The workspace maximum capacity units (CUs) are limited to the largest possible [F SKU or P SKU](/fabric/enterprise/licenses#microsoft-fabric-license-types). For data engineering experiences, you can provision separate Spark pools to move the compute capacity that Fabric Spark requires outside of provisioned CUs.
 - Features that are scoped to a workspace apply across all business units that share that workspace.
 - All workspace items and data are in one region. You can't use this pattern for multi-geo scenarios.
-- Features that rely on multiple workspaces, like [deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and [lifecycle management](/fabric/cicd/cicd-overview), aren't available.
+- Features that rely on multiple workspaces, like [Deployment pipelines](/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines) and [lifecycle management](/fabric/cicd/cicd-overview), aren't available.
 - [Limitations](/fabric/get-started/workspaces#considerations-and-limitations) that are associated with a single workspace apply.
 - [Capacity limitations](/fabric/enterprise/licenses#capacity-license) that are associated with a specific SKU apply.
 
@@ -81,7 +81,7 @@ The following table presents considerations that might influence your decision t
 | **Usability - Administrators** | - It's easier for administrators to manage because they have fewer items to manage. <br/>- There's no need for other provisioning or to handle requests from teams for new capacities or workspaces. <br/>- Capacity administrators can be tenant administrators, so there's no need to create or manage other groups or teams. |
 |  **Usability - Other roles** | - It's acceptable to share the workspace with other users. <br/>- Collaboration among users is encouraged. |
 | **Performance** | - Isolation of workloads isn't mandatory. <br/>- No strict performance service-level agreements (SLAs) need to be met. <br/>- Throttling isn't likely. |
-| **Billing and cost management** | - One, single team can handle costs. <br/>- There's no need to charge back to different teams. |
+| **Billing and cost management** | - One, single team can handle costs. <br/>- There's no need to chargeback to different teams. |
 
 ## Pattern 2: Multiple workspaces backed by a single Fabric capacity
 
@@ -124,7 +124,7 @@ The following table presents considerations that might influence your decision t
 | **Usability - Administrators** | - You don't need to provision multiple capacities. <br/>- Tenant administrators typically administer capacity, so you don't need to manage other groups or teams. |
 | **Usability - Other roles** | - Workspaces are available for each medallion layer. <br/>- Fabric items are isolated per workspace, which helps to prevent accidental corruption. |
 | **Performance** | - Strict performance SLAs don't need to be met. <br/>- Throttling is acceptable during peak periods. |
-| **Billing and cost management** | - You don't have a specific requirement to charge back per team. <br/>- A central team bears all costs. <br/>- Infrastructure teams are owners of Fabric capacities in the organization. |
+| **Billing and cost management** | - You don't have a specific requirement to chargeback per team. <br/>- A central team bears all costs. <br/>- Infrastructure teams are owners of Fabric capacities in the organization. |
 
 ## Pattern 3: Multiple workspaces backed by separate capacities
 

@@ -25,4 +25,4 @@ products:
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/drone-rescue.png
 content: |
-  [!include[](vision-classifier-model-with-custom-vision-content.md)]
+  [!INCLUDE[](vision-classifier-model-with-custom-vision-content.md)]

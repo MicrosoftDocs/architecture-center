@@ -18,4 +18,4 @@ name: Noisy Neighbor antipattern
 summary: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 thumbnailUrl: /azure/architecture/browse/thumbs/noisy-neighbor-single.png
 content: |
-  [!include[](noisy-neighbor-content.md)]
+  [!INCLUDE[](noisy-neighbor-content.md)]
