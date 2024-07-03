@@ -96,7 +96,7 @@ The logical network topology provides an overview for how the network data flows
 
 To deploy a three-node storage switchless configuration of Azure Stack HCI, with dual links for the storage interconnects, the cluster infrastructure platform requires a minimum of 20 x IP addresses to be allocated. Additional IP addresses are required if you use a VM appliance supplied by your hardware OEM partner, micro-segmentation and/or software defined networking (SDN). [Review three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements) for additional information.
 
-When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components.
+When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components. For example, review [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements) if you plan to use Azure Kubernetes Services (AKS) on Azure Stack HCI.
 
 ## Well-Architected Framework considerations
 
