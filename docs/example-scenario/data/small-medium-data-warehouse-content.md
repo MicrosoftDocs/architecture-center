@@ -6,6 +6,8 @@ Most of SMB customers who would benefit from implemeting this pattern are on pre
 
 ## Simplified Architecture
 
+//todo move the picture up before converting to .svg
+
 [ ![Diagram that shows simplified architecture.](media/small-medium-data-warehouse/MDWSMB_2-brief.svg)](media/small-medium-data-warehouse/MDWSMB_2-brief.svg#lightbox)
 
 
