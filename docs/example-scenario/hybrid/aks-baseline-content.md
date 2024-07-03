@@ -55,7 +55,7 @@ AKS simplifies on-premises Kubernetes deployment by providing wizards or PowerSh
 - **Management cluster.** Deploy the management cluster on a highly available virtual machine (VM) that's running on either Azure Stack HCI or a Windows Server 2019/2022 Datacenter failover cluster. The management cluster is responsible for deploying and managing multiple workload clusters and it includes the following components:
   - **API server.** Interacts with the management tools.
   - **Load balancer.** Manages load-balancing rules for the API server of the management cluster.
-- **Workload clusters.** Implement highly-available control plane components and worker node components. Containerized applications run on a workload cluster. To achieve application isolation, you can deploy up to eight workload clusters. The workload cluster consists of the following components:
+- **Workload clusters.** Implement highly available control plane components and worker node components. Containerized applications run on a workload cluster. To achieve application isolation, you can deploy up to eight workload clusters. The workload cluster consists of the following components:
   - **Control plane.** Runs on a Linux distribution and contains API server components for interaction with Kubernetes API and a distributed key-value store, etcd, for storing all the configuration and data of the cluster.
   - **Load balancer.** Runs on a Linux VM and provides load-balanced services for the workload cluster.
   - **Worker nodes.** Run on a Windows or Linux operating system that hosts containerized applications.
