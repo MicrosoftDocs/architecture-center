@@ -35,10 +35,7 @@ This list describes the key objectives for data scientists using TDSP:
 - [Provide data source documentation](#provide-data-source-documentation)
 - [Use tools for analytics processing](#use-tools-for-analytics-processing)
 
-These objectives are crucial for preparing to use Microsoft\'s Team Data
-Science Process (TDSP) because it outlines a comprehensive approach to
-effectively managing and executing data science projects. Each objective
-includes its importance and links to these Azure resources.
+These objectives are crucial for preparing to use Microsoft's Team Data Science Process (TDSP) because it outlines a comprehensive approach to effectively managing and executing data science projects. Each objective includes its importance and links to these Azure resources.
 
 ### Understand an analytics workload
 
@@ -100,9 +97,7 @@ Azure has many resources which could be used for analytics workloads. This list 
 
 #### Integration for Data Scientists
 
-The Team Data Science Process is a peer-reviewed architectural framework
-providing data scientists with a specific framework for producing AI and
-data science models.
+The Team Data Science Process is a peer-reviewed architectural framework providing data scientists with a specific framework for producing AI and data science models.
 
 - [Team Data Science Process overview](/azure/machine-learning/team-data-science-process/overview) - Introduces the TDSP and its lifecycle.
 
@@ -116,14 +111,9 @@ data science models.
 
 - **Integration**: It integrates well with other Azure services, facilitating a seamless workflow from data ingestion to deployment.
 
-[Azure Machine Learning (Azure ML)](/azure/machine-learning)
-is the main recommended Azure resource for each of the five stages of
-Microsoft\'s Team Data Science Process (TDSP) lifecycle, which are:
-Business Understanding, Data Acquisition and Understanding, Modeling,
-Deployment, and Customer Acceptance. Here\'s how Azure ML supports each
-stage:
+[Azure Machine Learning (Azure ML)](/azure/machine-learning) is the main recommended Azure resource for each of the five stages of Microsoft's Team Data Science Process (TDSP) lifecycle, which are: Business Understanding, Data Acquisition and Understanding, Modeling, Deployment, and Customer Acceptance. Here\'s how Azure ML supports each stage:
 
-**1. Business Understanding**
+#### Business understanding
 
 In this initial stage, the focus is on understanding the business
 requirements and defining the objectives of the data science project.
@@ -134,7 +124,7 @@ requirements and defining the objectives of the data science project.
 
 - **Integration with Azure DevOps**: Teams can use Azure DevOps to manage project workflows, user stories, and tasks, ensuring that the business understanding is clearly mapped to actionable items.
 
-**2. Data Acquisition and Understanding**
+#### Data acquisition and understanding
 
 This stage involves gathering and exploring data to understand its
 structure and relevance to the business problem.
@@ -145,7 +135,7 @@ structure and relevance to the business problem.
 
 - **Exploratory Data Analysis (EDA)**: Jupyter notebooks and integrated Python/R environments in Azure ML enable thorough EDA to understand data distributions, identify patterns, and detect anomalies.
 
-**3. Modeling**
+#### Modeling
 
 In the modeling stage, data scientists build and train machine learning models to address business problems.
 
@@ -157,7 +147,7 @@ In the modeling stage, data scientists build and train machine learning models t
 
 - **Hyperparameter Tuning**: Built-in support for automated hyperparameter tuning helps optimize model performance.
 
-**4. Deployment**
+#### Deployment
 
 Once a model is developed and validated, it needs to be deployed so it can be used in production environments.
 
@@ -166,7 +156,7 @@ Once a model is developed and validated, it needs to be deployed so it can be us
 
 - **CI/CD Integration**: Azure ML integrates with Azure DevOps, enabling continuous integration and continuous deployment (CI/CD) for machine learning models, to build repeatable transitions from development to production.
 
-**5. Customer Acceptance**
+#### Customer acceptance
 
 In the final stage, the focus is on ensuring that the deployed model meets the business requirements and delivers value.
 
