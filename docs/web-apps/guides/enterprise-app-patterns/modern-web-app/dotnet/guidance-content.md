@@ -85,9 +85,9 @@ To successfully decouple and extract an independent services, ou need to update 
 | Design Pattern | Implementation Location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
 | [Strangler Fig Pattern](#implement-the-strangler-fig-pattern) | Main web app | ✔ |  | ✔ | ✔ |  |
-| [Queue-Based Load Leveling Pattern](#implement-the-queue-based-load-leveling-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ |
+| [Queue-Based Load Leveling Pattern](#implement-the-queue-based-load-leveling-pattern) | Requester to decoupled service | ✔ |  | ✔ |  | ✔ |
 | [Competing Consumers Pattern](#implement-the-competing-consumers-pattern) | Decoupled service | ✔ |  | ✔ |  | ✔ |
-| [Health Endpoint Monitoring Pattern](#implement-the-health-endpoint-monitoring-pattern) | Decoupled service | ✔ |  |  | ✔ | ✔ |
+| [Health Endpoint Monitoring Pattern](#implement-the-health-endpoint-monitoring-pattern) | Main web app & decoupled service | ✔ |  |  | ✔ | ✔ |
 | [Retry Pattern](#implement-the-retry-pattern) | Main web app & decoupled service | ✔ |  |  |  |  |
 
 ### Implement the Strangler Fig pattern
@@ -232,7 +232,7 @@ processor.ProcessMessageAsync += async args =>
     :::column-end:::
 :::row-end:::
 
-Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) in the decoupled service to track the health of application endpoints. Implement health endpoints for each decoupled service to ensure they function correctly. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
+Implement the [Health Endpoint Monitoring pattern](/azure/architecture/patterns/health-endpoint-monitoring) in the main app code and decoupled service code to track the health of application endpoints. Orchestrators like Azure Kubernetes Service or Azure Container Apps can poll these endpoints to verify service health and restart unhealthy instances. ASP.NET Core apps can add dedicated [health check middleware](/aspnet/core/host-and-deploy/health-checks) to efficiently serve endpoint health data and key dependencies. To implement the Health Endpoint Monitoring pattern, follow these recommendations:
 
 - *Implement health checks.* Use [ASP.NET Core health checks middleware](/aspnet/core/host-and-deploy/health-checks) to provide health check endpoints.
 
