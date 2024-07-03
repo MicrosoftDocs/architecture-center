@@ -6,7 +6,7 @@ ms.author: msimecek
 ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
 - azure-kubernetes-service
 - azure-front-door

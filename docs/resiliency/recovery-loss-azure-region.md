@@ -5,7 +5,7 @@ author: adamglick
 ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: well-architected
+ms.subservice: azure-guide
 ms.custom:
   - resiliency
   - article
