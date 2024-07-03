@@ -4,7 +4,7 @@ description: Learn how to develop resilient and scalable code that runs on Azure
 author: dbarkol
 ms.author: dabarkol
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 07/03/2024
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
@@ -14,8 +14,6 @@ categories:
 products:
   - azure-event-hubs
   - azure-functions
-ms.custom:
-  - guide
 ---
 
 # Resilient Event Hubs and Functions design
