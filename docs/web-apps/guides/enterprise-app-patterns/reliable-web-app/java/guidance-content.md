@@ -147,7 +147,9 @@ Use [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/
 
 ### Right size environments
 
-[!INCLUDE [Right size environments intro and guidance](../includes/rightsize.md)] For example, the reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs.
+[!INCLUDE [Right size environments intro and guidance](../includes/rightsize.md)]
+
+For example, the reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs.
 
     ```azurecli
     azd env set APP_ENVIRONMENT prod
