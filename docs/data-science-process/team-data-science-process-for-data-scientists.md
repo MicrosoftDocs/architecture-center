@@ -11,9 +11,7 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.date: 07/02/2024
 ms.author: tdsp
-ms.custom:
-  - previous-author=deguhath
-  - previous-ms.author=deguhath
+ai-usage: ai-assisted
 products:
   - azure-machine-learning
 categories:
@@ -53,11 +51,11 @@ Azure has many resources which could be used for analytics workloads. This list 
 
   - **Strategic Planning**: Offers strategic guidance to align cloud adoption with business objectives, ensuring that analytics workloads are designed to meet organizational goals.
 
-  - **Governance and Compliance**: Provides frameworks for governance and compliance, ensuring that data processing and analytics workloads adhere to regulatory requirements and organizational policies.
+  - **Governance and compliance**: Provides frameworks for governance and compliance, ensuring that data processing and analytics workloads adhere to regulatory requirements and organizational policies.
 
-  - **Migration and Modernization**: Guides the migration of existing analytics workloads to Azure, ensuring minimal disruption and optimal performance in the new environment.
+  - **Migration and modernization**: Guides the migration of existing analytics workloads to Azure, ensuring minimal disruption and optimal performance in the new environment.
 
-  - **Management and Operations**: Outlines best practices for managing and operating cloud resources, ensuring the efficient and reliable operation of analytics workloads.
+  - **Management and operations**: Outlines best practices for managing and operating cloud resources, ensuring the efficient and reliable operation of analytics workloads.
 
   - **Optimization**: Offers tools and methodologies to continuously optimize workloads, ensuring that resources are used efficiently, and costs are managed effectively.
 
@@ -115,8 +113,7 @@ The Team Data Science Process is a peer-reviewed architectural framework providi
 
 #### Business understanding
 
-In this initial stage, the focus is on understanding the business
-requirements and defining the objectives of the data science project.
+In this initial stage, the focus is on understanding the business requirements and defining the objectives of the data science project.
 
 - **Project Workspaces**: Azure ML provides project workspaces where teams can collaborate and share documents, ensuring that everyone is aligned with the business objectives.
 
@@ -126,12 +123,11 @@ requirements and defining the objectives of the data science project.
 
 #### Data acquisition and understanding
 
-This stage involves gathering and exploring data to understand its
-structure and relevance to the business problem.
+This stage involves gathering and exploring data to understand its structure and relevance to the business problem.
 
-- **Data Integration**: Azure ML integrates seamlessly with Azure Data Lake, Azure SQL Database, and other data services, facilitating easy data ingestion from various sources.
+- **Data integration**: Azure ML integrates seamlessly with Azure Data Lake, Azure SQL Database, and other data services, facilitating easy data ingestion from various sources.
 
-- **Data Labeling**: Built-in data labeling tools help in annotating datasets, which is particularly useful for supervised learning models.
+- **Data labeling**: Built-in data labeling tools help in annotating datasets, which is particularly useful for supervised learning models.
 
 - **Exploratory Data Analysis (EDA)**: Jupyter notebooks and integrated Python/R environments in Azure ML enable thorough EDA to understand data distributions, identify patterns, and detect anomalies.
 
@@ -141,20 +137,21 @@ In the modeling stage, data scientists build and train machine learning models t
 
 - **Automated ML**: Azure ML's Automated ML capabilities can automatically select the best algorithms and tune hyperparameters, speeding up the model development process.
 
-- **Custom Modeling**: It supports custom model development using popular frameworks like TensorFlow, PyTorch, and Scikit-learn.
+- **Custom modeling**: It supports custom model development using popular frameworks like TensorFlow, PyTorch, and Scikit-learn.
 
-- **Experimentation and Versioning**: Azure ML enables running multiple experiments in parallel, tracking results, and versioning models, making it easier to compare and select the best model.
+- **Experimentation and versioning**: Azure ML enables running multiple experiments in parallel, tracking results, and versioning models, making it easier to compare and select the best model.
 
-- **Hyperparameter Tuning**: Built-in support for automated hyperparameter tuning helps optimize model performance.
+- **Hyperparameter tuning**: Built-in support for automated hyperparameter tuning helps optimize model performance.
 
 #### Deployment
 
 Once a model is developed and validated, it needs to be deployed so it can be used in production environments.
 
-- **Model Deployment**: Azure ML provides various deployment options, including Azure Kubernetes Service (AKS) and edge devices, allowing for flexible deployment strategies.
-- **Endpoint Management**: It offers tools for managing endpoints for real-time and batch predictions, ensuring scalable and reliable model serving.
+- **Model deployment**: Azure ML provides various deployment options, including Azure Kubernetes Service (AKS) and edge devices, allowing for flexible deployment strategies.
+- 
+- **Endpoint management**: It offers tools for managing endpoints for real-time and batch predictions, ensuring scalable and reliable model serving.
 
-- **CI/CD Integration**: Azure ML integrates with Azure DevOps, enabling continuous integration and continuous deployment (CI/CD) for machine learning models, to build repeatable transitions from development to production.
+- **CI/CD integration**: Azure ML integrates with Azure DevOps, enabling continuous integration and continuous deployment (CI/CD) for machine learning models, to build repeatable transitions from development to production.
 
 #### Customer acceptance
 
@@ -282,7 +279,7 @@ Azure has many resources which could be used for analytics processing.  Azure Ma
 
 - **Integration**: Connects to a wide range of data sources, including on-premises and cloud-based data stores, ensuring comprehensive data integration.
 
-[**Azure HDInsight**](/azure/hdinsight/hdinsight-overview) is a fully-managed cloud service that makes it easy to process massive amounts of data using popular open-source frameworks.
+[**Azure HDInsight**](/azure/hdinsight/hdinsight-overview) is a fully-managed cloud service that that is used to process massive amounts of data using popular open-source frameworks.
 
 - **Hadoop**: Provides scalable storage and processing capabilities for large data sets.
 
@@ -304,18 +301,17 @@ Following this sequential list ensures a comprehensive preparation for using TDS
 
 1. Establish a clear understanding of the project requirements and scope.
 
-2. Adopt a structured and collaborative approach to project execution.
+1. Adopt a structured and collaborative approach to project execution.
 
-3. Use advanced tools and services for machine learning and analytics.
+1. Use advanced tools and services for machine learning and analytics.
 
-4. Ensure efficient and secure data management.
+1. Ensure efficient and secure data management.
 
-5. Maintain transparency and reproducibility through documentation.
+1. Maintain transparency and reproducibility through documentation.
 
-6. Utilize appropriate tools to enhance the efficiency and effectiveness of data processing.
+1. Utilize appropriate tools to enhance the efficiency and effectiveness of data processing.
 
-This preparation is critical for delivering successful data science
-projects that meet business objectives and adhere to best practices.
+This preparation is critical for delivering successful data science projects that meet business objectives and adhere to best practices.
 
 ## Training paths on Microsoft Learn
 
