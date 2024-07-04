@@ -81,8 +81,10 @@ The following considerations apply to this scenario.
 
 Principal author:
 
-- Amit Chandra | Cloud Solution Architect
-- Nicholas Moore | Cloud Solution Architect
+- [Amit Chandra](https://www.linkedin.com/in/amitchandra2005/) | Cloud Solution Architect
+- [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore/) | Cloud Solution Architect]
+
+To see non-public LinkedIn profiles, sign in to LinkedIn.
 
 ## Next steps
 
