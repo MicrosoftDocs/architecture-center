@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure Stack HCI baseline architecture](/azure/architecture/hybrid/azure-stack-hci-baseline). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying **Azure Stack HCI using a _three-node storage switchless_** design.
+This article is part of a series that builds on the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying **Azure Stack HCI using a _three-node storage switchless_** design.
 
 The "_storage switchless_" configuration is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for any smaller edge use cases that do not have, or require _extensive datacenter network switches_ for storage replication traffic.
 
@@ -27,7 +27,7 @@ For information about these resources, see Azure product documentation listed in
 
 ## Potential use cases
 
-The "_storage switchless_" configuration of Azure Stack HCI is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for any smaller edge use cases that do not have, or require _extensive datacenter network switches_ for the storage replication traffic. The following use case requirements can be addressed using this design, in addition to those outlined in the Azure Stack HCI baseline architecture:
+The "_storage switchless_" configuration of Azure Stack HCI is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for any smaller edge use cases that do not have, or require _extensive datacenter network switches_ for the storage replication traffic. The following use case requirements can be addressed using this design, in addition to those outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline):
 
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - The "storage switchless" network design removes the requirement to deploy additional ports or storage class network switches to connect the physical network interface cards (NICs) used for the Storage intent.
@@ -106,33 +106,7 @@ The Microsoft [Azure Well-Architected Framework (WAF)][azure-well-architected-fr
 
 Reliability ensures your application can meet the commitments you make to your business or customers. For more information, see the [Reliability pillar of the Azure Stack HCI WAF Service Guide](/azure/well-architected/service-guides/azure-stack-hci#reliability).
 
-Reliability considerations include:
-
-- For the deployment of this reference architecture, a **fictitious customer "Contoso Manufacturing"** has an internal **Service Level Objective (SLO) target of 99.8%** agreed with business and application stakeholders.
-
-- An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
-
-
-  Weekly: 20 minutes and 10 seconds
-
-  Monthly: 1 hour, 26 minutes and 56 seconds
-
-  Quarterly: 4 hours, 20 minutes and 49 seconds
-
-  Yearly: 17 hours, 23 minutes and 16 seconds
-
-
-- **To help achieve the SLO targets** Contoso Manufacturing have implemented the _principle of least privilege_ to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This helps prevent downtime due to any inadvertent or accidental actions being performed on production resources. Furthermore, the on-premises Active Directory Domain Services (AD DS) domain controllers security event logs are monitored to detect and report any user account group membership changes (_add / remove actions_) for the "Azure Stack HCI cluster administrators" group using a security information event management (SIEM) solution. In addition to increasing Reliability, this monitoring also improves the Security of the solution.
-
-- Contoso Manufacturing has **strict change control procedures** in place for production systems. This process requires that all changes must be tested and validated in a representative test environment prior to implementation in production. All changes submitted to the weekly change advisory board (CAB) process must include a detailed implementation plan (_or link to source code_), risk level score, a comprehensive roll back plan, along with post change testing / validation and clear success criteria for a change to be reviewed or approved.
-
-- **Monthly security patches and quarterly baseline updates** are applied to production Azure Stack HCI clusters only after they have been validated in the pre-production environment. Azure Update Management and Cluster Aware Updating (CAU) automate the process of using [**VM Live Migration**](/windows-server/virtualization/hyper-v/manage/live-migration-overview) to minimize downtime for business-critical workloads during the monthly servicing operations. Contoso Manufacturing standard operating procedures require that security, reliability or baseline build updates are applied to all production systems within four weeks of their release date, without this policy production systems would “always be behind” or perpetually be unable to stay current with monthly OS and security updates, which would impact reliability and security of the platform.
-
-- **Contoso Manufacturing implements daily, weekly and monthly backups**, retaining the last 6 x days of daily backups (_Monday to Saturdays_), the last 3 x weekly (_each Sunday_) and 3 x monthly backups, with each "_Sunday week 4_" being retained to become the Month 1, Month 2, and Month 3 backup using a rolling schedule. This provides an adequate balance between the number of data recovery points available and reducing costs for the offsite / cloud backup storage service.
-
-- **The data backup and recovery process are tested** for each business system every six months, this provides assurance that their business continuity and disaster recovery (BCDR) processes are valid, and the business would be protected in the event of a datacenter disaster or cyber incident.
-
-- The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectively scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
+In addition, review the Reliability considerations outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#reliability)
 
 ### Security
 
