@@ -208,7 +208,18 @@ The Microsoft [Azure Well-Architected Framework (WAF)][azure-well-architected-fr
 
 Reliability ensures your application can meet the commitments you make to your business or customers. For more information, see the [Reliability pillar of the Azure Stack HCI WAF Service Guide](/azure/well-architected/service-guides/azure-stack-hci#reliability).
 
-Reliability considerations include:
+#### Identify the potential failure points
+
+Every architecture is susceptible to failures. The exercise of failure mode analysis lets you anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
+
+| Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
+|-----------|------|------------|------------------------|--------|
+| Azure Stack HCI cluster outage | Power, network, hardware or software failure | Medium | For business or mission-critical use cases, to prevent a prolonged application outage caused by the failure of an Azure Stack HCI cluster, your workload should be architected using high-availability and disaster recovery principles. For example use industry standard workload data replication technologies to maintain multiple copies of persistent state data, deployed using multiple Arc VMs or AKS instances that are deployed on separate Azure Stack HCI clusters, and in separate physical locations. | Potential outage |
+| Azure Stack HCI single physical node outage | Power, hardware or software failure | Medium | To prevent a prolonged application outage caused by the failure of a single Azure Stack HCI node, your Azure Stack HCI cluster should have multiple physical nodes, recommended three or more nodes, determined by your workload sizing and cluster design phase. It is recommended to use a three-way mirror, which is the default storage resiliency mode for three or more node clusters. Deploy multiple instance of your workload using two or more Arc VMs or AKS pods running in multiple AKS worker nodes, to prevent a single point of failure and increase workload resiliency. In the event of a single node failure, the Arc VMs and workload / application services will be restarted on other online physical nodes in the cluster. | Potential outage |
+| Connectivity to Azure | Network outage | Medium | The ability to manage your Azure Stack HCI cluster(s) will be degraded or impaired due to lack of connectivity to the control plane running in Azure. This could effect management and monitoring capabilities, if using HCI Insights, in addition to preventing the deployment of new Arc VMs or AKS clusters whilst the connection to Azure is unavailable. | None |
+| Arc VM or AKS worker node (_workload app or service_) | Misconfiguration | Medium | Application users are unable to sign in or access the application. Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. It is possible to redeploy the VM if required, which should take less than 10 minutes to deploy, however it can take longer depending on the type of deployment. | Potential outage |
+
+> Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
 
 #### Reliability targets
 
@@ -236,22 +247,9 @@ A **fictitious customer "Contoso Manufacturing"** using this reference architect
 
 - **The data backup and recovery process are tested** for each business system every six months, this provides assurance that their business continuity and disaster recovery (BCDR) processes are valid, and the business would be protected in the event of a datacenter disaster or cyber incident.
 
-> Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
-
-#### Identify the potential failure points
-
-Every architecture is susceptible to failures. The exercise of failure mode analysis lets you anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
-
-| Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
-|-----------|------|------------|------------------------|--------|
-| Azure Stack HCI cluster outage | Power, network, hardware or software failure | Medium | For business or mission-critical use cases, to prevent a prolonged application outage caused by the failure of an Azure Stack HCI cluster, your workload should be architected using high-availability and disaster recovery principles. For example use industry standard workload data replication technologies to maintain multiple copies of persistent state data, deployed using multiple Arc VMs or AKS instances that are deployed on separate Azure Stack HCI clusters, and in separate physical locations. | Potential outage |
-| Azure Stack HCI single physical node outage | Power, hardware or software failure | Medium | To prevent a prolonged application outage caused by the failure of a single Azure Stack HCI node, your Azure Stack HCI cluster should have multiple physical nodes, recommended three or more nodes, determined by your workload sizing and cluster design phase. It is recommended to use a three-way mirror, which is the default storage resiliency mode for three or more node clusters. Deploy multiple instance of your workload using two or more Arc VMs or AKS pods running in multiple AKS worker nodes, to prevent a single point of failure and increase workload resiliency. In the event of a single node failure, the Arc VMs and workload / application services will be restarted on other online physical nodes in the cluster. | Potential outage |
-| Connectivity to Azure | Network outage | Medium | The ability to manage your Azure Stack HCI cluster(s) will be degraded or impaired due to lack of connectivity to the control plane running in Azure. This could effect management and monitoring capabilities, if using HCI Insights, in addition to preventing the deployment of new Arc VMs or AKS clusters whilst the connection to Azure is unavailable. | None |
-| Arc VM or AKS worker node (_workload app or service_) | Misconfiguration | Medium | Application users are unable to sign in or access the application. Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. It is possible to redeploy the VM if required, which should take less than 10 minutes to deploy, however it can take longer depending on the type of deployment. | Potential outage |
-
-> Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
-
 - The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectively scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
+
+> Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
 
 ### Security
 
