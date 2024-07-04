@@ -176,6 +176,10 @@ Because Azure Stack HCI Insights is built using Azure Monitor and Log Analytics,
 
 ### Update management
 
+Azure Stack HCI clusters and the deployed workload resources, such as Arc VMs and AKS clusters need to be updated and patched regularly so that they don't weaken the security posture of your organization and to improve reliability. We recommend automatic and periodic assessments for early discovery and application of patches.
+
+#### Infrastructure updates
+
 Azure Stack HCI is continually updated to enhance customer experience and provide additional features and functionality. This process is delivered using "Release Trains", which provide new "Baseline Builds" on a quarterly basis, these are applied to Azure Stack HCI clusters to keep them up to date. In addition to regular Baseline Build updates, Azure Stack HCI is updated with monthly OS security and reliability updates.
 
 Azure Update Manager is an Azure service that allows you to apply, view, and manage updates for Azure Stack HCI. This provides a mechanism to view all Azure Stack HCI clusters across your entire infrastructure and edge locations using Azure portal for a centralized management experience. For additional information review the following resources:
@@ -184,6 +188,12 @@ Azure Update Manager is an Azure service that allows you to apply, view, and man
 - [Azure Stack HCI Lifecycle cadence](/azure-stack/hci/update/about-updates-23h2#lifecycle-cadence)
 - [Review update phases of Azure Stack HCI](/azure-stack/hci/update/update-phases-23h2)
 - [Use Azure Update Manager to update Azure Stack HCI](/azure-stack/hci/update/azure-update-manager-23h2)
+
+It is important to check for new driver and firmware updates on a regular basis, such as every three to six months. Contact your hardware OEM or solution integrator (SI) partner to determine how updates for your hardware are supplied, if you are using a Premier solution SKU for Azure Stack HCI, the [Solution Builder Extension (SBE) package updates](/azure-stack/hci/update/solution-builder-extension) will be integrated with Azure Update Manager. For validated nodes or integrated systems, you may have to download an OEM specific update package that contains the firmware and driver updates for your hardware.
+
+#### Workload Guest OS patching
+
+Arc VMs deployed on Azure Stack HCI can be enrolled with [Azure Update Manager][azure-update-management] (AUM) to provide a unified patch management experience, using the same mechanism used to update the Azure Stack HCI cluster physical nodes. Using AUM, create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest) to control settings should as "Reboot setting: _reboot if required_", and the Schedule (_dates / times and repeat options_) and either Dynamic (_subscription_) or static list of VM as the scope, which control the configuration for when OS security patches will be installed inside your workload Guest OS.
 
 ## Deployment workflow
 
