@@ -649,13 +649,13 @@ Other contributors:
 - [GitHub Docs](https://docs.github.com)
 - [Synapse Analytics documentation](/azure/synapse-analytics)
 - [Event Hubs documentation](/azure/event-hubs)
+- [How Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
+- [What are Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
 
 ## Related resources
 
 - [Choose a Microsoft Azure AI services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
-- [How Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
-- [What are Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
 - [Machine learning operations framework to upscale machine learning lifecycle with Machine Learning](mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)
