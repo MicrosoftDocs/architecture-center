@@ -273,3 +273,4 @@ Microsoft Learn modules:
 [azs-hci-defender-for-cloud]: /azure-stack/hci/manage/manage-security-with-defender-for-cloud
 [azs-hci-sizer-tool]: https://aka.ms/hci-catalog#sizer
 [azure-update-management]: /azure/update-manager/
+[s2d-plan-volumes]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type
