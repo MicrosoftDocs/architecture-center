@@ -234,6 +234,8 @@ Reliability considerations include:
 
 - **The data backup and recovery process are tested** for each business system every six months, this provides assurance that their business continuity and disaster recovery (BCDR) processes are valid, and the business would be protected in the event of a datacenter disaster or cyber incident.
 
+> Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
+
 - **Identify the potential failure points**. Every architecture is susceptible to failures. The exercise of failure mode analysis lets you anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
 
 | Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
