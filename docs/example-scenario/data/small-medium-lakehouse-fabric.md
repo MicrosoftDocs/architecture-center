@@ -88,4 +88,14 @@ To see non-public LinkedIn profiles, sign in to LinkedIn.
 
 ## Next steps
 
+Consult the relevent documentation to learn more about the different components and how to get started.
+
+- [What is OneLake?](https://learn.microsoft.com/fabric/onelake/onelake-overview)
+- [What is Data Factory?](https://learn.microsoft.com/fabric/data-factory/data-factory-overview)
+- [What is Data Engineering?](https://learn.microsoft.com/fabric/data-engineering/data-engineering-overview)
+- [What is Data science?](https://learn.microsoft.com/fabric/data-science/data-science-overview)
+- [What is Real-Time Intelligence?](https://learn.microsoft.com/fabric/real-time-intelligence/overview)
+- [What is Power BI?](https://learn.microsoft.com/power-bi/fundamentals/power-bi-overview)
+- [Introduction to Copilot in Fabric](https://learn.microsoft.com/fabric/get-started/copilot-fabric-overview)
+
 ## Related resources
