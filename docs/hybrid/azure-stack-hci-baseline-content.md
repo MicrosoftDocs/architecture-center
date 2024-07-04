@@ -223,7 +223,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 #### Reliability targets
 
-A **fictitious customer "Contoso Manufacturing"** using this reference architecture to deploy Azure Stack HCI to help address their requirements to deploy and manage workloads on-premises. Contoso Manufacturing have an internal **Service Level Objective (SLO) target of 99.8%** agreed with business and application stakeholders for their services.
+Example scenario: a **fictitious customer "Contoso Manufacturing"** uses this reference architecture to deploy Azure Stack HCI to help address their requirements to deploy and manage workloads on-premises. Contoso Manufacturing have an internal **Service Level Objective (SLO) target of 99.8%** agreed with business and application stakeholders for their services.
 
 - An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
 
