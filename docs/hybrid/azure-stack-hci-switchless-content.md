@@ -102,11 +102,11 @@ When designing and planning IP address requirements for Azure Stack HCI, conside
 
 The Microsoft [Azure Well-Architected Framework (WAF)][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
 
+Review the Well-Architected Framework considerations outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#well-architected-framework-considerations)
+
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your business or customers. For more information, see the [Reliability pillar of the Azure Stack HCI WAF Service Guide](/azure/well-architected/service-guides/azure-stack-hci#reliability).
-
-In addition, review the Reliability considerations outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#reliability)
 
 ### Security
 
