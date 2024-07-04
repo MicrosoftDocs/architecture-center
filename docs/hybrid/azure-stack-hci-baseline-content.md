@@ -289,8 +289,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Cost optimization considerations include:
 
-- Switchless vs switch-based cluster interconnects. The switchless interconnect topology consists of connections between dual-port (_redundant_) Remote Direct Memory Access (RDMA) capable network interface cards (NICs) in each node (_to form a full mesh_), with each node having two direct connection to every other node. While this is straightforward to implement, it is only supported in two-node or three-node clusters. Azure Stack HCI cluster with four or more nodes require the "storage switched" network architecture, which also provides the ability to add additional nodes post deployment, unlike the storage switchless design that does not support add-node operations.
-
 - Cloud-style billing model. Azure Stack HCI pricing follows the [monthly subscription billing model][azs-hci-billing], with a flat rate per physical processor core in an Azure Stack HCI cluster (additional usage charges apply if you use other Azure services). If you own on-premises core licenses for Windows Server Datacenter edition, with active Software Assurance (SA) you might choose to exchange these licenses to activate Azure Stack HCI cluster and Windows Server VM subscription fee.
 
 > [!TIP]
