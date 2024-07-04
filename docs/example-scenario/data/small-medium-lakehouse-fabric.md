@@ -53,6 +53,16 @@ Microsoft Fabric offers a robust set of tools, but depending on your specific ne
 
 ### Potential use cases
 
+Several scenarios can benefit from this workload:
+
+- TODO
+- TODO
+
+This solution isn't recommended for:
+
+- TODO
+- TODO
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/).
