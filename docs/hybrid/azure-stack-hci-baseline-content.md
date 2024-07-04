@@ -210,7 +210,9 @@ Reliability ensures your application can meet the commitments you make to your b
 
 Reliability considerations include:
 
-- For the deployment of this reference architecture, a **fictitious customer "Contoso Manufacturing"** has an internal **Service Level Objective (SLO) target of 99.8%** agreed with business and application stakeholders.
+#### Reliability targets
+
+A **fictitious customer "Contoso Manufacturing"** using this reference architecture to deploy Azure Stack HCI to help address their requirements to deploy and manage workloads on-premises. Contoso Manufacturing have an internal **Service Level Objective (SLO) target of 99.8%** agreed with business and application stakeholders for their services.
 
 - An SLO of 99.8% uptime/availability results in the following periods of allowed downtime / unavailability for the applications which are deployed using Arc VMs running on Azure Stack HCI:
 
@@ -236,7 +238,9 @@ Reliability considerations include:
 
 > Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
 
-- **Identify the potential failure points**. Every architecture is susceptible to failures. The exercise of failure mode analysis lets you anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
+#### Identify the potential failure points
+
+Every architecture is susceptible to failures. The exercise of failure mode analysis lets you anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
 
 | Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
 |-----------|------|------------|------------------------|--------|
