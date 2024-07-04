@@ -126,15 +126,10 @@ Also, consider the [Secure Futures Initiative](https://www.microsoft.com/microso
 ### Secure by default
 
 - Use encryption as recommended by [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
-
   - Ensure that cryptographic protocols and algorithms, such as TLS 1.2 or higher and SHA-256 or higher, are up to date.
-  
   - Consider using host encryption or Azure Disk Encryption for encryption of data in transit. For managed disks attached to VMs, data is encrypted at rest by default.
-  
 - Avoid the use of public IP addresses. Use Azure Bastion for secure remote access to VMs.
-
 - Use private endpoints to communicate with Azure services.
-
 - Disable public network access to Azure services like Storage and SQL Database.
 
 ### Secure operations
