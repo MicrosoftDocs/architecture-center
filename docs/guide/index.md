@@ -6,7 +6,7 @@ ms.author: martinek
 ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.custom:
   - guide
 products:
