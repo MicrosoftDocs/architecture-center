@@ -234,6 +234,17 @@ Reliability considerations include:
 
 - **The data backup and recovery process are tested** for each business system every six months, this provides assurance that their business continuity and disaster recovery (BCDR) processes are valid, and the business would be protected in the event of a datacenter disaster or cyber incident.
 
+- **Identify the potential failure points**. Every architecture is susceptible to failures. The exercise of failure mode analysis lets you anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
+
+| Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
+|-----------|------|------------|------------------------|--------|
+| Arc VM (_workload app or service_) | Misconfiguration | Medium | Application users are unable to sign in or access the application. Misconfigurations should be caught during deployment. If these errors happen during a configuration update, DevOps team must roll back changes. It is possible to redeploy the VM if required, which should take less than 10 minutes to deploy, however it can take longer depending on the type of deployment. | Potential outage |
+| Azure Stack HCI single physical node | Power, hardware or software failure | Medium | To prevent a prolonged application outage caused by the failure of a single Azure Stack HCI node, your Azure Stack HCI cluster should have multiple physical nodes, recommended three or more nodes, determined by your workload sizing and cluster design phase. It is recommended to use a three-way mirror, which is the default storage resiliency mode for three or more node clusters. Deploy multiple instance of your workload using two or more Arc VMs or AKS pods running in multiple AKS worker nodes, to prevent a single point of failure and increase workload resiliency. In the event of a single node failure, the Arc VMs and workload / application services will be restarted on other online physical nodes in the cluster. | Potential outage |
+| Azure Stack HCI cluster | Power, network, hardware or software failure | Medium | Potential for disruption. Microsoft manages DDoS (L3 and L4) protection. Potential risk of effect from L7 attacks. | Full |
+| Connectivity to Azure | Network outage | Medium | The ability to manage your Azure Stack HCI cluster(s) will be degraded or impaired due to lack of connectivity to the control plane running in Azure. This could effect management and monitoring of your Azure Stack HCI clusters, and prevent the deployment of new Arc VM or AKS cluster resources.  | None |
+
+> Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
+
 - The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectively scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
 
 ### Security
