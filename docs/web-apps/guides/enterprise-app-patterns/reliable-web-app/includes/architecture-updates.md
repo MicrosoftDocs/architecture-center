@@ -3,11 +3,25 @@ The Reliable Web App pattern has a few essential architectural elements. You nee
 [![Diagram showing the Essential architectural elements of the Reliable Web App pattern.](../../../_images/reliable-web-app-architecture.svg)](../../../_images/reliable-web-app-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Reliable Web App pattern.*
 
+### Design the architecture
+
+ For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration depending on your business need. The two regions require the same services except one region has a hub virtual network that connects. Adopt a a hub-and-spoke network topology to centralize and share resources, such as a network firewall. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
+
+[![Diagram showing the aReliable Web App pattern with a second region and a hub-and-spoke topology.](../../../_images/reliable-web-app-architecture-plus-optional.svg)](../../../_images/reliable-web-app-architecture-plus-optional.svg#lightbox) *Figure 2. The Reliable Web App pattern with a second region and a hub-and-spoke topology.*
+
+- *Choose infrastructure reliability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime.
+
+    Calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO. The Reliable Web App pattern support multiple regions for an active-active or active-passive configuration (*see figure 2*). For example, the reference implementation uses an active-passive configuration to meet an SLO of 99.9%.
+
+    Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine a recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
+
+- *Choose a network topology.* Choose the right network topology for your web and networking requirements. Use a single virtual network if you have one virtual network. If you plan on adding more virtual networks, use a [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). It provides cost, management, and security benefits with hybrid connectivity options to on-premises and virtual networks.
+
 ### Pick the right Azure services
 
 To streamline the move to the cloud, use the platform-as-a-service (PaaS) solutions that support your current web app requirements, such as runtime, database engine, data types, and redundancy requirements.
 
-| Web app component | Service selection guidance |
+| Architectural element | Service selection guidance |
 | --- | --- |
 | Identity and access management | Use [Microsoft Entra ID](/entra/identity/enterprise-apps/migration-resources) for all identity and access management needs. |
 | Web application firewall | Use [Azure Web Application Firewall](/azure/web-application-firewall/overview) to secure the ingress from web app attacks. |
@@ -23,16 +37,3 @@ To streamline the move to the cloud, use the platform-as-a-service (PaaS) soluti
 | Network firewall | Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. |
 | Bastion host | Use [Azure Bastion](/azure/bastion/bastion-overview) to securely connect to virtual machines. |
 
-### Design the architecture
-
- For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support either an active-active or active-passive configuration depending on your business need. The two regions require the same services except one region has a hub virtual network that connects. Adopt a a hub-and-spoke network topology to centralize and share resources, such as a network firewall. If you have virtual machines, add a bastion host to the hub virtual network to manage them securely (*see figure 2*).
-
-[![Diagram showing the aReliable Web App pattern with a second region and a hub-and-spoke topology.](../../../_images/reliable-web-app-architecture-plus-optional.svg)](../../../_images/reliable-web-app-architecture-plus-optional.svg#lightbox) *Figure 2. The Reliable Web App pattern with a second region and a hub-and-spoke topology.*
-
-- *Choose infrastructure reliability.* Determine how many availability zones and regions you need to meet your availability needs. Define a target SLO for your web app, such as 99.9% uptime.
-
-    After you pick your [Azure services](#pick-the-right-azure-services), calculate the [composite SLA](/azure/well-architected/reliability/metrics#slos-and-slas) for all the services that affect the availability of your web app. Add availability zones and regions until the composite SLA meets your SLO. The Reliable Web App pattern support multiple regions for an active-active or active-passive configuration (*see figure 2*). For example, the reference implementation uses an active-passive configuration to meet an SLO of 99.9%.
-
-    Design your infrastructure to support your [recovery metrics](/azure/well-architected/reliability/metrics#recovery-metrics), such as recovery time objective (RTO) and recovery point objective (RPO). The RTO affects availability and must support your SLO. Determine a recovery point objective (RPO) and configure [data redundancy](/azure/well-architected/reliability/redundancy#data-resources) to meet the RPO.
-
-- *Choose a network topology.* Choose the right network topology for your web and networking requirements. Use a single virtual network if you have one virtual network. If you plan on adding more virtual networks, use a [hub and spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). It provides cost, management, and security benefits with hybrid connectivity options to on-premises and virtual networks.
