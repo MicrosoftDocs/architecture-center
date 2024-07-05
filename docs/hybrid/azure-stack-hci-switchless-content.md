@@ -144,7 +144,6 @@ Product documentation:
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
-- [Manage registered servers with Azure File Sync](/azure/storage/file-sync/file-sync-server-registration)
 - [Update Management overview](/azure/automation/update-management/overview)
 - [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
 - [What is Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
@@ -152,7 +151,6 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
 - [Configure Azure Monitor](/training/modules/configure-azure-monitor)
 - [Design your site recovery solution in Azure](/training/modules/design-your-site-recovery-solution-in-azure)
 - [Introduction to Azure Arc enabled servers](/training/modules/intro-to-arc-for-servers)
