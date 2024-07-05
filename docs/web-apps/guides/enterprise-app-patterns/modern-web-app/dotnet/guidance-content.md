@@ -47,13 +47,13 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 For each Azure service in your architecture, consult the relevant [Azure service guide](/azure/well-architected/service-guides) in the Well-Architected Framework. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
-- *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.
+- *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.<br>
 
     - Azure Service Bus: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
     - Azure Event Grid: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
     - Azure Event Hubs: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
 
-- *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.
+- *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.<br>
 
     - Azure Container Apps (ACA): Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
     - Azure Kubernetes Service (AKS): Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  
@@ -63,10 +63,12 @@ For each Azure service in your architecture, consult the relevant [Azure service
 
 ## Code guidance
 
-To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
+To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern.
 
 [![Diagram showing the role of the design patterns in the Modern Web App pattern architecture.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
 *Figure 3. Role of the design patterns.*
+
+Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
 - *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. (**1**) Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
