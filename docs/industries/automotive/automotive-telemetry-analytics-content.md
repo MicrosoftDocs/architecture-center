@@ -20,19 +20,19 @@ This example workload relates to both telemetry and batch test drive data ingest
 
     (**3b**) A data pipeline triggers ingestion of decoded files from Lakehouse.
 
-1. Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to expand the JSON data into a suitable row format and to enrich the data. For example, cluster location data to support geospatial analytics. Every time a new row is ingested, the Real-Time Analytics engine invokes an associated `Update()` function.
+1. Eventhouse uses [update policies](/azure/data-explorer/kusto/management/update-policy) to expand the JSON data into a suitable row format and to enrich the data. For example, cluster location data to support geospatial analytics. Every time a new row is ingested, the real-time analytics engine invokes an associated `Update()` function.
 
-1. Data Engineers and Data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning (ML) plugins with Copilot support.
+1. Data engineers and data scientists use the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) capabilities to build analytics use cases. Users store frequently used cases as shareable user-defined functions. The engineers use build-in KQL functions such as aggregation, time series analysis, geospatial clustering, windowing, and machine learning plugins with Copilot support.
 
-1. R&D engineers and Data Scientists use notebooks to analyze data and build test and validation use cases.
+1. R&D engineers and data scientists use notebooks to analyze data and build test and validation use cases.
 
     1. The R&D engineers use [KQL Query Sets](/fabric/real-time-intelligence/kusto-query-set) and [Copilot for Real-Time Intelligence](/fabric/get-started/copilot-real-time-intelligence) to perform interactive data analysis.
 
     1. Data Engineers and Data scientists use [notebooks](/fabric/real-time-intelligence/notebooks) to store and share their analysis processes. With notebooks, engineers can use Azure Spark and [manage the notebook code](/fabric/data-engineering/notebook-source-control-deployment) with Git to run analytics. Users can use [Copilot for Data Engineering](/fabric/get-started/copilot-notebooks-overview) to support their workflow with contextual code suggestions.
 
-1. R&D Engineers and Data Scientists can use Power BI with Dynamic Query or Real-Time Analytics Dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
+1. R&D Engineers and Data Scientists can use Power BI with dynamic query or real-time analytics dashboards to create visualizations to share with business users. These visualizations invoke user-defined functions for ease of maintenance.
 
-1. Engineers can also connect more tools to Microsoft Fabric. As an example, it's possible to connect Azure managed Grafana to Eventhouse, or to create a Web Application that queries Eventhouse directly.
+1. Engineers can also connect more tools to Microsoft Fabric. As an example, it's possible to connect Azure managed Grafana to Eventhouse, or to create a web application that queries Eventhouse directly.
 
 1. Data and R&D Engineers use [Data Activator](/fabric/data-activator/) to create Reflex items to monitor conditions and trigger actions such as triggering Power Automate flows for business integration. For example, notifying a teams channel in case the health of a device degrades.
 
