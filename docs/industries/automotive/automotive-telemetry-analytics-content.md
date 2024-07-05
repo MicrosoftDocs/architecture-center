@@ -255,6 +255,6 @@ Other contributors:
 
 ## Related resources
 
-- [Software-defined vehicle DevOps toolchain](./industries/automotive/software-defined-vehicle-reference-architecture.md)
+- [Software-defined vehicle DevOps toolchain](./automotive/software-defined-vehicle-reference-architecture.md)
 - [Autonomous vehicle operations design guide](../../guide/machine-learning/avops-design-guide.md)
 - [Claim-Check pattern](../../patterns/claim-check.yml)
