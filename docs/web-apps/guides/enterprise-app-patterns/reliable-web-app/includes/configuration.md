@@ -1,4 +1,4 @@
-The following sections provide guidance on implementing the configurations updates. Each section align with one or more pillars of the Well-Architected Framework.
+The following sections provide guidance on implementing the configurations updates. Each section aligns with one or more pillars of the Well-Architected Framework.
 
 |Configuration|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
 |---|---|---|---|---|---|
