@@ -243,20 +243,18 @@ Other contributors:
 
 ## Next steps
 
-- Learn how to connect vehicles and devices to the cloud using the [MQTT broker feature in Event Grid](/azure/event-grid/mqtt-overview).
-- Understand how to transfer files without storing the payload in an MQTT message using the [Claim-Check pattern](/azure/architecture/patterns/claim-check).
-- Connect your [datastream to a KQL destination](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities).
-- Ingest recordings from [OneLake into a KQL database](/fabric/real-time-intelligence/get-data-onelake).
-- Read about [materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview) to learn how to create materialized views, such as the last-known value tables.
-- Create a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your vehicle data.
-- Set up an [alert from a Real-Time Dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard) using Data Activator.  
-- Create a [Power BI report](/fabric/real-time-intelligence/create-powerbi-report) for business users using Direct Query.
-- Connect your vehicle data stream to an [Azure managed Grafana instance](/azure/data-explorer/grafana).
+- [MQTT broker feature in Event Grid](/azure/event-grid/mqtt-overview)
+- [Add a KQL Database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities)
+- [Get data from OneLake](/fabric/real-time-intelligence/get-data-onelake)
+- [Materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview)
+- [Crete a Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create)
+- [Create Data Activator alerts from a Real-Time Dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
+- [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
+- [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
+- [Automotive messaging, data, and analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)
 
 ## Related resources
 
-The following reference architectures are related to the automotive fleet test and validation scenario:
-
-- [Automotive messaging, data, and analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) covers more automotive and device messaging scenarios using the Event Grid MQTT broker.
-- [Software-defined vehicle DevOps toolchain](/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture) covers scenarios to develop, build, deploy, and test automotive software stacks for software-defined vehicles (SDV).
-- [Autonomous vehicle operations design guide](../../guide/machine-learning/avops-design-guide.md) contains the approach for the development and model training of autonomous vehicle fleets.
+- [Software-defined vehicle DevOps toolchain](../../industries/automotive/software-defined-vehicle-reference-architecture.md)
+- [Autonomous vehicle operations design guide](../../guide/machine-learning/avops-design-guide.md)
+- [Claim-Check pattern](../../patterns/claim-check.md)
