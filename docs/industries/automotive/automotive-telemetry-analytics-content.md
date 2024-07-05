@@ -10,6 +10,8 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ### Dataflow
 
+The following dataflow corresponds to the preceding diagram:
+
 1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device publishes live telemetry messages or (**1b**) requests upload of recorded data files by using an MQTT client to Azure Event Grid's MQTT broker functionality that uses a Claim-Check pattern.
 
 1. (**2a**) Event Grid routes live vehicle signal data to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an Event Stream.
@@ -147,11 +149,11 @@ To validate vehicle functions and analyze anomalies and failures, petabytes of d
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/well-architected/).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Design review checklist for Reliability](/azure/well-architected/reliability/checklist).
 
 - [Azure availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones) are unique physical locations within the same Azure region. Availability zones can protect Azure Data Explorer compute clusters and data from partial region failure.
 
@@ -161,7 +163,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Design review checklist for Security](/azure/well-architected/security/checklist).
 
 It's important to understand the division of responsibility between the automotive OEM and Microsoft. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) provides built-in security on the physical stack, including the operating system.
 
@@ -187,7 +189,7 @@ All these features help automotive OEMs create a secure environment for their ve
 
 ### Cost optimization
 
-Cost optimization looks at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Design review checklist for Cost Optimization](/azure/well-architected/cost-optimization/checklist).
 
 This solution uses the following practices to help optimize costs:
 
@@ -203,7 +205,7 @@ This solution uses the following practices to help optimize costs:
 
 ### Performance efficiency
 
-Performance efficiency is your workload's ability to scale efficiently to meet user demands. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Design review checklist for Performance Efficiency](/azure/well-architected/performance-efficiency/checklist).
 
 - Consider using Azure Batch for decoding if the number and size of recorded data files is greater than 1,000 files or 300 MB a day.
 
