@@ -224,6 +224,6 @@ Contoso Fiber determined that their on-premises infrastructure wasn't a cost-eff
 *Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Reliable Web App pattern for Java reference implementation](reference-implementation)
+>[Reliable Web App pattern for Java reference implementation][reference-implementation]
 
 [reference-implementation]: https://github.com/Azure/modern-web-app-pattern-java

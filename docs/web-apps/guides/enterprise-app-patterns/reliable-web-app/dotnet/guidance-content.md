@@ -259,6 +259,6 @@ Relecloud determined that their on-premises infrastructure wasn't a cost-effecti
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Reliable Web App pattern for Java reference implementation](reference-implementation)
+>[Reliable Web App pattern for Java reference implementation][reference-implementation]
 
 [reference-implementation]: aka.ms/eap/rwa/dotnet

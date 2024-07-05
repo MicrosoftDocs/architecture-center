@@ -495,6 +495,6 @@ ENTRYPOINT ["dotnet", "./Relecloud.TicketRenderer.dll"]
 *Figure 3. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Modern Web App pattern for .NET reference implementation](reference-implementation)
+>[Modern Web App pattern for .NET reference implementation][reference-implementation]
 
 [reference-implementation]: https://github.com/Azure/modern-web-app-pattern-dotnet
