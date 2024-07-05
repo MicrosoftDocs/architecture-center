@@ -49,15 +49,15 @@ For each Azure service in your architecture, consult the relevant [Azure service
 
 - *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.
 
-- Azure Service Bus: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
-- Azure Event Grid: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
-- Azure Event Hubs: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
+    - Azure Service Bus: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
+    - Azure Event Grid: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
+    - Azure Event Hubs: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
 
 - *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.
 
-- Azure Container Apps (ACA): Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
-- Azure Kubernetes Service (AKS): Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  
-- Web Apps for Container: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
+    - Azure Container Apps (ACA): Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+    - Azure Kubernetes Service (AKS): Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  
+    - Web Apps for Container: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
@@ -65,15 +65,15 @@ For each Azure service in your architecture, consult the relevant [Azure service
 
 To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
-1. *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. (**1**) Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
+- *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. (**1**) Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
-1. *Queue-based Load Leveling pattern*: The Queue-Based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. (**2**) Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
+- *Queue-based Load Leveling pattern*: The Queue-Based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. (**2**) Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
 
-1. *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. (**3**) Implement this pattern in the decoupled service to distribute tasks across multiple instances.
+- *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. (**3**) Implement this pattern in the decoupled service to distribute tasks across multiple instances.
 
-1. *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. Implement this pattern in the (**4a**) main web app and the (**4b**) decoupled service to track the health of endpoints.
+- *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. Implement this pattern in the (**4a**) main web app and the (**4b**) decoupled service to track the health of endpoints.
 
-1. *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. Implement this pattern on all outbound calls to other Azure services in (**5a**) main web app (calls to message queue and private endpoints) and the (**5b**) decoupled service (calls to private endpoints) to handle transient failures by retrying operations, ensuring reliability.
+- *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. Implement this pattern on all outbound calls to other Azure services in (**5a**) main web app (calls to message queue and private endpoints) and the (**5b**) decoupled service (calls to private endpoints) to handle transient failures by retrying operations, ensuring reliability.
 
 | Design Pattern | Implementation location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
