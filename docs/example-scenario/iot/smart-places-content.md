@@ -49,7 +49,7 @@ The following diagram shows the flow of data in this solution:
 
 1. Azure Digital Twins sends the data through Azure Event Grid to Azure Data Explorer. This analytics service functions as a historian by storing the solution's time series data.
 
-1. Simulation engines and AI tools process the data. Examples include Azure AI Services, AI models, and partner simulation services.
+1. Simulation engines and AI tools process the data. Examples include Azure AI services, AI models, and partner simulation services.
 
 1. Azure Data Lake provides long-term storage for the data. Azure Synapse Analytics analyzes and reports on the data.
 
@@ -142,7 +142,7 @@ The solution uses these components:
 
 - [Azure Data Explorer][Azure Data Explorer] is a fast, fully managed data analytics service. You can use this service for real-time analysis on large volumes of data. Azure Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources.
 
-- [AI Services][AI Services] provides AI functionality. These services have a set of pretrained neural network models for the cloud. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps. You can use AI Services functionality:
+- [AI services][Azure AI services] provides AI functionality. These services have a set of pretrained neural network models for the cloud. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps. You can use AI services functionality:
 
   - In near real time.
   - At certain data thresholds.
@@ -329,7 +329,7 @@ Other contributor:
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
 [App Service overview]: /azure/well-architected/service-guides/app-service-web-apps
-[Azure AI Services]: https://azure.microsoft.com/products/ai-services/
+[Azure AI services]: https://azure.microsoft.com/products/ai-services/
 [Azure API Management]: https://azure.microsoft.com/services/api-management
 [Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
