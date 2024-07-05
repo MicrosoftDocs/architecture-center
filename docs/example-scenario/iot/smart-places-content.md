@@ -142,7 +142,7 @@ The solution uses these components:
 
 - [Azure Data Explorer][Azure Data Explorer] is a fast, fully managed data analytics service. You can use this service for real-time analysis on large volumes of data. Azure Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources.
 
-- [AI Services](https://azure.microsoft.com/products/ai-services) provides AI functionality. These services have a set of pretrained neural network models for the cloud. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps. You can use AI Services functionality:
+- [AI Services][AI Services] provides AI functionality. These services have a set of pretrained neural network models for the cloud. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps. You can use AI Services functionality:
 
   - In near real time.
   - At certain data thresholds.
