@@ -18,7 +18,7 @@ The Modern Web App pattern builds on the Reliable Web App pattern. It requires a
 [![Diagram showing the baseline architecture of the Modern Web App pattern.](../../../_images/modern-web-app-architecture.svg)](../../../_images/modern-web-app-architecture.svg#lightbox)
 *Figure 1. Essential architectural elements of the Modern Web App pattern.*
 
-To reach a higher service-level objective, you can use multiple region, in which case you should use a hub-and-spoke architecture to derive the benefits of shared network resources (*see figure 2*).
+For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support an active-active or active-passive configuration. The second region replicates most of the primary region and use a hub-and-spoke architecture to derive the benefits of shared network resources.  (*see figure 2*).
 
 [![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 *Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
@@ -65,15 +65,15 @@ For each Azure service in your architecture, consult the relevant [Azure service
 
 To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
-- *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. This pattern is implemented in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
+1. *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. (**1**) Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
-- *Queue-based Load Leveling pattern*: The Queue-based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
+1. *Queue-based Load Leveling pattern*: The Queue-Based Load Leveling pattern manages the flow of messages between the producer and the consumer by using a queue as a buffer. (**2**) Implement this pattern on the producer portion of the decoupled service to manage message flow asynchronously using a queue.
 
-- *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. Implement this pattern in the decoupled service to distribute tasks across multiple instances.
+1. *Competing Consumers pattern*: The Competing Consumers pattern allows multiple instances of the decoupled service to independently read from the same message queue and compete to process messages. (**3**) Implement this pattern in the decoupled service to distribute tasks across multiple instances.
 
-- *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. Implement this pattern in the main web app and the decoupled service to track the health of endpoints.
+1. *Health Endpoint Monitoring pattern*: The Health Endpoint Monitoring pattern exposes endpoints for monitoring the status and health of different parts of the web app. Implement this pattern in the (**4a**) main web app and the (**4b**) decoupled service to track the health of endpoints.
 
-- *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. This pattern is implemented in both the main web app and the decoupled service to handle transient failures by retrying operations, ensuring reliability.
+1. *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. Implement this pattern on all outbound calls to other Azure services in (**5a**) main web app (calls to message queue and private endpoints) and the (**5b**) decoupled service (calls to private endpoints) to handle transient failures by retrying operations, ensuring reliability.
 
 | Design Pattern | Implementation location | Reliability | Security | Cost Optimization | Operational Excellence | Performance Efficiency |
 |----------------|-------------------------|-------------|----------|--------------------|-----------------------|------------------------|
@@ -111,14 +111,16 @@ Use the [Strangler fig](/azure/architecture/patterns/strangler-fig) pattern to g
     :::column-end:::
 :::row-end:::
 
-Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) on producer portion of the decoupled service to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution, allowing services to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
+Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) on producer portion of the decoupled service to asynchronously handle tasks that don't need immediate responses. This pattern enhances overall system responsiveness and scalability by using a queue to manage workload distribution. It allows the decoupled service to process requests at a consistent rate. To implement this pattern effectively, follow these recommendations:
 
-- *Use nonblocking message queuing.* Ensure that the task queuing messages doesn't block while waiting for messages to be handled. If the task requires the result of the queued operation, implement a standby code path that can be used until the data is available. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages without blocking the calling thread (*see example code*):
+- *Use nonblocking message queuing.* Ensure the process that sends messages to the queue doesn't block other processes while waiting for the decoupled service to handle messages in the queue. If the process requires the result of the decoupled-service operation, have an alternative way to handle the situation while waiting for the queued operation to complete. For example, the reference implementation uses Azure Service Bus and the `await` keyword with `messageSender.PublishAsync()` to asynchronously publish messages to the queue without blocking the thread that executes this code (*see example code*):
 
     ```csharp
     // Asynchronously publish a message without blocking the calling thread
     await messageSender.PublishAsync(new TicketRenderRequestMessage(Guid.NewGuid(), ticket, null, DateTime.Now), CancellationToken.None);
     ```
+
+This approach ensures that the main application remains responsive and can handle other tasks concurrently, while the decoupled service processes the queued requests at a manageable rate.
 
 - *Implement message retry and removal.* Implement a mechanism to retry processing of queued messages that can't be processed successfully. If failures persist, these messages should be removed from the queue. For example, Azure Service Bus has built-in retry and dead letter queue features.
 
@@ -140,7 +142,7 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
     });
     ```
 
-- *Manage changes to the experience.* Asynchronous processing can lead to tasks not being immediately completed. This change in user experience is important to manage. Users should be made aware when their task is still being processed to set correct expectations and avoid confusion. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is done, such as an email or push notification.
+- *Manage changes to the experience.* Asynchronous processing can lead to tasks not being immediately completed. Users should be made aware when their task is still being processed to set correct expectations and avoid confusion. Use visual cues or messages to indicate that a task is in progress. Give users the option to receive notifications when their task is done, such as an email or push notification.
 
 ### Implement the Competing Consumers pattern
 
@@ -150,7 +152,7 @@ Implement the [Queue-Based Load Leveling pattern](/azure/architecture/patterns/q
     :::column-end:::
 :::row-end:::
 
-Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the newly decoupled service code base to efficiently manage incoming tasks. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
+Implement the [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers) in the decoupled service to manage incoming tasks from the message queue. This pattern involves distributing tasks across multiple instances of decoupled services. These services process messages from the queue, enhancing load balancing and boosting the system’s capacity to handle simultaneous requests. The Competing Consumers pattern is effective when:
 
 - The sequence of message processing isn't crucial.
 - The queue remains unaffected by malformed messages.
