@@ -49,7 +49,7 @@ The following diagram shows the flow of data in this solution:
 
 1. Azure Digital Twins sends the data through Azure Event Grid to Azure Data Explorer. This analytics service functions as a historian by storing the solution's time series data.
 
-1. Simulation engines and AI tools process the data. Examples include Azure Cognitive Services, AI models, and partner simulation services.
+1. Simulation engines and AI tools process the data. Examples include Azure AI Services, AI models, and partner simulation services.
 
 1. Azure Data Lake provides long-term storage for the data. Azure Synapse Analytics analyzes and reports on the data.
 
@@ -142,7 +142,7 @@ The solution uses these components:
 
 - [Azure Data Explorer][Azure Data Explorer] is a fast, fully managed data analytics service. You can use this service for real-time analysis on large volumes of data. Azure Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources.
 
-- [Azure Cognitive Services][Azure Cognitive Services] provides AI functionality. These services offer a set of pre-trained, neural network models for the cloud. The REST APIs and client library SDKs can help you build cognitive intelligence into apps. You can use Cognitive Services functionality:
+- [AI Services](https://azure.microsoft.com/products/ai-services) provides AI functionality. These services have a set of pretrained neural network models for the cloud. You can use the REST APIs and client library SDKs to build cognitive intelligence into apps. You can use AI Services functionality:
 
   - In near real time.
   - At certain data thresholds.
@@ -151,7 +151,7 @@ The solution uses these components:
 
 - [Azure Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
 
-- [Azure Data Lake][Data Lake] stores a large amount of data in its native, raw format. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
+- [Azure Data Lake][Data Lake] stores a large amount of data in its native, raw format. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured.
 
 - [Azure Synapse Analytics][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This service integrates with Power BI, Machine Learning, and other Azure services.
 
@@ -329,9 +329,9 @@ Other contributor:
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
 [App Service overview]: /azure/well-architected/service-guides/app-service-web-apps
-[Azure Active Directory]: https://azure.microsoft.com/services/active-directory
+[Azure AI Services]: https://azure.microsoft.com/products/ai-services/
 [Azure API Management]: https://azure.microsoft.com/services/api-management
-[Azure Cognitive Services]: https://azure.microsoft.com/services/cognitive-services/?azure-portal=true
+[Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory

@@ -3,9 +3,9 @@ metadata:
   title: Create smart places by using Azure Digital Twins
   titleSuffix: Azure Example Scenarios
   description: Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.
-  author: markkottke
-  ms.author: mcosner
-  ms.date: 04/24/2023
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 07/05/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
