@@ -9,7 +9,7 @@ The following diagram shows the flow of data in this solution:
 
 :::image type="content" source="./media/smart-places-diagram-new.png" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram-new.png":::
 
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/smart-places-diagram.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/smart-places-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 
