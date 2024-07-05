@@ -577,7 +577,7 @@ In case of failure in the primary region, you should be able to quickly create a
 
 #### Cluster backup
 
-For many architectures, provisioning a new cluster and returning it to operating state can be accomplished through GitOps-based [Cluster bootstrapping}(#cluster-bootstrapping) and followed by application deployment. However, if there's critical resource state such as config maps, jobs, and potentially secrets that for some reason can't be captured within your bootstrapping process, then consider your recovery strategy. It's generally recommended to run stateless workloads in Kubernetes, but if your architecture involves disk-based state, you'll also need to consider your recovery strategy for that content.
+For many architectures, provisioning a new cluster and returning it to operating state can be accomplished through GitOps-based [Cluster bootstrapping](#cluster-bootstrapping) and followed by application deployment. However, if there's critical resource state such as config maps, jobs, and potentially secrets that for some reason can't be captured within your bootstrapping process, then consider your recovery strategy. It's generally recommended to run stateless workloads in Kubernetes, but if your architecture involves disk-based state, you'll also need to consider your recovery strategy for that content.
 
 When cluster backup needs to be part of your recovery strategy, you need to install a solution that matches your business requirements within the cluster. This agent will be responsible for pushing cluster resource state out to a destination of your choosing and coordinating Azure Disk-based, persistent volume snapshots.
 
@@ -819,6 +819,11 @@ To make data-driven decisions, pinpoint which resource (granular level) incurs m
 Act on recommendations provided by [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). There are other ways to optimize:
 
 - Enable the cluster autoscaler to detect and remove underutilized nodes in the node pool.
+
+> [!IMPORTANT]
+> Proactively changing cluster autoscaler settings (such as min/max node settings for a node pool) for cost reasons will have counterproductive results. For example, if `scale-down-unneeded-time` is set to 10 minutes, and the min/max node settings are modified every 5 minutes based on workload, the number of nodes will never go down. This is because the calculation of the unneeded time for each node will be reset due to the cluster autoscaler settings being refreshed. 
+> 
+> Therefore, if for FinOps consideration, it is indeed necessary to proactively change the cluster autoscaler settings, consider the consequences of the scale-down process being delayed.
 
 - Choose a lower SKU for the node pools, if your workload supports it.
 
