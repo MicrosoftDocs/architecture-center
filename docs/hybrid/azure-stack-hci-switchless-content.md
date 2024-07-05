@@ -1,4 +1,4 @@
-This article is part of a series that builds on the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying **Azure Stack HCI using a _three-node storage switchless_** design.
+This article is part of a series that builds on the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline). You should familiarize yourself with the baseline architecture so that you can understand the changes that you need to make when deploying **Azure Stack HCI using a _three-node storage switchless_** design. This guidance can also be applied for a _**two-node** storage switchless_ deployment, with considerations made where relevant for the reduction in the number of physical nodes from three to two, if required.
 
 The "_storage switchless_" configuration is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for any smaller edge use cases that do not have, or require _extensive datacenter network switches_ for storage replication traffic.
 
@@ -27,11 +27,11 @@ For information about these resources, see Azure product documentation listed in
 
 ## Potential use cases
 
-The "_storage switchless_" configuration of Azure Stack HCI is commonly used for retail, manufacturing or remote office scenarios; however, it is broadly applicable for any smaller edge use cases that do not have, or require _extensive datacenter network switches_ for the storage replication traffic. The following use case requirements can be addressed using this design, in addition to those outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline):
+The following use case requirements can be addressed using this design, in addition to those outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline):
 
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
-- The "storage switchless" network design removes the requirement to deploy additional ports or storage class network switches to connect the physical network interface cards (NICs) used for the Storage intent.
-- This reduces the cost for the network switches, but increases the number of NICs required in the physical nodes. To have redundant "dual links" between each node requires a minimum of six NICs per node in a three-node cluster configuration. Two NICs as used for the uplinks to the ToRs for the Management and Compute Intents using a SET team. Four NICs are required for the interconnects between nodes, for the Storage intent which provides redundant "dual links" for the storage traffic, as shown in the diagram in the [Physical network topology](#physical-network-topology) section.
+- The "storage switchless" network design removes the requirement to deploy additional ports or storage class network switches to connect the physical network interface cards (NICs) used for the Storage traffic.
+- This reduces the cost for the network switches, but increases the number of NICs required in the physical nodes. To have redundant "dual links" between each node requires a minimum of six NICs per node in a three-node cluster configuration. Two NICs are used for the uplinks to the ToRs for the Management and Compute Intents using a SET team. Four NICs are required for the interconnects between nodes, for the Storage intent which provides redundant "dual links" for the storage traffic, as shown in the diagram in the [Physical network topology](#physical-network-topology) section.
 
 ## Architecture components
 
@@ -41,7 +41,7 @@ Review the Azure Stack HCI baseline reference architecture for details of Cluste
 
 Your workload capacity / size requirements, in terms of the amount of storage and compute resources required, together with the resiliency requirements are used to determine the "right size" of an Azure Stack HCI cluster for the intended workload. Use the information in the baseline reference architecture to inform your decisions for the cluster design choices, together with the [Azure Stack HCI Sizer Tool][azs-hci-sizer-tool], which can be used to provide recommendations for appropriate hardware specification of each physical node, and how many nodes are required for the Azure Stack HCI cluster to meet the capacity requirements.
 
-When using the "_storage switchless_" design, it is important to consider that three-nodes is the maximum supported size for a storage switchless cluster. This is an important factor to consider for the cluster design choices, as you need to ensure that the intended workload(s) capacity requirements will not exceed the physical capacity capabilities of the three-node cluster specification. This is because it is not possible to perform an "Add-Node gesture" to expand a "storage switchless" cluster beyond three-nodes. Therefore, it is **critically important** to understand your workload capacity requirements upfront and planning for any future growth, so that your workload does not exceed the storage and compute capacity over the expect lifespan of the Azure Stack HCI cluster hardware.
+When using the "_storage switchless_" design, it is important to consider that three-nodes is the maximum supported size for a storage switchless cluster. This is an important factor to consider for the cluster design choices, as you need to ensure that the intended workload(s) capacity requirements will not exceed the physical capacity capabilities of the three-node cluster specification. This is because it is not possible to perform an "Add-Node gesture" to expand a "storage switchless" cluster beyond three-nodes. Therefore, it is **critically important** to understand your workload capacity requirements upfront and planning for any future growth, so that your workload does not exceed the storage and compute capacity over the expected lifespan of the Azure Stack HCI cluster hardware.
 
 > [!IMPORTANT]
 > It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for  future workload capacity growth requirements.
@@ -79,7 +79,7 @@ The logical network topology provides an overview for how the network data flows
 
 - Storage traffic:
   - The nodes communicate with each other directly for storage traffic, these links use a non-routable (_layer 2_) network configuration, with no default gateway configured on the storage intent network interfaces.
-  - Each node can access shared storage spaces, virtual disks, and volumes using SMB-Direct over these dedicated "switchless" links.
+  - Each node can access storage spaces direct (S2D) capabilities of the cluster, such as remote physical disks used in the storage pool, virtual disks, and volumes with communication using SMB-Direct (_RDMA_) protocol over the two dedicated "switchless" ethernet links.
   - This direct communication ensures sufficient data transfer speed for storage-related operations, such as maintaining consistent copies of data for mirrored volumes.
 - External communication:
   - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
@@ -102,7 +102,7 @@ When designing and planning IP address requirements for Azure Stack HCI, conside
 
 The Microsoft [Azure Well-Architected Framework (WAF)][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
 
-**Important**: Review the Well-Architected Framework considerations outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#well-architected-framework-considerations) in addition the considerations outlined below.
+**Important**: Review the Well-Architected Framework considerations outlined in the [Azure Stack HCI baseline reference architecture](/azure/architecture/hybrid/azure-stack-hci-baseline#well-architected-framework-considerations) in addition to the considerations outlined below.
 
 ### Cost optimization
 
@@ -168,31 +168,4 @@ Microsoft Learn modules:
 
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-switchless.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
-[s2d-resiliency]: /windows-server/storage/storage-spaces/storage-spaces-fault-tolerance
-[azs-hci-automate-arc-aks]: /azure/aks/hybrid/aks-create-clusters-cli?toc=%2Fazure-stack%2Fhci%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json
-[azs-hci-automate-aks-update]: /azure/aks/hybrid/cluster-upgrade
-[azs-hybrid-benefit]: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
-[arc-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
-[azs-hci-billing]: /azure-stack/hci/concepts/billing
-[azs-hci-deploy-via-portal]: /azure-stack/hci/deploy/deploy-via-portal
-[azs-hci-deploy-via-template]: /azure-stack/hci/deploy/deployment-azure-resource-manager-template
-[azs-hci-manage-cluster-at-scale]: /azure-stack/hci/manage/manage-at-scale-dashboard
-[azs-hci-automate-arc-vms]: /azure-stack/hci/manage/create-arc-virtual-machines?tabs=azurecli
-[azs-hci-vm-automate-cli]: /cli/azure/stack-hci-vm
-[azs-hci-aks-automate-cli]: /cli/azure/aksarc
-[azs-hci-manage-non-arc-vms]: /azure-stack/hci/manage/vm-powershell
-[az-auto-hybrid-worker]: /azure/automation/automation-hybrid-runbook-worker
-[azs-hci-k8s-gitops]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
-[azs-hci-gpu-acceleration]: /azure-stack/hci/manage/attach-gpu-to-linux-vm
-[azs-hci-networking]: /azure-stack/hci/concepts/plan-host-networking
-[azs-hci-network-bandwidth-allocation]: /azure-stack/hci/concepts/plan-host-networking#traffic-bandwidth-allocation
-[azs-hci-switchless-interconnects-reqs]: /azure-stack/hci/concepts/plan-host-networking#interconnects-for-2-3-node-clusters
-[azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
-[azs-hci-rbac]: /azure-stack/hci/manage/assign-vm-rbac-roles
-[azs-hci-security-default]: /azure-stack/hci/manage/manage-secure-baseline
-[azs-hci-security-syslog]: /azure-stack/hci/manage/manage-syslog-forwarding
-[ms-ata]: /advanced-threat-analytics/what-is-ata
-[azs-hci-defender-for-cloud]: /azure-stack/hci/manage/manage-security-with-defender-for-cloud
 [azs-hci-sizer-tool]: https://aka.ms/hci-catalog#sizer
-[azure-update-management]: /azure/update-manager/
-[s2d-plan-volumes]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type
