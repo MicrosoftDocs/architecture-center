@@ -246,18 +246,24 @@ Example scenario: a **fictitious customer "Contoso Manufacturing"** uses this re
 
 
 - **To help achieve the SLO targets** Contoso Manufacturing have implemented the _principle of least privilege_ to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This helps prevent downtime due to any inadvertent or accidental actions being performed on production resources. Furthermore, the on-premises Active Directory Domain Services (AD DS) domain controllers security event logs are monitored to detect and report any user account group membership changes (_add / remove actions_) for the "Azure Stack HCI cluster administrators" group using a security information event management (SIEM) solution. In addition to increasing Reliability, this monitoring also improves the Security of the solution.
+  > For additional information see the following references:
+  >> [Reliability RE:04 - Defining reliability targets](/azure/well-architected/reliability/metrics)
+  >> [Security SE:05 - Identity and access management](/azure/well-architected/security/identity-access)
 
 - **Strict change control procedures** are in place Contoso Manufacturing's production systems. This process requires that all changes must be tested and validated in a representative test environment prior to implementation in production. All changes submitted to the weekly change advisory board (CAB) process must include a detailed implementation plan (_or link to source code_), risk level score, a comprehensive roll back plan, along with post change testing / validation and clear success criteria for a change to be reviewed or approved.
+  > For additional information see [Operational Excellence OE:11 - Safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments)
 
 - **Monthly security patches and quarterly baseline updates** are applied to production Azure Stack HCI clusters only after they have been validated in the pre-production environment. Azure Update Management and Cluster Aware Updating (CAU) automate the process of using [**VM Live Migration**](/windows-server/virtualization/hyper-v/manage/live-migration-overview) to minimize downtime for business-critical workloads during the monthly servicing operations. Contoso Manufacturing standard operating procedures require that security, reliability or baseline build updates are applied to all production systems within four weeks of their release date, without this policy production systems would “always be behind” or perpetually be unable to stay current with monthly OS and security updates, which would impact reliability and security of the platform.
+  > For additional information see [Security SE:01 - Establishing a security baseline](/azure/well-architected/security/establish-baseline)
 
 - **Contoso Manufacturing implements daily, weekly and monthly backups**, retaining the last 6 x days of daily backups (_Monday to Saturdays_), the last 3 x weekly (_each Sunday_) and 3 x monthly backups, with each "_Sunday week 4_" being retained to become the Month 1, Month 2, and Month 3 backup using a rolling schedule. This provides an adequate balance between the number of data recovery points available and reducing costs for the offsite / cloud backup storage service.
+  > For additional information see [Reliability RE:09 - Designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 - **The data backup and recovery process are tested** for each business system every six months, this provides assurance that their business continuity and disaster recovery (BCDR) processes are valid, and the business would be protected in the event of a datacenter disaster or cyber incident.
+  > For additional information see [Reliability RE:08 - Designing a reliability testing strategy](/azure/well-architected/reliability/disaster-recovery)
 
 - The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectively scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
-
-> Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
+  > For additional information see Well-Architected Framework: [Reliability RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
 
 #### Redundancy
 
@@ -283,6 +289,9 @@ Security considerations include:
 
 - [Microsoft Advanced Threat Analytics (ATA)][ms-ata] can be used to detect and remediate cyber threats, such as those targeting Active Directory Domain Services (AD DS) that provide authentication services to Azure Stack HCI cluster nodes and their Windows Server VM workloads.
 
+- Isolate networks if needed. For example, you can provision multiple logical networks that use separate virtual local area networks (vLANs) and network address ranges. When you use this approach, ensure that the management network can reach each logical network and vLAN so that Azure Stack HCI cluster nodes can communicate with the vLAN networks through the ToR switches or gateways. This configuration is required for availability management of the workload, such as allowing infrastructure management agents to communicate with the workload guest OS.
+  > Refer to Well-Architected Framework: [Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation).
+
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, the [Cost optimization pillar of the Azure Stack HCI WAF Service Guide](/azure/well-architected/service-guides/azure-stack-hci#cost-optimization).
@@ -293,6 +302,10 @@ Cost optimization considerations include:
 
 > [!TIP]
 > You can get cost savings with Azure Hybrid Benefit if you have Windows Server Datacenter licenses with active Software Assurance. For more information about Azure Hybrid Benefit, see [Azure Hybrid Benefit for Azure Stack HCI][azs-hybrid-benefit].
+
+- Automatic VM Guest patching for Arc VMs help to reduce  the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation, contributing to overall cost efficiency.
+
+> Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
 ### Operational excellence
 
@@ -305,6 +318,8 @@ Operational excellence considerations include:
 - Automation capabilities for Virtual Machines. Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as Virtual Machines, with the [automated deployment of Arc VMs using Azure CLI, ARM or Bicep Template][azs-hci-automate-arc-vms], with Virtual Machine OS updates using Azure Arc Extension for Updates and [Azure Update Manager][azure-update-management] to update each Azure Stack HCI cluster. Azure Stack HCI also offers support for [Azure Arc VM management][azs-hci-vm-automate-cli] by using Azure CLI and [Non-Azure Arc VMs][azs-hci-manage-non-arc-vms] by using Windows PowerShell. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with [Azure Automation][az-auto-hybrid-worker] and Azure Arc facilitates a wide range of additional automation scenarios for [virtual machine][arc-vm-extensions] workloads through Azure Arc extensions.
 
 - Automation capabilities for Containers on AKS (Azure Kubernetes Service). Azure Stack HCI provides a wide range of automation capabilities for managing workloads such as containers on AKS, with the [automated deployment of AKS clusters using Azure CLI][azs-hci-automate-arc-aks], with AKS workload cluster updates using Azure Arc Extension for [Kubernetes Updates][azs-hci-automate-aks-update]. Azure Stack HCI also offers support for [Azure Arc AKS management][azs-hci-aks-automate-cli] by using Azure CLI. You can run Azure CLI commands locally from one of the Azure Stack HCI servers or remotely from a management computer. Integration with Azure Arc facilitates a wide range of additional automation scenarios for [containerized][azs-hci-k8s-gitops] workloads through Azure Arc extensions.
+
+- Supportability: .
 
 ### Performance efficiency
 
