@@ -373,7 +373,7 @@ Microsoft Learn modules:
 - [Protect your virtual machine settings with Azure Automation State Configuration](/training/modules/protect-vm-settings-with-dsc)
 - [Protect your virtual machines by using Azure Backup](/training/modules/protect-virtual-machines-with-azure-backup)
 
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-switchless.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-baseline.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci]: /azure-stack/hci/overview
 [azure-arc]: /azure/azure-arc/overview
