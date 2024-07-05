@@ -15,7 +15,7 @@ These objectives are also known as the recovery point objective (RPO) and the Re
 
 :::image type="content" source="images/rpo-rto-diagram.png " alt-text="Diagram that shows an example of R T O and R P O.":::
 
-The proposed solution provides local high-availability, protection from a single [availability zone](/azure/reliability/availability-zones-overview) failure, and protection from an entire Azure region failure. It relies on a redundant deployment in a different, or secondary, Azure region to recover the service. While it's still a good practice, Virtual Desktop and the technology used to build BCDR don't require Azure regions to be [paired](/azure/availability-zones/cross-region-replication-azure). Primary and secondary locations can be any Azure region combination, if the network latency permits it. [Operating AVD Host Pools in multiple geographic regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions#operate-in-multiple-geographic-regions) can offer more benefits not limited to BCDR.
+The proposed solution provides local high-availability, protection from a single [availability zone](/azure/reliability/availability-zones-overview) failure, and protection from an entire Azure region failure. It relies on a redundant deployment in a different, or secondary, Azure region to recover the service. While it's still a good practice, Virtual Desktop and the technology used to build BCDR don't require Azure regions to be [paired](/azure/availability-zones/cross-region-replication-azure). Primary and secondary locations can be any Azure region combination, if the network latency permits it. [Operating AVD host pools in multiple geographic regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions#operate-in-multiple-geographic-regions) can offer more benefits not limited to BCDR.
 
 To reduce the impact of a single availability zone failure, use resiliency to improve high availability:
 
@@ -33,7 +33,7 @@ Depending on the number of availability zones you use, evaluate over-provisionin
 
 Because of the possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, the [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) component from [FSLogix](/fslogix/overview) is recommended to be used instead of storage-specific replication mechanisms.
 
-OneDrive isn't considered in this context. For more information on redundancy and high-availability, see [SharePoint and OneDrive data resiliency in Microsoft 365](/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency).
+OneDrive isn't covered in this article. For more information on redundancy and high-availability, see [SharePoint and OneDrive data resiliency in Microsoft 365](/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency).
 
 For the remainder of this article, you're going to learn about solutions for the two different Virtual Desktop host pool types. There are also observations provided so that you can compare this architecture with other solutions:
 
@@ -61,7 +61,7 @@ You should consider any line-of-business applications and dependent resource ava
 
 ## Control plane business continuity and disaster recovery
 
-Virtual Desktop offers business continuity and disaster recovery for its control plane to preserve customer metadata during outages. The Azure platform manages this data and process; users don't need to configure or execute anything.
+Virtual Desktop offers business continuity and disaster recovery for its control plane to preserve customer metadata during outages. The Azure platform manages this data and process, and users don't need to configure or execute anything.
 
 :::image type="content" source="images/azure-virtual-desktop-logical-architecture.png" alt-text="Diagram that shows the logical architecture of Virtual Desktop." lightbox="images/azure-virtual-desktop-logical-architecture.png":::
 
@@ -79,11 +79,11 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
   - You don't require an administrator to intervene or fail over. During normal operations, the secondary host pool provides the user with Virtual Desktop resources.
   - Each host pool has its own storage accounts (at least one) for persistent user profiles.
   - You should evaluate latency based on the user's physical location and connectivity available. For some Azure regions, such as Western Europe and Northern Europe, the difference can be negligible when accessing either the primary or secondary regions. You can validate this scenario using the [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) tool.
-  - Users are assigned to different application groups, like Desktop Application Group (DAG) and RemoteApp Application Group (RAG), in both the primary and secondary host pools. In this case, they see duplicate entries in their Virtual Desktop client feed. To avoid confusion, use separate Virtual Desktop workspaces with clear names and labels that reflect the purpose of each resource. Inform your users about the usage of these resources.
+  - Users are assigned to different application groups, like *Desktop Application Group* (DAG) and *RemoteApp Application Group* (RAG), in both the primary and secondary host pools. In this case, they see duplicate entries in their Virtual Desktop client feed. To avoid confusion, use separate Virtual Desktop workspaces with clear names and labels that reflect the purpose of each resource. Inform your users about the usage of these resources.
 
     :::image type="content" source="images/azure-virtual-desktop-multiple-workspaces.png " alt-text="Picture that explains the usage of multiple workspaces.":::
 
-  - If you need storage to manage FSLogix [Profile and ODFC containers](/fslogix/concepts-container-types) separately, use Cloud Cache to ensure almost zero RPO.
+  - If you need storage to manage [FSLogix Profile and ODFC containers](/fslogix/concepts-container-types) separately, use Cloud Cache to ensure almost zero RPO.
     - To avoid profile conflicts, don't permit users to access both host pools at the same time.
     - Due to the active-active nature of this scenario, you should educate your users on how to use these resources in the proper way.
   
@@ -103,7 +103,7 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
     - Execute a failover for all application groups, otherwise users using different application groups in different host pools might cause profile conflicts if not effectively managed.
   - It's possible to allow a specific subset of users to selectively fail over to the secondary host pool and provide limited active-active behavior and test failover capability. It's also possible to fail over specific application groups, but you should educate your users to not use resources from different host pools at the same time.
 
-For specific circumstances, you can create a single host pool with a mix of session hosts located in different regions. The advantage of this solution is that if you have a single host pool, then there's no need to duplicate definitions and assignments for desktop and remote apps. Unfortunately, [Disaster recovery for shared host pools](/azure/virtual-desktop/disaster-recovery-concepts#disaster-recovery-for-shared-host-pools) has several disadvantages.
+For specific circumstances, you can create a single host pool with a mix of session hosts located in different regions. The advantage of this solution is that if you have a single host pool, then there's no need to duplicate definitions and assignments for desktop and remote apps. Unfortunately, [disaster recovery for shared host pools](/azure/virtual-desktop/disaster-recovery-concepts#disaster-recovery-for-shared-host-pools) has several disadvantages:
 
 - For pooled host pools, it isn't possible to force a user to a session host in the same region.
 - A user might experience higher latency and suboptimal performance when connecting to a session host in a remote region.
@@ -126,59 +126,59 @@ Review the [Business continuity and disaster recovery options for FSLogix](/fslo
 - [Cloud cache (active/passive)](/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover) is included in this document but is implemented it using the same host pool.
 - [Cloud cache (active/active)](/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active) is covered in the remaining part of this document.
 
-There are limits for Virtual Desktop resources that must be considered in the design of a Virtual Desktop architecture, be sure to validate based on the information contained in [Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) article.
+There are limits for Virtual Desktop resources that must be considered in the design of a Virtual Desktop architecture. Validate your design based on the [Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
-For diagnostics and monitoring, it's recommended to use the same Log Analytics workspace for both the primary and secondary host pool. Using this configuration, [AVD Insights](/azure/virtual-desktop/insights) offers a unified view of deployment in both regions.
+For diagnostics and monitoring, it's good practice to use the same Log Analytics workspace for both the primary and secondary host pool. Using this configuration, [Azure Virtual Desktop Insights](/azure/virtual-desktop/insights) offers a unified view of deployment in both regions.
 
-However, using a single log destination could cause problems in case of entire primary region failure. The secondary region won't be able to use the log workspace in the unavailable region. If this is unacceptable, the following solutions could be adopted:
+However, using a single log destination can cause problems if the entire primary region is unavailable. The secondary region won't be able to use the Log Analytics workspace in the unavailable region. If this situation is unacceptable, the following solutions could be adopted:
 
-- Use a separate Log Analytics workspace for each region, and then point AVD components to log toward the local one.
+- Use a separate Log Analytics workspace for each region, and then point the Virtual Desktop components to log toward its local workspace.
 - Test and review Logs Analytics [workspace replication and failover capabilities](/azure/azure-monitor/logs/workspace-replication).
 
 ### Compute
 
-- For the deployment of both host pools in the primary and secondary disaster recovery regions, you should use Azure Availability Zones and spread your Session Host VMs fleet over all available zones. If Availability Zones aren't available in the local region, you can use an Azure Availability Set.
+- For the deployment of both host pools in the primary and secondary disaster recovery regions, you should spread your session host VM fleet across multiple availability zones. If availability zones aren't available in the local region, you can use an availability set to make your solution more resilient than with a default deployment.
 - The golden image that you use for host pool deployment in the secondary disaster recovery region should be the same you use for the primary. You should store images in the Azure Compute Gallery and configure multiple image replicas in both the primary and the secondary locations. Each image replica can sustain a parallel deployment of a maximum number of VMs, and you might require more than one based on your desired deployment batch size. For more information, see [Store and share images in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries#scaling).
 
     :::image type="content" source="images/azure-compute-gallery-hires.png" alt-text="Diagram that shows Azure Compute Gallery and Image replicas." lightbox="images/azure-compute-gallery-hires.png":::
 
-- The Azure Compute Gallery isn't a global resource. It's recommended to have at least a secondary gallery in the secondary region. Once you created in the primary region a Gallery, a VM Image Definition and a VM Image Version, you should create the same three objects also in the secondary region. When creating the VM Image Version, there's the possibility to copy the VM Image Version created in the primary region. To achieve this, from the secondary region, you have to specify the Gallery, the VM Image Definition and VM Image Version used in the primary region, and Azure will copy the image and create a local VM Image Version.
+- The Azure Compute Gallery isn't a global resource. It's recommended to have at least a secondary gallery in the secondary region. In your primary region, create a gallery, a VM image definition and a VM image version. Then, create the same objects also in the secondary region. When creating the VM image version, there's the possibility to copy the VM image version created in the primary region by specifying the gallery, VM image definition and VM image version used in the primary region. Azure copies the image and create a local VM image version.
 It's possible to execute this operation using the Azure portal or Azure CLI command as outlined below:
 
-  [Create an image definition and an image version](https://learn.microsoft.com/azure/virtual-machines/image-version)
+  [Create an image definition and an image version](/azure/virtual-machines/image-version)
 
-  [az sig image-version create](https://learn.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-create)
+  [az sig image-version create](/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-create)
 
-- Not all the Session Host VMs in the secondary disaster recovery locations must be active and running all the time. You must initially create a sufficient number of VMs, and after that, use an autoscale mechanism like [scaling plans](/azure/virtual-desktop/autoscale-scaling-plan). With these mechanisms, it's possible to maintain most compute resources in an offline or deallocated state to reduce costs.
+- Not all the session host VMs in the secondary disaster recovery locations must be active and running all the time. You must initially create a sufficient number of VMs, and after that, use an autoscale mechanism like [scaling plans](/azure/virtual-desktop/autoscale-scaling-plan). With these mechanisms, it's possible to maintain most compute resources in an offline or deallocated state to reduce costs.
 - It's also possible to use automation to create session hosts in the secondary region only when needed. This method optimizes costs, but depending on the mechanism you use, might require a longer RTO. This approach doesn't permit failover tests without a new deployment and doesn't permit selective failover for specific groups of users.
 
 > [!NOTE]
 > You must power on each session host VM for a few hours at least one time every 90 days to refresh the authentication token needed to connect to the Virtual Desktop control plane. You should also routinely apply security patches and application updates.
 
-- Having session hosts in an offline, or *deallocated*, state in the secondary region doesn't guarantee that capacity is available in case of a primary region-wide disaster. It also applies if new sessions are deployed on-demand when needed, and with [Site Recovery](/azure/site-recovery/azure-to-azure-common-questions?#how-do-we-ensure-capacity-in-the-target-region) usage. Compute capacity can be guaranteed only if the related resources are already allocated and active.
+- Having session hosts in an offline, or *deallocated*, state in the secondary region doesn't guarantee that capacity is available in case of a primary region-wide disaster. It also applies if new session hosts are deployed on-demand when needed, and with [Site Recovery](/azure/site-recovery/azure-to-azure-common-questions?#how-do-we-ensure-capacity-in-the-target-region) usage. Compute capacity can be guaranteed only if the related resources are already allocated and active.
 
 > [!IMPORTANT]
 > [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) doesn't provide guaranteed capacity in the region.
 
-For Cloud Cache usage scenario, premium tier for managed disk is highly recommended.
+For Cloud Cache usage scenarios, we recommend using the premium tier for managed disks.
 
 ### Storage
 
 In this guide, you use at least two separate storage accounts for each Virtual Desktop host pool. One is for the FSLogix Profile container, and one is for the Office container data. You also need one more storage account for [MSIX](/azure/virtual-desktop/what-is-app-attach) packages. The following considerations apply:
 
-- You can use [Azure Files](/azure/storage/files/storage-files-introduction) share and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as storage alternatives. See comparison details at FSLogix [Container storage options](/fslogix/concepts-container-storage-options).
+- You can use [Azure Files](/azure/storage/files/storage-files-introduction) share and [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as storage alternatives. To compare the options, see the [FSLogix container storage options](/fslogix/concepts-container-storage-options).
 - Azure Files share can provide zone resiliency by using the zone-replicated storage (ZRS) resiliency option, if it's available in the region.
 - You can't use the geo-redundant storage feature in the following situations:
-  - You require a nonpaired region. The region pairs for geo-redundant storage are fixed and can't be changed.
+  - You require a [region that doesn't have a pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair). The region pairs for geo-redundant storage are fixed and can't be changed.
   - You're using the premium tier.
 - RPO and RTO are higher compared to FSLogix Cloud Cache mechanism.
 - It isn't easy to test failover and failback in a production environment.
 - Azure NetApp Files requires more considerations:
   - Zone redundancy isn't yet available. If the resiliency requirement is more important than performance, use Azure Files share.
-  - Azure NetApp Files can be [zonal](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is customers can decide in which (single) Azure Availability Zone to allocate.
-  - [Cross-Zone Replication](/azure/azure-netapp-files/cross-zone-replication-introduction) can be established at the volume level to provide zone resiliency but replication is async (RPO>0) and requires manual failover (RTO>0). Before using this feature, it's recommended to review the requirements and considerations from this [article](https://learn.microsoft.com/azure/azure-netapp-files/create-cross-zone-replication).
-  - You can now use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, if [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature is used, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
-  - Azure Virtual WAN is now supported but requires Azure NetApp Files [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+  - Azure NetApp Files can be [zonal](/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is customers can decide in which (single) Azure Availability Zone to allocate.
+  - [Cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) can be established at the volume level to provide zone resiliency but replication happens asynchronous and requires manual failover. This process requires a recovery point objective (RPO) and recovery time objective (RTO) that are greater than zero. Before using this feature, review the [requirements and considerations for cross-zone replication](/azure/azure-netapp-files/create-cross-zone-replication).
+  - You can use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, if [standard networking](/azure/azure-netapp-files/configure-network-features) feature is used, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+  - Azure Virtual WAN is supported when used together with Azure NetApp Files [standard networking](/azure/azure-netapp-files/configure-network-features). For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
 - Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction). The following considerations apply:
   - It's not available in all regions.
   - [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction) region pairs can be different than Azure storage region pairs.
