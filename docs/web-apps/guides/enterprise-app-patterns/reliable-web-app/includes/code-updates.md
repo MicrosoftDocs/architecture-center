@@ -6,4 +6,6 @@ Update your web app code with the Retry pattern, Circuit-Breaker pattern, and Ca
 | [Circuit-Breaker pattern](#implement-the-circuit-breaker-pattern) |✔| | | |✔|
 | [Retry pattern](#implement-the-cache-aside-pattern) |✔| | | |✔|
 
-The Retry pattern and Circuit-Breaker pattern applies to all requests from the web app to Azure services. The Cache-Aside pattern applies to requests to the database. To update your code with these design patterns, follow this guidance:
+- *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. (**1**) Implement this pattern on all outbound calls to other Azure services.
+- *Circuit Breaker pattern*: The Circuit Breaker pattern prevents an application from retrying operations that aren't transient. (**2**) Implement this pattern in all outbound calls to other Azure services.
+- *Cache-Aside pattern*: The Cache-Aside pattern adds and retrieves from a cache instead of a datastore. (**3**) Implement this pattern on requests to the database.
