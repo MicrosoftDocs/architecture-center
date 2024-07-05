@@ -20,7 +20,7 @@ The Modern Web App pattern builds on the Reliable Web App pattern. It requires a
 
 For a higher service-level objective (SLO), you can add a second region to your web app architecture. Configure your load balancer to route traffic to the second region to support an active-active or active-passive configuration. The second region replicates most of the primary region and use a hub-and-spoke architecture to derive the benefits of shared network resources.  (*see figure 2*).
 
-[![Diagram showing the Modern Web App pattern with optional elements.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
+[![Diagram showing the Modern Web App pattern architecture with second region and hub-and-spoke network topology.](../../../_images/modern-web-app-architecture-plus-optional.svg)](../../../_images/modern-web-app-architecture-plus-optional.svg#lightbox)
 *Figure 2. The Modern Web App pattern architecture with second region and hub-and-spoke network topology.*
 
 ### Decouple architecture
@@ -64,6 +64,9 @@ For each Azure service in your architecture, consult the relevant [Azure service
 ## Code guidance
 
 To successfully decouple and extract an independent services, you need to update your web app code with the following design patterns: the Strangler Fig pattern, Queue-Based Load Leveling pattern, Competing Consumers pattern, Health Endpoint Monitoring pattern, and Retry pattern. Each design pattern provides workload design benefits that align with one or more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
+
+[![Diagram showing the role of the design patterns in the Modern Web App pattern architecture.](../../../_images/modern-web-app-design-patterns.svg)](../../../_images/modern-web-app-design-patterns.svg#lightbox)
+*Figure 3. Role of the design patterns.*
 
 - *Strangler Fig pattern*: The Strangler Fig pattern incrementally migrates functionality from a monolithic application to the decoupled service. (**1**) Implement this pattern in the main web app to gradually migrate functionality to independent services by directing traffic based on endpoints.
 
