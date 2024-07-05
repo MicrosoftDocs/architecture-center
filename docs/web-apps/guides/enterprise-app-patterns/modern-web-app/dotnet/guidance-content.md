@@ -45,23 +45,19 @@ To implement the Modern Web App pattern, you need to decouple the existing web a
 
 ### Select the right Azure services
 
-For every Azure service in your architecture, consult the relevant [Azure service guide](/azure/well-architected/service-guides) in the Well-Architected Framework for guidance on each service. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
+For each Azure service in your architecture, consult the relevant [Azure service guide](/azure/well-architected/service-guides) in the Well-Architected Framework. For the Modern Web App pattern, you need a messaging system to support asynchronous messaging, an application platform that supports containerization, and a container image repository.
 
 - *Choose a message queue.* A message queue is an important piece of service-oriented architectures. It decouples message senders and receivers to enable [asynchronous messaging](/azure/architecture/guide/technology-choices/messaging). Use the guidance on choosing an [Azure messaging service](/azure/service-bus-messaging/compare-messaging-services) to pick an Azure messaging system that supports your design needs. Azure has three messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Start with Azure Service Bus as the default choice and use the other two options if Azure Service Bus doesn't meet your needs.
 
-    | Service| Description |
-    |-------|-------|
-    | Azure Service Bus | Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications. |
-    | Azure Event Grid | Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.|
-    | Azure Event Hubs| Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.|
+- Azure Service Bus: Choose Azure Service Bus for reliable, ordered, and possibly transactional delivery of high-value messages in enterprise applications.
+- Azure Event Grid: Choose Azure Event Grid when you need a highly scalable service to react to status changes through a publish-subscribe model.
+- Azure Event Hubs: Choose Azure Event Hubs for large-scale data ingestion, especially when dealing with data that requires real-time processing.
 
 - *Implement a container service.* For the parts of your application that you want to containerize, you need an application platform that supports containers. Use the [Choose an Azure container service](/azure/architecture/guide/choose-azure-container-service) guidance to help make your decision. Azure has three principal container services: Azure Container Apps, Azure Kubernetes Service, and App Service. Start with Azure Container Apps as the default choice and use the other two options if Azure Container Apps doesn't meet your needs.
 
-    | Service | Description  |
-    |--------|--------|
-    | Azure Container Apps (ACA) | Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications. |
-    | Azure Kubernetes Service (AKS) | Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  |
-    | Web Apps for Container | Choose Web App for Containers on Azure App Service for the simplest PaaS experience.|
+- Azure Container Apps (ACA): Choose ACA if you need a serverless platform that automatically scales and manages containers in event-driven applications.
+- Azure Kubernetes Service (AKS): Choose AKS if you need detailed control over Kubernetes configurations and advanced features for scaling, networking, and security.  
+- Web Apps for Container: Choose Web App for Containers on Azure App Service for the simplest PaaS experience.
 
 - *Implement a container repository.* When using any container-based compute service, it’s necessary to have a repository to store the container images. You can use a public container registry like Docker Hub or a managed registry like Azure Container Registry. Use the [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro) guidance to help make your decision.
 
