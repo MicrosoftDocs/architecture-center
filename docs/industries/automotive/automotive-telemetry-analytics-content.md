@@ -87,7 +87,7 @@ The following key technologies implement this workload. For each component in th
 
 - [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings, using the language of your choice.
 
-- [Azure Managed Grafana](/azure/managed-grafana) is a data visualization platform build on top of the Grafana software by Grafana Labs, fully operated and supported by Microsoft.
+- [Azure Managed Grafana](azure/well-architected/mission-critical/mission-critical-health-modeling#design-recommendations-2) is a data visualization platform build on top of the Grafana software by Grafana Labs that's fully operated and supported by Microsoft.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs that provide access to the vehicle telemetry data stored in Fabric to simplify consumption.
 
@@ -239,7 +239,7 @@ Other contributors:
 - [Hans-Peter Bareiner](https://www.linkedin.com/in/hans-peter-bareiner-69039163) | Cloud Solution Architect
 - [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Sr. Software Engineer
 
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
