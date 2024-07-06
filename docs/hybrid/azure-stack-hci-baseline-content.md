@@ -247,8 +247,7 @@ Example scenario: a **fictitious customer "Contoso Manufacturing"** uses this re
 
 
 - **To help achieve the SLO targets** Contoso Manufacturing have implemented the _principle of least privilege_ to restrict the number of Azure Stack HCI cluster administrators to a small group of trusted and qualified individuals. This helps prevent downtime due to any inadvertent or accidental actions being performed on production resources. Furthermore, the on-premises Active Directory Domain Services (AD DS) domain controllers security event logs are monitored to detect and report any user account group membership changes (_add / remove actions_) for the "Azure Stack HCI cluster administrators" group using a security information event management (SIEM) solution. In addition to increasing Reliability, this monitoring also improves the Security of the solution.
-  > For additional information see the following references:
-  >> [Security SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
+  > For additional information see [Security SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
 
 - **Strict change control procedures** are in place Contoso Manufacturing's production systems. This process requires that all changes must be tested and validated in a representative test environment prior to implementation in production. All changes submitted to the weekly change advisory board (CAB) process must include a detailed implementation plan (_or link to source code_), risk level score, a comprehensive roll back plan, along with post change testing / validation and clear success criteria for a change to be reviewed or approved.
   > For additional information see [Operational Excellence OE:11 - Recommendations for safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments)
@@ -263,7 +262,7 @@ Example scenario: a **fictitious customer "Contoso Manufacturing"** uses this re
   > For additional information see [Reliability RE:08 - Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 - The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectively scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
-  > For additional information see Well-Architected Framework: [Reliability RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
+  > For additional information see [Reliability RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
 
 #### Redundancy
 
@@ -271,7 +270,7 @@ Consider a workload that you deploy on a single Azure Stack HCI cluster as a _lo
 
 Use industry-standard high-availability patterns for workloads, for example a design that provides active/passive synchronous or asynchronous data replication ([_such as SQL Server Always On_](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)). Another example is an external network load balancing (NLB) technology that can route user requests across the multiple workload instances that run on Azure Stack HCI clusters that you deploy in separate physical locations. Consider using a partner external NLB device. Or evaluate the [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview) that support traffic routing for hybrid and on-premises services, such as an Azure Application Gateway instance that uses Azure ExpressRoute or a VPN tunnel to connect to an on-premises service.
 
-> Refer to Well-Architected Framework: [RE:05 - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy).
+> For additional information see [RE:05 - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy).
 
 ### Security
 
@@ -290,7 +289,7 @@ Security considerations include:
 - [Microsoft Advanced Threat Analytics (ATA)][ms-ata] can be used to detect and remediate cyber threats, such as those targeting Active Directory Domain Services (AD DS) that provide authentication services to Azure Stack HCI cluster nodes and their Windows Server VM workloads.
 
 - Isolate networks if needed. For example, you can provision multiple logical networks that use separate virtual local area networks (vLANs) and network address ranges. When you use this approach, ensure that the management network can reach each logical network and vLAN so that Azure Stack HCI cluster nodes can communicate with the vLAN networks through the ToR switches or gateways. This configuration is required for availability management of the workload, such as allowing infrastructure management agents to communicate with the workload guest OS.
-  > Refer to Well-Architected Framework: [Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation).
+  > For additional information see [Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation).
 
 ### Cost optimization
 
@@ -305,7 +304,7 @@ Cost optimization considerations include:
 
 - Automatic VM Guest patching for Arc VMs help to reduce  the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation, contributing to overall cost efficiency.
 
-> Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
+> For additional information see [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
 ### Operational excellence
 
