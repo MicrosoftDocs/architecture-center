@@ -89,7 +89,7 @@ When designing an Azure Stack HCI cluster it is important to understand the work
 - Processor (_CPU_) architecture capabilities, such as the frequency (speed), and number of cores per socket
 - Graphics processing unit (_GPU_) requirements of the workload, such as for AI/ML, inferencing or graphics rendering
 - Memory per node, the quantity of physical memory required to run the workload
-- Number of physical nodes in the cluster, one to sixteen nodes in scale. Three nodes is the maximum if using the [Storage Switchless architecture](/azure/architecture/hybrid/azure-stack-hci-switchless).
+- Number of physical nodes in the cluster, one to sixteen nodes in scale. Note: Three nodes is the maximum if using the ["Storage Switchless" network architecture](/azure/architecture/hybrid/azure-stack-hci-switchless).
   - Resiliency for Compute: Requires reservation of "_N+1 nodes worth of capacity_" in the cluster, which is the minimum required to be able to drain a node to perform updates or for the workload to restart in the event of an unplanned outage of a single node, such as power or hardware failure
 - Storage capacity and performance requirements
   - Total required usable storage after fault tolerance (_data copies_) is taken into consideration, and the total performance capabilities, calculated using input/output operations per second (_IOPs_) x block size = through-put
