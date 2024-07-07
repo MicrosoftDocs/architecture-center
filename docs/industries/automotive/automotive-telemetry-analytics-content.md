@@ -1,4 +1,4 @@
-Automotive original equipment manufacturers (OEMs) need solutions to minimize the time between doing test drives and getting test drive diagnostic data to R&D engineers. As vehicles become more automated, the software development lifecycles become shorter, which requires faster digital feedback loops. New technology can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data. The usage of Copilots for data analytics further reduces the time to insight. Secure data sharing can enhance collaboration between OEMs and suppliers and reduce development cycle times.
+Automotive original equipment manufacturers (OEMs) need solutions to minimize the time between test drives and getting test drive diagnostic data to R&D engineers. As vehicles become more automated, the software development lifecycles become shorter, which requires faster digital feedback loops. New technology can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data. Use Microsoft Fabric Copilot for data analytics to further reduce the time to insight. Secure data sharing can enhance collaboration between OEMs and suppliers and reduce development cycle times.
 
 This example workload relates to both telemetry and batch test drive data ingestion scenarios. The workload focuses on the data platform that processes diagnostic data and the connectors for visualization and reporting.
 
@@ -12,13 +12,13 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 The following dataflow corresponds to the preceding diagram:
 
-1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device publishes live telemetry messages or (**1b**) requests upload of recorded data files by using an MQTT client to Azure Event Grid's MQTT broker functionality that uses a Claim-Check pattern.
+1. The *data capture device* is connected to the vehicle networks and collects high-resolution vehicle signal data and video. (**1a**) The device publishes live telemetry messages or (**1b**) requests upload of recorded data files by using an MQTT client to Azure Event Grid's MQTT broker functionality. This functionality uses a Claim-Check pattern.
 
-1. (**2a**) Event Grid routes live vehicle signal data to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an Event Stream.
+1. (**2a**) Event Grid routes live vehicle signal data to an Azure Functions app that decodes the vehicle signals to JavaScript Object Notation (JSON) and posts it to an eventstream.
 
    (**2b**) Event Grid orchestrates file upload with the device client to Lakehouse. A completed file upload triggers a pipeline that decodes the data and writes the decoded file to OneLine in a format that's suitable for ingestion, such as parquet or CSV.
 
-1. (**3a**) The Event stream routes the decoded JSON vehicle signals for ingestion in Eventhouse.
+1. (**3a**) The eventstream routes the decoded JSON vehicle signals for ingestion in Eventhouse.
 
     (**3b**) A data pipeline triggers ingestion of decoded files from Lakehouse.
 
@@ -65,9 +65,9 @@ The vehicle telemetry lands in raw tables. You can use the following message pro
 
     - Use time-series functions for [anomaly detection and forecasting](/azure/data-explorer/kusto/query/anomaly-detection) to detect potential problems and predict failures.
 
-    - Use the [scan operator](/azure/data-explorer/kusto/query/scan-operator) to scan, match, and build sequences from the data. The scan operator enables engineers to detect sequences such as "If A happens, then B must happen within X seconds."
+    - Use the [scan operator](/azure/data-explorer/kusto/query/scan-operator) to scan, match, and build sequences from the data. The `scan` operator enables engineers to detect sequences such as "If A happens, then B must happen within X seconds."
 
-    - ML plugins like [autocluster](/azure/data-explorer/kusto/query/autocluster-plugin) find common patterns of discrete attributes.
+    - Use ML plugins like [autocluster](/azure/data-explorer/kusto/query/autocluster-plugin) to find common patterns of discrete attributes.
 
 1. Perform geospatial analytics with user defined functions. Use the [Geospatial Analytics](/azure/data-explorer/kusto/query/geospatial-grid-systems) functions to convert coordinates to a suitable grid system and perform aggregations on the data.
 
@@ -77,17 +77,17 @@ The vehicle telemetry lands in raw tables. You can use the following message pro
 
 The following key technologies implement this workload. For each component in the architecture, use the relevant Service Guide in the Well-Architected Framework (WAF) where available. For more information, see [WAF Service Guides](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/?product=popular).
 
-- [Fabric Real Time Intelligence](/fabric/real-time-intelligence) enables extraction of insights and visualization of vehicle telemetry in motion. It contains event streams, the time-series KQL database to store and analyze data and Reflex for reacting to events.
+- [Fabric Real Time Intelligence](/fabric/real-time-intelligence) enables extraction of insights and visualization of vehicle telemetry in motion. It contains eventstreams and the time-series KQL database to store and analyze data and Reflex for reacting to events.
 
-- [Fabric Data Activator](/fabric/data-activator/data-activator-introduction) is a no code experience for automatically taking actions when patterns or conditions change in changing data.
+- [Fabric Data Activator](/fabric/data-activator/data-activator-introduction) is a no-code experience for automatically taking actions when patterns or conditions change in changing data.
 
-- [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a Publish/Subscribe message distribution service that supports the MQTT protocol. It enables vehicles to publish and subscribe to topics to publish telemetry and subscribe to command and control messages.
+- [Event Grid](/azure/well-architected/service-guides/event-grid/reliability) is a highly scalable, fully managed Publish/Subscribe message distribution service that supports MQTT protocols. This service lets vehicles publish and subscribe to topics to publish telemetry and subscribe to command and control messages.  
 
 - [Azure Event Hubs](/azure/well-architected/service-guides/event-hubs/reliability) is a real-time data streaming platform that's well-suited for streaming millions of vehicle events per second with low latency.
 
 - [Functions](/azure/well-architected/service-guides/azure-functions-security) is a serverless solution that simplifies processing vehicle telemetry events at scale with event-driven triggers and bindings, using the language of your choice.
 
-- [Azure Managed Grafana](/azure/well-architected/mission-critical/mission-critical-health-modeling#design-recommendations-2) is a data visualization platform build on top of the Grafana software by Grafana Labs that's fully operated and supported by Microsoft.
+- [Azure Managed Grafana](/azure/well-architected/mission-critical/mission-critical-health-modeling#design-recommendations-2) is a data visualization platform that's based on the software from Grafana Labs and is completely managed and supported by Microsoft.
 
 - [Azure App Service](/azure/well-architected/service-guides/app-service-web-apps) enables you to build and host web apps, mobile back ends, and RESTful APIs that provide access to the vehicle telemetry data stored in Fabric to simplify consumption.
 
@@ -183,7 +183,7 @@ It's important to understand the division of responsibility between the automoti
 
 - Use [row level security (RLS)](/azure/data-explorer/kusto/management/rowlevelsecuritypolicy) for KQL Databases and Azure Data Explorer.
 
-- Use the [restrict](/azure/data-explorer/kusto/query/restrict-statement) statement when you implement middleware applications with access to the KQL database to create a logical model that restricts the user access to the data.
+- Use the [restrict statement](/azure/data-explorer/kusto/query/restrict-statement) when you implement middleware applications with access to the KQL database to create a logical model that restricts the user access to the data.
 
 All these features help automotive OEMs create a secure environment for their vehicle telemetry data. For more information, see [Security in Fabric](/fabric/security/security-overview).
 
@@ -247,8 +247,8 @@ Other contributors:
 - [Add a KQL Database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities)
 - [Get data from OneLake](/fabric/real-time-intelligence/get-data-onelake)
 - [Materialized views](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview)
-- [Crete a Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create)
-- [Create Data Activator alerts from a Real-Time Dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
+- [Create a real-time dashboard](/fabric/real-time-intelligence/dashboard-real-time-create)
+- [Create Data Activator alerts from a real-time dashboard](/fabric/data-activator/data-activator-get-data-real-time-dashboard)
 - [Power BI report](/fabric/real-time-intelligence/create-powerbi-report)
 - [Visualize data from Azure Data Explorer in Grafana](/azure/data-explorer/grafana)
 - [Automotive messaging, data, and analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)

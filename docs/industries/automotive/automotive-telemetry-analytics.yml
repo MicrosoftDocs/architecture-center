@@ -2,7 +2,7 @@
 metadata:
   title: Data analytics for automotive test fleets
   titleSuffix: Azure Architecture Center
-  description: See an example data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
+  description: Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
   author: msmarioo
   ms.author: marioo
   ms.date: 07/02/2024
@@ -19,7 +19,7 @@ products:
   - azure-functions
   - azure-event-grid
 name: Data analytics for automotive test fleets
-summary: See an example data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
+summary: Learn about a data analytics solution that can democratize data access and provide R&D engineers with near real-time insights into test drive diagnostic data.
 thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
 content: |
   [!include[](automotive-telemetry-analytics-content.md)]
