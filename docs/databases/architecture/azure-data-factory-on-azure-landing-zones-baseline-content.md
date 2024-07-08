@@ -252,7 +252,7 @@ This architecture addresses performance efficiency with:
 
 ## Deploy this scenario
 
-To deploy this architecture, follow the step-by-step instructions in the [GitHub sample[(https://github.com/azure-samples/data-factory-to-databricks)
+To deploy this architecture, follow the step-by-step instructions in the [GitHub sample](https://github.com/azure-samples/data-factory-to-databricks)
 To deploy a self-hosted runtime integration on an Azure VM, use the [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime)
 
 ## Next steps
