@@ -30,7 +30,7 @@ Most commonly, API Management is deployed as a shared component, with a single i
 Typically, the way you use API Management is similar regardless of the isolation models. This section focuses on the differences in cost and complexity between the isolation models, and how each approach routes requests to your backend API applications.
 
 | Consideration | Shared instance, single-tenant backends | Shared instance, shared multitenant backend | Instance per tenant |
-|---|---|---|---|---|
+|---|---|---|---|
 | Number of tenants supported | Many | Almost unbounded | One per instance |
 | Cost | Lower | Lower | Higher |
 | Deployment complexity | Low. Single instance to manage for each stamp | Low. Single instance to manage for each stamp | High. Multiple instances to manage |
