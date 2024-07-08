@@ -106,13 +106,15 @@ The output from the Azure Stack HCI Sizer Tool will be a list of recommended har
 
 [Storage Spaces Direct][s2d-disks] supports multiple physical disk drive types that vary in performance and capacity. When designing an Azure Stack HCI cluster, work with your chosen hardware OEM partner to determine the most appropriate physical disk drive type(s) to meet the capacity and performance requirements of your workload. Examples include spinning Hard Disk Drives (HDDs), or Solid-State Drives (SSDs) and NVMe drives, which are both often called "_flash drives_", or [Persistent Memory (PMem) storage](/azure-stack/hci/concepts/deploy-persistent-memory), which is referred to as "_Storage-Class Memory_" (SCM).
 
+The reliability of the platform depends on how well the critical platform dependencies, such as physical disk types, perform. You must choose the right disk types for your requirements. For workloads that need low-latency and high-throughput storage, [**we recommend an all-flash (NVMe/SSD only) storage configuration**](/azure-stack/hci/concepts/cache#all-flash-deployment-possibilities). For general purpose compute, a hybrid storage (_NVMe or SSDs for cache and HDDs for capacity_) configuration might provide more storage space. But the tradeoff is that spinning disks have significantly lower performance if your workload exceeds the [cache working set][s2d-cache-sizing], and HDDs have a much lower mean time between failure value compared to NVMe/SSDs.
+
 The selected physical disk drive type(s) has a direct influence or correlation on storage performance, due to differences in the performance characteristics of each drive type, and the caching mechanism used. This is an integral part of any Storage Spaces Direct design and configuration. Depending on the Azure Stack HCI workload requirements and/or budget constraints, you can choose to [maximize performance][s2d-drive-max-performance], [maximize capacity][s2d-drive-max-capacity], or implement a mixed drive type configuration that provides a [balance between performance and capacity][s2d-drive-balance-performance-capacity].
 
 Storage caching optimization: Storage Spaces Direct provides a [built-in, persistent, real-time, read and write, server-side cache][s2d-cache] that maximizes storage performance. The cache should be sized and configured to accommodate the [working set of your applications and workloads][s2d-cache-sizing]. Storage Spaces Direct virtual disks (_volumes_) are used in combination with Cluster Shared Volumes (CSV) In-Memory Read Cache to [improve Hyper-V performance][azs-hci-csv-cache], such as for unbuffered I/O access to workload VHD or VHDX files.
 
 ### Network design
 
-Network design refers to the overall arrangement of components within the network, both physical and logical. You can use the same physical network interface cards (NICs) for any combination of the management, compute, and storage network intents. When you use the same NICs for all three intent purposes, this is called a _fully converged networking configuration_.
+Network design refers to the overall arrangement of components within the network, both physical and logical. You can use the same physical network interface cards (NICs) for any combination of the management, compute, and storage network intents. When you use the same NICs for all three intent purposes, it is called a _fully converged networking configuration_.
 
 Although using a fully converged networking configuration is supported, the optimal configuration for performance and reliability is for the storage intent to use dedicated physical NICs. Therefore, this baseline architecture provides example guidance for deploying a **multi-node Azure Stack HCI cluster using the "storage switched" network architecture** with converged NICs for the management and compute intents, and two dedicated NICs for the storage intent.
 
@@ -154,7 +156,7 @@ The logical network topology provides an overview for how the network data flows
 
 [![Diagram illustrating the logical networking topology for a multi-node Azure Stack HCI cluster using the storage switched architecture, with dual ToR switches.](images/azure-stack-hci-baseline-logical-network.png)](images/azure-stack-hci-baseline-logical-network.png#lightbox)
 
-#### Network switches
+#### Network switch requirements
 
 Your Ethernet switches must meet the different specifications set by the Institute of Electrical and Electronics Engineers Standards Association (IEEE SA) that Azure Stack HCI requires. For example, for multi-node storage switched deployments, the storage network is used for [remote direct memory access (RDMA) using RoCE v2 or iWARP](/azure-stack/hci/concepts/host-network-requirements#rdma), this requires IEEE 802.1Qbb "priority flow control (PFC)" to provide "lossless communication" for the [storage traffic class](/azure-stack/hci/concepts/host-network-requirements#rdma-traffic-class). Other standards yours top-of-rack (ToR) switches must provide include, but are not limited to, support for IEEE 802.1Q for virtual local area networks (VLANs), and IEEE 802.1AB for link layer discovery protocol (LLDP).
 
@@ -170,19 +172,19 @@ When designing and planning IP address requirements for Azure Stack HCI, conside
 
 ### Monitoring
 
-Insights is capable of monitoring key Azure Stack HCI features using the cluster performance counters and Event Log channels, which are collected by the data collection rule (DCR) configured using Azure Monitor and Log Analytics.
-
-Insights is capable of monitoring key Azure Stack HCI features using the cluster Performance counters and Event Log Channels that are collected by the data collection rule (DCR) configured using Azure Monitor and Log Analytics.
+Enable [Azure Monitor Insights on Azure Stack HCI](/azure-stack/hci/concepts/monitoring-overview) to enhance monitoring and alerting. Insights can seamlessly scale to monitor and manage multiple on-premises clusters using an Azure consistent experience. Insights is capable of monitoring key Azure Stack HCI features using the cluster performance counters and Event Log channels, which are collected by the data collection rule (DCR) configured using Azure Monitor and Log Analytics.
 
 Because Azure Stack HCI Insights is built using Azure Monitor and Log Analytics, it is an always up to date, scalable solution that is highly customizable. Insights provides access to default workbooks with basic metrics, along with specialized workbooks created for monitoring key features of Azure Stack HCI. These components provide a near real-time monitoring solution, with the ability to create graphs, customize visualization using aggregation and filtering functionality and configuring custom resource health alert rules.
+
+### Update management
 
 Azure Stack HCI clusters and the deployed workload resources, such as Arc VMs and AKS clusters, need to be updated and patched regularly. By regularly applying updates, you ensure that your organization maintains a strong security posture of your organization, and you improves your overall reliability. We recommend automatic and periodic manual assessments for early discovery and application of security patches and OS updates.
 
 Azure Stack HCI clusters and the deployed workload resources, such as Arc VMs and AKS clusters, need to be updated and patched regularly so that they don't weaken the security posture of your organization and to improve reliability. We recommend automatic and periodic assessments for early discovery and application of patches.
 
-Azure Stack HCI is continually updated to enhance customer experience and provide additional features and functionality. This process is delivered using "Release Trains", which provide new "Baseline Builds" on a quarterly basis. These are applied to Azure Stack HCI clusters to keep them up to date. In addition to regular Baseline Build updates, Azure Stack HCI is updated with monthly OS security and reliability updates.
+#### Infrastructure updates
 
-Azure Stack HCI is continually updated to enhance customer experience and provide additional features and functionality. This process is delivered using "Release Trains", which provide new "Baseline Builds" on a quarterly basis, these are applied to Azure Stack HCI clusters to keep them up to date. In addition to regular Baseline Build updates, Azure Stack HCI is updated with monthly OS security and reliability updates.
+Azure Stack HCI is continually updated to enhance customer experience and provide additional features and functionality. This process is delivered using "Release Trains", which provide new "Baseline Builds" on a quarterly basis. These are applied to Azure Stack HCI clusters to keep them up to date. In addition to regular Baseline Build updates, Azure Stack HCI is updated with monthly OS security and reliability updates.
 
 Azure Update Manager is an Azure service that allows you to apply, view, and manage updates for Azure Stack HCI. This provides a mechanism to view all Azure Stack HCI clusters across your entire infrastructure and edge locations using Azure portal to provide a centralized management experience. For additional information review the following resources:
 
@@ -193,16 +195,15 @@ Azure Update Manager is an Azure service that allows you to apply, view, and man
 
 It is important to check for new driver and firmware updates on a regular basis, such as every three to six months. If you are using a Premier solution category SKU for your Azure Stack HCI hardware, the [Solution Builder Extension (SBE) package updates](/azure-stack/hci/update/solution-builder-extension) will be integrated with Azure Update Manager to provide a simplified update experience. If you are using validated nodes or an integrated system category, there could be a required to download and execute an OEM specific update package that contains the firmware and driver updates for your hardware. Contact your hardware OEM or solution integrator (SI) partner to determine how updates are supplied for your hardware.
 
-Arc VMs deployed on Azure Stack HCI can be enrolled with [Azure Update Manager][azure-update-management] (AUM) to provide a unified patch management experience, using the same mechanism used to update the Azure Stack HCI cluster physical nodes. Using AUM, create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest) to control settings such as "Reboot setting: _reboot if required_", and the Schedule (_dates / times and repeat options_) and either Dynamic (_subscription_) or static list of the Arc VMs for the scope. These settings control the configuration for when OS security patches will be installed inside your workload VM's Guest OS.
+#### Workload Guest OS patching
 
-Arc VMs deployed on Azure Stack HCI can be enrolled with [Azure Update Manager][azure-update-management] (AUM) to provide a unified patch management experience, using the same mechanism used to update the Azure Stack HCI cluster physical nodes. Using AUM, create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest) to control settings such as "Reboot setting: _reboot if required_", and the Schedule (_dates / times and repeat options_) and either Dynamic (_subscription_) or static list of the Arc VMs for the scope, these settings control the configuration for when OS security patches will be installed inside your workload VMs Guest OS.
+Arc VMs deployed on Azure Stack HCI can be enrolled with [Azure Update Manager][azure-update-management] (AUM) to provide a unified patch management experience, using the same mechanism used to update the Azure Stack HCI cluster physical nodes. Using AUM, create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest) to control settings such as "Reboot setting: _reboot if required_", and the Schedule (_dates / times and repeat options_) and either Dynamic (_subscription_) or static list of the Arc VMs for the scope. These settings control the configuration for when OS security patches will be installed inside your workload VM's Guest OS.
 
 The following section provides an _example list of the high-level tasks or typical workflow_ used to deploy Azure Stack HCI, including prerequisites tasks and considerations. This workflow list is intended as an **example guide only**. It isn't an exhaustive list of all actions or steps required, as these can vary based on organizational, geographic or project-specific requirements.
 
-The following section provides an _example list of the high-level tasks or typical workflow_ used to deploy Azure Stack HCI, including prerequisites tasks and considerations. This workflow list is intended as an **example guide only**, it is not an exhaustive list of all actions or steps required, as these can vary based on organizational, geographic or project specific requirements.
-
 **Scenario: there is a project or use case requirement to deploy a hybrid cloud solution in an on-premises or edge location** to provide local compute for data processing capabilities, and a desire to use Azure consistent management and billing experiences. Additional details are outlined in the [Potential use cases](#potential-use-cases) section of this article. The remaining steps assume Azure Stack HCI has been selected as the infrastructure platform solution for the project.
 
+1. **Workload and use case requirements should be gathered from relevant stakeholders**, to enable the project to confirm that the features and capabilities of Azure Stack HCI meet the workload scale, performance and functionality requirements. This review process should include understanding the workload scale (_size_) and required features such as Arc VMs, Azure Kubernetes Service, Azure Virtual Desktop (AVD), or Arc-enabled Data Services or Arc-enabled Machine Learning (ML) service. The workload RTO and RPO (_reliability_) values and other non-functional requirements (_performance / load scalability_) should be documented as part of this requirements gathering step.<br><br>
 1. **Review the Azure Stack HCI Sizer output for the recommended hardware partner solution**. This output includes details of the recommended physical server hardware (_make and model_), number of physical nodes and the specifications for the CPU, Memory and Storage configuration of each physical node that will be required to deploy and run your workload(s).<br><br>
 1. **Use the [Azure Stack HCI Sizer Tool][azs-hci-sizer-tool] to create a new Project that will model the workload type and scale**, this will include the size and number of VMs and their storage requirements. These details are inputted together with choices for the System type, preferred CPU family and your Resiliency requirements for high availability and Storage fault tolerance, as explained in the earlier [Cluster design choices](#cluster-design-choices) section.<br><br>
 1. **Review the Azure Stack HCI Sizer output for the recommended hardware partner solution**, this will include details of the recommended physical server hardware (_make and model_), number of physical nodes and the specifications for the CPU, Memory and Storage configuration of each physical node, that will be required to deploy and run your workload(s).<br><br>
@@ -263,7 +264,7 @@ Example scenario: a **fictitious customer "Contoso Manufacturing"** uses this re
   > For additional information see [Reliability RE:09 - Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery)
 
 - **The data backup and recovery process are tested** for each business system every six months, this provides assurance that their business continuity and disaster recovery (BCDR) processes are valid, and the business would be protected in the event of a datacenter disaster or cyber incident.
-  > For additional information see [Reliability RE:08 - RRecommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy)
+  > For additional information see [Reliability RE:08 - Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy)
 
 - The operational processes and procedures outlined above, together with the recommendations in the [**Well-Architected Framework (WAF) Service Guide for Azure Stack HCI**](/azure/well-architected/service-guides/azure-stack-hci) enable Contoso Manufacturing to achieve their 99.8% Service Level Objective (SLO) target and effectively scale and manage Azure Stack HCI and workload deployments across multiple manufacturing sites that are distributed around the world.
   > For additional information see [Reliability RE:04 - Recommendations for defining reliability targets.](/azure/well-architected/reliability/metrics)
@@ -272,9 +273,8 @@ Example scenario: a **fictitious customer "Contoso Manufacturing"** uses this re
 
 Consider a workload that you deploy on a single Azure Stack HCI cluster as a _locally redundant deployment_. The cluster provides high availability at the platform level, but you must remember that you deploy a cluster "_in a single rack_". Therefore, for business-critical or mission-critical use cases, we recommend that you deploy multiple instances of a workload or service across two or more separate Azure Stack HCI clusters, ideally in separate physical locations.
 
-Use industry-standard high-availability patterns for workloads, for example a design that provides active/passive synchronous or asynchronous data replication ([_such as SQL Server Always On_](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)). Another example is an external network load balancing (NLB) technology that can route user requests across the multiple workload instances that run on Azure Stack HCI clusters that you deploy in separate physical locations. Consider using a partner external NLB device. Or evaluate the [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview) that support traffic routing for hybrid and on-premises services, such as an Azure Application Gateway instance that uses Azure ExpressRoute or a VPN tunnel to connect to an on-premises service.
-
-> For additional information see [RE:05 - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy).
+- Use industry-standard high-availability patterns for workloads, for example a design that provides active/passive synchronous or asynchronous data replication ([_such as SQL Server Always On_](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)). Another example is an external network load balancing (NLB) technology that can route user requests across the multiple workload instances that run on Azure Stack HCI clusters that you deploy in separate physical locations. Consider using a partner external NLB device. Or evaluate the [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview) that support traffic routing for hybrid and on-premises services, such as an Azure Application Gateway instance that uses Azure ExpressRoute or a VPN tunnel to connect to an on-premises service.
+  > For additional information see [RE:05 - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy).
 
 ### Security
 
@@ -379,15 +379,18 @@ Additional information:
 
 Product documentation:
 
-- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
-- [Azure Automation State Configuration overview](/azure/automation/automation-dsc-overview)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Stack HCI, version 23H2 release information](/azure-stack/hci/release-information-23h2)
+- [Azure Kubernetes Service on Azure Stack HCI](/azure/aks/hybrid/aks-whats-new-23h2)
+- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-stack-hci-overview)
+- [What is Azure Stack HCI monitoring?](/azure-stack/hci/concepts/monitoring-overview)
+- [Protect VM workloads with Azure Site Recovery on Azure Stack HCI](/azure-stack/hci/manage/azure-site-recovery)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
 - [Update Management overview](/azure/automation/update-management/overview)
 - [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
 - [What is Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is the Azure Backup service?](/azure/backup/backup-overview)
+- [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere)
 
 Microsoft Learn modules:
 
@@ -441,8 +444,8 @@ Microsoft Learn modules:
 [s2d-drive-max-performance]: /windows-server/storage/storage-spaces/choosing-drives#option-1--maximizing-performance
 [s2d-drive-max-capacity]: /windows-server/storage/storage-spaces/choosing-drives#option-3--maximizing-capacity
 [s2d-drive-balance-performance-capacity]: /windows-server/storage/storage-spaces/choosing-drives#option-2--balancing-performance-and-capacity
-[s2d-cache]: /windows-server/storage/storage-spaces/understand-the-cache
-[s2d-cache-sizing]: /windows-server/storage/storage-spaces/choosing-drives#cache
+[s2d-cache]: /azure-stack/hci/concepts/cache#server-side-architecture
+[s2d-cache-sizing]: /azure-stack/hci/concepts/cache#sizing-the-cache
 [s2d-plan-volumes]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type
 [azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations
 [azs-hci-gpu-acceleration]: /azure-stack/hci/manage/attach-gpu-to-linux-vm

@@ -139,15 +139,18 @@ Additional information:
 
 Product documentation:
 
-- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
-- [Azure Automation State Configuration overview](/azure/automation/automation-dsc-overview)
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Stack HCI, version 23H2 release information](/azure-stack/hci/release-information-23h2)
+- [Azure Kubernetes Service on Azure Stack HCI](/azure/aks/hybrid/aks-whats-new-23h2)
+- [Azure Virtual Desktop for Azure Stack HCI](/azure/virtual-desktop/azure-stack-hci-overview)
+- [What is Azure Stack HCI monitoring?](/azure-stack/hci/concepts/monitoring-overview)
+- [Protect VM workloads with Azure Site Recovery on Azure Stack HCI](/azure-stack/hci/manage/azure-site-recovery)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
 - [Update Management overview](/azure/automation/update-management/overview)
 - [What are Azure Arc-enabled Data Services?](/azure/azure-arc/data/overview)
 - [What is Azure Arc-enabled servers?](/azure/azure-arc/servers/overview)
 - [What is the Azure Backup service?](/azure/backup/backup-overview)
+- [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere)
 
 Microsoft Learn modules:
 
