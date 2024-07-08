@@ -1,6 +1,6 @@
 ---
 title: Compare AWS and Azure resource management
-description: Compare resource management between Azure and AWS. See the difference between Azure resource groups and AWS resource groups. Explore Azure management interfaces.
+description: Compare resource management between Azure and AWS. See the difference between Azure resource groups and AWS Resource Groups. Explore Azure management interfaces.
 author: splitfinity-zz-zz
 ms.author: yubaijna
 categories: azure
@@ -30,7 +30,7 @@ Azure resources are deployed and managed using one of two models: [Azure Resourc
 
 ## Resource groups
 
-Both Azure and AWS have entities called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. However, [Azure resource groups](/azure/virtual-machines/windows/infrastructure-example) are not directly comparable to AWS resource groups.
+Both Azure and AWS have entities called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. However, [Azure resource groups](/azure/virtual-machines/windows/infrastructure-example) are not directly comparable to AWS Resource Groups.
 
 While AWS allows a resource to be tagged into multiple resource groups, an Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group, but can only be in one resource group at a time. Resource groups are the fundamental grouping used by Azure Resource Manager.
 

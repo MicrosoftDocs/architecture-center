@@ -7,7 +7,7 @@ This guide explains how AKS clusters, built-in services, and add-ons use [manage
 
 [!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
-## Amazon EKS identity and access management
+## Amazon EKS Identity and Access Management
 
 Amazon EKS has two native options to call AWS services from within a Kubernetes pod: IAM roles for service accounts, and Amazon EKS service-linked roles.
 
@@ -44,9 +44,9 @@ AKS uses the following [user-assigned managed identities](/azure/active-director
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | AKS Cluster Name | Manages cluster resources including ingress load balancers and AKS-managed public IPs, cluster autoscaler, and Azure Disk and Azure File CSI drivers | Contributor role for node resource group | Supported
-| Kubelet | AKS Cluster Name-agentpool | Authenticates with Azure Container Registry | NA (for kubernetes v1.15+) | Supported
-| Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
+| Control plane | AKS Cluster Name | Manages cluster resources including ingress load balancers and AKS-managed public IPs, cluster autoscaler, and Azure Disk and Azure file CSI drivers | Contributor role for node resource group | Supported
+| Kubelet | AKS Cluster Name-agentpool | Authenticates with Azure Container Registry | NA (for Kubernetes v1.15+) | Supported
+| Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, Contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances | Contributor role for node resource group | No
@@ -57,7 +57,7 @@ For more information, see [Use a managed identity in Azure Kubernetes Service](/
 
 ## Microsoft Entra Workload ID for Kubernetes
 
-Kubernetes workloads require Microsoft Entra application credentials to access Microsoft Entra ID protected resources, such as Azure Key Vault and Microsoft Graph. A common challenge for developers is managing secrets and credentials to secure communication between different components of a solution.
+Kubernetes workloads require Microsoft Entra application credentials to access Microsoft Entra protected resources, such as Azure Key Vault and Microsoft Graph. A common challenge for developers is managing secrets and credentials to secure communication between different components of a solution.
 
 [Microsoft Entra Workload ID for Kubernetes](https://azure.github.io/azure-workload-identity/docs) eliminates the need to manage credentials to access cloud services like Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage. An AKS-hosted workload application can use Microsoft Entra Workload ID to access an Azure managed service by using a Microsoft Entra security token, instead of explicit credentials like a connection string, username and password, or primary key.
 
