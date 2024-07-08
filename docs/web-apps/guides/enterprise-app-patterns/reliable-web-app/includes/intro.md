@@ -7,6 +7,3 @@ This article provides guidance on implementing the Reliable Web App pattern. Thi
 - [***Architecture guidance***](#architecture-guidance): Learn how to select the right cloud services and design an architecture that meets your business requirements.
 - [***Code guidance***](#code-guidance): Implement three design patterns to improve the reliability and performance efficiency of your web app in the cloud: Retry, Circuit-Breaker, and Cache-Aside patterns
 - [***Configuration guidance***](#configuration-guidance): Configure authentication and authorization, managed identities, rightsized environments, infrastructure as code, and monitoring.
-
-> [!TIP]
-> ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.

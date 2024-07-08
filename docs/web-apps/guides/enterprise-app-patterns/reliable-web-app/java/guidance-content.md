@@ -4,6 +4,9 @@ ms.custom: devx-track-dotnet
 
 [!INCLUDE [intro](../includes/intro.md)]
 
+> [!TIP]
+> ![GitHub logo](../../../../../_images/github.svg) There's [***reference implementation***][reference-implementation] (sample) of the Reliable Web App pattern. It represents the end-state of the Reliable Web App implementation. It's a production-grade web app that features all the code, architecture, and configuration updates discussed in this article. Deploy and use the reference implementation to guide your implementation of the Reliable Web App pattern.
+
 ### Architecture guidance
 
 [!INCLUDE [reliable web app pattern architecture updates](../includes/architecture-updates.md)]
@@ -224,6 +227,6 @@ Contoso Fiber determined that their on-premises infrastructure wasn't a cost-eff
 *Figure 4. Architecture of the reference implementation. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java-1.1.vsdx) of this architecture.*
 
 >[!div class="nextstepaction"]
->[Reliable Web App pattern for Java reference implementation][reference-implementation]
+>[Reference implementation][reference-implementation]
 
 [reference-implementation]: https://github.com/Azure/modern-web-app-pattern-java
