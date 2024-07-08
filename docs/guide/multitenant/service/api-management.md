@@ -12,10 +12,6 @@ products:
 categories:
  - integration
  - web
-ms.category:
-  - fcp
-ms.custom:
-  - guide
 ---
 
 # Use Azure API Management in a multitenant solution
@@ -81,14 +77,14 @@ Alternatively, you can identify the tenant through other methods. Here are some 
 - **Use a custom component of the URL, such as a subdomain, path, or query string.** For example, in the URL `https://api.contoso.com/tenant1/products`, you might extract the first part of the path (`tenant1`) and treat it a tenant identifier. Similarly, given the incoming URL `https://tenant1.contoso.com/products`, you might extract the first part of the domain (`tenant1`). To use this approach, consider parsing the path or query string from the `Context.Request.Url` property.
 - **Use a request header.** For example, your client applications might add a custom `X-TenantID` header to requests. To use this approach, consider reading from the `Context.Request.Headers` collection.
 - **Extract claims from a JSON web token (JWT).** For example, you might have a custom `tenantId` claim in a JWT issued by your identity provider. To use this approach, use the [`validate-jwt` policy](/azure/api-management/validate-jwt-policy) and set the `output-token-variable-name` property so that your policy definition can read the values from the token.
-- **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create custom tenant mapping logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
+- **Look up tenant identifiers dynamically.** You can communicate with an external database or service while the request is being processed. This approach enables you to create custom tenant mapping logic, to map a logical tenant identifier to a specific URL, or to obtain additional information about a tenant. To use this approach, use the [`send-request` policy](/azure/api-management/send-request-policy). However, this approach is likely to increase the latency of your requests. To mitigate this effect, it's a good idea to use caching to reduce the number of calls to the external API. The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach. Be sure to invalidate your cache with each tenant added, removed, or moved that impacts backend lookup.
 
 ### Named values
 
 API Management supports [named values](/azure/api-management/api-management-howto-properties), which are custom configuration settings that can be used throughout your policies. For example, you might use a named value to store a tenant's backend URL and then reuse that same value in several places within your policies. If you need to update the URL, you can update it in a single place.
 
 > [!WARNING]
-> In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings might be different for different tenants, ensure that you include the tenant identifier in the name to reduce the chance that you'll accidentally refer to the value when processing a request for another tenant.
+> In a multitenant solution, it's important to be careful when you set the names of your named values. If the settings might be different for different tenants, ensure that you include the tenant identifier in the name to reduce the chance that you'll accidentally or be manipulated into referring to the value when processing a request for another tenant. For example, a pattern like `tenantId-key:value` could be used once validated that `tenantId` is appropriate for this request.
 
 ### Authenticate incoming requests
 
@@ -112,7 +108,7 @@ API Management has a powerful cache feature, which can be used to cache entire H
 The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy) and [`cache-lookup-value` policy](/azure/api-management/cache-lookup-value-policy) policies can be used to implement a caching approach.
 
 > [!WARNING]
-> In a multitenant solution, it's important to be careful when you set your cache keys. If the cached data might be different for different tenants, ensure that you include the tenant identifier in the cache key to reduce the chance that you'll accidentally refer to the value when processing a request for another tenant.
+> In a multitenant solution, it's important to be careful when you set your cache keys. If the cached data might be different for different tenants, ensure that you include the tenant identifier in the cache key to reduce the chance that you'll accidentally or be manipulated into referring to the value when processing a request for another tenant.
 
 ### Custom domains
 
@@ -149,12 +145,12 @@ However, if you need fully isolated API Management instances, you might also cho
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Program Manager
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, Global Partner Solutions
 
 Other contributor:
 
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer
+- [Arsen Vladimirskiy](https://linkedin.com/in/arsenv/) | Principal Customer Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
