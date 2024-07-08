@@ -46,7 +46,7 @@ Your workload capacity / size requirements, in terms of the amount of storage an
 When using the "_storage switchless_" design, it is important to consider that three-nodes is the maximum supported size for a storage switchless cluster. This is an important factor to consider for the cluster design choices, as you need to ensure that the intended workload(s) capacity requirements will not exceed the physical capacity capabilities of the three-node cluster specification. This is because it is not possible to perform an "Add-Node gesture" to expand a "storage switchless" cluster beyond three-nodes. Therefore, it is **critically important** to understand your workload capacity requirements upfront and planning for any future growth, so that your workload does not exceed the storage and compute capacity over the expected lifespan of the Azure Stack HCI cluster hardware.
 
 > [!IMPORTANT]
-> It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports, physical NICs_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for  future workload capacity growth requirements.
+> It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_switches, ports and cables_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for future workload capacity growth requirements.
 
 ### Network design
 
@@ -113,6 +113,14 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 Cost optimization considerations include:
 
 - Switchless vs switch-based cluster interconnects. The switchless interconnect topology consists of connections between dual-port (_redundant_) Remote Direct Memory Access (RDMA) capable network interface cards (NICs) in each node (_to form a full mesh_), with each node having two direct connection to every other node. While this is straightforward to implement, it is only supported in two-node or three-node clusters. Azure Stack HCI cluster with four or more nodes require the "storage switched" network architecture, which also provides the ability to add additional nodes post deployment, unlike the storage switchless design that does not support add-node operations.
+
+### Performance efficiency
+
+Performance efficiency defines the controls put in place to enable the workload to meet the demands placed on it by users in an efficient manner. For more information, see the [Performance efficiency pillar of the Azure Stack HCI WAF Service Guide](/azure/well-architected/service-guides/azure-stack-hci#performance-efficiency).
+
+Performance efficiency considerations include:
+
+- It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_network switches, ports and cables_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for future workload capacity growth requirements.
 
 ## Related resources
 
