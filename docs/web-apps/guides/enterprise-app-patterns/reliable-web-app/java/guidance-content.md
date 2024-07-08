@@ -229,4 +229,4 @@ Contoso Fiber determined that their on-premises infrastructure wasn't a cost-eff
 >[!div class="nextstepaction"]
 >[Reference implementation][reference-implementation]
 
-[reference-implementation]: https://github.com/Azure/modern-web-app-pattern-java
+[reference-implementation]: https://github.com/azure/reliable-web-app-pattern-java
