@@ -1,7 +1,7 @@
 This reference architecture describes how to implement a [medallion lakehouse](/azure/databricks/lakehouse/medallion) for a solution focused use case. 
 
 > [!IMPORTANT]
-> ![GitHub logo](_images/github.svg) The guidance is backed by an [example implementation](https://github.com/adf-ra) which showcases a baseline Azure Data Factory implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+> ![GitHub logo](_images/github.svg) The guidance is backed by an [example implementation](https://github.com/azure-samples/data-factory-to-databricks) which showcases a baseline Azure Data Factory implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 The solution uses a hub and spoke network topology with landing zones following the Cloud Adoption Framework (CAF) best practices.
 
@@ -252,7 +252,7 @@ This architecture addresses performance efficiency with:
 
 ## Deploy this scenario
 
-To deploy this architecture, follow the step-by-step instructions in
+To deploy this architecture, follow the step-by-step instructions in the [GitHub sample[(https://github.com/azure-samples/data-factory-to-databricks)
 To deploy a self-hosted runtime integration on an Azure VM, use the [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime)
 
 ## Next steps
