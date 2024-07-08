@@ -107,7 +107,7 @@ Azure Files has the following storage account replication options to protect you
 - **Standard_GRS**: Standard [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage)
 - **Standard_ZRS**: Standard [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
 - **Standard_RAGRS**: Standard [read-access geo-redundant storage (RA-GRS)](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region)
-- **Standard_RAGZRS**: Standard [read-access geo-zone-redundant storage(read-access geo-zone-redundant storage (RA-GZRS))](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage)
+- **Standard_RAGZRS**: Standard [read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage)
 - **Premium_LRS**: Premium [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - **Premium_ZRS**: Premium [zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage)
 
