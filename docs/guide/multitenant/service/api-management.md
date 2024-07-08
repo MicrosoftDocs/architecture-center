@@ -145,7 +145,7 @@ However, if you need fully isolated API Management instances, you might also cho
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
-- [John Downs](https://linkedin.com/in/john-downs/) | Principal Program Manager
+- [John Downs](https://linkedin.com/in/john-downs/) | Principal Software Engineer
 - [Daniel Scott-Raynsford](https://www.linkedin.com/in/dscottraynsford/) | Partner Technology Strategist, Global Partner Solutions
 
 Other contributor:
