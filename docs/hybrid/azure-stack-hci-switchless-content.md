@@ -31,7 +31,9 @@ The following use case requirements can be addressed using this design, in addit
 
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - The "storage switchless" network design removes the requirement to deploy additional ports or storage class network switches to connect the physical network interface cards (NICs) used for the Storage traffic.
-- This reduces the cost for the network switches, but increases the number of NICs required in the physical nodes. To have redundant "dual links" between each node requires a minimum of six NICs per node in a three-node cluster configuration. Two NICs are used for the uplinks to the ToRs for the Management and Compute Intents using a SET team. Four NICs are required for the interconnects between nodes, for the Storage intent which provides redundant "dual links" for the storage traffic, as shown in the diagram in the [Physical network topology](#physical-network-topology) section.
+- This approach reduces the cost for the network switches, but increases the number of NICs required in the physical nodes. Enabling redundant "dual links" between each node requires a minimum of six NICs per node in a three-node cluster configuration:
+- Two NICs are used for the uplinks to the ToRs for the Management and Compute Intents using a SET team.
+- Four NICs are required for the interconnects between nodes, for the Storage intents which provides redundant "dual links" for the storage traffic, as shown in the diagram in the [Physical network topology](#physical-network-topology) section.
 
 ## Architecture components
 
@@ -56,10 +58,10 @@ The physical network topology shows the actual physical connections between node
 
 - Three nodes (_servers_):
   - Each node is a physical server running Azure Stack HCI OS.
-  - Each node requires six physical network interface cards (NICs) in total, four RDMA capable NICs for storage and two NICs for management and compute.
-- Dual Top-of-Rack (ToR) Switches:
+  - Each node requires six physical network interface cards (NICs) in total: four RDMA capable NICs for storage and two NICs for management and compute.
+- Dual Top of Rack (ToR) Switches:
   - Although this configuration is "switchless" for storage traffic, it does require ToR switches for the external connectivity (_north/south traffic_), such as the cluster "management" intent and the workload "compute" intent(s).
-  - The uplinks to the switches from each node use two NICSs, connected using ethernet cables, one to each ToR switch.
+  - The uplinks to the switches from each node use two NICs, connected using ethernet cables, one to each ToR switch to provide link redundancy.
   - Using dual ToR switches is recommended to provide redundancy and load balancing for external communication.
 - External Connectivity:
   - The dual ToR switches connect to the external network, such as the internal corporate LAN and provide access to the required outbound URLs using your edge border network device (_firewall or router_).
@@ -94,7 +96,7 @@ The logical network topology provides an overview for how the network data flows
 
 #### IP address requirements
 
-To deploy a three-node storage switchless configuration of Azure Stack HCI, with dual links for the storage interconnects, the cluster infrastructure platform requires a minimum of 20 x IP addresses to be allocated. Additional IP addresses are required if you use a VM appliance supplied by your hardware OEM partner, micro-segmentation and/or software defined networking (SDN). [Review three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements) for additional information.
+To deploy a three-node storage switchless configuration of Azure Stack HCI, with dual links for the storage interconnects, the cluster infrastructure platform requires a minimum of 20 x IP addresses to be allocated. Additional IP addresses are required if you use a VM appliance supplied by your hardware OEM partner, or if you use micro-segmentation or software defined networking (SDN). [Review the three-node storage reference pattern IP requirements for Azure Stack HCI](/azure-stack/hci/plan/three-node-ip-requirements) for additional information.
 
 When designing and planning IP address requirements for Azure Stack HCI, consider that additional IP addresses and/or network ranges will be required for your workload, in addition to the IP addresses required for the Azure Stack HCI cluster and infrastructure components. For example, review [AKS enabled by Azure Arc network requirements](/azure/aks/hybrid/aks-hci-network-system-requirements) if you plan to use Azure Kubernetes Services (AKS) on Azure Stack HCI.
 
