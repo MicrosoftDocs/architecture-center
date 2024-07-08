@@ -199,6 +199,8 @@ It is important to check for new driver and firmware updates on a regular basis,
 
 Arc VMs deployed on Azure Stack HCI can be enrolled with [Azure Update Manager][azure-update-management] (AUM) to provide a unified patch management experience, using the same mechanism used to update the Azure Stack HCI cluster physical nodes. Using AUM, create [Guest maintenance configurations](/azure/virtual-machines/maintenance-configurations#guest) to control settings such as "Reboot setting: _reboot if required_", and the Schedule (_dates / times and repeat options_) and either Dynamic (_subscription_) or static list of the Arc VMs for the scope. These settings control the configuration for when OS security patches will be installed inside your workload VM's Guest OS.
 
+## Deployment workflow
+
 The following section provides an _example list of the high-level tasks or typical workflow_ used to deploy Azure Stack HCI, including prerequisites tasks and considerations. This workflow list is intended as an **example guide only**. It isn't an exhaustive list of all actions or steps required, as these can vary based on organizational, geographic or project-specific requirements.
 
 **Scenario: there is a project or use case requirement to deploy a hybrid cloud solution in an on-premises or edge location** to provide local compute for data processing capabilities, and a desire to use Azure consistent management and billing experiences. Additional details are outlined in the [Potential use cases](#potential-use-cases) section of this article. The remaining steps assume Azure Stack HCI has been selected as the infrastructure platform solution for the project.
