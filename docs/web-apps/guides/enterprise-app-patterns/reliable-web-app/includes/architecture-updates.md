@@ -36,4 +36,3 @@ To streamline the move to the cloud, use the platform-as-a-service (PaaS) soluti
 | Configuration storage | Use [Azure App Configuration](/azure/azure-app-configuration/overview) to store nonsecret, configuration values. |
 | Network firewall | Use [Azure Firewall](/azure/firewall/overview) to control inbound and outbound traffic at the network level. |
 | Bastion host | Use [Azure Bastion](/azure/bastion/bastion-overview) to securely connect to virtual machines. |
-

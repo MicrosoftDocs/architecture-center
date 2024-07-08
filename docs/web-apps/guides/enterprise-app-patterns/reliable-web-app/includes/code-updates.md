@@ -5,9 +5,11 @@ To successfully move a web app to the cloud, you need to update your web app cod
 
 Each design pattern provides workload design benefits that align with one of more pillars of the Well-Architected Framework. Here's an overview of the patterns you should implement:
 
-- *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. (**1**) Implement this pattern on all outbound calls to other Azure services.
-- *Circuit Breaker pattern*: The Circuit Breaker pattern prevents an application from retrying operations that aren't transient. (**2**) Implement this pattern in all outbound calls to other Azure services.
-- *Cache-Aside pattern*: The Cache-Aside pattern adds and retrieves from a cache instead of a datastore. (**3**) Implement this pattern on requests to the database.
+1. *Retry pattern*: The Retry pattern handles transient failures by retrying operations that might fail intermittently. Implement this pattern on all outbound calls to other Azure services.
+
+1. *Circuit Breaker pattern*: The Circuit Breaker pattern prevents an application from retrying operations that aren't transient. Implement this pattern in all outbound calls to other Azure services.
+
+1. *Cache-Aside pattern*: The Cache-Aside pattern adds and retrieves from a cache instead of a datastore. Implement this pattern on requests to the database.
 
 |Design pattern|Reliability|Security|Cost Optimization|Operational Excellence|Performance Efficiency|
 |---|---|---|---|---|---|
