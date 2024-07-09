@@ -88,8 +88,8 @@ The logical network topology provides an overview for how the network data flows
   - The ToR switches handle routing and provide connectivity beyond the cluster to the edge border device (_firewall or router_).
   - The two network adapter ports used for the Management and Compute intents are "Converged", using a switch embedded team (SET) configuration, this provides redundancy and traffic load-balacing capabilities.
 - Network ATC and Intents:
-  - Azure Stack HCI leverages network automation and intent-based network configuration.
-  - The NetworkATC service is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports will be used for the different traffic intents (_types_).
+  - Azure Stack HCI leverages network automation and intent-based network configuration using the [NetworkATC service](/azure-stack/hci/deploy/network-atc).
+  - NetworkATC is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports will be used for the different traffic intents (_types_), such as the management, compute, and storage intents.
   - Intent-based policies define how the network adapter ports should behave, and which network traffic classes should be used on which physical ports, such as the "Storage", "Management" and "Compute" intents, which are associated with the correct network adapter ports as part of the Azure Stack HCI cloud deployment process.
 
 [![Diagram illustrating the logical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-logical-network.png)](images/azure-stack-hci-3node-logical-network.png#lightbox)
