@@ -287,7 +287,7 @@ Azure has many resources which could be used for analytics processing.  Azure Ma
 
 - **Kafka**: Allows for real-time data ingestion and processing, suitable for streaming analytics.
 
-[**Azure Stream Analytics**](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics service designed for processing fast-moving data streams.
+[**Azure Stream Analytics**](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics service designed for processing fast-moving data streams, providing the following features:
 
 - **Stream Processing**: Processes data from various sources such as IoT devices, sensors, and applications in real-time.
 
