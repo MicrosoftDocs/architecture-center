@@ -29,10 +29,7 @@ The following use case requirements can be addressed using this design, in addit
 
 - Deploy and manage highly available (HA) virtualized or container-based edge workloads deployed in a single location, to enable business-critical applications and services to operate in a resilient, cost-effective and scalable manner.
 - The "storage switchless" network design removes the requirement to deploy "storage class network switches" to connect the network adapter ports that used for the Storage traffic.
-- This approach can reduce the costs associated with the procurement of storage class network switches, but it increases the number of network adapter ports required in the physical nodes.
-- To enabling redundant "dual links" for all network intents, requires a minimum of six network adapter ports per node in a three-node cluster configuration:
-  - Two network adapter ports are used for the uplinks to the ToRs, these are used for the Management and Compute network intents, which are Converged using switch embedded teaming (SET) technology.
-  - Four RDMA capable network adapter ports are required for the interconnects between nodes. These are configured for use by the Storage intents which provides redundant "dual links" for the storage traffic, as shown in the diagram in the [Physical network topology](#physical-network-topology) section.
+- This "storage switchless" design can help reduce the costs associated with the procurement and configuration of "storage class network switches" for storage traffic, but it does increases the number of network adapter ports required in the physical nodes.
 
 ## Architecture components
 
@@ -86,7 +83,7 @@ The logical network topology provides an overview for how the network data flows
 - External communication:
   - When nodes or workload need to communicate externally, such as accessing the corporate LAN, internet or another service, they route using the dual ToR switches.
   - The ToR switches handle routing and provide connectivity beyond the cluster to the edge border device (_firewall or router_).
-  - The two network adapter ports used for the Management and Compute intents are "Converged", using a switch embedded team (SET) configuration, this provides redundancy and traffic load-balacing capabilities.
+  - The two network adapter ports used for the Management and Compute intents are "Converged", using a switch embedded teaming (SET) configuration, this provides redundancy and traffic load-balacing capabilities.
 - Network ATC and Intents:
   - Azure Stack HCI leverages network automation and intent-based network configuration using the [NetworkATC service](/azure-stack/hci/deploy/network-atc).
   - NetworkATC is designed to ensure optimal networking configuration and traffic flow using network "_Intents_", such as defining which physical network adapter ports will be used for the different traffic intents (_types_), such as the management, compute, and storage intents.
