@@ -3,7 +3,7 @@ title: Use Azure API Management in a multitenant solution
 description: Learn about the features of Azure API Management that are useful when you work in multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/10/2024
+ms.date: 07/09/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -12,6 +12,8 @@ products:
 categories:
  - integration
  - web
+ms.custom:
+ - arb-saas
 ---
 
 # Use Azure API Management in a multitenant solution
@@ -49,7 +51,7 @@ Because of the extra lookup required, this approach might not scale to large num
 
 #### Shared multitenant backend application
 
-In scenarios where your tenants share a common backend application, API Management's routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to achieve almost unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there's no performance impact from customized routing decisions.
+In scenarios where your tenants share a common backend application, the API Management routing process is simplified because all requests can be routed to a single backend. If you use wildcard domains or provider-issued domains, you might be able to achieve almost unbounded scale with this approach. Also, because requests don't need to be mapped to a tenant's backend, there's no performance impact from customized routing decisions.
 
 ### Instance per tenant
 
@@ -112,7 +114,7 @@ The [`cache-store-value` policy](/azure/api-management/cache-store-value-policy)
 
 ### Custom domains
 
-API Management enables you to use your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple custom domains.
+API Management enables you to use your own [custom domains](/azure/api-management/configure-custom-domain) for the API gateway and developer portal. In some tiers, you can configure wildcard domains or multiple fully qualified domain names (FQDNs).
 
 You can also use API Management together with a service like [Azure Front Door](front-door.md). In this kind of configuration, it's common for Azure Front Door to handle custom domains and transport layer security (TLS) certificates, and for it to communicate with API Management by using a single domain name. If the original URL from the client includes tenant information that you need to send to the API Management instance for later processing, consider using the `X-Forwarded-Host` request header, or use [Azure Front Door rules](front-door.md#rules-engine) to pass the information as an HTTP header.
 
