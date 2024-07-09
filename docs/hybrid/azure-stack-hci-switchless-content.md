@@ -33,7 +33,7 @@ The following use case requirements can be addressed using this design, in addit
 
 ## Architecture components
 
-Review the Azure Stack HCI baseline reference architecture for details the [Platform resources and Platform supporting resources]((/azure/architecture/hybrid/azure-stack-hci-baseline#architecture-components)) used for Azure Stack HCI deployments.
+The architecture resources remain mostly unchanged from the baseline reference architecture, for details review the [Platform resources and Platform supporting resources]((/azure/architecture/hybrid/azure-stack-hci-baseline#architecture-components)) used for Azure Stack HCI deployments.
 
 ## Cluster design choices
 
