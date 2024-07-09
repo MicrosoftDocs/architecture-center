@@ -2935,8 +2935,6 @@ items:
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
         href: example-scenario/data/fraud-detection.yml
-      - name: Restrict interservice communications
-        href: example-scenario/service-to-service/restrict-communications.yml
       - name: Secure OBO refresh tokens
         href: example-scenario/secrets/secure-refresh-tokens.yml
       - name: Securely managed web apps

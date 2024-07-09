@@ -34,8 +34,6 @@ items:
           href: idea/customer-churn-prediction.yml
         - name: Personalized offers
           href: idea/personalized-offers.yml
-        - name: Marketing optimization
-          href: idea/optimize-marketing-with-machine-learning.yml
       - name: Chat bots
         items:
         - name: Search and query a knowledge base

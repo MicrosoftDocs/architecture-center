@@ -4910,6 +4910,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/service-to-service/restrict-communications.yml",
+      "redirect_url": "/azure/architecture/guide/security/security-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/infrastructure/devtest-labs-reference-architecture.yml",
       "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
       "redirect_document_id": false
@@ -4917,6 +4922,11 @@
     {
       "source_path": "docs/solution-ideas/articles/net-app-modernization.yml",
       "redirect_url": "/azure/architecture/guide/migration/migration-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/idea/optimize-marketing-with-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/personalized-offers",
       "redirect_document_id": false
     },
     {
