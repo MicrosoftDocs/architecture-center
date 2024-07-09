@@ -253,7 +253,7 @@ Azure has many resources which could be used for data source documentation (incl
 
 Azure has many resources which could be used for analytics processing.  Azure Machine Learning is the main recommended resource. However, this list provides recommended resources often used in Azure architectures which require features beyond Azure Machine Learning.
 
-[**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems.
+[**Azure Synapse Analytics**](/azure/synapse-analytics/overview-what-is) is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. It provides the following functionality:
 
 - **Data Integration**: Integrates data from various sources, enabling seamless data ingestion and processing.
 
