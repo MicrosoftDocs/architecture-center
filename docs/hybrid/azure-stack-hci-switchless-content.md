@@ -64,14 +64,14 @@ The physical network topology shows the actual physical connections between node
   - This design provides link redundancy, and dedicated low latency, high bandwidth / through-put.
   - Within the HCI cluster, nodes communicate directly with each other using these links for the storage replication traffic (_east/west traffic_).
   - This direct communication avoids the requirement to use additional network switch ports for storage and removes the requirement to apply quality of service (QoS) or priority flow control (PFC) configuration for SMB-Direct (_RDMA_) traffic on the network switches.
-  - Note: Check with your hardware OEM partner and/or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless node interconnect network configuration.
+  - _Note:_ Check with your hardware OEM partner and/or network interface card (NIC) vendor for any recommended OS drivers, firmware versions, or firmware settings for the switchless interconnect network configuration.
 - Dual Top of Rack (ToR) Switches:
   - Although this configuration is "_switchless_" for storage traffic, it still requires ToR switches for the external connectivity (_north/south traffic_), such as the cluster "management" intent and the workload "compute" intent(s).
   - The uplinks to the switches from each node use two network adapter ports, which are connected using ethernet cables, one to each ToR switch to provide link redundancy.
   - Using dual ToR switches is recommended to provide redundancy for servicing operations and load balancing for external communication.
 - External Connectivity:
-  - The dual ToR switches connect to the external network, such as the internal corporate LAN and provide access to the required outbound URLs using your edge border network device (_firewall or router_).
-  - They handle traffic going in and out of the Azure Stack HCI cluster (_north/south traffic_) for the management and compute intents.
+  - The dual (_two_) ToR switches connect to the external network, such as the internal corporate LAN and provide access to the required outbound URLs using your edge border network device (_firewall or router_).
+  - The two ToR switches handle traffic going in and out of the Azure Stack HCI cluster (_north/south traffic_), such as traffic that flows over the management and compute intents.
 
 [![Diagram illustrating the physical networking topology for a three-node Azure Stack HCI cluster using a switchless storage architecture, with dual ToR switches for external (north/south) connectivity.](images/azure-stack-hci-3node-physical-network.png)](images/azure-stack-hci-3node-physical-network.png#lightbox)
 
