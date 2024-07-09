@@ -455,7 +455,7 @@ Microsoft Learn modules:
 [s2d-cache-sizing]: /azure-stack/hci/concepts/cache#sizing-the-cache
 [s2d-plan-volumes]: /azure-stack/hci/concepts/plan-volumes#choosing-the-resiliency-type
 [azs-hci-csv-cache]: /azure-stack/hci/manage/use-csv-cache#planning-considerations
-[azs-hci-gpu-acceleration]: /azure-stack/hci/manage/attach-gpu-to-linux-vm
+[azs-hci-gpu-acceleration]: /windows-server/virtualization/hyper-v/deploy/use-gpu-with-clustered-vm?pivots=azure-stack-hci
 [azs-hci-networking]: /azure-stack/hci/concepts/plan-host-networking
 [azs-hci-network-bandwidth-allocation]: /azure-stack/hci/concepts/plan-host-networking#traffic-bandwidth-allocation
 [azs-hci-basic-security]: /azure-stack/hci/concepts/security-features
