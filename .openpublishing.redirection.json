@@ -4900,6 +4900,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/ai-ml/idea/personalized-marketing.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
