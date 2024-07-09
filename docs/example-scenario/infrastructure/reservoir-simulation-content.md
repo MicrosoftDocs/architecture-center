@@ -105,7 +105,6 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
-- [Run CFD simulations](hpc-cfd.yml)
 
 <!-- links -->
 

@@ -1143,8 +1143,6 @@ items:
         href: reference-architectures/n-tier/linux-vm.yml
       - name: Run a Windows VM on Azure
         href: reference-architectures/n-tier/windows-vm.yml
-      - name: Run CFD simulations
-        href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Run reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.yml
     - name: Solution ideas
@@ -4112,8 +4110,6 @@ items:
         href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
       - name: Project 15 sustainability
         href: solution-ideas/articles/project-15-iot-sustainability.yml
-      - name: Run CFD simulations
-        href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Run reservoir simulations
         href: example-scenario/infrastructure/reservoir-simulation.yml
     - name: Compliance solutions
@@ -4234,8 +4230,6 @@ items:
         href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
       - name: Real-time ML to estimate a car's value
         href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
-      - name: Run CFD simulations
-        href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Software-defined vehicle DevOps toolchain
         href: industries/automotive/software-defined-vehicle-reference-architecture.yml
     - name: Datasets

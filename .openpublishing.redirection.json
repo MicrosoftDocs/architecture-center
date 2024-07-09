@@ -4905,6 +4905,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/infrastructure/hpc-cfd.yml",
+      "redirect_url": "/azure/architecture/topics/high-performance-computing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/apps/ecommerce-scenario.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/overview",
       "redirect_document_id": false

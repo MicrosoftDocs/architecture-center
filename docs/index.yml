@@ -265,9 +265,6 @@ conceptualContent:
 
     - title: High-performance computing (HPC)
       links:
-        - text: Computational fluid dynamics (CFD)
-          itemType: get-started
-          url:  example-scenario/infrastructure/hpc-cfd.yml
         - text: Computer-aided engineering
           itemType: get-started
           url:  example-scenario/apps/hpc-saas.yml
