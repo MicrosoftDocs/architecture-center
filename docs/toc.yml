@@ -3352,8 +3352,6 @@ items:
         href: example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml
       - name: Build a real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.yml
-      - name: E-commerce front end
-        href: example-scenario/apps/ecommerce-scenario.yml
       - name: Interactive price analytics
         href: solution-ideas/articles/interactive-price-analytics.yml
       - name: Intelligent search engine for e-commerce
@@ -3472,8 +3470,6 @@ items:
         - name: Change data in Azure Data Lake
           href: /dynamics365/fin-ops-core/dev-itpro/data-entities/azure-data-lake-change-feeds
           maintainContext: true
-      - name: Compliance risk analysis
-        href: guide/ai/compliance-risk-analysis.yml
       - name: Financial institutions with data mesh
         href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
         maintainContext: true

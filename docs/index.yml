@@ -448,9 +448,6 @@ conceptualContent:
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml
-        - text: E-commerce front end
-          itemType: get-started
-          url:  example-scenario/apps/ecommerce-scenario.yml
         - text: E-commerce product search
           itemType: get-started
           url:  example-scenario/apps/ecommerce-search.yml
