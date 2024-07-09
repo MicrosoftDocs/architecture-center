@@ -593,13 +593,13 @@ When cluster backup needs to be part of your recovery strategy, you need to inst
 
 VMware's [Velero](https://velero.io/) is an example of a common Kubernetes backup solution that you could install and manage directly. Alternatively, the [AKS backup extension](/azure/backup/azure-kubernetes-service-cluster-backup) can be used to provide a managed Velero implementation. The AKS backup extension supports backing up both Kubernetes resources and persistent volumes, with schedules and backup scope externalized as vault configuration in Azure Backup.
 
-The reference implementation doesn't implement backup, which would involve extra Azure resources in the architecture to manage, monitor, pay for, and secure; such as an Azure Storage account, Azure Backup vault & configuration, and [Trusted Access](/azure/aks/trusted-access-feature). GitOps combined with the intent to run stateless workload is the recovery solution implemented.
+The reference implementation doesn't implement backup, which would involve extra Azure resources in the architecture to manage, monitor, pay for, and secure. These resources might include an Azure Storage account, Azure Backup vault & configuration, and [Trusted Access](/azure/aks/trusted-access-feature). Instead, GitOps combined with the intent to run stateless workload is the recovery solution implemented.
 
 Choose and validate a solution that meets your business objective, including your defined recovery-point objective (RPO) & recovery-time objective (RTO). Define this recovery process in a team runbook and practice it for all business-critical workloads.
 
 ### Kubernetes API Server SLA
 
-AKS can be used as a free service, but that tier doesn't offer a financially backed SLA. To obtain that SLA, you must choose [Standard tier](/azure/aks/free-standard-pricing-tiers). We recommend all production clusters use the Standard tier. Reserve Free tier clusters for pre-production clusters. When combined with Azure Availability Zones, the Kubernetes API server SLA is increased to 99.95%. Your node pools, and other resources are covered under their own SLA.
+AKS can be used as a free service, but that tier doesn't offer a financially backed SLA. To obtain an SLA, you must choose the [Standard tier](/azure/aks/free-standard-pricing-tiers). We recommend all production clusters use the Standard tier. Reserve the Free tier for pre-production clusters. When combined with Azure availability zones, the Kubernetes API server SLA is increased to 99.95%. Your node pools, and other resources, are covered under their own SLAs.
 
 ### Tradeoff
 
@@ -625,7 +625,7 @@ With AKS, Azure manages some core Kubernetes services and the logs for the AKS c
 
 - Logging on the **ClusterAutoscaler** to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
 - **KubeControllerManager** to have observability into the interaction between Kubernetes and the Azure control plane.
-- **KubeAuditAdmin** to have observability into activities that modify your cluster.  There is no reason to have both **KubeAudit** and **KubeAuditAdmin** both enabled, as **KubeAudit** is a superset of **KubeAuditAdmin** that includes non-modify (read) operations as well.
+- **KubeAuditAdmin** to have observability into activities that modify your cluster.  There is no reason to have **KubeAudit** and **KubeAuditAdmin** both enabled, as **KubeAudit** is a superset of **KubeAuditAdmin** that includes non-modify (read) operations as well.
 - **Guard** captures Microsoft Entra ID and Azure RBAC audits.
 
 Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, might be considered an unnecessary cost to ingest and store in Azure Monitor.
@@ -638,21 +638,21 @@ To review Windows-specific monitoring considerations included in the Windows con
 
 ### Enable self-healing
 
-Monitor the health of pods by setting [Liveness and Readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). If an unresponsive pod is detected, Kubernetes restarts the pod. Liveness probe determines if the pod is healthy. If it does not respond, Kubernetes will restart the pod. Readiness probe determines if the pod is ready to receive requests/traffic.
+Monitor the health of pods by setting [Liveness and Readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). If an unresponsive pod is detected, Kubernetes restarts the pod. A liveness probe determines if the pod is healthy. If it does not respond, Kubernetes will restart the pod. A readiness probe determines if the pod is ready to receive requests/traffic.
 
 > [!NOTE]
 > AKS provides built-in self-healing of infrastructure nodes using [Node Auto-Repair](/azure/aks/node-auto-repair).
 
 ### AKS cluster updates
 
-Defining an update strategy that is consistent with the business requirements is paramount. Understanding the level of predictability for the date and time when the AKS cluster version or its nodes are updated, and the desired degree of control over what specific image or binaries get installed are fundamental aspects that will delineate your AKS cluster update blueprint. Predictability is tied to two main AKS cluster update properties that are the update cadence and maintenance window. Control is whether updates are manually or automatically installed. Organizations with AKS clusters that are not under a strict security regulation might consider weekly or even monthly updates, while the rest must update security-labeled patches as soon as available (daily). Organizations that operate AKS clusters as immutable infrastructure are not updating them. It means, neither automatic or manual updates are conducted. Instead when a desired update becomes available a replica stamp gets deployed and only when the new infrastructure instance is ready the old one is drained giving them the highest level of control.
+Defining an update strategy that is consistent with the business requirements is paramount. Understanding the level of predictability for the date and time when the AKS cluster version or its nodes are updated, and the desired degree of control over what specific image or binaries get installed are fundamental aspects that will delineate your AKS cluster update blueprint. Predictability is tied to two main AKS cluster update properties: the update cadence and maintenance window. You can control whether updates are manually or automatically installed. Organizations with AKS clusters that are not under a strict security regulation might consider weekly or even monthly updates, while the rest must update security-labeled patches as soon as available (daily). Organizations that operate AKS clusters as immutable infrastructure are not updating them. It means that neither automatic or manual updates are conducted. Instead, when a desired update becomes available, a replica stamp gets deployed and only when the new infrastructure instance is ready the old one is drained. This approach gives the highest level of control.
 
 Once the AKS cluster update blueprint is determined, that can be easily mapped into the available update options for AKS nodes and AKS cluster version:
 
 - AKS nodes:
-  1. None/Manual updates: This is for immutable infrastructure or when manual updates are the preference. This achieves the greater level predictability and control over the AKS nodes updates.
+  1. None/Manual updates: This is for immutable infrastructure or when manual updates are the preference. This achieves the greater level predictability and control over the AKS nodes updates. However, you need to be diligent about applying updates according to your policy, and your operational processes need to support this approach.
   1. Automatic Unattended updates: AKS execute native OS updates. This gives predictability by configuring maintenance windows aligned with what is good for the business. It might be based on peak hours and what is best operations-wise. The level of control is low since it is not possible to know in advance what is going to be specifically installed within the AKS node.
-  1. Automatic Node image updates: It is recommended to automatically update AKS node images when new virtual hard disks (VHDs) become available. Design maintenance windows to be aligned as much as possible with the business needs. For security-labeled VHD updates, it is recommended to configure a daily maintenance windows giving the lowest predictability. Regular VHD updates can be configured with a weekly maintenance window, every two weeks or even monthly. Depending on whether the need is for security-labeled vs regular VHDs combined with the scheduled maintenance window, the predictability fluctuates offering more or less flexibility to be aligned with the business requirements. While leaving this always up to the business requirements would be ideal, reality mandates organizations to find the tipping point. The level of control is low since it is not possible to know in advance what specific binaries were included into a new VHD and still this type of automatic updates are the recommended option since images are vetted before becoming available.
+  1. Automatic Node image updates: It is recommended to automatically update AKS node images when new virtual hard disks (VHDs) become available. Design maintenance windows to be aligned as much as possible with the business needs. For security-labeled VHD updates, it is recommended to configure a daily maintenance window, which gives the lowest predictability. Regular VHD updates can be configured with a maintenance window set to weekly, every two weeks, or even monthly. Depending on whether the need is for security-labeled or regular VHDs combined with the scheduled maintenance window, the predictability of updates fluctuates offering more or less flexibility to be aligned with the business requirements. While leaving this always up to the business requirements would be ideal, reality mandates organizations to find the tipping point. The level of control is low since it is not possible to know in advance what specific binaries were included into a new VHD. However, this type of automatic updates is the recommended option because images are vetted before becoming available.
 
   > [!NOTE]
   > For more information about how to configure automatic AKS nodes updates please take a look at [Auto-upgrade node OS images](/azure/aks/auto-upgrade-node-os-image).
@@ -698,32 +698,32 @@ To decrease the gap between a provisioned cluster and a cluster that's been prop
 
 The bootstrapping process can be configured using one of the following methods:
 
-- Self configuration using something like Flux or Argo CD
-- Pipelines
 - [GitOps Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
+- Pipelines
+- Self configuration using something like Flux or Argo CD
 
 > [!NOTE]
 > Any of these methods will work with any cluster topology, but the GitOps Flux v2 cluster extension is recommended for fleets due to uniformity and easier governance at scale. When running only a few clusters, GitOps might be seen as overly complex, and you might instead opt for integrating that process into one or more deployment pipelines to ensure bootstrapping takes place. Use the method that best aligns with the objectives for your organization and team.
 
 One of the main advantages of using the GitOps Flux v2 cluster extension for AKS is that there is effectively no gap between a provisioned cluster and a bootstrapped cluster. It sets the environment up with a solid management foundation going forward, and it also supports the inclusion of that bootstrapping as resource templates to align with your IaC strategy.
 
-Finally, when using the extension, `kubectl` is not required for any part of the bootstrapping process, and usage of `kubectl`-based access can be reserved for emergency break-fix situations. Between templates for Azure Resource definitions and the bootstrapping of manifests via the GitOps extension, all normal configuration activities can be performed without the need to use `kubectl`.
+Finally, when using the extension, `kubectl` is not required for any part of the bootstrapping process, and usage of `kubectl`-based access can be reserved for emergency break-fix situations. Between templates for Azure resource definitions and the bootstrapping of manifests via the GitOps extension, all normal configuration activities can be performed without the need to use `kubectl`.
 
 ### Isolate workload responsibilities
 
 Divide the workload by teams and types of resources to individually manage each portion.
 
-Start with a basic workload that contains the fundamental components and build on it. An initial task would be to configure networking. Provision virtual networks for the hub and spoke and subnets within those networks. For instance, the spoke has separate subnets for system and user node pools, and ingress resources. A subnet for Azure Firewall in the hub.
+Start with a basic workload that contains the fundamental components and build on it. An initial task would be to configure networking. Provision virtual networks for the hub and spoke and subnets within those networks. For instance, the spoke has separate subnets for system and user node pools, and ingress resources. Deploy a subnet for Azure Firewall in the hub.
 
 Another portion could be to integrate the basic workload with Microsoft Entra ID.
 
 ### Use Infrastructure as Code (IaC)
 
-Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is using [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview). Another is Terraform.
+Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is using [Bicep](/azure/azure-resource-manager/templates/overview) or [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview). Another is Terraform.
 
-Make sure as you provision resources as per the governing policies. For example, when selecting the right VM sizes, stay within the cost constraints, availability zone options to match the requirements of your application.
+Make sure as you provision resources as per the governing policies. For example, when selecting VM sizes, stay within the cost constraints and availability zone options to match the requirements of your application. You can also use Azure Policy to enforce your organization's policies for these decisions.
 
-If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and can be automated through scripting. Azure CLI is supported on Windows and Linux. Another cross-platform option is Azure PowerShell. Your choice will depend on preferred skillset.
+If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and can be automated through scripting. Azure CLI is supported on Windows and Linux. Another cross-platform option is Azure PowerShell. Your choice will depend on your preferred skillset.
 
 Store and version scripts and template files in your source control system.
 
