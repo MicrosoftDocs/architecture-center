@@ -105,7 +105,7 @@ The Sizer Tool "Preferences" section will guide you through questions that relat
 
 - Reserve a minimum of "N + 1 nodes" worth of capacity (_one node_) across the cluster.
 
-- Reserve "N + 2 nodes worth of capacity" across the cluster for high availability. This option provides the ability to withstand a node failure during an update, or other unplanned event that impacts two nodes simultaneously, while ensuring there's sufficient capacity available in the cluster for the workload to run on the remaining online nodes. This scenario requires use of "three-way mirrors" for user volumes, which is the default for clusters with three or more physical nodes.
+- Reserve "N + 2 nodes worth of capacity" across the cluster for additional resiliency. This option provides the ability to withstand a node failure during an update, or other unplanned event that impacts two nodes simultaneously, while ensuring there's sufficient capacity available in the cluster for the workload to run on the remaining online nodes. This scenario requires use of "three-way mirrors" for user volumes, which is the default for clusters with three or more physical nodes.
 
 The output from the Azure Stack HCI Sizer Tool will be a list of recommended hardware solution SKUs that are able to provide the required workload capacity and platform resiliency requirements, based on the input values in the Sizer Project. If you wish to browse the full list of all OEM hardware partner solutions available, see the [Azure Stack HCI Solutions Catalog](https://aka.ms/hci-catalog#catalog), and also speak to your preferred hardware solution provider or system integration (SI) partner to help size their solution SKUs to meet your requirements.
 
