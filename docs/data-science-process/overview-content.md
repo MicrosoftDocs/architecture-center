@@ -233,7 +233,7 @@ Big data clusters are ideal for data transformation and Extract, Transform, Load
 
 **Cost efficiency**
 
-Utilizing big data clusters can be cost-effective, especially when leveraging cloud-based solutions like Azure Databricks or Amazon EMR. These services offer flexible pricing models, including pay-as-you-go,
+Utilizing big data clusters can be cost-effective, especially when leveraging cloud-based solutions like Azure Databricks and other cloud services. These services offer flexible pricing models, including pay-as-you-go,
 which can be more economical than maintaining on-premises big data infrastructure.
 
 **Fault rolerance**
