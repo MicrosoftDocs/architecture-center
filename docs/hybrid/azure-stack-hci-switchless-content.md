@@ -117,7 +117,7 @@ Performance efficiency defines the controls put in place to enable the workload 
 
 Performance efficiency considerations include:
 
-- It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_network switches, ports and cables_) for storage traffic, and the additional required nodes.<br>Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for future workload capacity growth requirements.
+- It is not supported to increase the scale (_perform an Add-Node operation_) of an existing three-node "storage switchless" HCI cluster, without redeploying the cluster and adding additional networking capabilities (_network switches, ports and cables_) for storage traffic, and the additional required nodes. Three nodes is the maximum supported cluster size for the "storage switchless" network design. It is important to factor this into the cluster design phase when sizing the hardware, in terms of allowing for future workload capacity growth requirements.
 
 ## Related resources
 
