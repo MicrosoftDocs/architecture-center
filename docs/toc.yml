@@ -434,8 +434,6 @@ items:
         href: solutions/power-platform-scenarios.md
       - name: All Power Platform architectures
         href: /azure/architecture/browse/?products=power-platform
-      - name: CI/CD for Power Platform
-        href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
       - name: Citizen AI with Power Platform
         href: example-scenario/ai/citizen-ai-power-platform.yml
       - name: Eventual consistency with Power Apps
@@ -1305,8 +1303,6 @@ items:
       href: data-guide/azure-dataops-architecture-design.md
     - name: Guides
       items:
-      - name: DataOps checklist
-        href: checklist/data-ops.md
       - name: Analytics and reporting
         href: data-guide/technology-choices/analysis-visualizations-reporting.md
       - name: Build a scalable system for massive data
@@ -1620,8 +1616,6 @@ items:
       items:
       - name: Azure Sandbox
         href: guide/azure-sandbox/azure-sandbox.yml
-      - name: DevOps checklist
-        href: checklist/dev-ops.md
       - name: Advanced ARM templates
         items:
         - name: Overview
@@ -1650,12 +1644,8 @@ items:
         href: example-scenario/monitoring/enterprise-monitoring.yml
       - name: High-availability blue/green deployment
         href: web-apps/spring-apps/guides/blue-green-spring.yml
-    - name: Solution ideas
-      items:
-      - name: CI/CD for Microsoft Power Platform
-        href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
-      - name: DevSecOps for infrastructure as code
-        href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
+    - name: "Solution idea: DevSecOps for infrastructure as code"
+      href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
   - name: Hybrid + Multicloud
     items:
     - name: Get started

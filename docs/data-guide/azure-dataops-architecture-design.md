@@ -57,7 +57,6 @@ The following resources can help you learn about the core services for DataOps:
 
 To help you get started with DataOps production, consider these resources:
 
-- Assess your DataOps process by using the [DataOps checklist](../checklist/data-ops.md).
 - Get help choosing the right data solution with [Choose a data analytics and reporting technology in Azure](./technology-choices/analysis-visualizations-reporting.md).
 - Start building your data storage system with [Build a scalable system for massive data](./scenarios/build-scalable-database-solutions-azure-services.md).
 

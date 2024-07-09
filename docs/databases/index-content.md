@@ -100,9 +100,7 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 
 These solution ideas are some of the example approaches that you can adapt to your needs.
 
-- [Data cache](../databases/idea/data-cache-with-redis-cache.yml)
 - [Enterprise data warehouse](../solution-ideas/articles/enterprise-data-warehouse.yml)
-- [Messaging](../databases/idea/messaging.yml)
 - [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products
