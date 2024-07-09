@@ -263,7 +263,7 @@ Azure has many resources which could be used for analytics processing.  Azure Ma
 
 - **Synapse Studio**: An integrated development environment (IDE) that allows data scientists to build end-to-end analytics solutions collaboratively.
 
-[**Azure Databricks**](/azure/databricks/introduction/) is an Apache Spark-based analytics platform optimized for Azure.
+[**Azure Databricks**](/azure/databricks/introduction/) is an Apache Spark-based analytics platform optimized for Azure, offering the following features:
 
 - **Collaborative Notebooks**: Supports collaborative workspaces where data scientists can write code, run experiments, and share results.
 
