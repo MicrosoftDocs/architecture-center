@@ -107,7 +107,6 @@ Principal author:
 
 ## Related resources
 
-- [Enhanced customer dimension with Dynamics 365 Customer Insights](../../solution-ideas/articles/customer-insights-synapse.yml)
 - [Modern data warehouse for small and medium businesses](../../example-scenario/data/small-medium-data-warehouse.yml)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
 - [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)

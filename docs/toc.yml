@@ -474,8 +474,6 @@ items:
         href: /azure/architecture/browse/?terms=dynamics%20365
       - name: Customer 360 with Dynamics 365 CI
         href: example-scenario/analytics/synapse-customer-insights.yml
-      - name: Enhanced customer dimension
-        href: solution-ideas/articles/customer-insights-synapse.yml
     - name: Azure and Microsoft on-premises servers
       href: guide/on-premises-microsoft-technologies.md
   - name: Third-party scenarios
@@ -965,12 +963,8 @@ items:
         href: solution-ideas/articles/demand-forecasting.yml
       - name: Discovery Hub for analytics
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-      - name: Enhanced customer dimension
-        href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Enterprise data warehouse
         href: solution-ideas/articles/enterprise-data-warehouse.yml
-      - name: ETL using HDInsight
-        href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
       - name: Highly scalable customer service and ERP
         href: solution-ideas/articles/erp-customer-service.yml
       - name: Hybrid big data with HDInsight
@@ -3487,10 +3481,6 @@ items:
         href: example-scenario/banking/banking-system-cloud-transformation.yml
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.yml
-      - name: Finance management using MySQL
-        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
-      - name: Finance management using PostgreSQL
-        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host FSI workloads using Azure Batch
         href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control

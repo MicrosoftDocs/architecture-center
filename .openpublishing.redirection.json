@@ -4920,6 +4920,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/industries/finance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/customer-insights-synapse.yml",
+      "redirect_url": "/dynamics365/customer-insights/data/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/analytics-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/net-app-modernization.yml",
       "redirect_url": "/azure/architecture/guide/migration/migration-start-here",
       "redirect_document_id": false
