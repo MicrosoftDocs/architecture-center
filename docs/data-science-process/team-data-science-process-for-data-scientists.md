@@ -271,7 +271,7 @@ Azure has many resources which could be used for analytics processing.  Azure Ma
 
 - **Machine Learning**: Provides built-in libraries for machine learning, including MLlib, TensorFlow, and Keras, to streamline model development and training.
 
-[**Azure Data Factory**](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates data movement and transformation.
+[**Azure Data Factory**](/azure/data-factory/introduction) is a cloud-based data integration service that orchestrates data movement and transformation. It supports the following functionality:
 
 - **ETL pipelines**: Enables the creation of ETL (extract, transform, load) pipelines to process and prepare data for analysis.
 
