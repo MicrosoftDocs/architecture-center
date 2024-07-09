@@ -80,9 +80,8 @@ Principal author:
 > [!div class="nextstepaction"]
 > [Performance and scale](./performance-scale.yml)
 
-## Related resources
+## Related resource
 
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md) provides guidance on monitoring serverless event-driven architectures.
-- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+[Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
 
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost

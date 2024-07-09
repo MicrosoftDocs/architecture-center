@@ -220,7 +220,6 @@ Before continuing, consider reviewing these related articles:
 > [!div class="nextstepaction"]
 > [Resilient Event Hubs and Functions design](resilient-design.md)
 
-## Related resources
+## Related resource
 
-- [Monitoring serverless event processing](../guide/monitoring-serverless-event-processing.md)
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml)
