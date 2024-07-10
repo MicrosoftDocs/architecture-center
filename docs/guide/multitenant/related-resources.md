@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/06/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -13,10 +13,8 @@ products:
 categories:
   - management-and-governance
   - security
-ms.category:
-  - fcp
 ms.custom:
-  - guide
+  - arb-saas
 ---
 
 # Resources for architects and developers of multitenant solutions
@@ -50,7 +48,7 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/nois
 
 ## Microsoft Azure Well-Architected Framework
 
-While the entirety of the [Azure Well-Architected Framework](/azure/architecture/framework/index) is important for all solutions, pay special attention to the [Resiliency pillar](/azure/architecture/framework/resiliency/reliability-patterns#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
+While the entirety of the [Azure Well-Architected Framework](/azure/architecture/framework/index) is important for all solutions, pay special attention to the [Reliability pillar](/azure/well-architected/reliability/). The nature of cloud hosting leads to applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
 
 ## Multitenant architectural guidance
 
@@ -62,7 +60,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ### Governance and compliance
 
-* [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions): It's important to consider how you manage your Azure subscriptions, as well as how you allocate tenant resources to subscriptions.
+* [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions): It's important to consider how you manage your Azure subscriptions, as well as how you allocate tenant resources to subscriptions.
 * [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Microsoft Entra tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
 * [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
@@ -83,6 +81,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
   
 ### Storage and data
 
+* [Design and build multi-tenant SaaS apps at scale with Azure Cosmos DB](https://www.youtube.com/watch?v=dd7W_kMh-z4) (video): Learn how to design and optimize multi-tenant SaaS applications using Azure Cosmos DB. This session explores key design considerations related to tenant isolation, cost optimization, and global distribution. The contents of this session applies whether you have a high volume of small B2C tenants or a low volume of highly skewed B2B tenants.
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
 * [Azure Cosmos DB hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys): By using hierarchical partition keys, also known as subpartitioning, you can natively partition your container with multiple levels of partition keys. This enables more optimal partitioning strategies for multitenant scenarios or workloads that would otherwise use synthetic partition keys.
 * [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles describing various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
@@ -130,7 +129,6 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 * [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes isn't a multitenant system out of the box. While it's possible to configure multitenancy, this can be challenging. This article explains Kubernetes multitenancy types.
 * [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, because Kubernetes isn't explicitly a multitenant system, it can be challenging to design a multitenant Kubernetes implementation. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multitenancy.
 * [Capsule: Kubernetes multi-tenancy made simple](https://github.com/projectcapsule/capsule): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It isn't a platform as a service (PaaS) offering, but instead is a a micro-services-based ecosystem with a minimalist design approach, using only upstream Kubernetes.
-* [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multitenancy.
 * [Crossplane: The cloud native control plane framework](https://www.crossplane.io/): Crossplane enables you to build control planes for your own solution, by using a Kubernetes-based approach.
 
 ## Contributors
@@ -139,7 +137,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 Principal authors:
 
-- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Software Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
