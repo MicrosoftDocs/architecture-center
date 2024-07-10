@@ -1,4 +1,4 @@
-Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a secure Windows VM on Azure.
+Provisioning a virtual machine (VM) in Azure requires additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a secure Windows VM on Azure.
 
 ## Architecture
 
@@ -12,13 +12,13 @@ Provisioning a virtual machine (VM) in Azure requires some additional components
 
 A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them.
 
-Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources][naming-conventions].
+Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources][naming-conventions].
 
 ### Virtual machine
 
 You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
 
-Azure offers many different virtual machine sizes. For more information, see [Sizes for virtual machines in Azure][virtual-machine-sizes]. If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload in terms of CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed.
+Azure offers many different virtual machine sizes. For more information, see [Sizes for virtual machines in Azure][virtual-machine-sizes]. If you're moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload in terms of CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed.
 
 Generally, choose an Azure region that is closest to your internal users or customers. Not all VM sizes are available in all regions. For more information, see [Services by region][services-by-region]. For a list of the VM sizes available in a specific region, run the following command from the Azure CLI:
 
@@ -32,7 +32,7 @@ For information about choosing a published VM image, see [Find Windows VM images
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
-[Managed Disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You simply specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
+[Managed Disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
 The OS disk is a virtual hard drive (VHD) stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data. 
 
@@ -46,20 +46,20 @@ The networking components include the following resources:
 
 - **Virtual network**. Every VM is deployed into a virtual network that can be segmented into multiple subnets.
 
-- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM, be aware that a maximum number of NICs is defined for each [VM size][vm-size-tables].
+- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network. If you need multiple NICs for your VM a maximum number of NICs is defined for each [VM size][vm-size-tables].
 
 - **Public IP address**. A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP). The public IP address can be dynamic or static. The default is dynamic.
 
-  - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
+  - Reserve a [static IP address][static-ip] if you need a fixed IP address that doesn't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
   - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
     
 - **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances.
 
-  - All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP. To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
+  - All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules can't be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP. To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
   
 - **NAT (Network Address Translation) Gateway.** [NAT Gateways](/azure/nat-gateway) allow all instances in a private subnet to connect outbound to the internet while remaining fully private. Only packets arriving as response packets to an outbound connection can pass through a NAT gateway. Unsolicited inbound connections from the internet are not permitted.
 
-- **Azure Bastion.** [Azure Bastion](/azure/bastion/) is a fully managed PaaS service that allows secure access to virtual machines via private IP addresses, eliminating the need for virtual machines to have a Public IP address and exposing them to the internet, thus increasing their security posture. Bastion provides secure RDP/SSH connectivity to your virtual machines directly over TLS through a variety of methods, including the Azure portal or native SSH or RDP clients.
+- **Azure Bastion.** [Azure Bastion](/azure/bastion/) is a fully managed PaaS service that allows secure access to virtual machines via private IP addresses. This eliminates the need for virtual machines to have a Public IP address and exposing them to the internet, thus increasing their security posture. Bastion provides secure RDP/SSH connectivity to your virtual machines directly over TLS through various methods, including the Azure portal or native SSH or RDP clients.
 
 ### Operations
 
@@ -71,7 +71,7 @@ The networking components include the following resources:
 
 **Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
-**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. Managed disks can be deleted just as with any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
+**Deleting a VM**. If you delete a VM, you have the option to delete or keep its disks. That means you can safely delete the VM without losing data. However, you will still be charged for the disks. Managed disks can be deleted as with any other Azure resource. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
 
 ## Considerations
 
